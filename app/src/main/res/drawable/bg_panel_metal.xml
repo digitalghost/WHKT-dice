@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="12dp"/>
+            <gradient
+                android:angle="270"
+                android:startColor="@color/metal_light"
+                android:centerColor="@color/metal_mid"
+                android:endColor="@color/metal_dark"/>
+            <stroke android:width="1dp" android:color="@color/border_gold_strong"/>
+        </shape>
+    </item>
+    <item android:width="7dp" android:height="7dp" android:gravity="top|start" android:left="9dp" android:top="9dp">
+        <shape android:shape="oval">
+            <gradient android:type="radial" android:gradientRadius="5dp"
+                android:startColor="@color/rivet_highlight" android:endColor="@color/rivet"/>
+        </shape>
+    </item>
+    <item android:width="7dp" android:height="7dp" android:gravity="top|end" android:right="9dp" android:top="9dp">
+        <shape android:shape="oval">
+            <gradient android:type="radial" android:gradientRadius="5dp"
+                android:startColor="@color/rivet_highlight" android:endColor="@color/rivet"/>
+        </shape>
+    </item>
+    <item android:width="7dp" android:height="7dp" android:gravity="bottom|start" android:left="9dp" android:bottom="9dp">
+        <shape android:shape="oval">
+            <gradient android:type="radial" android:gradientRadius="5dp"
+                android:startColor="@color/rivet_highlight" android:endColor="@color/rivet"/>
+        </shape>
+    </item>
+    <item android:width="7dp" android:height="7dp" android:gravity="bottom|end" android:right="9dp" android:bottom="9dp">
+        <shape android:shape="oval">
+            <gradient android:type="radial" android:gradientRadius="5dp"
+                android:startColor="@color/rivet_highlight" android:endColor="@color/rivet"/>
+        </shape>
+    </item>
+</layer-list>

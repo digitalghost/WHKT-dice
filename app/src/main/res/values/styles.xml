@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ConsoleSegmentButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/segment_text</item>
+        <item name="backgroundTint">@color/segment_background</item>
+        <item name="strokeColor">@color/segment_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">4dp</item>
+        <item name="rippleColor">@color/border_gold_strong</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <style name="CompactModeButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_segment_normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_steel</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CompactControlCell">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_control_cell</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">3dp</item>
+    </style>
+
+    <style name="CompactControlLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_steel</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CompactStepButton">
+        <item name="android:layout_width">42dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="CompactValueText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/teko_variable</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/primary_light</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PresetButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_button_metal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_steel</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TabletResultText">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

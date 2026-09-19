@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_console_screen">
+
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/headerBar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_header_console"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnHistory"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_button_metal"
+                    android:gravity="center"
+                    android:text="@string/history_button"
+                    android:textColor="@color/primary_light"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnFocus"
+                    android:layout_width="72dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_button_metal"
+                    android:gravity="center"
+                    android:text="@string/focus_mode"
+                    android:textColor="@color/text_steel"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/teko_variable"
+                    android:letterSpacing="0.16"
+                    android:text="@string/console_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/header_winged_skull" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/statusLamp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:background="@drawable/lamp_dim" />
+
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/status_loading"
+                    android:textColor="@color/success_light"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <FrameLayout
+                android:id="@+id/diceStage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="3.25"
+                android:background="@drawable/bg_dice_stage"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/dice_tray_industrial" />
+
+                <com.example.helloworld.DiceTrayView
+                    android:id="@+id/diceTrayOverlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/gesture_roll_desc" />
+
+                <TextView
+                    android:id="@+id/gestureCoach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="18dp"
+                    android:background="@drawable/bg_panel_inset"
+                    android:gravity="center"
+                    android:paddingStart="16dp"
+                    android:paddingTop="9dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="9dp"
+                    android:text="@string/gesture_coach"
+                    android:textColor="@color/primary_light"
+                    android:textSize="11sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/gestureHintText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginBottom="66dp"
+                    android:background="@drawable/bg_panel_inset"
+                    android:gravity="center"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="@string/gesture_idle"
+                    android:textColor="@color/text_steel"
+                    android:textSize="11sp" />
+
+                <LinearLayout
+                    android:id="@+id/summaryLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/bg_result_strip"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:visibility="invisible">
+
+                    <TextView android:id="@+id/normalCountText" style="@style/TabletResultText" android:textColor="@color/normal_success" />
+                    <TextView android:id="@+id/criticalCountText" style="@style/TabletResultText" android:textColor="@color/critical_result" />
+                    <TextView android:id="@+id/failureCountText" style="@style/TabletResultText" android:textColor="@color/failure_result" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/consolePanel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_control_panel_new"
+                android:orientation="vertical"
+                android:padding="9dp">
+
+                <LinearLayout
+                    android:id="@+id/modeBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:orientation="horizontal">
+                    <TextView android:id="@+id/modeAttack" style="@style/CompactModeButton" android:text="@string/mode_attack" />
+                    <TextView android:id="@+id/modeDefence" style="@style/CompactModeButton" android:layout_marginStart="4dp" android:text="@string/mode_defence" />
+                    <TextView android:id="@+id/modeFree" style="@style/CompactModeButton" android:layout_marginStart="4dp" android:text="@string/mode_free" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="7dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:id="@+id/diceControlCell" style="@style/CompactControlCell" android:layout_marginEnd="3dp">
+                        <TextView android:id="@+id/diceCountLabel" style="@style/CompactControlLabel" android:text="@string/attack_dice_label" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center" android:orientation="horizontal">
+                            <TextView android:id="@+id/btnDiceMinus" style="@style/CompactStepButton" android:contentDescription="@string/decrease_dice" android:text="−" />
+                            <TextView android:id="@+id/diceCountText" style="@style/CompactValueText" android:text="5" />
+                            <TextView android:id="@+id/btnDicePlus" style="@style/CompactStepButton" android:contentDescription="@string/increase_dice" android:text="+" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/thresholdControlCell" style="@style/CompactControlCell" android:layout_marginStart="3dp">
+                        <TextView android:id="@+id/thresholdLabel" style="@style/CompactControlLabel" android:text="@string/hit_label" />
+                        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center" android:orientation="horizontal">
+                            <TextView android:id="@+id/btnThresholdMinus" style="@style/CompactStepButton" android:contentDescription="@string/decrease_threshold" android:text="▼" />
+                            <TextView android:id="@+id/thresholdText" style="@style/CompactValueText" android:text="3+" />
+                            <TextView android:id="@+id/btnThresholdPlus" style="@style/CompactStepButton" android:contentDescription="@string/increase_threshold" android:text="▲" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/criticalText"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_control_cell"
+                    android:gravity="center"
+                    android:text="@string/critical_six"
+                    android:textColor="@color/critical_result"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+                    <TextView android:id="@+id/presetAttack" style="@style/PresetButton" android:text="@string/preset_attack" />
+                    <TextView android:id="@+id/presetDefence" style="@style/PresetButton" android:layout_marginStart="5dp" android:text="@string/preset_defence" />
+                    <TextView android:id="@+id/btnDiceTheme" style="@style/PresetButton" android:layout_marginStart="5dp" android:text="@string/theme_angels_short" />
+                </LinearLayout>
+
+                <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/btnRoll"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/sel_roll_green"
+                    android:fontFamily="@font/teko_variable"
+                    android:gravity="center"
+                    android:text="@string/roll_button"
+                    android:textColor="@color/text_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/postRollButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnReroll"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="3dp"
+                        android:layout_weight="2"
+                        android:alpha="0.55"
+                        android:background="@drawable/bg_button_metal"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:text="@string/select_dice_to_reroll"
+                        android:textColor="@color/primary_light"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/btnReset"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="3dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_button_metal"
+                        android:enabled="false"
+                        android:gravity="center"
+                        android:text="@string/clear_button"
+                        android:textColor="@color/text_steel"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/historyEdgeHandle"
+        android:layout_width="18dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@android:color/transparent" />
+
+    <LinearLayout
+        android:id="@+id/historyPanel"
+        android:layout_width="360dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@drawable/bg_control_panel_new"
+        android:elevation="20dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <LinearLayout android:id="@+id/historyHeader" android:layout_width="match_parent" android:layout_height="52dp" android:gravity="center_vertical" android:orientation="horizontal">
+            <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="@string/history_title" android:textColor="@color/primary_light" android:textSize="18sp" android:textStyle="bold" />
+            <TextView android:id="@+id/btnCloseHistory" android:layout_width="72dp" android:layout_height="40dp" android:background="@drawable/bg_button_metal" android:gravity="center" android:text="@string/history_close" android:textColor="@color/text_primary" />
+        </LinearLayout>
+
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
+            <LinearLayout android:id="@+id/historyList" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/btnClearHistory"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_button_metal"
+            android:gravity="center"
+            android:text="@string/history_clear"
+            android:textColor="@color/failure_result"
+            android:textStyle="bold" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,59 @@
+<resources>
+    <!-- Kill Team Grimdark Palette -->
+    <color name="background">#0A0908</color>
+    <color name="surface">#14110E</color>
+    <color name="surface_variant">#1C1814</color>
+    <color name="card_bg">#1A1612</color>
+
+    <!-- Imperial Gold -->
+    <color name="primary">#C89B3C</color>
+    <color name="primary_light">#E8C573</color>
+    <color name="primary_dark">#7A6520</color>
+
+    <!-- Blood Red / Khorne -->
+    <color name="accent">#A01818</color>
+    <color name="accent_light">#C93535</color>
+    <color name="accent_dark">#5C0000</color>
+
+    <!-- Success / Militarum Green -->
+    <color name="success">#3A7A2A</color>
+    <color name="success_light">#5FA84A</color>
+    <color name="failure">#7A1010</color>
+    <color name="failure_light">#D05050</color>
+    <color name="critical">#FFD700</color>
+
+    <!-- Text - Parchment tones -->
+    <color name="text_primary">#D4C4A0</color>
+    <color name="text_secondary">#8A7A5A</color>
+    <color name="text_hint">#5A4A3A</color>
+
+    <!-- Borders -->
+    <color name="border_gold">#40C5A572</color>
+    <color name="border_gold_strong">#80C5A572</color>
+    <color name="border_dim">#33404040</color>
+
+    <!-- Misc -->
+    <color name="ic_launcher_background">#1E1E1E</color>
+
+    <!-- Gunmetal console -->
+    <color name="metal_dark">#221D16</color>
+    <color name="metal_mid">#363026</color>
+    <color name="metal_light">#4A4234</color>
+    <color name="rivet">#6B5D43</color>
+    <color name="rivet_highlight">#9A8A66</color>
+
+    <!-- Status lamps -->
+    <color name="lamp_green">#3FA34D</color>
+    <color name="lamp_amber">#D98E2B</color>
+    <color name="lamp_dim">#4A4438</color>
+
+    <!-- Steel text -->
+    <color name="text_steel">#8A8D91</color>
+    <color name="dice_tray">#0B0A08</color>
+    <color name="normal_success">#7FD58B</color>
+    <color name="critical_result">#F2C85C</color>
+    <color name="failure_result">#EA6258</color>
+    <color name="theme_kommandos">#F0C84B</color>
+    <color name="theme_corsair">#72E0D3</color>
+    <color name="theme_death_korps">#B7CBE0</color>
+</resources>
