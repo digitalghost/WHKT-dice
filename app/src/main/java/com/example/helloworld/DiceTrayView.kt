@@ -15,6 +15,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.animation.LinearInterpolator
 import kotlin.math.ceil
+import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.pow
@@ -136,6 +137,9 @@ class DiceTrayView @JvmOverloads constructor(
     private var selectionChanged: ((Int) -> Unit)? = null
     private var throwRequested: (() -> Unit)? = null
     private var resetRequested: (() -> Unit)? = null
+    private var horizontalSwipeRequested: ((Int) -> Unit)? = null
+    private var diceSelectionEnabled = true
+    private var downX = 0f
     private var downY = 0f
     private var maxPointers = 1
     private var multiStartY = 0f
@@ -158,6 +162,15 @@ class DiceTrayView @JvmOverloads constructor(
     fun setOnTrayGestureListener(onThrow: () -> Unit, onReset: () -> Unit) {
         throwRequested = onThrow
         resetRequested = onReset
+    }
+
+    fun setOnHorizontalSwipeListener(listener: (Int) -> Unit) {
+        horizontalSwipeRequested = listener
+    }
+
+    fun setDiceSelectionEnabled(enabled: Boolean) {
+        diceSelectionEnabled = enabled
+        if (!enabled) clearSelection()
     }
 
     fun setDiceTheme(theme: DiceTheme) {
@@ -340,6 +353,7 @@ class DiceTrayView @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
+                downX = event.x
                 downY = event.y
                 maxPointers = 1
                 multiStartY = event.y
@@ -357,6 +371,17 @@ class DiceTrayView @JvmOverloads constructor(
             MotionEvent.ACTION_UP -> {
                 if (animator?.isRunning == true) return true
                 val gestureDistance = min(width, height) * 0.1f
+                val horizontalDistance = event.x - downX
+                val verticalDistance = event.y - downY
+                if (
+                    maxPointers == 1 &&
+                    abs(horizontalDistance) > gestureDistance &&
+                    abs(horizontalDistance) > abs(verticalDistance) * 1.25f
+                ) {
+                    horizontalSwipeRequested?.invoke(if (horizontalDistance < 0f) 1 else -1)
+                    performClick()
+                    return true
+                }
                 if (maxPointers >= 2) {
                     if (multiLastY - multiStartY > gestureDistance) resetRequested?.invoke()
                     return true
@@ -365,6 +390,7 @@ class DiceTrayView @JvmOverloads constructor(
                     throwRequested?.invoke()
                     return true
                 }
+                if (!diceSelectionEnabled) return true
                 val hitRadius = renderedDieSize * 0.72f
                 val hit = bodies.filter { body ->
                     val dx = event.x - body.x

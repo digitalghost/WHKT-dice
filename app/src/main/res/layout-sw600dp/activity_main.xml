@@ -112,26 +112,29 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="8dp">
 
             <FrameLayout
                 android:id="@+id/diceStage"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="3.25"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
                 android:background="@drawable/bg_dice_stage"
                 android:padding="10dp">
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                     <FrameLayout
                         android:id="@+id/attackTrayPage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="3dp"
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -151,9 +154,10 @@
 
                     <FrameLayout
                         android:id="@+id/defenceTrayPage"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:visibility="invisible">
+                        android:layout_marginStart="3dp"
+                        android:layout_weight="1">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -187,7 +191,7 @@
                             android:textStyle="bold"
                             android:visibility="gone" />
                     </FrameLayout>
-                </FrameLayout>
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/gestureCoach"
@@ -239,18 +243,19 @@
 
             <LinearLayout
                 android:id="@+id/consolePanel"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:layout_marginTop="4dp"
                 android:background="@drawable/bg_control_panel_new"
-                android:orientation="vertical"
-                android:padding="9dp">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="7dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="72dp"
-                    android:layout_marginTop="7dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="3dp"
+                    android:layout_weight="1.6"
                     android:orientation="horizontal">
 
                     <LinearLayout android:id="@+id/diceControlCell" style="@style/CompactControlCell" android:layout_marginEnd="3dp">
@@ -274,42 +279,49 @@
 
                 <TextView
                     android:id="@+id/criticalText"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="3dp"
+                    android:layout_weight="0.72"
                     android:background="@drawable/bg_control_cell"
                     android:drawableTop="@drawable/ic_critical"
-                    android:drawablePadding="1dp"
+                    android:drawablePadding="0dp"
                     android:drawableTint="@color/critical_result"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="@string/critical_six"
                     android:textColor="@color/critical_result"
                     android:textSize="13sp"
                     android:textStyle="bold" />
 
-                <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1" />
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/btnRoll"
-                    android:layout_width="match_parent"
-                    android:layout_height="58dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="0.9"
                     android:background="@drawable/sel_roll_green"
-                    android:drawableTop="@drawable/ic_dice"
-                    android:drawablePadding="0dp"
                     android:drawableTint="@color/text_primary"
                     android:fontFamily="@font/teko_variable"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="@string/roll_button"
                     android:textColor="@color/text_primary"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:id="@+id/postRollButtons"
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp"
-                    android:layout_marginTop="6dp"
-                    android:orientation="horizontal">
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <TextView
                         android:id="@+id/btnReroll"

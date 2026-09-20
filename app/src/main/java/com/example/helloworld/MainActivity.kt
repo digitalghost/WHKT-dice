@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
     )
 
     private var currentMode = RollMode.ATTACK
+    private var visibleTrayMode = RollMode.ATTACK
     private var diceReady = true
     private val valuesByMode = mutableMapOf(
         RollMode.ATTACK to emptyList<Int>(),
@@ -271,14 +272,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupTrayListeners(mode: RollMode, tray: DiceTrayView) {
         tray.setOnSelectionChangedListener { selectedCount ->
-            if (currentMode == mode) updateRerollControl(selectedCount)
+            if (currentMode == mode && visibleTrayMode == mode) {
+                updateRerollControl(selectedCount)
+            }
         }
         tray.setOnTrayGestureListener(
             onThrow = {
                 if (rollInProgress) return@setOnTrayGestureListener
-                selectMode(mode)
-                if (mode == RollMode.DEFENCE && !attackConfirmed) {
-                    Snackbar.make(rootLayout, R.string.finish_attack_first, Snackbar.LENGTH_SHORT).show()
+                if (mode != currentMode) {
+                    Snackbar.make(rootLayout, R.string.read_only_tray, Snackbar.LENGTH_SHORT).show()
                 } else if (currentValues.isNotEmpty() && tray.selectedIndices().isNotEmpty()) {
                     performReroll()
                 } else if (currentValues.isEmpty()) {
@@ -286,10 +288,18 @@ class MainActivity : AppCompatActivity() {
                 }
             },
             onReset = {
-                selectMode(mode)
-                clearRollWithUndo()
+                if (mode == currentMode) clearRollWithUndo()
             }
         )
+        tray.setOnHorizontalSwipeListener { direction ->
+            if (isTablet || !attackConfirmed || rollInProgress) {
+                return@setOnHorizontalSwipeListener
+            }
+            val target = if (direction > 0) RollMode.DEFENCE else RollMode.ATTACK
+            showTrayPage(visibleTrayMode, target)
+            renderConfig()
+            renderCurrentRollState()
+        }
     }
 
     private fun setupBackNavigation() {
@@ -354,14 +364,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun selectMode(mode: RollMode) {
         if (rollInProgress || currentMode == mode) return
-        val previousMode = currentMode
         currentMode = mode
-        showTrayPage(previousMode, mode)
+        showTrayPage(visibleTrayMode, mode)
         renderConfig()
         renderCurrentRollState()
     }
 
     private fun showTrayPage(previousMode: RollMode, mode: RollMode) {
+        visibleTrayMode = mode
+        if (isTablet) {
+            attackTrayPage.visibility = View.VISIBLE
+            defenceTrayPage.visibility = View.VISIBLE
+            attackTrayPage.translationX = 0f
+            defenceTrayPage.translationX = 0f
+            return
+        }
+        if (previousMode == mode) {
+            attackTrayPage.visibility = if (mode == RollMode.ATTACK) View.VISIBLE else View.INVISIBLE
+            defenceTrayPage.visibility = if (mode == RollMode.DEFENCE) View.VISIBLE else View.INVISIBLE
+            return
+        }
         val outgoing = if (previousMode == RollMode.ATTACK) attackTrayPage else defenceTrayPage
         val incoming = if (mode == RollMode.ATTACK) attackTrayPage else defenceTrayPage
         val direction = if (mode == RollMode.DEFENCE) 1f else -1f
@@ -477,6 +499,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderConfig() {
+        attackDiceTray.setDiceSelectionEnabled(
+            currentMode == RollMode.ATTACK && !attackConfirmed
+        )
+        defenceDiceTray.setDiceSelectionEnabled(
+            currentMode == RollMode.DEFENCE && attackConfirmed
+        )
         diceCountLabel.text = getString(
             when (currentMode) {
                 RollMode.ATTACK -> R.string.attack_dice_label
@@ -527,7 +555,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isCurrentConfigLocked(): Boolean =
-        encounterComplete || (currentMode == RollMode.ATTACK && attackConfirmed)
+        visibleTrayMode != currentMode || encounterComplete ||
+            (currentMode == RollMode.ATTACK && attackConfirmed)
 
     private fun handlePrimaryAction() {
         when {
@@ -557,13 +586,14 @@ class MainActivity : AppCompatActivity() {
         attackConfirmed = false
         encounterComplete = false
         coverRetainedBadge.visibility = if (defenceHasCover) View.VISIBLE else View.GONE
+        visibleTrayMode = RollMode.ATTACK
         if (currentMode != RollMode.ATTACK) {
             currentMode = RollMode.ATTACK
-            attackTrayPage.visibility = View.VISIBLE
-            attackTrayPage.translationX = 0f
-            defenceTrayPage.visibility = View.INVISIBLE
-            defenceTrayPage.translationX = 0f
         }
+        attackTrayPage.visibility = View.VISIBLE
+        attackTrayPage.translationX = 0f
+        defenceTrayPage.visibility = if (isTablet) View.VISIBLE else View.INVISIBLE
+        defenceTrayPage.translationX = 0f
         renderConfig()
         renderCurrentRollState()
         statusText.setText(R.string.status_ready)
@@ -628,20 +658,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSummary() {
-        val summary = summaryFor(currentMode, currentValues)
+        val visibleValues = valuesByMode.getValue(visibleTrayMode)
+        val summary = summaryFor(visibleTrayMode, visibleValues)
         criticalCountText.text = getString(R.string.result_critical, summary.criticals)
         normalCountText.text = getString(R.string.result_normal, summary.normals)
         failureCountText.text = getString(R.string.result_failure, summary.failures)
         summaryLayout.visibility = View.VISIBLE
-        postRollButtons.visibility = View.VISIBLE
+        postRollButtons.visibility = View.GONE
         btnRoll.isEnabled = diceReady
-        btnReset.isEnabled = true
-        updateRerollControl(diceTrayView.selectedIndices().size)
+        btnReset.isEnabled = visibleTrayMode == currentMode
+        updateRerollControl(
+            if (visibleTrayMode == currentMode) diceTrayView.selectedIndices().size else 0
+        )
         statusText.setText(
-            if (currentMode == RollMode.ATTACK && !attackConfirmed) {
-                R.string.status_attack_ready
-            } else {
-                R.string.status_resolved
+            when {
+                currentMode == RollMode.ATTACK && !attackConfirmed -> R.string.status_attack_ready
+                currentMode == RollMode.DEFENCE && currentValues.isEmpty() -> R.string.status_ready
+                else -> R.string.status_resolved
             }
         )
         setLamp(LampState.READY)
@@ -663,7 +696,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderCurrentRollState() {
-        if (currentValues.isEmpty()) {
+        if (valuesByMode.getValue(visibleTrayMode).isEmpty()) {
             summaryLayout.visibility = View.INVISIBLE
             btnReset.isEnabled = false
             updateRerollControl(0)
@@ -676,6 +709,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderPrimaryAction() {
+        val shouldShow = encounterComplete ||
+            (currentMode == RollMode.ATTACK && currentValues.isNotEmpty())
         val textRes = when {
             encounterComplete -> R.string.new_encounter_button
             currentMode == RollMode.ATTACK && currentValues.isNotEmpty() ->
@@ -685,6 +720,8 @@ class MainActivity : AppCompatActivity() {
             else -> R.string.roll_defence_button
         }
         btnRoll.setText(textRes)
+        btnRoll.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+        btnRoll.visibility = if (shouldShow) View.VISIBLE else View.GONE
         btnRoll.isEnabled = diceReady && !rollInProgress &&
             (currentMode != RollMode.DEFENCE || attackConfirmed || encounterComplete)
         btnRoll.alpha = if (btnRoll.isEnabled) 1f else 0.55f
@@ -706,7 +743,7 @@ class MainActivity : AppCompatActivity() {
             activeHistoryId = null
         }
         summaryLayout.visibility = View.INVISIBLE
-        postRollButtons.visibility = View.VISIBLE
+        postRollButtons.visibility = View.GONE
         btnReset.isEnabled = false
         updateRerollControl(0)
         renderIdleState()
@@ -735,7 +772,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun restoreUndoState(state: UndoState) {
-        val previousMode = currentMode
+        val previousMode = visibleTrayMode
         currentMode = state.mode
         configs[state.mode] = state.config.copy()
         applyDiceTheme(state.diceTheme, announce = false)
@@ -753,7 +790,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateRerollControl(selectedCount: Int) {
-        val enabled = currentValues.isNotEmpty() && selectedCount > 0 &&
+        val viewingActiveTray = visibleTrayMode == currentMode
+        val enabled = viewingActiveTray && currentValues.isNotEmpty() && selectedCount > 0 &&
             !(currentMode == RollMode.ATTACK && attackConfirmed) && !rollInProgress
         btnReroll.isEnabled = enabled
         btnReroll.alpha = if (enabled) 1f else 0.55f
@@ -762,10 +800,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             getString(R.string.select_dice_to_reroll)
         }
-        gestureHintText.text = if (selectedCount > 0) {
-            getString(R.string.gesture_selected, selectedCount)
-        } else {
-            getString(R.string.gesture_idle)
+        gestureHintText.text = when {
+            !viewingActiveTray -> getString(R.string.gesture_read_only)
+            selectedCount > 0 -> getString(R.string.gesture_selected, selectedCount)
+            else -> getString(R.string.gesture_idle)
         }
     }
 
@@ -1088,8 +1126,17 @@ class MainActivity : AppCompatActivity() {
         attackDiceTray.clearResults()
         defenceDiceTray.clearResults()
         currentMode = entry.mode
-        attackTrayPage.visibility = if (currentMode == RollMode.ATTACK) View.VISIBLE else View.INVISIBLE
-        defenceTrayPage.visibility = if (currentMode == RollMode.DEFENCE) View.VISIBLE else View.INVISIBLE
+        visibleTrayMode = currentMode
+        attackTrayPage.visibility = if (isTablet || currentMode == RollMode.ATTACK) {
+            View.VISIBLE
+        } else {
+            View.INVISIBLE
+        }
+        defenceTrayPage.visibility = if (isTablet || currentMode == RollMode.DEFENCE) {
+            View.VISIBLE
+        } else {
+            View.INVISIBLE
+        }
         attackTrayPage.translationX = 0f
         defenceTrayPage.translationX = 0f
         configs[currentMode] = RollConfig(
@@ -1141,7 +1188,8 @@ class MainActivity : AppCompatActivity() {
         defenceDiceTray.restoreResults(defence.latestValues)
 
         currentMode = RollMode.DEFENCE
-        attackTrayPage.visibility = View.INVISIBLE
+        visibleTrayMode = RollMode.DEFENCE
+        attackTrayPage.visibility = if (isTablet) View.VISIBLE else View.INVISIBLE
         attackTrayPage.translationX = 0f
         defenceTrayPage.visibility = View.VISIBLE
         defenceTrayPage.translationX = 0f

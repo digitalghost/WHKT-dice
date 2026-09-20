@@ -53,6 +53,7 @@
     <string name="cover_off">无掩体</string>
     <string name="cover_on">有掩体 · 保留 1 枚</string>
     <string name="finish_attack_first">请先完成并确认攻击投骰</string>
+    <string name="read_only_tray">当前骰盘仅供查看，请滑回当前阶段继续操作</string>
     <string name="lethal_value">致命 %1$d+</string>
     <string name="cover_retained">掩体：保留 1 个</string>
     <string name="no_cover">无掩体</string>
@@ -85,6 +86,7 @@
     <string name="gesture_idle">上滑投骰 · 点选骰子后重投</string>
     <string name="gesture_idle_tablet">上滑投骰 · 点选骰子后重投</string>
     <string name="gesture_selected">已选 %1$d 枚 · 上滑重投</string>
+    <string name="gesture_read_only">仅查看结果 · 左右滑动返回当前骰盘</string>
     <string name="gesture_coach">上滑投骰　点选骰子后上滑重投　双指下滑清空</string>
     <string name="gesture_coach_tablet">上滑投骰　点选骰子后上滑重投　双指下滑清空</string>
     <string name="undo">撤销</string>

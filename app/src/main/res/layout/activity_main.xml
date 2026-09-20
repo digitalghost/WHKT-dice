@@ -304,9 +304,10 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_control_cell"
                     android:drawableTop="@drawable/ic_critical"
-                    android:drawablePadding="1dp"
+                    android:drawablePadding="0dp"
                     android:drawableTint="@color/critical_result"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="@string/critical_six"
                     android:textColor="@color/critical_result"
                     android:textSize="12sp"
@@ -319,15 +320,15 @@
                     android:layout_marginStart="3dp"
                     android:layout_weight="1.25"
                     android:background="@drawable/sel_roll_green"
-                    android:drawableTop="@drawable/ic_dice"
-                    android:drawablePadding="0dp"
                     android:drawableTint="@color/text_primary"
                     android:fontFamily="@font/teko_variable"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:text="@string/roll_button"
                     android:textColor="@color/text_primary"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <LinearLayout
@@ -335,7 +336,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
                 android:layout_marginTop="4dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/btnReroll"
