@@ -31,6 +31,9 @@
                     android:layout_width="54dp"
                     android:layout_height="38dp"
                     android:background="@drawable/bg_button_metal"
+                    android:drawableTop="@drawable/ic_history"
+                    android:drawablePadding="1dp"
+                    android:drawableTint="@color/primary_light"
                     android:gravity="center"
                     android:text="@string/history_button"
                     android:textColor="@color/primary_light"
@@ -38,14 +41,17 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/btnFocus"
+                    android:id="@+id/btnDiceTheme"
                     android:layout_width="54dp"
                     android:layout_height="38dp"
                     android:layout_marginStart="5dp"
                     android:background="@drawable/bg_button_metal"
+                    android:drawableTop="@drawable/ic_skin"
+                    android:drawablePadding="1dp"
+                    android:drawableTint="@color/primary_light"
                     android:gravity="center"
-                    android:text="@string/focus_mode"
-                    android:textColor="@color/text_steel"
+                    android:text="@string/dice_theme_button"
+                    android:textColor="@color/primary_light"
                     android:textSize="10sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -211,9 +217,8 @@
             android:layout_marginEnd="8dp"
             android:orientation="horizontal">
 
-            <TextView android:id="@+id/modeAttack" style="@style/CompactModeButton" android:text="@string/mode_attack" />
-            <TextView android:id="@+id/modeDefence" style="@style/CompactModeButton" android:layout_marginStart="4dp" android:text="@string/mode_defence" />
-            <TextView android:id="@+id/modeFree" style="@style/CompactModeButton" android:layout_marginStart="4dp" android:text="@string/mode_free" />
+            <TextView android:id="@+id/modeAttack" style="@style/CompactModeButton" android:drawableTop="@drawable/ic_attack" android:drawablePadding="1dp" android:drawableTint="@color/primary_light" android:includeFontPadding="false" android:text="@string/mode_attack" />
+            <TextView android:id="@+id/modeDefence" style="@style/CompactModeButton" android:layout_marginStart="4dp" android:drawableTop="@drawable/ic_defence" android:drawablePadding="1dp" android:drawableTint="@color/text_steel" android:includeFontPadding="false" android:text="@string/mode_defence" />
         </LinearLayout>
 
         <LinearLayout
@@ -262,6 +267,9 @@
                     android:layout_marginEnd="3dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_control_cell"
+                    android:drawableTop="@drawable/ic_critical"
+                    android:drawablePadding="1dp"
+                    android:drawableTint="@color/critical_result"
                     android:gravity="center"
                     android:text="@string/critical_six"
                     android:textColor="@color/critical_result"
@@ -275,6 +283,9 @@
                     android:layout_marginStart="3dp"
                     android:layout_weight="1.25"
                     android:background="@drawable/sel_roll_green"
+                    android:drawableTop="@drawable/ic_dice"
+                    android:drawablePadding="0dp"
+                    android:drawableTint="@color/text_primary"
                     android:fontFamily="@font/teko_variable"
                     android:gravity="center"
                     android:text="@string/roll_button"
@@ -298,6 +309,9 @@
                     android:layout_weight="2"
                     android:alpha="0.55"
                     android:background="@drawable/bg_button_metal"
+                    android:drawableTop="@drawable/ic_reroll"
+                    android:drawablePadding="1dp"
+                    android:drawableTint="@color/primary_light"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/select_dice_to_reroll"
@@ -312,6 +326,9 @@
                     android:layout_marginStart="3dp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_button_metal"
+                    android:drawableTop="@drawable/ic_clear"
+                    android:drawablePadding="1dp"
+                    android:drawableTint="@color/text_steel"
                     android:enabled="false"
                     android:gravity="center"
                     android:text="@string/clear_button"
@@ -320,16 +337,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
-
-                <TextView android:id="@+id/presetAttack" style="@style/PresetButton" android:text="@string/preset_attack" />
-                <TextView android:id="@+id/presetDefence" style="@style/PresetButton" android:layout_marginStart="5dp" android:text="@string/preset_defence" />
-                <TextView android:id="@+id/btnDiceTheme" style="@style/PresetButton" android:layout_marginStart="5dp" android:text="@string/theme_angels_short" />
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -353,7 +360,7 @@
 
         <LinearLayout android:id="@+id/historyHeader" android:layout_width="match_parent" android:layout_height="48dp" android:gravity="center_vertical" android:orientation="horizontal">
             <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center_vertical" android:text="@string/history_title" android:textColor="@color/primary_light" android:textSize="18sp" android:textStyle="bold" />
-            <TextView android:id="@+id/btnCloseHistory" android:layout_width="72dp" android:layout_height="38dp" android:background="@drawable/bg_button_metal" android:gravity="center" android:text="@string/history_close" android:textColor="@color/text_primary" />
+            <TextView android:id="@+id/btnCloseHistory" android:layout_width="72dp" android:layout_height="38dp" android:background="@drawable/bg_button_metal" android:drawableTop="@drawable/ic_close" android:drawablePadding="1dp" android:drawableTint="@color/text_primary" android:gravity="center" android:includeFontPadding="false" android:text="@string/history_close" android:textColor="@color/text_primary" />
         </LinearLayout>
 
         <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true">
@@ -366,6 +373,9 @@
             android:layout_height="42dp"
             android:layout_marginTop="6dp"
             android:background="@drawable/bg_button_metal"
+            android:drawableTop="@drawable/ic_clear"
+            android:drawablePadding="2dp"
+            android:drawableTint="@color/failure_result"
             android:gravity="center"
             android:text="@string/history_clear"
             android:textColor="@color/failure_result"

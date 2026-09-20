@@ -2,8 +2,7 @@ package com.example.helloworld
 
 enum class RollMode {
     ATTACK,
-    DEFENCE,
-    FREE
+    DEFENCE
 }
 
 data class RollConfig(

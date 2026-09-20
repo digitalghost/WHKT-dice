@@ -2,6 +2,7 @@ package com.example.helloworld
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -15,6 +16,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -39,7 +41,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainContent: View
     private lateinit var headerBar: View
     private lateinit var diceStage: View
-    private lateinit var modeBar: View
     private lateinit var consolePanel: View
     private lateinit var diceControlCell: View
     private lateinit var thresholdControlCell: View
@@ -66,11 +67,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var normalCountText: TextView
     private lateinit var failureCountText: TextView
     private lateinit var btnHistory: TextView
-    private lateinit var btnFocus: TextView
     private lateinit var gestureCoach: TextView
     private lateinit var gestureHintText: TextView
-    private lateinit var presetAttack: TextView
-    private lateinit var presetDefence: TextView
     private lateinit var btnDiceTheme: TextView
     private lateinit var historyEdgeHandle: View
     private lateinit var historyPanel: View
@@ -82,8 +80,7 @@ class MainActivity : AppCompatActivity() {
 
     private val configs = mutableMapOf(
         RollMode.ATTACK to RollConfig(diceCount = 5, threshold = 3),
-        RollMode.DEFENCE to RollConfig(diceCount = 3, threshold = 3),
-        RollMode.FREE to RollConfig(diceCount = 5, threshold = 4)
+        RollMode.DEFENCE to RollConfig(diceCount = 3, threshold = 3)
     )
 
     private var currentMode = RollMode.ATTACK
@@ -92,7 +89,6 @@ class MainActivity : AppCompatActivity() {
     private var pendingRerollIndices: List<Int>? = null
     private var activeHistoryId: Long? = null
     private var lampAnimator: ObjectAnimator? = null
-    private var focusMode = false
     private var historyClearArmedUntil = 0L
     private var currentDiceTheme = DiceTheme.ANGELS_OF_DEATH
 
@@ -123,7 +119,6 @@ class MainActivity : AppCompatActivity() {
         mainContent = findViewById(R.id.mainContent)
         headerBar = findViewById(R.id.headerBar)
         diceStage = findViewById(R.id.diceStage)
-        modeBar = findViewById(R.id.modeBar)
         consolePanel = findViewById(R.id.consolePanel)
         diceControlCell = findViewById(R.id.diceControlCell)
         thresholdControlCell = findViewById(R.id.thresholdControlCell)
@@ -132,8 +127,7 @@ class MainActivity : AppCompatActivity() {
         statusText = findViewById(R.id.statusText)
         modeViews = listOf(
             findViewById(R.id.modeAttack),
-            findViewById(R.id.modeDefence),
-            findViewById(R.id.modeFree)
+            findViewById(R.id.modeDefence)
         )
         diceCountLabel = findViewById(R.id.diceCountLabel)
         diceCountText = findViewById(R.id.diceCountText)
@@ -154,11 +148,8 @@ class MainActivity : AppCompatActivity() {
         normalCountText = findViewById(R.id.normalCountText)
         failureCountText = findViewById(R.id.failureCountText)
         btnHistory = findViewById(R.id.btnHistory)
-        btnFocus = findViewById(R.id.btnFocus)
         gestureCoach = findViewById(R.id.gestureCoach)
         gestureHintText = findViewById(R.id.gestureHintText)
-        presetAttack = findViewById(R.id.presetAttack)
-        presetDefence = findViewById(R.id.presetDefence)
         btnDiceTheme = findViewById(R.id.btnDiceTheme)
         historyEdgeHandle = findViewById(R.id.historyEdgeHandle)
         historyPanel = findViewById(R.id.historyPanel)
@@ -246,8 +237,6 @@ class MainActivity : AppCompatActivity() {
             haptic(it)
             clearRollWithUndo()
         }
-        presetAttack.setOnClickListener { applyPreset(RollMode.ATTACK, 5, 3, it) }
-        presetDefence.setOnClickListener { applyPreset(RollMode.DEFENCE, 3, 3, it) }
         btnDiceTheme.setOnClickListener {
             haptic(it)
             showDiceThemeChooser()
@@ -258,19 +247,12 @@ class MainActivity : AppCompatActivity() {
         }
         btnCloseHistory.setOnClickListener { closeHistory() }
         btnClearHistory.setOnClickListener { confirmHistoryClear() }
-        btnFocus.setOnClickListener {
-            haptic(it)
-            setFocusMode(!focusMode)
-        }
         setupHistoryGestures()
         listOf(
             btnRoll,
             btnReroll,
-            presetAttack,
-            presetDefence,
             btnDiceTheme,
-            btnHistory,
-            btnFocus
+            btnHistory
         )
             .forEach(::addPressAnimation)
     }
@@ -280,7 +262,6 @@ class MainActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 when {
                     historyPanel.visibility == View.VISIBLE -> closeHistory()
-                    focusMode -> setFocusMode(false)
                     else -> {
                         isEnabled = false
                         onBackPressedDispatcher.onBackPressed()
@@ -343,19 +324,6 @@ class MainActivity : AppCompatActivity() {
         renderConfig()
     }
 
-    private fun applyPreset(mode: RollMode, diceCount: Int, threshold: Int, view: View) {
-        haptic(view)
-        currentMode = mode
-        configs[mode] = RollConfig(diceCount, threshold, 6)
-        resetRoll()
-        renderConfig()
-        Snackbar.make(
-            rootLayout,
-            getString(R.string.preset_applied, modeDisplayName(mode)),
-            Snackbar.LENGTH_SHORT
-        ).show()
-    }
-
     private fun restoreDiceTheme() {
         val savedTheme = getSharedPreferences("ui_preferences", MODE_PRIVATE)
             .getString("dice_theme", DiceTheme.ANGELS_OF_DEATH.name)
@@ -403,18 +371,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderDiceThemeButton() {
-        btnDiceTheme.text = diceThemeDisplayName(currentDiceTheme)
-        btnDiceTheme.setTextColor(
-            getColor(
-                when (currentDiceTheme) {
-                    DiceTheme.ANGELS_OF_DEATH -> R.color.primary_light
-                    DiceTheme.PLAGUE_MARINES -> R.color.normal_success
-                    DiceTheme.ORK_KOMMANDOS -> R.color.theme_kommandos
-                    DiceTheme.CORSAIR_VOIDSCARRED -> R.color.theme_corsair
-                    DiceTheme.DEATH_KORPS -> R.color.theme_death_korps
-                }
-            )
+        btnDiceTheme.setText(R.string.dice_theme_button)
+        val themeColor = getColor(
+            when (currentDiceTheme) {
+                DiceTheme.ANGELS_OF_DEATH -> R.color.primary_light
+                DiceTheme.PLAGUE_MARINES -> R.color.normal_success
+                DiceTheme.ORK_KOMMANDOS -> R.color.theme_kommandos
+                DiceTheme.CORSAIR_VOIDSCARRED -> R.color.theme_corsair
+                DiceTheme.DEATH_KORPS -> R.color.theme_death_korps
+            }
         )
+        btnDiceTheme.setTextColor(themeColor)
+        btnDiceTheme.compoundDrawableTintList = ColorStateList.valueOf(themeColor)
     }
 
     private fun diceThemeDisplayName(theme: DiceTheme): String = getString(
@@ -454,20 +422,22 @@ class MainActivity : AppCompatActivity() {
                 this,
                 if (selected) ConsoleSurface.SELECTED else ConsoleSurface.CELL
             )
-            view.setTextColor(getColor(if (selected) R.color.primary_light else R.color.text_steel))
+            val contentColor = getColor(
+                if (selected) R.color.primary_light else R.color.text_steel
+            )
+            view.setTextColor(contentColor)
+            view.compoundDrawableTintList = ColorStateList.valueOf(contentColor)
         }
         diceCountLabel.text = getString(
             when (currentMode) {
                 RollMode.ATTACK -> R.string.attack_dice_label
                 RollMode.DEFENCE -> R.string.defence_dice_label
-                RollMode.FREE -> R.string.dice_count_label
             }
         )
         thresholdLabel.text = getString(
             when (currentMode) {
                 RollMode.ATTACK -> R.string.hit_label
                 RollMode.DEFENCE -> R.string.save_label
-                RollMode.FREE -> R.string.target_label
             }
         )
         diceCountText.text = config.diceCount.toString()
@@ -514,7 +484,6 @@ class MainActivity : AppCompatActivity() {
             activeHistoryId = historyStore.add(
                 currentMode,
                 config,
-                currentDiceTheme,
                 currentValues
             )
         } else {
@@ -523,7 +492,6 @@ class MainActivity : AppCompatActivity() {
                 activeHistoryId = historyStore.add(
                     currentMode,
                     config,
-                    currentDiceTheme,
                     currentValues
                 )
             } else {
@@ -546,7 +514,6 @@ class MainActivity : AppCompatActivity() {
         summaryLayout.visibility = View.VISIBLE
         postRollButtons.visibility = View.VISIBLE
         btnRoll.isEnabled = diceReady
-        btnFocus.isEnabled = true
         btnRoll.setText(R.string.roll_again_button)
         btnReset.isEnabled = true
         updateRerollControl(diceTrayView.selectedIndices().size)
@@ -615,7 +582,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderIdleState() {
         btnRoll.isEnabled = diceReady
-        btnFocus.isEnabled = true
         statusText.setText(if (diceReady) R.string.status_ready else R.string.status_loading)
         setLamp(if (diceReady) LampState.READY else LampState.DIM)
     }
@@ -623,17 +589,8 @@ class MainActivity : AppCompatActivity() {
     private fun setRollingState() {
         btnRoll.isEnabled = false
         btnReroll.isEnabled = false
-        btnFocus.isEnabled = false
         statusText.setText(R.string.status_rolling)
         setLamp(LampState.ROLLING)
-    }
-
-    private fun setFocusMode(enabled: Boolean) {
-        focusMode = enabled
-        consolePanel.visibility = if (enabled) View.GONE else View.VISIBLE
-        if (!isTablet) modeBar.visibility = if (enabled) View.GONE else View.VISIBLE
-        btnFocus.setText(if (enabled) R.string.exit_focus_mode else R.string.focus_mode)
-        btnFocus.setTextColor(getColor(if (enabled) R.color.primary_light else R.color.text_steel))
     }
 
     private fun showFirstGestureCoach() {
@@ -709,6 +666,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createHistoryRow(entry: RollHistoryEntry): View {
+        val summary = RollLogic.classify(
+            entry.latestValues,
+            entry.threshold,
+            entry.criticalThreshold
+        )
         val row = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(12), dp(10), dp(12), dp(10))
@@ -734,8 +696,7 @@ class MainActivity : AppCompatActivity() {
                 R.string.history_item_title,
                 modeDisplayName(entry.mode),
                 entry.diceCount,
-                entry.threshold,
-                diceThemeDisplayName(entry.diceTheme)
+                entry.threshold
             )
             setTextColor(getColor(R.color.primary_light))
             textSize = 15f
@@ -749,6 +710,26 @@ class MainActivity : AppCompatActivity() {
             setTextColor(getColor(R.color.text_primary))
             textSize = 13f
             setPadding(0, dp(5), 0, 0)
+        })
+        row.addView(LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(0, dp(7), 0, dp(2))
+            addView(createHistoryStatText(
+                getString(R.string.result_critical, summary.criticals),
+                R.color.critical_result,
+                R.font.pirata_one_regular
+            ))
+            addView(createHistoryStatText(
+                getString(R.string.result_failure, summary.failures),
+                R.color.failure_result,
+                null
+            ))
+            addView(createHistoryStatText(
+                getString(R.string.result_normal, summary.normals),
+                R.color.normal_success,
+                R.font.teko_variable
+            ))
         })
         row.addView(TextView(this).apply {
             val time = SimpleDateFormat("MM月dd日 HH:mm", Locale.CHINA)
@@ -765,10 +746,29 @@ class MainActivity : AppCompatActivity() {
         return row
     }
 
+    private fun createHistoryStatText(textValue: String, colorRes: Int, fontRes: Int?): TextView =
+        TextView(this).apply {
+            layoutParams = LinearLayout.LayoutParams(0, dp(34), 1f)
+            gravity = Gravity.CENTER
+            text = textValue
+            setTextColor(getColor(colorRes))
+            textSize = 18f
+            typeface = if (fontRes == null) {
+                android.graphics.Typeface.create(
+                    android.graphics.Typeface.MONOSPACE,
+                    android.graphics.Typeface.BOLD
+                )
+            } else {
+                android.graphics.Typeface.create(
+                    ResourcesCompat.getFont(this@MainActivity, fontRes),
+                    android.graphics.Typeface.BOLD
+                )
+            }
+        }
+
     private fun restoreHistoryEntry(entry: RollHistoryEntry) {
         currentMode = entry.mode
-        applyDiceTheme(entry.diceTheme, announce = false)
-        configs[entry.mode] = RollConfig(
+        configs[currentMode] = RollConfig(
             entry.diceCount,
             entry.threshold,
             entry.criticalThreshold
@@ -808,7 +808,6 @@ class MainActivity : AppCompatActivity() {
         when (mode) {
             RollMode.ATTACK -> R.string.mode_attack_short
             RollMode.DEFENCE -> R.string.mode_defence_short
-            RollMode.FREE -> R.string.mode_free_short
         }
     )
 

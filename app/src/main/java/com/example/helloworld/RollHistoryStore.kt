@@ -11,7 +11,6 @@ data class RollHistoryEntry(
     val diceCount: Int,
     val threshold: Int,
     val criticalThreshold: Int,
-    val diceTheme: DiceTheme,
     val stages: List<List<Int>>
 ) {
     val latestValues: List<Int> get() = stages.lastOrNull().orEmpty()
@@ -32,7 +31,6 @@ class RollHistoryStore(context: Context) {
     fun add(
         mode: RollMode,
         config: RollConfig,
-        diceTheme: DiceTheme,
         values: List<Int>
     ): Long {
         val id = System.currentTimeMillis()
@@ -44,7 +42,6 @@ class RollHistoryStore(context: Context) {
                 diceCount = config.diceCount,
                 threshold = config.threshold,
                 criticalThreshold = config.criticalThreshold,
-                diceTheme = diceTheme,
                 stages = listOf(values)
             )
         ) + readEntries().filterNot { it.id == id }
@@ -72,6 +69,8 @@ class RollHistoryStore(context: Context) {
         buildList {
             for (index in 0 until array.length()) {
                 val item = array.getJSONObject(index)
+                val mode = RollMode.entries.firstOrNull { it.name == item.optString("mode") }
+                    ?: continue
                 val stagesJson = item.getJSONArray("stages")
                 val stages = buildList {
                     for (stageIndex in 0 until stagesJson.length()) {
@@ -87,13 +86,10 @@ class RollHistoryStore(context: Context) {
                     RollHistoryEntry(
                         id = item.getLong("id"),
                         timestamp = item.getLong("timestamp"),
-                        mode = RollMode.valueOf(item.getString("mode")),
+                        mode = mode,
                         diceCount = item.getInt("diceCount"),
                         threshold = item.getInt("threshold"),
                         criticalThreshold = item.getInt("criticalThreshold"),
-                        diceTheme = runCatching {
-                            DiceTheme.valueOf(item.getString("diceTheme"))
-                        }.getOrDefault(DiceTheme.ANGELS_OF_DEATH),
                         stages = stages
                     )
                 )
@@ -116,7 +112,6 @@ class RollHistoryStore(context: Context) {
                     .put("diceCount", entry.diceCount)
                     .put("threshold", entry.threshold)
                     .put("criticalThreshold", entry.criticalThreshold)
-                    .put("diceTheme", entry.diceTheme.name)
                     .put("stages", stages)
             )
         }
