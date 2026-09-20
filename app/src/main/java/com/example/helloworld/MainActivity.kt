@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnCloseHistory: View
     private lateinit var btnClearHistory: TextView
     private lateinit var historyStore: RollHistoryStore
+    private lateinit var diceSoundPlayer: DiceSoundPlayer
 
     private val configs = mutableMapOf(
         RollMode.ATTACK to RollConfig(diceCount = 5, threshold = 3),
@@ -132,6 +133,7 @@ class MainActivity : AppCompatActivity() {
         enterImmersiveMode()
         setContentView(R.layout.activity_main)
         historyStore = RollHistoryStore(this)
+        diceSoundPlayer = DiceSoundPlayer(this)
         bindViews()
         restoreDiceTheme()
         applyConsoleSkin()
@@ -622,6 +624,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             config.diceCount
         }
+        if (rollCount > 0) diceSoundPlayer.play()
         diceTrayView.roll(rollCount) { results -> completeRoll(results) }
         vibrate(35)
     }
@@ -633,6 +636,7 @@ class MainActivity : AppCompatActivity() {
         if (indices.isEmpty()) return
         pendingRerollIndices = indices
         setRollingState()
+        diceSoundPlayer.play()
         diceTrayView.rerollSelected { results -> completeRoll(results) }
         vibrate(25)
     }
@@ -1346,6 +1350,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         lampAnimator?.cancel()
+        diceSoundPlayer.release()
         super.onDestroy()
     }
 }
