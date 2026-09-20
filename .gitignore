@@ -13,4 +13,25 @@ app/build/
 /.jdk/
 /.kotlin/
 /.superpowers/
+/.serena/
+/tmp/
 /screenshot_*.png
+
+# Local research material and copyrighted source documents
+/docs/*.pdf
+/docs/杀戮小队中英数据整理工作流.md
+/docs/死亡天使-基础信息-角色与武器.md
+/docs/*-基础信息-角色与武器.md
+
+# Secrets and local signing material
+.env
+.env.*
+*.jks
+*.keystore
+keystore.properties
+*.pem
+*.key
+
+# Packaged application artifacts
+*.apk
+*.aab
