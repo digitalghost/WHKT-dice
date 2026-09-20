@@ -69,6 +69,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var criticalCountText: TextView
     private lateinit var normalCountText: TextView
     private lateinit var failureCountText: TextView
+    private var defenceSummaryLayout: View? = null
+    private var defenceCriticalCountText: TextView? = null
+    private var defenceNormalCountText: TextView? = null
+    private var defenceFailureCountText: TextView? = null
     private lateinit var btnHistory: TextView
     private lateinit var gestureCoach: TextView
     private lateinit var gestureHintText: TextView
@@ -171,6 +175,10 @@ class MainActivity : AppCompatActivity() {
         criticalCountText = findViewById(R.id.criticalCountText)
         normalCountText = findViewById(R.id.normalCountText)
         failureCountText = findViewById(R.id.failureCountText)
+        defenceSummaryLayout = findViewById(R.id.defenceSummaryLayout)
+        defenceCriticalCountText = findViewById(R.id.defenceCriticalCountText)
+        defenceNormalCountText = findViewById(R.id.defenceNormalCountText)
+        defenceFailureCountText = findViewById(R.id.defenceFailureCountText)
         btnHistory = findViewById(R.id.btnHistory)
         gestureCoach = findViewById(R.id.gestureCoach)
         gestureHintText = findViewById(R.id.gestureHintText)
@@ -193,6 +201,7 @@ class MainActivity : AppCompatActivity() {
         thresholdControlCell.background = GrimdarkSkins.button(this, ConsoleSurface.CELL)
         btnCritical.background = GrimdarkSkins.button(this, ConsoleSurface.CELL)
         summaryLayout.background = GrimdarkDrawable(this, ConsoleSurface.INSET)
+        defenceSummaryLayout?.background = GrimdarkDrawable(this, ConsoleSurface.INSET)
         btnRoll.background = GrimdarkSkins.button(
             this,
             ConsoleSurface.GREEN,
@@ -658,12 +667,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showSummary() {
-        val visibleValues = valuesByMode.getValue(visibleTrayMode)
-        val summary = summaryFor(visibleTrayMode, visibleValues)
-        criticalCountText.text = getString(R.string.result_critical, summary.criticals)
-        normalCountText.text = getString(R.string.result_normal, summary.normals)
-        failureCountText.text = getString(R.string.result_failure, summary.failures)
-        summaryLayout.visibility = View.VISIBLE
+        if (isTablet) {
+            updateTabletSummaries()
+        } else {
+            val visibleValues = valuesByMode.getValue(visibleTrayMode)
+            val summary = summaryFor(visibleTrayMode, visibleValues)
+            criticalCountText.text = getString(R.string.result_critical, summary.criticals)
+            normalCountText.text = getString(R.string.result_normal, summary.normals)
+            failureCountText.text = getString(R.string.result_failure, summary.failures)
+            summaryLayout.visibility = View.VISIBLE
+        }
         postRollButtons.visibility = View.GONE
         btnRoll.isEnabled = diceReady
         btnReset.isEnabled = visibleTrayMode == currentMode
@@ -679,6 +692,43 @@ class MainActivity : AppCompatActivity() {
         )
         setLamp(LampState.READY)
         renderPrimaryAction()
+    }
+
+    private fun updateTabletSummaries() {
+        if (!isTablet) return
+        renderTabletSummary(
+            mode = RollMode.ATTACK,
+            layout = summaryLayout,
+            normalText = normalCountText,
+            criticalText = criticalCountText,
+            failureText = failureCountText
+        )
+        renderTabletSummary(
+            mode = RollMode.DEFENCE,
+            layout = defenceSummaryLayout ?: return,
+            normalText = defenceNormalCountText ?: return,
+            criticalText = defenceCriticalCountText ?: return,
+            failureText = defenceFailureCountText ?: return
+        )
+    }
+
+    private fun renderTabletSummary(
+        mode: RollMode,
+        layout: View,
+        normalText: TextView,
+        criticalText: TextView,
+        failureText: TextView
+    ) {
+        val values = valuesByMode.getValue(mode)
+        if (values.isEmpty()) {
+            layout.visibility = View.INVISIBLE
+            return
+        }
+        val summary = summaryFor(mode, values)
+        normalText.text = getString(R.string.result_normal, summary.normals)
+        criticalText.text = getString(R.string.result_critical, summary.criticals)
+        failureText.text = getString(R.string.result_failure, summary.failures)
+        layout.visibility = View.VISIBLE
     }
 
     private fun summaryFor(mode: RollMode, values: List<Int>): RollSummary {
@@ -697,7 +747,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderCurrentRollState() {
         if (valuesByMode.getValue(visibleTrayMode).isEmpty()) {
-            summaryLayout.visibility = View.INVISIBLE
+            if (isTablet) {
+                updateTabletSummaries()
+            } else {
+                summaryLayout.visibility = View.INVISIBLE
+            }
             btnReset.isEnabled = false
             updateRerollControl(0)
             statusText.setText(if (diceReady) R.string.status_ready else R.string.status_loading)
@@ -742,7 +796,11 @@ class MainActivity : AppCompatActivity() {
         } else if (!encounterComplete) {
             activeHistoryId = null
         }
-        summaryLayout.visibility = View.INVISIBLE
+        if (isTablet) {
+            updateTabletSummaries()
+        } else {
+            summaryLayout.visibility = View.INVISIBLE
+        }
         postRollButtons.visibility = View.GONE
         btnReset.isEnabled = false
         updateRerollControl(0)
