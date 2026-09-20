@@ -7,6 +7,11 @@
     <string name="target_label">目标值</string>
     <string name="reroll_label">重投规则</string>
     <string name="roll_button">投骰</string>
+    <string name="roll_attack_button">投攻击骰</string>
+    <string name="confirm_attack_button">确认攻击 → 防御</string>
+    <string name="roll_defence_button">投防御骰</string>
+    <string name="defence_locked_button">先完成攻击</string>
+    <string name="new_encounter_button">再次对抗</string>
     <string name="reroll_button">重投所选骰子</string>
     <string name="reset_button">重置</string>
     <string name="results_label">结果</string>
@@ -45,6 +50,9 @@
     <string name="plus_value">%1$d+</string>
     <string name="critical_six">暴击 6+</string>
     <string name="critical_save_six">暴击防御 6+</string>
+    <string name="cover_off">无掩体</string>
+    <string name="cover_on">有掩体 · 保留 1 枚</string>
+    <string name="finish_attack_first">请先完成并确认攻击投骰</string>
     <string name="lethal_value">致命 %1$d+</string>
     <string name="cover_retained">掩体：保留 1 个</string>
     <string name="no_cover">无掩体</string>
@@ -59,6 +67,7 @@
     <string name="status_loading">校准中</string>
     <string name="status_ready">就绪</string>
     <string name="status_rolling">投骰中</string>
+    <string name="status_attack_ready">待确认攻击</string>
     <string name="status_resolved">已结算</string>
     <string name="status_fault">故障</string>
     <string name="decrease_dice">减少骰子</string>
@@ -73,15 +82,20 @@
     <string name="history_clear_confirm">再次点击确认清空</string>
     <string name="history_rerolls">重投 %1$d 次</string>
     <string name="history_restore">点击恢复配置和结果，长按删除</string>
-    <string name="gesture_idle">上滑投骰 · 双击快速投骰</string>
+    <string name="gesture_idle">上滑投骰 · 点选骰子后重投</string>
+    <string name="gesture_idle_tablet">上滑投骰 · 点选骰子后重投</string>
     <string name="gesture_selected">已选 %1$d 枚 · 上滑重投</string>
     <string name="gesture_coach">上滑投骰　点选骰子后上滑重投　双指下滑清空</string>
+    <string name="gesture_coach_tablet">上滑投骰　点选骰子后上滑重投　双指下滑清空</string>
     <string name="undo">撤销</string>
     <string name="cleared_message">已清空本次结果</string>
     <string name="history_restored">已恢复这次投骰</string>
     <string name="history_deleted">已删除这条记录</string>
     <string name="history_result">结果：%1$s</string>
-    <string name="history_item_title">%1$s · %2$d 枚 · %3$d+</string>
+    <string name="history_item_title">旧版单投 · %1$s · %2$d 枚 · %3$d+</string>
+    <string name="history_pair_title">完整攻防 · %1$d 攻 / %2$d 防</string>
+    <string name="history_side_title">%1$s · %2$d 枚 · %3$d+%4$s</string>
+    <string name="history_cover_suffix"> · 掩体保留 %1$d</string>
     <string name="mode_attack_short">攻击</string>
     <string name="mode_defence_short">防御</string>
     <string name="dice_theme">骰子主题</string>
@@ -99,4 +113,7 @@
     <string name="theme_changed">已切换为%1$s主题</string>
     <string name="cancel">取消</string>
     <string name="gesture_roll_desc">在骰盘内向上滑动投骰</string>
+    <string name="gesture_attack_desc">攻击骰盘：向上滑动投骰</string>
+    <string name="gesture_defence_desc">防御骰盘：向上滑动投骰</string>
+    <string name="cover_retained_badge">掩体保留 +1 成功</string>
 </resources>

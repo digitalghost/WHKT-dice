@@ -44,10 +44,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var consolePanel: View
     private lateinit var diceControlCell: View
     private lateinit var thresholdControlCell: View
-    private lateinit var diceTrayView: DiceTrayView
+    private lateinit var attackTrayPage: View
+    private lateinit var defenceTrayPage: View
+    private lateinit var attackDiceTray: DiceTrayView
+    private lateinit var defenceDiceTray: DiceTrayView
+    private lateinit var coverRetainedBadge: View
     private lateinit var statusLamp: View
     private lateinit var statusText: TextView
-    private lateinit var modeViews: List<TextView>
     private lateinit var diceCountLabel: TextView
     private lateinit var diceCountText: TextView
     private lateinit var thresholdLabel: TextView
@@ -85,15 +88,35 @@ class MainActivity : AppCompatActivity() {
 
     private var currentMode = RollMode.ATTACK
     private var diceReady = true
-    private var currentValues: List<Int> = emptyList()
+    private val valuesByMode = mutableMapOf(
+        RollMode.ATTACK to emptyList<Int>(),
+        RollMode.DEFENCE to emptyList()
+    )
+    private val stagesByMode = mutableMapOf(
+        RollMode.ATTACK to mutableListOf<List<Int>>(),
+        RollMode.DEFENCE to mutableListOf()
+    )
     private var pendingRerollIndices: List<Int>? = null
     private var activeHistoryId: Long? = null
     private var lampAnimator: ObjectAnimator? = null
     private var historyClearArmedUntil = 0L
     private var currentDiceTheme = DiceTheme.ANGELS_OF_DEATH
+    private var attackConfirmed = false
+    private var encounterComplete = false
+    private var defenceHasCover = false
+    private var rollInProgress = false
 
     private val config: RollConfig
         get() = configs.getValue(currentMode)
+
+    private var currentValues: List<Int>
+        get() = valuesByMode.getValue(currentMode)
+        set(value) {
+            valuesByMode[currentMode] = value
+        }
+
+    private val diceTrayView: DiceTrayView
+        get() = if (currentMode == RollMode.ATTACK) attackDiceTray else defenceDiceTray
 
     private val isTablet: Boolean
         get() = resources.configuration.smallestScreenWidthDp >= 600
@@ -122,13 +145,13 @@ class MainActivity : AppCompatActivity() {
         consolePanel = findViewById(R.id.consolePanel)
         diceControlCell = findViewById(R.id.diceControlCell)
         thresholdControlCell = findViewById(R.id.thresholdControlCell)
-        diceTrayView = findViewById(R.id.diceTrayOverlay)
+        attackTrayPage = findViewById(R.id.attackTrayPage)
+        defenceTrayPage = findViewById(R.id.defenceTrayPage)
+        attackDiceTray = findViewById(R.id.attackDiceTray)
+        defenceDiceTray = findViewById(R.id.defenceDiceTray)
+        coverRetainedBadge = findViewById(R.id.coverRetainedBadge)
         statusLamp = findViewById(R.id.statusLamp)
         statusText = findViewById(R.id.statusText)
-        modeViews = listOf(
-            findViewById(R.id.modeAttack),
-            findViewById(R.id.modeDefence)
-        )
         diceCountLabel = findViewById(R.id.diceCountLabel)
         diceCountText = findViewById(R.id.diceCountText)
         thresholdLabel = findViewById(R.id.thresholdLabel)
@@ -192,42 +215,31 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        modeViews.forEachIndexed { index, view ->
-            view.setOnClickListener {
-                haptic(it)
-                selectMode(RollMode.entries[index])
-            }
-        }
         btnDiceMinus.setOnClickListener { adjustDice(-1, it) }
         btnDicePlus.setOnClickListener { adjustDice(1, it) }
         btnThresholdMinus.setOnClickListener { adjustThreshold(-1, it) }
         btnThresholdPlus.setOnClickListener { adjustThreshold(1, it) }
         btnCritical.setOnClickListener {
-            if (currentMode == RollMode.DEFENCE) return@setOnClickListener
             haptic(it)
-            config.criticalThreshold = when (config.criticalThreshold) {
-                6 -> 5
-                5 -> 4
-                else -> 6
+            if (currentMode == RollMode.DEFENCE) {
+                if (encounterComplete || currentValues.isNotEmpty()) return@setOnClickListener
+                defenceHasCover = !defenceHasCover
+                coverRetainedBadge.visibility = if (defenceHasCover) View.VISIBLE else View.GONE
+            } else {
+                if (attackConfirmed) return@setOnClickListener
+                config.criticalThreshold = when (config.criticalThreshold) {
+                    6 -> 5
+                    5 -> 4
+                    else -> 6
+                }
             }
             invalidateRoll()
         }
-        diceTrayView.setOnSelectionChangedListener { selectedCount ->
-            updateRerollControl(selectedCount)
-        }
-        diceTrayView.setOnTrayGestureListener(
-            onThrow = {
-                if (currentValues.isNotEmpty() && diceTrayView.selectedIndices().isNotEmpty()) {
-                    performReroll()
-                } else {
-                    performRoll()
-                }
-            },
-            onReset = { clearRollWithUndo() }
-        )
+        setupTrayListeners(RollMode.ATTACK, attackDiceTray)
+        setupTrayListeners(RollMode.DEFENCE, defenceDiceTray)
         btnRoll.setOnClickListener {
             haptic(it)
-            performRoll()
+            handlePrimaryAction()
         }
         btnReroll.setOnClickListener {
             haptic(it)
@@ -255,6 +267,29 @@ class MainActivity : AppCompatActivity() {
             btnHistory
         )
             .forEach(::addPressAnimation)
+    }
+
+    private fun setupTrayListeners(mode: RollMode, tray: DiceTrayView) {
+        tray.setOnSelectionChangedListener { selectedCount ->
+            if (currentMode == mode) updateRerollControl(selectedCount)
+        }
+        tray.setOnTrayGestureListener(
+            onThrow = {
+                if (rollInProgress) return@setOnTrayGestureListener
+                selectMode(mode)
+                if (mode == RollMode.DEFENCE && !attackConfirmed) {
+                    Snackbar.make(rootLayout, R.string.finish_attack_first, Snackbar.LENGTH_SHORT).show()
+                } else if (currentValues.isNotEmpty() && tray.selectedIndices().isNotEmpty()) {
+                    performReroll()
+                } else if (currentValues.isEmpty()) {
+                    performRoll()
+                }
+            },
+            onReset = {
+                selectMode(mode)
+                clearRollWithUndo()
+            }
+        )
     }
 
     private fun setupBackNavigation() {
@@ -318,10 +353,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun selectMode(mode: RollMode) {
-        if (currentMode == mode) return
+        if (rollInProgress || currentMode == mode) return
+        val previousMode = currentMode
         currentMode = mode
-        resetRoll()
+        showTrayPage(previousMode, mode)
         renderConfig()
+        renderCurrentRollState()
+    }
+
+    private fun showTrayPage(previousMode: RollMode, mode: RollMode) {
+        val outgoing = if (previousMode == RollMode.ATTACK) attackTrayPage else defenceTrayPage
+        val incoming = if (mode == RollMode.ATTACK) attackTrayPage else defenceTrayPage
+        val direction = if (mode == RollMode.DEFENCE) 1f else -1f
+        val distance = diceStage.width.toFloat().coerceAtLeast(1f)
+        outgoing.animate().cancel()
+        incoming.animate().cancel()
+        incoming.visibility = View.VISIBLE
+        incoming.translationX = direction * distance
+        incoming.animate().translationX(0f).setDuration(220).start()
+        outgoing.animate()
+            .translationX(-direction * distance)
+            .setDuration(220)
+            .withEndAction {
+                outgoing.visibility = View.INVISIBLE
+                outgoing.translationX = 0f
+            }
+            .start()
     }
 
     private fun restoreDiceTheme() {
@@ -330,7 +387,8 @@ class MainActivity : AppCompatActivity() {
         currentDiceTheme = runCatching {
             DiceTheme.valueOf(savedTheme.orEmpty())
         }.getOrDefault(DiceTheme.ANGELS_OF_DEATH)
-        diceTrayView.setDiceTheme(currentDiceTheme)
+        attackDiceTray.setDiceTheme(currentDiceTheme)
+        defenceDiceTray.setDiceTheme(currentDiceTheme)
         renderDiceThemeButton()
     }
 
@@ -355,7 +413,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun applyDiceTheme(theme: DiceTheme, announce: Boolean) {
         currentDiceTheme = theme
-        diceTrayView.setDiceTheme(theme)
+        attackDiceTray.setDiceTheme(theme)
+        defenceDiceTray.setDiceTheme(theme)
         getSharedPreferences("ui_preferences", MODE_PRIVATE)
             .edit()
             .putString("dice_theme", theme.name)
@@ -396,12 +455,14 @@ class MainActivity : AppCompatActivity() {
     )
 
     private fun adjustDice(delta: Int, view: View) {
+        if (isCurrentConfigLocked()) return
         haptic(view)
         config.diceCount = (config.diceCount + delta).coerceIn(1, 20)
         invalidateRoll()
     }
 
     private fun adjustThreshold(delta: Int, view: View) {
+        if (isCurrentConfigLocked()) return
         haptic(view)
         config.threshold = (config.threshold + delta).coerceIn(2, 6)
         if (config.criticalThreshold < config.threshold) {
@@ -416,18 +477,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderConfig() {
-        modeViews.forEachIndexed { index, view ->
-            val selected = index == currentMode.ordinal
-            view.background = GrimdarkSkins.button(
-                this,
-                if (selected) ConsoleSurface.SELECTED else ConsoleSurface.CELL
-            )
-            val contentColor = getColor(
-                if (selected) R.color.primary_light else R.color.text_steel
-            )
-            view.setTextColor(contentColor)
-            view.compoundDrawableTintList = ColorStateList.valueOf(contentColor)
-        }
         diceCountLabel.text = getString(
             when (currentMode) {
                 RollMode.ATTACK -> R.string.attack_dice_label
@@ -442,29 +491,105 @@ class MainActivity : AppCompatActivity() {
         )
         diceCountText.text = config.diceCount.toString()
         thresholdText.text = getString(R.string.plus_value, config.threshold)
-        val canChangeCritical = currentMode != RollMode.DEFENCE
-        btnCritical.isEnabled = canChangeCritical
-        btnCritical.alpha = if (canChangeCritical) 1f else 0.72f
+        val controlsLocked = isCurrentConfigLocked()
+        listOf(
+            btnDiceMinus,
+            btnDicePlus,
+            btnThresholdMinus,
+            btnThresholdPlus
+        ).forEach {
+            it.isEnabled = !controlsLocked
+            it.alpha = if (controlsLocked) 0.55f else 1f
+        }
+        btnCritical.isEnabled = !controlsLocked
+        btnCritical.alpha = if (controlsLocked) 0.55f else 1f
         criticalText.text = when {
-            currentMode == RollMode.DEFENCE -> getString(R.string.critical_save_six)
+            currentMode == RollMode.DEFENCE && defenceHasCover -> getString(R.string.cover_on)
+            currentMode == RollMode.DEFENCE -> getString(R.string.cover_off)
             config.criticalThreshold == 6 -> getString(R.string.critical_six)
             else -> getString(R.string.lethal_value, config.criticalThreshold)
         }
+        criticalText.setCompoundDrawablesRelativeWithIntrinsicBounds(
+            0,
+            if (currentMode == RollMode.DEFENCE) R.drawable.ic_defence else R.drawable.ic_critical,
+            0,
+            0
+        )
+        val criticalColor = getColor(
+            if (currentMode == RollMode.DEFENCE && defenceHasCover) {
+                R.color.normal_success
+            } else {
+                R.color.critical_result
+            }
+        )
+        criticalText.setTextColor(criticalColor)
+        criticalText.compoundDrawableTintList = ColorStateList.valueOf(criticalColor)
+    }
+
+    private fun isCurrentConfigLocked(): Boolean =
+        encounterComplete || (currentMode == RollMode.ATTACK && attackConfirmed)
+
+    private fun handlePrimaryAction() {
+        when {
+            encounterComplete -> startNewEncounter()
+            currentMode == RollMode.ATTACK && currentValues.isNotEmpty() -> confirmAttack()
+            currentMode == RollMode.DEFENCE && !attackConfirmed -> {
+                Snackbar.make(rootLayout, R.string.finish_attack_first, Snackbar.LENGTH_SHORT).show()
+            }
+            else -> performRoll()
+        }
+    }
+
+    private fun confirmAttack() {
+        if (valuesByMode.getValue(RollMode.ATTACK).isEmpty()) return
+        attackConfirmed = true
+        renderConfig()
+        selectMode(RollMode.DEFENCE)
+    }
+
+    private fun startNewEncounter() {
+        attackDiceTray.clearResults()
+        defenceDiceTray.clearResults()
+        valuesByMode.keys.forEach { valuesByMode[it] = emptyList() }
+        stagesByMode.values.forEach { it.clear() }
+        pendingRerollIndices = null
+        activeHistoryId = null
+        attackConfirmed = false
+        encounterComplete = false
+        coverRetainedBadge.visibility = if (defenceHasCover) View.VISIBLE else View.GONE
+        if (currentMode != RollMode.ATTACK) {
+            currentMode = RollMode.ATTACK
+            attackTrayPage.visibility = View.VISIBLE
+            attackTrayPage.translationX = 0f
+            defenceTrayPage.visibility = View.INVISIBLE
+            defenceTrayPage.translationX = 0f
+        }
+        renderConfig()
+        renderCurrentRollState()
+        statusText.setText(R.string.status_ready)
+        setLamp(LampState.READY)
     }
 
     private fun performRoll() {
-        if (!diceReady) return
+        if (!diceReady || rollInProgress || encounterComplete) return
+        if (currentMode == RollMode.DEFENCE && !attackConfirmed) return
         currentValues = emptyList()
-        activeHistoryId = null
+        stagesByMode.getValue(currentMode).clear()
         diceTrayView.clearResults()
         pendingRerollIndices = null
         setRollingState()
-        diceTrayView.roll(config.diceCount) { results -> completeRoll(results) }
+        val rollCount = if (currentMode == RollMode.DEFENCE && defenceHasCover) {
+            (config.diceCount - 1).coerceAtLeast(0)
+        } else {
+            config.diceCount
+        }
+        diceTrayView.roll(rollCount) { results -> completeRoll(results) }
         vibrate(35)
     }
 
     private fun performReroll() {
-        if (currentValues.isEmpty()) return
+        if (currentValues.isEmpty() || rollInProgress) return
+        if (currentMode == RollMode.ATTACK && attackConfirmed) return
         val indices = diceTrayView.selectedIndices()
         if (indices.isEmpty()) return
         pendingRerollIndices = indices
@@ -479,62 +604,119 @@ class MainActivity : AppCompatActivity() {
             RollLogic.mergeRerollResults(currentValues, indices, values)
         } ?: values
         pendingRerollIndices = null
+        stagesByMode.getValue(currentMode).add(currentValues.toList())
+        rollInProgress = false
 
-        if (rerolledIndices == null) {
-            activeHistoryId = historyStore.add(
-                currentMode,
-                config,
-                currentValues
-            )
-        } else {
+        if (currentMode == RollMode.DEFENCE) {
             val historyId = activeHistoryId
             if (historyId == null) {
-                activeHistoryId = historyStore.add(
-                    currentMode,
-                    config,
-                    currentValues
+                activeHistoryId = historyStore.addPair(
+                    configs.getValue(RollMode.ATTACK),
+                    stagesByMode.getValue(RollMode.ATTACK),
+                    configs.getValue(RollMode.DEFENCE),
+                    stagesByMode.getValue(RollMode.DEFENCE),
+                    if (defenceHasCover) 1 else 0
                 )
-            } else {
-                historyStore.appendReroll(historyId, currentValues)
+            } else if (rerolledIndices != null) {
+                historyStore.appendReroll(historyId, RollMode.DEFENCE, currentValues)
             }
+            encounterComplete = true
         }
         showSummary()
+        renderConfig()
         vibrate(20)
     }
 
     private fun showSummary() {
-        val summary = RollLogic.classify(
-            currentValues,
-            config.threshold,
-            config.criticalThreshold
-        )
+        val summary = summaryFor(currentMode, currentValues)
         criticalCountText.text = getString(R.string.result_critical, summary.criticals)
         normalCountText.text = getString(R.string.result_normal, summary.normals)
         failureCountText.text = getString(R.string.result_failure, summary.failures)
         summaryLayout.visibility = View.VISIBLE
         postRollButtons.visibility = View.VISIBLE
         btnRoll.isEnabled = diceReady
-        btnRoll.setText(R.string.roll_again_button)
         btnReset.isEnabled = true
         updateRerollControl(diceTrayView.selectedIndices().size)
-        statusText.setText(R.string.status_resolved)
+        statusText.setText(
+            if (currentMode == RollMode.ATTACK && !attackConfirmed) {
+                R.string.status_attack_ready
+            } else {
+                R.string.status_resolved
+            }
+        )
         setLamp(LampState.READY)
+        renderPrimaryAction()
+    }
+
+    private fun summaryFor(mode: RollMode, values: List<Int>): RollSummary {
+        val sideConfig = configs.getValue(mode)
+        val base = RollLogic.classify(
+            values,
+            sideConfig.threshold,
+            sideConfig.criticalThreshold
+        )
+        return if (mode == RollMode.DEFENCE && defenceHasCover) {
+            base.copy(normals = base.normals + 1)
+        } else {
+            base
+        }
+    }
+
+    private fun renderCurrentRollState() {
+        if (currentValues.isEmpty()) {
+            summaryLayout.visibility = View.INVISIBLE
+            btnReset.isEnabled = false
+            updateRerollControl(0)
+            statusText.setText(if (diceReady) R.string.status_ready else R.string.status_loading)
+            setLamp(if (diceReady) LampState.READY else LampState.DIM)
+        } else {
+            showSummary()
+        }
+        renderPrimaryAction()
+    }
+
+    private fun renderPrimaryAction() {
+        val textRes = when {
+            encounterComplete -> R.string.new_encounter_button
+            currentMode == RollMode.ATTACK && currentValues.isNotEmpty() ->
+                R.string.confirm_attack_button
+            currentMode == RollMode.ATTACK -> R.string.roll_attack_button
+            !attackConfirmed -> R.string.defence_locked_button
+            else -> R.string.roll_defence_button
+        }
+        btnRoll.setText(textRes)
+        btnRoll.isEnabled = diceReady && !rollInProgress &&
+            (currentMode != RollMode.DEFENCE || attackConfirmed || encounterComplete)
+        btnRoll.alpha = if (btnRoll.isEnabled) 1f else 0.55f
     }
 
     private fun resetRoll() {
         currentValues = emptyList()
-        activeHistoryId = null
+        stagesByMode.getValue(currentMode).clear()
         diceTrayView.clearResults()
         pendingRerollIndices = null
+        if (currentMode == RollMode.ATTACK) {
+            attackConfirmed = false
+            encounterComplete = false
+            valuesByMode[RollMode.DEFENCE] = emptyList()
+            stagesByMode.getValue(RollMode.DEFENCE).clear()
+            defenceDiceTray.clearResults()
+            activeHistoryId = null
+        } else if (!encounterComplete) {
+            activeHistoryId = null
+        }
         summaryLayout.visibility = View.INVISIBLE
         postRollButtons.visibility = View.VISIBLE
-        btnRoll.setText(R.string.roll_button)
         btnReset.isEnabled = false
         updateRerollControl(0)
         renderIdleState()
     }
 
     private fun clearRollWithUndo() {
+        if (encounterComplete) {
+            startNewEncounter()
+            return
+        }
         if (currentValues.isEmpty()) {
             resetRoll()
             return
@@ -553,19 +735,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun restoreUndoState(state: UndoState) {
+        val previousMode = currentMode
         currentMode = state.mode
         configs[state.mode] = state.config.copy()
         applyDiceTheme(state.diceTheme, announce = false)
         currentValues = state.values
+        stagesByMode.getValue(state.mode).apply {
+            clear()
+            add(state.values.toList())
+        }
         activeHistoryId = state.historyId
         pendingRerollIndices = null
+        showTrayPage(previousMode, state.mode)
         renderConfig()
         diceTrayView.restoreResults(state.values)
         showSummary()
     }
 
     private fun updateRerollControl(selectedCount: Int) {
-        val enabled = currentValues.isNotEmpty() && selectedCount > 0
+        val enabled = currentValues.isNotEmpty() && selectedCount > 0 &&
+            !(currentMode == RollMode.ATTACK && attackConfirmed) && !rollInProgress
         btnReroll.isEnabled = enabled
         btnReroll.alpha = if (enabled) 1f else 0.55f
         btnReroll.text = if (selectedCount > 0) {
@@ -581,12 +770,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderIdleState() {
-        btnRoll.isEnabled = diceReady
         statusText.setText(if (diceReady) R.string.status_ready else R.string.status_loading)
         setLamp(if (diceReady) LampState.READY else LampState.DIM)
+        renderPrimaryAction()
     }
 
     private fun setRollingState() {
+        rollInProgress = true
         btnRoll.isEnabled = false
         btnReroll.isEnabled = false
         statusText.setText(R.string.status_rolling)
@@ -666,6 +856,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createHistoryRow(entry: RollHistoryEntry): View {
+        if (entry.isPaired) return createPairedHistoryRow(entry)
+
         val summary = RollLogic.classify(
             entry.latestValues,
             entry.threshold,
@@ -746,6 +938,121 @@ class MainActivity : AppCompatActivity() {
         return row
     }
 
+    private fun createPairedHistoryRow(entry: RollHistoryEntry): View {
+        val attack = requireNotNull(entry.attack)
+        val defence = requireNotNull(entry.defence)
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(12), dp(10), dp(12), dp(10))
+            setBackgroundResource(R.drawable.bg_panel_inset)
+            setOnClickListener { restoreHistoryEntry(entry) }
+            setOnLongClickListener {
+                historyStore.delete(entry.id)
+                if (activeHistoryId == entry.id) activeHistoryId = null
+                renderHistoryList()
+                Snackbar.make(rootLayout, R.string.history_deleted, Snackbar.LENGTH_SHORT).show()
+                true
+            }
+        }
+        row.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { bottomMargin = dp(7) }
+
+        row.addView(TextView(this).apply {
+            text = getString(R.string.history_pair_title, attack.diceCount, defence.diceCount)
+            setTextColor(getColor(R.color.primary_light))
+            textSize = 15f
+            setTypeface(typeface, android.graphics.Typeface.BOLD)
+        })
+        addHistorySide(row, RollMode.ATTACK, attack)
+        addHistorySide(row, RollMode.DEFENCE, defence)
+
+        row.addView(TextView(this).apply {
+            val time = SimpleDateFormat("MM月dd日 HH:mm", Locale.CHINA)
+                .format(Date(entry.timestamp))
+            text = if (entry.rerollCount > 0) {
+                "$time  ${getString(R.string.history_rerolls, entry.rerollCount)}"
+            } else {
+                time
+            }
+            setTextColor(getColor(R.color.text_steel))
+            textSize = 11f
+            setPadding(0, dp(5), 0, 0)
+        })
+        return row
+    }
+
+    private fun addHistorySide(
+        row: LinearLayout,
+        mode: RollMode,
+        side: RollSideHistory
+    ) {
+        val summary = RollLogic.classify(
+            side.latestValues,
+            side.threshold,
+            side.criticalThreshold
+        ).let { base ->
+            if (side.retainedNormals > 0) {
+                base.copy(normals = base.normals + side.retainedNormals)
+            } else {
+                base
+            }
+        }
+        row.addView(TextView(this).apply {
+            val coverSuffix = if (side.retainedNormals > 0) {
+                getString(R.string.history_cover_suffix, side.retainedNormals)
+            } else {
+                ""
+            }
+            text = getString(
+                R.string.history_side_title,
+                modeDisplayName(mode),
+                side.diceCount,
+                side.threshold,
+                coverSuffix
+            )
+            setTextColor(
+                getColor(
+                    if (mode == RollMode.ATTACK) R.color.critical_result
+                    else R.color.normal_success
+                )
+            )
+            textSize = 13f
+            setTypeface(typeface, android.graphics.Typeface.BOLD)
+            setPadding(0, dp(7), 0, 0)
+        })
+        row.addView(TextView(this).apply {
+            text = getString(
+                R.string.history_result,
+                side.latestValues.joinToString(" · ")
+            )
+            setTextColor(getColor(R.color.text_primary))
+            textSize = 12f
+            setPadding(0, dp(3), 0, 0)
+        })
+        row.addView(LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(0, dp(4), 0, dp(1))
+            addView(createHistoryStatText(
+                getString(R.string.result_critical, summary.criticals),
+                R.color.critical_result,
+                R.font.pirata_one_regular
+            ))
+            addView(createHistoryStatText(
+                getString(R.string.result_failure, summary.failures),
+                R.color.failure_result,
+                null
+            ))
+            addView(createHistoryStatText(
+                getString(R.string.result_normal, summary.normals),
+                R.color.normal_success,
+                R.font.teko_variable
+            ))
+        })
+    }
+
     private fun createHistoryStatText(textValue: String, colorRes: Int, fontRes: Int?): TextView =
         TextView(this).apply {
             layoutParams = LinearLayout.LayoutParams(0, dp(34), 1f)
@@ -767,7 +1074,24 @@ class MainActivity : AppCompatActivity() {
         }
 
     private fun restoreHistoryEntry(entry: RollHistoryEntry) {
+        if (entry.isPaired) {
+            restorePairedHistoryEntry(entry)
+            return
+        }
+
+        attackConfirmed = false
+        encounterComplete = false
+        defenceHasCover = false
+        coverRetainedBadge.visibility = View.GONE
+        valuesByMode.keys.forEach { valuesByMode[it] = emptyList() }
+        stagesByMode.values.forEach { it.clear() }
+        attackDiceTray.clearResults()
+        defenceDiceTray.clearResults()
         currentMode = entry.mode
+        attackTrayPage.visibility = if (currentMode == RollMode.ATTACK) View.VISIBLE else View.INVISIBLE
+        defenceTrayPage.visibility = if (currentMode == RollMode.DEFENCE) View.VISIBLE else View.INVISIBLE
+        attackTrayPage.translationX = 0f
+        defenceTrayPage.translationX = 0f
         configs[currentMode] = RollConfig(
             entry.diceCount,
             entry.threshold,
@@ -779,6 +1103,50 @@ class MainActivity : AppCompatActivity() {
         renderConfig()
         diceTrayView.restoreResults(entry.latestValues)
         showSummary()
+        closeHistory()
+        Snackbar.make(rootLayout, R.string.history_restored, Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun restorePairedHistoryEntry(entry: RollHistoryEntry) {
+        val attack = requireNotNull(entry.attack)
+        val defence = requireNotNull(entry.defence)
+        configs[RollMode.ATTACK] = RollConfig(
+            attack.diceCount,
+            attack.threshold,
+            attack.criticalThreshold
+        )
+        configs[RollMode.DEFENCE] = RollConfig(
+            defence.diceCount,
+            defence.threshold,
+            defence.criticalThreshold
+        )
+        valuesByMode[RollMode.ATTACK] = attack.latestValues
+        valuesByMode[RollMode.DEFENCE] = defence.latestValues
+        stagesByMode.getValue(RollMode.ATTACK).apply {
+            clear()
+            addAll(attack.stages.map { it.toList() })
+        }
+        stagesByMode.getValue(RollMode.DEFENCE).apply {
+            clear()
+            addAll(defence.stages.map { it.toList() })
+        }
+        defenceHasCover = defence.retainedNormals > 0
+        coverRetainedBadge.visibility = if (defenceHasCover) View.VISIBLE else View.GONE
+        attackConfirmed = true
+        encounterComplete = true
+        rollInProgress = false
+        pendingRerollIndices = null
+        activeHistoryId = entry.id
+        attackDiceTray.restoreResults(attack.latestValues)
+        defenceDiceTray.restoreResults(defence.latestValues)
+
+        currentMode = RollMode.DEFENCE
+        attackTrayPage.visibility = View.INVISIBLE
+        attackTrayPage.translationX = 0f
+        defenceTrayPage.visibility = View.VISIBLE
+        defenceTrayPage.translationX = 0f
+        renderConfig()
+        renderCurrentRollState()
         closeHistory()
         Snackbar.make(rootLayout, R.string.history_restored, Snackbar.LENGTH_SHORT).show()
     }
@@ -855,14 +1223,18 @@ class MainActivity : AppCompatActivity() {
 
     @Suppress("DEPRECATION")
     private fun vibrate(durationMs: Long) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            getSystemService(VibratorManager::class.java)?.defaultVibrator?.vibrate(
-                VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE)
-            )
-        } else {
-            getSystemService(Vibrator::class.java)?.vibrate(
-                VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE)
-            )
+        when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+                getSystemService(VibratorManager::class.java)?.defaultVibrator?.vibrate(
+                    VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE)
+                )
+            }
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                getSystemService(Vibrator::class.java)?.vibrate(
+                    VibrationEffect.createOneShot(durationMs, VibrationEffect.DEFAULT_AMPLITUDE)
+                )
+            }
+            else -> getSystemService(Vibrator::class.java)?.vibrate(durationMs)
         }
     }
 

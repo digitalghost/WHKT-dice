@@ -124,19 +124,70 @@
                 android:background="@drawable/bg_dice_stage"
                 android:padding="10dp">
 
-                <ImageView
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@null"
-                    android:importantForAccessibility="no"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/dice_tray_industrial" />
+                    android:layout_height="match_parent">
 
-                <com.example.helloworld.DiceTrayView
-                    android:id="@+id/diceTrayOverlay"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/gesture_roll_desc" />
+                    <FrameLayout
+                        android:id="@+id/attackTrayPage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/dice_tray_attack" />
+
+                        <com.example.helloworld.DiceTrayView
+                            android:id="@+id/attackDiceTray"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/gesture_attack_desc" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/defenceTrayPage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/dice_tray_defence" />
+
+                        <com.example.helloworld.DiceTrayView
+                            android:id="@+id/defenceDiceTray"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/gesture_defence_desc" />
+
+                        <TextView
+                            android:id="@+id/coverRetainedBadge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/bg_panel_inset"
+                            android:drawableStart="@drawable/ic_defence"
+                            android:drawablePadding="5dp"
+                            android:drawableTint="@color/normal_success"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="@string/cover_retained_badge"
+                            android:textColor="@color/normal_success"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+                    </FrameLayout>
+                </FrameLayout>
 
                 <TextView
                     android:id="@+id/gestureCoach"
@@ -150,7 +201,7 @@
                     android:paddingTop="9dp"
                     android:paddingEnd="16dp"
                     android:paddingBottom="9dp"
-                    android:text="@string/gesture_coach"
+                    android:text="@string/gesture_coach_tablet"
                     android:textColor="@color/primary_light"
                     android:textSize="11sp"
                     android:visibility="gone" />
@@ -165,7 +216,7 @@
                     android:gravity="center"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="@string/gesture_idle"
+                    android:text="@string/gesture_idle_tablet"
                     android:textColor="@color/text_steel"
                     android:textSize="11sp" />
 
@@ -195,15 +246,6 @@
                 android:background="@drawable/bg_control_panel_new"
                 android:orientation="vertical"
                 android:padding="9dp">
-
-                <LinearLayout
-                    android:id="@+id/modeBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:orientation="horizontal">
-                    <TextView android:id="@+id/modeAttack" style="@style/CompactModeButton" android:drawableTop="@drawable/ic_attack" android:drawablePadding="1dp" android:drawableTint="@color/primary_light" android:includeFontPadding="false" android:text="@string/mode_attack" />
-                    <TextView android:id="@+id/modeDefence" style="@style/CompactModeButton" android:layout_marginStart="4dp" android:drawableTop="@drawable/ic_defence" android:drawablePadding="1dp" android:drawableTint="@color/text_steel" android:includeFontPadding="false" android:text="@string/mode_defence" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
