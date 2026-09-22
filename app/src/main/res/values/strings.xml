@@ -76,6 +76,7 @@
     <string name="decrease_threshold">降低目标值</string>
     <string name="increase_threshold">提高目标值</string>
     <string name="history_button">记录</string>
+    <string name="history_button_desc">打开投掷记录</string>
     <string name="history_title">投骰记录</string>
     <string name="history_empty">暂无投骰记录</string>
     <string name="history_close">关闭</string>
@@ -102,6 +103,7 @@
     <string name="mode_defence_short">防御</string>
     <string name="dice_theme">骰子主题</string>
     <string name="dice_theme_button">皮肤</string>
+    <string name="dice_theme_button_desc">选择骰子皮肤</string>
     <string name="theme_angels_short">死亡天使</string>
     <string name="theme_plague_short">瘟疫战士</string>
     <string name="theme_kommandos_short">兽人特战队</string>
@@ -118,4 +120,14 @@
     <string name="gesture_attack_desc">攻击骰盘：向上滑动投骰</string>
     <string name="gesture_defence_desc">防御骰盘：向上滑动投骰</string>
     <string name="cover_retained_badge">掩体保留 +1 成功</string>
+    <string name="rules_help_icon">规</string>
+    <string name="rules_help_title">武器规则速查</string>
+    <string name="rules_help_close">×</string>
+    <string name="rules_help_close_desc">关闭武器规则速查</string>
+    <string name="rules_help_order_hint">按汉语拼音首字母排序 · 点击空白处关闭</string>
+    <string name="rules_help_content">通则：同名规则不叠加；带 X 的同名规则只选一个 X 值。\n\n【安静】隐匿命令下也能用此武器射击。\n【爆炸 X】射击主要目标后，分别射击其 X 英寸内且对其可见的其他特工。\n【残暴】对手只能用暴击进行格挡。\n【穿刺 X】防御方少掷 X 枚防御骰；“关键穿刺 X”仅在保留暴击时生效。\n【范围 X】只有位于 X 英寸内的特工可成为有效目标。\n【过热】使用后掷 D6；低于命中属性时，造成点数两倍的伤害。一次行动多次使用仍只检定一次。\n【毫不留情】可重投任意攻击骰。\n【洪流 X】除主要目标外，可分别射击其 X 英寸内、不在其他己方特工控制范围内的任意有效目标。\n【毁灭 X】每个保留的暴击立即造成 X 点伤害，且该暴击仍继续结算；前缀距离时也波及该距离内可见特工。\n【集中】防御方不能保留掩护豁免。\n【精准 X】最多 X 枚攻击骰不掷，直接保留为普通成功。\n【平衡／均衡】重投 1 枚攻击骰。\n【撕裂】若保留了暴击，可把 1 个普通成功改为暴击。\n【无休】选一个骰面，重投任意数量显示该点数的攻击骰。\n【严重】若尚未保留暴击，把 1 个普通成功改为暴击；可触发毁灭与关键穿刺，不能触发重击与撕裂。\n【有限 X】整场战斗使用 X 次后失去此武器；同一行动内多次射击只算 1 次。\n【晕眩】若保留了暴击，目标 APL -1，持续至其下一次激活结束。\n【震荡】每次结算首次用暴击出击时，舍弃对手 1 个未结算普通成功；若没有则舍弃 1 个暴击。\n【致命 X+】成功骰达到 X+ 时视为暴击。\n【重击】若保留了暴击，可把 1 个失败改为普通成功。\n【重型】本次激活中移动过便不能使用，使用后也不能再移动；“仅限 X”允许指定移动。\n【追踪】选目标时不能从地形获得掩护；“追踪轻型”只忽略轻型地形。不会移除已有掩护豁免。</string>
+    <string name="rules_help_toggle_desc">打开武器规则速查</string>
+    <string name="resolution_title">自动结算</string>
+    <string name="resolution_result">未结算攻击：%1$d 暴击 · %2$d 普通成功</string>
+    <string name="resolution_cleared">全部攻击已抵挡</string>
 </resources>

@@ -26,34 +26,40 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/btnHistory"
-                    android:layout_width="72dp"
+                <ImageButton
+                    android:id="@+id/btnRulesHelp"
+                    android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/bg_button_metal"
-                    android:drawableTop="@drawable/ic_history"
-                    android:drawablePadding="1dp"
-                    android:drawableTint="@color/primary_light"
-                    android:gravity="center"
-                    android:text="@string/history_button"
-                    android:textColor="@color/primary_light"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:contentDescription="@string/rules_help_toggle_desc"
+                    android:padding="0dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_rules"
+                    android:tint="@color/primary_light" />
 
-                <TextView
-                    android:id="@+id/btnDiceTheme"
-                    android:layout_width="72dp"
+                <ImageButton
+                    android:id="@+id/btnHistory"
+                    android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="8dp"
                     android:background="@drawable/bg_button_metal"
-                    android:drawableTop="@drawable/ic_skin"
-                    android:drawablePadding="1dp"
-                    android:drawableTint="@color/primary_light"
-                    android:gravity="center"
-                    android:text="@string/dice_theme_button"
-                    android:textColor="@color/primary_light"
-                    android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:contentDescription="@string/history_button_desc"
+                    android:padding="0dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_history"
+                    android:tint="@color/primary_light" />
+
+                <ImageButton
+                    android:id="@+id/btnDiceTheme"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_button_metal"
+                    android:contentDescription="@string/dice_theme_button_desc"
+                    android:padding="0dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_skin"
+                    android:tint="@color/primary_light" />
             </LinearLayout>
 
             <LinearLayout
@@ -129,18 +135,16 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <LinearLayout
+                    <FrameLayout
                         android:id="@+id/attackTrayPage"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="3dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:layout_weight="1">
 
                         <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1">
+                            android:layout_height="match_parent">
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -159,34 +163,41 @@
 
                         <LinearLayout
                             android:id="@+id/summaryLayout"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="6dp"
-                            android:background="@drawable/bg_result_strip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="12dp"
+                            android:alpha="0.97"
+                            android:background="@drawable/bg_result_overlay"
+                            android:elevation="12dp"
                             android:gravity="center"
                             android:orientation="horizontal"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
                             android:visibility="invisible">
+
+                            <TextView
+                                style="@style/TabletResultModeText"
+                                android:text="@string/mode_attack" />
+
+                            <View style="@style/TabletResultDivider" />
 
                             <TextView android:id="@+id/normalCountText" style="@style/TabletResultText" android:textColor="@color/normal_success" />
                             <TextView android:id="@+id/criticalCountText" style="@style/TabletResultText" android:textColor="@color/critical_result" />
                             <TextView android:id="@+id/failureCountText" style="@style/TabletResultText" android:textColor="@color/failure_result" />
                         </LinearLayout>
-                    </LinearLayout>
+                    </FrameLayout>
 
-                    <LinearLayout
+                    <FrameLayout
                         android:id="@+id/defenceTrayPage"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="3dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:layout_weight="1">
 
                         <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1">
+                            android:layout_height="match_parent">
 
                             <ImageView
                                 android:layout_width="match_parent"
@@ -223,21 +234,30 @@
 
                         <LinearLayout
                             android:id="@+id/defenceSummaryLayout"
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginEnd="6dp"
-                            android:background="@drawable/bg_result_strip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="12dp"
+                            android:alpha="0.97"
+                            android:background="@drawable/bg_result_overlay"
+                            android:elevation="12dp"
                             android:gravity="center"
                             android:orientation="horizontal"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
                             android:visibility="invisible">
+
+                            <TextView
+                                style="@style/TabletResultModeText"
+                                android:text="@string/mode_defence" />
+
+                            <View style="@style/TabletResultDivider" />
 
                             <TextView android:id="@+id/defenceNormalCountText" style="@style/TabletResultText" android:textColor="@color/normal_success" />
                             <TextView android:id="@+id/defenceCriticalCountText" style="@style/TabletResultText" android:textColor="@color/critical_result" />
                             <TextView android:id="@+id/defenceFailureCountText" style="@style/TabletResultText" android:textColor="@color/failure_result" />
                         </LinearLayout>
-                    </LinearLayout>
+                    </FrameLayout>
                 </LinearLayout>
 
                 <TextView
@@ -270,6 +290,51 @@
                     android:text="@string/gesture_idle_tablet"
                     android:textColor="@color/text_steel"
                     android:textSize="11sp" />
+
+                <LinearLayout
+                    android:id="@+id/resolutionPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="58dp"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_marginTop="18dp"
+                    android:alpha="0.98"
+                    android:background="@drawable/bg_resolution_overlay"
+                    android:elevation="16dp"
+                    android:gravity="center_vertical"
+                    android:minWidth="420dp"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:drawableStart="@drawable/ic_critical"
+                        android:drawablePadding="8dp"
+                        android:drawableTint="@color/primary_light"
+                        android:gravity="center_vertical"
+                        android:text="@string/resolution_title"
+                        android:textColor="@color/primary_light"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="14dp"
+                        android:background="@color/border_gold_strong" />
+
+                    <TextView
+                        android:id="@+id/resolutionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/critical_result"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
             </FrameLayout>
 
@@ -393,6 +458,85 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/rulesHelpOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A6000000"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/rulesHelpPanel"
+            android:layout_width="560dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/bg_control_panel_new"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/rules_help_title"
+                    android:textColor="@color/primary_light"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnCloseRulesHelp"
+                    android:layout_width="40dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_button_metal"
+                    android:contentDescription="@string/rules_help_close_desc"
+                    android:gravity="center"
+                    android:text="@string/rules_help_close"
+                    android:textColor="@color/text_primary"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/rulesHelpContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_panel_inset"
+                android:fadeScrollbars="false"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="2dp"
+                android:maxHeight="420dp"
+                android:paddingStart="12dp"
+                android:paddingTop="9dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="9dp"
+                android:scrollbars="vertical"
+                android:textColor="@color/text_steel"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:gravity="center_vertical|end"
+                android:text="@string/rules_help_order_hint"
+                android:textColor="@color/text_hint"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </FrameLayout>
 
     <View
         android:id="@+id/historyEdgeHandle"

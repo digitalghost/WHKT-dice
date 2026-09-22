@@ -8,10 +8,20 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.graphics.Typeface
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.method.ScrollingMovementMethod
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.LeadingMarginSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.view.Gravity
 import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
@@ -65,6 +75,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnReroll: TextView
     private lateinit var btnReset: TextView
     private lateinit var postRollButtons: View
+    private lateinit var resolutionPanel: View
+    private lateinit var resolutionText: TextView
     private lateinit var summaryLayout: View
     private lateinit var criticalCountText: TextView
     private lateinit var normalCountText: TextView
@@ -73,10 +85,15 @@ class MainActivity : AppCompatActivity() {
     private var defenceCriticalCountText: TextView? = null
     private var defenceNormalCountText: TextView? = null
     private var defenceFailureCountText: TextView? = null
-    private lateinit var btnHistory: TextView
+    private lateinit var btnHistory: ImageButton
     private lateinit var gestureCoach: TextView
     private lateinit var gestureHintText: TextView
-    private lateinit var btnDiceTheme: TextView
+    private lateinit var btnRulesHelp: ImageButton
+    private lateinit var rulesHelpOverlay: View
+    private lateinit var rulesHelpPanel: View
+    private lateinit var rulesHelpContent: TextView
+    private lateinit var btnCloseRulesHelp: View
+    private lateinit var btnDiceTheme: ImageButton
     private lateinit var historyEdgeHandle: View
     private lateinit var historyPanel: View
     private lateinit var historyHeader: View
@@ -111,6 +128,7 @@ class MainActivity : AppCompatActivity() {
     private var encounterComplete = false
     private var defenceHasCover = false
     private var rollInProgress = false
+    private var rulesHelpExpanded = false
 
     private val config: RollConfig
         get() = configs.getValue(currentMode)
@@ -173,6 +191,8 @@ class MainActivity : AppCompatActivity() {
         btnReroll = findViewById(R.id.btnReroll)
         btnReset = findViewById(R.id.btnReset)
         postRollButtons = findViewById(R.id.postRollButtons)
+        resolutionPanel = findViewById(R.id.resolutionPanel)
+        resolutionText = findViewById(R.id.resolutionText)
         summaryLayout = findViewById(R.id.summaryLayout)
         criticalCountText = findViewById(R.id.criticalCountText)
         normalCountText = findViewById(R.id.normalCountText)
@@ -184,6 +204,13 @@ class MainActivity : AppCompatActivity() {
         btnHistory = findViewById(R.id.btnHistory)
         gestureCoach = findViewById(R.id.gestureCoach)
         gestureHintText = findViewById(R.id.gestureHintText)
+        btnRulesHelp = findViewById(R.id.btnRulesHelp)
+        rulesHelpOverlay = findViewById(R.id.rulesHelpOverlay)
+        rulesHelpPanel = findViewById(R.id.rulesHelpPanel)
+        rulesHelpContent = findViewById(R.id.rulesHelpContent)
+        btnCloseRulesHelp = findViewById(R.id.btnCloseRulesHelp)
+        rulesHelpContent.movementMethod = ScrollingMovementMethod.getInstance()
+        formatRulesHelpContent()
         btnDiceTheme = findViewById(R.id.btnDiceTheme)
         historyEdgeHandle = findViewById(R.id.historyEdgeHandle)
         historyPanel = findViewById(R.id.historyPanel)
@@ -199,11 +226,13 @@ class MainActivity : AppCompatActivity() {
         diceStage.background = GrimdarkDrawable(this, ConsoleSurface.FRAME)
         consolePanel.background = GrimdarkDrawable(this, ConsoleSurface.PANEL)
         historyPanel.background = GrimdarkDrawable(this, ConsoleSurface.PANEL)
+        rulesHelpPanel.background = GrimdarkDrawable(this, ConsoleSurface.PANEL)
         diceControlCell.background = GrimdarkSkins.button(this, ConsoleSurface.CELL)
         thresholdControlCell.background = GrimdarkSkins.button(this, ConsoleSurface.CELL)
         btnCritical.background = GrimdarkSkins.button(this, ConsoleSurface.CELL)
-        summaryLayout.background = GrimdarkDrawable(this, ConsoleSurface.INSET)
-        defenceSummaryLayout?.background = GrimdarkDrawable(this, ConsoleSurface.INSET)
+        if (!isTablet) {
+            summaryLayout.background = GrimdarkDrawable(this, ConsoleSurface.INSET)
+        }
         btnRoll.background = GrimdarkSkins.button(
             this,
             ConsoleSurface.GREEN,
@@ -265,6 +294,16 @@ class MainActivity : AppCompatActivity() {
             haptic(it)
             showDiceThemeChooser()
         }
+        btnRulesHelp.setOnClickListener {
+            haptic(it)
+            setRulesHelpExpanded(!rulesHelpExpanded)
+        }
+        btnCloseRulesHelp.setOnClickListener {
+            haptic(it)
+            setRulesHelpExpanded(false)
+        }
+        rulesHelpOverlay.setOnClickListener { setRulesHelpExpanded(false) }
+        rulesHelpPanel.setOnClickListener { /* Consume taps inside the floating panel. */ }
         btnHistory.setOnClickListener {
             haptic(it)
             openHistory()
@@ -275,6 +314,8 @@ class MainActivity : AppCompatActivity() {
         listOf(
             btnRoll,
             btnReroll,
+            btnRulesHelp,
+            btnCloseRulesHelp,
             btnDiceTheme,
             btnHistory
         )
@@ -318,6 +359,7 @@ class MainActivity : AppCompatActivity() {
             override fun handleOnBackPressed() {
                 when {
                     historyPanel.visibility == View.VISIBLE -> closeHistory()
+                    rulesHelpExpanded -> setRulesHelpExpanded(false)
                     else -> {
                         isEnabled = false
                         onBackPressedDispatcher.onBackPressed()
@@ -325,6 +367,117 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun setRulesHelpExpanded(expanded: Boolean) {
+        rulesHelpExpanded = expanded
+        rulesHelpOverlay.visibility = if (expanded) View.VISIBLE else View.GONE
+        if (expanded) {
+            if (historyPanel.visibility == View.VISIBLE) closeHistory()
+            rulesHelpOverlay.bringToFront()
+            rulesHelpContent.post { rulesHelpContent.scrollTo(0, 0) }
+        }
+    }
+
+    private fun formatRulesHelpContent() {
+        val lines = getString(R.string.rules_help_content)
+            .lineSequence()
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
+            .toList()
+        val formatted = SpannableStringBuilder()
+        val keywordColor = ResourcesCompat.getColor(resources, R.color.primary_light, theme)
+        val badgeTextColor = ResourcesCompat.getColor(resources, R.color.text_primary, theme)
+        val badgeBackground = ResourcesCompat.getColor(resources, R.color.accent_dark, theme)
+
+        lines.forEachIndexed { index, line ->
+            val closeBracket = line.indexOf('】')
+            val isRule = line.startsWith("【") && closeBracket > 1
+            val label = if (isRule) line.substring(1, closeBracket) else line.substringBefore('：')
+            val description = if (isRule) {
+                line.substring(closeBracket + 1).trim()
+            } else {
+                line.substringAfter('：', missingDelimiterValue = "").trim()
+            }
+
+            val lineStart = formatted.length
+            val badgeStart = formatted.length
+            formatted.append(' ').append(rulePinyinInitial(label)).append(' ')
+            val badgeEnd = formatted.length
+            formatted.append("  ")
+            val labelStart = formatted.length
+            formatted.append(label)
+            val labelEnd = formatted.length
+            if (description.isNotEmpty()) {
+                formatted.append("：").append(description)
+            }
+            val lineEnd = formatted.length
+
+            formatted.setSpan(
+                ForegroundColorSpan(badgeTextColor),
+                badgeStart,
+                badgeEnd,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            formatted.setSpan(
+                BackgroundColorSpan(badgeBackground),
+                badgeStart,
+                badgeEnd,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            formatted.setSpan(
+                StyleSpan(Typeface.BOLD),
+                badgeStart,
+                badgeEnd,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            formatted.setSpan(
+                ForegroundColorSpan(keywordColor),
+                labelStart,
+                labelEnd,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            formatted.setSpan(
+                StyleSpan(Typeface.BOLD),
+                labelStart,
+                labelEnd,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            formatted.setSpan(
+                RelativeSizeSpan(1.04f),
+                labelStart,
+                labelEnd,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            formatted.setSpan(
+                LeadingMarginSpan.Standard(0, dp(18)),
+                lineStart,
+                lineEnd,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            if (index != lines.lastIndex) formatted.append('\n')
+        }
+
+        rulesHelpContent.text = formatted
+    }
+
+    private fun rulePinyinInitial(label: String): String {
+        return when (label.substringBefore(' ').substringBefore('／')) {
+            "通则" -> "T"
+            "安静" -> "A"
+            "爆炸" -> "B"
+            "残暴", "穿刺" -> "C"
+            "范围" -> "F"
+            "过热" -> "G"
+            "毫不留情", "洪流", "毁灭" -> "H"
+            "集中", "精准" -> "J"
+            "平衡" -> "P"
+            "撕裂" -> "S"
+            "无休" -> "W"
+            "严重", "有限", "晕眩" -> "Y"
+            "震荡", "致命", "重击", "重型", "追踪" -> "Z"
+            else -> "·"
+        }
     }
 
     private fun setupHistoryGestures() {
@@ -463,18 +616,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderDiceThemeButton() {
-        btnDiceTheme.setText(R.string.dice_theme_button)
-        val themeColor = getColor(
-            when (currentDiceTheme) {
-                DiceTheme.ANGELS_OF_DEATH -> R.color.primary_light
-                DiceTheme.PLAGUE_MARINES -> R.color.normal_success
-                DiceTheme.ORK_KOMMANDOS -> R.color.theme_kommandos
-                DiceTheme.CORSAIR_VOIDSCARRED -> R.color.theme_corsair
-                DiceTheme.DEATH_KORPS -> R.color.theme_death_korps
-            }
-        )
-        btnDiceTheme.setTextColor(themeColor)
-        btnDiceTheme.compoundDrawableTintList = ColorStateList.valueOf(themeColor)
+        btnDiceTheme.imageTintList =
+            ColorStateList.valueOf(getColor(R.color.primary_light))
     }
 
     private fun diceThemeDisplayName(theme: DiceTheme): String = getString(
@@ -695,6 +838,7 @@ class MainActivity : AppCompatActivity() {
             }
         )
         setLamp(LampState.READY)
+        renderResolution()
         renderPrimaryAction()
     }
 
@@ -726,13 +870,14 @@ class MainActivity : AppCompatActivity() {
         val values = valuesByMode.getValue(mode)
         if (values.isEmpty()) {
             layout.visibility = View.INVISIBLE
+            layout.animate().cancel()
             return
         }
         val summary = summaryFor(mode, values)
         normalText.text = getString(R.string.result_normal, summary.normals)
         criticalText.text = getString(R.string.result_critical, summary.criticals)
         failureText.text = getString(R.string.result_failure, summary.failures)
-        layout.visibility = View.VISIBLE
+        showResultOverlay(layout)
     }
 
     private fun summaryFor(mode: RollMode, values: List<Int>): RollSummary {
@@ -749,7 +894,52 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun renderResolution() {
+        val attackValues = valuesByMode.getValue(RollMode.ATTACK)
+        val defenceValues = valuesByMode.getValue(RollMode.DEFENCE)
+        if (!encounterComplete || attackValues.isEmpty() || defenceValues.isEmpty()) {
+            resolutionPanel.animate().cancel()
+            resolutionPanel.visibility = View.GONE
+            return
+        }
+
+        val resolution = RollLogic.resolveShooting(
+            attack = summaryFor(RollMode.ATTACK, attackValues),
+            defence = summaryFor(RollMode.DEFENCE, defenceValues)
+        )
+        resolutionText.text = if (
+            resolution.unblockedCriticals == 0 && resolution.unblockedNormals == 0
+        ) {
+            getString(R.string.resolution_cleared)
+        } else {
+            getString(
+                R.string.resolution_result,
+                resolution.unblockedCriticals,
+                resolution.unblockedNormals
+            )
+        }
+        if (isTablet) {
+            showResultOverlay(resolutionPanel, offsetDp = -8f)
+        } else {
+            resolutionPanel.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showResultOverlay(view: View, offsetDp: Float = 8f) {
+        if (view.visibility == View.VISIBLE) return
+        view.animate().cancel()
+        view.alpha = 0f
+        view.translationY = dp(offsetDp.toInt()).toFloat()
+        view.visibility = View.VISIBLE
+        view.animate()
+            .alpha(1f)
+            .translationY(0f)
+            .setDuration(180L)
+            .start()
+    }
+
     private fun renderCurrentRollState() {
+        renderResolution()
         if (valuesByMode.getValue(visibleTrayMode).isEmpty()) {
             if (isTablet) {
                 updateTabletSummaries()
@@ -805,6 +995,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             summaryLayout.visibility = View.INVISIBLE
         }
+        renderResolution()
         postRollButtons.visibility = View.GONE
         btnReset.isEnabled = false
         updateRerollControl(0)
@@ -870,6 +1061,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderIdleState() {
+        renderResolution()
         statusText.setText(if (diceReady) R.string.status_ready else R.string.status_loading)
         setLamp(if (diceReady) LampState.READY else LampState.DIM)
         renderPrimaryAction()
@@ -902,6 +1094,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openHistory() {
+        if (rulesHelpExpanded) setRulesHelpExpanded(false)
         renderHistoryList()
         historyPanel.animate().cancel()
         historyPanel.visibility = View.VISIBLE

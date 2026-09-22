@@ -6,6 +6,13 @@ data class RollSummary(
     val failures: Int
 )
 
+data class ShootingResolution(
+    val unblockedCriticals: Int,
+    val unblockedNormals: Int,
+    val blockedCriticals: Int,
+    val blockedNormals: Int
+)
+
 object RollLogic {
 
     fun classify(
@@ -20,13 +27,47 @@ object RollLogic {
 
         values.forEach { value ->
             when {
-                value == 1 -> failures++
+                value == 1 || value < threshold -> failures++
                 value >= criticalThreshold -> criticals++
-                value >= threshold -> normals++
-                else -> failures++
+                else -> normals++
             }
         }
         return RollSummary(criticals, normals, failures)
+    }
+
+    fun resolveShooting(
+        attack: RollSummary,
+        defence: RollSummary
+    ): ShootingResolution {
+        val attackCriticals = attack.criticals.coerceAtLeast(0)
+        val attackNormals = attack.normals.coerceAtLeast(0)
+        val defenceCriticals = defence.criticals.coerceAtLeast(0)
+        val defenceNormals = defence.normals.coerceAtLeast(0)
+
+        // Preserve success types throughout resolution. A critical is never converted into
+        // two normal successes: normal saves first cancel normal attacks one-for-one, and
+        // only otherwise-unused pairs of normal saves can cancel one critical attack.
+        val criticalsBlockedByCriticalSaves = minOf(defenceCriticals, attackCriticals)
+        val criticalSavesLeft = defenceCriticals - criticalsBlockedByCriticalSaves
+        val normalsBlockedByCriticalSaves = minOf(criticalSavesLeft, attackNormals)
+
+        val normalsAfterCriticalSaves = attackNormals - normalsBlockedByCriticalSaves
+        val normalsBlockedByNormalSaves = minOf(defenceNormals, normalsAfterCriticalSaves)
+        val normalSavesLeft = defenceNormals - normalsBlockedByNormalSaves
+
+        val criticalsAfterCriticalSaves = attackCriticals - criticalsBlockedByCriticalSaves
+        val criticalsBlockedByNormalSaves = minOf(normalSavesLeft / 2, criticalsAfterCriticalSaves)
+
+        val blockedCriticals =
+            criticalsBlockedByCriticalSaves + criticalsBlockedByNormalSaves
+        val blockedNormals = normalsBlockedByCriticalSaves + normalsBlockedByNormalSaves
+
+        return ShootingResolution(
+            unblockedCriticals = attackCriticals - blockedCriticals,
+            unblockedNormals = attackNormals - blockedNormals,
+            blockedCriticals = blockedCriticals,
+            blockedNormals = blockedNormals
+        )
     }
 
     fun mergeRerollResults(
