@@ -1,8 +1,8 @@
-# WHKT Dice
+# WHKT Battle Console
 
 <p align="center">
-  <strong>为《杀戮小队》攻防流程设计的 Android 战术骰盘</strong><br>
-  攻击与防御成对结算，手机手势切换，平板双盘同屏。
+  <strong>为《杀戮小队》完整双方对局设计的 Android 战术控制台</strong><br>
+  从双方编成、任务和部署开始，记录四个转折点、CP、VP、特工状态，并保留原有攻防骰盘。
 </p>
 
 <p align="center">
@@ -16,7 +16,16 @@
   <img alt="Last commit" src="https://img.shields.io/github/last-commit/digitalghost/WHKT-dice">
 </p>
 
-WHKT Dice 是一款面向桌面战棋玩家的离线 Android 掷骰工具。它不是一个通用随机数按钮集合，而是围绕《杀戮小队》中常见的“先攻击、后防御”流程设计：攻击骰与防御骰的结果会被分别保留，让玩家可以像查看两个真实骰盘一样直接比较双方结果。
+WHKT Battle Console 是一款面向桌面战棋玩家的离线 Android 对局记录工具。应用按照认证行动 2025 流程引导双方选择小队、设置任务、部署并完成四个转折点，持续保存 CP、VP、先手权和每名特工的状态。原有攻防骰盘作为对局中的武器结算工具继续使用，投掷解析规则保持不变。
+
+主要能力：
+
+- 一场对局直接选择双方已保存小队，无需先设置单一“当前小队”。
+- 应用内完成战前设置、部署提示、先手权、战略阶段、交战阶段和最终结算。
+- 记录双方 CP，关键/击杀/战术 VP，主要行动加分和击杀等级。
+- 记录每名特工的耐伤、命令、就绪/待机和残废状态。
+- 从任一方特工选择武器，直接把攻击骰、命中、伤害和关键字带入原骰盘。
+- 自动保存当前对局和历史对局，保留可读时间线。
 
 > 当前应用界面为简体中文。欢迎贡献英文及其他语言本地化。
 
@@ -104,11 +113,17 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 ```text
 app/src/main/java/com/example/helloworld/
-├── MainActivity.kt       # 攻防流程、响应式界面与历史记录交互
+├── BattleHubActivity.kt  # 对局入口、继续和历史记录
+├── BattleSetupActivity.kt# 双方战前设置向导
+├── BattleActivity.kt     # 四个转折点、双方资源/计分/特工状态
+├── BattleModels.kt       # 规则状态与流程计算
+├── BattleStore.kt        # 对局本地持久化
+├── MainActivity.kt       # 原攻防骰盘与历史记录交互
 ├── DiceTrayView.kt       # 骰子绘制、动画、碰撞与手势
 ├── RollLogic.kt          # 成功、暴击、失败及重投规则
 ├── RollHistoryStore.kt   # 本地投掷记录
-└── DiceSoundPlayer.kt    # 低延迟投骰音效
+├── RosterModels.kt       # 双方可复用的小队卡库与编成
+└── RosterStore.kt        # 多小队本地存储
 
 app/src/main/res/
 ├── layout/               # 手机布局
@@ -130,7 +145,7 @@ app/src/main/res/
 
 ## 免责声明
 
-这是一个由玩家制作的非官方辅助工具，与 Games Workshop 没有隶属、赞助或认可关系。“Warhammer 40,000”“Kill Team”及相关名称和标识属于其各自权利人。本仓库不包含或替代官方规则文本；使用时请以你所拥有的最新版官方规则为准。
+这是一个由玩家制作的非官方辅助工具，与 Games Workshop 没有隶属、赞助或认可关系。“Warhammer 40,000”“Kill Team”及相关名称和标识属于其各自权利人。`docs` 中的规则提取仅用于持有来源文件时的本地开发检索，不替代官方产品；公开发布仓库前请自行确认相关内容的分发权限，并始终以最新官方规则为准。
 
 ## 许可证
 

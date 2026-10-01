@@ -1,14 +1,14 @@
 <resources>
     <!-- Kill Team Grimdark Palette -->
-    <color name="background">#0A0908</color>
-    <color name="surface">#14110E</color>
-    <color name="surface_variant">#1C1814</color>
-    <color name="card_bg">#1A1612</color>
+    <color name="background">#0F0F0F</color>
+    <color name="surface">#191919</color>
+    <color name="surface_variant">#242424</color>
+    <color name="card_bg">#191919</color>
 
     <!-- Imperial Gold -->
-    <color name="primary">#C89B3C</color>
-    <color name="primary_light">#E8C573</color>
-    <color name="primary_dark">#7A6520</color>
+    <color name="primary">#C54C21</color>
+    <color name="primary_light">#EE7540</color>
+    <color name="primary_dark">#963916</color>
 
     <!-- Blood Red / Khorne -->
     <color name="accent">#A01818</color>
@@ -23,17 +23,17 @@
     <color name="critical">#FFD700</color>
 
     <!-- Text - Parchment tones -->
-    <color name="text_primary">#D4C4A0</color>
-    <color name="text_secondary">#8A7A5A</color>
-    <color name="text_hint">#5A4A3A</color>
+    <color name="text_primary">#EBEBE9</color>
+    <color name="text_secondary">#AAAAA6</color>
+    <color name="text_hint">#999995</color>
 
     <!-- Borders -->
-    <color name="border_gold">#40C5A572</color>
-    <color name="border_gold_strong">#80C5A572</color>
+    <color name="border_gold">#405D5149</color>
+    <color name="border_gold_strong">#80C54C21</color>
     <color name="border_dim">#33404040</color>
 
     <!-- Misc -->
-    <color name="ic_launcher_background">#1E1E1E</color>
+    <color name="ic_launcher_background">#100F0E</color>
 
     <!-- Gunmetal console -->
     <color name="metal_dark">#221D16</color>
@@ -51,7 +51,7 @@
     <color name="text_steel">#8A8D91</color>
     <color name="dice_tray">#0B0A08</color>
     <color name="normal_success">#7FD58B</color>
-    <color name="critical_result">#F2C85C</color>
+    <color name="critical_result">#EE925F</color>
     <color name="failure_result">#EA6258</color>
     <color name="theme_kommandos">#F0C84B</color>
     <color name="theme_corsair">#72E0D3</color>

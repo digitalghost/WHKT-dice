@@ -2,6 +2,7 @@ package com.example.helloworld
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Build
 import android.os.Bundle
@@ -38,6 +39,7 @@ import java.util.Locale
 import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
+    private val referenceUi by lazy { RecordUi(this) }
 
     private data class UndoState(
         val mode: RollMode,
@@ -52,6 +54,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var headerBar: View
     private lateinit var diceStage: View
     private lateinit var consolePanel: View
+    private lateinit var weaponInfoPanel: LinearLayout
+    private lateinit var weaponInfoTitle: TextView
+    private lateinit var weaponInfoText: TextView
     private lateinit var diceControlCell: View
     private lateinit var thresholdControlCell: View
     private lateinit var attackTrayPage: View
@@ -92,9 +97,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rulesHelpOverlay: View
     private lateinit var rulesHelpPanel: View
     private lateinit var rulesHelpContent: TextView
+    private var helpWeaponName: String? = null
+    private var helpWeaponKeywords: List<String> = emptyList()
     private lateinit var btnCloseRulesHelp: View
     private lateinit var btnDiceTheme: ImageButton
-    private lateinit var historyEdgeHandle: View
+ private lateinit var historyEdgeHandle: View
+ private lateinit var historyScrim: View
     private lateinit var historyPanel: View
     private lateinit var historyHeader: View
     private lateinit var historyList: LinearLayout
@@ -129,6 +137,7 @@ class MainActivity : AppCompatActivity() {
     private var defenceHasCover = false
     private var rollInProgress = false
     private var rulesHelpExpanded = false
+    private var loadedWeaponHint: String? = null
 
     private val config: RollConfig
         get() = configs.getValue(currentMode)
@@ -153,13 +162,21 @@ class MainActivity : AppCompatActivity() {
         historyStore = RollHistoryStore(this)
         diceSoundPlayer = DiceSoundPlayer(this)
         bindViews()
+        buildWeaponInfoPanel()
         restoreDiceTheme()
         applyConsoleSkin()
+        setupVisibleNavigation()
         setupListeners()
         renderConfig()
         renderIdleState()
-        showFirstGestureCoach()
+ applyWeaponIntent(intent)
         setupBackNavigation()
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        applyWeaponIntent(intent)
     }
 
     private fun bindViews() {
@@ -212,7 +229,8 @@ class MainActivity : AppCompatActivity() {
         rulesHelpContent.movementMethod = ScrollingMovementMethod.getInstance()
         formatRulesHelpContent()
         btnDiceTheme = findViewById(R.id.btnDiceTheme)
-        historyEdgeHandle = findViewById(R.id.historyEdgeHandle)
+ historyEdgeHandle = findViewById(R.id.historyEdgeHandle)
+ historyScrim = findViewById(R.id.historyScrim)
         historyPanel = findViewById(R.id.historyPanel)
         historyHeader = findViewById(R.id.historyHeader)
         historyList = findViewById(R.id.historyList)
@@ -240,6 +258,34 @@ class MainActivity : AppCompatActivity() {
         )
         btnReroll.background = GrimdarkSkins.button(this, ConsoleSurface.CELL)
         btnReset.background = GrimdarkSkins.button(this, ConsoleSurface.CELL)
+    }
+
+    private fun buildWeaponInfoPanel() {
+        weaponInfoTitle = TextView(this).apply {
+            setTextColor(getColor(R.color.primary_light))
+            textSize = 13f
+            typeface = ResourcesCompat.getFont(this@MainActivity, R.font.teko_variable)
+        }
+        weaponInfoText = TextView(this).apply {
+            setTextColor(getColor(R.color.text_primary))
+            textSize = 12f
+            typeface = Typeface.create("sans-serif", Typeface.BOLD)
+        }
+        weaponInfoPanel = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            background = GrimdarkDrawable(this@MainActivity, ConsoleSurface.INSET)
+            setPadding(dp(12), dp(8), dp(12), dp(8))
+            visibility = View.GONE
+            addView(weaponInfoTitle)
+            addView(weaponInfoText)
+        }
+        (mainContent as LinearLayout).addView(
+            weaponInfoPanel,
+            1,
+            LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+                setMargins(dp(8), dp(6), dp(8), 0)
+            }
+        )
     }
 
     private fun enterImmersiveMode() {
@@ -304,10 +350,11 @@ class MainActivity : AppCompatActivity() {
         }
         rulesHelpOverlay.setOnClickListener { setRulesHelpExpanded(false) }
         rulesHelpPanel.setOnClickListener { /* Consume taps inside the floating panel. */ }
-        btnHistory.setOnClickListener {
-            haptic(it)
-            openHistory()
-        }
+ btnHistory.setOnClickListener {
+ haptic(it)
+ openHistory()
+ }
+ historyScrim.setOnClickListener { closeHistory() }
         btnCloseHistory.setOnClickListener { closeHistory() }
         btnClearHistory.setOnClickListener { confirmHistoryClear() }
         setupHistoryGestures()
@@ -369,10 +416,42 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun setupVisibleNavigation() {
+        // The dice screen is immersive, so the system back gesture is not a
+        // discoverable navigation affordance. Keep a labelled exit on screen.
+        val battleId = intent.getStringExtra(BattleActivity.EXTRA_BATTLE_ID)
+        val bar = LinearLayout(this).apply {
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(dp(12), dp(4), dp(12), dp(4))
+            background = GrimdarkDrawable(this@MainActivity, ConsoleSurface.HEADER)
+        }
+        fun navigationButton(title: String, click: () -> Unit) = TextView(this).apply {
+            text = title
+            textSize = 14f
+            gravity = Gravity.CENTER
+            setTextColor(ResourcesCompat.getColor(resources, R.color.primary_light, theme))
+            setPadding(dp(14), 0, dp(14), 0)
+            background = GrimdarkSkins.button(this@MainActivity, ConsoleSurface.CELL)
+            setOnClickListener { click() }
+        }
+        bar.addView(navigationButton(if (battleId == null) "‹ 返回" else "‹ 返回对局") {
+            if (battleId == null) finish() else {
+                startActivity(Intent(this, BattleActivity::class.java).apply {
+                    putExtra(BattleActivity.EXTRA_BATTLE_ID, battleId)
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                })
+                finish()
+            }
+        }, LinearLayout.LayoutParams(-2, dp(48)))
+        bar.addView(View(this), LinearLayout.LayoutParams(0, 1, 1f))
+        findViewById<LinearLayout>(R.id.mainContent).addView(bar, 0, LinearLayout.LayoutParams(-1, dp(56)))
+    }
+
     private fun setRulesHelpExpanded(expanded: Boolean) {
         rulesHelpExpanded = expanded
         rulesHelpOverlay.visibility = if (expanded) View.VISIBLE else View.GONE
         if (expanded) {
+            formatRulesHelpContent()
             if (historyPanel.visibility == View.VISIBLE) closeHistory()
             rulesHelpOverlay.bringToFront()
             rulesHelpContent.post { rulesHelpContent.scrollTo(0, 0) }
@@ -390,6 +469,22 @@ class MainActivity : AppCompatActivity() {
         val badgeTextColor = ResourcesCompat.getColor(resources, R.color.text_primary, theme)
         val badgeBackground = ResourcesCompat.getColor(resources, R.color.accent_dark, theme)
 
+        helpWeaponName?.let { name ->
+            val start = formatted.length
+            formatted.append("当前武器 · ").append(name).append('\n')
+            formatted.setSpan(StyleSpan(Typeface.BOLD), start, formatted.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            formatted.setSpan(ForegroundColorSpan(keywordColor), start, formatted.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            if (helpWeaponKeywords.isEmpty()) formatted.append("此武器没有特殊关键词。\n")
+            helpWeaponKeywords.distinct().forEach { keyword ->
+                val from = formatted.length
+                formatted.append("◆ ").append(keyword).append("\n")
+                formatted.setSpan(StyleSpan(Typeface.BOLD), from, formatted.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                formatted.setSpan(ForegroundColorSpan(keywordColor), from, formatted.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                formatted.append(WeaponRuleFocus.definition(keyword)?.description ?: "暂无此关键词说明，请查看小队原卡。").append("\n\n")
+            }
+            formatted.append("全部规则 · ◆ 为当前武器相关条目\n\n")
+        }
+
         lines.forEachIndexed { index, line ->
             val closeBracket = line.indexOf('】')
             val isRule = line.startsWith("【") && closeBracket > 1
@@ -401,6 +496,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             val lineStart = formatted.length
+            val focused = helpWeaponName != null && WeaponRuleFocus.matches(label, helpWeaponKeywords)
+            if (focused) formatted.append("◆ ")
             val badgeStart = formatted.length
             formatted.append(' ').append(rulePinyinInitial(label)).append(' ')
             val badgeEnd = formatted.length
@@ -412,6 +509,10 @@ class MainActivity : AppCompatActivity() {
                 formatted.append("：").append(description)
             }
             val lineEnd = formatted.length
+            if (focused) {
+                formatted.setSpan(BackgroundColorSpan(0xff43251a.toInt()), lineStart, lineEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                formatted.setSpan(ForegroundColorSpan(0xffffe1cb.toInt()), lineStart, lineEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            }
 
             formatted.setSpan(
                 ForegroundColorSpan(badgeTextColor),
@@ -807,6 +908,21 @@ class MainActivity : AppCompatActivity() {
                 historyStore.appendReroll(historyId, RollMode.DEFENCE, currentValues)
             }
             encounterComplete = true
+            intent.getStringExtra(BattleActivity.EXTRA_BATTLE_ID)?.let { battleId ->
+                val store = BattleStore(this)
+                store.load(battleId)?.takeUnless { it.completed }?.let { battle ->
+                    val entry = BattleLogEntry(
+                        id = "roll-${activeHistoryId}",
+                        turningPoint = battle.turningPoint,
+                        phase = battle.phase,
+                        message = "${intent.getStringExtra("battle_roll_context").orEmpty()}；攻击骰 " +
+                            stagesByMode.getValue(RollMode.ATTACK).joinToString(" → ") +
+                            "；防御骰 " + stagesByMode.getValue(RollMode.DEFENCE).joinToString(" → ") +
+                            if (defenceHasCover) "；掩护预留 1 普通成功" else ""
+                    )
+                    store.save(battle.copy(log = battle.log.filterNot { it.id == entry.id } + entry))
+                }
+            }
         }
         showSummary()
         renderConfig()
@@ -1056,8 +1172,86 @@ class MainActivity : AppCompatActivity() {
         gestureHintText.text = when {
             !viewingActiveTray -> getString(R.string.gesture_read_only)
             selectedCount > 0 -> getString(R.string.gesture_selected, selectedCount)
+            currentMode == RollMode.ATTACK && currentValues.isEmpty() && loadedWeaponHint != null ->
+                loadedWeaponHint
             else -> getString(R.string.gesture_idle)
         }
+    }
+
+    private fun applyWeaponIntent(source: Intent): Boolean {
+        if (!source.hasExtra(EXTRA_ATTACK_DICE) || !source.hasExtra(EXTRA_HIT)) {
+            helpWeaponName = null
+            helpWeaponKeywords = emptyList()
+            weaponInfoPanel.visibility = View.GONE
+            formatRulesHelpContent()
+            return false
+        }
+
+        val attacks = source.getIntExtra(EXTRA_ATTACK_DICE, 1).coerceIn(1, 20)
+        val hit = source.getIntExtra(EXTRA_HIT, 6).coerceIn(2, 6)
+        val critical = source.getIntExtra(EXTRA_CRITICAL, 6).coerceIn(2, 6)
+        val normalDamage = source.getIntExtra(EXTRA_NORMAL_DAMAGE, 0).coerceAtLeast(0)
+        val criticalDamage = source.getIntExtra(EXTRA_CRITICAL_DAMAGE, 0).coerceAtLeast(0)
+        val rosterName = source.getStringExtra(EXTRA_ROSTER_NAME).orEmpty()
+        val memberName = source.getStringExtra(EXTRA_MEMBER_NAME).orEmpty()
+        val weaponName = source.getStringExtra(EXTRA_WEAPON_NAME).orEmpty()
+        val keywords = source.getStringArrayListExtra(EXTRA_WEAPON_KEYWORDS).orEmpty()
+        helpWeaponName = weaponName.ifBlank { "所选武器" }
+        helpWeaponKeywords = keywords
+        formatRulesHelpContent()
+
+        attackDiceTray.clearResults()
+        defenceDiceTray.clearResults()
+        valuesByMode.keys.forEach { valuesByMode[it] = emptyList() }
+        stagesByMode.values.forEach { it.clear() }
+        pendingRerollIndices = null
+        activeHistoryId = null
+        attackConfirmed = false
+        encounterComplete = false
+        defenceHasCover = false
+        rollInProgress = false
+        coverRetainedBadge.visibility = View.GONE
+        summaryLayout.visibility = View.INVISIBLE
+        defenceSummaryLayout?.visibility = View.INVISIBLE
+        resolutionPanel.visibility = View.GONE
+        postRollButtons.visibility = View.GONE
+
+        configs[RollMode.ATTACK] = RollConfig(attacks, hit, critical)
+        if (source.hasExtra("battle_target_save")) {
+            configs[RollMode.DEFENCE] = RollConfig(3, source.getIntExtra("battle_target_save", 6).coerceIn(2, 6), 6)
+        }
+        val previousMode = visibleTrayMode
+        currentMode = RollMode.ATTACK
+        showTrayPage(previousMode, RollMode.ATTACK)
+
+        loadedWeaponHint = buildString {
+            if (memberName.isNotBlank()) append(memberName).append(" · ")
+            append(weaponName.ifBlank { "已选武器" })
+            append(" · 伤害 ").append(normalDamage).append('/').append(criticalDamage)
+            if (keywords.isNotEmpty()) append(" · ").append(keywords.joinToString("、"))
+        }
+        weaponInfoTitle.text = listOf(memberName, weaponName.ifBlank { "已选武器" })
+            .filter { it.isNotBlank() }
+            .joinToString(" · ")
+        val weaponDetails = buildString {
+            append("攻击 ").append(attacks)
+            append(" · 命中 ").append(hit).append('+')
+            append(" · 暴击 ").append(critical).append('+')
+            append(" · 伤害 ").append(normalDamage).append('/').append(criticalDamage)
+            if(keywords.isNotEmpty()) append("\n关键词：").append(keywords.joinToString("、"))
+        }
+        WeaponRulesUi.linkify(weaponInfoText,referenceUi,weaponName.ifBlank { "所选武器" },weaponDetails,keywords)
+        weaponInfoPanel.visibility = View.VISIBLE
+
+        renderConfig()
+        renderCurrentRollState()
+        updateRerollControl(0)
+        statusText.text = if (rosterName.isBlank()) {
+            getString(R.string.status_ready)
+        } else {
+            rosterName
+        }
+        return true
     }
 
     private fun renderIdleState() {
@@ -1095,9 +1289,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun openHistory() {
         if (rulesHelpExpanded) setRulesHelpExpanded(false)
-        renderHistoryList()
-        historyPanel.animate().cancel()
-        historyPanel.visibility = View.VISIBLE
+ renderHistoryList()
+ historyPanel.animate().cancel()
+ historyScrim.animate().cancel()
+ historyScrim.alpha = 0f
+ historyScrim.visibility = View.VISIBLE
+ historyScrim.animate().alpha(1f).setDuration(180).start()
+ historyPanel.visibility = View.VISIBLE
         historyPanel.alpha = 1f
         historyPanel.post {
             if (isTablet) {
@@ -1114,8 +1312,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun closeHistory() {
-        if (historyPanel.visibility != View.VISIBLE) return
-        historyPanel.animate().cancel()
+ if (historyPanel.visibility != View.VISIBLE) return
+ historyPanel.animate().cancel()
+ historyScrim.animate().cancel()
+ historyScrim.visibility = View.GONE
         val animator = if (isTablet) {
             historyPanel.animate().translationX(historyPanel.width.toFloat())
         } else {
@@ -1367,6 +1567,11 @@ class MainActivity : AppCompatActivity() {
         }
 
     private fun restoreHistoryEntry(entry: RollHistoryEntry) {
+        helpWeaponName = null
+        helpWeaponKeywords = emptyList()
+        formatRulesHelpContent()
+        // Historical rolls are independent of the battle that opened this screen.
+        intent.removeExtra(BattleActivity.EXTRA_BATTLE_ID)
         if (entry.isPaired) {
             restorePairedHistoryEntry(entry)
             return
@@ -1545,5 +1750,17 @@ class MainActivity : AppCompatActivity() {
         lampAnimator?.cancel()
         diceSoundPlayer.release()
         super.onDestroy()
+    }
+
+    companion object {
+        const val EXTRA_ROSTER_NAME = "roster_name"
+        const val EXTRA_MEMBER_NAME = "member_name"
+        const val EXTRA_WEAPON_NAME = "weapon_name"
+        const val EXTRA_ATTACK_DICE = "attack_dice"
+        const val EXTRA_HIT = "hit"
+        const val EXTRA_CRITICAL = "critical"
+        const val EXTRA_NORMAL_DAMAGE = "normal_damage"
+        const val EXTRA_CRITICAL_DAMAGE = "critical_damage"
+        const val EXTRA_WEAPON_KEYWORDS = "weapon_keywords"
     }
 }

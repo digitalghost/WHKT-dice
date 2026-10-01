@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">战术骰盘</string>
+    <string name="app_name">杀戮小队对局台</string>
     <string name="header_title">战术骰盘</string>
     <string name="header_subtitle">战术掷骰终端</string>
     <string name="dice_count_label">骰子数量</string>
@@ -130,4 +130,6 @@
     <string name="resolution_title">自动结算</string>
     <string name="resolution_result">未结算攻击：%1$d 暴击 · %2$d 普通成功</string>
     <string name="resolution_cleared">全部攻击已抵挡</string>
+    <string name="roster_button_desc">打开杀戮小队编成</string>
+    <string name="battle_setup_step">步骤 %1$d / %2$d · %3$s</string>
 </resources>

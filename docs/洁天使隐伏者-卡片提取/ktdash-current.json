@@ -1,0 +1,1211 @@
+{
+  "retrieved_at": "2026-09-24",
+  "url": "https://ktdash.app/api/killteams/IMP-CI",
+  "data": {
+    "factionId": "IMP",
+    "killteamId": "IMP-CI",
+    "killteamName": "Celestian Insidiants",
+    "description": "Celestian Insidiant kill teams comprise a range of specialists, each one trained and outfitted to perform a specific role\nin the pursuit and destruction of sorcerous foes. Some utilise esoteric relic weapons and equipment drawn from the\nextensive armouries of their Orders Militant, the bearing of which is a great honour.",
+    "composition": "A CELESTIAN INSIDIANT Killteam is composed of:\n\n- 1 CELESTIAN INSIDIANT SUPERIOR operative with one of the following options:\n\t- Relic condemnor stakethrower; relic bolt pistol; null mace\n    - Inferno pistol; null mace\n- 8 CELESTIAN INSIDIANT operatives selected from the following list:\n\t- ABJUROR\n\t- CENSOR\n\t- CREMATOR\n\t- DENUNCIA\n\t- MORTISANCTUS\n\t- RELIQUARIUS\n\t- WARRIOR\n\nOther than CREMATOR and WARRIOR operatives, your kill team can only include each operative on this list once.  \nYour kill team can only include up to two CREMATOR operatives.",
+    "archetypes": "Security/Seek And Destroy",
+    "isPublished": true,
+    "isHomebrew": false,
+    "opTypes": [
+      {
+        "opTypeId": "IMP-CI-SUP",
+        "killteamId": "IMP-CI",
+        "seq": 1,
+        "opTypeName": "Superior",
+        "MOVE": "6\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 10,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, LEADER, SUPERIOR",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-SUP-IP",
+            "opTypeId": "IMP-CI-SUP",
+            "seq": 1,
+            "wepName": "Inferno Pistol",
+            "wepType": "R",
+            "isDefault": false,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-SUP-IP-1",
+                "wepId": "IMP-CI-SUP-IP",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/2",
+                "WR": "Rng 3\", Dev3, Prc2",
+                "name_zh": "单一档案",
+                "rules_zh": "范围 3\", 毁灭3, 穿刺2（Rng 3\", Dev3, Prc2）"
+              }
+            ],
+            "name_zh": "狱火手枪"
+          },
+          {
+            "wepId": "IMP-CI-SUP-RBP",
+            "opTypeId": "IMP-CI-SUP",
+            "seq": 2,
+            "wepName": "Relic Bolt Pistol",
+            "wepType": "R",
+            "isDefault": false,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-SUP-RBP-1",
+                "wepId": "IMP-CI-SUP-RBP",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/5",
+                "WR": "Rng 8\", Lethal 5+",
+                "name_zh": "单一档案",
+                "rules_zh": "范围 8\", 致命 5+（Rng 8\", Lethal 5+）"
+              }
+            ],
+            "name_zh": "圣物爆矢手枪"
+          },
+          {
+            "wepId": "IMP-CI-SUP-RCST",
+            "opTypeId": "IMP-CI-SUP",
+            "seq": 3,
+            "wepName": "Relic Condemnor Stakethrower",
+            "wepType": "R",
+            "isDefault": false,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-SUP-RCST-1",
+                "wepId": "IMP-CI-SUP-RCST",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "2/2",
+                "WR": "Dev2, Lethal 5+, PrcCrit1, Silent, Anti-PSYKER",
+                "name_zh": "单一档案",
+                "rules_zh": "毁灭2, 致命 5+, 关键穿刺1, 安静, 反灵能者（Dev2, Lethal 5+, PrcCrit1, Silent, Anti-PSYKER）"
+              }
+            ],
+            "name_zh": "圣物降罪者掷桩器"
+          },
+          {
+            "wepId": "IMP-CI-SUP-NM",
+            "opTypeId": "IMP-CI-SUP",
+            "seq": 4,
+            "wepName": "Null Mace",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-SUP-NM-1",
+                "wepId": "IMP-CI-SUP-NM",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/4",
+                "WR": "Shock, Anti-PSYKER",
+                "name_zh": "单一档案",
+                "rules_zh": "震荡, 反灵能者（Shock, Anti-PSYKER）"
+              }
+            ],
+            "name_zh": "虚无之槌"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-SUP-BEN",
+            "opTypeId": "IMP-CI-SUP",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-SUP-HE",
+            "opTypeId": "IMP-CI-SUP",
+            "abilityName": "Holy Example",
+            "AP": null,
+            "description": "Once per turning point, if this operative is INSPIRING, you can use a firefight ploy for 0CP if this is the specified CELESTIAN INSIDIANT operative (including Command Re-roll if the attack or defence dice was rolled for this operative).",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-SUP-INS",
+            "opTypeId": "IMP-CI-SUP",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-SUP-MAR",
+            "opTypeId": "IMP-CI-SUP",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-SUP-SM",
+            "opTypeId": "IMP-CI-SUP",
+            "abilityName": "Spiritual Mentor",
+            "AP": 1,
+            "description": "**SUPPORT**. Select one friendly CELESTIAN INSIDIANT operative visible to and within 6\" of this operative. That operative becomes INSPIRING.\n\nThis operative cannot perform this action while within control range of an enemy operative, or more than once per turning point.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-SUP-WOTWH",
+            "opTypeId": "IMP-CI-SUP",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 10,
+        "opName": "Superior",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-CI-ABJ",
+        "killteamId": "IMP-CI",
+        "seq": 2,
+        "opTypeName": "Abjuror",
+        "MOVE": "6\"",
+        "APL": 2,
+        "SAVE": "2+",
+        "WOUNDS": 11,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, ABJUROR",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-ABJ-BSPP",
+            "opTypeId": "IMP-CI-ABJ",
+            "seq": 1,
+            "wepName": "Blessed Sword & Praesidium Protectiva",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-ABJ-BSPP-1",
+                "wepId": "IMP-CI-ABJ-BSPP",
+                "seq": 1,
+                "profileName": "Defensive",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/6",
+                "WR": "*Shield",
+                "name_zh": "防御",
+                "rules_zh": "护盾（*Shield）"
+              },
+              {
+                "wepprofileId": "IMP-CI-ABJ-BSPP-2",
+                "wepId": "IMP-CI-ABJ-BSPP",
+                "seq": 2,
+                "profileName": "Offensive",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/6",
+                "WR": "Lethal 5+",
+                "name_zh": "进攻",
+                "rules_zh": "致命 5+（Lethal 5+）"
+              }
+            ],
+            "name_zh": "受祝利剑和庇圣护盾"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-ABJ-SH",
+            "opTypeId": "IMP-CI-ABJ",
+            "abilityName": "*Shield",
+            "AP": null,
+            "description": "Whenever this operative is fighting or retaliating with this weapon profile, each of your blocks can be allocated to block two unresolved successes (instead of one).",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-ABJ-BEN",
+            "opTypeId": "IMP-CI-ABJ",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-ABJ-HD",
+            "opTypeId": "IMP-CI-ABJ",
+            "abilityName": "Holy Defender",
+            "AP": null,
+            "description": "Once per turning point, when a friendly CELESTIAN INSIDIANT operative visible to and within 2\" of this operative is selected as the valid target of a Shoot action or to fight against during the Fight action, you can use this rule.\nIf you do, this operative becomes the valid target or is fought against (as appropriate) instead (even if it wouldn’t normally be valid for this). If it’s the Fight action, treat this operative as being within the fighting operative’s control range for the duration of that action.\nIf it’s the Shoot action, this operative is only in cover or obscured if the original target was.\n\nThis rule has no effect if it’s the Shoot action and the ranged weapon has the Blast or Torrent weapon rule.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-ABJ-INS",
+            "opTypeId": "IMP-CI-ABJ",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-ABJ-MAR",
+            "opTypeId": "IMP-CI-ABJ",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-ABJ-WOTWH",
+            "opTypeId": "IMP-CI-ABJ",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 11,
+        "opName": "Abjuror",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-CI-CEN",
+        "killteamId": "IMP-CI",
+        "seq": 3,
+        "opTypeName": "Censor",
+        "MOVE": "6\"",
+        "APL": 2,
+        "SAVE": "3+",
+        "WOUNDS": 9,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, CENSOR",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-CEN-VOA",
+            "opTypeId": "IMP-CI-CEN",
+            "seq": 1,
+            "wepName": "Virge Of Admonition",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-CEN-VOA-1",
+                "wepId": "IMP-CI-CEN-VOA",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "4+",
+                "DMG": "5/5",
+                "WR": "Brutal, Shock, Anti-PSYKER",
+                "name_zh": "单一档案",
+                "rules_zh": "残暴, 震荡, 反灵能者（Brutal, Shock, Anti-PSYKER）"
+              }
+            ],
+            "name_zh": "告诫之杖"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-CEN-BEN",
+            "opTypeId": "IMP-CI-CEN",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-CEN-INS",
+            "opTypeId": "IMP-CI-CEN",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-CEN-MAR",
+            "opTypeId": "IMP-CI-CEN",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-CEN-NF",
+            "opTypeId": "IMP-CI-CEN",
+            "abilityName": "Null Field",
+            "AP": null,
+            "description": "This operative starts the battle with a null range of 1\".\nWhenever an enemy operative is within null range of this operative, subtract 2\" from the Move stat of that enemy operative and worsen the Hit stat of its weapons by 1 (this isn’t cumulative with being injured).",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-CEN-NR",
+            "opTypeId": "IMP-CI-CEN",
+            "abilityName": "Nullifying Ritual",
+            "AP": 1,
+            "description": "Add 1 to this operative’s null range (to a maximum of 5\"). Nullification tokens in the marker/token guide are numbered, so use the numbered token equal to this operative’s null range.\n\nThis operative cannot perform this action while within control range of an enemy operative, or more than once per turning point.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-CEN-VOAIB",
+            "opTypeId": "IMP-CI-CEN",
+            "abilityName": "Virge of Admonition Icon Bearer",
+            "AP": null,
+            "description": "Whenever determining control of a marker, treat this operative’s APL stat as 1 higher. Note this isn't a change to its APL stat, so any changes are cumulative with this.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-CEN-WOTWH",
+            "opTypeId": "IMP-CI-CEN",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 9,
+        "opName": "Censor",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-CI-CRE",
+        "killteamId": "IMP-CI",
+        "seq": 4,
+        "opTypeName": "Cremator",
+        "MOVE": "6\"",
+        "APL": 2,
+        "SAVE": "3+",
+        "WOUNDS": 9,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, CREMATOR",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-CRE-HF",
+            "opTypeId": "IMP-CI-CRE",
+            "seq": 1,
+            "wepName": "Hand Flamer",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-CRE-HF-1",
+                "wepId": "IMP-CI-CRE-HF",
+                "seq": 1,
+                "profileName": "Standard",
+                "ATK": "4",
+                "HIT": "2+",
+                "DMG": "3/3",
+                "WR": "Rng 6\", Sat, Tor 1\"",
+                "name_zh": "标准",
+                "rules_zh": "范围 6\", 集中, 洪流 1\"（Rng 6\", Sat, Tor 1\"）"
+              },
+              {
+                "wepprofileId": "IMP-CI-CRE-HF-2",
+                "wepId": "IMP-CI-CRE-HF",
+                "seq": 2,
+                "profileName": "Deluge",
+                "ATK": "4",
+                "HIT": "2+",
+                "DMG": "3/3",
+                "WR": "Rng 4\", Sat, Seek Light, *Tor 0\"",
+                "name_zh": "喷涌",
+                "rules_zh": "范围 4\", 集中, 追踪轻型, *洪流 0\"（Rng 4\", Sat, Seek Light, *Tor 0\"）"
+              }
+            ],
+            "name_zh": "喷火手枪"
+          },
+          {
+            "wepId": "IMP-CI-CRE-NM",
+            "opTypeId": "IMP-CI-CRE",
+            "seq": 2,
+            "wepName": "Null  Mace",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-CRE-NM-1",
+                "wepId": "IMP-CI-CRE-NM",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/4",
+                "WR": "Shock, Anti-PSYKER",
+                "name_zh": "单一档案",
+                "rules_zh": "震荡, 反灵能者（Shock, Anti-PSYKER）"
+              }
+            ],
+            "name_zh": "虚无之槌"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-CRE-T0",
+            "opTypeId": "IMP-CI-CRE",
+            "abilityName": "*Torrent 0\"",
+            "AP": null,
+            "description": "Note that Torrent 0\" means you cannot select secondary targets, but this weapon still has the Torrent weapon rule for all other rules purposes, e.g. the Condensed Stronghold rule (see Killzone: Volkus, Kill Team Core Book).",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-CRE-BEN",
+            "opTypeId": "IMP-CI-CRE",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-CRE-INS",
+            "opTypeId": "IMP-CI-CRE",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-CRE-IP",
+            "opTypeId": "IMP-CI-CRE",
+            "abilityName": "Inspirational Pyre",
+            "AP": null,
+            "description": "Once per turning point, when this operative inflicts damage on an enemy operative with either profile of its hand flamer but doesn’t incapacitate it, you can use this rule.\nIf you do, you can select one friendly CELESTIAN INSIDIANT operative within 6\" of this operative to become INSPIRING.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-CRE-MAR",
+            "opTypeId": "IMP-CI-CRE",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-CRE-WOTWH",
+            "opTypeId": "IMP-CI-CRE",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 9,
+        "opName": "Cremator",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-CI-DEN",
+        "killteamId": "IMP-CI",
+        "seq": 5,
+        "opTypeName": "Denuncia",
+        "MOVE": "6\"",
+        "APL": 2,
+        "SAVE": "3+",
+        "WOUNDS": 9,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, DENUNCIA",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-DEN-VOC",
+            "opTypeId": "IMP-CI-DEN",
+            "seq": 1,
+            "wepName": "Voice Of Condemnation",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-DEN-VOC-1",
+                "wepId": "IMP-CI-DEN-VOC",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "5",
+                "HIT": "3+",
+                "DMG": "1/1",
+                "WR": "Rng 6\", Seek, Stun",
+                "name_zh": "单一档案",
+                "rules_zh": "范围 6\", 追踪, 晕眩（Rng 6\", Seek, Stun）"
+              }
+            ],
+            "name_zh": "谴罪之声"
+          },
+          {
+            "wepId": "IMP-CI-DEN-SOD",
+            "opTypeId": "IMP-CI-DEN",
+            "seq": 2,
+            "wepName": "Staff Of Declamation",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-DEN-SOD-1",
+                "wepId": "IMP-CI-DEN-SOD",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/3",
+                "WR": "Shock",
+                "name_zh": "单一档案",
+                "rules_zh": "震荡（Shock）"
+              }
+            ],
+            "name_zh": "宣判之杖"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-DEN-AE",
+            "opTypeId": "IMP-CI-DEN",
+            "abilityName": "Accusing Exorcist",
+            "AP": null,
+            "description": "Whenever this operative is INSPIRING, the Suspect & Eliminate strategy ploy costs you 0CP if the enemy operative or marker you select is visible to or within 6\" of this operative.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-DEN-BEN",
+            "opTypeId": "IMP-CI-DEN",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-DEN-INS",
+            "opTypeId": "IMP-CI-DEN",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-DEN-MAR",
+            "opTypeId": "IMP-CI-DEN",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-DEN-SOHD",
+            "opTypeId": "IMP-CI-DEN",
+            "abilityName": "Speak Of Her Deeds",
+            "AP": 1,
+            "description": "**SUPPORT.** Select an INSPIRING friendly CELESTIAN INSIDIANT operative visible to and within 6\" of this operative.\nThat operative is no longer INSPIRING. Then, select another friendly CELESTIAN INSIDIANT operative visible to and within 6\" of this operative.\nResolve one BENEDICTION from the Martyrdom faction rule on that operative (excluding Exigence).\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-DEN-WOTWH",
+            "opTypeId": "IMP-CI-DEN",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 9,
+        "opName": "Denuncia",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-CI-MOR",
+        "killteamId": "IMP-CI",
+        "seq": 6,
+        "opTypeName": "Mortisanctus",
+        "MOVE": "6\"",
+        "APL": 2,
+        "SAVE": "3+",
+        "WOUNDS": 9,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, MORTISANCTUS",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-MOR-BB",
+            "opTypeId": "IMP-CI-MOR",
+            "seq": 1,
+            "wepName": "Blessed Broadsword",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-MOR-BB-1",
+                "wepId": "IMP-CI-MOR-BB",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/6",
+                "WR": "Lethal 5+, Brutal",
+                "name_zh": "单一档案",
+                "rules_zh": "致命 5+, 残暴（Lethal 5+, Brutal）"
+              }
+            ],
+            "name_zh": "受祝阔剑"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-MOR-BEN",
+            "opTypeId": "IMP-CI-MOR",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-MOR-BS",
+            "opTypeId": "IMP-CI-MOR",
+            "abilityName": "Bladed Stance",
+            "AP": null,
+            "description": "Whenever this operative is fighting or retaliating, you can resolve one of your successes before the normal order. If you do, that success must be used to block.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-MOR-INS",
+            "opTypeId": "IMP-CI-MOR",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-MOR-MAR",
+            "opTypeId": "IMP-CI-MOR",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-MOR-WOTWH",
+            "opTypeId": "IMP-CI-MOR",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-MOR-ZU",
+            "opTypeId": "IMP-CI-MOR",
+            "abilityName": "Zealous Ultimatum",
+            "AP": null,
+            "description": "Once per battle STRATEGIC GAMBIT. Select one enemy operative within 8\" of this operative and issue an ultimatum to it.\nYour opponent must accept or decline that ultimatum (if it's a non-player operative, roll one D6: on a 4+, the ultimatum is accepted, otherwise it’s declined).\n\nIf the ultimatum is accepted, whenever this operative is fighting against or retaliating against that enemy operative, add 1 to the Atk stat of this operative's blessed broadsword.\nThe first time this operative incapacitates that enemy operative while fighting or retaliating during the battle, add 1 to the Atk stat of this operative’s blessed broadsword until the end of the battle.\nIn either case, this is to a maximum of 5.\n\nIf the ultimatum is declined, whenever that enemy operative is fighting against or retaliating against a friendly CELESTIAN INSIDIANT operative, subtract 1 from the Atk stat of that enemy operative’s weapons.",
+            "isFactionRule": false
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 9,
+        "opName": "Mortisanctus",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-CI-REL",
+        "killteamId": "IMP-CI",
+        "seq": 7,
+        "opTypeName": "Reliquarius",
+        "MOVE": "6\"",
+        "APL": 2,
+        "SAVE": "3+",
+        "WOUNDS": 9,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, RELIQUARIUS",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-REL-BP",
+            "opTypeId": "IMP-CI-REL",
+            "seq": 1,
+            "wepName": "Bolt Pistol",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-REL-BP-1",
+                "wepId": "IMP-CI-REL-BP",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/4",
+                "WR": "Rng 8\"",
+                "name_zh": "单一档案",
+                "rules_zh": "范围 8\"（Rng 8\"）"
+              }
+            ],
+            "name_zh": "爆矢手枪"
+          },
+          {
+            "wepId": "IMP-CI-REL-CST",
+            "opTypeId": "IMP-CI-REL",
+            "seq": 2,
+            "wepName": "Condemnor Stakethrower",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-REL-CST-1",
+                "wepId": "IMP-CI-REL-CST",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "2/2",
+                "WR": "Dev 1, PrcCrit1, Silent, Anti-PSYKER",
+                "name_zh": "单一档案",
+                "rules_zh": "毁灭 1, 关键穿刺1, 安静, 反灵能者（Dev 1, PrcCrit1, Silent, Anti-PSYKER）"
+              }
+            ],
+            "name_zh": "降罪者掷桩器"
+          },
+          {
+            "wepId": "IMP-CI-REL-GB",
+            "opTypeId": "IMP-CI-REL",
+            "seq": 3,
+            "wepName": "Gun Butt",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-REL-GB-1",
+                "wepId": "IMP-CI-REL-GB",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "3",
+                "HIT": "3+",
+                "DMG": "2/3",
+                "WR": "",
+                "name_zh": "单一档案",
+                "rules_zh": "无（—）"
+              }
+            ],
+            "name_zh": "枪托"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-REL-BEN",
+            "opTypeId": "IMP-CI-REL",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-REL-DEV",
+            "opTypeId": "IMP-CI-REL",
+            "abilityName": "Devotion",
+            "AP": null,
+            "description": "At the end of each of this operative’s activations, if it’s INSPIRING and it controls an objective marker or one of your mission markers, one friendly CELESTIAN INSIDIANT operative this operative is visible to and within 6\" of becomes INSPIRING.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-REL-INS",
+            "opTypeId": "IMP-CI-REL",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-REL-MAR",
+            "opTypeId": "IMP-CI-REL",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-REL-SNIB",
+            "opTypeId": "IMP-CI-REL",
+            "abilityName": "Simulacrum Nullificatus Icon Bearer",
+            "AP": null,
+            "description": "Whenever determining control of a marker, treat the total APL stat of enemy operatives that contest it as 1 lower if at least one of those enemy operatives is within 3\" of this operative.\nNote this isn’t a change to the APL stat, so any changes are cumulative with this.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-REL-WOTWH",
+            "opTypeId": "IMP-CI-REL",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 9,
+        "opName": "Reliquarius",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-CI-WAR",
+        "killteamId": "IMP-CI",
+        "seq": 8,
+        "opTypeName": "Warrior",
+        "MOVE": "6\"",
+        "APL": 2,
+        "SAVE": "3+",
+        "WOUNDS": 9,
+        "keywords": "CELESTIAN INSIDIANT, IMPERIUM, ADEPTA SORORITAS, WARRIOR",
+        "basesize": 32,
+        "nameType": "DECAETA",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-CI-WAR-BP",
+            "opTypeId": "IMP-CI-WAR",
+            "seq": 1,
+            "wepName": "Bolt Pistol",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-WAR-BP-1",
+                "wepId": "IMP-CI-WAR-BP",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/4",
+                "WR": "Rng 8\"",
+                "name_zh": "单一档案",
+                "rules_zh": "范围 8\"（Rng 8\"）"
+              }
+            ],
+            "name_zh": "爆矢手枪"
+          },
+          {
+            "wepId": "IMP-CI-WAR-CST",
+            "opTypeId": "IMP-CI-WAR",
+            "seq": 2,
+            "wepName": "Condemnor Stakethrower",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-WAR-CST-1",
+                "wepId": "IMP-CI-WAR-CST",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "2/2",
+                "WR": "Dev1, PrcCrit1, Silent, Anti-PSYKER",
+                "name_zh": "单一档案",
+                "rules_zh": "毁灭1, 关键穿刺1, 安静, 反灵能者（Dev1, PrcCrit1, Silent, Anti-PSYKER）"
+              }
+            ],
+            "name_zh": "降罪者掷桩器"
+          },
+          {
+            "wepId": "IMP-CI-WAR-NM",
+            "opTypeId": "IMP-CI-WAR",
+            "seq": 3,
+            "wepName": "Null Mace",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-CI-WAR-NM-1",
+                "wepId": "IMP-CI-WAR-NM",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/4",
+                "WR": "Shock, Anti-PSYKER",
+                "name_zh": "单一档案",
+                "rules_zh": "震荡, 反灵能者（Shock, Anti-PSYKER）"
+              }
+            ],
+            "name_zh": "虚无之槌"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-CI-WAR-BEN",
+            "opTypeId": "IMP-CI-WAR",
+            "abilityName": "Benedictions",
+            "AP": null,
+            "description": "|**Benediction**|**Effect**|\n|-----|-----|\n|Ardour|Until the end of the battle, add 1 to that operative’s APL stat. You cannot select this BENEDICTION for a SUPERIOR operative.|\n|Wrath|Until the end of the battle, weapons on that operative’s datacard have the Ceaseless weapon rule.|\n|Restoration|That operative regains up to D3+2 lost wounds.|\n|Exigence|That operative can immediately perform a free Charge or Dash action (for the former, it cannot move more than 3\"), but must end that move closer to that incapacitated INSPIRING operative.|\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-WAR-INS",
+            "opTypeId": "IMP-CI-WAR",
+            "abilityName": "Inspiration",
+            "AP": null,
+            "description": "Whenever a friendly CELESTIAN INSIDIANT operative:\n- Incapacitates an enemy operative that has a Wounds stat of 6 or more, that friendly operative becomes INSPIRING.\n- Performs the Charge action, before it moves, it becomes INSPIRING\n\nWhenever a friendly CELESTIAN INSIDIANT operative is INSPIRING, weapons on its datacard have the Severe weapon rule.\n",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-WAR-IS",
+            "opTypeId": "IMP-CI-WAR",
+            "abilityName": "Inspired Strikes",
+            "AP": null,
+            "description": "Whenever this operative is INSPIRING, add 1 to the Critical Dmg stat of weapons on its datacard.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-CI-WAR-MAR",
+            "opTypeId": "IMP-CI-WAR",
+            "abilityName": "Martyrdom",
+            "AP": null,
+            "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, before it’s removed from the killzone, select one other friendly CELESTIAN INSIDIANT operative that operative is visible to or within 6\" of.\n\nThen, that selected operative gains one BENEDICTION (incapacitated operatives cannot be selected for a BENEDICTION).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-CI-WAR-WOTWH",
+            "opTypeId": "IMP-CI-WAR",
+            "abilityName": "Weapons Of The Witch Hunters",
+            "AP": null,
+            "description": "PSYCHIC ranged weapons cannot inflict damage on friendly CELESTIAN INSIDIANT operatives.\n\nFor the effects of PSYCHIC actions, friendly CELESTIAN INSIDIANT operatives cannot be selected and are never treated as being within those actions’ required distances.\nWhenever an operative is within 3\" of a friendly CELESTIAN INSIDIANT operative:\n- That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n- That operative cannot use PSYCHIC ranged weapons.\n- PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\n",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 9,
+        "opName": "Warrior",
+        "opType": null,
+        "opId": null
+      }
+    ],
+    "ploys": [
+      {
+        "ployId": "IMP-CI-SAI",
+        "killteamId": "IMP-CI",
+        "ployType": "S",
+        "seq": 1,
+        "ployName": "Suspect & Eliminate",
+        "description": "Select one enemy operative or marker. If you select an enemy operative, that operative and each other enemy operative visible to and within 2\" of it gains one of your Suspicion tokens until the end of the turning point.\nIf you selected a marker, each enemy operative contesting that marker gains one of your Suspicion tokens until the end of the turning point.\n\nWhenever a friendly CELESTIAN INSIDIANT operative is shooting against or fighting against an operative that has one of your Suspicion tokens, that friendly operative's weapons have the Punishing weapon rule."
+      },
+      {
+        "ployId": "IMP-CI-WD",
+        "killteamId": "IMP-CI",
+        "ployType": "S",
+        "seq": 2,
+        "ployName": "Wrathful Determination",
+        "description": "Whenever an operative is shooting a friendly CELESTIAN INSIDIANT operative that has an Engage order, you can re-roll one of your defence dice."
+      },
+      {
+        "ployId": "IMP-CI-SAS",
+        "killteamId": "IMP-CI",
+        "ployType": "S",
+        "seq": 3,
+        "ployName": "Suffering & Sacrifice",
+        "description": "Whenever a wounded friendly CELESTIAN INSIDIANT operative is shooting against, fighting against or retaliating against an enemy operative, its weapons have the Balanced weapon rule."
+      },
+      {
+        "ployId": "IMP-CI-HR",
+        "killteamId": "IMP-CI",
+        "ployType": "S",
+        "seq": 4,
+        "ployName": "Holy Resilience",
+        "description": "Whenever an INSPIRING friendly CELESTIAN INSIDIANT operative is fighting or retaliating, Normal and Critical Dmg of 4 or more inflicts 1 less damage on that friendly operative."
+      },
+      {
+        "ployId": "IMP-CI-GTTM",
+        "killteamId": "IMP-CI",
+        "ployType": "T",
+        "seq": 5,
+        "ployName": "Glory To The Martyrs",
+        "description": "Use this firefight ploy when a friendly CELESTIAN INSIDIANT operative is incapacitated while fighting or retaliating.\nYou can strike the enemy operative in that sequence with one of yourunresolved successes before it’s removed from the killzone.\nIf that enemy operative is incapacitated as a result, that friendly operative becomes INSPIRING before it’s removed from the killzone and you can resolve the Martyrdom faction rule."
+      },
+      {
+        "ployId": "IMP-CI-FAF",
+        "killteamId": "IMP-CI",
+        "ployType": "T",
+        "seq": 6,
+        "ployName": "Faith & Fury",
+        "description": "Use this firefight ploy when a friendly CELESTIAN INSIDIANT operative is fighting and you strike the enemy operative in that sequence with a critical success.\nAfter resolving that strike, also inflict D3 damage on each other enemy operative visible to and within 2\" of that friendly operative in an order of your choice (roll separately for each).\nNote that the friendly operative would become INSPIRING if any enemy operatives with a Wounds stat of 6 or more are incapacitated as a result of this damage."
+      },
+      {
+        "ployId": "IMP-CI-UP",
+        "killteamId": "IMP-CI",
+        "ployType": "T",
+        "seq": 7,
+        "ployName": "Unshakeable Pursuit",
+        "description": "Use this firefight ploy during a friendly CELESTIAN INSIDIANT operative’s activation, before or after it performs an action.\nUntil the end of that operative’s activation, you can ignore any changes to its Move stat. If that operative is INSPIRING, add 1\" to its Move stat until the end of that activation.\nIf that operative becomes INSPIRING by performing the Charge action, you can use this ploy before it moves to gain the additional movement (this takes precedence over stats not changing during an action)."
+      },
+      {
+        "ployId": "IMP-CI-FH",
+        "killteamId": "IMP-CI",
+        "ployType": "T",
+        "seq": 8,
+        "ployName": "Fervent Hate",
+        "description": "Use this firefight ploy after rolling your attack dice for a friendly CELESTIAN INSIDIANT operative, if it’s shooting against, fighting against or retaliating against an enemy operative that doesn’t have the IMPERIUM keyword.\nThat friendly operative’s weapons have the Ceaseless weapon rule until the end of that sequence; if that enemy operative also has the CHAOS and/or PSYKER keyword, that friendly operative’s weapons have the Relentless weapon rule until the end of that sequence instead."
+      }
+    ],
+    "equipments": [
+      {
+        "eqId": "IMP-CI-POG",
+        "killteamId": "IMP-CI",
+        "seq": 1,
+        "eqName": "Psyk-Out Grenades",
+        "description": "This equipment allows you to select two utility grenades from the utility grenades equipment (see universal equipment) and they must all be stun grenades.\nIf you also select that equipment as normal, you cannot select any stun grenades (i.e. to give you more than two).\nWhenever an operative takes a stun test as a result of a friendly CELESTIAN INSIDIANT operative performing the Stun Grenade action, if the result is a 3+, also inflict damage on that first operative equal to the dice result halved (rounding up).\nIf that first operative has the PSYKER keyword, inflict damage on it equal to the dice result instead.",
+        "effects": ""
+      },
+      {
+        "eqId": "IMP-CI-VM",
+        "killteamId": "IMP-CI",
+        "seq": 2,
+        "eqName": "Vocifera Mortis",
+        "description": "Once per battle, when an INSPIRING friendly CELESTIAN INSIDIANT operative is incapacitated, you can use this rule.\nIf you do, for the Martyrdom faction rule, the other friendly CELESTIAN INSIDIANT operative you select can be one that isn’t visible to or within 6\" of that operative.",
+        "effects": ""
+      },
+      {
+        "eqId": "IMP-CI-SR",
+        "killteamId": "IMP-CI",
+        "seq": 3,
+        "eqName": "Saintly Relics",
+        "description": "Whenever an attack dice would inflict damage on a friendly CELESTIAN INSIDIANT operative, you can use this rule.\nIf you do, roll one D6, or two D6 if that operative is INSPIRING: if any result is a 6, ignore the damage inflicted from that attack dice.\nYou cannot ignore more than one attack dice per action and two attack dice per battle this way.",
+        "effects": ""
+      },
+      {
+        "eqId": "IMP-CI-AF",
+        "killteamId": "IMP-CI",
+        "seq": 4,
+        "eqName": "Auto-Flagellator",
+        "description": "Whenever a friendly CELESTIAN INSIDIANT operative is activated, you can use this rule.\nIf you do, roll one D6 and inflict damage on that operative equal to half the result (rounding up); on a 4+, that operative also becomes INSPIRING.\nYou cannot make more than one friendly operative INSPIRING using this rule per turning point.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-AC",
+        "killteamId": null,
+        "seq": 601,
+        "eqName": "Ammo Cache (x1)",
+        "description": "Before the battle, you can set up one of your Ammo Cache markers wholly within your territory. Friendly operatives can perform the following mission action during the battle:\r **AMMO RESUPPLY (0 AP):** One of your Ammo Cache markers the active operative controls is used during this turning point.  \n\r Until the start of the next turning point, whenever this operative is shooting with a weapon from its datacard, you can re-roll one of your attack dice.\n\n\r An operative cannot perform this action while within control range of an enemy operative, if that marker is not yours, or if that marker has been used this turning point.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-RW",
+        "killteamId": null,
+        "seq": 602,
+        "eqName": "Razor Wire (x1)",
+        "description": "Razor wire is Exposed and Obstructing terrain. Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.  \n\r Obstructing: Whenever an operative would cross over this terrain feature within 1\" of it, treat the distance as an additional 1\".",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-CD",
+        "killteamId": null,
+        "seq": 603,
+        "eqName": "Comms Device (x1)",
+        "description": "Before the battle, you can set up one of your Comms Device markers wholly within your territory.\nWhile a friendly operative controls this marker, add 3\" to the distance requirements of its SUPPORT rules that refer to friendly operatives\n(e.g. ‘select one friendly operative within 6\"’ would be 9\" instead).\nNote that you cannot benefit from your opponent's Comms Device markers.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-MN",
+        "killteamId": null,
+        "seq": 604,
+        "eqName": "Mines (x1)",
+        "description": "Before the battle, you can set up one of your Mines markers wholly within your territory and more than 2\" from other markers, access points, and Accessible terrain.\r The first time that marker is within an operative's control range, remove that marker and inflict D3+3 damage on that operative.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-LB",
+        "killteamId": null,
+        "seq": 605,
+        "eqName": "Light Barricades (x2)",
+        "description": "Light barricades are Light terrain, except the feet, which are Insignificant and Exposed. Before the battle, you can set up any of them wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-HB",
+        "killteamId": null,
+        "seq": 606,
+        "eqName": "Heavy Barricade (x1)",
+        "description": "A heavy barricade is Heavy terrain. Before the battle, you can set it up wholly within 4\" of your drop zone, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-LAD",
+        "killteamId": null,
+        "seq": 607,
+        "eqName": "Ladders (x2)",
+        "description": "Ladders are Insignificant and Exposed terrain. Before the battle, you can set up any of them as follows:\n- Wholly within your territory.\n- Upright against terrain that’s at least 2\" tall.\n- More than 2\" from other equipment terrain features.\n- More than 1\" from doors and access points.\n\nOnce per action, whenever an operative is climbing the terrain feature a ladder is placed against, treat the vertical distance as 1\" if the ladder is within that operative’s control range during that entire climb.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-PB",
+        "killteamId": null,
+        "seq": 608,
+        "eqName": "Portable Barricade (x1)",
+        "description": "A portable barricade is Light, Protective and Portable terrain, except the feet which are Insignificant and Exposed.\r Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.\r   \r \r **Protective:** While an operative is in cover from this terrain feature, improve its Save stat by 1 (to a maximum of 2+).  \r \r **Portable:** This terrain feature only provides cover while an operative is connected to it and if the shield is intervening (ignore its feet).\r Operatives connected to the inside of it can perform the following unique action during the battle:  \r \r **Move With Barricade (1 AP):**\r The same as the Reposition action, except the active operative can move no more than its Move stat minus 2\" and cannot climb, drop, jump, or use any killteam's rules that remove it and set it back up again (e.gh. HEARTHKYN SALVAGER Fly, MANDRAKE Shadow Passage).  \r \r Before this operative moves, remove the portable barricade it is connected to. After it moves, set up the portable barricade so it is connected again, but the portable barricade cannot be set up within 2\" of\r other equipment terrain features, access points or Accessible terrain. If this is not possible, the portable barricade is not set up again.  \r \r This action is treated as a Reposition action. An operative cannot perform this action while within control range of an enemy operative, or in the same activation in which it performed the Fall Back or Charge action.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-UG-SMK",
+        "killteamId": null,
+        "seq": 609,
+        "eqName": "Utility Grenade - Smoke (x1/2)",
+        "description": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\r Each selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\r   \r \r **SMOKE GRENADE (1 AP):**  \r \r \r - Place one of your Smoke Grenade markers within 6\" of this operative. It must be visible to this operative,\r or on Vantage terrain of a terrain feature that is visible to this operative. The marker creates an area of smoke 1\" horizontally and unlimited height vertically from (but not below) it.\r - While an operative is wholly within an area of smoke, it is obscured to operatives more than 2\" from it, and vice versa.\r In addition, whenever an operative is shooting an enemy operative wholly within an area of smoke, weapons with the Piercing 2 or Piercing Crits 2 weapon rule have the Piercing 1 or Piercing Crits 1 weapon rule (respectively) instead, unless they’re within 2\" of each other.\r - In the Ready step of the next Strategy phase, roll one D3. Remove that Smoke Grenade marker after a number of activations equal to that D3 have been completed\r or at the end of the turning point (whichever comes first).\r - An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\r ",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-UG-STN",
+        "killteamId": null,
+        "seq": 609,
+        "eqName": "Utility Grenade - Stun (x1/2)",
+        "description": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\nEach selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\n  \n\n**STUN GRENADE (1 AP):**  \n\n\n- Select one enemy operative visible to and within 6\" of this operative. That operative and each other operative within 1\" of it takes a stun test. For an operative to take a stun test, roll one D6: on a 3+, subtract 1 from its APL stat until the end of its next activation.\n- An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\n",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-XG-FRAG",
+        "killteamId": null,
+        "seq": 610,
+        "eqName": "Explosive Grenade - Frag (x1/2)",
+        "description": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\n\n|**Name**|**ATK**|**HIT**|**DMG**|\n|-----|:-----:|:-----:|:-----:|\n|Frag Grenade|4|4+|2/4|\n|**Weapon Rules**|\n|Rng 6\", Blast 2\", Saturate|",
+        "effects": "ADDWEP:Frag Grenade|R|4|4+|2/4|Rng 6\", Blast 2\", Sat"
+      },
+      {
+        "eqId": "UNIVERSAL-UE-XG-KRAK",
+        "killteamId": null,
+        "seq": 610,
+        "eqName": "Explosive Grenade - Krak (x1/2)",
+        "description": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\r \r |**Name**|**ATK**|**HIT**|**DMG**|\r |-----|:-----:|:-----:|:-----:|\r |Krak Grenade|4|4+|4/5|\r |**Weapon Rules**|\r |Rng 6\", Piercing 1, Saturate|",
+        "effects": "ADDWEP:Krak Grenade|R|4|4+|4/5|Rng 6\", Piercing 1, Sat"
+      },
+      {
+        "eqId": "UNIVERSAL-UE-BC",
+        "killteamId": null,
+        "seq": 611,
+        "eqName": "Breaching Charge",
+        "description": "Once per battle, when a friendly operative performs the Breach action, you can use this rule. If you do, that operative can perform that action for 1 less AP (to a minimum of 1AP) as though it had the word \"breach marker\" on its datacard.",
+        "effects": ""
+      }
+    ]
+  }
+}

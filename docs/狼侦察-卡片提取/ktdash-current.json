@@ -1,0 +1,1091 @@
+{
+  "retrieved_at": "2026-09-24",
+  "url": "https://ktdash.app/api/killteams/IMP-WS",
+  "data": {
+    "factionId": "IMP",
+    "killteamId": "IMP-WS",
+    "killteamName": "Wolf Scouts",
+    "description": "Wolf Scout kill teams are their Great Company's most feared and accomplished hunters, roving far ahead of the Space Wolves' strike forces on solitary, unsupported missions. They cause death and anarchy behind enemy lines through assassination, sabotage and more besides, often while cloaked in strange mists or furious storms.",
+    "composition": "A WOLF SCOUTS KillTeam is composed of:\r - 1 WOLF SCOUT FENRISIAN WOLF\r - 5 WOLF SCOUT operatives selected from the following list:\r   - PACK LEADER\r   - FANGBEARER\r   - FROSTEYE\r   - GUNNER\r   - TRAPMASTER\r   - RUNE PRIEST SKJALD\r   - HUNTER\r \r Other than HUNTER operatives, your kill team can only include each operative on this list once.",
+    "archetypes": "Seek And Destroy/Recon",
+    "isPublished": true,
+    "isHomebrew": false,
+    "opTypes": [
+      {
+        "opTypeId": "IMP-WS-LDR",
+        "killteamId": "IMP-WS",
+        "seq": 1,
+        "opTypeName": "Pack Leader",
+        "MOVE": "7\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 13,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, PACK, LEADER",
+        "basesize": 32,
+        "nameType": "CORVIUS",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-LDR-PP",
+            "opTypeId": "IMP-WS-LDR",
+            "seq": 1,
+            "wepName": "Plasma Pistol",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-LDR-PP-1",
+                "wepId": "IMP-WS-LDR-PP",
+                "seq": 1,
+                "profileName": "Standard",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/5",
+                "WR": "Rng 8\", Prc1",
+                "name_zh": "标准",
+                "rules_zh": "范围 8\", 穿刺1（Rng 8\", Prc1）"
+              },
+              {
+                "wepprofileId": "IMP-WS-LDR-PP-2",
+                "wepId": "IMP-WS-LDR-PP",
+                "seq": 2,
+                "profileName": "Supercharge",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "Rng 8\", Hot, Lethal 5+, Prc1",
+                "name_zh": "过载",
+                "rules_zh": "范围 8\", 过热, 致命 5+, 穿刺1（Rng 8\", Hot, Lethal 5+, Prc1）"
+              }
+            ],
+            "name_zh": "等离子手枪"
+          },
+          {
+            "wepId": "IMP-WS-LDR-PW",
+            "opTypeId": "IMP-WS-LDR",
+            "seq": 2,
+            "wepName": "Power Weapon",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-LDR-PW-1",
+                "wepId": "IMP-WS-LDR-PW",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "5",
+                "HIT": "3+",
+                "DMG": "4/6",
+                "WR": "Lethal 5+",
+                "name_zh": "单一档案",
+                "rules_zh": "致命 5+（Lethal 5+）"
+              }
+            ],
+            "name_zh": "动力武器"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-LDR-ES",
+            "opTypeId": "IMP-WS-LDR",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-LDR-GV",
+            "opTypeId": "IMP-WS-LDR",
+            "abilityName": "Grizzled Veteran",
+            "AP": null,
+            "description": "The first time this operative would be incapacitated during the battle, it is not incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder of the action. All remaining attack dice are discarded (including yours if this operative is fighting or retaliating). You cannot use the Counterattack firefight ploy or inflict damage as a result of the Savage Fighters strategy ploy at the end of that action.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-LDR-HA",
+            "opTypeId": "IMP-WS-LDR",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-LDR-LG",
+            "opTypeId": "IMP-WS-LDR",
+            "abilityName": "Lupine Guile",
+            "AP": null,
+            "description": "Once per battle, after rolling off to decide initiative, if this operative is in the killzone, you can re-roll your dice.",
+            "isFactionRule": false
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 13,
+        "opName": "Pack Leader",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-WS-FB",
+        "killteamId": "IMP-WS",
+        "seq": 2,
+        "opTypeName": "Fangbearer",
+        "MOVE": "7\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 13,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FANGBEARER",
+        "basesize": 32,
+        "nameType": "CORVIUS",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-FB-ABP",
+            "opTypeId": "IMP-WS-FB",
+            "seq": 1,
+            "wepName": "Absolver Bolt Pistol",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-FB-ABP-1",
+                "wepId": "IMP-WS-FB-ABP",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "Rng 8\", PrcCrit 1",
+                "name_zh": "单一档案",
+                "rules_zh": "范围 8\", 关键穿刺 1（Rng 8\", PrcCrit 1）"
+              }
+            ],
+            "name_zh": "赦免者爆矢手枪"
+          },
+          {
+            "wepId": "IMP-WS-FB-CB",
+            "opTypeId": "IMP-WS-FB",
+            "seq": 2,
+            "wepName": "Combat Blade",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-FB-CB-1",
+                "wepId": "IMP-WS-FB-CB",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "5",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "",
+                "name_zh": "单一档案",
+                "rules_zh": "无（—）"
+              }
+            ],
+            "name_zh": "格斗刀"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-FB-ES",
+            "opTypeId": "IMP-WS-FB",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-FB-HB",
+            "opTypeId": "IMP-WS-FB",
+            "abilityName": "Healing Balms",
+            "AP": 1,
+            "description": "Select one friendly WOLF SCOUT operative within this operative’s control range to regain up to D3+3 lost wounds.\r \r This operative cannot perform this action while within control range of an enemy operative, or more than once per turning point.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-FB-HA",
+            "opTypeId": "IMP-WS-FB",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-FB-SC",
+            "opTypeId": "IMP-WS-FB",
+            "abilityName": "Spiritual Chirurgy",
+            "AP": null,
+            "description": "You can ignore any changes to the stats of friendly WOLF SCOUT operatives (excluding FENRISIAN WOLF) from being injured (including their weapons’ stats). Note that friendly operatives have this rule if you select this operative for the battle (even if it’s incapacitated later). ",
+            "isFactionRule": false
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 13,
+        "opName": "Fangbearer",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-WS-FE",
+        "killteamId": "IMP-WS",
+        "seq": 3,
+        "opTypeName": "Frosteye",
+        "MOVE": "7\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 13,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FROSTEYE",
+        "basesize": 32,
+        "nameType": "CORVIUS",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-FE-IBC",
+            "opTypeId": "IMP-WS-FE",
+            "seq": 1,
+            "wepName": "Instigator Bolt Carbine",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-FE-IBC-2",
+                "wepId": "IMP-WS-FE-IBC",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/4",
+                "WR": "PrcCrit 1, Silent",
+                "name_zh": "单一档案",
+                "rules_zh": "关键穿刺 1, 安静（PrcCrit 1, Silent）"
+              }
+            ],
+            "name_zh": "煽动者爆矢卡宾枪"
+          },
+          {
+            "wepId": "IMP-WS-FE-CB",
+            "opTypeId": "IMP-WS-FE",
+            "seq": 2,
+            "wepName": "Combat Blade",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-FE-CB-1",
+                "wepId": "IMP-WS-FE-CB",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "",
+                "name_zh": "单一档案",
+                "rules_zh": "无（—）"
+              }
+            ],
+            "name_zh": "格斗刀"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-FE-ES",
+            "opTypeId": "IMP-WS-FE",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-FE-HS",
+            "opTypeId": "IMP-WS-FE",
+            "abilityName": "Hunter's Senses",
+            "AP": 1,
+            "description": "Select one of the following rules for this operative’s instigator bolt carbine to have until the start of its next activation:\r - Severe.\r - Saturate, and whenever this operative is shooting with that weapon, enemy operatives cannot be obscured.\r \r This operative cannot perform this action while within control range of an enemy operative.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-FE-HA",
+            "opTypeId": "IMP-WS-FE",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-FE-SVE",
+            "opTypeId": "IMP-WS-FE",
+            "abilityName": "Storm-Veiled Execution",
+            "AP": null,
+            "description": "Whenever this operative is wholly within your STORM:\n- It can perform the Guard action regardless of the killzone (see close quarters rules, Kill Team Core Book).\n- It can perform the Guard action while it has a Conceal order, but if it does, it cannot perform more than one Shoot action for the rest of the turning point (i.e. it cannot Shoot both during the interruption and during counteract).",
+            "isFactionRule": false
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 13,
+        "opName": "Frosteye",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-WS-GNR",
+        "killteamId": "IMP-WS",
+        "seq": 4,
+        "opTypeName": "Gunner",
+        "MOVE": "7\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 13,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, GUNNER",
+        "basesize": 32,
+        "nameType": "CORVIUS",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-GNR-PG",
+            "opTypeId": "IMP-WS-GNR",
+            "seq": 1,
+            "wepName": "Plasma Gun",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-GNR-PG-1",
+                "wepId": "IMP-WS-GNR-PG",
+                "seq": 1,
+                "profileName": "Standard",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/6",
+                "WR": "Prc1",
+                "name_zh": "标准",
+                "rules_zh": "穿刺1（Prc1）"
+              },
+              {
+                "wepprofileId": "IMP-WS-GNR-PG-2",
+                "wepId": "IMP-WS-GNR-PG",
+                "seq": 2,
+                "profileName": "Supercharge",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "5/6",
+                "WR": "Hot, Lethal 5+, Prc1",
+                "name_zh": "过载",
+                "rules_zh": "过热, 致命 5+, 穿刺1（Hot, Lethal 5+, Prc1）"
+              }
+            ],
+            "name_zh": "等离子枪"
+          },
+          {
+            "wepId": "IMP-WS-GNR-CB",
+            "opTypeId": "IMP-WS-GNR",
+            "seq": 2,
+            "wepName": "Combat Blade",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-GNR-CB-1",
+                "wepId": "IMP-WS-GNR-CB",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "",
+                "name_zh": "单一档案",
+                "rules_zh": "无（—）"
+              }
+            ],
+            "name_zh": "格斗刀"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-GNR-ES",
+            "opTypeId": "IMP-WS-GNR",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-GNR-HA",
+            "opTypeId": "IMP-WS-GNR",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-GNR-TF",
+            "opTypeId": "IMP-WS-GNR",
+            "abilityName": "Tempest's Fury",
+            "AP": null,
+            "description": "Whenever this operative is wholly within your STORM:\n- All profiles of its plasma gun have the Punishing weapon rule.\n- Its plasma gun (supercharge) doesn’t have the Hot weapon rule.",
+            "isFactionRule": false
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 13,
+        "opName": "Gunner",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-WS-HNT",
+        "killteamId": "IMP-WS",
+        "seq": 5,
+        "opTypeName": "Hunter",
+        "MOVE": "7\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 13,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, HUNTER",
+        "basesize": 32,
+        "nameType": "CORVIUS",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-HNT-PP",
+            "opTypeId": "IMP-WS-HNT",
+            "seq": 1,
+            "wepName": "Plasma Pistol",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-HNT-PP-1",
+                "wepId": "IMP-WS-HNT-PP",
+                "seq": 1,
+                "profileName": "Standard",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/5",
+                "WR": "Rng 8\", Prc1",
+                "name_zh": "标准",
+                "rules_zh": "范围 8\", 穿刺1（Rng 8\", Prc1）"
+              },
+              {
+                "wepprofileId": "IMP-WS-HNT-PP-2",
+                "wepId": "IMP-WS-HNT-PP",
+                "seq": 2,
+                "profileName": "Supercharge",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "Rng 8\", Hot, Lethal 5+, Prc1",
+                "name_zh": "过载",
+                "rules_zh": "范围 8\", 过热, 致命 5+, 穿刺1（Rng 8\", Hot, Lethal 5+, Prc1）"
+              }
+            ],
+            "name_zh": "等离子手枪"
+          },
+          {
+            "wepId": "IMP-WS-HNT-CB",
+            "opTypeId": "IMP-WS-HNT",
+            "seq": 2,
+            "wepName": "Combat Blade",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-HNT-CB-1",
+                "wepId": "IMP-WS-HNT-CB",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "5",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "",
+                "name_zh": "单一档案",
+                "rules_zh": "无（—）"
+              }
+            ],
+            "name_zh": "格斗刀"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-HNT-ES",
+            "opTypeId": "IMP-WS-HNT",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-HNT-FT",
+            "opTypeId": "IMP-WS-HNT",
+            "abilityName": "Fierce Temperament",
+            "AP": null,
+            "description": "Whenever this operative is wholly within your STORM, its weapons have the Severe weapon rule.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-HNT-HA",
+            "opTypeId": "IMP-WS-HNT",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 13,
+        "opName": "Hunter",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-WS-RP",
+        "killteamId": "IMP-WS",
+        "seq": 6,
+        "opTypeName": "Rune Priest Skjald",
+        "MOVE": "7\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 13,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, PSYKER, RUNE PRIEST SKJALD",
+        "basesize": 32,
+        "nameType": "CORVIUS",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-RP-BP",
+            "opTypeId": "IMP-WS-RP",
+            "seq": 1,
+            "wepName": "Bolt Pistol",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-RP-BP-1",
+                "wepId": "IMP-WS-RP-BP",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/4",
+                "WR": "Rng 8\"",
+                "name_zh": "单一档案",
+                "rules_zh": "范围 8\"（Rng 8\"）"
+              }
+            ],
+            "name_zh": "爆矢手枪"
+          },
+          {
+            "wepId": "IMP-WS-RP-JOTWW",
+            "opTypeId": "IMP-WS-RP",
+            "seq": 2,
+            "wepName": "Jaws of the World Wolf",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-RP-JOTWW-1",
+                "wepId": "IMP-WS-RP-JOTWW",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/5",
+                "WR": "PSYCHIC, Blast 2\", Sev",
+                "name_zh": "单一档案",
+                "rules_zh": "灵能, 爆炸 2\", 严重（PSYCHIC, Blast 2\", Sev）"
+              }
+            ],
+            "name_zh": "世界狼撕咬"
+          },
+          {
+            "wepId": "IMP-WS-RP-TC",
+            "opTypeId": "IMP-WS-RP",
+            "seq": 3,
+            "wepName": "Thunderclap",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-RP-TC-1",
+                "wepId": "IMP-WS-RP-TC",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "5",
+                "HIT": "2+",
+                "DMG": "2/2",
+                "WR": "PSYCHIC, Rng 6\", Sat, Seek Light, Stun, Tor 2\"",
+                "name_zh": "单一档案",
+                "rules_zh": "灵能, 范围 6\", 集中, 追踪轻型, 晕眩, 洪流 2\"（PSYCHIC, Rng 6\", Sat, Seek Light, Stun, Tor 2\"）"
+              }
+            ],
+            "name_zh": "雷霆冲击"
+          },
+          {
+            "wepId": "IMP-WS-RP-RS",
+            "opTypeId": "IMP-WS-RP",
+            "seq": 4,
+            "wepName": "Runic Stave",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-RP-RS-1",
+                "wepId": "IMP-WS-RP-RS",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "5",
+                "HIT": "3+",
+                "DMG": "4/6",
+                "WR": "PSYCHIC, Shock",
+                "name_zh": "单一档案",
+                "rules_zh": "灵能, 震荡（PSYCHIC, Shock）"
+              }
+            ],
+            "name_zh": "符文杖"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-RP-CTS",
+            "opTypeId": "IMP-WS-RP",
+            "abilityName": "Call the Storm",
+            "AP": 1,
+            "description": "PSYCHIC. Remove your Storm marker from the killzone (if any), then place it in the killzone.\n\nPSYCHIC. Alternatively, instead of resolving the above effect, select one friendly WOLF SCOUT operative.\nUntil the start of this operative’s next activation, until it’s incapacitated or until it performs this action again (whichever comes first),\nwhenever that friendly operative is wholly within your STORM and more than 3\" from the active operative, it’s obscured.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-RP-CTR",
+            "opTypeId": "IMP-WS-RP",
+            "abilityName": "Cast the Runes",
+            "AP": null,
+            "description": "After selecting this operative, before the battle, roll three D6 and put them to one side.\r For each result of 1-4, you can use the Command Re-roll firefight ploy for OCP once during the turning point that matches the result.\r If one or more results are 5-6, you gain 1CP.\r For example, if you roll 2, 2 and 5, you gain 1CP and twice during the second turning point you can use Command Re-roll for 0CP",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-RP-ES",
+            "opTypeId": "IMP-WS-RP",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-RP-HA",
+            "opTypeId": "IMP-WS-RP",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 13,
+        "opName": "Rune Priest Skjald",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-WS-TM",
+        "killteamId": "IMP-WS",
+        "seq": 7,
+        "opTypeName": "Trapmaster",
+        "MOVE": "7\"",
+        "APL": 3,
+        "SAVE": "3+",
+        "WOUNDS": 13,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, TRAPMASTER",
+        "basesize": 32,
+        "nameType": "CORVIUS",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-TM-PP",
+            "opTypeId": "IMP-WS-TM",
+            "seq": 1,
+            "wepName": "Plasma Pistol",
+            "wepType": "R",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-TM-PP-1",
+                "wepId": "IMP-WS-TM-PP",
+                "seq": 1,
+                "profileName": "Standard",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "3/5",
+                "WR": "Rng 8\", Prc1",
+                "name_zh": "标准",
+                "rules_zh": "范围 8\", 穿刺1（Rng 8\", Prc1）"
+              },
+              {
+                "wepprofileId": "IMP-WS-TM-PP-2",
+                "wepId": "IMP-WS-TM-PP",
+                "seq": 2,
+                "profileName": "Supercharge",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "Rng 8\",  Hot, Lethal 5+, Prc1",
+                "name_zh": "过载",
+                "rules_zh": "范围 8\",  过热, 致命 5+, 穿刺1（Rng 8\",  Hot, Lethal 5+, Prc1）"
+              }
+            ],
+            "name_zh": "等离子手枪"
+          },
+          {
+            "wepId": "IMP-WS-TM-CB",
+            "opTypeId": "IMP-WS-TM",
+            "seq": 2,
+            "wepName": "Combat Blade",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-TM-CB-1",
+                "wepId": "IMP-WS-TM-CB",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "5",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "",
+                "name_zh": "单一档案",
+                "rules_zh": "无（—）"
+              }
+            ],
+            "name_zh": "格斗刀"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-TM-ES",
+            "opTypeId": "IMP-WS-TM",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-TM-HWM",
+            "opTypeId": "IMP-WS-TM",
+            "abilityName": "Haywire Mine",
+            "AP": null,
+            "description": "This operative is carrying your Haywire Mine marker.\nIt can perform the Pick Up Marker action on that marker, but that marker cannot be placed within another operative’s control range (if this operative is incapacitated while carrying that marker and that marker cannot be placed, it’s removed with this operative).",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-TM-HA",
+            "opTypeId": "IMP-WS-TM",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-TM-PM",
+            "opTypeId": "IMP-WS-TM",
+            "abilityName": "Proximity Mine",
+            "AP": null,
+            "description": "The first time your Haywire Mine marker is within another operative’s control range, remove that marker, subtract 1 from that operative’s APL stat until the end of its next activation,\nand inflict 2D3+3 damage on it (or D3+6 if that marker is within 6\" horizontally of your Storm marker);\nif it isn’t incapacitated, end its action (if any), even if that action’s effects aren’t fulfilled.\nIf it cannot be placed, move it the minimum amount to do so. Note that this operative is ignored for these effects (i.e. it cannot set it off or take damage from that marker).",
+            "isFactionRule": false
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 13,
+        "opName": "Trapmaster",
+        "opType": null,
+        "opId": null
+      },
+      {
+        "opTypeId": "IMP-WS-WLF",
+        "killteamId": "IMP-WS",
+        "seq": 8,
+        "opTypeName": "Fenrisian Wolf",
+        "MOVE": "8\"",
+        "APL": 2,
+        "SAVE": "5+",
+        "WOUNDS": 9,
+        "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FENRISIAN WOLF",
+        "basesize": 60,
+        "nameType": "Fido",
+        "isOpType": true,
+        "weapons": [
+          {
+            "wepId": "IMP-WS-WLF-F",
+            "opTypeId": "IMP-WS-WLF",
+            "seq": 1,
+            "wepName": "Fangs",
+            "wepType": "M",
+            "isDefault": true,
+            "profiles": [
+              {
+                "wepprofileId": "IMP-WS-WLF-F-1",
+                "wepId": "IMP-WS-WLF-F",
+                "seq": 1,
+                "profileName": "",
+                "ATK": "4",
+                "HIT": "3+",
+                "DMG": "4/5",
+                "WR": "Rending",
+                "name_zh": "单一档案",
+                "rules_zh": "撕裂ing（Rending）"
+              }
+            ],
+            "name_zh": "獠牙"
+          }
+        ],
+        "abilities": [
+          {
+            "abilityId": "IMP-WS-WLF-ES",
+            "opTypeId": "IMP-WS-WLF",
+            "abilityName": "Elemental Storm",
+            "AP": null,
+            "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-WLF-HA",
+            "opTypeId": "IMP-WS-WLF",
+            "abilityName": "Hunting Astartes",
+            "AP": null,
+            "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+            "isFactionRule": true
+          },
+          {
+            "abilityId": "IMP-WS-WLF-IP",
+            "opTypeId": "IMP-WS-WLF",
+            "abilityName": "Instinctive Predator",
+            "AP": null,
+            "description": "This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Guard and Reposition. It cannot use any weapons that aren’t on its datacard. This operative can perform the Charge action while it has a Conceal order.",
+            "isFactionRule": false
+          },
+          {
+            "abilityId": "IMP-WS-WLF-P",
+            "opTypeId": "IMP-WS-WLF",
+            "abilityName": "Pounce",
+            "AP": null,
+            "description": "Once per battle STRATEGIC GAMBIT. If this operative’s APL stat is 2 or more, this operative can perform a free Charge, Fall Back or Reposition action.\nIf it does, until the end of its next activation, subtract 1 from its APL stat and it cannot perform any of the aforementioned actions.",
+            "isFactionRule": false
+          }
+        ],
+        "options": [],
+        "isActivated": false,
+        "currWOUNDS": 9,
+        "opName": "Fenrisian Wolf",
+        "opType": null,
+        "opId": null
+      }
+    ],
+    "ploys": [
+      {
+        "ployId": "IMP-WS-CBTS",
+        "killteamId": "IMP-WS",
+        "ployType": "S",
+        "seq": 1,
+        "ployName": "Cloaked By The Storm",
+        "description": "Whenever an operative is shooting a friendly WOLF SCOUT operative that’s within your STORM, you can re-roll one of your defence dice."
+      },
+      {
+        "ployId": "IMP-WS-TW",
+        "killteamId": "IMP-WS",
+        "ployType": "S",
+        "seq": 2,
+        "ployName": "Tempestuous Wrath",
+        "description": "Whenever a friendly WOLF SCOUT operative is fighting or retaliating, if it’s within your STORM or was within your STORM at the start of the activation, its melee weapons have the Balanced weapon rule."
+      },
+      {
+        "ployId": "IMP-WS-SB",
+        "killteamId": "IMP-WS",
+        "ployType": "S",
+        "seq": 3,
+        "ployName": "Storm's Bite",
+        "description": "Whenever a friendly WOLF SCOUT operative is fighting against an enemy operative that is within your STORM, subtract 1 from the Atk stat of that enemy operative's melee weapons (to a minimum of 3)."
+      },
+      {
+        "ployId": "IMP-WS-SF",
+        "killteamId": "IMP-WS",
+        "ployType": "S",
+        "seq": 4,
+        "ployName": "Savage Fighters",
+        "description": "Whenever a friendly WOLF SCOUT operative finishes retaliating, if it wasn’t incapacitated and is still within control range of the enemy operative in that sequence, you can inflict D3+1 damage on that enemy operative."
+      },
+      {
+        "ployId": "IMP-WS-AS",
+        "killteamId": "IMP-WS",
+        "ployType": "T",
+        "seq": 5,
+        "ployName": "Acute Senses",
+        "description": "Use this firefight ploy when a friendly WOLF SCOUT operative performs the Shoot action and you’re selecting a valid target. Until the end of that action, that friendly operative’s ranged weapons have the Range 6\" and Seek Light weapon rules and enemy operatives cannot be obscured."
+      },
+      {
+        "ployId": "IMP-WS-CA",
+        "killteamId": "IMP-WS",
+        "ployType": "T",
+        "seq": 6,
+        "ployName": "Counterattack",
+        "description": "Use this firefight ploy at the end of an enemy operative’s activation, or after an enemy operative performs the Fight action. One friendly WOLF SCOUT operative can immediately perform a free Fight action, but you cannot select any other enemy operative to fight against during that action."
+      },
+      {
+        "ployId": "IMP-WS-TBL",
+        "killteamId": "IMP-WS",
+        "ployType": "T",
+        "seq": 7,
+        "ployName": "Touched By Lokyar",
+        "description": "Use this firefight ploy after rolling your attack dice for a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF), if it’s fighting more than 5\" from other friendly operatives. You can re-roll any of your attack dice."
+      },
+      {
+        "ployId": "IMP-WS-THP",
+        "killteamId": "IMP-WS",
+        "ployType": "T",
+        "seq": 8,
+        "ployName": "Transhuman Physiology",
+        "description": "Use this firefight ploy when an operative is shooting a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF), in the Roll Defence Dice step. You can retain one of your normal successes as a critical success instead."
+      }
+    ],
+    "equipments": [
+      {
+        "eqId": "IMP-WS-FW",
+        "killteamId": "IMP-WS",
+        "seq": 1,
+        "eqName": "Frost Weapons",
+        "description": "Whenever a friendly WOLF SCOUT operative is wholly within your STORM, its combat blades (if any) has the Lethal 5+ weapon rule",
+        "effects": ""
+      },
+      {
+        "eqId": "IMP-WS-RC",
+        "killteamId": "IMP-WS",
+        "seq": 2,
+        "eqName": "Runic Charms",
+        "description": "Once per turning point, when an operative is shooting a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) that is wholly within your STORM, at the start of the Roll Defence Dice step, you can use this rule.\r If you do, worsen the x of the Piercing weapon rule by 1 (if any) until the end of that sequence.\r Note that Piercing 1 would therefore be ignored.",
+        "effects": ""
+      },
+      {
+        "eqId": "IMP-WS-WTNL",
+        "killteamId": "IMP-WS",
+        "seq": 3,
+        "eqName": "Wolfteeth Necklaces",
+        "description": "Once per turning point, when a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) is shooting, fighting or retaliating, if you roll two or more fails, you can discard one of them to retain another as a normal success instead.",
+        "effects": ""
+      },
+      {
+        "eqId": "IMP-WS-TT",
+        "killteamId": "IMP-WS",
+        "seq": 4,
+        "eqName": "Talismanic Trophies",
+        "description": "Whenever a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) that's wholly within your STORM is fighting or retaliating, in the Resolve Attack Dice step, you can subtract 1 from the damage inflicted on it from one normal success.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-AC",
+        "killteamId": null,
+        "seq": 601,
+        "eqName": "Ammo Cache (x1)",
+        "description": "Before the battle, you can set up one of your Ammo Cache markers wholly within your territory. Friendly operatives can perform the following mission action during the battle:\r **AMMO RESUPPLY (0 AP):** One of your Ammo Cache markers the active operative controls is used during this turning point.  \n\r Until the start of the next turning point, whenever this operative is shooting with a weapon from its datacard, you can re-roll one of your attack dice.\n\n\r An operative cannot perform this action while within control range of an enemy operative, if that marker is not yours, or if that marker has been used this turning point.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-RW",
+        "killteamId": null,
+        "seq": 602,
+        "eqName": "Razor Wire (x1)",
+        "description": "Razor wire is Exposed and Obstructing terrain. Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.  \n\r Obstructing: Whenever an operative would cross over this terrain feature within 1\" of it, treat the distance as an additional 1\".",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-CD",
+        "killteamId": null,
+        "seq": 603,
+        "eqName": "Comms Device (x1)",
+        "description": "Before the battle, you can set up one of your Comms Device markers wholly within your territory.\nWhile a friendly operative controls this marker, add 3\" to the distance requirements of its SUPPORT rules that refer to friendly operatives\n(e.g. ‘select one friendly operative within 6\"’ would be 9\" instead).\nNote that you cannot benefit from your opponent's Comms Device markers.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-MN",
+        "killteamId": null,
+        "seq": 604,
+        "eqName": "Mines (x1)",
+        "description": "Before the battle, you can set up one of your Mines markers wholly within your territory and more than 2\" from other markers, access points, and Accessible terrain.\r The first time that marker is within an operative's control range, remove that marker and inflict D3+3 damage on that operative.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-LB",
+        "killteamId": null,
+        "seq": 605,
+        "eqName": "Light Barricades (x2)",
+        "description": "Light barricades are Light terrain, except the feet, which are Insignificant and Exposed. Before the battle, you can set up any of them wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-HB",
+        "killteamId": null,
+        "seq": 606,
+        "eqName": "Heavy Barricade (x1)",
+        "description": "A heavy barricade is Heavy terrain. Before the battle, you can set it up wholly within 4\" of your drop zone, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-LAD",
+        "killteamId": null,
+        "seq": 607,
+        "eqName": "Ladders (x2)",
+        "description": "Ladders are Insignificant and Exposed terrain. Before the battle, you can set up any of them as follows:\n- Wholly within your territory.\n- Upright against terrain that’s at least 2\" tall.\n- More than 2\" from other equipment terrain features.\n- More than 1\" from doors and access points.\n\nOnce per action, whenever an operative is climbing the terrain feature a ladder is placed against, treat the vertical distance as 1\" if the ladder is within that operative’s control range during that entire climb.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-PB",
+        "killteamId": null,
+        "seq": 608,
+        "eqName": "Portable Barricade (x1)",
+        "description": "A portable barricade is Light, Protective and Portable terrain, except the feet which are Insignificant and Exposed.\r Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.\r   \r \r **Protective:** While an operative is in cover from this terrain feature, improve its Save stat by 1 (to a maximum of 2+).  \r \r **Portable:** This terrain feature only provides cover while an operative is connected to it and if the shield is intervening (ignore its feet).\r Operatives connected to the inside of it can perform the following unique action during the battle:  \r \r **Move With Barricade (1 AP):**\r The same as the Reposition action, except the active operative can move no more than its Move stat minus 2\" and cannot climb, drop, jump, or use any killteam's rules that remove it and set it back up again (e.gh. HEARTHKYN SALVAGER Fly, MANDRAKE Shadow Passage).  \r \r Before this operative moves, remove the portable barricade it is connected to. After it moves, set up the portable barricade so it is connected again, but the portable barricade cannot be set up within 2\" of\r other equipment terrain features, access points or Accessible terrain. If this is not possible, the portable barricade is not set up again.  \r \r This action is treated as a Reposition action. An operative cannot perform this action while within control range of an enemy operative, or in the same activation in which it performed the Fall Back or Charge action.",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-UG-SMK",
+        "killteamId": null,
+        "seq": 609,
+        "eqName": "Utility Grenade - Smoke (x1/2)",
+        "description": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\r Each selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\r   \r \r **SMOKE GRENADE (1 AP):**  \r \r \r - Place one of your Smoke Grenade markers within 6\" of this operative. It must be visible to this operative,\r or on Vantage terrain of a terrain feature that is visible to this operative. The marker creates an area of smoke 1\" horizontally and unlimited height vertically from (but not below) it.\r - While an operative is wholly within an area of smoke, it is obscured to operatives more than 2\" from it, and vice versa.\r In addition, whenever an operative is shooting an enemy operative wholly within an area of smoke, weapons with the Piercing 2 or Piercing Crits 2 weapon rule have the Piercing 1 or Piercing Crits 1 weapon rule (respectively) instead, unless they’re within 2\" of each other.\r - In the Ready step of the next Strategy phase, roll one D3. Remove that Smoke Grenade marker after a number of activations equal to that D3 have been completed\r or at the end of the turning point (whichever comes first).\r - An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\r ",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-UG-STN",
+        "killteamId": null,
+        "seq": 609,
+        "eqName": "Utility Grenade - Stun (x1/2)",
+        "description": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\nEach selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\n  \n\n**STUN GRENADE (1 AP):**  \n\n\n- Select one enemy operative visible to and within 6\" of this operative. That operative and each other operative within 1\" of it takes a stun test. For an operative to take a stun test, roll one D6: on a 3+, subtract 1 from its APL stat until the end of its next activation.\n- An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\n",
+        "effects": ""
+      },
+      {
+        "eqId": "UNIVERSAL-UE-XG-FRAG",
+        "killteamId": null,
+        "seq": 610,
+        "eqName": "Explosive Grenade - Frag (x1/2)",
+        "description": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\n\n|**Name**|**ATK**|**HIT**|**DMG**|\n|-----|:-----:|:-----:|:-----:|\n|Frag Grenade|4|4+|2/4|\n|**Weapon Rules**|\n|Rng 6\", Blast 2\", Saturate|",
+        "effects": "ADDWEP:Frag Grenade|R|4|4+|2/4|Rng 6\", Blast 2\", Sat"
+      },
+      {
+        "eqId": "UNIVERSAL-UE-XG-KRAK",
+        "killteamId": null,
+        "seq": 610,
+        "eqName": "Explosive Grenade - Krak (x1/2)",
+        "description": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\r \r |**Name**|**ATK**|**HIT**|**DMG**|\r |-----|:-----:|:-----:|:-----:|\r |Krak Grenade|4|4+|4/5|\r |**Weapon Rules**|\r |Rng 6\", Piercing 1, Saturate|",
+        "effects": "ADDWEP:Krak Grenade|R|4|4+|4/5|Rng 6\", Piercing 1, Sat"
+      },
+      {
+        "eqId": "UNIVERSAL-UE-BC",
+        "killteamId": null,
+        "seq": 611,
+        "eqName": "Breaching Charge",
+        "description": "Once per battle, when a friendly operative performs the Breach action, you can use this rule. If you do, that operative can perform that action for 1 less AP (to a minimum of 1AP) as though it had the word \"breach marker\" on its datacard.",
+        "effects": ""
+      }
+    ]
+  }
+}

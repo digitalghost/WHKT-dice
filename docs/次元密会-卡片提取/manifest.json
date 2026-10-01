@@ -1,0 +1,1304 @@
+{
+  "schema_version": 1,
+  "team_id": "CHAOS-WC",
+  "faction_id": "CHAOS",
+  "team_name_zh": "次元密会",
+  "team_name_en": "Warp Coven",
+  "source_pdf": "../次元密会 Warpcoven 杀戮小队规则.pdf",
+  "ktdash_page": "https://ktdash.app/killteams/CHAOS-WC",
+  "ktdash_api": "https://ktdash.app/api/killteams/CHAOS-WC",
+  "extracted_at": "2026-09-23",
+  "source_pdf_pages": 17,
+  "card_source_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "render_dpi": 200,
+  "page_size_px": [
+    1654,
+    2339
+  ],
+  "counts": {
+    "cards": 36,
+    "operative": 10,
+    "operative_ability": 3,
+    "team_selection": 2,
+    "faction_rule": 5,
+    "strategic_ploy": 4,
+    "firefight_ploy": 4,
+    "faction_equipment": 4,
+    "other": 4
+  },
+  "cards": [
+    {
+      "id": "wc-001-sorcerer-destiny-data",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "命运巫师",
+      "title_en": "Sorcerer Of Destiny",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_px": [
+        350,
+        66,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        23.76,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.028217,
+        0.576784,
+        0.236426
+      ],
+      "image": "01-特工-命运巫师-数据卡.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOD"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "数据卡"
+    },
+    {
+      "id": "wc-002-sorcerer-destiny-ability",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "命运巫师",
+      "title_en": "Sorcerer Of Destiny",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_px": [
+        350,
+        618,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        222.48,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.264215,
+        0.576784,
+        0.236426
+      ],
+      "image": "02-特工-命运巫师-能力卡.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOD-PBF",
+        "CHAOS-WC-SOD-RD"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "能力卡"
+    },
+    {
+      "id": "wc-003-sorcerer-tempyrion-data",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "时间巫师",
+      "title_en": "Sorcerer Of Tempyrion",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_px": [
+        350,
+        1170,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        421.2,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.500214,
+        0.576784,
+        0.236426
+      ],
+      "image": "03-特工-时间巫师-数据卡.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOT",
+        "CHAOS-WC-SOT-RR"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "数据卡"
+    },
+    {
+      "id": "wc-004-sorcerer-tempyrion-ability",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "时间巫师",
+      "title_en": "Sorcerer Of Tempyrion",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_px": [
+        350,
+        1723,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        620.28,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.73664,
+        0.576784,
+        0.236426
+      ],
+      "image": "04-特工-时间巫师-能力卡.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOT-TF"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "能力卡"
+    },
+    {
+      "id": "wc-005-sorcerer-warpfire-data",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "亚空间炽焰巫师",
+      "title_en": "Sorcerer Of Warpfire",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_px": [
+        350,
+        66,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        23.76,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.028217,
+        0.576784,
+        0.236426
+      ],
+      "image": "05-特工-亚空间炽焰巫师-数据卡.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOW",
+        "CHAOS-WC-SOW-A-MB"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "数据卡"
+    },
+    {
+      "id": "wc-006-sorcerer-warpfire-ability",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "亚空间炽焰巫师",
+      "title_en": "Sorcerer Of Warpfire",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_px": [
+        350,
+        618,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        222.48,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.264215,
+        0.576784,
+        0.236426
+      ],
+      "image": "06-特工-亚空间炽焰巫师-能力卡.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOW-AL"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "能力卡"
+    },
+    {
+      "id": "wc-007-rubric-gunner",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "红字战士炮手",
+      "title_en": "Rubric Marine Gunner",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_px": [
+        350,
+        1170,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        421.2,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.500214,
+        0.576784,
+        0.236426
+      ],
+      "image": "07-特工-红字战士炮手.png",
+      "ktdash_ids": [
+        "CHAOS-WC-GNR",
+        "CHAOS-WC-GNR-A-SA"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-008-rubric-icon-bearer",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "红字战士徽记持有者",
+      "title_en": "Rubric Marine Icon Bearer",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_px": [
+        350,
+        1723,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        620.28,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.73664,
+        0.576784,
+        0.236426
+      ],
+      "image": "08-特工-红字战士徽记持有者.png",
+      "ktdash_ids": [
+        "CHAOS-WC-IB",
+        "CHAOS-WC-IB-A-IB",
+        "CHAOS-WC-IB-A-SA"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-009-rubric-warrior",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "红字战士战士",
+      "title_en": "Rubric Marine Warrior",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_px": [
+        350,
+        66,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        23.76,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.028217,
+        0.576784,
+        0.236426
+      ],
+      "image": "09-特工-红字战士战士.png",
+      "ktdash_ids": [
+        "CHAOS-WC-WAR",
+        "CHAOS-WC-WAR-A-SAP",
+        "CHAOS-WC-WAR-A-SA"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-010-tzaangor-champion",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "奸角兽勇士",
+      "title_en": "Tzaangor Champion",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_px": [
+        350,
+        618,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        222.48,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.264215,
+        0.576784,
+        0.236426
+      ],
+      "image": "10-特工-奸角兽勇士.png",
+      "ktdash_ids": [
+        "CHAOS-WC-TZC",
+        "CHAOS-WC-TZC-A-SB"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-011-tzaangor-horn-bearer",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "奸角兽号手",
+      "title_en": "Tzaangor Horn Bearer",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_px": [
+        350,
+        1170,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        421.2,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.500214,
+        0.576784,
+        0.236426
+      ],
+      "image": "11-特工-奸角兽号手.png",
+      "ktdash_ids": [
+        "CHAOS-WC-TZHB",
+        "CHAOS-WC-TZHB-BH"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-012-tzaangor-icon-bearer",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "奸角兽徽记持有者",
+      "title_en": "Tzaangor Icon Bearer",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_px": [
+        350,
+        1723,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        620.28,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.73664,
+        0.576784,
+        0.236426
+      ],
+      "image": "12-特工-奸角兽徽记持有者.png",
+      "ktdash_ids": [
+        "CHAOS-WC-TZIB",
+        "CHAOS-WC-TZIB-A-HB",
+        "CHAOS-WC-TZIB-A-IB"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-013-tzaangor-warrior",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "奸角兽战士",
+      "title_en": "Tzaangor Warrior",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_px": [
+        350,
+        66,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        23.76,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.028217,
+        0.576784,
+        0.236426
+      ],
+      "image": "13-特工-奸角兽战士.png",
+      "ktdash_ids": [
+        "CHAOS-WC-TZWAR",
+        "CHAOS-WC-TZWAR-A-RH",
+        "CHAOS-WC-TZWAR-A-SH"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-014-notes-1",
+      "sequence": 14,
+      "category": "other",
+      "title_zh": "笔记 1",
+      "title_en": "Notes 1",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_px": [
+        350,
+        618,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        222.48,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.264215,
+        0.576784,
+        0.236426
+      ],
+      "image": "14-其他-笔记-1.png",
+      "ktdash_ids": [
+
+      ],
+      "text_status": "not_applicable",
+      "translation_status": "not_applicable",
+      "errata_status": "not_applicable"
+    },
+    {
+      "id": "wc-015-notes-2",
+      "sequence": 15,
+      "category": "other",
+      "title_zh": "笔记 2",
+      "title_en": "Notes 2",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_px": [
+        350,
+        1170,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        421.2,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.500214,
+        0.576784,
+        0.236426
+      ],
+      "image": "15-其他-笔记-2.png",
+      "ktdash_ids": [
+
+      ],
+      "text_status": "not_applicable",
+      "translation_status": "not_applicable",
+      "errata_status": "not_applicable"
+    },
+    {
+      "id": "wc-016-notes-3",
+      "sequence": 16,
+      "category": "other",
+      "title_zh": "笔记 3",
+      "title_en": "Notes 3",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_px": [
+        350,
+        1723,
+        954,
+        553
+      ],
+      "bbox_pt": [
+        126.0,
+        620.28,
+        343.44,
+        199.08
+      ],
+      "bbox_norm": [
+        0.211608,
+        0.73664,
+        0.576784,
+        0.236426
+      ],
+      "image": "16-其他-笔记-3.png",
+      "ktdash_ids": [
+
+      ],
+      "text_status": "not_applicable",
+      "translation_status": "not_applicable",
+      "errata_status": "not_applicable"
+    },
+    {
+      "id": "wc-017-team-selection-1",
+      "sequence": 17,
+      "category": "team-selection",
+      "title_zh": "次元密会杀戮小队",
+      "title_en": "Warp Coven Kill Team",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_px": [
+        273,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "17-小队选择-次元密会杀戮小队-1.png",
+      "ktdash_ids": [
+        "CHAOS-WC"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "1/2"
+    },
+    {
+      "id": "wc-018-team-selection-2",
+      "sequence": 18,
+      "category": "team-selection",
+      "title_zh": "次元密会杀戮小队",
+      "title_en": "Warp Coven Kill Team",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_px": [
+        826,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "18-小队选择-次元密会杀戮小队-2.png",
+      "ktdash_ids": [
+        "CHAOS-WC"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "2/2"
+    },
+    {
+      "id": "wc-019-boons-1",
+      "sequence": 19,
+      "category": "faction-rule",
+      "title_zh": "奸奇恩惠",
+      "title_en": "Boons Of Tzeentch",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_px": [
+        273,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "19-阵营规则-奸奇恩惠-1.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOD-A-BOT",
+        "CHAOS-WC-SOT-A-BOT",
+        "CHAOS-WC-SOW-A-BOT"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "1/4"
+    },
+    {
+      "id": "wc-020-boons-2",
+      "sequence": 20,
+      "category": "faction-rule",
+      "title_zh": "奸奇恩惠",
+      "title_en": "Boons Of Tzeentch",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_px": [
+        826,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "20-阵营规则-奸奇恩惠-2.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOD-A-BOT",
+        "CHAOS-WC-SOT-A-BOT",
+        "CHAOS-WC-SOW-A-BOT"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "2/4"
+    },
+    {
+      "id": "wc-021-boons-3",
+      "sequence": 21,
+      "category": "faction-rule",
+      "title_zh": "奸奇恩惠",
+      "title_en": "Boons Of Tzeentch",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_px": [
+        273,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "21-阵营规则-奸奇恩惠-3.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOD-A-BOT",
+        "CHAOS-WC-SOT-A-BOT",
+        "CHAOS-WC-SOW-A-BOT"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "3/4"
+    },
+    {
+      "id": "wc-022-boons-4",
+      "sequence": 22,
+      "category": "faction-rule",
+      "title_zh": "奸奇恩惠",
+      "title_en": "Boons Of Tzeentch",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_px": [
+        826,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "22-阵营规则-奸奇恩惠-4.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOD-A-BOT",
+        "CHAOS-WC-SOT-A-BOT",
+        "CHAOS-WC-SOW-A-BOT"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04",
+      "part": "4/4"
+    },
+    {
+      "id": "wc-023-astartes",
+      "sequence": 23,
+      "category": "faction-rule",
+      "title_zh": "阿斯塔特",
+      "title_en": "Astartes",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_px": [
+        273,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "23-阵营规则-阿斯塔特.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SOD-A-AS",
+        "CHAOS-WC-SOT-A-AS",
+        "CHAOS-WC-SOW-A-AS",
+        "CHAOS-WC-GNR-A-AS",
+        "CHAOS-WC-IB-A-AS",
+        "CHAOS-WC-WAR-A-AS"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-024-aetherial-warding",
+      "sequence": 24,
+      "category": "strategic-ploy",
+      "title_zh": "以太守护",
+      "title_en": "Aetherial Warding",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_px": [
+        826,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "24-战略计谋-以太守护.png",
+      "ktdash_ids": [
+        "CHAOS-WC-S-AW"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-025-fate-itself-is-my-weapon",
+      "sequence": 25,
+      "category": "strategic-ploy",
+      "title_zh": "彼之命运，我之凶器",
+      "title_en": "Fate Itself Is My Weapon",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_px": [
+        273,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "25-战略计谋-彼之命运我之凶器.png",
+      "ktdash_ids": [
+        "CHAOS-WC-S-FIIMW"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-026-brotherhood-of-sorcerers",
+      "sequence": 26,
+      "category": "strategic-ploy",
+      "title_zh": "巫师兄弟会",
+      "title_en": "Brotherhood Of Sorcerers",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_px": [
+        826,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "26-战略计谋-巫师兄弟会.png",
+      "ktdash_ids": [
+        "CHAOS-WC-S-BOS"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-027-savage-herd",
+      "sequence": 27,
+      "category": "strategic-ploy",
+      "title_zh": "野蛮兽群",
+      "title_en": "Savage Herd",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_px": [
+        273,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "27-战略计谋-野蛮兽群.png",
+      "ktdash_ids": [
+        "CHAOS-WC-S-SH"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-028-all-is-dust",
+      "sequence": 28,
+      "category": "firefight-ploy",
+      "title_zh": "皆为尘土",
+      "title_en": "All Is Dust",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_px": [
+        826,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "28-交战计谋-皆为尘土.png",
+      "ktdash_ids": [
+        "CHAOS-WC-T-AID"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-029-capricious-plan",
+      "sequence": 29,
+      "category": "firefight-ploy",
+      "title_zh": "无常计划",
+      "title_en": "Capricious Plan",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_px": [
+        273,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "29-交战计谋-无常计划.png",
+      "ktdash_ids": [
+        "CHAOS-WC-T-CP"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-030-psychic-cabal",
+      "sequence": 30,
+      "category": "firefight-ploy",
+      "title_zh": "灵能阴谋团",
+      "title_en": "Psychic Cabal",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_px": [
+        826,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "30-交战计谋-灵能阴谋团.png",
+      "ktdash_ids": [
+        "CHAOS-WC-T-PB"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-031-mutant-herd",
+      "sequence": 31,
+      "category": "firefight-ploy",
+      "title_zh": "变种兽群",
+      "title_en": "Mutant Herd",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_px": [
+        273,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "31-交战计谋-变种兽群.png",
+      "ktdash_ids": [
+        "CHAOS-WC-T-MH"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-032-ensorcelled-rounds",
+      "sequence": 32,
+      "category": "faction-equipment",
+      "title_zh": "附魔弹药",
+      "title_en": "Ensorcelled Rounds",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_px": [
+        826,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "32-阵营装备-附魔弹药.png",
+      "ktdash_ids": [
+        "CHAOS-WC-ER"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-033-daemonmaw-weapons",
+      "sequence": 33,
+      "category": "faction-equipment",
+      "title_zh": "魔啮武器",
+      "title_en": "Daemonmaw Weapons",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_px": [
+        273,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "33-阵营装备-魔啮武器.png",
+      "ktdash_ids": [
+        "CHAOS-WC-DMW"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-034-arcane-robes",
+      "sequence": 34,
+      "category": "faction-equipment",
+      "title_zh": "奥术长袍",
+      "title_en": "Arcane Robes",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_px": [
+        826,
+        215,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        77.4,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.09192,
+        0.336155,
+        0.410432
+      ],
+      "image": "34-阵营装备-奥术长袍.png",
+      "ktdash_ids": [
+        "CHAOS-WC-AR"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-035-sorcerous-scrolls",
+      "sequence": 35,
+      "category": "faction-equipment",
+      "title_zh": "巫术卷轴",
+      "title_en": "Sorcerous Scrolls",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_px": [
+        273,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        98.28,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.165054,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "35-阵营装备-巫术卷轴.png",
+      "ktdash_ids": [
+        "CHAOS-WC-SS"
+      ],
+      "text_status": "current_rules_verified",
+      "translation_status": "pdf_official_chinese",
+      "errata_status": "verified_through_2026-04"
+    },
+    {
+      "id": "wc-036-notes-4",
+      "sequence": 36,
+      "category": "other",
+      "title_zh": "笔记 4",
+      "title_en": "Notes 4",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_px": [
+        826,
+        1168,
+        556,
+        960
+      ],
+      "bbox_pt": [
+        297.36,
+        420.48,
+        200.16,
+        345.6
+      ],
+      "bbox_norm": [
+        0.499395,
+        0.499359,
+        0.336155,
+        0.410432
+      ],
+      "image": "36-其他-笔记-4.png",
+      "ktdash_ids": [
+
+      ],
+      "text_status": "not_applicable",
+      "translation_status": "not_applicable",
+      "errata_status": "not_applicable"
+    }
+  ]
+}

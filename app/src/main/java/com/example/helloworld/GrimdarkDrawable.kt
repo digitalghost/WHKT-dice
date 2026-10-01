@@ -44,33 +44,24 @@ class GrimdarkDrawable(
     override fun draw(canvas: Canvas) {
         val rect = RectF(bounds)
         if (rect.isEmpty) return
-        val cut = when (surface) {
-            ConsoleSurface.ROOT, ConsoleSurface.HEADER -> 0f
-            ConsoleSurface.GREEN, ConsoleSurface.GREEN_PRESSED -> 12f * density
-            else -> 7f * density
-        }
-        buildChamferedPath(rect, cut)
-
-        val colors = colorsFor(surface)
-        fill.shader = LinearGradient(
-            rect.left,
-            rect.top,
-            rect.left,
-            rect.bottom,
-            colors.first,
-            colors.second,
-            Shader.TileMode.CLAMP
-        )
-        fill.alpha = drawableAlpha
-        canvas.drawPath(path, fill)
         fill.shader = null
-
-        drawTexture(canvas, rect)
-        if (surface != ConsoleSurface.ROOT) drawBevel(canvas, rect, cut)
-        if (surface in setOf(ConsoleSurface.HEADER, ConsoleSurface.FRAME, ConsoleSurface.PANEL)) {
-            drawRivets(canvas, rect)
+        fill.color = when(surface) {
+            ConsoleSurface.ROOT -> Color.rgb(15,15,15)
+            ConsoleSurface.HEADER -> Color.rgb(9,9,9)
+            ConsoleSurface.GREEN -> Color.rgb(197,76,33)
+            ConsoleSurface.GREEN_PRESSED -> Color.rgb(150,57,22)
+            ConsoleSurface.SELECTED -> Color.rgb(60,32,23)
+            ConsoleSurface.INSET -> Color.rgb(18,18,18)
+            ConsoleSurface.DISABLED -> Color.rgb(32,32,32)
+            else -> Color.rgb(27,27,27)
         }
-        if (surface == ConsoleSurface.HEADER) drawVent(canvas, rect)
+        fill.alpha = drawableAlpha
+        canvas.drawRoundRect(rect, 3*density, 3*density, fill)
+        if(surface == ConsoleSurface.SELECTED || surface == ConsoleSurface.HEADER) {
+            detail.color = Color.rgb(197,76,33)
+            detail.alpha = drawableAlpha
+            canvas.drawRect(rect.left,rect.bottom-2*density,rect.right,rect.bottom,detail)
+        }
     }
 
     private fun colorsFor(style: ConsoleSurface): Pair<Int, Int> = when (style) {
