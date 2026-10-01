@@ -472,8 +472,7 @@ class BattleActivity : AppCompatActivity() {
                         confirm.addView(ui.button("确认公开",true) {
                             sideSave(
                                 battle.side(sideId).copy(tacticalOpRevealed=true),
-                                "${current.playerName}公开战术行动：${current.tacticalOpNotes}",
-                                renderAfter=false
+                                "${current.playerName}公开战术行动：${current.tacticalOpNotes}"
                             )
                             confirmDialog.dismiss()
                             sheet.dismiss()
