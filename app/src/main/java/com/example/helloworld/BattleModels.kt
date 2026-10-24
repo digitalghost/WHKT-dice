@@ -44,6 +44,32 @@ data class BattleScore(
     }
 }
 
+/** When a status token ends. Expiry is automatic and logged; MANUAL/BATTLE need a tap. */
+enum class TokenDuration(val label: String) {
+    THIS_ACTIVATION("本次激活"),
+    NEXT_ACTIVATION_START("下次激活开始"),
+    NEXT_ACTIVATION_END("下次激活结束"),
+    TURNING_POINT_END("本转折点结束"),
+    NEXT_READY("下一就绪步骤"),
+    BATTLE("整场"),
+    MANUAL("手动移除")
+}
+
+data class OperativeToken(
+    val id: String = UUID.randomUUID().toString(),
+    val name: String,
+    val value: Int? = null,
+    val duration: TokenDuration = TokenDuration.MANUAL,
+    val source: String = ""
+) {
+    val label: String get() = if (value == null) name else "$name $value"
+
+    companion object {
+        const val OFF_FIELD = "离场"
+        const val STUNNED = "晕眩"
+    }
+}
+
 data class BattleOperativeState(
     val memberId: String,
     val operativeId: String,
@@ -53,8 +79,15 @@ data class BattleOperativeState(
     val order: String = ORDER_CONCEAL,
     val ready: Boolean = true,
     val incapacitated: Boolean = false,
-    val weapons: List<BattleWeaponSnapshot> = emptyList()
+    val weapons: List<BattleWeaponSnapshot> = emptyList(),
+    val apl: Int = 2,
+    val tokens: List<OperativeToken> = emptyList(),
+    val excludedFromKill: Boolean = false
 ) {
+    val wounded: Boolean get() = currentWounds > 0 && currentWounds * 2 < maxWounds
+    val offField: Boolean get() = tokens.any { it.name == OperativeToken.OFF_FIELD }
+    val stunned: Boolean get() = tokens.any { it.name == OperativeToken.STUNNED }
+
     companion object {
         const val ORDER_CONCEAL = "隐匿"
         const val ORDER_ENGAGE = "交战"
@@ -70,9 +103,10 @@ data class BattleWeaponSnapshot(
     val critical: Int,
     val normalDamage: Int,
     val criticalDamage: Int,
-    val keywords: List<String>
+    val keywords: List<String>,
+    val kind: WeaponKind = WeaponActions.legacyKind(id)
 ) {
-    val isMelee: Boolean get() = WeaponActions.isMelee(id)
+    val isMelee: Boolean get() = kind == WeaponKind.MELEE
 }
 
 data class BattleSide(
@@ -87,19 +121,32 @@ data class BattleSide(
     val equipmentNotes: String = "",
     val tacticalOpNotes: String = "",
     val operatives: List<BattleOperativeState> = emptyList(),
-    val tacticalOpRevealed: Boolean = false
+    val tacticalOpRevealed: Boolean = false,
+    val counters: List<TeamCounter> = emptyList()
 ) {
     val currentScore: Int get() = score.total(null)
     val totalScore: Int get() = score.total(primaryOp)
     val incapacitatedCount: Int get() = operatives.count { it.incapacitated }
+    val killStartingCount: Int get() = operatives.count { !it.excludedFromKill }
+    val killIncapacitatedCount: Int get() = operatives.count { it.incapacitated && !it.excludedFromKill }
 }
+
+/** A named team resource (nodes, tunnels, free rerolls...). No team-specific code reads it. */
+data class TeamCounter(
+    val id: String = UUID.randomUUID().toString(),
+    val name: String,
+    val value: Int = 0,
+    val resetEachTurningPoint: Int? = null
+)
 
 data class BattleLogEntry(
     val id: String = UUID.randomUUID().toString(),
     val timestamp: Long = System.currentTimeMillis(),
     val turningPoint: Int,
     val phase: BattlePhase,
-    val message: String
+    val message: String,
+    val undone: Boolean = false,
+    val manual: Boolean = false
 )
 
 data class BattleRecord(
@@ -152,7 +199,6 @@ object BattleRules {
 
     fun create(setup: BattleSetup): BattleRecord {
         require(setup.keyOp.isNotBlank()) { "开局前必须选择关键行动" }
-        require(setup.primaryA != null && setup.primaryB != null) { "开局前双方必须私密选择主要行动" }
         require(setup.tacticalA.isNotBlank() && setup.tacticalB.isNotBlank()) { "开局前双方必须私密选择战术行动" }
         val now = System.currentTimeMillis()
         return BattleRecord(
@@ -189,8 +235,10 @@ object BattleRules {
             return side.copy(
                 commandPoints = side.commandPoints + cpGain,
                 operatives = side.operatives.map { operative ->
-                    if (operative.incapacitated) operative else operative.copy(ready = true)
-                }
+                    val kept = operative.copy(tokens = operative.tokens.filterNot { it.duration == TokenDuration.NEXT_READY })
+                    if (kept.incapacitated) kept else kept.copy(ready = true)
+                },
+                counters = side.counters.map { c -> c.resetEachTurningPoint?.let { c.copy(value = it) } ?: c }
             )
         }
 
@@ -211,8 +259,11 @@ object BattleRules {
     }
 
     fun advancePhase(battle: BattleRecord): BattleRecord = when (battle.phase) {
-        BattlePhase.STRATEGY -> battle.copy(
+        BattlePhase.STRATEGY -> {
+            require(BattleFlow.primariesReady(battle)) { "双方需要先秘密选择主要行动" }
+            battle.copy(
             phase = BattlePhase.FIREFIGHT,
+            progress = battle.progress.copy(nextSide = battle.initiativeSideId ?: battle.progress.nextSide, active = null),
             log = battle.log + BattleLogEntry(
                 turningPoint = battle.turningPoint,
                 phase = BattlePhase.FIREFIGHT,
@@ -220,11 +271,12 @@ object BattleRules {
             ),
             updatedAt = System.currentTimeMillis()
         )
+        }
 
         BattlePhase.FIREFIGHT -> if (battle.turningPoint >= TURNING_POINT_COUNT) {
-            complete(battle)
+            complete(expireTurningPointTokens(battle))
         } else {
-            battle.copy(
+            expireTurningPointTokens(battle).copy(
                 phase = BattlePhase.INITIATIVE,
                 log = battle.log + BattleLogEntry(
                     turningPoint = battle.turningPoint,
@@ -238,16 +290,90 @@ object BattleRules {
         else -> battle
     }
 
-    fun complete(battle: BattleRecord): BattleRecord = battle.copy(
-        phase = BattlePhase.COMPLETE,
-        completed = true,
-        log = battle.log + BattleLogEntry(
-            turningPoint = battle.turningPoint,
+    /**
+     * End of battle (p107): the side with the higher kill grade gains 1VP, then primary-op bonus
+     * is revealed via totalScore. Most VP wins; equal VP is a draw.
+     */
+    fun complete(battle: BattleRecord): BattleRecord {
+        val synced = syncKills(battle)
+        val levelA = killLevelAgainst(synced.sideB)
+        val levelB = killLevelAgainst(synced.sideA)
+        val bonusA = !synced.progress.killBonusApplied && levelA > levelB
+        val bonusB = !synced.progress.killBonusApplied && levelB > levelA
+        val sideA = if (bonusA) synced.sideA.copy(score = synced.sideA.score.change(ScoreType.KILL, 1)) else synced.sideA
+        val sideB = if (bonusB) synced.sideB.copy(score = synced.sideB.score.change(ScoreType.KILL, 1)) else synced.sideB
+        val ended = synced.copy(sideA = sideA, sideB = sideB, progress = synced.progress.copy(killBonusApplied = true))
+        val notes = buildList {
+            if (bonusA) add("${sideA.playerName}击杀等级 $levelA 高于对手 $levelB，+1VP")
+            if (bonusB) add("${sideB.playerName}击杀等级 $levelB 高于对手 $levelA，+1VP")
+            add("战斗结束：${sideA.playerName} ${sideA.totalScore} - ${sideB.totalScore} ${sideB.playerName}，${resultLabel(ended.copy(completed = true))}")
+        }
+        return ended.copy(
             phase = BattlePhase.COMPLETE,
-            message = "战斗结束：${battle.sideA.totalScore} - ${battle.sideB.totalScore}"
-        ),
-        updatedAt = System.currentTimeMillis()
-    )
+            completed = true,
+            log = ended.log + notes.map {
+                BattleLogEntry(turningPoint = battle.turningPoint, phase = BattlePhase.COMPLETE, message = it)
+            },
+            updatedAt = System.currentTimeMillis()
+        )
+    }
+
+    fun resultLabel(battle: BattleRecord): String {
+        val a = battle.sideA.totalScore
+        val b = battle.sideB.totalScore
+        return when {
+            a > b -> "${battle.sideA.playerName}获胜"
+            b > a -> "${battle.sideB.playerName}获胜"
+            else -> "平局"
+        }
+    }
+
+    /** Kill grade this side's opponent has reached against [victims]. */
+    fun killLevelAgainst(victims: BattleSide): Int =
+        KillScoreCalculator.killLevel(victims.killStartingCount, victims.killIncapacitatedCount)
+
+    /**
+     * Each new kill grade reached gains 1VP (p107). Grades already counted are remembered in
+     * progress, so reviving an operative never removes VP and manual VP edits stay intact.
+     */
+    fun syncKills(battle: BattleRecord): BattleRecord {
+        val levelA = killLevelAgainst(battle.sideB)
+        val levelB = killLevelAgainst(battle.sideA)
+        val gainA = (levelA - battle.progress.killLevelA).coerceAtLeast(0)
+        val gainB = (levelB - battle.progress.killLevelB).coerceAtLeast(0)
+        if (gainA == 0 && gainB == 0) return battle
+        return battle.copy(
+            sideA = battle.sideA.copy(score = battle.sideA.score.change(ScoreType.KILL, gainA)),
+            sideB = battle.sideB.copy(score = battle.sideB.score.change(ScoreType.KILL, gainB)),
+            progress = battle.progress.copy(
+                killLevelA = maxOf(levelA, battle.progress.killLevelA),
+                killLevelB = maxOf(levelB, battle.progress.killLevelB)
+            ),
+            log = battle.log + listOfNotNull(
+                if (gainA > 0) BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                    message = "${battle.sideA.playerName}击杀等级提升至 $levelA，击杀行动 +${gainA}VP") else null,
+                if (gainB > 0) BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                    message = "${battle.sideB.playerName}击杀等级提升至 $levelB，击杀行动 +${gainB}VP") else null
+            )
+        )
+    }
+
+    /** Wounds at 0 incapacitate (p21); raising wounds above 0 again revives the token. */
+    fun setWounds(operative: BattleOperativeState, wounds: Int): BattleOperativeState {
+        val value = wounds.coerceIn(0, operative.maxWounds)
+        return when {
+            value <= 0 -> operative.copy(currentWounds = 0, incapacitated = true, ready = false)
+            operative.incapacitated && operative.currentWounds <= 0 -> operative.copy(currentWounds = value, incapacitated = false)
+            else -> operative.copy(currentWounds = value)
+        }
+    }
+
+    private fun expireTurningPointTokens(battle: BattleRecord): BattleRecord {
+        fun clean(side: BattleSide) = side.copy(operatives = side.operatives.map { o ->
+            o.copy(tokens = o.tokens.filterNot { it.duration == TokenDuration.TURNING_POINT_END || it.duration == TokenDuration.THIS_ACTIVATION })
+        })
+        return battle.copy(sideA = clean(battle.sideA), sideB = clean(battle.sideB))
+    }
 
     private fun createSide(
         id: String,
@@ -274,6 +400,7 @@ object BattleRules {
                     operativeId = operative.id,
                     displayName = member.callsign.ifBlank { operative.name },
                     maxWounds = operative.wounds,
+                    apl = operative.apl,
                     weapons = operative.weapons
                         .filter { it.id in member.weaponIds }
                         .ifEmpty { operative.weapons }
@@ -287,8 +414,9 @@ object BattleRules {
                                 hit = stats.hit,
                                 critical = stats.criticalThreshold,
                                 normalDamage = stats.normalDamage,
-                                criticalDamage = stats.criticalDamage,
-                                keywords = stats.keywords
+                            criticalDamage = stats.criticalDamage,
+                            keywords = stats.keywords,
+                            kind = weapon.kind
                             )
                         }
                 )

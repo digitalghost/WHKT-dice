@@ -13,7 +13,7 @@ class BattleStore(context: Context) {
     fun load(battleId: String): BattleRecord? = all().firstOrNull { it.battleId == battleId }
 
     fun save(battle: BattleRecord): BattleRecord {
-        val updated = battle.copy(updatedAt = System.currentTimeMillis())
+        val updated = BattleRules.syncKills(battle).copy(updatedAt = System.currentTimeMillis())
         val battles = all().toMutableList()
         val index = battles.indexOfFirst { it.battleId == updated.battleId }
         if (index >= 0) {
@@ -21,7 +21,7 @@ class BattleStore(context: Context) {
             val history = JSONArray(preferences.getString(key, "[]"))
             history.put(encodeBattle(battles[index]))
             val kept = JSONArray()
-            for (i in maxOf(0, history.length() - 30) until history.length()) kept.put(history.getJSONObject(i))
+            for (i in maxOf(0, history.length() - UNDO_LIMIT) until history.length()) kept.put(history.getJSONObject(i))
             preferences.edit().putString(key, kept.toString()).apply()
         }
         if (index >= 0) battles[index] = updated else battles.add(updated)
@@ -36,11 +36,24 @@ class BattleStore(context: Context) {
         ?.let(::load)
         ?.takeUnless { it.completed }
 
+    /** What the next undo would revert, for the undo button label. */
+    fun undoPreview(battleId: String): String? {
+        val history = JSONArray(preferences.getString("undo_$battleId", "[]"))
+        if (history.length() == 0) return null
+        val current = load(battleId) ?: return null
+        return UndoTrace.preview(current, decodeBattle(history.getJSONObject(history.length() - 1)))
+    }
+
+    /**
+     * Restores the previous snapshot but keeps a trace: entries written since then stay in the
+     * log marked as undone, followed by an undo entry. Dice already rolled are never hidden.
+     */
     fun undo(battleId: String): BattleRecord? {
         val key = "undo_$battleId"
         val history = JSONArray(preferences.getString(key, "[]"))
         if (history.length() == 0) return null
-        val previous = decodeBattle(history.getJSONObject(history.length() - 1))
+        val snapshot = decodeBattle(history.getJSONObject(history.length() - 1))
+        val previous = UndoTrace.restore(load(battleId), snapshot)
         history.remove(history.length() - 1)
         preferences.edit().putString(key, history.toString())
             .putString(KEY_BATTLES, encodeList(all().map { if (it.battleId == battleId) previous else it }).toString())
@@ -97,7 +110,18 @@ class BattleStore(context: Context) {
         .put("createdAt", battle.createdAt)
         .put("updatedAt", battle.updatedAt)
 
-    private fun decodeBattle(root: JSONObject) = BattleRecord(
+    /** Old saves scored kill VP by hand: treat grades already reached as counted. */
+    private fun decodeBattle(root: JSONObject): BattleRecord {
+        val record = decodeBattleFields(root)
+        val progress = root.optJSONObject("progress")
+        if (progress != null && progress.has("killLevelA")) return record
+        return record.copy(progress = record.progress.copy(
+            killLevelA = BattleRules.killLevelAgainst(record.sideB),
+            killLevelB = BattleRules.killLevelAgainst(record.sideA)
+        ))
+    }
+
+    private fun decodeBattleFields(root: JSONObject) = BattleRecord(
         battleId = root.getString("battleId"),
         progress = BattleProgressCodec.decode(root.optJSONObject("progress")),
         name = root.optString("name", "杀戮小队对局"),
@@ -133,6 +157,10 @@ class BattleStore(context: Context) {
             .put("equipmentNotes", side.equipmentNotes)
             .put("tacticalOpNotes", side.tacticalOpNotes)
             .put("tacticalOpRevealed", side.tacticalOpRevealed)
+            .put("counters", JSONArray().apply { side.counters.forEach { c ->
+                put(JSONObject().put("id", c.id).put("name", c.name).put("value", c.value)
+                    .put("reset", c.resetEachTurningPoint ?: JSONObject.NULL))
+            } })
             .put("operatives", JSONArray().apply { side.operatives.forEach { put(encodeOperative(it)) } })
 
     private fun decodeSide(root: JSONObject): BattleSide {
@@ -154,7 +182,15 @@ class BattleStore(context: Context) {
             equipmentNotes = root.optString("equipmentNotes"),
             tacticalOpNotes = root.optString("tacticalOpNotes"),
             operatives = root.optJSONArray("operatives").toObjectList(::decodeOperative),
-            tacticalOpRevealed = root.optBoolean("tacticalOpRevealed", false)
+            tacticalOpRevealed = root.optBoolean("tacticalOpRevealed", false),
+            counters = root.optJSONArray("counters").toObjectList { c ->
+                TeamCounter(
+                    id = c.optString("id"),
+                    name = c.optString("name"),
+                    value = c.optInt("value"),
+                    resetEachTurningPoint = if (c.isNull("reset")) null else c.optInt("reset")
+                )
+            }
         )
     }
 
@@ -168,6 +204,12 @@ class BattleStore(context: Context) {
         .put("ready", operative.ready)
         .put("incapacitated", operative.incapacitated)
         .put("weapons", JSONArray().apply { operative.weapons.forEach { put(encodeWeapon(it)) } })
+        .put("apl", operative.apl)
+        .put("excludedFromKill", operative.excludedFromKill)
+        .put("tokens", JSONArray().apply { operative.tokens.forEach { t ->
+            put(JSONObject().put("id", t.id).put("name", t.name).put("value", t.value ?: JSONObject.NULL)
+                .put("duration", t.duration.name).put("source", t.source))
+        } })
 
     private fun decodeOperative(root: JSONObject) = BattleOperativeState(
         memberId = root.getString("memberId"),
@@ -178,7 +220,18 @@ class BattleStore(context: Context) {
         order = root.optString("order", BattleOperativeState.ORDER_CONCEAL),
         ready = root.optBoolean("ready", true),
         incapacitated = root.optBoolean("incapacitated"),
-        weapons = root.optJSONArray("weapons").toObjectList(::decodeWeapon)
+        weapons = root.optJSONArray("weapons").toObjectList(::decodeWeapon),
+        apl = root.optInt("apl", 2),
+        excludedFromKill = root.optBoolean("excludedFromKill"),
+        tokens = root.optJSONArray("tokens").toObjectList { t ->
+            OperativeToken(
+                id = t.optString("id"),
+                name = t.optString("name"),
+                value = if (t.isNull("value")) null else t.optInt("value"),
+                duration = enumValueOrDefault(t.optString("duration"), TokenDuration.MANUAL),
+                source = t.optString("source")
+            )
+        }
     )
 
     private fun encodeWeapon(weapon: BattleWeaponSnapshot) = JSONObject()
@@ -190,6 +243,7 @@ class BattleStore(context: Context) {
         .put("critical", weapon.critical)
         .put("normalDamage", weapon.normalDamage)
         .put("criticalDamage", weapon.criticalDamage)
+        .put("kind", weapon.kind.name)
         .put("keywords", JSONArray(weapon.keywords))
 
     private fun decodeWeapon(root: JSONObject) = BattleWeaponSnapshot(
@@ -201,7 +255,9 @@ class BattleStore(context: Context) {
         critical = root.optInt("critical", 6),
         normalDamage = root.optInt("normalDamage"),
         criticalDamage = root.optInt("criticalDamage"),
-        keywords = root.optJSONArray("keywords").toStringList()
+        keywords = root.optJSONArray("keywords").toStringList(),
+        kind = runCatching { WeaponKind.valueOf(root.optString("kind")) }
+            .getOrElse { WeaponActions.legacyKind(root.getString("id")) }
     )
 
     private fun encodeLog(entry: BattleLogEntry) = JSONObject()
@@ -210,13 +266,17 @@ class BattleStore(context: Context) {
         .put("turningPoint", entry.turningPoint)
         .put("phase", entry.phase.name)
         .put("message", entry.message)
+        .put("undone", entry.undone)
+        .put("manual", entry.manual)
 
     private fun decodeLog(root: JSONObject) = BattleLogEntry(
         id = root.getString("id"),
         timestamp = root.optLong("timestamp"),
         turningPoint = root.optInt("turningPoint"),
         phase = enumValueOrDefault(root.optString("phase"), BattlePhase.INITIATIVE),
-        message = root.optString("message")
+        message = root.optString("message"),
+        undone = root.optBoolean("undone"),
+        manual = root.optBoolean("manual")
     )
 
     private inline fun <reified T : Enum<T>> enumValueOrDefault(value: String, fallback: T): T =
@@ -236,5 +296,32 @@ class BattleStore(context: Context) {
         private const val PREFERENCES = "battle_records"
         private const val KEY_BATTLES = "battles_v1"
         private const val KEY_ACTIVE_BATTLE = "active_battle_id"
+        private const val UNDO_LIMIT = 100
+        const val UNDO_PREFIX = UndoTrace.PREFIX
+    }
+}
+
+/**
+ * Undo restores the previous snapshot but never hides what happened: log entries written since
+ * that snapshot are kept, marked as undone, followed by an "↶ 撤回" entry.
+ */
+object UndoTrace {
+    const val PREFIX = "↶ 撤回："
+
+    private fun since(current: BattleRecord, snapshot: BattleRecord): List<BattleLogEntry> {
+        val keptIds = snapshot.log.map { it.id }.toSet()
+        return current.log.filter { it.id !in keptIds }
+    }
+
+    fun preview(current: BattleRecord, snapshot: BattleRecord): String? =
+        since(current, snapshot).firstOrNull { !it.undone && !it.message.startsWith(PREFIX) }?.message?.substringBefore("\n")
+
+    fun restore(current: BattleRecord?, snapshot: BattleRecord): BattleRecord {
+        if (current == null) return snapshot
+        val trace = since(current, snapshot)
+        val label = preview(current, snapshot) ?: "上一步"
+        return snapshot.copy(log = snapshot.log +
+            trace.map { if (it.message.startsWith(PREFIX)) it else it.copy(undone = true) } +
+            BattleLogEntry(turningPoint = current.turningPoint, phase = current.phase, message = "$PREFIX$label", manual = true))
     }
 }

@@ -70,35 +70,23 @@ object MissionCards {
     ) {
         val archetypes = TeamArchetypes.forTeam(teamId)
         val cards = tacticalForTeam(teamId)
-        box.addView(
-            ui.text(
-                "该小队有 ${archetypes.size} 个原型，每个原型各 3 张战术行动，共 ${cards.size} 张；阅读完整内容后直接选择。",
-                12f,
-                ui.muted
-            ),
-            ui.wrap(12)
-        )
-
         if (!ui.isTablet) {
+            val kit = CombatKit(ui)
             archetypes.forEach { archetype ->
                 val group = cards.filter { it.archetype == archetype }
-                box.addView(ui.text("$archetype · ${group.size} 张", 17f, ui.accent, true), ui.wrap(8))
+                box.addView(ui.text(archetype, 16f, ui.accent, true), ui.wrap(8))
                 group.forEach { card ->
-                    box.addView(ui.card().apply {
-                        addView(
-                            ui.text(
-                                "${if (selected == card.name) "✓ " else ""}${card.name}",
-                                18f,
-                                ui.accent,
-                                true
-                            ),
-                            ui.wrap(4)
-                        )
-                        addView(ui.text(card.displayCategory, 12f, ui.muted, true), ui.wrap(8))
-                        addView(ui.button("查看细则并选择 ›") {
-                            detail(ui, card) { choose(card) }
-                        }, ui.wrap(4))
-                    }, ui.wrap(10))
+                    val on = selected == card.name
+                    box.addView(kit.listRow(
+                        title = card.name,
+                        subtitle = card.scoring,
+                        trailing = ui.text(if (on) "✓" else "›", 20f, if (on) ui.accent else ui.muted, true).apply {
+                            setPadding(ui.dp(8), 0, ui.dp(6), 0)
+                        },
+                        titleColor = if (on) ui.accent else ui.ink,
+                        stroke = if (on) ui.accent else 0xff2c2c2a.toInt(),
+                        onClick = { detail(ui, card) { choose(card) } }
+                    ), ui.wrap(8))
                 }
             }
             return

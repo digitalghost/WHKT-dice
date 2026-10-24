@@ -63,12 +63,10 @@ object EquipmentCards {
                 if(value != saved) commit(value)
             })
         ) { box,_ ->
-            val count=ui.text("已选 ${selected.size} / $MAX_SELECTIONS 项",14f,ui.accent,true)
+            val count=ui.text("已选 ${selected.size} / $MAX_SELECTIONS 项",16f,ui.accent,true)
             box.addView(ui.row().apply {
                 addView(count,ui.weight())
             },ui.wrap())
-            box.addView(ui.text("最多选择 4 件装备；选满后请先移除一件，才能选择其他装备。",12f,ui.muted),ui.wrap(12))
-            if(!ui.isTablet) box.addView(ui.text("点击装备查看完整效果与原卡。",12f,ui.muted),ui.wrap(12))
             val cards=cards(ui,teamId)
             val equipmentToggles=mutableListOf<Pair<String,android.widget.TextView>>()
             fun refreshEquipmentToggles() {
@@ -116,63 +114,59 @@ object EquipmentCards {
                     ui.reference("通用装备原卡") { original, _ -> ui.preview(original, "通用装备原卡", "equipment-reference-1.jpg") }
                 }, ui.wrap())
             } else {
+            // Phone: tap a row to select or remove; the card text opens from "规则".
+            val kit=CombatKit(ui)
+            val rows=mutableListOf<() -> Unit>()
             var previousGroup=""
             cards.forEach { card ->
-                val group=if(card.asset!=null) "FACTION / 阵营装备" else "UNIVERSAL / 通用装备"
-                if(group!=previousGroup) { box.addView(ui.text(group,12f,ui.accent,true),ui.wrap(10));previousGroup=group }
-                val title=ui.text("${if(card.name in selected) "✓ " else ""}${card.name}",16f,ui.ink,true)
-                val tile=ui.row().apply {
-                    minimumHeight=ui.dp(68);setPadding(0,ui.dp(6),0,ui.dp(6))
-                    if(card.asset!=null) addView(ImageView(ui.context).apply {
-                        ui.context.assets.open(card.asset).use { setImageBitmap(BitmapFactory.decodeStream(it)) }
-                        scaleType=ImageView.ScaleType.CENTER_CROP
-                        importantForAccessibility=android.view.View.IMPORTANT_FOR_ACCESSIBILITY_NO
-                    },LinearLayout.LayoutParams(ui.dp(48),ui.dp(58)).apply { marginEnd=ui.dp(12) })
-                    addView(ui.column().apply {
-                        addView(title,ui.wrap(4));addView(ui.text(card.count,11f,ui.muted))
-                    },ui.weight())
-                    addView(ui.text("›",22f,ui.accent))
-                    contentDescription="查看装备卡：${card.name}"
-                }
-                    tile.setOnClickListener {
-                        ui.dialog(card.name) { details,detail ->
-                            val canSelect=card.name in selected || canAdd(selected.size)
-                            if(!readOnly && !canSelect) {
-                                details.addView(ui.text("已选择 4 件装备。请先移除一件，才能选择此装备。",12f,ui.accent,true),ui.wrap(12))
-                            }
-                            details.addView(ui.row().apply {
-                                addView(ui.text(card.count,12f,ui.accent),ui.weight())
-                                if(!readOnly) addView(ui.button(if(!canSelect) "已达上限" else if(card.name in selected) "移除" else "加入装备",true) {
-                                    if(card.name in selected) selected.remove(card.name)
-                                    else if(canAdd(selected.size)) selected.add(card.name)
-                                    else return@button
-                                    title.text="${if(card.name in selected) "✓ " else ""}${card.name}"
-                                    count.text="已选 ${selected.size} / $MAX_SELECTIONS 项";detail.dismiss()
-                                }.apply { isEnabled=canSelect;alpha=if(canSelect) 1f else .45f })
-                            },ui.wrap(10))
-                        if(card.currentText) {
-                            details.addView(ui.text(card.rules),ui.wrap())
-                            originalLink(ui,details,card)
-                        } else if(card.asset!=null) {
-                            details.addView(ui.text("双指缩放 · 拖动查看 · 双击复位",11f,ui.muted),ui.wrap())
-                            details.addView(ZoomReference(ui.context,card.asset),LinearLayout.LayoutParams(-1,ui.dp(380)))
-                        } else {
-                            details.addView(ui.text(card.rules),ui.wrap())
-                            details.addView(ui.link("查看 PDF 完整原页  ›") {
-                                ui.dialog("通用装备 · PDF 第 1 页") { original,_ ->
-                                    original.addView(ZoomReference(ui.context,"equipment-reference-1.jpg"),LinearLayout.LayoutParams(-1,ui.dp(420)))
-                                }
-                            })
-                        }
+                val group=if(card.asset!=null) "阵营装备" else "通用装备"
+                if(group!=previousGroup) { box.addView(ui.text(group,15f,ui.accent,true),ui.wrap(8));previousGroup=group }
+                val holder=android.widget.FrameLayout(ui.context)
+                fun bind() {
+                    holder.removeAllViews()
+                    val on=card.name in selected
+                    val enabled=readOnly || on || canAdd(selected.size)
+                    val detailsLink=ui.text("规则",13f,ui.muted,true).apply {
+                        setPadding(ui.dp(12),ui.dp(14),ui.dp(8),ui.dp(14))
+                        setOnClickListener { details(ui,card) }
                     }
+                    holder.addView(kit.listRow(
+                        title=(if(on) "✓ " else "")+card.name,
+                        subtitle=card.count,
+                        trailing=detailsLink,
+                        titleColor=if(on) ui.accent else ui.ink,
+                        stroke=if(on) ui.accent else 0xff2c2c2a.toInt(),
+                        onClick=if(readOnly) ({ details(ui,card) }) else ({
+                            if(card.name in selected) selected.remove(card.name)
+                            else if(canAdd(selected.size)) selected.add(card.name)
+                            count.text="已选 ${selected.size} / $MAX_SELECTIONS 项"
+                            rows.forEach { it() }
+                        })
+                    ).apply { alpha=if(enabled) 1f else .4f })
                 }
-                box.addView(tile);box.addView(ui.divider())
+                rows+= ::bind
+                bind()
+                box.addView(holder,ui.wrap(6))
             }
             }
             selected.filter { name->cards.none { it.name==name } }.forEach { note ->
                 box.addView(ui.link("旧记录：$note · ${if(readOnly) "已保存" else "移除"}") {
                     if(!readOnly) { selected.remove(note);count.text="已选 ${selected.size} / $MAX_SELECTIONS 项" }
                 },ui.wrap())
+            }
+        }
+    }
+
+    /** Full text of one equipment card: written rules, or the original card image. */
+    private fun details(ui: RecordUi,card: EquipmentCard) {
+        ui.dialog(card.name) { box,_ ->
+            box.addView(ui.text(card.count,13f,ui.accent,true),ui.wrap(10))
+            if(card.asset!=null && !card.currentText) {
+                box.addView(ui.text("双指缩放 · 双击复位",11f,ui.muted),ui.wrap())
+                box.addView(ZoomReference(ui.context,card.asset),LinearLayout.LayoutParams(-1,ui.dp(380)))
+            } else {
+                box.addView(ui.text(card.rules,14f),ui.wrap())
+                originalLink(ui,box,card)
             }
         }
     }

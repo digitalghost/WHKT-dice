@@ -38,6 +38,7 @@ class RecordUi(val context: Context) {
         includeFontPadding=false;setLineSpacing(dp(2).toFloat(),1f)
     }
     fun heading(value: String,size: Float=26f) = text(value,size,ink,true).apply {
+        setTypeface(typeface,Typeface.BOLD)
         typeface=ResourcesCompat.getFont(context,R.font.teko_variable)
         letterSpacing=.035f
     }
@@ -69,18 +70,65 @@ class RecordUi(val context: Context) {
         background=bg();clipToOutline=true;importantForAccessibility=View.IMPORTANT_FOR_ACCESSIBILITY_NO
         layoutParams=LinearLayout.LayoutParams(dp(size),dp(size)).apply { marginEnd=dp(12) }
     }
-    fun memberPortrait(uri: String?, fallbackResource: Int, size: Int=48)=ImageView(context).apply {
-        val loaded=uri?.let { value ->
-            runCatching {
-                setImageURI(android.net.Uri.parse(value))
-                drawable != null
-            }.getOrDefault(false)
-        } ?: false
-        if(!loaded) setImageResource(fallbackResource)
+    fun memberPortrait(
+        uri: String?,
+        fallbackResource: Int,
+        size: Int=48,
+        photoTitle: String="棋子照片"
+    )=ImageView(context).apply {
         scaleType=ImageView.ScaleType.CENTER_CROP
         background=bg(base,line);clipToOutline=true
-        importantForAccessibility=View.IMPORTANT_FOR_ACCESSIBILITY_NO
         layoutParams=LinearLayout.LayoutParams(dp(size),dp(size)).apply { marginEnd=dp(10) }
+        bindMemberPortrait(this,uri,fallbackResource,photoTitle)
+    }
+    fun bindMemberPortrait(
+        target: ImageView,
+        uri: String?,
+        fallbackResource: Int,
+        photoTitle: String="棋子照片",
+        onLoaded: ((Boolean)->Unit)?=null
+    ) {
+        if(uri.isNullOrBlank()) {
+            AvatarImages.clear(target,fallbackResource)
+            target.setOnClickListener(null)
+            target.isClickable=false;target.isFocusable=false
+            target.importantForAccessibility=View.IMPORTANT_FOR_ACCESSIBILITY_NO
+            onLoaded?.invoke(false)
+            return
+        }
+        AvatarImages.bindThumbnail(context,target,uri,fallbackResource,onLoaded)
+        target.isClickable=true;target.isFocusable=true
+        target.importantForAccessibility=View.IMPORTANT_FOR_ACCESSIBILITY_YES
+        target.contentDescription="查看$photoTitle"
+        target.setOnClickListener { showMemberPhoto(uri,photoTitle) }
+    }
+    fun showMemberPhoto(uri: String,title: String="棋子照片") {
+        dialog(title,expanded=true) { box,_ ->
+            val status=text("正在从原图加载预览…",12f,muted).apply {
+                gravity=Gravity.CENTER
+            }
+            val photo=ZoomPhotoView(context).apply {
+                setBackgroundColor(Color.BLACK)
+                contentDescription="$title，支持双指缩放和拖动"
+            }
+            box.addView(status,wrap(8))
+            box.addView(
+                photo,
+                LinearLayout.LayoutParams(-1,(context.resources.displayMetrics.heightPixels*.72f).toInt())
+            )
+            val metrics=context.resources.displayMetrics
+            val maxDimension=maxOf(metrics.widthPixels,metrics.heightPixels).coerceIn(1024,2048)
+            AvatarImages.loadOriginalPreview(context,uri,maxDimension) { bitmap ->
+                if(bitmap==null) {
+                    status.text="无法读取这张照片，请重新拍摄或导入。"
+                    status.setTextColor(orange)
+                } else {
+                    photo.show(bitmap)
+                    status.text="原图查看 · 双指缩放，拖动查看，双击复位"
+                }
+                refreshDialog()
+            }
+        }
     }
     fun teamArt(teamId: String)=TeamMarks.resource(teamId)
     fun input(value: String,hintText: String,numeric: Boolean=false)=EditText(context).apply {
@@ -179,7 +227,11 @@ class RecordUi(val context: Context) {
                 window?.setBackgroundDrawableResource(android.R.color.transparent)
                 setCancelable(true)
                 setCanceledOnTouchOutside(true)
-                setOnDismissListener {
+                // Only react when this window is still the host. When the last page is closed
+                // programmatically the host is cleared first, so a sheet opened right after
+                // gets a fresh window instead of being wiped by this late callback.
+                setOnDismissListener { dismissed ->
+                    if(host!==dismissed) return@setOnDismissListener
                     val closed=pages.toList().asReversed()
                     pages.clear();host=null
                     closed.forEach { it.onClose?.invoke() }
@@ -205,7 +257,7 @@ class RecordUi(val context: Context) {
         val closed=pages.subList(index,pages.size).toList().asReversed()
         pages.subList(index,pages.size).clear()
         closed.forEach { it.onClose?.invoke() }
-        if(pages.isEmpty()) host?.dismiss() else displayPage()
+        if(pages.isEmpty()) { val window=host;host=null;window?.dismiss() } else displayPage()
     }
     private fun displayPage() {
         val page=pages.lastOrNull()?.view ?: return

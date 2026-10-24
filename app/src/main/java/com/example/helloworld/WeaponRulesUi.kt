@@ -79,8 +79,16 @@ object WeaponRulesUi {
                             ?: "该关键字尚无独立文字说明，请以对应小队原卡为准。",
                         13f
                     ),
-                    ui.wrap(10)
+                    ui.wrap(6)
                 )
+                CoreRules.weaponRule(ui.context, keyword)?.let { passage ->
+                    box.addView(ui.text(CoreRules.pageLabel(passage), 11f, ui.muted, true), ui.wrap(3))
+                    box.addView(ui.text(passage.text, 13f, ui.muted).apply {
+                        setPadding(ui.dp(10), ui.dp(8), ui.dp(10), ui.dp(8))
+                        background = ui.bg(0xff141414.toInt(), 0xff343432.toInt())
+                        setTextIsSelectable(true)
+                    }, ui.wrap(10))
+                }
             }
         }
     }

@@ -54,6 +54,14 @@
             android:name=".MainActivity"
             android:exported="false"
             android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".MeleeCombatActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".ShootingCombatActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
     </application>
 
 </manifest>

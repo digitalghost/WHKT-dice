@@ -21,7 +21,9 @@ data class BattleProgress(
     val planPasses: Int = 0,
     val usedPlans: Set<String> = emptySet(),
     val objectives: Map<String, String> = emptyMap(),
-    val killBonusApplied: Boolean = false
+    val killBonusApplied: Boolean = false,
+    val killLevelA: Int = 0,
+    val killLevelB: Int = 0
 )
 
 object BattleFlow {
@@ -59,8 +61,25 @@ object BattleFlow {
         )), "${b.side(s).playerName}部署第 ${done + 1} 组：${groups(b.side(s).operatives.size)[done]} 名特工，隐匿命令")
     }
 
+    /**
+     * Roll-off winner (p8, p106). Ties: the player without initiative wins; in the first
+     * turning point the player who did not have deployment initiative wins. Returns null when
+     * that cannot be decided from the record (deployment initiative unknown).
+     */
+    fun initiativeWinner(b: BattleRecord, rollA: Int, rollB: Int): String? = when {
+        rollA > rollB -> "A"
+        rollB > rollA -> "B"
+        b.turningPoint == 0 -> b.progress.deploymentInitiative.takeIf { it == "A" || it == "B" }?.let(::other)
+        else -> b.initiativeSideId?.let(::other)
+    }
+
+    /** Base APL with modifiers capped at ±1 in total (p21); stun is one of those modifiers. */
+    fun effectiveApl(o: BattleOperativeState, manualDelta: Int = 0): Int {
+        val delta = (manualDelta - if (o.stunned) 1 else 0).coerceIn(-1, 1)
+        return (o.apl + delta).coerceAtLeast(0)
+    }
+
     fun initiative(b: BattleRecord, winner: String, chosen: String): BattleRecord {
-        require(b.turningPoint > 0 || b.progress.setupStep == 3) { "请先完成部署" }
         val next = BattleRules.beginTurningPoint(b, chosen)
         val loser = other(winner)
         val card = next.turningPoint
@@ -82,16 +101,39 @@ object BattleFlow {
             "${b.side(s).playerName}使用${if (card == 0) "重投" else "±$card"}先手权卡；$result")
     }
 
-    fun plan(b: BattleRecord, name: String, cost: Int): BattleRecord {
+    fun planUsed(b: BattleRecord, name: String): Boolean = key(b.progress.nextSide, name) in b.progress.usedPlans
+
+    fun plan(b: BattleRecord, name: String, cost: Int, allowRepeat: Boolean = false): BattleRecord {
         require(b.phase == BattlePhase.STRATEGY && b.progress.planPasses < 2)
         val s = b.side(b.progress.nextSide)
         require(name.isNotBlank() && cost >= 0 && s.commandPoints >= cost) { "请输入计划名称并确认 CP 足够" }
         val id = key(s.id, name)
-        require(id !in b.progress.usedPlans) { "本转折点已使用该战略计划" }
+        require(allowRepeat || id !in b.progress.usedPlans) { "本转折点已使用该战略计划" }
         return event(side(b, s.copy(commandPoints = s.commandPoints - cost)).copy(
             progress = b.progress.copy(nextSide = other(s.id), planPasses = 0, usedPlans = b.progress.usedPlans + id)
         ), "${s.playerName}：$name（消耗 $cost CP）")
     }
+
+    /**
+     * Primary op (p106): in the first turning point each player secretly chooses it as a
+     * strategic plan. The log never names the choice; it is revealed at the end of the battle.
+     */
+    fun needsPrimary(b: BattleRecord, sideId: String): Boolean =
+        b.phase == BattlePhase.STRATEGY && b.turningPoint == 1 && b.side(sideId).primaryOp == null
+
+    fun choosePrimary(b: BattleRecord, choice: ScoreType): BattleRecord {
+        require(b.phase == BattlePhase.STRATEGY && b.turningPoint == 1) { "主要行动在第一转折点战略阶段选择" }
+        val s = b.side(b.progress.nextSide)
+        require(s.primaryOp == null) { "已经选择过主要行动" }
+        return event(side(b, s.copy(primaryOp = choice)).copy(
+            progress = b.progress.copy(nextSide = other(s.id), planPasses = 0, usedPlans = b.progress.usedPlans + key(s.id, PRIMARY_PLAN))
+        ), "${s.playerName}：秘密选择主要行动")
+    }
+
+    const val PRIMARY_PLAN = "主要行动"
+
+    fun primariesReady(b: BattleRecord): Boolean =
+        b.turningPoint != 1 || (b.sideA.primaryOp != null && b.sideB.primaryOp != null)
 
     fun passPlan(b: BattleRecord): BattleRecord {
         require(b.phase == BattlePhase.STRATEGY && b.progress.planPasses < 2)
@@ -101,21 +143,49 @@ object BattleFlow {
         )), "${b.side(b.progress.nextSide).playerName}跳过战略计划")
     }
 
-    fun activate(b: BattleRecord, s: String, member: String, apl: Int, engage: Boolean): BattleRecord {
+    /**
+     * [force] is the manual escape hatch for team rules (extra/interrupting activations,
+     * activating an expended operative): it skips turn and readiness checks and is logged.
+     */
+    fun activate(
+        b: BattleRecord, s: String, member: String, apl: Int, engage: Boolean,
+        force: Boolean = false, reason: String = ""
+    ): BattleRecord {
         require(b.phase == BattlePhase.FIREFIGHT && b.progress.active == null) { "请先结束当前激活" }
-        require(s == b.progress.nextSide) { "尚未轮到该玩家" }
         val o = b.side(s).operatives.first { it.memberId == member }
-        require(!o.incapacitated)
-        val reaction = !ready(b, s)
-        if (reaction) {
-            require(ready(b, other(s)) && o.order == BattleOperativeState.ORDER_ENGAGE &&
-                key(s, member) !in b.progress.reacted) { "反应需要待机、交战命令且本转折点未反应；对方仍有就绪特工" }
-        } else require(o.ready) { "该特工已经待机" }
+        require(!o.incapacitated) { "残废特工不能激活" }
+        val reaction = !force && !ready(b, s)
+        if (!force) {
+            require(s == b.progress.nextSide) { "尚未轮到该玩家" }
+            if (reaction) {
+                require(ready(b, other(s)) && o.order == BattleOperativeState.ORDER_ENGAGE &&
+                    key(s, member) !in b.progress.reacted) { "反应需要待机、交战命令且本转折点未反应；对方仍有就绪特工" }
+            } else require(o.ready) { "该特工已经待机" }
+        }
+        val expired = o.tokens.filter { it.duration == TokenDuration.NEXT_ACTIVATION_START }
         val updated = side(b, b.side(s).copy(operatives = b.side(s).operatives.map {
-            if (it.memberId == member && !reaction) it.copy(order = if (engage) "交战" else "隐匿") else it
+            if (it.memberId != member) it else {
+                val kept = it.copy(tokens = it.tokens - expired.toSet())
+                if (reaction) kept else kept.copy(order = if (engage) BattleOperativeState.ORDER_ENGAGE else BattleOperativeState.ORDER_CONCEAL)
+            }
         }))
-        return event(updated.copy(progress = b.progress.copy(active = Activation(s, member, apl, reaction = reaction))),
-            "${b.side(s).playerName}：${o.displayName}开始${if (reaction) "反应" else "激活"}")
+        val label = when {
+            force -> "额外激活（${reason.ifBlank { "规则干预" }}）"
+            reaction -> "反应"
+            else -> "激活 · ${if (engage) "交战" else "隐匿"} · APL $apl"
+        }
+        var next = event(updated.copy(progress = b.progress.copy(active = Activation(s, member, apl, reaction = reaction))),
+            "${b.side(s).playerName}：${o.displayName}$label")
+        if (expired.isNotEmpty()) next = event(next, "${o.displayName}：${expired.joinToString("、") { it.label }} 到期移除")
+        return next
+    }
+
+    /** Manual AP / APL correction during an activation (team rules, free actions). */
+    fun adjustActivation(b: BattleRecord, limitDelta: Int, spentDelta: Int, reason: String): BattleRecord {
+        val a = requireNotNull(b.progress.active)
+        val next = a.copy(limit = (a.limit + limitDelta).coerceAtLeast(0), spent = (a.spent + spentDelta).coerceAtLeast(0))
+        return event(b.copy(progress = b.progress.copy(active = next)),
+            "AP 调整：已用 ${next.spent}/${next.limit}${if (reason.isBlank()) "" else "（$reason）"}")
     }
 
     fun action(b: BattleRecord, name: String, cost: Int, exception: String): BattleRecord {
@@ -142,7 +212,18 @@ object BattleFlow {
     fun endActivation(b: BattleRecord): BattleRecord {
         val a = requireNotNull(b.progress.active)
         val s = b.side(a.side)
-        val next = side(b, s.copy(operatives = s.operatives.map { if (it.memberId == a.member) it.copy(ready = false) else it }))
+        val operative = s.operatives.first { it.memberId == a.member }
+        val expired = operative.tokens.filter {
+            it.duration == TokenDuration.THIS_ACTIVATION || it.duration == TokenDuration.NEXT_ACTIVATION_END
+        }
+        var next = side(b, s.copy(operatives = s.operatives.map {
+            if (it.memberId == a.member) it.copy(ready = false, tokens = it.tokens - expired.toSet()) else it
+        }))
+        if (expired.isNotEmpty()) next = event(next, "${operative.displayName}：${expired.joinToString("、") { it.label }} 到期移除")
+        fun clean(side: BattleSide) = side.copy(operatives = side.operatives.map { o ->
+            o.copy(tokens = o.tokens.filterNot { it.duration == TokenDuration.THIS_ACTIVATION })
+        })
+        next = next.copy(sideA = clean(next.sideA), sideB = clean(next.sideB))
         return event(next.copy(progress = b.progress.copy(
             active = null, nextSide = other(a.side),
             reacted = if (a.reaction) b.progress.reacted + key(a.side, a.member) else b.progress.reacted
@@ -164,6 +245,7 @@ object BattleProgressCodec {
         .put("reacted", JSONArray(p.reacted.toList())).put("passes", p.planPasses)
         .put("plans", JSONArray(p.usedPlans.toList())).put("objectives", JSONObject(p.objectives))
         .put("killBonusApplied", p.killBonusApplied)
+        .put("killLevelA", p.killLevelA).put("killLevelB", p.killLevelB)
         .put("active", p.active?.let { a -> JSONObject().put("side", a.side).put("member", a.member)
             .put("limit", a.limit).put("spent", a.spent).put("reaction", a.reaction).put("actions", JSONArray(a.actions)) })
 
@@ -179,6 +261,7 @@ object BattleProgressCodec {
             planPasses = j.optInt("passes"), usedPlans = strings("plans"),
             objectives = objectives.keys().asSequence().associateWith { objectives.getString(it) },
             killBonusApplied = j.optBoolean("killBonusApplied"),
+            killLevelA = j.optInt("killLevelA"), killLevelB = j.optInt("killLevelB"),
             active = j.optJSONObject("active")?.let { a ->
                 val actions = a.optJSONArray("actions") ?: JSONArray()
                 Activation(a.getString("side"), a.getString("member"), a.getInt("limit"), a.optInt("spent"),

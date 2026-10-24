@@ -5,10 +5,13 @@ import androidx.annotation.DrawableRes
 data class WeaponOption(
     val id: String,
     val name: String,
-    val profile: String
+    val profile: String,
+    val declaredKind: WeaponKind? = null
 ) {
     val stats: WeaponStats
         get() = WeaponProfileParser.parse(profile)
+    val kind: WeaponKind
+        get() = declaredKind ?: WeaponActions.legacyKind(id)
 }
 
 data class WeaponStats(

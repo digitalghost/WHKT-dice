@@ -133,6 +133,7 @@ class DiceTrayView @JvmOverloads constructor(
     private val bodies = mutableListOf<DieBody>()
     private var animator: ValueAnimator? = null
     private var renderedDieSize = 0f
+    private var pendingRestoreResults: List<Int>? = null
     private var lastFrameNanos = 0L
     private var selectionChanged: ((Int) -> Unit)? = null
     private var throwRequested: (() -> Unit)? = null
@@ -154,6 +155,21 @@ class DiceTrayView @JvmOverloads constructor(
         isFocusable = false
         applyThemePalette()
     }
+
+    private var dieTapped: ((Int) -> Unit)? = null
+
+    /** When set, tapping a settled die reports its index instead of toggling selection. */
+    fun setOnDieTapListener(listener: ((Int) -> Unit)?) {
+        dieTapped = listener
+    }
+
+    /** Select exactly one die so [rerollSelected] animates only that die. */
+    fun selectOnly(index: Int) {
+        bodies.forEach { it.selected = it.index == index }
+        invalidate()
+    }
+
+    val isAnimating: Boolean get() = animator?.isRunning == true
 
     fun setOnSelectionChangedListener(listener: (Int) -> Unit) {
         selectionChanged = listener
@@ -196,6 +212,14 @@ class DiceTrayView @JvmOverloads constructor(
 
     fun restoreResults(results: List<Int>) {
         animator?.cancel()
+        if (width <= 0 || height <= 0) {
+            bodies.clear()
+            pendingRestoreResults = results.toList()
+            selectionChanged?.invoke(0)
+            invalidate()
+            return
+        }
+        pendingRestoreResults = null
         bodies.clear()
         if (results.isEmpty()) {
             selectionChanged?.invoke(0)
@@ -345,6 +369,7 @@ class DiceTrayView @JvmOverloads constructor(
 
     fun clearResults() {
         animator?.cancel()
+        pendingRestoreResults = null
         bodies.clear()
         selectionChanged?.invoke(0)
         invalidate()
@@ -401,6 +426,10 @@ class DiceTrayView @JvmOverloads constructor(
                     val dy = event.y - body.y
                     dx * dx + dy * dy
                 }
+                if (hit != null && dieTapped != null) {
+                    dieTapped?.invoke(hit.index)
+                    return true
+                }
                 if (hit != null) {
                     if (hit.selected) {
                         hit.selected = false
@@ -442,6 +471,12 @@ class DiceTrayView @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
+        val pendingResults = pendingRestoreResults
+        if (w > 0 && h > 0 && pendingResults != null) {
+            pendingRestoreResults = null
+            restoreResults(pendingResults)
+            return
+        }
         if (oldw <= 0 || oldh <= 0 || bodies.isEmpty()) return
 
         val oldTray = resultArea(oldw, oldh)
