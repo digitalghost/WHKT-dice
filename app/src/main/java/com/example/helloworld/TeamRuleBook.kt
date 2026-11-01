@@ -13,15 +13,15 @@ data class TeamRuleEntry(
 
 class TeamRuleBook(private val ui: RecordUi, private val teamId: String) {
     val available: Boolean
-        get() = teamId in setOf("CHAOS-WC", "TYR-RAV") ||
-            ImportedTeamCatalog.teams.any { it.id == teamId }
+        get() = "$teamId.json" in ui.context.assets.list("rules").orEmpty()
 
     val entries: List<TeamRuleEntry> by lazy {
         if (!available) emptyList()
         else {
-            val array = JSONObject(
-                ui.context.assets.open("rules/$teamId.json").bufferedReader().use { it.readText() }
-            ).getJSONArray("entries")
+            val root = JSONObject(ui.context.assets.open("rules/$teamId.json").bufferedReader().use { it.readText() })
+            // Generated skeletons stay hidden until proofread (tools/gen_team_rules_skeleton.py).
+            if (root.optBoolean("draft")) return@lazy emptyList()
+            val array = root.getJSONArray("entries")
             (0 until array.length()).map { index ->
                 val entry = array.getJSONObject(index)
                 val cards = entry.getJSONArray("cards")
@@ -61,7 +61,7 @@ class TeamRuleBook(private val ui: RecordUi, private val teamId: String) {
         }
 
         if (expanded) {
-            val present = ui.context.assets.list("team_rules").orEmpty().toSet()
+            val present = CardAssets.list(ui.context, "team_rules").toSet()
             ui.tiles(box, matching) { tile, entry ->
                 tile.addView(ui.text(entry.title.substringBefore('（'), 17f, ui.accent, true), ui.wrap())
                 entry.cards.filter { it in present }.forEach { file ->
@@ -101,13 +101,13 @@ class TeamRuleBook(private val ui: RecordUi, private val teamId: String) {
             box.addView(ui.text(entry.body), ui.wrap())
             box.addView(
                 ui.text(
-                    "资料核对：${if (ImportedTeamCatalog.teams.any { it.id == teamId }) "2026-09-24" else "2026-09-23"}。",
+                    "资料核对：官方中文规则与勘误。",
                     11f,
                     ui.muted
                 ),
                 ui.wrap()
             )
-            val present = ui.context.assets.list("team_rules").orEmpty().toSet()
+            val present = CardAssets.list(ui.context, "team_rules").toSet()
             entry.cards.filter { it in present }.forEach { file ->
                 ui.preview(box, entry.title, "team_rules/$file")
             }

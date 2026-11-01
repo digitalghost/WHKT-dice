@@ -1,0 +1,654 @@
+{
+  "schema_version": 1,
+  "team_id": "CHAOS-PM",
+  "team_name_zh": "瘟疫战士",
+  "team_name_en": "Plague Marines",
+  "source_pdf": "最新杀戮小队规则更新/瘟疫战士 Plague Marines 杀戮小队规则.pdf",
+  "source_pdf_sha256": "97c74d20069af5b7702761399dbed591370a43f44a3ef74cc8873d242559b2ad",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 24,
+    "operative": 7,
+    "operative-ability": 1,
+    "team-selection": 1,
+    "faction-rule": 3,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "chaos-pm-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "瘟疫战士勇士-数据卡",
+      "title_en": "PLAGUE MARINE CHAMPION",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-瘟疫战士勇士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n瘟疫战士勇士\n3 5\" 3+ 15\n名称攻击命中伤害武器规则\n等离子手枪（标准） 4 3+ 3/5 \u0007范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 \u0007范围 8\"、过热、致命 5+、穿刺 1\n瘟疫之剑 5 3+ 4/5 严重、毒素*、剧毒*\n慈父的祝福：每当一名位于该特工 7\" 内且拥有己方\n毒素指示物的敌方特工失去一点或更多耐伤时，该\n特工回复相当于那次失去耐伤数量的耐伤（在每个\n转折点中最多回复 3 点失去的耐伤，并且只有在该\n特工没有被残废时生效)。\n*剧毒：每当该特工使用本武器对一名在那次行动开\n始时就拥有一枚己方毒素指示物的敌方特工进行攻\n击时，该武器的两个伤害属性都提升 1 点。\n瘟疫战士、混沌、阿斯塔特叛军、队长、勇士 32",
+      "weapon_types": {
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "瘟疫之剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLAGUE MARINE CHAMPION\n3 5\" 3+ 15\nNAME ATK HIT DMG WR\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nPlague sword 5 3+ 4/5 Severe, Poison*, Toxic*\nGrandfather’s Blessing: Whenever an enemy operative that has\none of your Poison tokens loses one or more wounds within 7\"\nof this operative, this operative regains up to an equal number of\nlost wounds (to a maximum of 3 lost wounds per turning point,\nand only if this operative isn’t incapacitated).\n*Toxic: Whenever this operative is using this weapon against an\nenemy operative that had one of your Poison tokens at the start\nof that action, add 1 to both Dmg stats of this weapon.\nPLAGUE MARINE , CHAOS, HERETIC ASTARTES, LEADER, CHAMPION 32"
+    },
+    {
+      "id": "chaos-pm-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "瘟疫战士掷弹兵-数据卡",
+      "title_en": "PLAGUE MARINE BOMBARDIER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-瘟疫战士掷弹兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n瘟疫战士掷弹兵\n3 5\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢枪 4 3+ 3/4 -\n双拳 4 3+ 3/4 -\n掷弹兵：该特工可以使用穿甲和疫病手雷（参见\n阵营和通用装备)。该特工使用这些装备时不算入\n您拥有的使用限制（如果您还为其他特工选择了\n手雷类的装备)。每当该特工使用穿甲或疫病手雷\n时，那件武器的命中属性提升 1，并且疫病手雷\n拥有“剧毒”武器规则（见右侧）。\n*剧毒：每当该特工使用本武器对一名在那次行动开\n始时就拥有一枚己方毒素指示物的敌方特工进行攻\n击时，该武器的两个伤害属性都提升 1 点。\n瘟疫战士、混沌、阿斯塔特叛军、掷弹兵 32",
+      "weapon_types": {
+        "爆矢枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLAGUE MARINE BOMBARDIER\n3 5\" 3+ 14\nNAME ATK HIT DMG WR\nBoltgun 4 3+ 3/4 -\nFists 4 3+ 3/4 -\nGrenadier: This operative can use blight and krak grenades\n(see faction and universal equipment). Doing so doesn’t count\ntowards any limited uses you have (i.e. if you also select those\ngrenades from equipment for other operatives). Whenever it’s\ndoing so, improve the Hit stat of that weapon by 1 and blight\ngrenades have the Toxic weapon rule (see right).\n*Toxic: Whenever this operative is using this weapon against an\nenemy operative that had one of your Poison tokens at the start\nof that action, add 1 to both Dmg stats of this weapon.\nPLAGUE MARINE , CHAOS, HERETIC ASTARTES, BOMBARDIER 32"
+    },
+    {
+      "id": "chaos-pm-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "瘟疫战士斗士-数据卡",
+      "title_en": "PLAGUE MARINE FIGHTER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-瘟疫战士斗士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n瘟疫战士斗士\n3 5\" 3+ 14\n名称攻击命中伤害武器规则\n腐蚀连枷 5 3+ 4/5 残暴、严重、震荡、毒素*\n连枷挥打 1AP\n\u0007\u0007对位于该特工 2\" 内且对其可见的每一名其他\n特工造成 D3+2 点伤害。为每一个特工分别进\n行掷骰：如果是敌方特工，并且 D3 的掷骰结\n果为 3，那么那名敌方特工还会获得一枚己方\n毒素指示物（如果特工还没有指示物)。\n\u0007\u0007\u0007在判定行动限制和阿斯塔特阵营规则时，该行\n动被视作近战行动，该特工不能在拥有隐匿命\n令时执行本行动。\n瘟疫战士、混沌、阿斯塔特叛军、斗士 32",
+      "weapon_types": {
+        "腐蚀连枷": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLAGUE MARINE FIGHTER\n3 5\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nFlail of Corruption 5 3+ 4/5 Brutal, Severe, Shock, Poison*\nFLAIL 1AP\nInflict D3+2 damage on each other operative that’s both\nvisible to and within 2\" of this operative. Roll separately for\neach: if it’s an enemy operative, if the D3 result is a 3, that\nenemy operative also gains one of your Poison tokens (if it\ndoesn’t already have one).\nFor the purposes of action restrictions and the Astartes\nfaction rule, this action is treated as a Fight action.\nThis operative cannot perform this action while it has a\nConceal order.\nPLAGUE MARINE , CHAOS, HERETIC ASTARTES, FIGHTER 32"
+    },
+    {
+      "id": "chaos-pm-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "瘟疫战士重炮手-数据卡",
+      "title_en": "PLAGUE MARINE HEAVY GUNNER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-瘟疫战士重炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n瘟疫战士重炮手\n3 5\" 3+ 14\n名称攻击命中伤害武器规则\n瘟疫喷吐炮 5 2+ 3/3 范围 7\"、集中、严重、洪流 2\"、毒素*\n爆矢手枪 4 3+ 3/4 范围 8\"\n双拳 4 3+ 3/4 -\n瘟疫战士、混沌、阿斯塔特叛军、重炮手 32",
+      "weapon_types": {
+        "瘟疫喷吐炮": "远程",
+        "爆矢手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLAGUE MARINE HEAVY GUNNER\n3 5\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPlague spewer 5 2+ 3/3 Range 7\", Saturate, Severe, Torrent 2\", Poison*\nFists 4 3+ 3/4 -\nPLAGUE MARINE , CHAOS, HERETIC ASTARTES, HEAVY GUNNER 32"
+    },
+    {
+      "id": "chaos-pm-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "瘟疫战士持徽手-数据卡",
+      "title_en": "PLAGUE MARINE ICON BEARER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-瘟疫战士持徽手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n瘟疫战士持徽手\n3 5\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n瘟疫匕首 5 3+ 3/4 严重、毒素*\n持徽手：在判断一个标识的控制权时，将该特工的\nAPL 属性视作为比原本要高 1 点。请注意这并非对\nAPL 属性的修正，因此会与任何修正效果叠加。\n传疫徽记：当该特工位于对手的领地内时，“传\n染”战略计谋消耗 0 CP。\n瘟疫战士、混沌、阿斯塔特叛军、持徽手\u0007 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "瘟疫匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLAGUE MARINE ICON BEARER\n3 5\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPlague knife 5 3+ 3/4 Severe, Poison*\nIcon Bearer: Whenever determining control of a marker, treat\nthis operative’s APL stat as 1 higher. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\nIcon of Contagion: Whenever this operative is within your\nopponent’s territory, the Contagion strategy ploy costs you 0CP.\nPLAGUE MARINE , CHAOS, HERETIC ASTARTES, ICON BEARER 32"
+    },
+    {
+      "id": "chaos-pm-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "恶瘟投放者-数据卡",
+      "title_en": "MALIGNANT PLAGUECASTER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-恶瘟投放者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶瘟投放者\n3 5\" 3+ 14\n名称攻击命中伤害武器规则\n衰败术 4 3+ 3/7 灵能、范围 7\"、集中、严重、毒素*\n瘟疫之风 6 3+ 2/3 灵能、集中、严重、洪流 1\"、毒素*\n腐化法杖 4 3+ 3/4 灵能、严重、震荡、眩晕、毒素*\n请继续阅读背面规则\n瘟疫战士、混沌、阿斯塔特叛军、灵能者、恶瘟投放者 32",
+      "weapon_types": {
+        "衰败术": "远程",
+        "瘟疫之风": "远程",
+        "腐化法杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMALIGNANT PLAGUECASTER\n3 5\" 3+ 14\nNAME ATK HIT DMG WR\nEntropy 4 3+ 3/7 PSYCHIC, Range 7\", Saturate, Severe, Poison*\nPlague wind 6 3+ 2/3 PSYCHIC, Saturate, Severe, Torrent 1\", Poison*\nCorrupted staff 4 3+ 3/4 PSYCHIC, Severe, Shock, Stun, Poison*\nRULES CONTINUE ON OTHER SIDE\nPLAGUE MARINE , CHAOS, HERETIC ASTARTES, PSYKER, MALIGNANT PLAGUECASTER 32"
+    },
+    {
+      "id": "chaos-pm-01-07",
+      "sequence": 7,
+      "category": "operative-ability",
+      "title_zh": "恶瘟投放者-能力卡",
+      "title_en": "MALIGNANT PLAGUECASTER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工能力-恶瘟投放者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶瘟投放者\n3 5\" 3+ 14\n有毒瘴气 1AP\n灵能。选择一名位于该特工 7\" 内且对其可见的\n敌方特工，或者一名属于该特工有效目标的敌方\n特工。那名敌方特工获得一枚您的毒素标识（如\n果特工还没有获得标识的话)。如果那名敌方特\n工已经拥有毒素标识，则对其造成 3 点伤害。\n该特工不能在敌方特工的控制范围内执行此行\n动。\n腐烂活力 1AP\n灵能。选择一个位于该特工 3\" 内且对其可见的\n己方特工并掷 2D6：如果结果为 7，那么被选择\n的特工回复最多 7 点失去的耐伤；若是其他情\n况，则被选择的特工回复最多相当于最高 D6 结\n果数量的耐伤。\n该特工不能在敌方特工的控制范围内执行此行\n动，或者在每个转折点中执行本行动超过一次。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMALIGNANT PLAGUECASTER\n3 5\" 3+ 14\nPOISONOUS MIASMA 1AP\nPSYCHIC. Select one enemy operative visible to and\nwithin 7\" of this operative, or one enemy operative that’s\na valid target for this operative. That enemy operative\ngains one of your Poison tokens (if it doesn’t already have\none). If it already has one, inflict 3 damage on that enemy\noperative instead.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nPUTRESCENT VITALITY 1AP\nPSYCHIC. Select one friendly operative visible to and\nwithin 3\" of this operative, then roll 2D6: if the result is 7,\nthe selected operative regains 7 lost wounds; otherwise,\nthe selected operative regains lost wounds equal to the\nhighest D6.\nThis operative cannot perform this action while within\ncontrol range of an enemy operative, or more than once per\nturning point."
+    },
+    {
+      "id": "chaos-pm-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "瘟疫战士士兵-数据卡",
+      "title_en": "PLAGUE MARINE WARRIOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-瘟疫战士士兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n瘟疫战士士兵\n3 5\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢枪 4 3+ 3/4 剧毒*\n爆矢手枪 4 3+ 3/4 范围 8\"\n瘟疫匕首 4 3+ 3/4 严重、毒素*\n可憎韧性：每当一名特工对该特工进行射击时，结\n果为 5+ 的防御骰为关键成功。\n*剧毒：每当该特工使用本武器对一名在那次行动开\n始时就拥有一枚己方毒素指示物的敌方特工进行攻\n击时，该武器的两个伤害属性都提升 1 点。\n瘟疫战士、混沌、阿斯塔特叛军、士兵 32",
+      "weapon_types": {
+        "爆矢枪": "远程",
+        "爆矢手枪": "远程",
+        "瘟疫匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLAGUE MARINE WARRIOR\n3 5\" 3+ 14\nNAME ATK HIT DMG WR\nBoltgun 4 3+ 3/4 Toxic*\nPlague knife 4 3+ 3/4 Severe, Poison*\nRepulsive Fortitude: Whenever an operative is shooting this\noperative, defence dice results of 5+ are critical successes.\n*Toxic: Whenever this operative is using this weapon against an\nenemy operative that had one of your Poison tokens at the start\nof that action, add 1 to both Dmg stats of this weapon.\nPLAGUE MARINE , CHAOS, HERETIC ASTARTES, WARRIOR 32"
+    },
+    {
+      "id": "chaos-pm-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "瘟疫战士杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-瘟疫战士杀戮小队.png",
+      "is_back": false,
+      "text": "瘟疫战士\n杀戮小队\n原型：安全保护，搜索与摧毁\n特工\n↘ 1 名瘟疫战士勇士特工\n↘ 5 名瘟疫战士特工，从以下列表中选择：\n• 掷弹兵\n• 斗士\n• 重炮手\n• 持徽手\n• 恶瘟投放者\n• 士兵\n您的杀戮小队只能包含上述每种特工一次。\n纳垢的圣数为 7，徽记则为 3。他\n的腐败将从这些数字中流出。",
+      "text_en": "PLAGUE MARINES\nKILL TEAM\nARCHETYPE: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 PLAGUE MARINE CHAMPION operative\n↘ 5 PLAGUE MARINE operatives selected from\nthe following list:\n• BOMBARDIER\n• FIGHTER\n• HEAVY GUNNER\n• ICON BEARER\n• MALIGNANT PLAGUECASTER\n• WARRIOR\nYour kill team can only include each operative on\nthis list once.\nNurgle’s number is 7 and his sigil\nshows 3. From these numbers does\nhis corruption flow."
+    },
+    {
+      "id": "chaos-pm-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "阿斯塔特",
+      "title_en": "ASTARTES",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-阿斯塔特.png",
+      "is_back": false,
+      "text": "瘟疫战士\n阵营规则\n阿斯塔特\n这些经受了基因强化的超人们的存在意义只\n有一个：战争。\n在每一名己方瘟疫战士特工的激活期间，特工\n可以执行两次近战行动或者两次射击行动。如果\n选择执行两次射击行动，那么其中至少有一次必\n须选择使用一件爆矢手枪、爆矢枪或灵能武器进\n行攻击。您在每一次激活中不能多次选择同一件\n灵能远程武器。\n每一名己方瘟疫战士特工可以进行反应，无论\n其拥有的命令。",
+      "text_en": "PLAGUE MARINE\nFACTION RULE\nASTARTES\nSpace Marines are genetically augmented transhumans\nforged for only one purpose: war.\nDuring each friendly PLAGUE MARINE\noperative’s activation, it can perform either two\nShoot actions or two Fight actions. If it’s two\nShoot actions, a bolt pistol, boltgun or PSYCHIC\nweapon must be selected for at least one of them.\nYou cannot select the same PSYCHIC ranged\nweapon more than once per activation.\nEach friendly PLAGUE MARINE operative can\ncounteract regardless of its order."
+    },
+    {
+      "id": "chaos-pm-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "毒素",
+      "title_en": "POISON",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-毒素.png",
+      "is_back": false,
+      "text": "瘟疫战士\n阵营规则\n毒素\n纳垢能够制造各种被亚空间腐蚀的剧毒、毒\n液、病毒和灵魂上的疾病，能够超越一切自\n然的抵抗力和医疗措施。\n本杀戮小队中特工装备的一些武器拥有“毒素”\n武器规则。\n*毒素：在结算成功骰子步骤中，如果您使用任\n意成功造成了任何伤害，那么成为该武器攻击目\n标的特工（己方瘟疫战士特工除外）在流程结\n束时获得一枚己方毒素指示物（如果特工还没有\n获得毒素指示物)。每当一名拥有己方毒素指示\n物的特工被激活时，对其造成 1 点伤害。",
+      "text_en": "PLAGUE MARINE\nFACTION RULE\nPOISON\nNurgle deals in warp-tainted poisons, toxins, viral\nplagues and sicknesses of the soul that defy both\nnatural resilience and medical intervention.\nSome weapons in this team’s rules have the\nPoison weapon rule.\n*Poison: In the Resolve Attack Dice step, if you\ninflict damage with any successes, the operative\nthis weapon is being used against (excluding\nfriendly PLAGUE MARINE operatives) gains one\nof your Poison tokens (if it doesn’t already have\none). Whenever an operative that has one of your\nPoison tokens is activated, inflict 1 damage on it."
+    },
+    {
+      "id": "chaos-pm-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "恼人韧性",
+      "title_en": "DISGUSTINGLY RESILIENT",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-恼人韧性.png",
+      "is_back": false,
+      "text": "瘟疫战士\n阵营规则\n恼人韧性\n纳垢的信徒拥有抵御枪弹和剑刃的极度韧\n性，他们的躯体因死亡、腐败和疾病而变得\n肿胀。\n每当一枚攻击骰对一名己方瘟疫战士特工造成\n3 点或更多伤害时，掷一枚 D6：若结果为 4+，\n那么那次造成的伤害减少 1 点。",
+      "text_en": "PLAGUE MARINE\nFACTION RULE\nDISGUSTINGLY RESILIENT\nThe followers of Nurgle possess extreme resilience to\nbullet and blade, for their hideous forms are swollen by\ndeath, decay and disease.\nWhenever an attack dice inflicts damage of 3 or\nmore on a friendly PLAGUE MARINE operative,\nroll one D6: on a 4+, subtract 1 from that\ninflicted damage."
+    },
+    {
+      "id": "chaos-pm-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "传染",
+      "title_en": "CONTAGION",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-传染.png",
+      "is_back": false,
+      "text": "瘟疫战士\n战略计谋\n传染\n瘟疫战士浑身上下都流淌着病毒，他们的可\n怕躯体能够散发出一种腐败的毒烟，抽走敌\n人的活力。\n对于以下任意情况，一名敌方特工的移动属性减\n少 2\"，其武器的命中属性弱化 1（不与受创的情\n况累计）：\n• 当一名敌方特工拥有己方毒素标识，且位于己\n方瘟疫战士特工 3\" 内并对其可见。\n• 当一名敌方特工位于己方瘟疫战士持徽手特\n工 3\" 内并对其可见。",
+      "text_en": "PLAGUE MARINE\nSTRATEGY PLOY\nCONTAGION\nPlague Marines are oozing with contagion, their hideous\nforms emanating a miasma of decay that saps the vigour\nof their foes.\nSubtract 2\" from the Move stat of an enemy\noperative and worsen the Hit stat of its weapons\nby 1 (this isn’t cumulative with being injured)\nwhenever any of the following are true:\n• It has one of your Poison tokens and is visible to\n(or vice versa) and within 3\" of friendly PLAGUE\nMARINE operatives.\n• It’s visible to (or vice versa) and within\n3\" of a friendly PLAGUE MARINE ICON\nBEARER operative."
+    },
+    {
+      "id": "chaos-pm-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "慢步死亡",
+      "title_en": "LUMBERING DEATH",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-慢步死亡.png",
+      "is_back": false,
+      "text": "瘟疫战士\n战略计谋\n慢步死亡\n瘟疫战士在战争中有条不紊并且绝不退缩，\n以绝不动摇的决心缓缓前行并进行射击。\n每当一名己方瘟疫战士特工在移动没有超过 3\"\n的激活中进行射击或近战，或者进行反击时，其\n武器拥有“无休”武器规则。",
+      "text_en": "PLAGUE MARINE\nSTRATEGY PLOY\nLUMBERING DEATH\nPlague Marines are methodical and uncompromising\nin their approach to warfare, advancing and firing with\nsteadfast determination.\nWhenever a friendly PLAGUE MARINE operative\nis shooting or fighting during an activation in\nwhich it hasn’t moved more than 3\", or whenever\nit's retaliating, its weapons have the Ceaseless\nweapon rule."
+    },
+    {
+      "id": "chaos-pm-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "飞蝇云",
+      "title_en": "CLOUD OF FLIES",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-飞蝇云.png",
+      "is_back": false,
+      "text": "瘟疫战士\n战略计谋\n飞蝇云\n恶心、肥大的蝇群遮挡着瘟疫战士们的前进\n路线并阻挡敌人的射击。\n将一枚己方飞蝇群标识放置在杀戮区中。每当一\n名特工对一个位于其 3\" 外的己方瘟疫战士特工\n进行射击时，如果那名己方特工完全位于标识的\n1\" 内，那么那个己方特工被遮挡。在下一个战略\n阶段的就绪步骤中，将标识移除。",
+      "text_en": "PLAGUE MARINE\nSTRATEGY PLOY\nCLOUD OF FLIES\nDisgusting, fat-bodied flies swarm the killzone, blurring\nthe forms of advancing Plague Marines and absorbing\nthe enemy’s projectiles.\nPlace one of your Cloud of Flies markers in the\nkillzone. Whenever an operative is shooting a\nfriendly PLAGUE MARINE operative that’s more\nthan 3\" from it, if that friendly operative is wholly\nwithin 1\" of that marker, that friendly operative is\nobscured. In the Ready step of the next Strategy\nphase, remove that marker."
+    },
+    {
+      "id": "chaos-pm-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "纳垢灵",
+      "title_en": "NURGLINGS",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-纳垢灵.png",
+      "is_back": false,
+      "text": "瘟疫战士\n战略计谋\n纳垢灵\n纳垢灵是最小的纳垢恶魔，他们邪恶又调\n皮，在使用充斥病毒的尖牙利爪骚扰敌人时\n咯咯大笑。\n选择一名位于己方瘟疫战士特工 3\" 内的敌方特\n工，或者一名拥有己方毒素指示物且位于己方瘟\n疫战士特工 7\" 内的敌方特工。直到被选择特工\n的下一次激活结束前，其 APL 属性减少 1 点。",
+      "text_en": "PLAGUE MARINE\nSTRATEGY PLOY\nNURGLINGS\nThe smallest of Nurgle’s daemons, Nurglings are both\nmalicious and playful, cackling wildly as they claw and\nharass the Plague Marines’ foes with pestilent claws\nand teeth.\nSelect one enemy operative within 3\" of a\nfriendly PLAGUE MARINE operative, or one\nenemy operative that has one of your Poison\ntokens and is within 7\" of a friendly PLAGUE\nMARINE operative. Until the end of the selected\noperative’s next activation, subtract 1 from its\nAPL stat."
+    },
+    {
+      "id": "chaos-pm-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "致命毒素",
+      "title_en": "VIRULENT POISON",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-致命毒素.png",
+      "is_back": false,
+      "text": "瘟疫战士\n交战计谋\n致命毒素\n最为强大的纳垢瘟疫能够在空气中迅速传\n递，穿透密封的防护服和过滤面罩。\n在一名己方瘟疫战士特工的激活或反应期间，\n在其执行一次行动之前或之后使用本交战计谋。\n一个位于那名特工 3\" 内，或者位于其 7\" 内且可\n见的敌方特工获得一枚己方毒素指示物（如果特\n工还没有己方毒素指示物)。",
+      "text_en": "PLAGUE MARINE\nFIREFIGHT PLOY\nVIRULENT POISON\nThe most potent of Grandfather Nurgle’s foul plagues\nspread swiftly through the air, breaching even\nenviro-seals and filtration masks.\nUse this firefight ploy during a friendly PLAGUE\nMARINE operative’s activation or counteraction,\nbefore or after it performs an action. One enemy\noperative within 3\" of, or visible to and within 7\"\nof, that operative gains one of your Poison tokens\n(if it doesn't already have one)."
+    },
+    {
+      "id": "chaos-pm-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "剧毒破灭",
+      "title_en": "POISONOUS DEMISE",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-剧毒破灭.png",
+      "is_back": false,
+      "text": "瘟疫战士\n交战计谋\n剧毒破灭\n瘟疫战士的身体内充斥着无数种毒素和病\n毒。在死亡之后，他们的肿胀躯体可能会爆\n裂，将其中的可怕瘟疫散布至周边。\n在一名己方瘟疫战士特工被残废时，在将其移\n出杀戮区前使用本交战计谋。每一个位于那名特\n工 3\" 内且可见的敌方特工获得一枚己方毒素指\n示物（如果特工还没有己方毒素指示物)；对每\n一名已经拥有己方毒素指示物的敌方特工（包\n括在这次行动中获得指示物的特工）造成 1 点\n伤害。",
+      "text_en": "PLAGUE MARINE\nFIREFIGHT PLOY\nPOISONOUS DEMISE\nThe body of a Plague Marine plays host to countless\npoisons and plagues. Upon death, their bloated forms\nmay detonate, spreading foul contagion all around.\nUse this firefight ploy when a friendly PLAGUE\nMARINE operative is incapacitated, before it’s\nremoved from the killzone. Each enemy operative\nvisible to and within 3\" of that operative gains one\nof your Poison tokens (if they don’t already have\none); for each of those enemy operatives that\nalready has one of your Poison tokens (including\nif they gained one during this action), inflict 1\ndamage on them instead."
+    },
+    {
+      "id": "chaos-pm-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "恶心韧性",
+      "title_en": "SICKENING RESILIENCE",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-恶心韧性.png",
+      "is_back": false,
+      "text": "瘟疫战士\n交战计谋\n恶心韧性\n通过自愿接受慈父的各种疫病之礼，一些战\n士会变得更加坚韧。\n在一枚攻击骰子对一名己方瘟疫战士特工造成\n伤害时使用本交战计谋。直到那次激活或反应结\n束前，在为那名特工结算“恼人韧性”规则时，\n总是将造成的伤害减少 1 点（最低降至 2 点)，\n您不需要进行掷骰。",
+      "text_en": "PLAGUE MARINE\nFIREFIGHT PLOY\nSICKENING RESILIENCE\nBy voluntarily offering their bodies as hosts for the\nGrandfather’s contagious gifts, some Plague Marines\nare granted even greater endurance.\nUse this firefight ploy when an attack dice\ninflicts damage on a friendly PLAGUE\nMARINE operative. Until the end of the\nactivation or counteraction, for the purposes of\nthe Disgustingly Resilient rule for that operative,\nalways subtract 1 from the damage inflicted (to a\nminimum of 2) – you don’t need to roll."
+    },
+    {
+      "id": "chaos-pm-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "腐烂诅咒",
+      "title_en": "CURSE OF ROT",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-腐烂诅咒.png",
+      "is_back": false,
+      "text": "瘟疫战士\n交战计谋\n腐烂诅咒\n要与瘟疫战士展开近战决斗就意味着要将自\n己暴露在衰败的病毒和蚀魂的腐败之中。\n在一名己方瘟疫战士特工对一名位于其 3\" 内的\n敌方特工进行近战或射击时（如果那名敌方特工\n拥有己方毒素指示物，则是 7\" 内），在您的对\n手掷出攻击或防御骰后使用本交战计谋。对手每\n掷出一个 3，便对那名敌方特工造成 1 点伤害，\n那一次掷骰结果不能被作为成功保留，并且不能\n被重掷。",
+      "text_en": "PLAGUE MARINE\nFIREFIGHT PLOY\nCURSE OF ROT\nTo engage a Plague Marine in single combat is to expose\noneself to wilting contagion and soul-eroding decay.\nUse this firefight ploy when a friendly PLAGUE\nMARINE operative is shooting against or fighting\nagainst an enemy operative within 3\" of it (or\nwithin 7\" of it if that enemy operative has one of\nyour Poison tokens), after your opponent rolls\ntheir attack or defence dice. For each result\nof 3 they roll, inflict 1 damage on that enemy\noperative, that result cannot be retained as a\nsuccess and they cannot re-roll it."
+    },
+    {
+      "id": "chaos-pm-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "瘟疫之钟",
+      "title_en": "PLAGUE BELLS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-瘟疫之钟.png",
+      "is_back": false,
+      "text": "瘟疫战士\n阵营装备\n瘟疫之钟\n在瘟疫之钟响起时，腐败的能量将充斥死亡\n守卫的全身，将他们的不洁防御能力提升至\n惊人的级别。\n您可以忽略任何己方死亡守卫特工因受创而导\n致的属性变化（包括武器数据）。",
+      "text_en": "PLAGUE MARINE\nFACTION EQUIPMENT\nPLAGUE BELLS\nWhen the plague bells toll, the Death Guard are infused\nwith corrupted energy, heightening their unholy\nresilience to extraordinary levels.\nYou can ignore any changes to the stats of\nfriendly PLAGUE MARINE operatives from being\ninjured (including their weapons’ stats)."
+    },
+    {
+      "id": "chaos-pm-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "疫病手雷",
+      "title_en": "BLIGHT GRENADES",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-疫病手雷.png",
+      "is_back": false,
+      "text": "瘟疫战士\n阵营装备\n疫病手雷\n这些装置中存在着各种爆炸物、尖锐金属碎\n片和致命的病毒，任何在爆炸后存活下来的\n不幸之徒都将受到感染。\n己方瘟疫战士特工拥有以下远程武器（您不能\n在战斗中使用本武器超过两次)：\n名称攻击命中伤害\n\u0007疫病手雷 4 4+ 2/4\n武器规则\n范围\u00076\"、爆炸\u00072\"、集中、严重、毒素*",
+      "text_en": "PLAGUE MARINE\nFACTION EQUIPMENT\nBLIGHT GRENADES\nThese devices are packed with explosives, shards of\njagged metal and deadly pathogens that poison any\nunfortunate enough to survive the initial blast.\nFriendly PLAGUE MARINE operatives have the\nfollowing ranged weapon (you cannot select it for\nuse more than twice during the battle):\nNAME ATK HIT DMG\nBlight grenade 4 4+ 2/4\nWR\nRange 6\", Blast 2\", Saturate, Severe, Poison*"
+    },
+    {
+      "id": "chaos-pm-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "瘟疫弹药",
+      "title_en": "PLAGUE ROUNDS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-瘟疫弹药.png",
+      "is_back": false,
+      "text": "瘟疫战士\n阵营装备\n瘟疫弹药\n这些弹药之中流淌着毒素，任何被击中的目\n标都将染上致命的病毒。\n己方瘟疫战士特工的爆矢枪和爆矢手枪拥有\n“毒素”和“严重”武器规则。",
+      "text_en": "PLAGUE MARINE\nFACTION EQUIPMENT\nPLAGUE ROUNDS\nVirulent toxins ooze from these projectiles, so that those\nstruck by them are infected with deadly diseases.\nFriendly PLAGUE MARINE operatives’ boltguns\nand bolt pistols have the Poison and Severe\nweapon rules."
+    },
+    {
+      "id": "chaos-pm-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "排毒口",
+      "title_en": "POISON VENTS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-排毒口.png",
+      "is_back": false,
+      "text": "瘟疫战士\n阵营装备\n排毒口\n在激活了动力护甲上的排放口后，瘟疫战士\n们能够释放出大量令人窒息的毒雾。\n每当一名位于己方瘟疫战士特工 3\" 内被激活\n时：\n• 若那名敌方特工没有一枚己方毒素指示物，掷\n一枚 D3：若结果为 3，则它获得一枚。\n• 若那名敌方特工拥有一枚己方毒素指示物，则\n它受到 D3 点伤害（而不是 1 点）。",
+      "text_en": "PLAGUE MARINE\nFACTION EQUIPMENT\nPOISON VENTS\nActivating vents in their power armour, Plague Marines\nmay unleash clouds of sickening fumes that clog the\nlungs of nearby foes.\nWhenever an enemy operative is activated within\n3\" of a friendly PLAGUE MARINE operative:\n• If that enemy operative doesn’t have one of\nyour Poison tokens, roll one D3: on a 3, it\ngains one.\n• If that enemy operative has one of your Poison\ntokens, inflict D3 damage on it (instead of 1)."
+    }
+  ]
+}

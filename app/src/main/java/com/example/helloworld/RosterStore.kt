@@ -19,7 +19,7 @@ class RosterStore(context: Context) {
     fun createDraft(team: KillTeamCatalog): SavedRoster = SavedRoster(
         rosterId = UUID.randomUUID().toString(),
         teamId = team.id,
-        name = "我的${team.name}小队",
+        name = defaultName(team),
         members = mutableListOf()
     )
 
@@ -143,10 +143,20 @@ class RosterStore(context: Context) {
         return SavedRoster(
             rosterId = root.optString("rosterId", fallbackRosterId),
             teamId = teamId,
-            name = root.optString("name", "我的${team.name}小队"),
+            name = root.optString("name", defaultName(team)),
             members = members,
             updatedAt = root.optLong("updatedAt", 0L)
         )
+    }
+
+    companion object {
+        fun defaultName(team: KillTeamCatalog): String =
+            if (team.name.endsWith("小队")) "我的${team.name}" else "我的${team.name}小队"
+
+        private const val KEY_ROSTERS = "rosters_v2"
+        private const val KEY_ACTIVE_ROSTER = "active_roster_id"
+        private const val KEY_SELECTED_TEAM = "selected_team"
+        private const val KEY_MIGRATED = "rosters_v2_migrated"
     }
 
     private fun encodeRosterList(rosters: List<SavedRoster>) = JSONArray().apply {
@@ -172,11 +182,4 @@ class RosterStore(context: Context) {
         })
 
     private fun legacyRosterKey(teamId: String) = "roster_$teamId"
-
-    private companion object {
-        const val KEY_ROSTERS = "rosters_v2"
-        const val KEY_ACTIVE_ROSTER = "active_roster_id"
-        const val KEY_SELECTED_TEAM = "selected_team"
-        const val KEY_MIGRATED = "rosters_v2_migrated"
-    }
 }

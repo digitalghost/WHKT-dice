@@ -1,0 +1,755 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-DEATHWATCH",
+  "team_name_zh": "死亡守望",
+  "team_name_en": "Deathwatch",
+  "source_pdf": "最新杀戮小队规则更新/死亡守望 Deathwatch 杀戮小队规则.pdf",
+  "source_pdf_sha256": "33479356672459326bdae273ed1cef9ced5a44250dd7304f1cb441691589f78d",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 27,
+    "operative": 11,
+    "team-selection": 1,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-deathwatch-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "死亡守望守望军士-数据卡",
+      "title_en": "DEATHWATCH WATCH SERGEANT",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-死亡守望守望军士-数据卡.png",
+      "is_back": false,
+      "text": "死亡守望守望军士 APL 移动豁免耐伤\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n动力武器 5 3+ 4/6 致命 5+\n适应性军火库：您可以额外选择一个装备选项。\n战略指挥：若这名特工位于杀戮区，则您在每场战\n斗中可以各进行一次下列选项：\n• 消耗 0 CP 使用一个死亡守望战略计谋。\n• 消耗 0 CP 使用一个死亡守望交战计谋。\n死亡守望、帝国、阿斯塔特修会、队长、守望军士 32",
+      "weapon_types": {
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH WATCH SERGEANT\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nPower weapon 5 3+ 4/6 Lethal 5+\nAdaptable Armoury: You can select one additional\nequipment option.\nStrategic Command: You can do each of the following once per\nbattle if this operative is in the killzone:\n• Use a DEATHWATCH strategy ploy for 0CP.\n• Use a DEATHWATCH firefight ploy for 0CP.\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, LEADER, WATCH SERGEANT 32"
+    },
+    {
+      "id": "kt-deathwatch-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "死亡守望庇护者老兵-数据卡",
+      "title_en": "DEATHWATCH AEGIS VETERAN",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-死亡守望庇护者老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望庇护者老兵\n3 6\" 2+ 15\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n动力槌和风暴盾 5 3+ 4/6 震荡、护盾*\n*护盾：每当这名战士使用这个武器进行近战或反击\n时，您的每个格挡可以格挡两个未结算的成功（而\n不是一个）。\n风暴盾：每当一名特工对这名特工进行射击时，\n将“穿刺 X”武器规则的 X 数值减少 1 点（如果\n有）。请注意，这意味着“穿刺 1 ”将被忽视。\n死亡守望、帝国、阿斯塔特修会、庇护者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "动力槌和风暴盾": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH AEGIS VETERAN\n3 6\" 2+ 15\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPower maul & storm shield 5 3+ 4/6 Shock, Shield*\n*Shield: Whenever this operative is fighting or retaliating with\nthis weapon, each of your blocks can be allocated to block two\nunresolved successes (instead of one).\nStorm Shield: Whenever an operative is shooting this operative,\nworsen the x of the Piercing weapon rule by 1 (if any). Note that\nPiercing 1 would therefore be ignored.\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, AEGIS 32"
+    },
+    {
+      "id": "kt-deathwatch-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "死亡守望剑术大师老兵-数据卡",
+      "title_en": "DEATHWATCH BLADEMASTER VETERAN",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-死亡守望剑术大师老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望剑术大师老兵\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n特种爆矢手枪 4 3+ 3/4 范围 8\"、穿刺 1\n异形相位剑（决斗） 5 3+ 4/6 残暴、致命 5+\n异形相位剑（相位横扫） 4 3+ 4/6 残暴、致命 5、相位横扫*\n适应性剑术：您可以忽略任何对这名特工异形相位\n剑命中属性的修正。每当这名特工进行近战或反击\n时，您可以在正常流程之前结算一个己方成功。若\n此，那次成功必须为格挡。\n*相位横扫：每当这名特工使用这个武器执行近战行\n动时，若它没有残废，则它可以在之后立即执行一\n个无消耗近战行动，但您必须为此选择这个武器，\n并且只能在每次激活或反击中对每一名处于控制范\n围内的敌方特工使用这个武器进行一次近战。本规\n则优先于行动限制，并且您可以持续执行无消耗的\n近战行动，直至这名特工残废或已经对每个它控制\n范围内的敌方特工进行了近战。\n死亡守望、帝国、阿斯塔特修会、剑术大师 32",
+      "weapon_types": {
+        "特种爆矢手枪": "远程",
+        "异形相位剑（决斗）": "近战",
+        "异形相位剑（相位横扫）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH BLADEMASTER VETERAN\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nSpecial issue bolt pistol 4 3+ 3/4 Range 8\", Piercing 1\nXenophase blade (duel) 5 3+ 4/6 Brutal, Lethal 5+\nXenophase blade (phase sweep) 4 3+ 4/6 Brutal, Lethal 5+, Phase Sweep*\nAdaptive Swordsmanship: You can ignore any changes to the Hit\nstat of this operative’s xenophase blade. Whenever this operative\nis fighting or retaliating, you can resolve one of your successes\nbefore the normal order. If you do, that success must be used\nto block.\n*Phase Sweep: Whenever this operative performs the Fight\naction with this weapon profile, if it isn't incapacitated, it can\nimmediately perform a free Fight action afterwards, but you\nmust select this weapon profile and it can only fight against each\nenemy operative within its control range once per activation or\ncounteraction using this weapon profile. This takes precedence\nover action restrictions, and you can continue to perform free\nFight actions until this operative is incapacitated or has fought\nagainst every enemy operative within its control range.\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, BLADEMASTER 32"
+    },
+    {
+      "id": "kt-deathwatch-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "死亡守望轰击手老兵-数据卡",
+      "title_en": "DEATHWATCH BOMBARD VETERAN",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-死亡守望轰击手老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望轰击手老兵\n3 5\" 3+ 18\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n破片炮（弹头） 4 3+ 5/7 穿刺 1\n破片炮（弹片） 5 3+ 4/5 洪流 2\"\n双拳 4 3+ 3/4 -\n死亡守望、帝国、阿斯塔特修会、重装型装甲、轰击手 40",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "破片炮（弹头）": "远程",
+        "破片炮（弹片）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH BOMBARD VETERAN\n3 5\" 3+ 18\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nFrag cannon (shell) 4 3+ 5/7 Piercing 1\nFrag cannon (shrapnel) 5 3+ 4/5 Torrent 2\"\nFists 4 3+ 3/4 -\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, GRAVIS, BOMBARD 40"
+    },
+    {
+      "id": "kt-deathwatch-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "死亡守望突破手老兵-数据卡",
+      "title_en": "DEATHWATCH BREACHER VETERAN",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-死亡守望突破手老兵-数据卡.png",
+      "is_back": false,
+      "text": "死亡守望突破手老兵 APL 移动豁免耐伤\n3 5\" 3+ 18\n名称攻击命中伤害武器规则\n下挂榴弹发射器 4 3+ 2/4 爆炸 2\"\n（破片）\n下挂榴弹发射器 4 3+ 4/5 穿刺 1\n（穿甲）\n地狱风暴爆矢步枪 4 3+ 4/5 洪流 1\"\n热熔炸弹 4 3+ 5/3 范围 3\"、毁灭 3、重型（仅限转移）、\n有限 1、穿刺 2\n双拳 4 3+ 3/4 -\n死亡守望、帝国、阿斯塔特修会、重装型装甲、突破手 40",
+      "weapon_types": {
+        "下挂榴弹发射器（破片）": "远程",
+        "下挂榴弹发射器（穿甲）": "远程",
+        "地狱风暴爆矢步枪": "远程",
+        "热熔炸弹": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH BREACHER VETERAN\n3 5\" 3+ 18\nNAME ATK HIT DMG WR\nAuxiliary grenade launcher 4 3+ 2/4 Blast 2\"\n(frag)\nAuxiliary grenade launcher 4 3+ 4/5 Piercing 1\n(krak)\nHellstorm bolt rifle 4 3+ 4/5 Torrent 1\"\nMelta bomb 4 3+ 5/3 Range 3\", Devastating 3, Heavy\n(Reposition only), Limited 1, Piercing 2\nFists 4 3+ 3/4 -\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, GRAVIS, BREACHER 40"
+    },
+    {
+      "id": "kt-deathwatch-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "死亡守望粉碎者老兵-数据卡",
+      "title_en": "DEATHWATCH DEMOLISHER VETERAN",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-死亡守望粉碎者老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望粉碎者老兵\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n重型雷霆锤 5 4+ 6/7 震荡、晕眩\n残暴突袭：每当这名特工进行近战时，它的重型雷\n霆锤便获得“残暴”武器规则。每当这名特工执行\n冲锋行动时，它的重型雷霆锤便在那次激活或反击\n结束前获得“无休”武器规则。\n勇猛好斗：每当这名特工进行近战或反击时，数值\n大于等于 3 的普通和暴击伤害对其造成的伤害减少\n1 点。本规则的效果不能与‘弑敌坚盾’战略计谋\n的效果叠加。\n死亡守望、帝国、阿斯塔特修会、粉碎者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "重型雷霆锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH DEMOLISHER VETERAN\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nHeavy thunder hammer 5 4+ 6/7 Shock, Stun\nBrutal Assault: Whenever this operative is fighting, its heavy\nthunder hammer has the Brutal weapon rule. Whenever this\noperative performs the Charge action, its heavy thunder\nhammer has the Ceaseless weapon rule until the end of\nthe activation/counteraction.\nAggressive Force: Whenever this operative is fighting or\nretaliating, Normal and Critical Dmg of 3 or more inflicts 1 less\ndamage on it. This isn’t cumulative with the Shield that Slays\nstrategy ploy.\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, DEMOLISHER 32"
+    },
+    {
+      "id": "kt-deathwatch-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "死亡守望干扰者老兵-数据卡",
+      "title_en": "DEATHWATCH DISRUPTOR VETERAN",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-死亡守望干扰者老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望干扰者老兵\n3 7\" 3+ 13\n名称攻击命中伤害武器规则\n神射手爆矢卡宾枪 4 3+ 3/4 致命 5+\n双拳 4 3+ 3/4 -\n先进全相干扰器：战略计划。选择对这名特工可见\n且位于其 6\" 内的一名敌方特工，随后掷一枚 D6。\n在该转折点的交战阶段中，那名敌方战士直到下列\n条件之一达成前无法被激活或执行行动：\n• 您的对手激活了数量等同于 D6 掷骰结果数量的\n敌方特工。\n• 那名敌方特工是最后一名被激活的敌方特工。\n鸟卜仪三角定位：在下列条件均满足的情况下，您\n可以消耗 0CP 使用“先进鸟卜扫描” 交战计谋：\n• 这名特工不位于敌方特工的控制范围内。\n• 那次射击行动的目标（此处特指主要目标，如果\n有）对这名特工可见。\n请注意，这不意味着必须是这名特工执行射击行\n动，并且任何在那次激活/反应期间执行的射击行动\n都必须满足同样的条件（否则那个计谋不会对之后\n的射击行动产生任何效果)。\n死亡守望、帝国、阿斯塔特修会、干扰者 32",
+      "weapon_types": {
+        "神射手爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH DISRUPTOR VETERAN\n3 7\" 3+ 13\nNAME ATK HIT DMG WR\nMarksman bolt carbine 4 3+ 3/4 Lethal 5+\nFists 4 3+ 3/4 -\nAdvanced Omni-Scrambler: STRATEGIC GAMBIT. Select\none enemy operative visible to or within 6\" of this operative,\nthen roll one D6. In the Firefight phase of this turning point, that\nenemy operative cannot be activated or perform actions until one\nof the following is true:\n• Your opponent has activated a number of enemy operatives\nequal to the result of the D6.\n• It’s the last enemy operative to be activated.\nAuspex Triangulation: The Advanced Auspex Scan firefight ploy\ncosts you 0CP when both of the following are true:\n• This operative isn’t within control range of enemy operatives.\n• The target of that Shoot action (primary target, if relevant) is\nvisible to this operative.\nNote that it doesn’t have to be this operative performing\nthe Shoot action, and that any subsequent Shoot actions\nduring that activation/counteraction must meet these same\nrequirements (or that ploy has no effect on those subsequent\nShoot actions).\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, DISRUPTOR 32"
+    },
+    {
+      "id": "kt-deathwatch-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "死亡守望炮手老兵-数据卡",
+      "title_en": "DEATHWATCH GUNNER VETERAN",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-死亡守望炮手老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望炮手老兵\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n重型等离子焚化枪 5 3+ 4/6 穿刺 1\n（标准）\n重型等离子焚化枪 5 3+ 5/6 过热、致命 5+、穿刺 1\n（过载）\n双拳 4 3+ 3/4 -\n死亡守望、帝国、阿斯塔特修会、炮手 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "重型等离子焚化枪（标准）": "远程",
+        "重型等离子焚化枪（过载）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH GUNNER VETERAN\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nHeavy plasma incinerator 5 3+ 4/6 Piercing 1\n(standard)\nHeavy plasma incinerator 5 3+ 5/6 Hot, Lethal 5+, Piercing 1\n(supercharge)\nFists 4 3+ 3/4 -\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, GUNNER 32"
+    },
+    {
+      "id": "kt-deathwatch-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "死亡守望夺首者老兵-数据卡",
+      "title_en": "DEATHWATCH HEADTAKER VETERAN",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-死亡守望夺首者老兵-数据卡.png",
+      "is_back": false,
+      "text": "死亡守望夺首者老兵 APL 移动豁免耐伤\n3 7\" 3+ 13\n名称攻击命中伤害武器规则\n特种爆矢手枪 4 3+ 3/4 范围 8\" 、穿刺 1\n战斗匕首 5 3+ 4/5 -\n重力伞和抓钩发射器：每当这名特工攀爬时，将\n经过的垂直距离视为 2\"（无论这名特工实际垂直\n移动了多少距离）。当这名特工跳落时，忽视垂\n直距离。\n隐秘夺首者：这名特工可以在拥有隐匿命令时执行\n冲锋行动。每当这名特工与激活/反应开始时不可\n见的特工近战时，在那次流程中您首次出击时，\n您可以立即将另一枚成功结算为出击（在您的对手\n之前）。\n死亡守望、帝国、阿斯塔特修会、夺首者 32",
+      "weapon_types": {
+        "特种爆矢手枪": "远程",
+        "战斗匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH HEADTAKER VETERAN\n3 7\" 3+ 13\nNAME ATK HIT DMG WR\nSpecial issue bolt pistol 4 3+ 3/4 Range 8\", Piercing 1\nCombat knives 5 3+ 4/5 -\nGrav-chute and Grapnel Launcher: Whenever this operative is\nclimbing, treat the vertical distance as 2\" (regardless of how far\nthe operative actually moves vertically). Whenever this operative\nis dropping, ignore the vertical distance.\nClandestine Headtaker: This operative can perform the Charge\naction while it has a Conceal order. Whenever this operative is\nfighting against an operative it wasn’t visible to at the start of\nthe activation/counteraction, the first time you strike during\nthat sequence, you can immediately resolve another of your\nsuccesses as a strike (before your opponent).\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, HEADTAKER 32"
+    },
+    {
+      "id": "kt-deathwatch-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "死亡守望兽群屠戮者老兵-数据卡",
+      "title_en": "DEATHWATCH HORDE-SLAYER VETERAN",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-死亡守望兽群屠戮者老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望兽群屠戮者老兵\n3 5\" 3+ 18\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n地狱火重型爆矢枪（火焰） 5 2+ 3/3 范围 8\" 、集中、洪流 2\"\n地狱火重型爆矢枪 5 3+ 4/5 关键穿刺 1\n（爆矢点射）\n地狱火重型爆矢枪 4 3+ 4/5 关键穿刺 1 、洪流 1\"\n（爆矢扫射）\n双拳 4 3+ 3/4 -\n死亡守望、帝国、阿斯塔特修会、重装型装甲、兽群屠戮者 40",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "地狱火重型爆矢枪（火焰）": "远程",
+        "地狱火重型爆矢枪（爆矢点射）": "远程",
+        "地狱火重型爆矢枪（爆矢扫射）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH HORDE-SLAYER VETERAN\n3 5\" 3+ 18\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nInfernus heavy bolter (flame) 5 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nInfernus heavy bolter 5 3+ 4/5 Piercing Crits 1\n(focused bolt)\nInfernus heavy bolter 4 3+ 4/5 Piercing Crits 1, Torrent 1\"\n(sweeping bolt)\nFists 4 3+ 3/4 -\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, GRAVIS, HORDE-SLAYER 40"
+    },
+    {
+      "id": "kt-deathwatch-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "死亡守望神射手老兵-数据卡",
+      "title_en": "DEATHWATCH MARKSMAN VETERAN",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-死亡守望神射手老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡守望神射手老兵\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n追猎者爆矢步枪（机动） 4 3+ 3/4 -\n追猎者爆矢步枪（重型） 4 2+ 3/5 重型（仅限冲刺）、致命 5+、关键穿刺 1\n双拳 4 3+ 3/4 -\n机警神射手：这名特工可以在任意杀戮区执行戒\n备行动（见《杀戮小队：墓穴世界》，近距离战斗\n规则）。\n在使用近距离战斗规则时，每个转折点一次，在这\n名特工戒备时执行无消耗的射击行动后，它可以\n立即执行一次无消耗的戒备行动，不过在这种情况\n下，它便无法在那个转折点进行反击（如果它进行\n了反击便无法进行两次戒备）。\n死亡守望、帝国、阿斯塔特修会、神射手 32",
+      "weapon_types": {
+        "追猎者爆矢步枪（机动）": "远程",
+        "追猎者爆矢步枪（重型）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHWATCH MARKSMAN VETERAN\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nStalker bolt rifle (mobile) 4 3+ 3/4 -\nStalker bolt rifle (heavy) 4 2+ 3/5 Heavy (Dash only), Lethal 5+, Piercing Crits 1\nFists 4 3+ 3/4 -\nVigilant Marksman: This operative can perform the Guard\naction during its activation regardless of the killzone (see close\nquarters rules, Kill Team: Tomb World).\nWhen using the close quarters rules, once per turning point, after\nthis operative performs a free Shoot action on guard, it can\nimmediately perform a free Guard action. However, if it does, it\ncannot counteract during that turning point (nor Guard twice if\nit’s counteracted).\nDEATHWATCH , IMPERIUM, ADEPTUS ASTARTES, MARKSMAN 32"
+    },
+    {
+      "id": "kt-deathwatch-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "死亡守望杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-死亡守望杀戮小队.png",
+      "is_back": false,
+      "text": "死亡守望\n杀戮小队\n原型：搜索与摧毁，安全保护\n特工\n↘ 5 名死亡守望特工，从以下列表进行选择:\n• 守望军士\n• 庇护者\n• 剑术大师\n• 轰击手\n• 突破手\n• 粉碎者\n• 干扰者\n• 炮手\n• 夺首者\n• 兽群屠戮者\n• 神射手\n上述的每一名特工只能被纳入您的杀戮小队一次。\n同时。您的杀戮小队至多能被纳入一名重装型装\n甲特工。",
+      "text_en": "DEATHWATCH\nKILL TEAM\nARCHETYPES: SEEK & DESTROY, SECURITY\nOPERATIVES\n↘ 5 DEATHWATCH operatives selected from\nthe following list:\n• WATCH SERGEANT\n• AEGIS\n• BLADEMASTER\n• BOMBARD\n• BREACHER\n• DEMOLISHER\n• DISRUPTOR\n• GUNNER\n• HEADTAKER\n• HORDE-SLAYER\n• MARKSMAN\nYour kill team can only include each operative\non this list once, and can only include up to one\nGRAVIS operative."
+    },
+    {
+      "id": "kt-deathwatch-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "阿斯塔特老兵",
+      "title_en": "VETERAN ASTARTES",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-阿斯塔特老兵.png",
+      "is_back": false,
+      "text": "死亡守望\n阵营规则\n阿斯塔特老兵\n这些经过基因改造的超级战士们生来便是为了\n无尽的战争而准备的。他们的技艺在漫长的战\n斗岁月中得到磨砺，并在漫长警戒中通过专业\n学识进一步得到增强。\n在每一名己方死亡守望特工激活时，他可以执\n行两次射击行动或两次近战行动。如果选择执行\n两次射击行动，若在两次行动中都使用了下挂榴\n弹发射器、破片炮、重型等离子焚化枪、地狱火\n重型爆矢枪、等离子手枪或追猎者爆矢步枪，或\n为任一行动选择了热熔炸弹，在第二次行动时便\n需要额外消耗 1 AP。\n每一名己方死亡守望特工可以进行反应，无论\n其拥有的命令。若此，它便可以在那次反击中无\n消耗额外执行一次 1 AP 的行动，但两次行动必\n须是不同的，并且在同一个反击中您不能选择一\n次近战和一次射击行动。",
+      "text_en": "DEATHWATCH\nFACTION RULE\nVETERAN ASTARTES\nThese genetically modified superhumans are made to\nwage unending war. Their skills have been honed over\nlong years of battle and further refined with specialist\nknowledge through their Long Vigil.\nDuring each friendly DEATHWATCH operative’s\nactivation, it can perform either two Shoot\nactions or two Fight actions. If it’s two Shoot\nactions and an auxiliary grenade launcher, frag\ncannon, heavy plasma incinerator, infernus\nheavy bolter, plasma pistol or stalker bolt rifle is\nselected for both, or if a melta bomb is selected\nfor either, 1 additional AP must be spent for the\nsecond action.\nEach friendly DEATHWATCH operative can\ncounteract regardless of its order. Whenever it\ndoes, it can perform an additional 1AP action for\nfree during that counteraction, but both actions\nmust be different and you cannot perform a Fight\nand Shoot action during the same counteraction."
+    },
+    {
+      "id": "kt-deathwatch-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "特制弹药",
+      "title_en": "SPECIAL ISSUE AMMUNITION",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-特制弹药.png",
+      "is_back": false,
+      "text": "死亡守望\n阵营规则\n特制弹药\n死亡守望的多种武器使用了各种特制弹药。每\n种弹药都为消灭特定异形而设计。\n每个转折点限一次，当一名己方死亡守望特工\n执行射击行动时，在选择武器步骤时，您可以使\n用这个规则。若此，您可以为那名特工的远程\n武器在那次行动结束前选择下列武器规则。这\n个规则无法用于爆炸手雷（见通用装备）或热熔\n炸弹。\n• 爆炸 1\"（如果您使用的武器拥有“洪流”武器\n规则，便无法选择本选项）\n• 毁灭 1\n• 致命 5+\n• 关键穿刺 1\n• 集中\n• 严重",
+      "text_en": "DEATHWATCH\nFACTION RULE\nSPECIAL ISSUE AMMUNITION\nThe Deathwatch utilise a range of specialised\nammunition in many of their weapons. Each type is\ndesigned to eliminate specific xenos foes.\nOnce per turning point, when a friendly\nDEATHWATCH operative is performing the\nShoot action, in the Select Weapon step, you\ncan use this rule. If you do, select one of the\nfollowing weapon rules for that operative’s ranged\nweapons to have until the end of the action. This\nrule cannot be used with explosive grenades (see\nuniversal equipment) or melta bombs.\n• Blast 1\" (you cannot select this if the weapon\nprofile being used has the Torrent weapon rule)\n• Devastating 1\n• Lethal 5+\n• Piercing Crits 1\n• Saturate\n• Severe"
+    },
+    {
+      "id": "kt-deathwatch-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "DEATHWATCH",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "死亡守望\n标识/指示物指南\n弹药储备指示物指间武器指示物\n监察伺服机仆指示物机警神射手指示物\n先进全相干扰器指示物热熔炸弹指示物\n战略指挥战略计谋战略指挥交战计谋\n指示物指示物",
+      "text_en": "DEATHWATCH\nMARKER/TOKEN GUIDE\nAmmunition Reserve\nDigital Weapons token\ntoken\nScrutavore Servo-Thrall Vigilant Marksman\ntoken token\nAdvanced\nMelta Bomb token\nOmni-Scrambler token\nStrategic Command Strategic Command\nStrategy Ploy token Firefight Ploy token"
+    },
+    {
+      "id": "kt-deathwatch-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "任务战术",
+      "title_en": "MISSION TACTICS",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-任务战术.png",
+      "is_back": false,
+      "text": "死亡守望\n战略计谋\n任务战术\n通过收集到的战略资料以及艰险战斗累积的经\n验，死亡守望掌握了能够应对几乎所有敌人\n的战术。\n选择隐匿或交战。每当一名己方死亡守望特工\n对拥有那个命令的敌方特工进行射击、近战或反\n击时，那名己方特工获得“平衡”武器规则。",
+      "text_en": "DEATHWATCH\nSTRATEGY PLOY\nMISSION TACTICS\nThrough collated strategic data and hard-won combat\nexperience, the Deathwatch possess the tactics to\ncombat almost any foe.\nSelect Conceal or Engage. Whenever a friendly\nDEATHWATCH operative is shooting against,\nfighting against, or retaliating against an enemy\noperative that has that order, that friendly\noperative’s weapons have the Balanced\nweapon rule."
+    },
+    {
+      "id": "kt-deathwatch-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "漫长警戒",
+      "title_en": "THE LONG VIGIL",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-漫长警戒.png",
+      "is_back": false,
+      "text": "死亡守望\n战略计谋\n漫长警戒\n死亡守望守护着帝国一部分最为危险的区域。\n他们立誓挺身警戒，见证着敌人在落荒逃跑前\n迎来死亡。\n每当一名特工对完全位于己方领地内的一名己方\n死亡守望特工进行射击时，您可以重掷一枚己\n方防御骰子。",
+      "text_en": "DEATHWATCH\nSTRATEGY PLOY\nTHE LONG VIGIL\nThe Deathwatch guard some of the most dangerous\nstretches of the Imperium. Their vow to stand firm is\nat the heart of their vigil; they will see their foes dead\nbefore they abandon the Emperor’s realm.\nWhenever an operative is shooting a friendly\nDEATHWATCH operative that’s wholly within\nyour territory, you can re-roll one of your\ndefence dice."
+    },
+    {
+      "id": "kt-deathwatch-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "戮敌坚盾",
+      "title_en": "THE SHIELD THAT SLAYS",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-戮敌坚盾.png",
+      "is_back": false,
+      "text": "死亡守望\n战略计谋\n戮敌坚盾\n进入异形肆虐的巢穴意味着要面对极度非人的\n憎物和科技，死亡守望在面对这些恶毒之物时\n已做好了万全准备。\n每当一名己方死亡守望特工完全位于您对手的\n领地内，它在受到伤害为 4 点或更多的普通伤害\n时，受到的伤害降低 1 点。",
+      "text_en": "DEATHWATCH\nSTRATEGY PLOY\nTHE SHIELD THAT SLAYS\nTo enter the infested holds of the xenos is to be assailed\nby the most inhuman of abominations and technology, a\nfoulness that the Deathwatch are trained to resist.\nWhenever a friendly DEATHWATCH operative is\nwholly within your opponent’s territory, Normal\nDmg of 4 or more inflicts 1 less damage on it."
+    },
+    {
+      "id": "kt-deathwatch-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "他们无所畏惧",
+      "title_en": "AND THEY SHALL KNOW NO FEAR",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-他们无所畏惧.png",
+      "is_back": false,
+      "text": "死亡守望\n战略计谋\n他们无所畏惧\n星际战士拥有超凡的勇气和坚定的意志，就算\n是面对究极的恐惧之物或者看似不可能克服的\n绝境时也绝不会动摇。\n您可以忽略任何己方死亡守望特工因受创而导\n致的属性变化（包括武器属性）。",
+      "text_en": "DEATHWATCH\nSTRATEGY PLOY\nAND THEY SHALL KNOW NO FEAR\nSpace Marines possess extraordinary courage and are\nutterly unflinching in the face of terrifying horrors and\noverwhelming odds.\nYou can ignore any changes to the stats of\nfriendly DEATHWATCH operatives from being\ninjured (including their weapons’ stats)."
+    },
+    {
+      "id": "kt-deathwatch-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "异形，绝不宽恕",
+      "title_en": "SUFFER NOT THE ALIEN",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-异形，绝不宽恕.png",
+      "is_back": false,
+      "text": "死亡守望\n交战计谋\n异形，绝不宽恕\n死亡守望会利用一切可用之物，一切学识对抗\n异形。他们对异形的仇恨就如同磨刀石，磨砺\n着他们的每一件武器。\n在一名己方死亡守望特工掷攻击骰子时，且作\n为射击目标，近战目标或反击目标的特工没有混\n沌或帝国关键词时使用本交战计谋。您可以重掷\n任意己方的攻击骰子。",
+      "text_en": "DEATHWATCH\nFIREFIGHT PLOY\nSUFFER NOT THE ALIEN\nEvery tool at their disposal, every scrap of knowledge,\nis sharpened upon the whetstone of the Deathwatch’s\nhatred of the alien.\nUse this firefight ploy after rolling your attack dice\nfor a friendly DEATHWATCH operative, if it’s\nshooting against, fighting against, or retaliating\nagainst an operative that doesn’t have the CHAOS\nor IMPERIUM keyword. You can re-roll any of your\nattack dice."
+    },
+    {
+      "id": "kt-deathwatch-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "占卜仪追踪",
+      "title_en": "AUSPICATOR TRACKING",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-占卜仪追踪.png",
+      "is_back": false,
+      "text": "死亡守望\n交战计谋\n占卜仪追踪\n占卜仪通过与战斗兄弟神经连接后能够大大增\n强其感官，几乎能达到未卜先知的水平。\n在一名己方死亡守望特工进行反击，且尚未执\n行任何行动时使用本交战计谋。您可以更改其\n命令。",
+      "text_en": "DEATHWATCH\nFIREFIGHT PLOY\nAUSPICATOR TRACKING\nNeurally connected to a battle-brother’s senses,\nauspicator lenses can improve their data prescience to\nalmost precognitive levels.\nUse this firefight ploy when a friendly\nDEATHWATCH operative is counteracting,\nbefore it performs any actions. You can change\nits order."
+    },
+    {
+      "id": "kt-deathwatch-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "先进鸟卜扫描",
+      "title_en": "ADVANCED AUSPEX SCAN",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-先进鸟卜扫描.png",
+      "is_back": false,
+      "text": "死亡守望\n交战计谋\n先进鸟卜扫描\n通过生物手环以及内藏鸟卜仪的持续扫描，死\n亡守望能获得潜在威胁的警告，同时他们也能\n通过强化的直觉识别出潜藏的敌人。\n在一名己方死亡守望特工执行射击行动时使用\n本交战计谋。直到这次激活/反应结束前，它的\n远程武器获得“集中”武器规则且敌方特工不能\n被遮挡。",
+      "text_en": "DEATHWATCH\nFIREFIGHT PLOY\nADVANCED AUSPEX SCAN\nBetween unstinting sweeps of their bioscryer cuffs,\ntheir inbuilt auspexes warning of hostile threats and the\naugmented instincts of the Deathwatch themselves, no\nlurking threat can long evade their sights.\nUse this firefight ploy when a friendly\nDEATHWATCH operative performs the\nShoot action. Until the end of the activation/\ncounteraction, its ranged weapons have the\nSaturate weapon rule and enemy operatives\ncannot be obscured."
+    },
+    {
+      "id": "kt-deathwatch-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "超人体格",
+      "title_en": "TRANSHUMAN PHYSIOLOGY",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-超人体格.png",
+      "is_back": false,
+      "text": "死亡守望\n交战计谋\n超人体格\n受到基因改造的星际战士能够承受那些足够将\n凡人杀死的伤势。\n在一名特工对一名己方死亡守望特工进行射击\n时，您可以在掷防御骰步骤中使用本交战计谋。\n您可以将一次普通成功作为关键成功进行保留。",
+      "text_en": "DEATHWATCH\nFIREFIGHT PLOY\nTRANSHUMAN PHYSIOLOGY\nThe genetically modified physiology of a Space\nMarine is capable of resisting wounds that would kill a\nlesser being.\nUse this firefight ploy when an operative is\nshooting a friendly DEATHWATCH operative,\nin the Roll Defence Dice step. You can retain\none of your normal successes as a critical\nsuccess instead."
+    },
+    {
+      "id": "kt-deathwatch-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "指间武器",
+      "title_en": "DIGITAL WEAPONS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-指间武器.png",
+      "is_back": false,
+      "text": "死亡守望\n阵营装备\n指间武器\n各种高功率激光，毒针，焚烧器等都能隐藏于\n仿生植入物和臂甲中。尽管这类装置在远距离\n上几无效果，但在近距离使用时足以在敌人抵\n挡主要攻击时打击他的弱点。\n每个转折点限一次，每当一名己方死亡守望特\n工执行近战行动时，在掷攻击骰子步骤开始时，\n您便可以使用这个规则。若此，在那次流程中那\n名敌方战士受到 1 点伤害。",
+      "text_en": "DEATHWATCH\nFACTION EQUIPMENT\nDIGITAL WEAPONS\nVarious high-powered lasers, toxic needlers, incineration\nprojectors and more are concealed as bionic implants or\nin the knuckles of gauntlets. They lack the power to be\nused at range, but can be triggered up close to exploit a\nweakness while the enemy fends off the main attack.\nOnce per turning point, when a friendly\nDEATHWATCH operative performs the Fight\naction, at the start of the Roll Attack Dice step,\nyou can use this rule. If you do, inflict 1 damage\non the enemy operative in that sequence."
+    },
+    {
+      "id": "kt-deathwatch-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "监察伺服机仆",
+      "title_en": "SCRUTAVORE SERVO-THRALL",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-监察伺服机仆.png",
+      "is_back": false,
+      "text": "死亡守望\n阵营装备\n监察伺服机仆\n这种特制的伺服颅骨通过反重力装置盘旋在杀\n戮小队的部署区域，贪婪地收集数据进行分析\n后将结果传给各位战斗兄弟以提供强大的战\n略参考。这些装置大多由忠仆的颅骨制造而\n成，还有一部分则是由经过圣化的战败异形头\n颅制成。\n每个转折点一次，在一名己方死亡守望特工激\n活时，您可以使用这个规则。若此，在那次激活\n中，那名特工可以在执行一次任务行动时将消耗\n的 AP 减少 1 点。\n那名己方特工的控制范围内存在敌方特工也不会\n阻止它执行那次任务行动。不过，在这种情况\n下，在执行任务行动后，您需要与您的对手拼\n骰。若您的对手获胜，则您在本场战斗中不能再\n次使用这个装备。",
+      "text_en": "DEATHWATCH\nFACTION EQUIPMENT\nSCRUTAVORE SERVO-THRALL\nThis specialised servo-skull circles a kill team’s\ndeployment on anti-grav motors, consuming data at\na voracious rate before dissecting it and feeding the\nresultant analyses to the battle-brothers to provide\nmaximum strategic awareness. Many are built upon\nthe skulls of loyal serfs, though some are constructed\naround the sanctified craniums of defeated xenos.\nOnce per turning point, during a friendly\nDEATHWATCH operative’s activation, you can\nuse this rule. If you do, during that activation,\nthat operative can perform a mission action for 1\nless AP.\nHaving an enemy operative within its control\nrange doesn’t prevent that friendly operative\nfrom performing that mission action. However,\nin such an instance, after it does so, you and\nyour opponent roll-off. If your opponent wins,\nyou cannot use this equipment for the rest of\nthe battle."
+    },
+    {
+      "id": "kt-deathwatch-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "圣图斯-V型生物监测手环",
+      "title_en": "SANCTUS-V BIOSCRYER CUFFS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-圣图斯-V型生物监测手环.png",
+      "is_back": false,
+      "text": "死亡守望\n阵营装备\n圣图斯-V 型生物监测手环\n在卡斯提洛·努利法特守望要塞的技术军士和\n药剂师共同开发下，这种腕甲内的监控设备通\n过提供生理分析给予了使用者无与伦比的分析\n和净化生化威胁的能力。\n每当一名己方死亡守望特工激活时，在其执行\n一次行动之前或之后，若其不位于敌方特工的控\n制范围内，您可以使用一次这个规则。若此，选\n择下列选项之一：\n• 那名己方特工恢复最多 D3 点失去的耐伤。\n• 移除对那名己方特工 APL 属性的任意修正。\n• 移除那名己方特工拥有的一枚下列指示物（在\n那枚指示物的激活效果被结算前，如果有）：\n中子碎片，毒害，恐惧试剂。",
+      "text_en": "DEATHWATCH\nFACTION EQUIPMENT\nSANCTUS-V BIOSCRYER CUFFS\nDeveloped by Techmarines and Apothecaries of the\nCastilos Nullifact watch fortress, these vambrace-\nmounted monitron relays offer unparalleled analysis\nand purgation of a range of bio-threats to the wearer’s\naugmented physiology.\nOnce during each friendly DEATHWATCH\noperative’s activation, before or after it performs\nan action, if it’s not within control range of enemy\noperatives, you can use this rule. If you do, select\none of the following:\n• That friendly operative regains up to D3\nlost wounds.\n• Remove any changes to that friendly\noperative’s APL stat.\n• Remove one of the following tokens that\nfriendly operative has (before that token’s\nactivation effects are resolved, if relevant):\nNeutron Fragment, Poison, Terrorchem."
+    },
+    {
+      "id": "kt-deathwatch-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "弹药储备",
+      "title_en": "AMMUNITION RESERVE",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-弹药储备.png",
+      "is_back": false,
+      "text": "死亡守望\n阵营装备\n弹药储备\n这些致命精准的杀戮小队被赋予了额外的特制\n弹药、燃料储罐以及弹药电池，以保障在最危\n险任务中取得胜利。\n每场战斗限一次，您可以在一个转折点中为两次\n射击行动使用特制弹药规则，但在这两次使用规\n则中您必须选择不同的武器规则。本规则优先于\n特制弹药规则。",
+      "text_en": "DEATHWATCH\nFACTION EQUIPMENT\nAMMUNITION RESERVE\nAwarded to kill teams whose marksmanship is as\nefficient as it is lethal, additional caches of individually\ncrafted shells, fuel canisters and ammunition cells serve\nto secure victory during the most dangerous missions.\nOnce per battle, you can use the Special Issue\nAmmunition faction rule for up to two Shoot\nactions during one turning point, but you must\nselect different weapon rules for both uses. This\ntakes precedence over the normal Special Issue\nAmmunition rules."
+    }
+  ]
+}

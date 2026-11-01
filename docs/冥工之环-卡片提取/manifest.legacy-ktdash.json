@@ -1,0 +1,3869 @@
+{
+  "schema_version": 1,
+  "team_id": "NEC-CAN",
+  "team_name_zh": "冥工之环",
+  "source_pdf": "../冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+  "source_pdf_sha256": "009af0c028a36945143d50f230932a838210bf9c34c30918b50969b38de2d838",
+  "extracted_at": "2026-09-24",
+  "website": "https://ktdash.app/killteams/NEC-CAN",
+  "api": "https://ktdash.app/api/killteams/NEC-CAN",
+  "pdf_metadata": {
+    "pages": 15,
+    "encrypted": false,
+    "metadata": {
+      "format": "PDF 1.7",
+      "title": "",
+      "author": "",
+      "subject": "",
+      "keywords": "",
+      "creator": "",
+      "producer": "",
+      "creationDate": "",
+      "modDate": "",
+      "trapped": "",
+      "encryption": null
+    }
+  },
+  "page_audit": [
+    {
+      "page": 1,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "特工、特工能力",
+      "expected_cards": 4,
+      "card_orientation": "横向",
+      "layout": "单列4张",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 2,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "特工能力、特工",
+      "expected_cards": 4,
+      "card_orientation": "横向",
+      "layout": "单列4张",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 3,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "特工能力、特工、其他",
+      "expected_cards": 4,
+      "card_orientation": "横向",
+      "layout": "单列4张",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 4,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "小队选择、阵营规则、其他",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 5,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "战略计谋",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 6,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "交战计谋",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 7,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "阵营装备",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 8,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "更新日志",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "辅助核对当前规则；不导入冲突旧文"
+    },
+    {
+      "page": 9,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "既往勘误",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "辅助核对当前规则；不导入冲突旧文"
+    },
+    {
+      "page": 10,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "规则问答",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "PDF-only问答"
+    },
+    {
+      "page": 11,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "角色介绍",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 12,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "小队概述及角色介绍",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 13,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "阵容与模型示意",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 14,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "模型与武器示意",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 15,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "设计师注解",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    }
+  ],
+  "counts": {
+    "roles": 5,
+    "weapon_objects": 12,
+    "profiles": 15,
+    "cards": 28,
+    "by_category": {
+      "operative": 5,
+      "operative-ability": 6,
+      "other": 2,
+      "team-selection": 1,
+      "faction-rule": 2,
+      "strategic-ploy": 4,
+      "firefight-ploy": 4,
+      "faction-equipment": 4
+    },
+    "faction_rule_records": 5,
+    "faction_rule_names": 1,
+    "strategic_ploys": 4,
+    "firefight_ploys": 4,
+    "faction_equipment": 4,
+    "universal_equipment": 13
+  },
+  "per_operative_counts": [
+    {
+      "opTypeId": "NEC-CAN-GEO",
+      "name_zh": "地相技师",
+      "weapon_objects": 2,
+      "profiles": 3
+    },
+    {
+      "opTypeId": "NEC-CAN-ACC",
+      "name_zh": "冥工加速巨虫",
+      "weapon_objects": 2,
+      "profiles": 2
+    },
+    {
+      "opTypeId": "NEC-CAN-REA",
+      "name_zh": "冥工重生巨虫",
+      "weapon_objects": 2,
+      "profiles": 2
+    },
+    {
+      "opTypeId": "NEC-CAN-WAR",
+      "name_zh": "冥工巨虫战士",
+      "weapon_objects": 3,
+      "profiles": 4
+    },
+    {
+      "opTypeId": "NEC-CAN-TC",
+      "name_zh": "墓穴爬行者",
+      "weapon_objects": 3,
+      "profiles": 4
+    }
+  ],
+  "cards": [
+    {
+      "category": "operative",
+      "title_zh": "地相技师-数据卡",
+      "title_en": "Geomancer",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        125.5,
+        24.5,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-GEO",
+        "NEC-CAN-GEO-SNC"
+      ],
+      "current_text_zh": "地相技师 / Geomancer；APL 3；移动 6\"；豁免 3+；耐伤 14；底座 50 mm。\n\n震颤长刃（切割物质）：攻击 4；命中 3+；伤害 4/5；穿刺1, 关键穿刺2（Prc1, PrcCrit2）。\n\n震颤长刃（撼动）：攻击 5；命中 3+；伤害 1/2；爆炸 2\", 追踪轻型, 晕眩（Blast 2\", Seek Light, Stun）。\n\n震颤长刃（单一档案）：攻击 4；命中 4+；伤害 4/5；严重, 震荡, 晕眩（Sev, Shock, Stun）。\n\n关键词：CANOPTEK CIRCLE, NECRON, CRYPTEK, MACROCYTE, REANIMATOR\n\n控制方尖碑节点\n每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。\n每当这名特工执行操作舱门行动时，可以改为打开或关闭入口位于任意己方方尖碑节点标识 1\" 内的舱门。仍须满足操作舱门行动的条件。",
+      "text_status": "current",
+      "id": "nec-can-card-01",
+      "sequence": 1,
+      "image": "01-特工-地相技师-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.02910119,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          24.5,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Obelisk Node Control\nWhenever this operative would perform a mission action (excluding Pick Up Marker or Retrieve, Approved Ops 2025), if it requires this operative to control an objective marker, you can instead determine control from one of your OBELISK NODE markers (see Obelisk Node Matrix faction rule).\r Whenever this operative would perform the Operate Hatch action, you can open or close a hatchway thats access point is within 1\" of one of your OBELISK NODE markers instead.\r Note that you must still fulfil the Operate Hatch action’s conditions.",
+      "rule_record_ids": [
+        "NEC-CAN-GEO-SNC"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-GEO-SNC",
+          "cost": null
+        }
+      ],
+      "timing": "每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。",
+      "target": "每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。",
+      "duration": [],
+      "limits": [
+        "每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。",
+        "仍须满足操作舱门行动的条件。"
+      ]
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "地相技师-能力卡1",
+      "title_en": "Geomancer",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        125.5,
+        222.925,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-GEO",
+        "NEC-CAN-GEO-CC",
+        "NEC-CAN-GEO-GD"
+      ],
+      "current_text_zh": "控制冥工（1 AP）\n支援。选择这名特工可见且位于其 6\" 内的一名己方冥工之环冥工（CANOPTEK）特工。也可以改为选择这名特工可见且位于己方方尖碑节点矩阵内的一名己方冥工之环冥工特工（此种选择不适用“支援”）。被选特工可以立即免费执行一次消耗 1AP 的行动；在该行动中不能移动超过 2\"，若被移除并重新放置，则必须完全放置在原位置 2\" 内。\n这名特工位于敌方特工的控制范围内或正在反应时，不能执行此行动。\n\n地相干扰（1 AP）\n选择一个地形模型上的点，该点必须位于这名特工 8\" 内且对其可见。为该点 2\" 内的每名特工分别掷 2D6；如果结果高于该特工的剩余耐伤，则对其造成等于两者差值的伤害。\n这名特工拥有隐匿命令或位于敌方特工的控制范围内时，不能执行此行动。",
+      "text_status": "current",
+      "id": "nec-can-card-02",
+      "sequence": 2,
+      "image": "02-特工能力-地相技师-能力卡1.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.26479112,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          222.925,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Canoptek Control\nSUPPORT. Select one friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 6\" of this operative. Alternatively, you can select one friendly CANOPTEK CIRCLE CANOPTEK operative that’s visible to this operative and within your OBELISK NODE MATRIX (SUPPORT doesn’t apply to this selection).\r That selected operative can immediately perform a 1AP action for free; during that action, it cannot move more than 2\", or must be set up wholly within 2\" if it’s removed and set up again.\r \r This operative cannot perform this action while within control range of an enemy operative, or while counteracting.\n\nGeomantic Disturbance\nSelect a point on a terrain feature; that point must be visible to and within 8\" of this operative. Separately roll 2D6 for each operative within 2\" of that point. If the result is higher than that operative’s remaining wounds, inflict damage on it equal to the difference.\n\nThis operative cannot perform this action while it has a Conceal order, or while within control range of an enemy operative.",
+      "rule_record_ids": [
+        "NEC-CAN-GEO-CC",
+        "NEC-CAN-GEO-GD"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-GEO-CC",
+          "cost": "1 AP"
+        },
+        {
+          "id": "NEC-CAN-GEO-GD",
+          "cost": "1 AP"
+        }
+      ],
+      "timing": "这名特工位于敌方特工的控制范围内或正在反应时，不能执行此行动。",
+      "target": "选择这名特工可见且位于其 6\" 内的一名己方冥工之环冥工（CANOPTEK）特工。",
+      "duration": [],
+      "limits": [
+        "被选特工可以立即免费执行一次消耗 1AP 的行动；",
+        "在该行动中不能移动超过 2\"，若被移除并重新放置，则必须完全放置在原位置 2\" 内。",
+        "这名特工位于敌方特工的控制范围内或正在反应时，不能执行此行动。",
+        "这名特工拥有隐匿命令或位于敌方特工的控制范围内时，不能执行此行动。"
+      ]
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "地相技师-能力卡2",
+      "title_en": "Geomancer",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        125.5,
+        421.35,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-GEO",
+        "NEC-CAN-GEO-MB"
+      ],
+      "current_text_zh": "分子突破（1 AP）\n支援。选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。也可以改为选择这名特工可见且位于己方方尖碑节点矩阵内的一名己方冥工之环特工（此种选择不适用“支援”）。\n被选特工下次执行包含移动的行动时，不移动模型，而是将其移出杀戮区，然后重新放置在完全位于原位置水平距离不超过其移动属性的位置；若为冲刺，则该距离为 3\"。在使用近距离战斗规则的杀戮区（例如墓穴世界），可以跨越或穿过墙壁地形测量，并可放置在另一侧。冲锋不会因此获得额外距离。\n必须放在模型能够合法放置的位置；除非执行的是冲锋，否则不能放置在敌方特工的控制范围内。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "text_status": "current",
+      "id": "nec-can-card-03",
+      "sequence": 3,
+      "image": "03-特工能力-地相技师-能力卡2.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.50048105,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        564
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          421.35,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Molecular Breach\nSUPPORT. Select one friendly CANOPTEK CIRCLE operative visible to and within 6\" of this operative. Alternatively, you can select one friendly CANOPTEK CIRCLE operative visible to this operative and within your OBELISK NODE MATRIX (SUPPORT doesn’t apply to this selection).\n\nThe next time the selected operative performs an action in which it moves, don’t move it. Instead, remove it from the killzone and set it back up wholly within a distance equal to its Move stat (or 3\" if it was a Dash) horizontally of its\noriginal location (in a killzone that uses the close quarters rules, e.g. Killzone: Tomb World, this distance can be measured over and through Wall terrain and the operative can be set up on the other side). Note that it gains no additional distance when performing the Charge action.\nIt must be set up in a location it can be placed, and unless it’s the Charge action, it cannot be set up within control range of an enemy operative.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+      "rule_record_ids": [
+        "NEC-CAN-GEO-MB"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-GEO-MB",
+          "cost": "1 AP"
+        }
+      ],
+      "timing": "被选特工下次执行包含移动的行动时，不移动模型，而是将其移出杀戮区，然后重新放置在完全位于原位置水平距离不超过其移动属性的位置；",
+      "target": "选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。",
+      "duration": [],
+      "limits": [
+        "除非执行的是冲锋，否则不能放置在敌方特工的控制范围内。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "冥工加速巨虫-数据卡",
+      "title_en": "Canoptek Macrocyte Accelerator",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        125.5,
+        619.7750000000001,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-ACC"
+      ],
+      "current_text_zh": "冥工加速巨虫 / Canoptek Macrocyte Accelerator；APL 2；移动 7\"；豁免 4+；耐伤 7；底座 28 mm。\n\n火花（单一档案）：攻击 4；命中 4+；伤害 2/3；范围 4\", 穿刺1（Rng 4\", Prc1）。\n\n利爪和火花（单一档案）：攻击 3；命中 4+；伤害 3/4；致命 5+, 晕眩（Lethal 5+, Stun）。\n\n关键词：CANOPTEK CIRCLE, NECRON, CANOPTEK, MACROCYTE, ACCELERATOR",
+      "text_status": "current",
+      "id": "nec-can-card-04",
+      "sequence": 4,
+      "image": "04-特工-冥工加速巨虫-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.73617098,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          619.7750000000001,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": null,
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "冥工加速巨虫-能力卡",
+      "title_en": "Canoptek Macrocyte Accelerator",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        125.5,
+        24.5,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-ACC",
+        "NEC-CAN-ACC-CO",
+        "NEC-CAN-ACC-OC"
+      ],
+      "current_text_zh": "头脑过载（1 AP）\n选择这名特工可见且位于其 3\" 内的一名敌方特工。若这名特工位于己方方尖碑节点矩阵内，也可以改为选择矩阵内的一名敌方特工。直到该敌方特工的下一次激活结束，其 APL 属性减少 1。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。\n\n过载（1 AP）\n选择这名特工可见且位于其 3\" 内的另一名己方冥工之环冥工特工。若这名特工位于己方方尖碑节点矩阵内，也可以改为选择矩阵内的另一名己方冥工之环冥工特工。直到被选特工的下一次激活结束，其 APL 属性增加 1。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "text_status": "current",
+      "id": "nec-can-card-05",
+      "sequence": 5,
+      "image": "05-特工能力-冥工加速巨虫-能力卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.02910119,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          24.5,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Cranial Overload\nSelect one enemy operative visible to and within 3\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one enemy operative within your OBELISK NODE MATRIX.\nUntil the end of that enemy operative’s next activation, subtract 1 from its APL stat.\n\nThis operative cannot perform this action while within control range of an enemy operative.\n\nOvercharge\nSelect one other friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 3\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one other friendly CANOPTEK CIRCLE CANOPTEK operative within your OBELISK NODE MATRIX.\nUntil the end of that selected operative’s next activation, add 1 to its APL stat.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+      "rule_record_ids": [
+        "NEC-CAN-ACC-CO",
+        "NEC-CAN-ACC-OC"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-ACC-CO",
+          "cost": "1 AP"
+        },
+        {
+          "id": "NEC-CAN-ACC-OC",
+          "cost": "1 AP"
+        }
+      ],
+      "timing": "直到该敌方特工的下一次激活结束，其 APL 属性减少 1。",
+      "target": "选择这名特工可见且位于其 3\" 内的一名敌方特工。",
+      "duration": [
+        "直到该敌方特工的下一次激活结束，其 APL 属性减少 1。",
+        "直到被选特工的下一次激活结束，其 APL 属性增加 1。"
+      ],
+      "limits": [
+        "直到该敌方特工的下一次激活结束，其 APL 属性减少 1。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+        "直到被选特工的下一次激活结束，其 APL 属性增加 1。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "冥工重生巨虫-数据卡",
+      "title_en": "Canoptek Macrocyte Reanimator",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        125.5,
+        222.925,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-REA"
+      ],
+      "current_text_zh": "冥工重生巨虫 / Canoptek Macrocyte Reanimator；APL 2；移动 7\"；豁免 4+；耐伤 7；底座 28 mm。\n\n原子化光束（单一档案）：攻击 4；命中 4+；伤害 3/4；范围 6\", 致命 5+（Rng 6\", Lethal 5+）。\n\n利爪和尖尾（单一档案）：攻击 4；命中 4+；伤害 3/4；无（—）。\n\n关键词：CANOPTEK CIRCLE, NECRON, CANOPTEK, MACROCYTE, REANIMATOR",
+      "text_status": "current",
+      "id": "nec-can-card-06",
+      "sequence": 6,
+      "image": "06-特工-冥工重生巨虫-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.26479112,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          222.925,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": null,
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "冥工重生巨虫-能力卡",
+      "title_en": "Canoptek Macrocyte Reanimator",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        125.5,
+        421.35,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-REA",
+        "NEC-CAN-REA-NB",
+        "NEC-CAN-REA-REA"
+      ],
+      "current_text_zh": "纳米甲虫光束（1 AP）\n选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。若这名特工位于己方方尖碑节点矩阵内，也可以改为选择矩阵内的另一名己方冥工之环特工。被选特工恢复至多 3D3 点已损失的耐伤。不能选择本转折点已对其使用过“重生”规则的特工。\n这名特工位于敌方特工的控制范围内时不能执行此行动；每个转折点最多执行一次。\n\n重生\n每个转折点一次，当另一名己方冥工之环特工将要残废时，如果其对这名特工可见且位于其 6\" 内，或者两者都位于己方方尖碑节点矩阵内，并且两者都不在敌方特工的控制范围内，可以使用本规则。\n该己方特工不会残废，而是剩余 1 点耐伤，并且在该行动余下期间不能残废。行动结束后，该己方特工可以立即执行一次免费冲刺，但必须在这名特工的控制范围内或己方方尖碑节点矩阵内结束行动。两名特工的 APL 属性分别减少 1，直到各自下一次激活结束。如果在获救特工的激活期间使用本规则，其激活结束。\n这名特工残废时不能使用本规则；若为射击行动且这名特工是主要或次要目标，也不能使用本规则。",
+      "text_status": "current",
+      "id": "nec-can-card-07",
+      "sequence": 7,
+      "image": "07-特工能力-冥工重生巨虫-能力卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.50048105,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        564
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          421.35,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Nanoscarab Beam\nSelect one friendly CANOPTEK CIRCLE operative visible to and within 6\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one other friendly CANOPTEK CIRCLE operative within your OBELISK NODE MATRIX.\r The selected operative regains up to 3D3 lost wounds. It cannot be an operative that the Reanimate rule was used on during this turning point.\r \r This operative cannot perform this action while within control range of an enemy operative, or more than once per Turning Point.\n\nReanimate\nOnce per turning point, when another friendly CANOPTEK CIRCLE operative would be incapacitated, if that operative is visible to and within 6\" of this operative, or if this and that operative are within your OBELISK NODE MATRIX,\r you can use this rule, providing neither this nor that operative is within control range of an enemy operative.\r If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder of the action.\r After that action, that friendly operative can immediately perform a free Dash action, but must end that action within this operative’s control range or within your OBELISK NODE MATRIX. Subtract 1 from this and that operative’s APL stats until the end of their next activations respectively, and if this rule was used during that friendly operative’s activation, that activation ends.\r \r You cannot use this rule if this operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.",
+      "rule_record_ids": [
+        "NEC-CAN-REA-NB",
+        "NEC-CAN-REA-REA"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-REA-NB",
+          "cost": "1 AP"
+        },
+        {
+          "id": "NEC-CAN-REA-REA",
+          "cost": null
+        }
+      ],
+      "timing": "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+      "target": "选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。",
+      "duration": [
+        "该己方特工不会残废，而是剩余 1 点耐伤，并且在该行动余下期间不能残废。",
+        "两名特工的 APL 属性分别减少 1，直到各自下一次激活结束。",
+        "如果在获救特工的激活期间使用本规则，其激活结束。"
+      ],
+      "limits": [
+        "不能选择本转折点已对其使用过“重生”规则的特工。",
+        "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+        "每个转折点最多执行一次。",
+        "每个转折点一次，当另一名己方冥工之环特工将要残废时，如果其对这名特工可见且位于其 6\" 内，或者两者都位于己方方尖碑节点矩阵内，并且两者都不在敌方特工的控制范围内，可以使用本规则。",
+        "该己方特工不会残废，而是剩余 1 点耐伤，并且在该行动余下期间不能残废。",
+        "行动结束后，该己方特工可以立即执行一次免费冲刺，但必须在这名特工的控制范围内或己方方尖碑节点矩阵内结束行动。",
+        "两名特工的 APL 属性分别减少 1，直到各自下一次激活结束。",
+        "这名特工残废时不能使用本规则；",
+        "若为射击行动且这名特工是主要或次要目标，也不能使用本规则。"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "冥工巨虫战士-数据卡",
+      "title_en": "Canoptek Macrocyte Warrior",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        125.5,
+        619.7750000000001,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-WAR"
+      ],
+      "current_text_zh": "冥工巨虫战士 / Canoptek Macrocyte Warrior；APL 2；移动 7\"；豁免 4+；耐伤 7；底座 28 mm。\n\n高斯剖切机（单一档案）：攻击 4；命中 4+；伤害 2/3；穿刺1（Prc1）。\n\n特斯拉抛射器（集中）：攻击 4；命中 4+；伤害 2/3；无（—）。\n\n特斯拉抛射器（活体闪电）：攻击 4；命中 4+；伤害 2/3；爆炸 2\"（Blast 2\"）。\n\n利爪和尖尾（单一档案）：攻击 3；命中 4+；伤害 3/4；无（—）。\n\n关键词：CANOPTEK CIRCLE, NECRON, CANOPTEK, MACROCYTE, WARRIOR",
+      "text_status": "current",
+      "id": "nec-can-card-08",
+      "sequence": 8,
+      "image": "08-特工-冥工巨虫战士-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.73617098,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          619.7750000000001,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": null,
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "冥工巨虫战士-能力卡",
+      "title_en": "Canoptek Macrocyte Warrior",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        125.5,
+        24.5,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-WAR",
+        "NEC-CAN-WAR-ACS",
+        "NEC-CAN-WAR-AD",
+        "NEC-CAN-WAR-EC"
+      ],
+      "current_text_zh": "无尽巨虫\n作为第一个转折点之后各转折点的战略计谋，如果未残废的己方冥工之环战士特工少于三名，可以在完全位于己方降落区的位置部署另一名处于备战状态、拥有隐匿命令的战士特工（照常选择其武器选项）。\n\n进攻性防卫\n如果这名特工被其 2\" 内的一名敌方特工击至残废，在将其移出杀戮区之前掷一枚 D3：结果为 2+ 时，对该敌方特工造成 1 点伤害。\n\n消耗品构体\n在对手的杀戮／消灭任务中忽略这名特工，包括其残废时以及确定己方起始特工数量时。在要求特工“逃脱”“存活”或被敌方特工击至残废的胜利条件和 VP 获取条件中，也忽略这名特工，包括已逃脱／存活／残废、确认哪些特工必须逃脱／存活／残废等情况。",
+      "text_status": "current",
+      "id": "nec-can-card-09",
+      "sequence": 9,
+      "image": "09-特工能力-冥工巨虫战士-能力卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.02910119,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          24.5,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "A Ceaseless Scuttling\nAs a STRATEGIC GAMBIT in each turning point after the first, if you have less than three non- incapacitated friendly CANOPTEK CIRCLE WARRIOR operatives, you can set up another one ready and with a Conceal order wholly within your drop zone (you can select its weapon options as normal).\n\nAggressive Defence\nIf this operative is incapacitated by an enemy operative within 2\" of it, before this operative is removed from the killzone, roll one D3: on a 2+, inflict 1 damage on that enemy operative.\n\nExpendable Construct\nThis operative is ignored for your opponent’s kill/elimination op (when it’s incapacitated, and when determining your starting number of operatives).\nIt’s also ignored for victory conditions and scoring VPs if either require operatives to ‘escape’, ‘survive’ or be incapacitated by enemy operatives (if it escapes/survives/is incapacitated, determining how many operatives must escape/survive/be incapacitated, etc.).",
+      "rule_record_ids": [
+        "NEC-CAN-WAR-ACS",
+        "NEC-CAN-WAR-AD",
+        "NEC-CAN-WAR-EC"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-WAR-ACS",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-WAR-AD",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-WAR-EC",
+          "cost": null
+        }
+      ],
+      "timing": "作为第一个转折点之后各转折点的战略计谋，如果未残废的己方冥工之环战士特工少于三名，可以在完全位于己方降落区的位置部署另一名处于备战状态、拥有隐匿命令的战士特工（照常选择其武器选项）。",
+      "target": "作为第一个转折点之后各转折点的战略计谋，如果未残废的己方冥工之环战士特工少于三名，可以在完全位于己方降落区的位置部署另一名处于备战状态、拥有隐匿命令的战士特工（照常选择其武器选项）。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "operative",
+      "title_zh": "墓穴爬行者-数据卡",
+      "title_en": "Canoptek Tomb Crawler",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        125.5,
+        222.925,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-TC",
+        "NEC-CAN-TC-DB"
+      ],
+      "current_text_zh": "墓穴爬行者 / Canoptek Tomb Crawler；APL 2；移动 5\"；豁免 3+；耐伤 18；底座 50 mm。\n\n跨维隔振器（单一档案）：攻击 5；命中 4+；伤害 5/6；维度放逐（*Dimensional Banishment）。\n\n双联高斯收割炮（集中）：攻击 5；命中 4+；伤害 4/5；穿刺1, 严重（Prc1, Sev）。\n\n双联高斯收割炮（扫射）：攻击 4；命中 4+；伤害 4/5；穿刺1, 严重, 洪流1\"（Prc1, Sev, Tor1\"）。\n\n利爪（单一档案）：攻击 4；命中 4+；伤害 4/4；无（—）。\n\n关键词：CANOPTEK CIRCLE, NECRON, CANOPTEK, TOMB CRAWLER\n\n维度放逐\n这名特工使用此武器后，如果造成了伤害或保留了任何关键成功，且目标没有残废，掷 2D6：若结果高于目标剩余耐伤，则目标残废。本规则优先于阻止特工残废的规则，例如“医疗兵！”或恶角兽掠夺者的“狂暴”；若适用，对手不能为该特工放置重生标识（神圣技师之环）。目标为 NEMESIS 特工或红色恐魔非玩家特工时，本规则无效。",
+      "text_status": "current",
+      "id": "nec-can-card-10",
+      "sequence": 10,
+      "image": "10-特工-墓穴爬行者-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.26479112,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          222.925,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "*Dimensional Banishment\nAfter this operative uses this weapon, if you inflicted damage or retained any critical successes, if the target wasn’t incapacitated, roll 2D6: if the result is higher than the target’s remaining wounds, the target is incapacitated (taking precedence over rules that prevent incapacitation, e.g. Medic!, FELLGOR RAVAGER Frenzy) and your opponent cannot place a Reanimation marker (HIEROTEK CIRCLE ) for that operative, if relevant. This rule has no effect if the target is a NEMESIS operative or Red Terror NPO.",
+      "rule_record_ids": [
+        "NEC-CAN-TC-DB"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-TC-DB",
+          "cost": null
+        }
+      ],
+      "timing": "目标为 NEMESIS 特工或红色恐魔非玩家特工时，本规则无效。",
+      "target": "这名特工使用此武器后，如果造成了伤害或保留了任何关键成功，且目标没有残废，掷 2D6：若结果高于目标剩余耐伤，则目标残废。",
+      "duration": [],
+      "limits": [
+        "本规则优先于阻止特工残废的规则，例如“医疗兵！”或恶角兽掠夺者的“狂暴”；",
+        "若适用，对手不能为该特工放置重生标识（神圣技师之环）。",
+        "目标为 NEMESIS 特工或红色恐魔非玩家特工时，本规则无效。"
+      ]
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "墓穴爬行者-能力卡",
+      "title_en": "Canoptek Tomb Crawler",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        125.5,
+        421.35,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-TC",
+        "NEC-CAN-TC-SF",
+        "NEC-CAN-TC-WS"
+      ],
+      "current_text_zh": "毫不动摇\n判断对一枚标识的控制时，可以将这名特工的 APL 属性视为 3。若如此，则优先于所有其他规则，忽略为此对其 APL 属性作出的任何修改。\n\n武器哨卫\n对手选择有效目标时，如果这名特工拥有隐匿命令，其不能使用轻型地形获得掩护。这会使其能够被选为目标（假定可见），但不会移除其掩护豁免（若有）。",
+      "text_status": "current",
+      "id": "nec-can-card-11",
+      "sequence": 11,
+      "image": "11-特工能力-墓穴爬行者-能力卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.50048105,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        564
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          421.35,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Steadfast\nWhenever determining control of a marker, you can treat this operative’s APL stat as 3. If you do, this takes precedence over all other rules, meaning any changes to its APL stat are ignored for this.\n\nWeapon Sentinel\nWhenever your opponent is selecting a valid target, if this operative has a Conceal order, it cannot use Light terrain for cover. While this can allow this operative to be targeted (assuming it’s visible), it doesn’t remove its cover save (if any)",
+      "rule_record_ids": [
+        "NEC-CAN-TC-SF",
+        "NEC-CAN-TC-WS"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-TC-SF",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-TC-WS",
+          "cost": null
+        }
+      ],
+      "timing": "判断对一枚标识的控制时，可以将这名特工的 APL 属性视为 3。",
+      "target": "判断对一枚标识的控制时，可以将这名特工的 APL 属性视为 3。",
+      "duration": [],
+      "limits": [
+        "若如此，则优先于所有其他规则，忽略为此对其 APL 属性作出的任何修改。",
+        "对手选择有效目标时，如果这名特工拥有隐匿命令，其不能使用轻型地形获得掩护。"
+      ]
+    },
+    {
+      "category": "other",
+      "title_zh": "笔记",
+      "title_en": null,
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        125.5,
+        619.7750000000001,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [],
+      "current_text_zh": "笔记：\n（供玩家记录的空白横线，无规则正文。）",
+      "text_status": "PDF-only",
+      "id": "nec-can-card-12",
+      "sequence": 12,
+      "image": "12-其他-笔记.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.73617098,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          619.7750000000001,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "PDF原文（无网站独立正文）",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": null,
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "team-selection",
+      "title_zh": "冥工之环杀戮小队",
+      "title_en": "Canoptek Circle",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN"
+      ],
+      "current_text_zh": "由 8 名特工组成：\n- 1 名地相技师。\n- 2 名墓穴爬行者，各自选择“双联高斯收割炮＋利爪”或“跨维隔振器＋利爪”；全队最多一件跨维隔振器。\n- 1 名冥工加速巨虫。\n- 1 名冥工重生巨虫。\n- 3 名冥工巨虫战士，各自选择“高斯剖切机＋利爪和尖尾”或“特斯拉抛射器＋利爪和尖尾”。\n武器档案属于所选武器，不代表同时装备额外武器；固定装备见各角色武器表。",
+      "text_status": "current",
+      "id": "nec-can-card-13",
+      "sequence": 13,
+      "image": "13-小队选择-冥工之环杀戮小队.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "A CANOPTEK CIRCLE Killteam is composed of:\n\n- 1 CANOPTEK CIRCLE GEOMANCER operative\n- 2 CANOPTEK CIRCLE TOMB CRAWLER operatives with one of the following options (select separately for each):\n  - Twin gauss reapers; claws\n  - Transdimensional isolator; claws*\n- 1 CANOPTEK CIRCLE ACCELERATOR operative\n- 1 CANOPTEK CIRCLE REANIMATOR operative\n- 3 CANOPTEK CIRCLE WARRIOR operatives with one of the following options (select separately for each):\n  - Gauss scalpel; claws & tail\n  - Tesla caster; claws & tail\n\n*Your kill team can only include up to one transdimensional isolator. ",
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": "武器档案属于所选武器，不代表同时装备额外武器；",
+      "target": "由 8 名特工组成：",
+      "duration": [],
+      "limits": [
+        "全队最多一件跨维隔振器。"
+      ]
+    },
+    {
+      "category": "faction-rule",
+      "title_zh": "方尖碑节点矩阵-说明",
+      "title_en": "Obelisk Node Matrix",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-GEO-ONM",
+        "NEC-CAN-ACC-ONM",
+        "NEC-CAN-REA-ONM",
+        "NEC-CAN-WAR-ONM",
+        "NEC-CAN-TC-ONM"
+      ],
+      "current_text_zh": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。作为第一个转折点之后各转折点的战略计谋，可以将每枚己方方尖碑节点标识水平移动至多 3\"。\n己方方尖碑节点标识可以控制其 1\" 内、没有敌方特工争夺的其他标识（为此将方尖碑节点标识视为己方特工）。如果多名玩家的方尖碑节点标识会控制同一个标识，则没有方尖碑节点标识控制它。\n每当一枚己方方尖碑节点标识在水平方向上位于另一枚己方方尖碑节点标识 6\" 内，这些标识及其间的区域形成方尖碑节点矩阵，并延伸至上方与下方（杀戮区中的高度不影响此效果）。如果三枚标识都满足条件，则形成更大的组合矩阵。\n每当一名己方冥工之环特工位于己方方尖碑节点矩阵内：\n- 其数据卡上的武器拥有“精准 1”（Accurate 1）武器规则。\n- 其 APL 属性增加 1，最多为 3。",
+      "text_status": "current",
+      "id": "nec-can-card-14",
+      "sequence": 14,
+      "image": "14-阵营规则-方尖碑节点矩阵-说明.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Obelisk Node Matrix\nAs a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+      "rule_record_ids": [
+        "NEC-CAN-GEO-ONM",
+        "NEC-CAN-ACC-ONM",
+        "NEC-CAN-REA-ONM",
+        "NEC-CAN-WAR-ONM",
+        "NEC-CAN-TC-ONM"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-GEO-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-ACC-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-REA-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-WAR-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-TC-ONM",
+          "cost": null
+        }
+      ],
+      "timing": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "target": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "- 其 APL 属性增加 1，最多为 3。"
+      ]
+    },
+    {
+      "category": "faction-rule",
+      "title_zh": "方尖碑节点矩阵-效果与示意",
+      "title_en": "Obelisk Node Matrix",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-GEO-ONM",
+        "NEC-CAN-ACC-ONM",
+        "NEC-CAN-REA-ONM",
+        "NEC-CAN-WAR-ONM",
+        "NEC-CAN-TC-ONM"
+      ],
+      "current_text_zh": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。作为第一个转折点之后各转折点的战略计谋，可以将每枚己方方尖碑节点标识水平移动至多 3\"。\n己方方尖碑节点标识可以控制其 1\" 内、没有敌方特工争夺的其他标识（为此将方尖碑节点标识视为己方特工）。如果多名玩家的方尖碑节点标识会控制同一个标识，则没有方尖碑节点标识控制它。\n每当一枚己方方尖碑节点标识在水平方向上位于另一枚己方方尖碑节点标识 6\" 内，这些标识及其间的区域形成方尖碑节点矩阵，并延伸至上方与下方（杀戮区中的高度不影响此效果）。如果三枚标识都满足条件，则形成更大的组合矩阵。\n每当一名己方冥工之环特工位于己方方尖碑节点矩阵内：\n- 其数据卡上的武器拥有“精准 1”（Accurate 1）武器规则。\n- 其 APL 属性增加 1，最多为 3。",
+      "text_status": "current",
+      "id": "nec-can-card-15",
+      "sequence": 15,
+      "image": "15-阵营规则-方尖碑节点矩阵-效果与示意.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Obelisk Node Matrix\nAs a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+      "rule_record_ids": [
+        "NEC-CAN-GEO-ONM",
+        "NEC-CAN-ACC-ONM",
+        "NEC-CAN-REA-ONM",
+        "NEC-CAN-WAR-ONM",
+        "NEC-CAN-TC-ONM"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-GEO-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-ACC-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-REA-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-WAR-ONM",
+          "cost": null
+        },
+        {
+          "id": "NEC-CAN-TC-ONM",
+          "cost": null
+        }
+      ],
+      "timing": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "target": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "- 其 APL 属性增加 1，最多为 3。"
+      ]
+    },
+    {
+      "category": "other",
+      "title_zh": "标识-指示物指南",
+      "title_en": null,
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [],
+      "current_text_zh": "冥工之环\n\n标识／指示物指南（按卡面阅读顺序）：\n\n- 节点方尖碑标识\n- 分子突破指示物\n- 矩阵操纵器指示物\n- 觉醒的方尖碑节点指示物\n- 移相器指示物\n- 重生指示物\n- 节点方尖碑矩阵量具",
+      "text_status": "PDF-only",
+      "id": "nec-can-card-16",
+      "sequence": 16,
+      "image": "16-其他-标识-指示物指南.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "PDF原文（无网站独立正文）",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": null,
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "超维护盾",
+      "title_en": "Hypershielding",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-S-HS"
+      ],
+      "current_text_zh": "每当一名特工向己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或被射击的己方特工位于矩阵内，可以重掷任意数量、结果为同一个数值的己方防御骰（例如所有结果为 2 的骰子）。",
+      "text_status": "current",
+      "id": "nec-can-card-17",
+      "sequence": 17,
+      "image": "17-战略计谋-超维护盾.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Hypershielding\nWhenever an operative is shooting a friendly CANOPTEK CIRCLE operative, if your OBELISK NODE MATRIX is intervening, or that friendly operative is within your OBELISK NODE MATRIX, you can re-roll any of your defence dice results of one result (e.g. results of 2).",
+      "rule_record_ids": [
+        "NEC-CAN-S-HS"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-S-HS",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每当一名特工向己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或被射击的己方特工位于矩阵内，可以重掷任意数量、结果为同一个数值的己方防御骰（例如所有结果为 2 的骰子）。",
+      "target": "每当一名特工向己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或被射击的己方特工位于矩阵内，可以重掷任意数量、结果为同一个数值的己方防御骰（例如所有结果为 2 的骰子）。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "动力转换增幅",
+      "title_en": "Transdynamic Amplification",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-S-TDA"
+      ],
+      "current_text_zh": "每当一名己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或目标位于矩阵内，该己方特工的武器拥有“无休”（Ceaseless）武器规则。",
+      "text_status": "current",
+      "id": "nec-can-card-18",
+      "sequence": 18,
+      "image": "18-战略计谋-动力转换增幅.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Transdynamic Amplification\nWhenever a friendly CANOPTEK CIRCLE operative is shooting, if your OBELISK NODE MATRIX is intervening, or the target is within your OBELISK NODE MATRIX, that friendly operative’s weapons have the Ceaseless weapon rule.",
+      "rule_record_ids": [
+        "NEC-CAN-S-TDA"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-S-TDA",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每当一名己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或目标位于矩阵内，该己方特工的武器拥有“无休”（Ceaseless）武器规则。",
+      "target": "每当一名己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或目标位于矩阵内，该己方特工的武器拥有“无休”（Ceaseless）武器规则。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "冥工重力推斥",
+      "title_en": "Cryptogravitic Repulsion",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-S-CGR"
+      ],
+      "current_text_zh": "每次行动一次，敌方特工首次将要移动进入己方方尖碑节点矩阵时，将该段距离视为额外增加 1\"。因此，若其剩余移动距离不足（例如已到移动结束位置），便不能移动进入矩阵。",
+      "text_status": "current",
+      "id": "nec-can-card-19",
+      "sequence": 19,
+      "image": "19-战略计谋-冥工重力推斥.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Cryptogravitic Repulsion\nOnce per action, the first time an enemy operative would move within your OBELISK NODE MATRIX, the distance is treated as an additional 1\". Note this means if that enemy operative doesn’t have sufficient move distance (e.g. it’s at the end of its move), that operative cannot move within your OBELISK NODE MATRIX.",
+      "rule_record_ids": [
+        "NEC-CAN-S-CGR"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-S-CGR",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每次行动一次，敌方特工首次将要移动进入己方方尖碑节点矩阵时，将该段距离视为额外增加 1\"。",
+      "target": "每次行动一次，敌方特工首次将要移动进入己方方尖碑节点矩阵时，将该段距离视为额外增加 1\"。",
+      "duration": [],
+      "limits": [
+        "每次行动一次，敌方特工首次将要移动进入己方方尖碑节点矩阵时，将该段距离视为额外增加 1\"。",
+        "因此，若其剩余移动距离不足（例如已到移动结束位置），便不能移动进入矩阵。"
+      ]
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "吸魂",
+      "title_en": "Souldrain",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-S-SD"
+      ],
+      "current_text_zh": "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。\n因此，敌方特工即使只是穿过矩阵，也须在该次移动行动结束时应用此修改，并持续至该次激活／反应结束。",
+      "text_status": "current",
+      "id": "nec-can-card-20",
+      "sequence": 20,
+      "image": "20-战略计谋-吸魂.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Souldrain\nWhenever an enemy operative is within your OBELISK NODE MATRIX, or whenever it’s fighting or retaliating against a friendly CANOPTEK CIRCLE operative that’s within your OBELISK NODE MATRIX, subtract 1 from both Dmg stats of that enemy operative’s melee weapons (to a minimum of 2) until the end of the activation/counteraction. Note this means if the enemy operative moves through your OBELISK NODE MATRIX, apply this change at the end of that move action until the end of the activation/counteraction.",
+      "rule_record_ids": [
+        "NEC-CAN-S-SD"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-S-SD",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。",
+      "target": "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。",
+      "duration": [
+        "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。",
+        "因此，敌方特工即使只是穿过矩阵，也须在该次移动行动结束时应用此修改，并持续至该次激活／反应结束。"
+      ],
+      "limits": [
+        "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。"
+      ]
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "护盾闪耀",
+      "title_en": "Shield Flare",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-T-SF"
+      ],
+      "current_text_zh": "一枚攻击骰将对己方冥工之环特工造成普通伤害时使用。如果己方方尖碑节点矩阵造成阻碍，或该己方特工位于矩阵内，则忽略该次伤害。是否造成阻碍由对手判断，即由其决定从其特工底盘的何处绘制瞄准线。",
+      "text_status": "current",
+      "id": "nec-can-card-21",
+      "sequence": 21,
+      "image": "21-交战计谋-护盾闪耀.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Shield Flare\nUse this firefight ploy when an attack dice inflicts Normal Dmg on a friendly CANOPTEK CIRCLE operative. If your OBELISK NODE MATRIX is intervening, or that friendly operative is within your OBELISK NODE MATRIX, ignore that inflicted damage. Note your opponent determines intervening (i.e. where on their operative’s base to draw the targeting lines from).",
+      "rule_record_ids": [
+        "NEC-CAN-T-SF"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-T-SF",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "一枚攻击骰将对己方冥工之环特工造成普通伤害时使用。",
+      "target": "一枚攻击骰将对己方冥工之环特工造成普通伤害时使用。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "灵动方尖碑节点",
+      "title_en": "Animate Obelisk Nodes",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-T-AON"
+      ],
+      "current_text_zh": "轮到激活或反应一名己方特工时，可以改为使用此交战计谋。移动任意数量的己方方尖碑节点标识，水平移动距离合计最多为 6\"；每枚标识的移动距离分别向上取整至最接近的整英寸（例如移动 1.5\" 视为移动 2\"）。可以将一枚标识移动 6\"，或者三枚各移动 1\"，或任何总计不超过 6\" 的组合。也可以移动 0\"，相当于跳过这次激活。无论如何，随后对手正常激活。",
+      "text_status": "current",
+      "id": "nec-can-card-22",
+      "sequence": 22,
+      "image": "22-交战计谋-灵动方尖碑节点.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Animate Obelisk Nodes\nUse this firefight ploy when it’s your turn to activate or counteract. Move any number of your OBELISK NODE markers instead. They can move up to 6\" horizontally combined, and distances are always rounded up to the nearest inch (so if you move a marker 1.5\", it’s treated as moving it 2\"). For example, you could move one marker 6\", three markers 1\" each, or any combination that doesn’t exceed 6\" in total. You can also move them 0\" (to effectively skip an activation). In any case, your opponent activates as normal afterwards.",
+      "rule_record_ids": [
+        "NEC-CAN-T-AON"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-T-AON",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "轮到激活或反应一名己方特工时，可以改为使用此交战计谋。",
+      "target": "轮到激活或反应一名己方特工时，可以改为使用此交战计谋。",
+      "duration": [],
+      "limits": [
+        "移动任意数量的己方方尖碑节点标识，水平移动距离合计最多为 6\"；"
+      ]
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "节点响应",
+      "title_en": "Nodal Response",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-T-NR"
+      ],
+      "current_text_zh": "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。可以更换本转折点已使用的一项战略计谋（仅当新计谋更昂贵时支付额外 CP），或者现在使用一项战略计谋并正常支付其 CP 消耗。",
+      "text_status": "current",
+      "id": "nec-can-card-23",
+      "sequence": 23,
+      "image": "23-交战计谋-节点响应.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Nodal Response\nUse this firefight ploy during a friendly CANOPTEK CIRCLE operative’s activation, before or after it performs an action. You can either change one of the strategy ploys you used during this turning point (only pay additional CP if that ploy costs more), or use a strategy ploy now (pay its CP cost as normal).",
+      "rule_record_ids": [
+        "NEC-CAN-T-NR"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-T-NR",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。",
+      "target": "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。",
+      "duration": [
+        "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。"
+      ],
+      "limits": [
+        "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。",
+        "可以更换本转折点已使用的一项战略计谋（仅当新计谋更昂贵时支付额外 CP），或者现在使用一项战略计谋并正常支付其 CP 消耗。"
+      ]
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "可消耗奴仆",
+      "title_en": "Sacrificial Thrall",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-T-ST"
+      ],
+      "current_text_zh": "己方冥工之环地相技师被选为射击行动的有效目标或近战行动的近战对象时使用。选择对其可见且位于其 3\" 内的另一名己方冥工之环冥工特工，改由该特工成为有效目标或近战对象，即使通常不能如此选择。\n若为近战行动，在该行动期间将替代特工视为位于执行近战的特工的控制范围内。若为射击行动，只有原目标拥有掩护或被遮挡时，替代特工才相应拥有掩护或被遮挡。\n若为射击行动且远程武器拥有“爆炸”或“洪流”规则，此计谋无效。",
+      "text_status": "current",
+      "id": "nec-can-card-24",
+      "sequence": 24,
+      "image": "24-交战计谋-可消耗奴仆.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Sacrificial Thrall\nUse this firefight ploy when a friendly CANOPTEK CIRCLE GEOMANCER operative is selected as the valid target of a Shoot action or to fight against during the Fight action.\nSelect one other friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 3\" of that first friendly operative to become the valid target or to be fought against (as appropriate) instead (even if it wouldn’t normally be valid for this).\nIf it’s the Fight action, treat that other operative as being within the fighting operative’s control range for the duration of that action. If it’s the Shoot action, that other operative is only in cover or obscured if the original target was.\n\nThis ploy has no effect if it’s the Shoot action and the ranged weapon has the Blast or Torrent weapon rule.",
+      "rule_record_ids": [
+        "NEC-CAN-T-ST"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-T-ST",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "己方冥工之环地相技师被选为射击行动的有效目标或近战行动的近战对象时使用。",
+      "target": "选择对其可见且位于其 3\" 内的另一名己方冥工之环冥工特工，改由该特工成为有效目标或近战对象，即使通常不能如此选择。",
+      "duration": [
+        "若为近战行动，在该行动期间将替代特工视为位于执行近战的特工的控制范围内。"
+      ],
+      "limits": [
+        "选择对其可见且位于其 3\" 内的另一名己方冥工之环冥工特工，改由该特工成为有效目标或近战对象，即使通常不能如此选择。",
+        "若为射击行动且远程武器拥有“爆炸”或“洪流”规则，此计谋无效。"
+      ]
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "矩阵操纵器",
+      "title_en": "Matrix Manipulator",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-MM"
+      ],
+      "current_text_zh": "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。直到该次激活／反应结束，将己方冥工之环地相技师视为第四枚己方方尖碑节点标识。",
+      "text_status": "current",
+      "id": "nec-can-card-25",
+      "sequence": 25,
+      "image": "25-阵营装备-矩阵操纵器.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Matrix Manipulator\nOnce per battle, during a friendly CANOPTEK CIRCLE operative’s activation or counteraction, you can use this rule. If you do, until the end of that activation/counteraction, a friendly CANOPTEK CIRCLE GEOMANCER operative is treated as your fourth OBELISK NODE marker.",
+      "rule_record_ids": [
+        "NEC-CAN-MM"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-MM",
+          "cost": null
+        }
+      ],
+      "timing": "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。",
+      "target": "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。",
+      "duration": [
+        "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。",
+        "直到该次激活／反应结束，将己方冥工之环地相技师视为第四枚己方方尖碑节点标识。"
+      ],
+      "limits": [
+        "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。"
+      ]
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "觉醒的方尖碑节点",
+      "title_en": "Awakened Obelisk Nodes",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-AON"
+      ],
+      "current_text_zh": "展示此装备选项后掷一枚 D3。在本场战斗中，可以使用等于结果次数的 0CP“灵动方尖碑节点”交战计谋。",
+      "text_status": "current",
+      "id": "nec-can-card-26",
+      "sequence": 26,
+      "image": "26-阵营装备-觉醒的方尖碑节点.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Awakened Obelisk Nodes\nAfter revealing this equipment option, roll one D3. You can use the Animate Obelisk Nodes firefight ploy for 0CP a number of times during the battle equal to the result.",
+      "rule_record_ids": [
+        "NEC-CAN-AON"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-AON",
+          "cost": null
+        }
+      ],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "纳米甲虫匣",
+      "title_en": "Nanoscarab Caskets",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-SDC"
+      ],
+      "current_text_zh": "每当一名己方冥工之环特工激活，其恢复至多 D3 点已损失的耐伤。",
+      "text_status": "current",
+      "id": "nec-can-card-27",
+      "sequence": 27,
+      "image": "27-阵营装备-纳米甲虫匣.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Nanoscarab Caskets\nWhenever a friendly CANOPTEK CIRCLE operative is activated, it regains up to D3 lost wounds.",
+      "rule_record_ids": [
+        "NEC-CAN-SDC"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-SDC",
+          "cost": null
+        }
+      ],
+      "timing": "每当一名己方冥工之环特工激活，其恢复至多 D3 点已损失的耐伤。",
+      "target": "每当一名己方冥工之环特工激活，其恢复至多 D3 点已损失的耐伤。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "移相器",
+      "title_en": "Phase Shifter",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "NEC-CAN-PS"
+      ],
+      "current_text_zh": "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。因此，“穿刺 1”会被忽略。",
+      "text_status": "current",
+      "id": "nec-can-card-28",
+      "sequence": 28,
+      "image": "28-阵营装备-移相器.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "冥工之环 Canoptek Circle 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Phase Shifter\nOnce per turning point, when an operative is shooting a friendly CANOPTEK CIRCLE GEOMANCER operative, at the start of the Roll Defence Dice step, you can use this rule.\nIf you do, worsen the x of the Piercing weapon rule by 1 (if any) until the end of that sequence. Note that Piercing 1 would therefore be ignored.",
+      "rule_record_ids": [
+        "NEC-CAN-PS"
+      ],
+      "cost": [
+        {
+          "id": "NEC-CAN-PS",
+          "cost": null
+        }
+      ],
+      "timing": "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。",
+      "target": "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。",
+      "duration": [
+        "直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。"
+      ],
+      "limits": [
+        "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。"
+      ]
+    }
+  ],
+  "rule_records": [
+    {
+      "id": "NEC-CAN-GEO-CC",
+      "category": "operative-ability",
+      "title_en": "Canoptek Control",
+      "title_zh": "控制冥工",
+      "current_text_zh": "支援。选择这名特工可见且位于其 6\" 内的一名己方冥工之环冥工（CANOPTEK）特工。也可以改为选择这名特工可见且位于己方方尖碑节点矩阵内的一名己方冥工之环冥工特工（此种选择不适用“支援”）。被选特工可以立即免费执行一次消耗 1AP 的行动；在该行动中不能移动超过 2\"，若被移除并重新放置，则必须完全放置在原位置 2\" 内。\n这名特工位于敌方特工的控制范围内或正在反应时，不能执行此行动。",
+      "website_text_en": "SUPPORT. Select one friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 6\" of this operative. Alternatively, you can select one friendly CANOPTEK CIRCLE CANOPTEK operative that’s visible to this operative and within your OBELISK NODE MATRIX (SUPPORT doesn’t apply to this selection).\r That selected operative can immediately perform a 1AP action for free; during that action, it cannot move more than 2\", or must be set up wholly within 2\" if it’s removed and set up again.\r \r This operative cannot perform this action while within control range of an enemy operative, or while counteracting.",
+      "website_id": "NEC-CAN-GEO-CC",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "这名特工位于敌方特工的控制范围内或正在反应时，不能执行此行动。",
+      "target": "选择这名特工可见且位于其 6\" 内的一名己方冥工之环冥工（CANOPTEK）特工。",
+      "duration": [],
+      "limits": [
+        "被选特工可以立即免费执行一次消耗 1AP 的行动；",
+        "在该行动中不能移动超过 2\"，若被移除并重新放置，则必须完全放置在原位置 2\" 内。",
+        "这名特工位于敌方特工的控制范围内或正在反应时，不能执行此行动。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "nec-can-card-02",
+          "image": "02-特工能力-地相技师-能力卡1.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-GEO-GD",
+      "category": "operative-ability",
+      "title_en": "Geomantic Disturbance",
+      "title_zh": "地相干扰",
+      "current_text_zh": "选择一个地形模型上的点，该点必须位于这名特工 8\" 内且对其可见。为该点 2\" 内的每名特工分别掷 2D6；如果结果高于该特工的剩余耐伤，则对其造成等于两者差值的伤害。\n这名特工拥有隐匿命令或位于敌方特工的控制范围内时，不能执行此行动。",
+      "website_text_en": "Select a point on a terrain feature; that point must be visible to and within 8\" of this operative. Separately roll 2D6 for each operative within 2\" of that point. If the result is higher than that operative’s remaining wounds, inflict damage on it equal to the difference.\n\nThis operative cannot perform this action while it has a Conceal order, or while within control range of an enemy operative.",
+      "website_id": "NEC-CAN-GEO-GD",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "这名特工拥有隐匿命令或位于敌方特工的控制范围内时，不能执行此行动。",
+      "target": "选择一个地形模型上的点，该点必须位于这名特工 8\" 内且对其可见。",
+      "duration": [],
+      "limits": [
+        "这名特工拥有隐匿命令或位于敌方特工的控制范围内时，不能执行此行动。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "nec-can-card-02",
+          "image": "02-特工能力-地相技师-能力卡1.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-GEO-MB",
+      "category": "operative-ability",
+      "title_en": "Molecular Breach",
+      "title_zh": "分子突破",
+      "current_text_zh": "支援。选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。也可以改为选择这名特工可见且位于己方方尖碑节点矩阵内的一名己方冥工之环特工（此种选择不适用“支援”）。\n被选特工下次执行包含移动的行动时，不移动模型，而是将其移出杀戮区，然后重新放置在完全位于原位置水平距离不超过其移动属性的位置；若为冲刺，则该距离为 3\"。在使用近距离战斗规则的杀戮区（例如墓穴世界），可以跨越或穿过墙壁地形测量，并可放置在另一侧。冲锋不会因此获得额外距离。\n必须放在模型能够合法放置的位置；除非执行的是冲锋，否则不能放置在敌方特工的控制范围内。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "website_text_en": "SUPPORT. Select one friendly CANOPTEK CIRCLE operative visible to and within 6\" of this operative. Alternatively, you can select one friendly CANOPTEK CIRCLE operative visible to this operative and within your OBELISK NODE MATRIX (SUPPORT doesn’t apply to this selection).\n\nThe next time the selected operative performs an action in which it moves, don’t move it. Instead, remove it from the killzone and set it back up wholly within a distance equal to its Move stat (or 3\" if it was a Dash) horizontally of its\noriginal location (in a killzone that uses the close quarters rules, e.g. Killzone: Tomb World, this distance can be measured over and through Wall terrain and the operative can be set up on the other side). Note that it gains no additional distance when performing the Charge action.\nIt must be set up in a location it can be placed, and unless it’s the Charge action, it cannot be set up within control range of an enemy operative.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+      "website_id": "NEC-CAN-GEO-MB",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "被选特工下次执行包含移动的行动时，不移动模型，而是将其移出杀戮区，然后重新放置在完全位于原位置水平距离不超过其移动属性的位置；",
+      "target": "选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。",
+      "duration": [],
+      "limits": [
+        "除非执行的是冲锋，否则不能放置在敌方特工的控制范围内。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "nec-can-card-03",
+          "image": "03-特工能力-地相技师-能力卡2.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-GEO-SNC",
+      "category": "operative-ability",
+      "title_en": "Obelisk Node Control",
+      "title_zh": "控制方尖碑节点",
+      "current_text_zh": "每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。\n每当这名特工执行操作舱门行动时，可以改为打开或关闭入口位于任意己方方尖碑节点标识 1\" 内的舱门。仍须满足操作舱门行动的条件。",
+      "website_text_en": "Whenever this operative would perform a mission action (excluding Pick Up Marker or Retrieve, Approved Ops 2025), if it requires this operative to control an objective marker, you can instead determine control from one of your OBELISK NODE markers (see Obelisk Node Matrix faction rule).\r Whenever this operative would perform the Operate Hatch action, you can open or close a hatchway thats access point is within 1\" of one of your OBELISK NODE markers instead.\r Note that you must still fulfil the Operate Hatch action’s conditions.",
+      "website_id": "NEC-CAN-GEO-SNC",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。",
+      "target": "每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。",
+      "duration": [],
+      "limits": [
+        "每当这名特工执行需要控制目标标识的任务行动时（不包括《认证行动 2025》的拾取标识或回收），可以改为判断其控制己方的一枚方尖碑节点标识（见方尖碑节点矩阵）。",
+        "仍须满足操作舱门行动的条件。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "nec-can-card-01",
+          "image": "01-特工-地相技师-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-GEO-ONM",
+      "category": "faction-rule",
+      "title_en": "Obelisk Node Matrix",
+      "title_zh": "方尖碑节点矩阵",
+      "current_text_zh": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。作为第一个转折点之后各转折点的战略计谋，可以将每枚己方方尖碑节点标识水平移动至多 3\"。\n己方方尖碑节点标识可以控制其 1\" 内、没有敌方特工争夺的其他标识（为此将方尖碑节点标识视为己方特工）。如果多名玩家的方尖碑节点标识会控制同一个标识，则没有方尖碑节点标识控制它。\n每当一枚己方方尖碑节点标识在水平方向上位于另一枚己方方尖碑节点标识 6\" 内，这些标识及其间的区域形成方尖碑节点矩阵，并延伸至上方与下方（杀戮区中的高度不影响此效果）。如果三枚标识都满足条件，则形成更大的组合矩阵。\n每当一名己方冥工之环特工位于己方方尖碑节点矩阵内：\n- 其数据卡上的武器拥有“精准 1”（Accurate 1）武器规则。\n- 其 APL 属性增加 1，最多为 3。",
+      "website_text_en": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+      "website_id": "NEC-CAN-GEO-ONM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "target": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "- 其 APL 属性增加 1，最多为 3。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-14",
+          "image": "14-阵营规则-方尖碑节点矩阵-说明.png"
+        },
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-15",
+          "image": "15-阵营规则-方尖碑节点矩阵-效果与示意.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-ACC-CO",
+      "category": "operative-ability",
+      "title_en": "Cranial Overload",
+      "title_zh": "头脑过载",
+      "current_text_zh": "选择这名特工可见且位于其 3\" 内的一名敌方特工。若这名特工位于己方方尖碑节点矩阵内，也可以改为选择矩阵内的一名敌方特工。直到该敌方特工的下一次激活结束，其 APL 属性减少 1。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "website_text_en": "Select one enemy operative visible to and within 3\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one enemy operative within your OBELISK NODE MATRIX.\nUntil the end of that enemy operative’s next activation, subtract 1 from its APL stat.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+      "website_id": "NEC-CAN-ACC-CO",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "直到该敌方特工的下一次激活结束，其 APL 属性减少 1。",
+      "target": "选择这名特工可见且位于其 3\" 内的一名敌方特工。",
+      "duration": [
+        "直到该敌方特工的下一次激活结束，其 APL 属性减少 1。"
+      ],
+      "limits": [
+        "直到该敌方特工的下一次激活结束，其 APL 属性减少 1。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "nec-can-card-05",
+          "image": "05-特工能力-冥工加速巨虫-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-ACC-ONM",
+      "category": "faction-rule",
+      "title_en": "Obelisk Node Matrix",
+      "title_zh": "方尖碑节点矩阵",
+      "current_text_zh": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。作为第一个转折点之后各转折点的战略计谋，可以将每枚己方方尖碑节点标识水平移动至多 3\"。\n己方方尖碑节点标识可以控制其 1\" 内、没有敌方特工争夺的其他标识（为此将方尖碑节点标识视为己方特工）。如果多名玩家的方尖碑节点标识会控制同一个标识，则没有方尖碑节点标识控制它。\n每当一枚己方方尖碑节点标识在水平方向上位于另一枚己方方尖碑节点标识 6\" 内，这些标识及其间的区域形成方尖碑节点矩阵，并延伸至上方与下方（杀戮区中的高度不影响此效果）。如果三枚标识都满足条件，则形成更大的组合矩阵。\n每当一名己方冥工之环特工位于己方方尖碑节点矩阵内：\n- 其数据卡上的武器拥有“精准 1”（Accurate 1）武器规则。\n- 其 APL 属性增加 1，最多为 3。",
+      "website_text_en": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+      "website_id": "NEC-CAN-ACC-ONM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "target": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "- 其 APL 属性增加 1，最多为 3。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-14",
+          "image": "14-阵营规则-方尖碑节点矩阵-说明.png"
+        },
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-15",
+          "image": "15-阵营规则-方尖碑节点矩阵-效果与示意.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-ACC-OC",
+      "category": "operative-ability",
+      "title_en": "Overcharge",
+      "title_zh": "过载",
+      "current_text_zh": "选择这名特工可见且位于其 3\" 内的另一名己方冥工之环冥工特工。若这名特工位于己方方尖碑节点矩阵内，也可以改为选择矩阵内的另一名己方冥工之环冥工特工。直到被选特工的下一次激活结束，其 APL 属性增加 1。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "website_text_en": "Select one other friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 3\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one other friendly CANOPTEK CIRCLE CANOPTEK operative within your OBELISK NODE MATRIX.\nUntil the end of that selected operative’s next activation, add 1 to its APL stat.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+      "website_id": "NEC-CAN-ACC-OC",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "直到被选特工的下一次激活结束，其 APL 属性增加 1。",
+      "target": "选择这名特工可见且位于其 3\" 内的另一名己方冥工之环冥工特工。",
+      "duration": [
+        "直到被选特工的下一次激活结束，其 APL 属性增加 1。"
+      ],
+      "limits": [
+        "直到被选特工的下一次激活结束，其 APL 属性增加 1。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "nec-can-card-05",
+          "image": "05-特工能力-冥工加速巨虫-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-REA-NB",
+      "category": "operative-ability",
+      "title_en": "Nanoscarab Beam",
+      "title_zh": "纳米甲虫光束",
+      "current_text_zh": "选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。若这名特工位于己方方尖碑节点矩阵内，也可以改为选择矩阵内的另一名己方冥工之环特工。被选特工恢复至多 3D3 点已损失的耐伤。不能选择本转折点已对其使用过“重生”规则的特工。\n这名特工位于敌方特工的控制范围内时不能执行此行动；每个转折点最多执行一次。",
+      "website_text_en": "Select one friendly CANOPTEK CIRCLE operative visible to and within 6\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one other friendly CANOPTEK CIRCLE operative within your OBELISK NODE MATRIX.\r The selected operative regains up to 3D3 lost wounds. It cannot be an operative that the Reanimate rule was used on during this turning point.\r \r This operative cannot perform this action while within control range of an enemy operative, or more than once per Turning Point.",
+      "website_id": "NEC-CAN-REA-NB",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+      "target": "选择这名特工可见且位于其 6\" 内的一名己方冥工之环特工。",
+      "duration": [],
+      "limits": [
+        "不能选择本转折点已对其使用过“重生”规则的特工。",
+        "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+        "每个转折点最多执行一次。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "nec-can-card-07",
+          "image": "07-特工能力-冥工重生巨虫-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-REA-ONM",
+      "category": "faction-rule",
+      "title_en": "Obelisk Node Matrix",
+      "title_zh": "方尖碑节点矩阵",
+      "current_text_zh": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。作为第一个转折点之后各转折点的战略计谋，可以将每枚己方方尖碑节点标识水平移动至多 3\"。\n己方方尖碑节点标识可以控制其 1\" 内、没有敌方特工争夺的其他标识（为此将方尖碑节点标识视为己方特工）。如果多名玩家的方尖碑节点标识会控制同一个标识，则没有方尖碑节点标识控制它。\n每当一枚己方方尖碑节点标识在水平方向上位于另一枚己方方尖碑节点标识 6\" 内，这些标识及其间的区域形成方尖碑节点矩阵，并延伸至上方与下方（杀戮区中的高度不影响此效果）。如果三枚标识都满足条件，则形成更大的组合矩阵。\n每当一名己方冥工之环特工位于己方方尖碑节点矩阵内：\n- 其数据卡上的武器拥有“精准 1”（Accurate 1）武器规则。\n- 其 APL 属性增加 1，最多为 3。",
+      "website_text_en": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+      "website_id": "NEC-CAN-REA-ONM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "target": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "- 其 APL 属性增加 1，最多为 3。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-14",
+          "image": "14-阵营规则-方尖碑节点矩阵-说明.png"
+        },
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-15",
+          "image": "15-阵营规则-方尖碑节点矩阵-效果与示意.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-REA-REA",
+      "category": "operative-ability",
+      "title_en": "Reanimate",
+      "title_zh": "重生",
+      "current_text_zh": "每个转折点一次，当另一名己方冥工之环特工将要残废时，如果其对这名特工可见且位于其 6\" 内，或者两者都位于己方方尖碑节点矩阵内，并且两者都不在敌方特工的控制范围内，可以使用本规则。\n该己方特工不会残废，而是剩余 1 点耐伤，并且在该行动余下期间不能残废。行动结束后，该己方特工可以立即执行一次免费冲刺，但必须在这名特工的控制范围内或己方方尖碑节点矩阵内结束行动。两名特工的 APL 属性分别减少 1，直到各自下一次激活结束。如果在获救特工的激活期间使用本规则，其激活结束。\n这名特工残废时不能使用本规则；若为射击行动且这名特工是主要或次要目标，也不能使用本规则。",
+      "website_text_en": "Once per turning point, when another friendly CANOPTEK CIRCLE operative would be incapacitated, if that operative is visible to and within 6\" of this operative, or if this and that operative are within your OBELISK NODE MATRIX,\r you can use this rule, providing neither this nor that operative is within control range of an enemy operative.\r If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder of the action.\r After that action, that friendly operative can immediately perform a free Dash action, but must end that action within this operative’s control range or within your OBELISK NODE MATRIX. Subtract 1 from this and that operative’s APL stats until the end of their next activations respectively, and if this rule was used during that friendly operative’s activation, that activation ends.\r \r You cannot use this rule if this operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.",
+      "website_id": "NEC-CAN-REA-REA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每个转折点一次，当另一名己方冥工之环特工将要残废时，如果其对这名特工可见且位于其 6\" 内，或者两者都位于己方方尖碑节点矩阵内，并且两者都不在敌方特工的控制范围内，可以使用本规则。",
+      "target": "每个转折点一次，当另一名己方冥工之环特工将要残废时，如果其对这名特工可见且位于其 6\" 内，或者两者都位于己方方尖碑节点矩阵内，并且两者都不在敌方特工的控制范围内，可以使用本规则。",
+      "duration": [
+        "该己方特工不会残废，而是剩余 1 点耐伤，并且在该行动余下期间不能残废。",
+        "两名特工的 APL 属性分别减少 1，直到各自下一次激活结束。",
+        "如果在获救特工的激活期间使用本规则，其激活结束。"
+      ],
+      "limits": [
+        "每个转折点一次，当另一名己方冥工之环特工将要残废时，如果其对这名特工可见且位于其 6\" 内，或者两者都位于己方方尖碑节点矩阵内，并且两者都不在敌方特工的控制范围内，可以使用本规则。",
+        "该己方特工不会残废，而是剩余 1 点耐伤，并且在该行动余下期间不能残废。",
+        "行动结束后，该己方特工可以立即执行一次免费冲刺，但必须在这名特工的控制范围内或己方方尖碑节点矩阵内结束行动。",
+        "两名特工的 APL 属性分别减少 1，直到各自下一次激活结束。",
+        "这名特工残废时不能使用本规则；",
+        "若为射击行动且这名特工是主要或次要目标，也不能使用本规则。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "nec-can-card-07",
+          "image": "07-特工能力-冥工重生巨虫-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-WAR-ACS",
+      "category": "operative-ability",
+      "title_en": "A Ceaseless Scuttling",
+      "title_zh": "无尽巨虫",
+      "current_text_zh": "作为第一个转折点之后各转折点的战略计谋，如果未残废的己方冥工之环战士特工少于三名，可以在完全位于己方降落区的位置部署另一名处于备战状态、拥有隐匿命令的战士特工（照常选择其武器选项）。",
+      "website_text_en": "As a STRATEGIC GAMBIT in each turning point after the first, if you have less than three non- incapacitated friendly CANOPTEK CIRCLE WARRIOR operatives, you can set up another one ready and with a Conceal order wholly within your drop zone (you can select its weapon options as normal).",
+      "website_id": "NEC-CAN-WAR-ACS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "作为第一个转折点之后各转折点的战略计谋，如果未残废的己方冥工之环战士特工少于三名，可以在完全位于己方降落区的位置部署另一名处于备战状态、拥有隐匿命令的战士特工（照常选择其武器选项）。",
+      "target": "作为第一个转折点之后各转折点的战略计谋，如果未残废的己方冥工之环战士特工少于三名，可以在完全位于己方降落区的位置部署另一名处于备战状态、拥有隐匿命令的战士特工（照常选择其武器选项）。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "nec-can-card-09",
+          "image": "09-特工能力-冥工巨虫战士-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-WAR-AD",
+      "category": "operative-ability",
+      "title_en": "Aggressive Defence",
+      "title_zh": "进攻性防卫",
+      "current_text_zh": "如果这名特工被其 2\" 内的一名敌方特工击至残废，在将其移出杀戮区之前掷一枚 D3：结果为 2+ 时，对该敌方特工造成 1 点伤害。",
+      "website_text_en": "If this operative is incapacitated by an enemy operative within 2\" of it, before this operative is removed from the killzone, roll one D3: on a 2+, inflict 1 damage on that enemy operative.",
+      "website_id": "NEC-CAN-WAR-AD",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "如果这名特工被其 2\" 内的一名敌方特工击至残废，在将其移出杀戮区之前掷一枚 D3：结果为 2+ 时，对该敌方特工造成 1 点伤害。",
+      "target": "如果这名特工被其 2\" 内的一名敌方特工击至残废，在将其移出杀戮区之前掷一枚 D3：结果为 2+ 时，对该敌方特工造成 1 点伤害。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "nec-can-card-09",
+          "image": "09-特工能力-冥工巨虫战士-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-WAR-EC",
+      "category": "operative-ability",
+      "title_en": "Expendable Construct",
+      "title_zh": "消耗品构体",
+      "current_text_zh": "在对手的杀戮／消灭任务中忽略这名特工，包括其残废时以及确定己方起始特工数量时。在要求特工“逃脱”“存活”或被敌方特工击至残废的胜利条件和 VP 获取条件中，也忽略这名特工，包括已逃脱／存活／残废、确认哪些特工必须逃脱／存活／残废等情况。",
+      "website_text_en": "This operative is ignored for your opponent’s kill/elimination op (when it’s incapacitated, and when determining your starting number of operatives).\nIt’s also ignored for victory conditions and scoring VPs if either require operatives to ‘escape’, ‘survive’ or be incapacitated by enemy operatives (if it escapes/survives/is incapacitated, determining how many operatives must escape/survive/be incapacitated, etc.).",
+      "website_id": "NEC-CAN-WAR-EC",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在对手的杀戮／消灭任务中忽略这名特工，包括其残废时以及确定己方起始特工数量时。",
+      "target": "在对手的杀戮／消灭任务中忽略这名特工，包括其残废时以及确定己方起始特工数量时。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "nec-can-card-09",
+          "image": "09-特工能力-冥工巨虫战士-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-WAR-ONM",
+      "category": "faction-rule",
+      "title_en": "Obelisk Node Matrix",
+      "title_zh": "方尖碑节点矩阵",
+      "current_text_zh": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。作为第一个转折点之后各转折点的战略计谋，可以将每枚己方方尖碑节点标识水平移动至多 3\"。\n己方方尖碑节点标识可以控制其 1\" 内、没有敌方特工争夺的其他标识（为此将方尖碑节点标识视为己方特工）。如果多名玩家的方尖碑节点标识会控制同一个标识，则没有方尖碑节点标识控制它。\n每当一枚己方方尖碑节点标识在水平方向上位于另一枚己方方尖碑节点标识 6\" 内，这些标识及其间的区域形成方尖碑节点矩阵，并延伸至上方与下方（杀戮区中的高度不影响此效果）。如果三枚标识都满足条件，则形成更大的组合矩阵。\n每当一名己方冥工之环特工位于己方方尖碑节点矩阵内：\n- 其数据卡上的武器拥有“精准 1”（Accurate 1）武器规则。\n- 其 APL 属性增加 1，最多为 3。",
+      "website_text_en": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+      "website_id": "NEC-CAN-WAR-ONM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "target": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "- 其 APL 属性增加 1，最多为 3。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-14",
+          "image": "14-阵营规则-方尖碑节点矩阵-说明.png"
+        },
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-15",
+          "image": "15-阵营规则-方尖碑节点矩阵-效果与示意.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-TC-DB",
+      "category": "operative-ability",
+      "title_en": "*Dimensional Banishment",
+      "title_zh": "维度放逐",
+      "current_text_zh": "这名特工使用此武器后，如果造成了伤害或保留了任何关键成功，且目标没有残废，掷 2D6：若结果高于目标剩余耐伤，则目标残废。本规则优先于阻止特工残废的规则，例如“医疗兵！”或恶角兽掠夺者的“狂暴”；若适用，对手不能为该特工放置重生标识（神圣技师之环）。目标为 NEMESIS 特工或红色恐魔非玩家特工时，本规则无效。",
+      "website_text_en": "After this operative uses this weapon, if you inflicted damage or retained any critical successes, if the target wasn’t incapacitated, roll 2D6: if the result is higher than the target’s remaining wounds, the target is incapacitated (taking precedence over rules that prevent incapacitation, e.g. Medic!, FELLGOR RAVAGER Frenzy) and your opponent cannot place a Reanimation marker (HIEROTEK CIRCLE ) for that operative, if relevant. This rule has no effect if the target is a NEMESIS operative or Red Terror NPO.",
+      "website_id": "NEC-CAN-TC-DB",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "目标为 NEMESIS 特工或红色恐魔非玩家特工时，本规则无效。",
+      "target": "这名特工使用此武器后，如果造成了伤害或保留了任何关键成功，且目标没有残废，掷 2D6：若结果高于目标剩余耐伤，则目标残废。",
+      "duration": [],
+      "limits": [
+        "本规则优先于阻止特工残废的规则，例如“医疗兵！”或恶角兽掠夺者的“狂暴”；",
+        "若适用，对手不能为该特工放置重生标识（神圣技师之环）。",
+        "目标为 NEMESIS 特工或红色恐魔非玩家特工时，本规则无效。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "nec-can-card-10",
+          "image": "10-特工-墓穴爬行者-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-TC-ONM",
+      "category": "faction-rule",
+      "title_en": "Obelisk Node Matrix",
+      "title_zh": "方尖碑节点矩阵",
+      "current_text_zh": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。作为第一个转折点之后各转折点的战略计谋，可以将每枚己方方尖碑节点标识水平移动至多 3\"。\n己方方尖碑节点标识可以控制其 1\" 内、没有敌方特工争夺的其他标识（为此将方尖碑节点标识视为己方特工）。如果多名玩家的方尖碑节点标识会控制同一个标识，则没有方尖碑节点标识控制它。\n每当一枚己方方尖碑节点标识在水平方向上位于另一枚己方方尖碑节点标识 6\" 内，这些标识及其间的区域形成方尖碑节点矩阵，并延伸至上方与下方（杀戮区中的高度不影响此效果）。如果三枚标识都满足条件，则形成更大的组合矩阵。\n每当一名己方冥工之环特工位于己方方尖碑节点矩阵内：\n- 其数据卡上的武器拥有“精准 1”（Accurate 1）武器规则。\n- 其 APL 属性增加 1，最多为 3。",
+      "website_text_en": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+      "website_id": "NEC-CAN-TC-ONM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "target": "作为第一个转折点的战略计谋，将己方三枚方尖碑节点标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "- 其 APL 属性增加 1，最多为 3。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-14",
+          "image": "14-阵营规则-方尖碑节点矩阵-说明.png"
+        },
+        {
+          "source_page": 4,
+          "card_id": "nec-can-card-15",
+          "image": "15-阵营规则-方尖碑节点矩阵-效果与示意.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-TC-SF",
+      "category": "operative-ability",
+      "title_en": "Steadfast",
+      "title_zh": "毫不动摇",
+      "current_text_zh": "判断对一枚标识的控制时，可以将这名特工的 APL 属性视为 3。若如此，则优先于所有其他规则，忽略为此对其 APL 属性作出的任何修改。",
+      "website_text_en": "Whenever determining control of a marker, you can treat this operative’s APL stat as 3. If you do, this takes precedence over all other rules, meaning any changes to its APL stat are ignored for this.",
+      "website_id": "NEC-CAN-TC-SF",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "判断对一枚标识的控制时，可以将这名特工的 APL 属性视为 3。",
+      "target": "判断对一枚标识的控制时，可以将这名特工的 APL 属性视为 3。",
+      "duration": [],
+      "limits": [
+        "若如此，则优先于所有其他规则，忽略为此对其 APL 属性作出的任何修改。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "nec-can-card-11",
+          "image": "11-特工能力-墓穴爬行者-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-TC-WS",
+      "category": "operative-ability",
+      "title_en": "Weapon Sentinel",
+      "title_zh": "武器哨卫",
+      "current_text_zh": "对手选择有效目标时，如果这名特工拥有隐匿命令，其不能使用轻型地形获得掩护。这会使其能够被选为目标（假定可见），但不会移除其掩护豁免（若有）。",
+      "website_text_en": "Whenever your opponent is selecting a valid target, if this operative has a Conceal order, it cannot use Light terrain for cover. While this can allow this operative to be targeted (assuming it’s visible), it doesn’t remove its cover save (if any)",
+      "website_id": "NEC-CAN-TC-WS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "对手选择有效目标时，如果这名特工拥有隐匿命令，其不能使用轻型地形获得掩护。",
+      "target": "对手选择有效目标时，如果这名特工拥有隐匿命令，其不能使用轻型地形获得掩护。",
+      "duration": [],
+      "limits": [
+        "对手选择有效目标时，如果这名特工拥有隐匿命令，其不能使用轻型地形获得掩护。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "nec-can-card-11",
+          "image": "11-特工能力-墓穴爬行者-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-S-HS",
+      "category": "strategic-ploy",
+      "title_en": "Hypershielding",
+      "title_zh": "超维护盾",
+      "current_text_zh": "每当一名特工向己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或被射击的己方特工位于矩阵内，可以重掷任意数量、结果为同一个数值的己方防御骰（例如所有结果为 2 的骰子）。",
+      "website_text_en": "Whenever an operative is shooting a friendly CANOPTEK CIRCLE operative, if your OBELISK NODE MATRIX is intervening, or that friendly operative is within your OBELISK NODE MATRIX, you can re-roll any of your defence dice results of one result (e.g. results of 2).",
+      "website_id": "NEC-CAN-S-HS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每当一名特工向己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或被射击的己方特工位于矩阵内，可以重掷任意数量、结果为同一个数值的己方防御骰（例如所有结果为 2 的骰子）。",
+      "duration": [
+        "本转折点，除非规则另有持续时间。"
+      ],
+      "limits": [],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "nec-can-card-17",
+          "image": "17-战略计谋-超维护盾.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-S-TDA",
+      "category": "strategic-ploy",
+      "title_en": "Transdynamic Amplification",
+      "title_zh": "动力转换增幅",
+      "current_text_zh": "每当一名己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或目标位于矩阵内，该己方特工的武器拥有“无休”（Ceaseless）武器规则。",
+      "website_text_en": "Whenever a friendly CANOPTEK CIRCLE operative is shooting, if your OBELISK NODE MATRIX is intervening, or the target is within your OBELISK NODE MATRIX, that friendly operative’s weapons have the Ceaseless weapon rule.",
+      "website_id": "NEC-CAN-S-TDA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每当一名己方冥工之环特工射击，如果己方方尖碑节点矩阵造成阻碍，或目标位于矩阵内，该己方特工的武器拥有“无休”（Ceaseless）武器规则。",
+      "duration": [
+        "本转折点，除非规则另有持续时间。"
+      ],
+      "limits": [],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "nec-can-card-18",
+          "image": "18-战略计谋-动力转换增幅.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-S-CGR",
+      "category": "strategic-ploy",
+      "title_en": "Cryptogravitic Repulsion",
+      "title_zh": "冥工重力推斥",
+      "current_text_zh": "每次行动一次，敌方特工首次将要移动进入己方方尖碑节点矩阵时，将该段距离视为额外增加 1\"。因此，若其剩余移动距离不足（例如已到移动结束位置），便不能移动进入矩阵。",
+      "website_text_en": "Once per action, the first time an enemy operative would move within your OBELISK NODE MATRIX, the distance is treated as an additional 1\". Note this means if that enemy operative doesn’t have sufficient move distance (e.g. it’s at the end of its move), that operative cannot move within your OBELISK NODE MATRIX.",
+      "website_id": "NEC-CAN-S-CGR",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每次行动一次，敌方特工首次将要移动进入己方方尖碑节点矩阵时，将该段距离视为额外增加 1\"。",
+      "duration": [
+        "本转折点，除非规则另有持续时间。"
+      ],
+      "limits": [
+        "每次行动一次，敌方特工首次将要移动进入己方方尖碑节点矩阵时，将该段距离视为额外增加 1\"。",
+        "因此，若其剩余移动距离不足（例如已到移动结束位置），便不能移动进入矩阵。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "nec-can-card-19",
+          "image": "19-战略计谋-冥工重力推斥.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-S-SD",
+      "category": "strategic-ploy",
+      "title_en": "Souldrain",
+      "title_zh": "吸魂",
+      "current_text_zh": "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。\n因此，敌方特工即使只是穿过矩阵，也须在该次移动行动结束时应用此修改，并持续至该次激活／反应结束。",
+      "website_text_en": "Whenever an enemy operative is within your OBELISK NODE MATRIX, or whenever it’s fighting or retaliating against a friendly CANOPTEK CIRCLE operative that’s within your OBELISK NODE MATRIX, subtract 1 from both Dmg stats of that enemy operative’s melee weapons (to a minimum of 2) until the end of the activation/counteraction. Note this means if the enemy operative moves through your OBELISK NODE MATRIX, apply this change at the end of that move action until the end of the activation/counteraction.",
+      "website_id": "NEC-CAN-S-SD",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。",
+      "duration": [
+        "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。",
+        "因此，敌方特工即使只是穿过矩阵，也须在该次移动行动结束时应用此修改，并持续至该次激活／反应结束。"
+      ],
+      "limits": [
+        "每当一名敌方特工位于己方方尖碑节点矩阵内，或其与位于矩阵内的一名己方冥工之环特工近战或反击时，该敌方特工近战武器的普通与暴击伤害属性均减少 1（最低为 2），直到该次激活／反应结束。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "nec-can-card-20",
+          "image": "20-战略计谋-吸魂.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-T-SF",
+      "category": "firefight-ploy",
+      "title_en": "Shield Flare",
+      "title_zh": "护盾闪耀",
+      "current_text_zh": "一枚攻击骰将对己方冥工之环特工造成普通伤害时使用。如果己方方尖碑节点矩阵造成阻碍，或该己方特工位于矩阵内，则忽略该次伤害。是否造成阻碍由对手判断，即由其决定从其特工底盘的何处绘制瞄准线。",
+      "website_text_en": "Use this firefight ploy when an attack dice inflicts Normal Dmg on a friendly CANOPTEK CIRCLE operative. If your OBELISK NODE MATRIX is intervening, or that friendly operative is within your OBELISK NODE MATRIX, ignore that inflicted damage. Note your opponent determines intervening (i.e. where on their operative’s base to draw the targeting lines from).",
+      "website_id": "NEC-CAN-T-SF",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "一枚攻击骰将对己方冥工之环特工造成普通伤害时使用。",
+      "target": "一枚攻击骰将对己方冥工之环特工造成普通伤害时使用。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "nec-can-card-21",
+          "image": "21-交战计谋-护盾闪耀.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-T-AON",
+      "category": "firefight-ploy",
+      "title_en": "Animate Obelisk Nodes",
+      "title_zh": "灵动方尖碑节点",
+      "current_text_zh": "轮到激活或反应一名己方特工时，可以改为使用此交战计谋。移动任意数量的己方方尖碑节点标识，水平移动距离合计最多为 6\"；每枚标识的移动距离分别向上取整至最接近的整英寸（例如移动 1.5\" 视为移动 2\"）。可以将一枚标识移动 6\"，或者三枚各移动 1\"，或任何总计不超过 6\" 的组合。也可以移动 0\"，相当于跳过这次激活。无论如何，随后对手正常激活。",
+      "website_text_en": "Use this firefight ploy when it’s your turn to activate or counteract. Move any number of your OBELISK NODE markers instead. They can move up to 6\" horizontally combined, and distances are always rounded up to the nearest inch (so if you move a marker 1.5\", it’s treated as moving it 2\"). For example, you could move one marker 6\", three markers 1\" each, or any combination that doesn’t exceed 6\" in total. You can also move them 0\" (to effectively skip an activation). In any case, your opponent activates as normal afterwards.",
+      "website_id": "NEC-CAN-T-AON",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "轮到激活或反应一名己方特工时，可以改为使用此交战计谋。",
+      "target": "轮到激活或反应一名己方特工时，可以改为使用此交战计谋。",
+      "duration": [],
+      "limits": [
+        "移动任意数量的己方方尖碑节点标识，水平移动距离合计最多为 6\"；"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "nec-can-card-22",
+          "image": "22-交战计谋-灵动方尖碑节点.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-T-NR",
+      "category": "firefight-ploy",
+      "title_en": "Nodal Response",
+      "title_zh": "节点响应",
+      "current_text_zh": "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。可以更换本转折点已使用的一项战略计谋（仅当新计谋更昂贵时支付额外 CP），或者现在使用一项战略计谋并正常支付其 CP 消耗。",
+      "website_text_en": "Use this firefight ploy during a friendly CANOPTEK CIRCLE operative’s activation, before or after it performs an action. You can either change one of the strategy ploys you used during this turning point (only pay additional CP if that ploy costs more), or use a strategy ploy now (pay its CP cost as normal).",
+      "website_id": "NEC-CAN-T-NR",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。",
+      "target": "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。",
+      "duration": [
+        "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。"
+      ],
+      "limits": [
+        "在一名己方冥工之环特工的激活期间，于其执行一次行动之前或之后使用。",
+        "可以更换本转折点已使用的一项战略计谋（仅当新计谋更昂贵时支付额外 CP），或者现在使用一项战略计谋并正常支付其 CP 消耗。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "nec-can-card-23",
+          "image": "23-交战计谋-节点响应.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-T-ST",
+      "category": "firefight-ploy",
+      "title_en": "Sacrificial Thrall",
+      "title_zh": "可消耗奴仆",
+      "current_text_zh": "己方冥工之环地相技师被选为射击行动的有效目标或近战行动的近战对象时使用。选择对其可见且位于其 3\" 内的另一名己方冥工之环冥工特工，改由该特工成为有效目标或近战对象，即使通常不能如此选择。\n若为近战行动，在该行动期间将替代特工视为位于执行近战的特工的控制范围内。若为射击行动，只有原目标拥有掩护或被遮挡时，替代特工才相应拥有掩护或被遮挡。\n若为射击行动且远程武器拥有“爆炸”或“洪流”规则，此计谋无效。",
+      "website_text_en": "Use this firefight ploy when a friendly CANOPTEK CIRCLE GEOMANCER operative is selected as the valid target of a Shoot action or to fight against during the Fight action.\nSelect one other friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 3\" of that first friendly operative to become the valid target or to be fought against (as appropriate) instead (even if it wouldn’t normally be valid for this).\nIf it’s the Fight action, treat that other operative as being within the fighting operative’s control range for the duration of that action. If it’s the Shoot action, that other operative is only in cover or obscured if the original target was.\n\nThis ploy has no effect if it’s the Shoot action and the ranged weapon has the Blast or Torrent weapon rule.",
+      "website_id": "NEC-CAN-T-ST",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "己方冥工之环地相技师被选为射击行动的有效目标或近战行动的近战对象时使用。",
+      "target": "选择对其可见且位于其 3\" 内的另一名己方冥工之环冥工特工，改由该特工成为有效目标或近战对象，即使通常不能如此选择。",
+      "duration": [
+        "若为近战行动，在该行动期间将替代特工视为位于执行近战的特工的控制范围内。"
+      ],
+      "limits": [
+        "选择对其可见且位于其 3\" 内的另一名己方冥工之环冥工特工，改由该特工成为有效目标或近战对象，即使通常不能如此选择。",
+        "若为射击行动且远程武器拥有“爆炸”或“洪流”规则，此计谋无效。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "nec-can-card-24",
+          "image": "24-交战计谋-可消耗奴仆.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-MM",
+      "category": "faction-equipment",
+      "title_en": "Matrix Manipulator",
+      "title_zh": "矩阵操纵器",
+      "current_text_zh": "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。直到该次激活／反应结束，将己方冥工之环地相技师视为第四枚己方方尖碑节点标识。",
+      "website_text_en": "Once per battle, during a friendly CANOPTEK CIRCLE operative’s activation or counteraction, you can use this rule. If you do, until the end of that activation/counteraction, a friendly CANOPTEK CIRCLE GEOMANCER operative is treated as your fourth OBELISK NODE marker.",
+      "website_id": "NEC-CAN-MM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。",
+      "target": "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。",
+      "duration": [
+        "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。",
+        "直到该次激活／反应结束，将己方冥工之环地相技师视为第四枚己方方尖碑节点标识。"
+      ],
+      "limits": [
+        "每场战斗一次，在一名己方冥工之环特工激活或反应期间可以使用。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "nec-can-card-25",
+          "image": "25-阵营装备-矩阵操纵器.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-AON",
+      "category": "faction-equipment",
+      "title_en": "Awakened Obelisk Nodes",
+      "title_zh": "觉醒的方尖碑节点",
+      "current_text_zh": "展示此装备选项后掷一枚 D3。在本场战斗中，可以使用等于结果次数的 0CP“灵动方尖碑节点”交战计谋。",
+      "website_text_en": "After revealing this equipment option, roll one D3. You can use the Animate Obelisk Nodes firefight ploy for 0CP a number of times during the battle equal to the result.",
+      "website_id": "NEC-CAN-AON",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "nec-can-card-26",
+          "image": "26-阵营装备-觉醒的方尖碑节点.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-SDC",
+      "category": "faction-equipment",
+      "title_en": "Nanoscarab Caskets",
+      "title_zh": "纳米甲虫匣",
+      "current_text_zh": "每当一名己方冥工之环特工激活，其恢复至多 D3 点已损失的耐伤。",
+      "website_text_en": "Whenever a friendly CANOPTEK CIRCLE operative is activated, it regains up to D3 lost wounds.",
+      "website_id": "NEC-CAN-SDC",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每当一名己方冥工之环特工激活，其恢复至多 D3 点已损失的耐伤。",
+      "target": "每当一名己方冥工之环特工激活，其恢复至多 D3 点已损失的耐伤。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "nec-can-card-27",
+          "image": "27-阵营装备-纳米甲虫匣.png"
+        }
+      ]
+    },
+    {
+      "id": "NEC-CAN-PS",
+      "category": "faction-equipment",
+      "title_en": "Phase Shifter",
+      "title_zh": "移相器",
+      "current_text_zh": "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。因此，“穿刺 1”会被忽略。",
+      "website_text_en": "Once per turning point, when an operative is shooting a friendly CANOPTEK CIRCLE GEOMANCER operative, at the start of the Roll Defence Dice step, you can use this rule.\nIf you do, worsen the x of the Piercing weapon rule by 1 (if any) until the end of that sequence. Note that Piercing 1 would therefore be ignored.",
+      "website_id": "NEC-CAN-PS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。",
+      "target": "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。",
+      "duration": [
+        "直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。"
+      ],
+      "limits": [
+        "每个转折点一次，一名特工向己方冥工之环地相技师射击时，在掷防御骰步骤开始时可以使用。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "nec-can-card-28",
+          "image": "28-阵营装备-移相器.png"
+        }
+      ]
+    }
+  ],
+  "operatives": [
+    {
+      "opTypeId": "NEC-CAN-GEO",
+      "killteamId": "NEC-CAN",
+      "seq": 1,
+      "opTypeName": "Geomancer",
+      "MOVE": "6\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 14,
+      "keywords": "CANOPTEK CIRCLE, NECRON, CRYPTEK, MACROCYTE, REANIMATOR",
+      "basesize": 50,
+      "nameType": "NECRON",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "NEC-CAN-GEO-TGR",
+          "opTypeId": "NEC-CAN-GEO",
+          "seq": 1,
+          "wepName": "Tremorglaive",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-GEO-TGR-01",
+              "wepId": "NEC-CAN-GEO-TGR",
+              "seq": 1,
+              "profileName": "Part Matter",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "Prc1, PrcCrit2",
+              "name_zh": "切割物质",
+              "rules_zh": "穿刺1, 关键穿刺2（Prc1, PrcCrit2）"
+            },
+            {
+              "wepprofileId": "NEC-CAN-GEO-TGR-02",
+              "wepId": "NEC-CAN-GEO-TGR",
+              "seq": 2,
+              "profileName": "Quake",
+              "ATK": "5",
+              "HIT": "3+",
+              "DMG": "1/2",
+              "WR": "Blast 2\", Seek Light, Stun",
+              "name_zh": "撼动",
+              "rules_zh": "爆炸 2\", 追踪轻型, 晕眩（Blast 2\", Seek Light, Stun）"
+            }
+          ],
+          "name_zh": "震颤长刃"
+        },
+        {
+          "wepId": "NEC-CAN-GEO-TGM",
+          "opTypeId": "NEC-CAN-GEO",
+          "seq": 1,
+          "wepName": "Tremorglaive",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-GEO-TGM-01",
+              "wepId": "NEC-CAN-GEO-TGM",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "4/5",
+              "WR": "Sev, Shock, Stun",
+              "name_zh": "单一档案",
+              "rules_zh": "严重, 震荡, 晕眩（Sev, Shock, Stun）"
+            }
+          ],
+          "name_zh": "震颤长刃"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "NEC-CAN-GEO-CC",
+          "opTypeId": "NEC-CAN-GEO",
+          "abilityName": "Canoptek Control",
+          "AP": 1,
+          "description": "SUPPORT. Select one friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 6\" of this operative. Alternatively, you can select one friendly CANOPTEK CIRCLE CANOPTEK operative that’s visible to this operative and within your OBELISK NODE MATRIX (SUPPORT doesn’t apply to this selection).\r That selected operative can immediately perform a 1AP action for free; during that action, it cannot move more than 2\", or must be set up wholly within 2\" if it’s removed and set up again.\r \r This operative cannot perform this action while within control range of an enemy operative, or while counteracting.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-GEO-GD",
+          "opTypeId": "NEC-CAN-GEO",
+          "abilityName": "Geomantic Disturbance",
+          "AP": 1,
+          "description": "Select a point on a terrain feature; that point must be visible to and within 8\" of this operative. Separately roll 2D6 for each operative within 2\" of that point. If the result is higher than that operative’s remaining wounds, inflict damage on it equal to the difference.\n\nThis operative cannot perform this action while it has a Conceal order, or while within control range of an enemy operative.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-GEO-MB",
+          "opTypeId": "NEC-CAN-GEO",
+          "abilityName": "Molecular Breach",
+          "AP": 1,
+          "description": "SUPPORT. Select one friendly CANOPTEK CIRCLE operative visible to and within 6\" of this operative. Alternatively, you can select one friendly CANOPTEK CIRCLE operative visible to this operative and within your OBELISK NODE MATRIX (SUPPORT doesn’t apply to this selection).\n\nThe next time the selected operative performs an action in which it moves, don’t move it. Instead, remove it from the killzone and set it back up wholly within a distance equal to its Move stat (or 3\" if it was a Dash) horizontally of its\noriginal location (in a killzone that uses the close quarters rules, e.g. Killzone: Tomb World, this distance can be measured over and through Wall terrain and the operative can be set up on the other side). Note that it gains no additional distance when performing the Charge action.\nIt must be set up in a location it can be placed, and unless it’s the Charge action, it cannot be set up within control range of an enemy operative.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-GEO-SNC",
+          "opTypeId": "NEC-CAN-GEO",
+          "abilityName": "Obelisk Node Control",
+          "AP": null,
+          "description": "Whenever this operative would perform a mission action (excluding Pick Up Marker or Retrieve, Approved Ops 2025), if it requires this operative to control an objective marker, you can instead determine control from one of your OBELISK NODE markers (see Obelisk Node Matrix faction rule).\r Whenever this operative would perform the Operate Hatch action, you can open or close a hatchway thats access point is within 1\" of one of your OBELISK NODE markers instead.\r Note that you must still fulfil the Operate Hatch action’s conditions.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-GEO-ONM",
+          "opTypeId": "NEC-CAN-GEO",
+          "abilityName": "Obelisk Node Matrix",
+          "AP": null,
+          "description": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+          "isFactionRule": true
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 14,
+      "opName": "Geomancer",
+      "opType": null,
+      "opId": null,
+      "name_zh": "地相技师",
+      "role_zh": "领袖、节点控制与支援"
+    },
+    {
+      "opTypeId": "NEC-CAN-ACC",
+      "killteamId": "NEC-CAN",
+      "seq": 2,
+      "opTypeName": "Canoptek Macrocyte Accelerator",
+      "MOVE": "7\"",
+      "APL": 2,
+      "SAVE": "4+",
+      "WOUNDS": 7,
+      "keywords": "CANOPTEK CIRCLE, NECRON, CANOPTEK, MACROCYTE, ACCELERATOR",
+      "basesize": 28,
+      "nameType": "NECRON",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "NEC-CAN-ACC-SP",
+          "opTypeId": "NEC-CAN-ACC",
+          "seq": 1,
+          "wepName": "Spark",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-ACC-SP-01",
+              "wepId": "NEC-CAN-ACC-SP",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "2/3",
+              "WR": "Rng 4\", Prc1",
+              "name_zh": "单一档案",
+              "rules_zh": "范围 4\", 穿刺1（Rng 4\", Prc1）"
+            }
+          ],
+          "name_zh": "火花"
+        },
+        {
+          "wepId": "NEC-CAN-ACC-CAS",
+          "opTypeId": "NEC-CAN-ACC",
+          "seq": 2,
+          "wepName": "Claws & Spark",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-ACC-CAS-01",
+              "wepId": "NEC-CAN-ACC-CAS",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "3",
+              "HIT": "4+",
+              "DMG": "3/4",
+              "WR": "Lethal 5+, Stun",
+              "name_zh": "单一档案",
+              "rules_zh": "致命 5+, 晕眩（Lethal 5+, Stun）"
+            }
+          ],
+          "name_zh": "利爪和火花"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "NEC-CAN-ACC-CO",
+          "opTypeId": "NEC-CAN-ACC",
+          "abilityName": "Cranial Overload",
+          "AP": 1,
+          "description": "Select one enemy operative visible to and within 3\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one enemy operative within your OBELISK NODE MATRIX.\nUntil the end of that enemy operative’s next activation, subtract 1 from its APL stat.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-ACC-ONM",
+          "opTypeId": "NEC-CAN-ACC",
+          "abilityName": "Obelisk Node Matrix",
+          "AP": null,
+          "description": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "NEC-CAN-ACC-OC",
+          "opTypeId": "NEC-CAN-ACC",
+          "abilityName": "Overcharge",
+          "AP": 1,
+          "description": "Select one other friendly CANOPTEK CIRCLE CANOPTEK operative visible to and within 3\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one other friendly CANOPTEK CIRCLE CANOPTEK operative within your OBELISK NODE MATRIX.\nUntil the end of that selected operative’s next activation, add 1 to its APL stat.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 7,
+      "opName": "Canoptek Macrocyte Accelerator",
+      "opType": null,
+      "opId": null,
+      "name_zh": "冥工加速巨虫",
+      "role_zh": "行动点支援与压制"
+    },
+    {
+      "opTypeId": "NEC-CAN-REA",
+      "killteamId": "NEC-CAN",
+      "seq": 3,
+      "opTypeName": "Canoptek Macrocyte Reanimator",
+      "MOVE": "7\"",
+      "APL": 2,
+      "SAVE": "4+",
+      "WOUNDS": 7,
+      "keywords": "CANOPTEK CIRCLE, NECRON, CANOPTEK, MACROCYTE, REANIMATOR",
+      "basesize": 28,
+      "nameType": "NECRON",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "NEC-CAN-REA-AB",
+          "opTypeId": "NEC-CAN-REA",
+          "seq": 1,
+          "wepName": "Atomiser Beam",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-REA-AB-01",
+              "wepId": "NEC-CAN-REA-AB",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "3/4",
+              "WR": "Rng 6\", Lethal 5+",
+              "name_zh": "单一档案",
+              "rules_zh": "范围 6\", 致命 5+（Rng 6\", Lethal 5+）"
+            }
+          ],
+          "name_zh": "原子化光束"
+        },
+        {
+          "wepId": "NEC-CAN-REA-CAT",
+          "opTypeId": "NEC-CAN-REA",
+          "seq": 2,
+          "wepName": "Claws & Tail",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-REA-CAT-01",
+              "wepId": "NEC-CAN-REA-CAT",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "3/4",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "利爪和尖尾"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "NEC-CAN-REA-NB",
+          "opTypeId": "NEC-CAN-REA",
+          "abilityName": "Nanoscarab Beam",
+          "AP": 1,
+          "description": "Select one friendly CANOPTEK CIRCLE operative visible to and within 6\" of this operative. Alternatively, if this operative is within your OBELISK NODE MATRIX, you can select one other friendly CANOPTEK CIRCLE operative within your OBELISK NODE MATRIX.\r The selected operative regains up to 3D3 lost wounds. It cannot be an operative that the Reanimate rule was used on during this turning point.\r \r This operative cannot perform this action while within control range of an enemy operative, or more than once per Turning Point.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-REA-ONM",
+          "opTypeId": "NEC-CAN-REA",
+          "abilityName": "Obelisk Node Matrix",
+          "AP": null,
+          "description": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "NEC-CAN-REA-REA",
+          "opTypeId": "NEC-CAN-REA",
+          "abilityName": "Reanimate",
+          "AP": null,
+          "description": "Once per turning point, when another friendly CANOPTEK CIRCLE operative would be incapacitated, if that operative is visible to and within 6\" of this operative, or if this and that operative are within your OBELISK NODE MATRIX,\r you can use this rule, providing neither this nor that operative is within control range of an enemy operative.\r If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder of the action.\r After that action, that friendly operative can immediately perform a free Dash action, but must end that action within this operative’s control range or within your OBELISK NODE MATRIX. Subtract 1 from this and that operative’s APL stats until the end of their next activations respectively, and if this rule was used during that friendly operative’s activation, that activation ends.\r \r You cannot use this rule if this operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 7,
+      "opName": "Canoptek Macrocyte Reanimator",
+      "opType": null,
+      "opId": null,
+      "name_zh": "冥工重生巨虫",
+      "role_zh": "修复与重生"
+    },
+    {
+      "opTypeId": "NEC-CAN-WAR",
+      "killteamId": "NEC-CAN",
+      "seq": 4,
+      "opTypeName": "Canoptek Macrocyte Warrior",
+      "MOVE": "7\"",
+      "APL": 2,
+      "SAVE": "4+",
+      "WOUNDS": 7,
+      "keywords": "CANOPTEK CIRCLE, NECRON, CANOPTEK, MACROCYTE, WARRIOR",
+      "basesize": 28,
+      "nameType": "NECRON",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "NEC-CAN-WAR-GS",
+          "opTypeId": "NEC-CAN-WAR",
+          "seq": 1,
+          "wepName": "Gauss Scalpel",
+          "wepType": "R",
+          "isDefault": false,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-WAR-GS-01",
+              "wepId": "NEC-CAN-WAR-GS",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "2/3",
+              "WR": "Prc1",
+              "name_zh": "单一档案",
+              "rules_zh": "穿刺1（Prc1）"
+            }
+          ],
+          "name_zh": "高斯剖切机"
+        },
+        {
+          "wepId": "NEC-CAN-WAR-TC",
+          "opTypeId": "NEC-CAN-WAR",
+          "seq": 2,
+          "wepName": "Tesla Caster",
+          "wepType": "R",
+          "isDefault": false,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-WAR-TC-01",
+              "wepId": "NEC-CAN-WAR-TC",
+              "seq": 1,
+              "profileName": "Focused",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "2/3",
+              "WR": "",
+              "name_zh": "集中",
+              "rules_zh": "无（—）"
+            },
+            {
+              "wepprofileId": "NEC-CAN-WAR-TC-02",
+              "wepId": "NEC-CAN-WAR-TC",
+              "seq": 2,
+              "profileName": "Living Lightning",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "2/3",
+              "WR": "Blast 2\"",
+              "name_zh": "活体闪电",
+              "rules_zh": "爆炸 2\"（Blast 2\"）"
+            }
+          ],
+          "name_zh": "特斯拉抛射器"
+        },
+        {
+          "wepId": "NEC-CAN-WAR-CAT",
+          "opTypeId": "NEC-CAN-WAR",
+          "seq": 3,
+          "wepName": "Claws & Tail",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-WAR-CAT-01",
+              "wepId": "NEC-CAN-WAR-CAT",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "3",
+              "HIT": "4+",
+              "DMG": "3/4",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "利爪和尖尾"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "NEC-CAN-WAR-ACS",
+          "opTypeId": "NEC-CAN-WAR",
+          "abilityName": "A Ceaseless Scuttling",
+          "AP": null,
+          "description": "As a STRATEGIC GAMBIT in each turning point after the first, if you have less than three non- incapacitated friendly CANOPTEK CIRCLE WARRIOR operatives, you can set up another one ready and with a Conceal order wholly within your drop zone (you can select its weapon options as normal).",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-WAR-AD",
+          "opTypeId": "NEC-CAN-WAR",
+          "abilityName": "Aggressive Defence",
+          "AP": null,
+          "description": "If this operative is incapacitated by an enemy operative within 2\" of it, before this operative is removed from the killzone, roll one D3: on a 2+, inflict 1 damage on that enemy operative.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-WAR-EC",
+          "opTypeId": "NEC-CAN-WAR",
+          "abilityName": "Expendable Construct",
+          "AP": null,
+          "description": "This operative is ignored for your opponent’s kill/elimination op (when it’s incapacitated, and when determining your starting number of operatives).\nIt’s also ignored for victory conditions and scoring VPs if either require operatives to ‘escape’, ‘survive’ or be incapacitated by enemy operatives (if it escapes/survives/is incapacitated, determining how many operatives must escape/survive/be incapacitated, etc.).",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-WAR-ONM",
+          "opTypeId": "NEC-CAN-WAR",
+          "abilityName": "Obelisk Node Matrix",
+          "AP": null,
+          "description": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+          "isFactionRule": true
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 7,
+      "opName": "Canoptek Macrocyte Warrior",
+      "opType": null,
+      "opId": null,
+      "name_zh": "冥工巨虫战士",
+      "role_zh": "消耗型战士"
+    },
+    {
+      "opTypeId": "NEC-CAN-TC",
+      "killteamId": "NEC-CAN",
+      "seq": 5,
+      "opTypeName": "Canoptek Tomb Crawler",
+      "MOVE": "5\"",
+      "APL": 2,
+      "SAVE": "3+",
+      "WOUNDS": 18,
+      "keywords": "CANOPTEK CIRCLE, NECRON, CANOPTEK, TOMB CRAWLER",
+      "basesize": 50,
+      "nameType": "NECRON",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "NEC-CAN-TC-TDI",
+          "opTypeId": "NEC-CAN-TC",
+          "seq": 1,
+          "wepName": "Transdimensional Isolator",
+          "wepType": "R",
+          "isDefault": false,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-TC-TDI-01",
+              "wepId": "NEC-CAN-TC-TDI",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "5",
+              "HIT": "4+",
+              "DMG": "5/6",
+              "WR": "*Dimensional Banishment",
+              "name_zh": "单一档案",
+              "rules_zh": "维度放逐（*Dimensional Banishment）"
+            }
+          ],
+          "name_zh": "跨维隔振器"
+        },
+        {
+          "wepId": "NEC-CAN-TC-TGR",
+          "opTypeId": "NEC-CAN-TC",
+          "seq": 2,
+          "wepName": "Twin Gauss Reapers",
+          "wepType": "R",
+          "isDefault": false,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-TC-TGR-01",
+              "wepId": "NEC-CAN-TC-TGR",
+              "seq": 1,
+              "profileName": "Focused",
+              "ATK": "5",
+              "HIT": "4+",
+              "DMG": "4/5",
+              "WR": "Prc1, Sev",
+              "name_zh": "集中",
+              "rules_zh": "穿刺1, 严重（Prc1, Sev）"
+            },
+            {
+              "wepprofileId": "NEC-CAN-TC-TGR-02",
+              "wepId": "NEC-CAN-TC-TGR",
+              "seq": 2,
+              "profileName": "Sweeping",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "4/5",
+              "WR": "Prc1, Sev, Tor1\"",
+              "name_zh": "扫射",
+              "rules_zh": "穿刺1, 严重, 洪流1\"（Prc1, Sev, Tor1\"）"
+            }
+          ],
+          "name_zh": "双联高斯收割炮"
+        },
+        {
+          "wepId": "NEC-CAN-TC-C",
+          "opTypeId": "NEC-CAN-TC",
+          "seq": 3,
+          "wepName": "Claws",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "NEC-CAN-TC-C-01",
+              "wepId": "NEC-CAN-TC-C",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "4+",
+              "DMG": "4/4",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "利爪"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "NEC-CAN-TC-DB",
+          "opTypeId": "NEC-CAN-TC",
+          "abilityName": "*Dimensional Banishment",
+          "AP": null,
+          "description": "After this operative uses this weapon, if you inflicted damage or retained any critical successes, if the target wasn’t incapacitated, roll 2D6: if the result is higher than the target’s remaining wounds, the target is incapacitated (taking precedence over rules that prevent incapacitation, e.g. Medic!, FELLGOR RAVAGER Frenzy) and your opponent cannot place a Reanimation marker (HIEROTEK CIRCLE ) for that operative, if relevant. This rule has no effect if the target is a NEMESIS operative or Red Terror NPO.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-TC-ONM",
+          "opTypeId": "NEC-CAN-TC",
+          "abilityName": "Obelisk Node Matrix",
+          "AP": null,
+          "description": "As a STRATEGIC GAMBIT in the first turning point, place your three OBELISK NODE markers wholly within your territory. As a STRATEGIC GAMBIT in each turning point after the first, you can move each of your OBELISK NODE markers up to 3\" horizontally.\n \nYour OBELISK NODE markers control other markers within 1\" of them that no enemy operatives contest (treat your OBELISK NODE markers as friendly operatives for this purpose).\nIf more than one player would use their OBELISK NODE markers to control the same marker, no OBELISK NODE markers control it.\n\nWhenever one of your OBELISK NODE markers is within 6\" horizontally of another of your OBELISK NODE markers, those markers and the area between them create an OBELISK NODE MATRIX above and below (in other words, their height in the killzone is irrelevant).\nIf all three of your OBELISK NODE markers fulfil this, it creates a larger combined OBELISK NODE MATRIX.\nWhenever a friendly CANOPTEK CIRCLE operative is within your OBELISK NODE MATRIX:\n- Weapons on its datacard have the Accurate 1 weapon rule.\n- Add 1 to its APL stat (to a maximum of 3).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "NEC-CAN-TC-SF",
+          "opTypeId": "NEC-CAN-TC",
+          "abilityName": "Steadfast",
+          "AP": null,
+          "description": "Whenever determining control of a marker, you can treat this operative’s APL stat as 3. If you do, this takes precedence over all other rules, meaning any changes to its APL stat are ignored for this.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "NEC-CAN-TC-WS",
+          "opTypeId": "NEC-CAN-TC",
+          "abilityName": "Weapon Sentinel",
+          "AP": null,
+          "description": "Whenever your opponent is selecting a valid target, if this operative has a Conceal order, it cannot use Light terrain for cover. While this can allow this operative to be targeted (assuming it’s visible), it doesn’t remove its cover save (if any)",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 18,
+      "opName": "Canoptek Tomb Crawler",
+      "opType": null,
+      "opId": null,
+      "name_zh": "墓穴爬行者",
+      "role_zh": "重型火力与据点控制"
+    }
+  ],
+  "scope_note": "收录全部独立PDF卡片与网站小队专属规则。13条通用装备单列附录；无对应小队卡片。PDF背景、模型页和设计师战术评论用于来源审计，不冒充独立规则卡。",
+  "supplementary_universal_equipment": [
+    {
+      "id": "UNIVERSAL-UE-AC",
+      "category": "universal-equipment",
+      "title_zh": "弹药库（1个）",
+      "title_en": "Ammo Cache (x1)",
+      "current_text_zh": "战斗开始前，可以将一枚己方弹药库标识放置在完全位于己方领地的位置。己方特工可以执行以下任务行动。\n弹药补给（0AP）：将行动特工控制的一枚己方弹药库标识标记为本转折点已使用。直到下一个转折点开始，每当该特工使用其数据卡上的武器射击，可以重掷一枚攻击骰。位于敌方特工控制范围内、标识不属于己方或标识本转折点已经使用时，不能执行此行动。",
+      "website_text_en": "Before the battle, you can set up one of your Ammo Cache markers wholly within your territory. Friendly operatives can perform the following mission action during the battle:\r **AMMO RESUPPLY (0 AP):** One of your Ammo Cache markers the active operative controls is used during this turning point.  \n\r Until the start of the next turning point, whenever this operative is shooting with a weapon from its datacard, you can re-roll one of your attack dice.\n\n\r An operative cannot perform this action while within control range of an enemy operative, if that marker is not yours, or if that marker has been used this turning point.",
+      "website_id": "UNIVERSAL-UE-AC",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "0 AP（弹药补给任务行动）",
+      "timing": "战斗开始前，可以将一枚己方弹药库标识放置在完全位于己方领地的位置。",
+      "target": "战斗开始前，可以将一枚己方弹药库标识放置在完全位于己方领地的位置。",
+      "duration": [
+        "直到下一个转折点开始，每当该特工使用其数据卡上的武器射击，可以重掷一枚攻击骰。"
+      ],
+      "limits": [
+        "位于敌方特工控制范围内、标识不属于己方或标识本转折点已经使用时，不能执行此行动。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-RW",
+      "category": "universal-equipment",
+      "title_zh": "铁丝网（1个）",
+      "title_en": "Razor Wire (x1)",
+      "current_text_zh": "铁丝网属于暴露、阻碍地形。战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，并与其他装备地形、入口及可进入地形相距超过 2\" 的位置。\n阻碍：每当特工将跨越此地形，或在其 1\" 内跨越时，将该距离视为额外增加 1\"。",
+      "website_text_en": "Razor wire is Exposed and Obstructing terrain. Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.  \n\r Obstructing: Whenever an operative would cross over this terrain feature within 1\" of it, treat the distance as an additional 1\".",
+      "website_id": "UNIVERSAL-UE-RW",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，并与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "target": "阻碍：每当特工将跨越此地形，或在其 1\" 内跨越时，将该距离视为额外增加 1\"。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-CD",
+      "category": "universal-equipment",
+      "title_zh": "通讯装置（1个）",
+      "title_en": "Comms Device (x1)",
+      "current_text_zh": "战斗开始前，可以将一枚己方通讯装置标识放置在完全位于己方领地的位置。己方特工控制此标识时，其提及己方特工的支援规则距离要求增加 3\"，例如“选择6\"内的一名己方特工”改为9\"。不能从对手的通讯装置标识获益。",
+      "website_text_en": "Before the battle, you can set up one of your Comms Device markers wholly within your territory.\nWhile a friendly operative controls this marker, add 3\" to the distance requirements of its SUPPORT rules that refer to friendly operatives\n(e.g. ‘select one friendly operative within 6\"’ would be 9\" instead).\nNote that you cannot benefit from your opponent's Comms Device markers.",
+      "website_id": "UNIVERSAL-UE-CD",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将一枚己方通讯装置标识放置在完全位于己方领地的位置。",
+      "target": "战斗开始前，可以将一枚己方通讯装置标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "不能从对手的通讯装置标识获益。"
+      ],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-MN",
+      "category": "universal-equipment",
+      "title_zh": "地雷（1个）",
+      "title_en": "Mines (x1)",
+      "current_text_zh": "战斗开始前，可以将一枚己方地雷标识放置在完全位于己方领地，且与其他标识、入口及可进入地形相距超过 2\" 的位置。该标识首次位于一名特工的控制范围内时，移除标识并对该特工造成 D3+3 点伤害。",
+      "website_text_en": "Before the battle, you can set up one of your Mines markers wholly within your territory and more than 2\" from other markers, access points, and Accessible terrain.\r The first time that marker is within an operative's control range, remove that marker and inflict D3+3 damage on that operative.",
+      "website_id": "UNIVERSAL-UE-MN",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将一枚己方地雷标识放置在完全位于己方领地，且与其他标识、入口及可进入地形相距超过 2\" 的位置。",
+      "target": "战斗开始前，可以将一枚己方地雷标识放置在完全位于己方领地，且与其他标识、入口及可进入地形相距超过 2\" 的位置。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-LB",
+      "category": "universal-equipment",
+      "title_zh": "轻型路障（2个）",
+      "title_en": "Light Barricades (x2)",
+      "current_text_zh": "轻型路障属于轻型地形，但支脚属于无关紧要和暴露地形。战斗开始前，可以部署任意数量的所选路障，必须完全位于己方领地、位于杀戮区地面，并与其他装备地形、入口及可进入地形相距超过 2\"。",
+      "website_text_en": "Light barricades are Light terrain, except the feet, which are Insignificant and Exposed. Before the battle, you can set up any of them wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+      "website_id": "UNIVERSAL-UE-LB",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以部署任意数量的所选路障，必须完全位于己方领地、位于杀戮区地面，并与其他装备地形、入口及可进入地形相距超过 2\"。",
+      "target": null,
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-HB",
+      "category": "universal-equipment",
+      "title_zh": "重型路障（1个）",
+      "title_en": "Heavy Barricade (x1)",
+      "current_text_zh": "重型路障属于重型地形。战斗开始前，可以将其放置在完全位于己方降落区 4\" 内、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "website_text_en": "A heavy barricade is Heavy terrain. Before the battle, you can set it up wholly within 4\" of your drop zone, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+      "website_id": "UNIVERSAL-UE-HB",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将其放置在完全位于己方降落区 4\" 内、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "target": null,
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-LAD",
+      "category": "universal-equipment",
+      "title_zh": "梯子（2个）",
+      "title_en": "Ladders (x2)",
+      "current_text_zh": "梯子属于无关紧要和暴露地形。战斗开始前可以部署任意数量的所选梯子，须满足：\n- 完全位于己方领地。\n- 直立靠在至少 2\" 高的地形上。\n- 与其他装备地形相距超过 2\"。\n- 与门及入口相距超过 1\"。\n每次行动一次，特工攀爬梯子所靠的地形时，如果整个攀爬过程中梯子都位于其控制范围内，将该次垂直距离视为 1\"。",
+      "website_text_en": "Ladders are Insignificant and Exposed terrain. Before the battle, you can set up any of them as follows:\n- Wholly within your territory.\n- Upright against terrain that’s at least 2\" tall.\n- More than 2\" from other equipment terrain features.\n- More than 1\" from doors and access points.\n\nOnce per action, whenever an operative is climbing the terrain feature a ladder is placed against, treat the vertical distance as 1\" if the ladder is within that operative’s control range during that entire climb.",
+      "website_id": "UNIVERSAL-UE-LAD",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前可以部署任意数量的所选梯子，须满足：",
+      "target": "每次行动一次，特工攀爬梯子所靠的地形时，如果整个攀爬过程中梯子都位于其控制范围内，将该次垂直距离视为 1\"。",
+      "duration": [],
+      "limits": [
+        "- 直立靠在至少 2\" 高的地形上。",
+        "每次行动一次，特工攀爬梯子所靠的地形时，如果整个攀爬过程中梯子都位于其控制范围内，将该次垂直距离视为 1\"。"
+      ],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-PB",
+      "category": "universal-equipment",
+      "title_zh": "便携式路障（1个）",
+      "title_en": "Portable Barricade (x1)",
+      "current_text_zh": "便携式路障属于轻型、防护和便携地形，但支脚属于无关紧要和暴露地形。战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。\n防护：特工从此地形获得掩护时，其豁免属性改善1，最好为2+。\n便携：仅当特工与其接触且盾面造成阻碍时提供掩护，忽略支脚。与内侧接触的特工可以执行以下独特行动。\n携障移动（1AP）：如同转移行动，但行动特工最多移动其移动属性减去2\"的距离，不能攀爬、跳落、跳跃，也不能使用任何将特工移除并重新放置的小队规则，例如炉裔打捞者的飞行或曼德拉的暗影通道。移动前移除与其接触的便携式路障；移动后重新放置，使其再次与特工接触，但不能放在其他装备地形、入口或可进入地形的2\"内。\n此行动视为转移行动。位于敌方特工控制范围内时不能执行；也不能在已执行后撤或冲锋的同一次激活中执行。",
+      "website_text_en": "A portable barricade is Light, Protective and Portable terrain, except the feet which are Insignificant and Exposed.\r Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.\r   \r \r **Protective:** While an operative is in cover from this terrain feature, improve its Save stat by 1 (to a maximum of 2+).  \r \r **Portable:** This terrain feature only provides cover while an operative is connected to it and if the shield is intervening (ignore its feet).\r Operatives connected to the inside of it can perform the following unique action during the battle:  \r \r **Move With Barricade (1 AP):**\r The same as the Reposition action, except the active operative can move no more than its Move stat minus 2\" and cannot climb, drop, jump, or use any killteam's rules that remove it and set it back up again (e.gh. HEARTHKYN SALVAGER Fly, MANDRAKE Shadow Passage).  \r \r Before this operative moves, remove the portable barricade it is connected to. After it moves, set up the portable barricade so it is connected again, but the portable barricade cannot be set up within 2\" of\r other equipment terrain features, access points or Accessible terrain. If this is not possible, the portable barricade is not set up again.  \r \r This action is treated as a Reposition action. An operative cannot perform this action while within control range of an enemy operative, or in the same activation in which it performed the Fall Back or Charge action.",
+      "website_id": "UNIVERSAL-UE-PB",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "1 AP（独特行动）",
+      "timing": "战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "target": "防护：特工从此地形获得掩护时，其豁免属性改善1，最好为2+。",
+      "duration": [],
+      "limits": [
+        "便携：仅当特工与其接触且盾面造成阻碍时提供掩护，忽略支脚。",
+        "携障移动（1AP）：如同转移行动，但行动特工最多移动其移动属性减去2\"的距离，不能攀爬、跳落、跳跃，也不能使用任何将特工移除并重新放置的小队规则，例如炉裔打捞者的飞行或曼德拉的暗影通道。",
+        "移动后重新放置，使其再次与特工接触，但不能放在其他装备地形、入口或可进入地形的2\"内。",
+        "位于敌方特工控制范围内时不能执行；",
+        "也不能在已执行后撤或冲锋的同一次激活中执行。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-UG-SMK",
+      "category": "universal-equipment",
+      "title_zh": "功能型手雷—烟雾",
+      "title_en": "Utility Grenade - Smoke (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。\n烟雾手雷（1AP）：\n- 将一枚己方烟雾手雷标识放置在这名特工6\"内，且必须对其可见；也可以放在对其可见的地形模型的制高点地形上。标识在其水平方向1\"内、垂直上方无限高处形成烟雾区域，但不延伸到下方。\n- 完全位于烟雾中的特工对于距其超过2\"的特工被遮挡，反之亦然。此外，射击完全位于烟雾中的敌方特工时，拥有穿刺2或关键穿刺2的武器分别改为穿刺1或关键穿刺1，除非双方在彼此2\"内。\n- 下一次战略阶段的备战步骤，掷一枚D3；当等于结果次数的激活完成后，或在该转折点结束时（取最先者），移除烟雾标识。\n- 位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。",
+      "website_text_en": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\r Each selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\r   \r \r **SMOKE GRENADE (1 AP):**  \r \r \r - Place one of your Smoke Grenade markers within 6\" of this operative. It must be visible to this operative,\r or on Vantage terrain of a terrain feature that is visible to this operative. The marker creates an area of smoke 1\" horizontally and unlimited height vertically from (but not below) it.\r - While an operative is wholly within an area of smoke, it is obscured to operatives more than 2\" from it, and vice versa.\r In addition, whenever an operative is shooting an enemy operative wholly within an area of smoke, weapons with the Piercing 2 or Piercing Crits 2 weapon rule have the Piercing 1 or Piercing Crits 1 weapon rule (respectively) instead, unless they’re within 2\" of each other.\r - In the Ready step of the next Strategy phase, roll one D3. Remove that Smoke Grenade marker after a number of activations equal to that D3 have been completed\r or at the end of the turning point (whichever comes first).\r - An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\r ",
+      "website_id": "UNIVERSAL-UE-UG-SMK",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "1 AP（独特行动）",
+      "timing": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "target": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "duration": [],
+      "limits": [
+        "每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。",
+        "- 下一次战略阶段的备战步骤，掷一枚D3；",
+        "- 位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-UG-STN",
+      "category": "universal-equipment",
+      "title_zh": "功能型手雷—震荡",
+      "title_en": "Utility Grenade - Stun (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。\n震荡手雷（1AP）：选择对这名特工可见且位于其6\"内的一名敌方特工。该特工及其1\"内的每名其他特工均进行震荡测试：每名分别掷一枚D6，3+时其APL属性减少1，直到其下一次激活结束。\n位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。",
+      "website_text_en": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\nEach selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\n  \n\n**STUN GRENADE (1 AP):**  \n\n\n- Select one enemy operative visible to and within 6\" of this operative. That operative and each other operative within 1\" of it takes a stun test. For an operative to take a stun test, roll one D6: on a 3+, subtract 1 from its APL stat until the end of its next activation.\n- An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\n",
+      "website_id": "UNIVERSAL-UE-UG-STN",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "1 AP（独特行动）",
+      "timing": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "target": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "duration": [
+        "该特工及其1\"内的每名其他特工均进行震荡测试：每名分别掷一枚D6，3+时其APL属性减少1，直到其下一次激活结束。"
+      ],
+      "limits": [
+        "每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。",
+        "该特工及其1\"内的每名其他特工均进行震荡测试：每名分别掷一枚D6，3+时其APL属性减少1，直到其下一次激活结束。",
+        "位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-XG-FRAG",
+      "category": "universal-equipment",
+      "title_zh": "爆炸型手雷—破片",
+      "title_en": "Explosive Grenade - Frag (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。\n破片手雷：攻击4；命中4+；伤害2/4；范围6\"、爆炸2\"、集中（Range 6\", Blast 2\", Saturate）。",
+      "website_text_en": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\n\n|**Name**|**ATK**|**HIT**|**DMG**|\n|-----|:-----:|:-----:|:-----:|\n|Frag Grenade|4|4+|2/4|\n|**Weapon Rules**|\n|Rng 6\", Blast 2\", Saturate|",
+      "website_id": "UNIVERSAL-UE-XG-FRAG",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "target": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-XG-KRAK",
+      "category": "universal-equipment",
+      "title_zh": "爆炸型手雷—穿甲",
+      "title_en": "Explosive Grenade - Krak (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。\n穿甲手雷：攻击4；命中4+；伤害4/5；范围6\"、穿刺1、集中（Range 6\", Piercing 1, Saturate）。",
+      "website_text_en": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\r \r |**Name**|**ATK**|**HIT**|**DMG**|\r |-----|:-----:|:-----:|:-----:|\r |Krak Grenade|4|4+|4/5|\r |**Weapon Rules**|\r |Rng 6\", Piercing 1, Saturate|",
+      "website_id": "UNIVERSAL-UE-XG-KRAK",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "target": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-BC",
+      "category": "universal-equipment",
+      "title_zh": "破障炸药",
+      "title_en": "Breaching Charge",
+      "current_text_zh": "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。该行动的AP消耗减少1，最低为1AP，并视为该特工数据卡上具有“破障标识”（breach marker）字样。",
+      "website_text_en": "Once per battle, when a friendly operative performs the Breach action, you can use this rule. If you do, that operative can perform that action for 1 less AP (to a minimum of 1AP) as though it had the word \"breach marker\" on its datacard.",
+      "website_id": "UNIVERSAL-UE-BC",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。",
+      "target": "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。",
+      "duration": [],
+      "limits": [
+        "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。",
+        "该行动的AP消耗减少1，最低为1AP，并视为该特工数据卡上具有“破障标识”（breach marker）字样。"
+      ],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    }
+  ],
+  "supplementary_pdf_only_rules": [
+    {
+      "id": "NEC-CAN-PDF-FAQ",
+      "title_zh": "规则问答",
+      "source_page": 10,
+      "website_id": null,
+      "current_text_zh": "问：三个方尖碑节点标识互相位于6\"内时，“之间”是整个三角形还是20mm宽的直线？\n答：20mm宽的直线。\n\n问：移动节点标识是否受到可穿越、遮挡、攀爬和跳落规则影响？\n答：不会，但标识不能移动穿过地形模型。\n\n问：使用地相技师的控制方尖碑节点规则时，是否使用其APL判断控制？\n答：不使用。\n\n问：使用节点响应时，更换后的战略计谋被对手取消，如何处理？\n答：可以使用不同的战略计谋，或返还战略计谋与节点响应所消耗的CP。\n\n问：近距离战斗杀戮区中，节点矩阵能穿过墙壁测量吗？\n答：不可以。\n\n问：三名巨虫战士均已残废，仍可通过无尽巨虫重新部署一名吗？\n答：可以。\n\n问：无尽巨虫部署的战士在其他规则中是否视为新的特工，例如执政官之手的天裂刺客？\n答：视为新的特工。\n\n问：两枚节点间有部分墙壁时，能否绕墙测量不超过6\"的水平距离来连接？\n答：不能。矩阵不会绕过墙壁，必须沿直线测量。\n\n问：矩阵操纵器把地相技师当作节点时，对其50mm底座使用20mm宽直线还是扩宽形状？\n答：使用扩宽形状，测量所有面向该底座的距离。图示参见原PDF。",
+      "text_status": "PDF-only",
+      "translation_status": "PDF问答整理，非网站当前规则实体"
+    }
+  ],
+  "verification": {
+    "date": "2026-09-24",
+    "visual_pages_reviewed": 15,
+    "visual_cards_reviewed": 28,
+    "card_counts_match": true,
+    "all_current_rules_linked": true,
+    "all_local_links_validated": true,
+    "note": "已查看全部原页、全部卡图总览和高密度独立卡；最终字段与链接检查见验收记录。",
+    "local_link_count": 66,
+    "numeric_fields_exact_api_match": true,
+    "all_rule_ids_exact_api_match": true,
+    "all_profile_rows_exactly_once": true,
+    "result": "通过：数量、字段、来源关联、全文、文件链接与视觉验收"
+  }
+}

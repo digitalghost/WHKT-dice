@@ -1,0 +1,584 @@
+{
+  "teamId": "KT-XV26_STEALTH_BATTLESUITS",
+  "name": "XV26 隐形战斗服",
+  "nameEn": "XV26 Stealth Battlesuits",
+  "subtitle": "钛帝国 · 8 种特工",
+  "archetypes": [
+    "渗透",
+    "侦察"
+  ],
+  "source": "官方中文 PDF 26/08/2026（XV26 隐形战斗服 XV26 Stealth Battlesuits 杀戮小队规则.pdf），已并入 2026 年 8 月勘误",
+  "operatives": [
+    {
+      "id": "kt_xv26_shasvre",
+      "name": "XV26 火氏英雄",
+      "role": "火氏英雄",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 13,
+      "baseSizeMm": 32,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "队长",
+        "火氏英雄"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-01-特工-XV26-数据卡.png",
+        "KT-XV26_STEALTH_BATTLESUITS--01-02-特工能力-XV26-能力卡1.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_shasvre_burst_focused",
+          "name": "速射炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4 · 无休"
+        },
+        {
+          "id": "kt_xv26_shasvre_burst_sweeping",
+          "name": "速射炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 无休、洪流 1\""
+        },
+        {
+          "id": "kt_xv26_shasvre_fusion_short",
+          "name": "融合炮（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "kt_xv26_shasvre_fusion_long",
+          "name": "融合炮（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 范围 12\"、穿刺 1"
+        },
+        {
+          "id": "kt_xv26_shasvre_pp_ranged",
+          "name": "脉冲手枪（远程）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 范围 8\""
+        },
+        {
+          "id": "kt_xv26_shasvre_pp_pb",
+          "name": "脉冲手枪（零距离）",
+          "kind": "melee",
+          "profile": "3A · 4+ · 4/5 · 精准 1"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_shasvre_burst_focused",
+        "kt_xv26_shasvre_burst_sweeping",
+        "kt_xv26_shasvre_pp_ranged",
+        "kt_xv26_shasvre_pp_pb"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "XV26无人机控制器",
+          "ap": null,
+          "text": "战略计划。当该特工位于杀戮区内时。选择一个位于杀戮区内的己方 XV26 隐形战斗服无人机特工。直到那名特工的下一次激活结束前，忽略“无人机”规则的前两点（本规则优先度高于那个规则）。"
+        },
+        {
+          "name": "为了上上善道",
+          "ap": null,
+          "text": "每次判断考雍规则的“精准 X”数值时，如果该特工位于杀戮区内，如果有 2 名或更多己方 XV26 隐形战斗服特工被残废（无人机除外），那么 X 的数值增加 1 点（最多提升至“精准 3”）。请注意，您必须至少拥有“精准 1”才能够使用本规则。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_xv26_designator",
+      "name": "XV26 标记者",
+      "role": "标记者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "标记者"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-03-特工-XV26-数据卡.png",
+        "KT-XV26_STEALTH_BATTLESUITS--01-04-特工能力-XV26-能力卡2.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_designator_burst_focused",
+          "name": "速射炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4 · 无休"
+        },
+        {
+          "id": "kt_xv26_designator_burst_sweeping",
+          "name": "速射炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 无休、洪流 1\""
+        },
+        {
+          "id": "kt_xv26_designator_fusion_short",
+          "name": "融合炮（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "kt_xv26_designator_fusion_long",
+          "name": "融合炮（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 范围 12\"、穿刺 1"
+        },
+        {
+          "id": "kt_xv26_designator_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_designator_burst_focused",
+        "kt_xv26_designator_burst_sweeping",
+        "kt_xv26_designator_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "标记光",
+          "ap": null,
+          "text": "当一名敌方特工是该特工的有效目标时，或者当一名敌方特工对该特工可见，并且位于己方埋伏标识的 2\" 内时（详见准备埋伏战略计谋）那名敌方特工被标记。每当一名己方 XV26 隐形战斗服特工对一名被标记的敌方特工进行射击时，那名特工的远程武器拥有“严重”武器规则。请注意，就算该特工不是活跃特工，其他特工依旧可以成为该特工的有效目标。"
+        },
+        {
+          "name": "标记光聚焦",
+          "ap": 1,
+          "text": "选取一名对该特工可见的敌方特工。在本回合中，当一名己方 XV26 隐形战斗服特工向那个敌方特工射击时，你可以使用此效果。若你如此做，则在那次行动结束前，那名己方特工数据卡中的远程武器的命中属性提升 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_xv26_infiltrator",
+      "name": "XV26 渗透者",
+      "role": "渗透者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "渗透者"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-05-特工-XV26-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_infiltrator_burst_focused",
+          "name": "速射炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4 · 无休"
+        },
+        {
+          "id": "kt_xv26_infiltrator_burst_sweeping",
+          "name": "速射炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 无休、洪流 1\""
+        },
+        {
+          "id": "kt_xv26_infiltrator_fusion_short",
+          "name": "融合炮（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "kt_xv26_infiltrator_fusion_long",
+          "name": "融合炮（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 范围 12\"、穿刺 1"
+        },
+        {
+          "id": "kt_xv26_infiltrator_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_infiltrator_burst_focused",
+        "kt_xv26_infiltrator_burst_sweeping",
+        "kt_xv26_infiltrator_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "隐匿协议",
+          "ap": null,
+          "text": "该特工无论拥有什么指令都可以进行反应。但是，如果该特工在进行反应时拥有隐匿命令，那么该特工不能执行拾取标识、放置标识或者任务行动以外的任何行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_xv26_liberator",
+      "name": "XV26 解放者",
+      "role": "解放者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "解放者"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-06-特工-XV26-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_liberator_burst_focused",
+          "name": "速射炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4 · 无休"
+        },
+        {
+          "id": "kt_xv26_liberator_burst_sweeping",
+          "name": "速射炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 无休、洪流 1\""
+        },
+        {
+          "id": "kt_xv26_liberator_emp",
+          "name": "EMP 炸弹",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 2/2 · 范围 4\"、爆炸 2\"、毁灭 1、重型（仅限转移）、致命 4+、有限 1、集中"
+        },
+        {
+          "id": "kt_xv26_liberator_fusion_short",
+          "name": "融合炮（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "kt_xv26_liberator_fusion_long",
+          "name": "融合炮（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 范围 12\"、穿刺 1"
+        },
+        {
+          "id": "kt_xv26_liberator_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_liberator_burst_focused",
+        "kt_xv26_liberator_burst_sweeping",
+        "kt_xv26_liberator_emp",
+        "kt_xv26_liberator_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "掷弹兵",
+          "ap": null,
+          "text": "该特工可以使用破片、穿甲、烟雾和震荡手雷（参见通用装备）。该特工使用这些装备时不算入您拥有的使用限制（如果您还为其他特工选择了手雷类的装备）。每当该特工使用破片或穿甲手雷时，将那件武器的命中属性提升 1。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_xv26_lodestar",
+      "name": "XV26 指引者",
+      "role": "指引者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "指引者"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-07-特工-XV26-数据卡.png",
+        "KT-XV26_STEALTH_BATTLESUITS--01-08-特工能力-XV26-能力卡3.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_lodestar_burst_focused",
+          "name": "速射炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4 · 无休"
+        },
+        {
+          "id": "kt_xv26_lodestar_burst_sweeping",
+          "name": "速射炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 无休、洪流 1\""
+        },
+        {
+          "id": "kt_xv26_lodestar_fusion_short",
+          "name": "融合炮（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "kt_xv26_lodestar_fusion_long",
+          "name": "融合炮（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 范围 12\"、穿刺 1"
+        },
+        {
+          "id": "kt_xv26_lodestar_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_lodestar_burst_focused",
+        "kt_xv26_lodestar_burst_sweeping",
+        "kt_xv26_lodestar_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "电子干扰发射器",
+          "ap": null,
+          "text": "每个转折点限制一次，在一名敌方特工执行射击行动，并在对手选择了有效目标时（无人机除外），如果该特工不位于敌方特工的控制范围内，那么您可以使用本规则。若使用，那么直到那次行动结束前，每当一名敌方特工对位于其 2\" 外，并且位于该特工 3\" 内且对其可见的己方 XV26 隐形战斗服特工进行射击时：\n• 忽略“穿刺”武器规则。\n• 那名己方特工被遮挡。"
+        },
+        {
+          "name": "定位信标",
+          "ap": null,
+          "text": "在每个战略阶段的就绪步骤中，当您获得 CP 时，如果己方定位信标标识被放置于杀戮区内，掷一枚 D6，己方定位信标每位于一个目标标识 6\" 内，便为掷骰结果增加 1 点。若结果为 5+，您获得额外一点 CP。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_xv26_neutraliser",
+      "name": "XV26 消除者",
+      "role": "消除者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "消除者"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-09-特工-XV26-数据卡.png",
+        "KT-XV26_STEALTH_BATTLESUITS--01-10-特工能力-XV26-能力卡4.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_neutraliser_burst_focused",
+          "name": "速射炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4 · 无休"
+        },
+        {
+          "id": "kt_xv26_neutraliser_burst_sweeping",
+          "name": "速射炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 无休、洪流 1\""
+        },
+        {
+          "id": "kt_xv26_neutraliser_fusion_short",
+          "name": "融合炮（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "kt_xv26_neutraliser_fusion_long",
+          "name": "融合炮（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 范围 12\"、穿刺 1"
+        },
+        {
+          "id": "kt_xv26_neutraliser_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_neutraliser_burst_focused",
+        "kt_xv26_neutraliser_burst_sweeping",
+        "kt_xv26_neutraliser_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "多光谱传感器系统",
+          "ap": null,
+          "text": "支援。每个转折点限一次，在一名位于该特工 8\" 内的敌方特工被激活时，您可以使用本规则。每一名位于该特工 3\" 内的己方 XV26 隐形战斗服特工可以立即执行以下一种行动：\n• 执行一次无消耗的冲刺行动（按照您选择顺序进行）。\n• 更改命令。\n每一名执行冲刺行动的己方特工不能移动进入敌方特工的 3\" 内。请注意，通讯装置通用装备只会影响本规则的第二个距离限制。"
+        },
+        {
+          "name": "系统干扰",
+          "ap": 1,
+          "apLabel": "1/2AP",
+          "text": "选择一名对该特工可见的敌方特工。直到那名特工的下一次激活结束前，那名特工的 APL 属性减少 1 点。每当该特工拥有隐匿命令时，您必须消耗额外 1 AP 来执行本行动。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_xv26_mv15",
+      "name": "MV15 火炮无人机",
+      "role": "无人机",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 7,
+      "baseSizeMm": 28,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "MV15火炮",
+        "无人机"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-11-特工-MV15-数据卡.png",
+        "KT-XV26_STEALTH_BATTLESUITS--01-12-特工能力-MV15-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_mv15_twin_carbine",
+          "name": "双联脉冲卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 无休"
+        },
+        {
+          "id": "kt_xv26_mv15_ram",
+          "name": "撞击",
+          "kind": "melee",
+          "profile": "3A · 5+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_mv15_twin_carbine",
+        "kt_xv26_mv15_ram"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "无人机",
+          "ap": null,
+          "text": "• 该特工不能执行除了冲锋、冲刺、后撤、近战、光子榴弹发射器、转移和射击以外的行动。\n• 在判断对目标标识的控制权时，将该特工的 APL 属性视作为比原本要低 1 点。请注意，这不是对 APL 属性的修正，因此任何修正会与本规则的效果叠加。\n• 该特工不能使用任何其数据卡上不存在的武器。\n• 在判断该特工是否可见时，将模型顶部的圆盘视作为模型的头部。\n• 在该特工被残废和判断己方起始特工数量时，该特工在对手的击杀/灭敌行动中被忽略。在判断需要特工“逃离”、“存活”，或者被敌方特工残废的胜利条件和 VP 获取方式时，这名特工将被忽视（它是否逃脱/存活/被击杀，确认多少特工必须逃脱/存活/被击杀等情况下）。"
+        },
+        {
+          "name": "光子榴弹发射器",
+          "ap": 1,
+          "text": "选择一名对该特工可见的敌方特工，并掷一枚 D6：若结果为 3+，那么直到那名特工的下一次激活结束前，其移动属性减少 2\"。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_xv26_mv75",
+      "name": "MV75 标记无人机",
+      "role": "无人机",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 7,
+      "baseSizeMm": 28,
+      "keywords": [
+        "XV26隐形战斗服",
+        "钛帝国",
+        "MV75标记",
+        "无人机"
+      ],
+      "cards": [
+        "KT-XV26_STEALTH_BATTLESUITS--01-13-特工-MV75-数据卡.png",
+        "KT-XV26_STEALTH_BATTLESUITS--01-14-特工能力-MV75-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_xv26_mv75_ram",
+          "name": "撞击",
+          "kind": "melee",
+          "profile": "3A · 5+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_xv26_mv75_ram"
+      ],
+      "abilities": [
+        {
+          "id": "kt-xv26_stealth_battlesuits_faction_rule",
+          "name": "考雍",
+          "ap": null,
+          "text": "在火氏所崇敬的军事哲学中，考雍是最为古老的兵法，也备受 XV26 隐形战斗服小队的青睐。考雍大致可以被翻译为“耐心猎手”，强调将敌人引诱到陷阱之中，随后发起同步攻击进行斩杀。擅长这种战略的火氏英雄能够同时运用多个高机动资产，设计诸多应对手段和拖延战术，将敌人引诱到埋伏之中，或者将他们驱赶进入预先准备好的火力网络。\n\n每当一名己方XV26 隐形战斗服特工对一名敌方特工进行射击时，其远程武器拥有“精准 X”武器规则。X 的数值将取决于敌方特工所在的位置。\n\n敌方特工位置 → 精准 X\n• 位于己方领地 3\" 内 → 精准 1\n• 位于己方领地内 → 精准 2\n• 位于己方降落区的 3\" 内 → 精准 3",
+          "factionRule": true
+        },
+        {
+          "name": "无人机",
+          "ap": null,
+          "text": "• 该特工不能执行除了冲锋、冲刺、后撤、近战、转移和射击以外的行动。\n• 在判断对目标标识的控制权时，将该特工的 APL 属性视作为比原本要低 1 点。请注意，这不是对 APL 属性的修正，因此任何修正会与本规则的效果叠加。\n• 该特工不能使用任何其数据卡上不存在的武器。\n• 在判断该特工是否可见时，将模型顶部的圆盘视作为模型的头部。\n• 在该特工被残废和判断己方起始特工数量时，该特工在对手的击杀/灭敌行动中被忽略。在判断需要特工“逃离”、“存活”，或者被敌方特工残废的胜利条件和 VP 获取方式时，这名特工将被忽视（它是否逃脱/存活/被击杀，确认多少特工必须逃脱/存活/被击杀等情况下）。"
+        },
+        {
+          "name": "标记光",
+          "ap": null,
+          "text": "当一名敌方特工是该特工的有效目标时，或者当一名敌方特工对该特工可见，并且位于己方埋伏标识的 2\" 内时（详见准备埋伏战略计谋）那名敌方特工被标记。每当一名己方 XV26 隐形战斗服特工对一名被标记的敌方特工进行射击时，那名特工的远程武器拥有“严重”武器规则。请注意，就算该特工不是活跃特工，其他特工依旧可以成为该特工的有效目标。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    }
+  ],
+  "weaponRules": [],
+  "compositionHint": "选择 1 名火氏英雄、1 台 MV75 标记无人机、1 台 MV15 火炮无人机，再从标记者、渗透者、解放者、指引者和消除者中选择 4 名；除渗透者外同一种特工最多 1 名，融合炮全队最多 2 把。"
+}

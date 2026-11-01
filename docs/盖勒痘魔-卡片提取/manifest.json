@@ -1,0 +1,835 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-GELLERPOX_INFECTED",
+  "team_name_zh": "盖勒痘魔",
+  "team_name_en": "Gellerpox Infected",
+  "source_pdf": "最新杀戮小队规则更新/盖勒痘魔 Gellerpox Infected 杀戮小队规则.pdf",
+  "source_pdf_sha256": "f953536936c824cf1f1401c1cb20fbef72f9b7febcb245e0aec29f4359bff646",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 31,
+    "operative": 9,
+    "operative-ability": 2,
+    "team-selection": 1,
+    "faction-rule": 7,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-gellerpox_infected-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "沃格尔·三重咒魔-数据卡",
+      "title_en": "VULGRAR THRICE-CURSED",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-沃格尔·三重咒魔-数据卡.png",
+      "is_back": false,
+      "text": "沃格尔·三重咒魔 APL 移动豁免耐伤\n2 5\" 5+ 21\n名称攻击命中伤害武器规则\n喷火胃炉（标准） 5 2+ 3/3 范围 6\"、集中、洪流 2\"\n喷火胃炉（喷流） 5 2+ 3/3 范围 4\"、集中、追踪轻型\n融合武器 5 3+ 4/5 改造*\n散播伟大馈赠：每场战斗限一次，战略计划。选择\n一个目标标识，使其获得一个您的科技诅咒标识。\n目标标识在被选择时不能位于一名敌方特工的控制\n范围内。每当那个目标标识位于一名敌方特工控制\n范围内，则那名特工受到您选择的科技诅咒规则影\n响，并会根据您选择的科技诅咒规则额外受到下列\n影响。您不能在这名特工位于一名敌方特工控制范\n围内时使用这个战略计划。\n• 枪管扭曲：没有额外效果。\n• 尖啸锈尖：尖啸锈尖对那名敌方特工造成 2 点伤\n害（而不是 1 点）。\n• 传染性通讯声噪：每当那名特工激活时，在它的\n激活结束前将其 APL 属性降低 1 点。\n请继续阅读背面规则\n盖勒痘魔、混沌、噩梦巨物、队长、沃格尔·三重咒魔 40",
+      "weapon_types": {
+        "喷火胃炉（标准）": "远程",
+        "喷火胃炉（喷流）": "远程",
+        "融合武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVULGRAR THRICE-CURSED\n2 5\" 5+ 21\nNAME ATK HIT DMG WR\nPyregut (standard) 5 2+ 3/3 Range 6”, Saturate, Torrent 2”\nPyregut (deluge) 5 2+ 3/3 Range 4”, Saturate, Seek Light\nFleshmelded weapons 5 3+ 4/5 Engineered*\nSpread the Glorious Gifts: Once per battle STRATEGIC\nGAMBIT. Select one objective marker this operative controls\nto gain one of your Techno-curse tokens. It cannot be an\nobjective marker within control range of an enemy operative.\nWhenever that objective marker is within control range of an\nenemy operative, that operative is affected by your selected\nTECHNO-CURSE rule and an additional rule determined by\nyour TECHNO-CURSE, as shown opposite. You cannot use this\nSTRATEGIC GAMBIT while this operative is within control\nrange of an enemy operative.\n• Barrelwarp: No additional effect.\n• Screaming Rustspikes: This TECHNO-CURSE inflicts 2\ndamage on that enemy operative (instead of 1).\n• Viral Vox-static: Whenever that enemy operative is activated,\nsubtract 1 from its APL stat until the end of its activation.\nRULES CONTINUE ON OTHER SIDE\nGELLERPOX INFECTED , CHAOS, NIGHTMARE HULK, LEADER, VULGRAR THRICE-CURSED 40"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "沃格尔·三重咒魔-能力卡",
+      "title_en": "VULGRAR THRICE-CURSED",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-沃格尔·三重咒魔-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n沃格尔·三重咒魔\n2 5\" 5+ 21\n*改造：在选择特工步骤结束时，若这名特工被部\n署，则为本场战斗选择至多两个下列改进或武器规\n则：为普通伤害属性增加 1 点，为暴击伤害属性增\n加 1 点，平衡，残暴，致命 5+，撕裂。",
+      "text_en": "APL MOVE SAVE WOUNDS\nVULGRAR THRICE-CURSED\n2 5\" 5+ 21\n*Engineered: At the end of the Select Operatives step, if this\noperative is selected for deployment, select up to two of the\nfollowing improvements or weapon rules for this weapon to have\nfor the battle: Add 1 to the Normal Dmg stat, add 1 to the Critical\nDmg stat, Balanced, Brutal, Lethal 5+, Rending."
+    },
+    {
+      "id": "kt-gellerpox_infected-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "臃肿魔物-数据卡",
+      "title_en": "BLOATSPAWN",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-臃肿魔物-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n臃肿魔物\n2 5\" 5+ 20\n名称攻击命中伤害武器规则\n变异触手 5 4+ 3/4 范围 3\"、洪流 1\"\n变异利爪及触手 6 4+ 3/4 -\n（撕裂）\n变异利爪及触手 4 4+ 3/4 横扫*\n（横扫）\n*横扫：每当这名特工执行近战行动并选择了这个武器时，若它没有残废，则可以随后立即执行一次无消耗\n的近战行动，但在那次近战中您必须选择这个武器并在每次激活或反击中只能对控制范围内的每名敌方特\n工各执行一次。本规则优先于行动限制，并且您可以如此继续执行无消耗的近战行动，直至这名特工残废\n或对它控制范围内的每一名敌方特工执行了近战。\n请继续阅读背面规则\n盖勒痘魔、混沌、噩梦巨物、臃肿魔物 40",
+      "weapon_types": {
+        "变异触手": "远程",
+        "变异利爪及触手（撕裂）": "近战",
+        "变异利爪及触手（横扫）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBLOATSPAWN\n2 5\" 5+ 20\nNAME ATK HIT DMG WR\nMutant tentacles 5 4+ 3/4 Range 3\", Torrent 1\"\nMutant claw & tentacles 6 4+ 3/4 -\n(slashing)\nMutant claw & tentacles 4 4+ 3/4 Swipe*\n(swiping)\n*Swipe: Whenever this operative performs the Fight action and you select this weapon profile, if it isn't incapacitated, it can\nimmediately perform a free Fight action afterwards, but you must select this weapon profile and it can only fight against each enemy\noperative within its control range once per activation or counteraction using this weapon profile. This takes precedence over action\nrestrictions, and you can continue to perform free Fight actions until this operative is incapacitated or has fought against every\nenemy operative within its control range.\nRULES CONTINUE ON OTHER SIDE\nGELLERPOX INFECTED , CHAOS, NIGHTMARE HULK, BLOATSPAWN 40"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "臃肿魔物-能力卡",
+      "title_en": "BLOATSPAWN",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-臃肿魔物-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n臃肿魔物\n2 5\" 5+ 20\n触手抓取：每当一名敌方特工在这名特工控制范围\n内执行后撤行动时，您可以使用这个规则。若此，\n掷一枚 D6，若那名敌方特工的耐伤属性为 8 点或更\n低，则为掷骰结果增加 1 点：如果掷骰结果为 4+，\n那名敌方特工在那次激活或反击中便无法执行那个\n行动（消耗的 AP 不会返还）。",
+      "text_en": "APL MOVE SAVE WOUNDS\nBLOATSPAWN\n2 5\" 5+ 20\nTentacled Grasp: Whenever an enemy operative would perform\nthe Fall Back action while within control range of this\noperative, you can use this rule. If you do, roll one D6, adding 1 to\nthe result if that enemy operative has a Wounds stat of 8 or less:\non a 4+, that enemy operative cannot perform that action during\nthat activation/counteraction (the AP spent on it isn’t refunded)."
+    },
+    {
+      "id": "kt-gellerpox_infected-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "血肉尖啸者-数据卡",
+      "title_en": "FLESHSCREAMER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-血肉尖啸者-数据卡.png",
+      "is_back": false,
+      "text": "血肉尖啸者 APL 移动豁免耐伤\n2 5\" 5+ 20\n名称攻击命中伤害武器规则\n变异重拳及砍刀 1 3+ 8/9 致命 5+\n（切断打击）\n变异重拳及砍刀 5 4+ 5/6 -\n（横扫）\n恐惧尖啸：每当一名敌方特工位于这名特工 3\" 内时，您的对手在执行拾取标识和任务行动时需要消耗 1 点\n额外的 AP。\n在确定标识控制时，如果这名特工 3\" 内至少有一名敌方特工，则将进行争夺的敌方特工 APL 总和视作减\n少 1 点。请注意这不是对 APL 属性的修正，所以任何修正都会与本效果相累加。\n盖勒痘魔、混沌、噩梦巨物、血肉尖啸者 40",
+      "weapon_types": {
+        "变异重拳及砍刀（切断打击）": "近战",
+        "变异重拳及砍刀（横扫）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFLESHSCREAMER\n2 5\" 5+ 20\nNAME ATK HIT DMG WR\nMutant fist and cleaver 1 3+ 8/9 Lethal 5+\n(lopping blow)\nMutant fist and cleaver 5 4+ 5/6 -\n(slashing)\nHorrifying Shrieking: Whenever an enemy operative is within 3\" of this operative, your opponent must spend 1 additional AP for that\nenemy operative to perform the Pick Up Marker and mission actions.\nWhenever determining control of a marker, treat the total APL stat of enemy operatives that contest it as 1 lower if at least one of\nthose enemy operatives is within 3\" of this operative. Note this isn’t a change to the APL stat, so any changes are cumulative with this.\nGELLERPOX INFECTED , CHAOS, NIGHTMARE HULK, FLESHSCREAMER 40"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "蹒跚虫魔-数据卡",
+      "title_en": "LUMBERGHAST",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-蹒跚虫魔-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n蹒跚虫魔\n2 5\" 5+ 20\n名称攻击命中伤害武器规则\n变异利爪 4 4+ 6/7 残暴\n尖刺冲锋：每当该特工完成冲锋行动的移动时，您\n可以对位于它控制范围内的每个敌方战士造成 D3\n点伤害（分别进行掷骰）。\n盖勒痘魔、混沌、噩梦巨物、蹒跚虫魔 40",
+      "weapon_types": {
+        "变异利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLUMBERGHAST\n2 5\" 5+ 20\nNAME ATK HIT DMG WR\nMutant claw 4 4+ 6/7 Brutal\nSpiked Charger: Whenever this operative finishes moving during\nthe Charge action, you can inflict D3 damage on each enemy\noperative within its control range (roll separately for each).\nGELLERPOX INFECTED , CHAOS, NIGHTMARE HULK, LUMBERGHAST 40"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "变种人-数据卡",
+      "title_en": "MUTANT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-变种人-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n变种人\n2 5\" 5+ 7\n名称攻击命中伤害武器规则\n破片手雷 4 4+ 2/4 范围 6\"、爆炸 2\"、有限 1、集中\n重斧 3 4+ 4/5 残暴\n临时武器 4 4+ 3/4 无休\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名盖勒痘魔变种人\n特工（如果有）。当那名特工进入待机后您的对手\n便能正常激活（换言之，您无法通过这个规则连续\n激活超过两名特工）。\n盖勒腐蚀面具：每当一枚攻击骰子对这名特工造成\n暴击伤害时，您可以选择将那枚攻击骰子替代为造\n成普通伤害。\n盖勒痘魔、混沌、变种人 25",
+      "weapon_types": {
+        "破片手雷": "远程",
+        "重斧": "近战",
+        "临时武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMUTANT\n2 5\" 5+ 7\nNAME ATK HIT DMG WR\nFrag grenade 4 4+ 2/4 Range 6\", Blast 2\", Limited 1, Saturate\nHeavy axe 3 4+ 4/5 Brutal\nImprovised weapon 4 4+ 3/4 Ceaseless\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly GELLERPOX\nINFECTED MUTANT operative (if able) before your\nopponent activates. When that other operative is expended, your\nopponent then activates as normal (in other words, you cannot\nactivate more than two operatives in succession with this rule).\nGellercaust Masks: Whenever an attack dice would inflict\nCritical Dmg on this operative, you can choose for that attack\ndice to inflict Normal Dmg instead.\nGELLERPOX INFECTED , CHAOS, MUTANT 25"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "故障灵-数据卡",
+      "title_en": "GLITCHLING",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-故障灵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n故障灵\n2 6\" 6+ 3\n名称攻击命中伤害武器规则\n瘟疫黏液 4 4+ 2/2 范围 6\"\n瘟疫叮咬 3 4+ 1/2 -\n恶魔：每当一名特工对这名特工执行射击时，忽\n视“穿刺”武器规则。\n小型：这名特工无法使用任何其数据卡上没有的武\n器，并且不能执行独特行动。每当这名特工拥有隐\n匿命令并处于掩护时，它无法被选择作为有效目\n标，本规则的优先度高于所有其他规则（例如‘追\n踪’武器规则和制高点地形)，除非攻击者位于特工\n的 2\" 内。\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名盖勒痘魔故障灵\n特工（如果有）。当那名特工进入待机后您的对手\n便能正常激活（换言之，您无法通过这个规则连续\n激活超过两名特工）。\n盖勒痘魔、混沌、故障灵 25",
+      "weapon_types": {
+        "瘟疫黏液": "远程",
+        "瘟疫叮咬": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGLITCHLING\n2 6\" 6+ 3\nNAME ATK HIT DMG WR\nDiseased effluence 4 4+ 2/2 Range 6\"\nDiseased nippers 3 4+ 1/2 -\nDaemonic: Whenever an operative is shooting this operative,\nignore the Piercing weapon rule.\nSmall: This operative cannot use any weapons that aren’t on its\ndatacard, or perform unique actions. Whenever this operative\nhas a Conceal order and is in cover, it cannot be selected as a\nvalid target, taking precedence over all other rules (e.g. Seek,\nVantage terrain) except being within 2”.\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly GELLERPOX\nINFECTED GLITCHLING operative (if able) before your\nopponent activates. When that other operative is expended, your\nopponent then activates as normal (in other words, you cannot\nactivate more than two operatives in succession with this rule).\nGELLERPOX INFECTED , CHAOS, GLITCHLING 25"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "诅咒螨-数据卡",
+      "title_en": "CURSEMITE",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-诅咒螨-数据卡.png",
+      "is_back": false,
+      "text": "诅咒螨 APL 移动豁免耐伤\n2 6\" 6+ 2\n名称攻击命中伤害武器规则\n吸血长喙 2 4+ 2/3 撕裂、进食*\n*进食：每当这名特工对一名受伤特工使用这个武器\n时，为这个武器的攻击属性增加 1 点并获得“致命\n5+”武器规则。\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名盖勒痘魔故障灵\n特工（如果有）。当那名特工进入待机后您的对手\n便能正常激活（换言之，您无法通过这个规则连续\n激活超过两名特工）。\n盖勒痘魔、混沌、变异害虫、诅咒螨 25",
+      "weapon_types": {
+        "吸血长喙": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCURSEMITE\n2 6\" 6+ 2\nNAME ATK HIT DMG WR\nBloodsucking proboscis 2 4+ 2/3 Rending, Feast*\n*Feast: Whenever this operative is using this weapon against a\nwounded operative, add 1 to the Atk stat of this weapon and it\nhas the Lethal 5+ weapon rule.\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly GELLERPOX\nINFECTED MUTOID VERMIN operative (if able) before\nyour opponent activates. When that other operative is expended,\nyour opponent then activates as normal (in other words, you\ncannot activate more than two operatives in succession with\nthis rule).\nGELLERPOX INFECTED , CHAOS, MUTOID VERMIN, CURSEMITE 25"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "刺眼虫群-数据卡",
+      "title_en": "EYESTINGER SWARM",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-刺眼虫群-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n刺眼虫群\n2 6\" 6+ 2\n名称攻击命中伤害武器规则\n虫群 5 6+ 0/0 范围 6\"、晕眩\n蛰刺 5 5+ 1/2 震荡\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名盖勒痘魔变异害\n虫特工（如果有）。当那名特工进入待机后您的对\n手便能正常激活（换言之，您无法通过这个规则连\n续激活超过两名特工）。\n盖勒痘魔、混沌、变异害虫、刺眼虫群 25",
+      "weapon_types": {
+        "虫群": "远程",
+        "蛰刺": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nEYESTINGER SWARM\n2 6\" 6+ 2\nNAME ATK HIT DMG WR\nSwarm 5 6+ 0/0 Range 6\", Stun\nSting 5 5+ 1/2 Shock\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly GELLERPOX\nINFECTED MUTOID VERMIN operative (if able) before\nyour opponent activates. When that other operative is expended,\nyour opponent then activates as normal (in other words, you\ncannot activate more than two operatives in succession with\nthis rule).\nGELLERPOX INFECTED , CHAOS, MUTOID VERMIN, EYESTINGER SWARM 25"
+    },
+    {
+      "id": "kt-gellerpox_infected-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "烂泥蛆-数据卡",
+      "title_en": "SLUDGE-GRUB",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-烂泥蛆-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n烂泥蛆\n2 4\" 6+ 2\n名称攻击命中伤害武器规则\n酸液喷吐 4 4+ 2/2 范围 6\"、1\" 毁灭 1、穿刺 1\n尖牙撕咬 2 4+ 1/3 -\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名盖勒痘魔变异害\n虫特工（如果有）。当那名特工进入待机后您的对\n手便能正常激活（换言之，您无法通过这个规则连\n续激活超过两名特工）。\n酸腐之死：当这名特工残废时，在它被移出杀戮区\n前，为位于它 2\" 内且可见的每名敌方特工各掷一\n枚 D6：如果掷骰结果为 4+，那名特工受到 1 点\n伤害。\n盖勒痘魔、混沌、变异害虫、烂泥蛆 25",
+      "weapon_types": {
+        "酸液喷吐": "远程",
+        "尖牙撕咬": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSLUDGE-GRUB\n2 4\" 6+ 2\nNAME ATK HIT DMG WR\nAcid spit 4 4+ 2/2 Range 6\", 1\" Devastating 1, Piercing 1\nFanged maw 2 4+ 1/3 -\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly GELLERPOX\nINFECTED MUTOID VERMIN operative (if able) before\nyour opponent activates. When that other operative is expended,\nyour opponent then activates as normal (in other words, you\ncannot activate more than two operatives in succession with\nthis rule).\nCaustic Demise: When this operative is incapacitated, before it’s\nremoved from the killzone, roll one D6 separately for each enemy\noperative visible to and within 2\" of it: on a 4+, inflict 1 damage\non that operative.\nGELLERPOX INFECTED , CHAOS, MUTOID VERMIN, SLUDGE-GRUB 25"
+    },
+    {
+      "id": "kt-gellerpox_infected-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "盖勒痘魔杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-盖勒痘魔杀戮小队.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n杀戮小队\n原型：安全保护，搜索与摧毁\n特工\n↘ 以下为所有盖勒痘魔特工的列表：\n• 1 名沃格尔·三重咒魔\n• 1 名臃肿魔物\n• 1 名血肉尖啸者\n• 1 名蹒跚虫魔\n• 4 名故障灵\n• 1 名变种人，装备有破片手雷；重斧\n• 2 名变种人，装备有破片手雷；临时武器\n如果您选择了“变异害虫”阵营装备，则杀戮小\n队还将包括：\n指定数量的盖勒痘魔特工，从以下列表选择：\n• 诅咒螨\n• 刺眼虫群\n• 烂泥蛆",
+      "text_en": "GELLERPOX INFECTED\nKILL TEAM\nARCHETYPE: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ Every GELLERPOX INFECTED operative in the\nfollowing list:\n• 1 VULGRAR THRICE-CURSED\n• 1 BLOATSPAWN\n• 1 FLESHSCREAMER\n• 1 LUMBERGHAST\n• 4 GLITCHLING\n• 1 MUTANT with frag grenade and heavy axe\n• 2 MUTANT with frag grenade and\nimprovised weapon\nIf you selected the Mutoid Vermin\nfaction equipment:\n↘ Specified number of GELLERPOX INFECTED\noperatives selected from the following list:\n• CURSEMITE\n• EYESTINGER SWARM\n• SLUDGE-GRUB"
+    },
+    {
+      "id": "kt-gellerpox_infected-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "科技诅咒-1",
+      "title_en": "TECHNO-CURSE",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-科技诅咒-1.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营规则\n科技诅咒\n盖勒痘瘟是一种险恶的科技诅咒，它会渗入沉\n思者系统内以及机械组件之中，将其诡异的馈\n赠散播给毫无防备之人。\n在选择特工步骤结束时，为己方盖勒痘魔特工\n在本场战斗中选择一个科技诅咒。每当一名敌方\n特工位于您选择的科技诅咒的感染范围内时，那\n名敌方特工受到科技诅咒的症状效果影响。每一\n个科技诅咒，以及它们的感染范围和症状如下：\n请继续阅读背面",
+      "text_en": "GELLERPOX INFECTED\nFACTION RULE\nTECHNO-CURSE\nThe Gellerpox is an insidious techno-curse that\nwends its way into cogitator systems and mechanical\ncomponents, spreading its dubious gifts to\nthe unsuspecting.\nAt the end of the Select Operatives step, select\none TECHNO-CURSE for friendly GELLERPOX\nINFECTED operatives to gain for the battle.\nWhenever an enemy operative is within your\nselected TECHNO-CURSE’s infection range, that\nenemy operative is affected by the symptom of the\nselected TECHNO-CURSE. Each TECHNO-CURSE,\nits infection range and its symptom is listed below:\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-gellerpox_infected-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "科技诅咒-2",
+      "title_en": "TECHNO-CURSE",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-科技诅咒-2.png",
+      "is_back": true,
+      "text": "枪管扭曲\n随着盖勒痘瘟感染了远程武器，其枪管开始扭\n曲，膛线开始腐化，杀伤力也随之变得低下。\n感染范围：己方盖勒痘魔特工（变异害虫除\n外）的 2\" 内，或者己方盖勒痘魔故障灵特工\n的 3\" 内。\n症状：将那名敌方特工的远程武器攻击属性减\n去 1 点。\n尖啸锈尖\n敌人装备的刀具开始奇怪的扭曲起来，甚至从\n其握持之处迸出尖刺，扎穿持有者的血肉。\n感染范围：己方盖勒痘魔特工（变异害虫除\n外）的控制范围内。\n症状：每当那名敌方特工对一名己方盖勒痘魔\n特工进行近战或反击时，若您的对手因为失败而\n弃置任意数量的攻击骰子，那名敌方特工便受到\n1 点伤害。\n请继续阅读背面",
+      "text_en": "Barrelwarp\nAs the Gellerpox infects ranged weapons, it warps\nbarrels and corrodes rifling, reducing the effectiveness\nof such weapons.\nInfection Range: Within 2\" of a friendly\nGELLERPOX INFECTED operative (excluding\nMUTOID VERMIN), or within 3\" of a friendly\nGELLERPOX INFECTED GLITCHLING operative.\nSymptom: Subtract 1 from the Atk stat of that\nenemy operative’s ranged weapons.\nScreaming Rustspikes\nBlades equipped by the enemy become strange and\ntwisted, with spikes bursting from sword grips to pierce\nthe flesh of the wielder.\nInfection Range: Within control range of a friendly\nGELLERPOX INFECTED operative (excluding\nMUTOID VERMIN).\nSymptom: Whenever that enemy operative\nis fighting or retaliating against a friendly\nGELLERPOX INFECTED operative, if your\nopponent discards any attack dice as a fail, inflict\n1 damage on that enemy operative.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-gellerpox_infected-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "科技诅咒-3",
+      "title_en": "TECHNO-CURSE",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-科技诅咒-3.png",
+      "is_back": true,
+      "text": "传染性通讯声噪\n不谐的静电噪音以及扎耳的尖叫不断通过通讯\n频道传出，通过对通讯的干扰，敌方的指挥链\n被打断，恐惧在队伍中不断散播。\n感染范围：己方盖勒痘魔特工（变异害虫除\n外）的 3\" 内，或者己方盖勒痘魔故障灵特工\n的 4\" 内。\n症状：那名敌方特工的 APL 属性无法被增加\n（将它拥有的所有正向 APL 修正移除）。",
+      "text_en": "Viral Vox-static\nDiscordant static noise and ear-piercing screams\nblare over vox-channels, disrupting the enemy’s\ncommunications, breaking their chain of command and\nsowing fear within their ranks.\nInfection Range: Within 3\" of a friendly\nGELLERPOX INFECTED operative (excluding\nMUTOID VERMIN), or within 4\" of a friendly\nGELLERPOX INFECTED GLITCHLING operative.\nSymptom: That enemy operative’s APL stat\ncannot be added to (remove all positive APL stat\nchanges it has)."
+    },
+    {
+      "id": "kt-gellerpox_infected-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "变异害虫-1",
+      "title_en": "MUTOID VERMIN",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-变异害虫-1.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营规则\n变异害虫\n在盖勒痘瘟的影响下，这些小虫们成为了巨大\n威胁。但对训练有素的士兵而言，它们依然不\n过是一些蛆虫。\n变异害虫特工无法执行除冲锋，冲刺，后撤，近\n战，转移和射击外的任何行动，并无法使用任何\n其数据卡上没有的武器。并且它们可以在执行后\n撤行动时减少 1 AP 消耗。\n变异害虫特工无法争夺标识或杀戮区区域，且在\n您对手的击杀/歼灭任务（当它们残废和确定您起\n始特工数量时）被忽视。同时，它们在需要确定\n特工是否“逃脱”，“存活”或被敌方特工残废\n（在需要确认必须“逃脱”/“存活”/被敌方特\n工残废数量时，它们成功“逃脱”/“存活”或被\n敌方特工残废的情况下）的胜利条件和 VP 获取\n方式中也会被忽视。\n请继续阅读背面",
+      "text_en": "GELLERPOX INFECTED\nFACTION RULE\nMUTOID VERMIN\nTiny pests become monstrous threats under the effects\nof the Gellerpox, but are still grubs that can be ignored\nby highly trained warriors.\nMUTOID VERMIN operatives cannot perform any\nactions other than Charge, Dash, Fall Back, Fight,\nReposition and Shoot, or use any weapons that\naren’t on their datacard. They can perform the\nFall Back action for 1 less AP.\nMUTOID VERMIN operatives cannot contest\nmarkers or areas of the killzone, and are ignored\nfor your opponent’s kill/elimination op (when\nthey're incapacitated, and when determining\nyour starting number of operatives). They're also\nignored for victory conditions and scoring VPs\nif either require operatives to ‘escape’, ‘survive’\nor be incapacitated by enemy operatives (if they\nescape/survive/are incapacitated, determining\nhow many operatives must escape/survive/be\nincapacitated, etc.).\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-gellerpox_infected-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "变异害虫-2",
+      "title_en": "MUTOID VERMIN",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-05-阵营规则-变异害虫-2.png",
+      "is_back": true,
+      "text": "特工可以移动穿过变异害虫特工，并且敌方特工\n可以移动进入它们的控制范围内。位于变异害虫\n特工控制范围内不会阻止敌方特工执行冲锋、冲\n刺和转移行动，并且敌方特工可以在执行冲锋行\n动时离开变异害虫特工的控制范围。",
+      "text_en": "Operatives can move through MUTOID VERMIN\noperatives, and enemy operatives can move\nwithin control range of them. Having only\nMUTOID VERMIN operatives within their control\nrange doesn't prevent enemy operatives from\nperforming the Charge, Dash and Reposition\naction, and enemy operatives can leave MUTOID\nVERMIN operatives' control range when\nperforming the Charge action."
+    },
+    {
+      "id": "kt-gellerpox_infected-11-06",
+      "sequence": 6,
+      "category": "faction-rule",
+      "title_zh": "噩梦巨物",
+      "title_en": "NIGHTMARE HULKS",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-06-阵营规则-噩梦巨物.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营规则\n噩梦巨物\n一部分感染者的形体会在纳垢的丰厚赐福下肿\n胀成巨大的扭曲生物。尽管通过这种变异它们\n获得了强大的力量，但动作变得笨拙了。\n每当您的对手在选择有效目标时，己方盖勒痘魔\n噩梦巨物特工无法使用轻型地形作为掩护。尽\n管本规则能使这类特工成为目标（假设可见），\n但并不会移除它们的掩护豁免（如果有）。\n己方盖勒痘魔噩梦巨物特工不能执行独特行\n动。在执行拾取标识和任务行动（操作舱门除\n外）时，己方盖勒痘魔噩梦巨物特工（沃格\n尔·三重咒魔除外）必须额外消耗 1 点 AP。",
+      "text_en": "GELLERPOX INFECTED\nFACTION RULE\nNIGHTMARE HULKS\nSeveral among the infected have had their forms\nbloated and swollen into enormous twisted creatures,\nblessed with the bounteous gifts of Nurgle. Though\nmade powerful by such mutations, these monstrosities\nare somewhat clumsy in their movements.\nWhenever your opponent is selecting a valid\ntarget, friendly GELLERPOX INFECTED\nNIGHTMARE HULK operatives cannot use Light\nterrain for cover. While this can allow such\noperatives to be targeted (assuming they’re\nvisible), it doesn’t remove their cover save\n(if any).\nFriendly GELLERPOX INFECTED NIGHTMARE\nHULK operatives cannot perform unique\nactions. You must spend 1 additional AP for\nfriendly GELLERPOX INFECTED NIGHTMARE\nHULK operatives (excluding VULGRAR THRICE-\nCURSED) to perform the Pick Up Marker and\nmission actions (excluding Operate Hatch)."
+    },
+    {
+      "id": "kt-gellerpox_infected-11-07",
+      "sequence": 7,
+      "category": "faction-rule",
+      "title_zh": "恶心坚韧",
+      "title_en": "REVOLTINGLY RESILIENT",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-07-阵营规则-恶心坚韧.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营规则\n恶心坚韧\n这些笨重畸变体通过可怕变异产生的诡异生理\n结构能够抵抗大量伤害。\n每当一枚攻击骰子对一名己方盖勒痘魔噩梦巨\n物特工或一名己方盖勒痘魔变种人特工造成 3\n点或更多伤害时，便掷一枚 D6：若掷骰结果为\n4+，将其造成的伤害减去 1 点。",
+      "text_en": "GELLERPOX INFECTED\nFACTION RULE\nREVOLTINGLY RESILIENT\nThe monstrous transformations wrought upon these\nhulking brutes have rendered their aberrant physiologies\nincredibly resistant to harm.\nWhenever an attack dice inflicts damage of 3\nor more on a friendly GELLERPOX INFECTED\nNIGHTMARE HULK or GELLERPOX INFECTED\nMUTANT operative, roll one D6: on a 4+, subtract\n1 from that inflicted damage."
+    },
+    {
+      "id": "kt-gellerpox_infected-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "疫然决然",
+      "title_en": "PLAGUERIDDEN DETERMINATION",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-疫然决然.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n战略计谋\n疫然决然\n纳垢的赐福导致他们的躯体膨胀溃烂，同时也\n使他们获得超自然的坚韧。\n每当一名特工对拥有交战命令的一名己方盖勒痘\n魔特工（变异害虫除外）执行射击时，您可以\n重掷一枚己方防御掷骰。",
+      "text_en": "GELLERPOX INFECTED\nSTRATEGY PLOY\nPLAGUERIDDEN DETERMINATION\nNurgle’s blessings cause the body to bloat and fester,\nbestowing an unnatural resilience upon the recipient.\nWhenever an operative is shooting a friendly\nGELLERPOX INFECTED operative (excluding\nMUTOID VERMIN) that has an Engage order, you\ncan re-roll one of your defence dice."
+    },
+    {
+      "id": "kt-gellerpox_infected-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "感染的祝福",
+      "title_en": "BLESSINGS OF INFECTION",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-感染的祝福.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n战略计谋\n感染的祝福\n盖勒痘瘟的变异特性和腐化影响能赋予感染者\n凶残的力量和决心带来的愉悦。\n当一名己方盖勒痘魔特工处于近战或反击时，\n您可以进行以下一种行动：\n• 如果您在掷骰中出现三次或更多失败时，您可\n以舍弃其中一次失败并将另一次失败作为普通\n成功进行保留。\n• 如果您掷出三次或更多成功，那么您可以舍弃\n一次失败并将一次普通成功作为关键成功进行\n保留。",
+      "text_en": "GELLERPOX INFECTED\nSTRATEGY PLOY\nBLESSINGS OF INFECTION\nThe mutagenic properties and corrupting influence\nof the Gellerpox lend the infected brutal strength and\ngleeful determination.\nWhenever a friendly GELLERPOX INFECTED\noperative is fighting or retaliating, you can do one\nof the following:\n• If you roll three or more fails, you can discard\none of them to retain another as a normal\nsuccess instead.\n• If you roll three or more successes, you can\ndiscard one of your fails to retain one of your\nnormal successes as a critical success instead."
+    },
+    {
+      "id": "kt-gellerpox_infected-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "被震动吸引",
+      "title_en": "DRAWN TO THE HUM",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-被震动吸引.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n战略计谋\n被震动吸引\n机械轻柔的轰鸣声对感染者有着难以抵挡的吸\n引力，就如同昆虫会被亮堂的灯光吸引一样。\n选择一个目标标识。每当一名己方盖勒痘魔特\n工在它的激活中执行转移或冲锋行动时，您便可\n以使用这个技能。若此，在那次激活结束前将它\n的移动属性增加 1\"，但在结束那次移动时，特工\n必须位于那个目标标识的 2\" 内。",
+      "text_en": "GELLERPOX INFECTED\nSTRATEGY PLOY\nDRAWN TO THE HUM\nThe gentle thrum of machinery has an irresistible effect\nupon the infected, pulling them in like insects drawn to\na blazing lumen.\nSelect one objective marker. Whenever a friendly\nGELLERPOX INFECTED operative performs the\nReposition or Charge action during its activation,\nyou can use this rule. If you do, add 1\" to its Move\nstat until the end of that activation, but it must\nend that move within 2\" of that objective marker."
+    },
+    {
+      "id": "kt-gellerpox_infected-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "锈化放射",
+      "title_en": "RUST EMANATIONS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-锈化放射.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n战略计谋\n锈化放射\n臃肿的噩梦巨物飘散出感染气息，这股环绕\n其身的腐臭光环能够腐蚀并破坏周围进攻者\n的武器。\n每当一名己方盖勒痘魔特工（变异害虫除外）\n进行近战或反击时，您的对手不能将结果为 3 的\n掷骰作为成功进行保留。",
+      "text_en": "GELLERPOX INFECTED\nSTRATEGY PLOY\nRUST EMANATIONS\nBloated Nightmare Hulks are redolent with infection,\nsurrounded by a halo of foetid energy that corrodes and\ncorrupts the weaponry of nearby assailants.\nWhenever a friendly GELLERPOX INFECTED\noperative (excluding MUTOID VERMIN) is fighting\nor retaliating, your opponent cannot retain results\nof 3 as successes."
+    },
+    {
+      "id": "kt-gellerpox_infected-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "恶心科技",
+      "title_en": "REVOLTING TECHNOLOGY",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-恶心科技.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n交战计谋\n恶心科技\n盖勒痘魔的感染触手腐蚀了机械，导致各种武\n器和器械对其操纵者极为危险。\n当一名敌方特工对一名己方盖勒痘魔特工执行\n射击时，使用本交战计谋。那名特工的远程武器\n在那次流程结束前获得“过热”武器规则；如果\n对应武器已经拥有那个武器规则，则在您的对手\n为那个武器规则掷一枚 D6 时，您可以为结果增\n加或减去 1 点。请注意，对于后者，您可以在您\n对手为“过热”武器规则掷骰产生结果后再决定\n是否使用这个计谋。",
+      "text_en": "GELLERPOX INFECTED\nFIREFIGHT PLOY\nREVOLTING TECHNOLOGY\nThe Gellerpox’s infectious tendrils reach out to corrupt\nthe mechanical, rendering weapons and machinery\ndangerous to their operators.\nUse this firefight ploy when an enemy operative\nis shooting a friendly GELLERPOX INFECTED\noperative. That operative’s ranged weapons\nhave the Hot weapon rule until the end of that\nsequence; if the weapon already has that weapon\nrule, when your opponent rolls one D6 for that\nweapon rule, you can add or subtract 1 from the\nresult. Note that for the latter you can see the\nresult of your opponent’s roll for the Hot weapon\nrule before deciding to use this ploy."
+    },
+    {
+      "id": "kt-gellerpox_infected-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "冲撞",
+      "title_en": "BARGE",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-冲撞.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n交战计谋\n冲撞\n噩梦巨物的庞大身躯能将横亘于目标前的各种\n敌人和障碍撞到一边。\n当一名己方盖勒痘魔噩梦巨物特工被激活或反\n应时，执行行动的之前或之后使用本交战计谋。\n在那次激活/反应中：\n• 它可以移动穿过敌方特工以及位于它们控制范\n围内。\n• 它可以在控制范围内有一名敌方特工时执行冲\n锋和转移行动，并且可以因此离开那名敌方特\n工的控制范围内（但那次移动的随后过程中依\n然受限于普通规则）。",
+      "text_en": "GELLERPOX INFECTED\nFIREFIGHT PLOY\nBARGE\nThe enormous bodies of the Nightmare Hulks allow them\nto barge enemies and obstructions aside to achieve\ntheir objective.\nUse this firefight ploy during a friendly\nGELLERPOX INFECTED NIGHTMARE HULK\noperative’s activation or counteraction, before or\nafter it performs an action. During that activation/\ncounteraction:\n• It can move through enemy operatives and\nwithin control range of them.\n• It can perform the Charge and Reposition\nactions while within control range of an enemy\noperative, and can leave that operative’s\ncontrol range to do so (but then normal\nrequirements for that move apply)."
+    },
+    {
+      "id": "kt-gellerpox_infected-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "腐烂之死",
+      "title_en": "PUTRESCENT DEMISE",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-腐烂之死.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n交战计谋\n腐烂之死\n随着盖勒痘魔死去，它们的尸体会在一片满载\n疾病的高危酸性血肉爆破中消逝，并由此伤害\n波及的一切。\n当一名己方盖勒痘魔特工（变异害虫除外）残\n废时，在将其移出杀戮区前使用本交战计谋。位\n于那名己方特工 2\" 内的每一名敌方特工受到 1\n点伤害（如果那名己方特工为噩梦巨物，则受到\nD3 点伤害作为替代）。",
+      "text_en": "GELLERPOX INFECTED\nFIREFIGHT PLOY\nPUTRESCENT DEMISE\nAs a Gellerpox Infected perishes, their body explodes\nin a shower of acrid disease and hazardous gore that\nharms all caught in its blast.\nUse this firefight ploy when a friendly GELLERPOX\nINFECTED operative (excluding MUTOID\nVERMIN) is incapacitated, before it’s removed\nfrom the killzone. Inflict 1 damage (or D3 damage\ninstead if that friendly operative is a NIGHTMARE\nHULK) on each enemy operative visible to and\nwithin 2\" of that friendly operative."
+    },
+    {
+      "id": "kt-gellerpox_infected-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "可怕猛攻",
+      "title_en": "FRIGHTENING ONSLAUGHT",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-可怕猛攻.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n交战计谋\n可怕猛攻\n噩梦巨物能够以恐怖的攻击速度进行无间断\n的打击。\n当一名己方盖勒痘魔噩梦巨物特工执行近战行\n动后没有残废时使用本交战计谋。它可以立即执\n行一次无消耗的近战行动（您并非必须选择同\n一名敌方特工进行近战）。本规则优先于行动\n限制。",
+      "text_en": "GELLERPOX INFECTED\nFIREFIGHT PLOY\nFRIGHTENING ONSLAUGHT\nNightmare Hulks can strike without pause, with\nterrifying speed.\nUse this firefight ploy after a friendly GELLERPOX\nINFECTED NIGHTMARE HULK operative\nperforms the Fight action, if it isn't incapacitated.\nIt can immediately perform a free Fight action\n(you don't have to select the same enemy\noperative to fight against). This takes precedence\nover action restrictions."
+    },
+    {
+      "id": "kt-gellerpox_infected-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "变异害虫",
+      "title_en": "MUTOID VERMIN",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-变异害虫.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营装备\n变异害虫\n被盖勒痘瘟感染的老鼠，蠕虫，昆虫或是其他\n污秽生物会与感染它们的主人并肩作战。\n在揭示这个装备选项后，为己方参与本场战斗的\n杀戮小队增加 4 名盖勒痘魔变异害虫特工。",
+      "text_en": "GELLERPOX INFECTED\nFACTION EQUIPMENT\nMUTOID VERMIN\nRats, worms, insectile vermin and other foul creatures\nblighted by the Gellerpox swarm to fight at the side of\ntheir infected masters.\nAfter revealing this equipment option, add\nfour GELLERPOX INFECTED MUTOID VERMIN\noperatives to your kill team for the battle."
+    },
+    {
+      "id": "kt-gellerpox_infected-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "污损库存",
+      "title_en": "POLLUTED STOCKPILE",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-污损库存.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营装备\n污损库存\n随着防卫者准备击退入侵，他们发现自己的武\n器已被盖勒痘瘟传染腐化。\n在揭示这个装备选项后，掷 2D6：若掷骰结果为\n7+，则移除您的对手的一个装备选项；在其他情\n况下，那名玩家自行选择移除一个装备选项。他\n们不能再次在那个游戏流程中选择那个装备（例\n如认证行动的侦查阶段中），您不能在选择特工\n阶段后选择这个装备选项。",
+      "text_en": "GELLERPOX INFECTED\nFACTION EQUIPMENT\nPOLLUTED STOCKPILE\nAs defenders prepare to repel the infected, they find\ntheir own weapons and equipment degraded by the\nGellerpox’s corroding influence.\nAfter revealing this equipment option, roll 2D6:\non a 7+, remove one of your opponent’s selected\nequipment options; otherwise, that player\nremoves one of their own selected equipment\noptions. They cannot select that equipment\nagain during the game sequence (e.g. in the\nScouting step of Approved Ops). You cannot\nselect this equipment option after the Select\nOperatives step."
+    },
+    {
+      "id": "kt-gellerpox_infected-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "突变病征",
+      "title_en": "MUTATED SYMPTOMS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-突变病征.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营装备\n突变病征\n盖勒痘瘟产生的症状千变万化，有些感染者\n会展现出多种变异，每一种都会比前者更为\n丑恶。\n每场战斗限一次，当您激活一名己方盖勒痘魔\n特工时，您可以使那名特工在这个转折点结束\n前获得额外的一个科技诅咒（这个选项必须与您\n现存的科技诅咒不同）。请注意，如果有规则提\n到一名受到己方科技诅咒规则效果影响的敌方特\n工（例如沃格尔·三重咒魔特工的‘散布伟大馈\n赠’规则），那么敌方特工同样会受到这个额外\n的科技诅咒影响。",
+      "text_en": "GELLERPOX INFECTED\nFACTION EQUIPMENT\nMUTATED SYMPTOMS\nThe effects of the Gellerpox are many and varied; some\ninfected display multiple mutations, each one more\ngrotesque than the last.\nOnce per battle, when you activate a friendly\nGELLERPOX INFECTED operative, you can select\none additional TECHNO-CURSE for that operative\nto gain until the end of the turning point (it must\nbe different from your existing TECHNO-CURSE).\nNote that if a rule refers to an enemy operative\nbeing affected by your selected TECHNO-CURSE\nrule (e.g. VULGRAR THRICE-CURSED operative’s\nSpread the Glorious Gifts rule), it’s affected by\nyour additional TECHNO-CURSE rule too."
+    },
+    {
+      "id": "kt-gellerpox_infected-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "瘟疫风箱",
+      "title_en": "PLAGUE BELLOWS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-瘟疫风箱.png",
+      "is_back": false,
+      "text": "盖勒痘魔\n阵营装备\n瘟疫风箱\n作为机械与凡人的混合，噩梦巨物那四处锈蚀\n的烟囱，喷射气体的排气管和呼啸的风箱都不\n断喷射着有毒云雾。\n每当一名特工对位于其 6\" 外的己方盖勒痘魔噩\n梦巨物特工进行射击时，您可以将一枚掷骰结果\n为 3 的防御骰作为普通成功进行保留，而不是将\n其舍弃。",
+      "text_en": "GELLERPOX INFECTED\nFACTION EQUIPMENT\nPLAGUE BELLOWS\nAs fusions of machine and mortal, Nightmare Hulks\nbristle with rusted flumes, belching exhaust pipes\nand wheezing bellows, all of which eject clouds of\nnoxious fumes.\nWhenever an operative is shooting a friendly\nGELLERPOX INFECTED NIGHTMARE HULK\noperative that’s more than 6\" from it, you can\nretain one of your defence dice results of 3 as a\nnormal success instead of discarding it."
+    }
+  ]
+}

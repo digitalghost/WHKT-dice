@@ -1,0 +1,916 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-DEATH_KORPS",
+  "team_name_zh": "死亡军团",
+  "team_name_en": "Death Korps",
+  "source_pdf": "最新杀戮小队规则更新/死亡军团 Death Korps 杀戮小队规则.pdf",
+  "source_pdf_sha256": "74c315cac020a784b7c48a91e215215f25866fab55ae304ad92b041898282c23",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 33,
+    "operative": 12,
+    "operative-ability": 3,
+    "team-selection": 2,
+    "faction-rule": 3,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-death_korps-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "死亡军团监军-数据卡",
+      "title_en": "DEATH KORPS WATCHMASTER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-死亡军团监军-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团监军\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢枪 4 3+ 3/4 -\n等离子手枪（标准） 4 4+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 4+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n圣物激光手枪 4 3+ 2/4 范围 8\"、致命 5+\n刺刀 4 3+ 2/3 -\n链锯剑 4 3+ 4/5 -\n动力武器 4 3+ 4/6 致命 5+\n请继续阅读背面规则\n死亡军团、帝国、星界军、队长、监军 25",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "圣物激光手枪": "远程",
+        "刺刀": "近战",
+        "链锯剑": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS WATCHMASTER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nBoltgun 4 3+ 3/4 -\nPlasma pistol (standard) 4 4+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 4+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nRelic laspistol 4 3+ 2/4 Range 8\", Lethal 5+\nBayonet 4 3+ 2/3 -\nChainsword 4 3+ 4/5 -\nPower weapon 4 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, LEADER, WATCHMASTER 25"
+    },
+    {
+      "id": "kt-death_korps-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "死亡军团监军-能力卡",
+      "title_en": "DEATH KORPS WATCHMASTER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-死亡军团监军-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团监军\n2 6\" 5+ 8\n灵活命令：如果该特工没有通过一次战略计划来发\n布守卫命令，那么您在该特工的激活期间可以消耗\n0CP 来使用“领袖鼓舞”交战计谋。\n干掉它！：如果该特工位于杀戮区内，该技能作为\n战略计谋。选择一名敌方特工。当己方死亡军团特\n工对那名敌方特工进行射击、近战或反击，这名己\n方特工的武器拥有“重击”武器技能。",
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS WATCHMASTER\n2 6\" 5+ 8\nAdaptive Orders: If this operative doesn’t issue a\nGUARDSMAN ORDER as a STRATEGIC GAMBIT, you\ncan use the Inspirational Leadership firefight ploy for 0CP during\nthis operative’s activation.\nBring it Down!: STRATEGIC GAMBIT if this operative is in\nthe killzone. Select one enemy operative. Whenever a friendly\nDEATH KORPS operative is shooting against, fighting\nagainst or retaliating against that enemy operative, that friendly\noperative’s weapons have the Punishing weapon rule."
+    },
+    {
+      "id": "kt-death_korps-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "死亡军团格斗兵-数据卡",
+      "title_en": "DEATH KORPS BRUISER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-死亡军团格斗兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团格斗兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n战壕棍 4 3+ 3/3 震荡\n格斗兵：每个转折点限一次，在该特工进行近战或\n反击时，在结算攻击骰步骤中，您可以忽略一次普\n通成功对其造成的伤害。若这名特工在近战行动中\n残废，则您可以在将这名特工从杀戮区移除前使用\n那次流程中一枚己方未结算的成功对敌方特工进行\n出击。\n死亡军团、帝国、星界军、格斗兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "战壕棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS BRUISER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nTrench club 4 3+ 3/3 Shock\nBruiser: Once per turning point, when this operative is fighting\nor retaliating, in the Resolve Attack Dice step, you can ignore the\ndamage inflicted on it from one normal success. If this operative\nis incapacitated during the Fight action, you can strike the\nenemy operative in that sequence with one of your unresolved\nsuccesses before this operative is removed from the killzone.\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, BRUISER 25"
+    },
+    {
+      "id": "kt-death_korps-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "死亡军团亲信-数据卡",
+      "title_en": "DEATH KORPS CONFIDANT",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-死亡军团亲信-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团亲信\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢枪 4 3+ 3/4 -\n激光枪 4 4+ 2/3 -\n圣物激光手枪 4 4+ 2/4 范围 8\"、致命 5+\n刺刀 3 4+ 2/3 -\n链锯剑 4 4+ 4/5 -\n副指挥官：如果己方监军特工被残废并且被移出杀戮区，您可以使用本规则。若使用，那么直到战斗结束\n前，该特工可以通过战略计划来发布一次守卫命令（尽管该特工不是监军特工)。\n请继续阅读背面规则\n死亡军团、帝国、星界军、亲信 25",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "激光枪": "远程",
+        "圣物激光手枪": "远程",
+        "刺刀": "近战",
+        "链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS CONFIDANT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nBolt pistol 4 4+ 3/4 Range 8\"\nBoltgun 4 4+ 3/4 -\nLasgun 4 4+ 2/3 -\nRelic laspistol 4 4+ 2/4 Range 8\", Lethal 5+\nBayonet 3 4+ 2/3 -\nChainsword 4 4+ 4/5 -\nSecond in Command: If a friendly WATCHMASTER operative is incapacitated and removed from the killzone, you can use this rule.\nIf you do, until the end of the battle, this operative can issue a GUARDSMAN ORDER as a STRATEGIC GAMBIT (even though\nit's not a WATCHMASTER operative).\nRULES CONTINUE ON OTHER SIDE\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, CONFIDANT 25"
+    },
+    {
+      "id": "kt-death_korps-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "死亡军团亲信-能力卡",
+      "title_en": "DEATH KORPS CONFIDANT",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-死亡军团亲信-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团亲信\n2 6\" 5+ 7\n指示：每当该特工被激活时，如果您没有在战斗中\n使用“副指挥官”规则，那么您可以选择位于该特\n工 6\" 且可见的另一名己方死亡军团特工。在该特\n工进入待机后，在您的对手进行激活前激活选择的\n那名己方特工（如果被激活的特工是士兵特工，那\n么忽略其拥有的“群体激活”规则)。",
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS CONFIDANT\n2 6\" 5+ 7\nDirective: Whenever this operative is activated, if you haven’t\nused the Second in Command rule during the battle, you can\nselect one other ready friendly DEATH KORPS operative\nvisible to and within 6\" of it. When this operative is expended,\nactivate that other friendly operative before your opponent\nactivates (if that operative is a TROOPER, ignore its Group\nActivation rule)."
+    },
+    {
+      "id": "kt-death_korps-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "死亡军团炮手-数据卡",
+      "title_en": "DEATH KORPS GUNNER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-死亡军团炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团炮手\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n榴弹发射器（破片） 4 4+ 2/4 爆炸 2\"\n榴弹发射器（穿甲） 4 4+ 4/5 穿刺 1\n热熔枪 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n等离子枪（标准） 4 4+ 4/6 穿刺 1\n等离子枪（过载） 4 4+ 5/6 过热、致命 5+、穿刺 1\n刺刀 3 4+ 2/3 -\n死亡军团、帝国、星界军、炮手 25",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "榴弹发射器（破片）": "远程",
+        "榴弹发射器（穿甲）": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS GUNNER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGrenade launcher (frag) 4 4+ 2/4 Blast 2\"\nGrenade launcher (krak) 4 4+ 4/5 Piercing 1\nMeltagun 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 4+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 4+ 5/6 Hot, Lethal 5+, Piercing 1\nBayonet 3 4+ 2/3 -\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, GUNNER 25"
+    },
+    {
+      "id": "kt-death_korps-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "死亡军团医疗兵-数据卡",
+      "title_en": "DEATH KORPS MEDIC",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-死亡军团医疗兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团医疗兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方死亡军团特工将被残废时，如\n果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方特\n工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工可\n以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名特\n工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，那\n么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时使\n用此规则。\n请继续阅读背面规则\n死亡军团、帝国、星界军、医疗、医疗兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS MEDIC\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nMedic!: The first time during each turning point that another friendly DEATH KORPS operative would be incapacitated while\nvisible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range of an\nenemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the\nremainder of the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that\nmove within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations\nrespectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this\noperative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, MEDIC 25"
+    },
+    {
+      "id": "kt-death_korps-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "死亡军团医疗兵-能力卡",
+      "title_en": "DEATH KORPS MEDIC",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-死亡军团医疗兵-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团医疗兵\n2 6\" 5+ 7\n医疗包 1AP\n选择一个位于该特工控制范围的己方死亡兵团特\n工，那名特工回复最多 2D3 点失去的耐伤。选择\n的特工不能是在转折点中成为“医疗兵！”技能\n目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS MEDIC\n2 6\" 5+ 7\nMEDIKIT 1AP\nSelect one friendly DEATH KORPS operative within this\noperative’s control range to regain up to 2D3 lost wounds.\nIt cannot be an operative that the Medic! rule was used on\nduring this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-death_korps-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "死亡军团工程兵-数据卡",
+      "title_en": "DEATH KORPS SAPPER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-死亡军团工程兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团工程兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n远程引爆器 4 2+ 5/6 重型（仅限冲刺）、有限 1、穿刺 1、安静、引爆*\n刺刀 3 4+ 2/3 -\n布雷兵：该特工携带有己方地雷标识。该特工可以\n对这枚标识执行拾取标识行动，并且在对这枚标识\n执行放置标识行动时，可以在之后立刻执行一次无\n消耗的冲刺行动。\n*引爆：不要选择一个有效目标。作为替代，对己方地雷标识\n2\" 内的每一名特工进行射击，除非特工与标识之间存在一个\n造成阻碍的重型地形。每一名被射击的特工不能拥有掩护或\n被遮挡。按照您选择的顺序为每一次流程进行掷骰。如果己\n方地雷标识不位于杀戮区，则您不能选择该武器。在行动结\n束时，将己方地雷标识移出杀戮区。在一个使用近距离战斗\n规则的杀戮区中（如杀戮区：墓穴世界），本武器拥有“致\n命 5+”武器规则。\n死亡军团、帝国、星界军、工程兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "远程引爆器": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS SAPPER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nRemote detonator 4 2+ 5/6 Heavy (Dash only), Limited 1, Piercing 1,\nSilent, Detonate*\nBayonet 3 4+ 2/3 -\nMine Layer: This operative is carrying your Mine marker. It can perform the Pick Up Marker action on that marker, and whenever it\nperforms the Place Marker action on that marker, it can immediately perform a free Dash action.\n*Detonate: Don’t select a valid target. Instead, shoot against each operative within 2\" of your Mine marker, unless Heavy terrain is\nwholly intervening between that operative and that marker. Each of those operatives cannot be in cover or obscured. Roll each sequence\nseparately in an order of your choice. This weapon cannot be selected if your Mine marker isn’t in the killzone. At the end of the action,\nremove your Mine marker from the killzone. In a killzone that uses the close quarters rules (e.g. Killzone: Tomb World), this weapon has\nthe Lethal 5+ weapon rule.\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, SAPPER 25"
+    },
+    {
+      "id": "kt-death_korps-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "死亡军团狙击手-数据卡",
+      "title_en": "DEATH KORPS SNIPER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-死亡军团狙击手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团狙击手\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光长枪（隐匿） 4 2+ 3/3 毁灭 3、重型、安静、隐匿位置*\n激光长枪（移动） 4 3+ 3/4 -\n激光长枪（静止） 4 2+ 3/3 毁灭 3、重型\n刺刀 3 4+ 2/3 -\n*隐匿位置：该特工只有在战斗中第一次执行射击行\n动时才可以使用本武器。\n死亡军团、帝国、星界军、狙击手 25",
+      "weapon_types": {
+        "激光长枪（隐匿）": "远程",
+        "激光长枪（移动）": "远程",
+        "激光长枪（静止）": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS SNIPER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLong-las (concealed) 4 2+ 3/3 Devastating 3, Heavy, Silent, Concealed Position*\nLong-las (mobile) 4 3+ 3/4 -\nLong-las (stationary) 4 2+ 3/3 Devastating 3, Heavy\nBayonet 3 4+ 2/3 -\n*Concealed Position: This operative can only use this weapon\nthe first time it’s performing the Shoot action during the battle.\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, SNIPER 25"
+    },
+    {
+      "id": "kt-death_korps-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "死亡军团观察手-数据卡",
+      "title_en": "DEATH KORPS SPOTTER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-死亡军团观察手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团观察手\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n迫击炮轰炸 4 4+ 3/5 爆炸 2\"、重型（仅限冲刺）、安静\n刺刀 3 4+ 2/3 -\n侦测 1AP\n支援。选择一名对该特工可见的敌方特工。直至转折点结束时，每该特工不能在敌方特工的控制\n当一名位于该特工 3\" 内的己方死亡军团特工对那名敌方特工进行范围内执行此行动。\n射击时，您可以使用这个效果。若使用：\n• 那名己方特工的远程武器拥有“追踪轻型”武器规则。\n• 那名敌方特工不能被遮挡。\n死亡军团、帝国、星界军、观察手 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "迫击炮轰炸": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS SPOTTER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nMortar barrage 4 4+ 3/5 Blast 2\", Heavy (Dash only), Silent\nBayonet 3 4+ 2/3 -\nSPOT 1AP\nSUPPORT. Select one enemy operative visible to this operative. Until the end of This operative cannot perform this\nthe turning point, whenever a friendly DEATH KORPS operative within 3\" of this action while within control range of an\noperative is shooting that enemy operative, you can use this effect. If you do: enemy operative.\n• That friendly operative’s ranged weapons have the Seek Light weapon rule.\n• That enemy operative cannot be obscured.\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, SPOTTER 25"
+    },
+    {
+      "id": "kt-death_korps-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "死亡军团士兵-数据卡",
+      "title_en": "DEATH KORPS TROOPER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-死亡军团士兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团士兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n群体激活：每当该特工进入待机时，您必须在对手\n之前激活另一名就绪的己方死亡军团士兵特工\n（若有)。在这另一名特工进入待机后，您的对手将\n照常进行激活（换句话说，您通过本规则连续激活\n的特工数量不能超过两名)。\n死亡军团、帝国、星界军、士兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS TROOPER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly DEATH KORPS\nTROOPER operative (if able) before your opponent activates.\nWhen that other operative is expended, your opponent then\nactivates as normal (in other words, you cannot activate more\nthan two operatives in succession with this rule).\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, TROOPER 25"
+    },
+    {
+      "id": "kt-death_korps-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "死亡军团老兵-数据卡",
+      "title_en": "DEATH KORPS VETERAN",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-死亡军团老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团老兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n仿生臂 3 4+ 4/5 -\n老兵卫士：每当该特工被激活时，该特工可以接收\n一个守卫命令。\n仿生义肢：数值大于等于 3 的普通伤害对该特工造\n成的伤害减少 1 点。\n死亡军团、帝国、星界军、老兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "仿生臂": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS VETERAN\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBionic arm 3 4+ 4/5 -\nVeteran Guardsman: Whenever this operative is activated, it can\nreceive one GUARDSMAN ORDER.\nBionics: Normal Dmg of 3 or more inflicts 1 less damage on\nthis operative.\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, VETERAN 25"
+    },
+    {
+      "id": "kt-death_korps-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "死亡军团通讯兵-数据卡",
+      "title_en": "DEATH KORPS VOX-OPERATOR",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-死亡军团通讯兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团通讯兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n传递命令：每个转折点限一次，在该特工接收守卫\n命令时，如果该特工不位于敌方特工的控制范围\n内，那么该特工可以传递接收到的命令。当命令被\n传递时，所有位于杀戮区内的己方死亡军团特工\n都将接收那条命令。随后，直到该特工的下一次激\n活结束前，其 APL 属性减少 1 点。\n传讯 1AP\n支援。选择位于该特工 6\" 内且可见的另一名己\n方死亡军团特工。直到那名特工的下一次激活\n结束前，其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行此行\n动。\n死亡军团、帝国、星界军、通讯兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS VOX-OPERATOR\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nRelay Orders: Once per turning point, when this operative\nreceives a GUARDSMAN ORDER, if it’s not within control\nrange of enemy operatives, it can relay that order. Whenever an\norder is relayed, all friendly DEATH KORPS operatives in the\nkillzone receive that order, then subtract 1 from this operative’s\nAPL stat until the end of its next activation.\nSIGNAL 1AP\nSUPPORT. Select one other friendly DEATH KORPS\noperative visible to and within 6\" of this operative. Until the\nend of that operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, VOX-OPERATOR 25"
+    },
+    {
+      "id": "kt-death_korps-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "死亡军团狂热者-数据卡",
+      "title_en": "DEATH KORPS ZEALOT",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-死亡军团狂热者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡军团狂热者\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n帝皇保佑：每当一名特工对该特工进行射击时，您\n可以重掷自己的任何防御骰。\n鼓舞启蒙：支援。位于该特工 3\" 内的己方死亡军团\n特工所装备的武器拥有“严重”武器规则。\n死亡军团、帝国、星界军、狂热者 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH KORPS ZEALOT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nThe Emperor Protects: Whenever an operative is shooting this\noperative, you can re-roll any of your defence dice.\nUplifting Primer: SUPPORT. Whenever a friendly DEATH\nKORPS operative is within 3\" of this operative, that friendly\noperative’s weapons have the Severe weapon rule.\nDEATH KORPS , IMPERIUM, ASTRA MILITARUM, ZEALOT 25"
+    },
+    {
+      "id": "kt-death_korps-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "死亡军团杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-死亡军团杀戮小队-1.png",
+      "is_back": false,
+      "text": "死亡军团\n杀戮小队\n原型：安全保护、搜索与摧毁\n特工\n↘ 1 名死亡军团监军特工，装备有以下选项：\n• 爆矢枪；刺刀\n或者从以下选项中各选择一件武器进行装备：\n• 爆矢手枪；等离子手枪；圣物激光枪\n• 链锯剑；动力武器\n↘ 4 名士兵特工\n↘ 9 名死亡军团特工，从以下列表中选择：\n• 格斗兵\n• 亲信，装备有以下一种选项：\n○ 爆矢枪或激光枪；刺刀\n○ 爆矢手枪或圣物激光手枪；链锯剑\n• 炮手，装备有火焰喷射器和刺刀\n• 炮手，装备有榴弹发射器和刺刀\n请继续阅读背面规则",
+      "text_en": "DEATH KORPS\nKILL TEAM\nARCHETYPES: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 DEATH KORPS WATCHMASTER operative\nwith the following:\n• Boltgun; bayonet\nOr one option from each of the following:\n• Bolt pistol, plasma pistol or relic laspistol\n• Chainsword or power weapon\n↘ 4 TROOPER operatives\n↘ 9 DEATH KORPS operatives selected from the\nfollowing list:\n• BRUISER\n• CONFIDANT with one of the\nfollowing options:\n○ Boltgun or lasgun; bayonet\n○ Bolt pistol or relic laspistol; chainsword\n• GUNNER with bayonet and flamer\n• GUNNER with bayonet\nand grenade launcher\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-death_korps-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "死亡军团杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-死亡军团杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 炮手，装备有热熔枪和刺刀\n• 炮手，装备有等离子枪和刺刀\n• 医疗兵\n• 工程兵\n• 狙击手\n• 观察手\n• 士兵\n• 老兵\n• 通讯兵\n• 狂热者\n除了士兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。\n最多四次，您可以选择不将本选项中的一名士\n兵特工纳入杀戮小队，作为替代，您可以在战\n斗中选择一个死亡军团计谋，选择的计谋在\n战斗中消耗 0CP。",
+      "text_en": "• GUNNER with bayonet and meltagun\n• GUNNER with bayonet and plasma gun\n• MEDIC\n• SAPPER\n• SNIPER\n• SPOTTER\n• TROOPER\n• VETERAN\n• VOX-OPERATOR\n• ZEALOT\nOther than TROOPER operatives, your kill team\ncan only include each operative on this list once.\nUp to four times, instead of selecting one of\nthese TROOPER operatives, you can select\none DEATH KORPS ploy to cost you 0CP for\nthe battle."
+    },
+    {
+      "id": "kt-death_korps-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "守卫命令-1",
+      "title_en": "GUARDSMEN ORDERS",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-守卫命令-1.png",
+      "is_back": false,
+      "text": "死亡军团\n阵营规则\n守卫命令\n克里格死亡军团的士兵们对自己的军官拥有\n绝不动摇的衷心，他们执行命令的速度和效\n率受到了诸多其他兵团的嫉妒。\n战略计划和支援。一名己方死亡军团监军特工\n可以发布一条守卫命令。在选择发布时，选择一\n个守卫命令效果，该特工 6\" 内的所有己方死亡\n军团特工都将接收到那条命令。\n每当一名己方特工接收到守卫命令时，命令的规\n则效果将持续至转折点结束为止。特工不能在同\n时受到多条守卫命令效果的影响；他们只能获得\n在转折点中最后接收到的命令效果。\n守卫命令选项将在单独的卡片上分别进行表示",
+      "text_en": "DEATH KORPS\nFACTION RULE\nGUARDSMEN ORDERS\nThe soldiers of the Death Korps of Krieg are\nunquestioningly loyal to their officers, following barked\norders with a speed and efficiency that is the envy of\nmany other regiments.\nSTRATEGIC GAMBIT and SUPPORT. A friendly\nDEATH KORPS WATCHMASTER operative\ncan issue a GUARDSMAN ORDER. Whenever it\ndoes, select one GUARDSMAN ORDER for all\nfriendly DEATH KORPS operatives within 6\" of it\nto receive.\nWhenever a friendly operative receives a\nGUARDSMAN ORDER, apply its rules until the end\nof the turning point. Operatives cannot benefit\nfrom more than one GUARDSMAN ORDER at\nonce; they only benefit from the most recent\norder they received during the turning point.\nGUARDSMEN ORDERS OPTIONS ARE\nPRESENTED ON THEIR OWN CARDS"
+    },
+    {
+      "id": "kt-death_korps-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "守卫命令-2",
+      "title_en": "GUARDSMEN ORDERS",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-守卫命令-2.png",
+      "is_back": false,
+      "text": "死亡军团\n阵营规则\n守卫命令\n瞄准！\n克里格的士兵们为步兵消耗战\n进行了专门的训练，每一名战\n士都经历了长时间的激光枪射\n击训练。\n接收到本命令的特工的远程武器（迫击炮轰炸和\n远程引爆器除外）拥有“无休”武器规则。\n上刺刀！\n克里格死亡军团所参与的战斗需\n要士兵们熟知近距离战斗和战壕\n扫荡的技巧。\n接收到本命令的特工的近战武器拥\n有“无休”武器规则。",
+      "text_en": "DEATH KORPS\nFACTION RULE\nGUARDSMEN ORDERS\nTake Aim!\nOutfitted and trained for attritional\ninfantry combat, the soldiers of Krieg\nhave undertaken endless hours of\nlasgun drills.\nRanged weapons of operatives that received\nthis order (excluding mortar barrage and remote\ndetonator) have the Ceaseless weapon rule.\nFix Bayonets!\nThe kind of warfare undertaken by\nthe Death Korps of Krieg requires\ntheir troopers to be well versed\nin close-quarters fighting and\ntrench clearance.\nMelee weapons of operatives that received this\norder have the Ceaseless weapon rule."
+    },
+    {
+      "id": "kt-death_korps-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "守卫命令-3",
+      "title_en": "GUARDSMEN ORDERS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-守卫命令-3.png",
+      "is_back": false,
+      "text": "死亡军团\n阵营规则\n守卫命令\n坚守阵地！\n克里格的士兵们极其固执，他们\n在建立了防守阵地后会以坚强的\n决心奋战到底。\n每当一名特工对接收到本命令的\n己方特工进行射击时，如果您保留了任何掩护豁\n免，那么您可以重掷任何一个指定结果的防御骰\n（例如，所有结果为 2 的防御骰)。\n冲！冲！冲！\n在监军的命令下，克里格的士兵\n们加快脚步，向下一个目标地\n点冲去。\n每当一名接收到本命令的己方特工执行转移行动\n时，其移动属性提升 1\"。",
+      "text_en": "DEATH KORPS\nFACTION RULE\nGUARDSMEN ORDERS\nDig In!\nObstinate to the last, the soldiers of\nKrieg establish defensive positions and\nhold them with grim determination.\nWhenever an operative is shooting\na friendly operative that’s received this order, if\nyou can retain any cover saves, you can re-roll\nany of your defence dice results of one result (e.g.\nresults of 2).\nMove! Move! Move!\nResponding to a barked order from\ntheir Watchmaster, the soldiers of Krieg\npick up the pace and hustle towards\ntheir next objective.\nWhenever an operative that’s received this order\nis performing the Reposition action, add 1\" to its\nMove stat."
+    },
+    {
+      "id": "kt-death_korps-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "DEATH KORPS",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "死亡军团\n标识/指示物指南\n远程引爆器侦测医疗兵\n指示物指示物指示物\n格斗兵瞄准上刺刀\n指示物指示物指示物\n冲冲冲坚守阵地地雷\n指示物指示物标识\n毒气标识",
+      "text_en": "DEATH KORPS\nMARKER/TOKEN GUIDE\nRemote Spot token Medic token\nDetonator\ntoken\nBruiser token Take Aim token Fix Bayonets\ntoken\nMove Move Dig In token Mine marker\nMove token\nGas marker"
+    },
+    {
+      "id": "kt-death_korps-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "攻城战",
+      "title_en": "SIEGE WARFARE",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-攻城战.png",
+      "is_back": false,
+      "text": "死亡军团\n战略计谋\n攻城战\n死亡军团的步兵们在消耗巨大的攻城战中如鱼\n得水，能够以相互重叠的火力网将敌人击退。\n己方死亡军团特工的远程武器拥有“集中”\n和“精准 1”武器规则。",
+      "text_en": "DEATH KORPS\nSTRATEGY PLOY\nSIEGE WARFARE\nDeath Korps infantry are at home in the dreadful grind of\nsiege warfare, repelling their foes with overlapping fields\nof withering fire.\nFriendly DEATH KORPS operatives’ ranged\nweapons have the Saturate and Accurate 1\nweapon rules."
+    },
+    {
+      "id": "kt-death_korps-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "找掩护",
+      "title_en": "TAKE COVER",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-找掩护.png",
+      "is_back": false,
+      "text": "死亡军团\n战略计谋\n找掩护\n克里格的士兵们习惯了在战壕与隧道的狭窄空\n间中进行战斗，他们能够良好地运用周边环境\n中任何可以利用的掩体。\n每当一名特工对己方死亡军团特工进行射击\n时，如果您可以保留任何掩护豁免，那么那名己\n方特工的豁免属性提升 1。",
+      "text_en": "DEATH KORPS\nSTRATEGY PLOY\nTAKE COVER\nUsed to fighting in the close confines of trenches and\ntunnels, Krieg soldiers make excellent use of whatever\nmeagre cover they can find.\nWhenever an operative is shooting a friendly\nDEATH KORPS operative, if you can retain any\ncover saves, improve that friendly operative’s\nSave stat by 1."
+    },
+    {
+      "id": "kt-death_korps-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "清扫阵线",
+      "title_en": "CLEAR THE LINE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-清扫阵线.png",
+      "is_back": false,
+      "text": "死亡军团\n战略计谋\n清扫阵线\n如果有敌人成功突破了防线，那么克里格的\n士兵们也能够维持有序的纪律并击退入侵的\n敌人。\n己方死亡军团特工的近战武器拥有“精准 1”\n武器规则。每当一名己方死亡军团特工在完全\n位于己方领地内的情况下进行近战时，或者每当\n那名特工进行反击时，其近战武器拥有“严重”\n武器规则。",
+      "text_en": "DEATH KORPS\nSTRATEGY PLOY\nCLEAR THE LINE\nShould the enemy break through, the soldiers of Krieg\nare disciplined enough to retain their composure and\nrepel the foe.\nFriendly DEATH KORPS operatives’ melee\nweapons have the Accurate 1 weapon rule.\nWhenever a friendly DEATH KORPS operative is\nfighting wholly within your territory, or whenever\nit’s retaliating, its melee weapons also have the\nSevere weapon rule."
+    },
+    {
+      "id": "kt-death_korps-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "重整",
+      "title_en": "REGROUP",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-重整.png",
+      "is_back": false,
+      "text": "死亡军团\n战略计谋\n重整\n就算是在混乱的战斗之中，克里格死亡军团的\n士兵们依旧能够保持专注，在维持队形的同\n时使用精准的激光射击消灭敌人。\n支援。选择一名位于敌方特工 3\" 外的己方死亡\n军团特工。每一名位于被选择特工 5\" 内且不\n位于敌方特工控制范围内的其他己方死亡军团\n特工可以立刻执行一次无消耗的冲刺行动，\n具体顺序由您来决定，但在这些特工结束移动\n时，他们必须比原先要更接近被选择的特工。\n请注意通用装备中的通讯装置只会影响本规则\n的第二个距离。\n您不能在同一转折点中同时使用本计谋以及“计\n时器”阵营装备战略计划。",
+      "text_en": "DEATH KORPS\nSTRATEGY PLOY\nREGROUP\nEven in the confusion of combat, the Death Korps of\nKrieg retain their focus, returning to formation as they\ndestroy the enemy with accurate las fire.\nSUPPORT. Select one friendly DEATH KORPS\noperative that’s more than 3\" from enemy\noperatives. Each other friendly DEATH KORPS\noperative within 5\" of that operative and not\nwithin control range of enemy operatives can\nimmediately perform a free Dash action in an\norder of your choice, but each that does so must\nend that move closer to that operative. Note that\na Comms Device from universal equipment only\naffects the second distance of this rule.\nYou cannot use this ploy and the Chronometer\nfaction equipment STRATEGIC GAMBIT during\nthe same turning point."
+    },
+    {
+      "id": "kt-death_korps-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "领袖鼓舞",
+      "title_en": "INSPIRATIONAL LEADERSHIP",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-领袖鼓舞.png",
+      "is_back": false,
+      "text": "死亡军团\n交战计谋\n领袖鼓舞\n最伟大的军官会以身作则，在砍倒敌人的同时\n传达精确的命令。\n支援。在一名己方死亡军团监军或死亡军团\n亲信特工的激活期间，在其执行一次行动之前\n或之后使用本交战计谋。该特工发布一条守卫\n命令。",
+      "text_en": "DEATH KORPS\nFIREFIGHT PLOY\nINSPIRATIONAL LEADERSHIP\nThe greatest officers lead by example, issuing orders\nwith calm precision even as they cut down their foes.\nSUPPORT. Use this firefight ploy during a friendly\nDEATH KORPS WATCHMASTER or DEATH\nKORPS CONFIDANT operative’s activation,\nbefore or after it performs an action. It issues a\nGUARDSMAN ORDER."
+    },
+    {
+      "id": "kt-death_korps-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "联合作战",
+      "title_en": "COMBINED ARMS",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-联合作战.png",
+      "is_back": false,
+      "text": "死亡军团\n交战计谋\n联合作战\n精准且协同的射击能够将强大的敌人击败。\n在您为一名己方死亡军团特工掷攻击骰后，如\n果该特工射击的敌方特工在转折点中也被另一\n名己方死亡军团特工射击，那么您可以使用本\n交战计谋。您可以重掷任何自己的攻击骰。",
+      "text_en": "DEATH KORPS\nFIREFIGHT PLOY\nCOMBINED ARMS\nPrecisely coordinated fire is capable of taking down\neven the most potent of enemies.\nUse this firefight ploy after rolling your attack dice\nfor a friendly DEATH KORPS operative, if it’s\nshooting an enemy operative that’s been shot by\nanother friendly DEATH KORPS operative during\nthis turning point. You can re-roll any of your\nattack dice."
+    },
+    {
+      "id": "kt-death_korps-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "生即为耻辱",
+      "title_en": "IN LIFE, SHAME",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-生即为耻辱.png",
+      "is_back": false,
+      "text": "死亡军团\n交战计谋\n生即为耻辱\n克里格教派要求每一位战士都为帝皇献身，因\n此那些还未牺牲的士兵们会尝试在战场上达成\n愈加伟大的壮举来赎罪。\n在一名己方死亡军团特工被激活且获得交战命\n令时使用本交战计谋。该特工接收每一条守卫命\n令。本规则的优先度高于守卫命令规则的常规\n限制。",
+      "text_en": "DEATH KORPS\nFIREFIGHT PLOY\nIN LIFE, SHAME\nThe Cult of Krieg demand sacrifice in the name of\nthe Emperor, so those who are yet to give their lives\nmust atone by achieving ever greater feats upon\nthe battlefield.\nUse this firefight ploy when a friendly DEATH\nKORPS operative is activated and given an\nEngage order. It receives every GUARDSMAN\nORDER. This takes precedence over the normal\nrule that operatives cannot benefit from more\nthan one GUARDSMAN ORDER at once."
+    },
+    {
+      "id": "kt-death_korps-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "死即为偿罪",
+      "title_en": "IN DEATH, ATONEMENT",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-死即为偿罪.png",
+      "is_back": false,
+      "text": "死亡军团\n交战计谋\n死即为偿罪\n所有克里格的士兵们都注定将在战斗中死去。\n牺牲教派教导他们必须通过死亡来为先祖的罪\n行赎罪。\n在一名就绪己方死亡军团特工被残废时，如果\n它不位于敌方特工的控制范围内，那么您可以使\n用本交战计谋。在将该特工移出杀戮区前，该特\n工可以立刻执行一次无消耗的行动，并且您可以\n为此更改它的命令。请注意，那名己方特工在那\n次行动期间处于受创状态。",
+      "text_en": "DEATH KORPS\nFIREFIGHT PLOY\nIN DEATH, ATONEMENT\nAll soldiers of Krieg are destined to die in battle. The\nCult of Sacrifice teaches that in death they will earn\nforgiveness for the sins of their forebears.\nUse this firefight ploy when a ready friendly\nDEATH KORPS operative is incapacitated, if it\nisn’t within control range of enemy operatives.\nBefore it’s removed from the killzone, it can\nimmediately perform one free action and you\ncan change its order to do so. Note that friendly\noperative is injured for the duration of that action."
+    },
+    {
+      "id": "kt-death_korps-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "计时器",
+      "title_en": "CHRONOMETER",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-计时器.png",
+      "is_back": false,
+      "text": "死亡军团\n阵营装备\n计时器\n克里格死亡军团按照严格的时间计划执行着\n战斗行动。将计时器同步能够保证每一名士\n兵都可以遵守指挥部所定下的时限。\n在第一或第二转折点中的战略计划，每场战斗限\n一次。每一名完全位于己方领地内的己方死亡军\n团特工可以立刻执行一次无消耗的冲刺行动，\n顺序由您来决定，但是在结束那次移动时，特\n工必须比原先要更靠近对手的降落区或杀戮区\n边缘。\n您不能在同一转折点中使用本战略计划以及“重\n整”战略计谋。",
+      "text_en": "DEATH KORPS\nFACTION EQUIPMENT\nCHRONOMETER\nKrieg combat operations are performed to strict\nschedules. Synchronised chronometers ensure\noperatives adhere to the time frames laid down\nby command.\nOnce per battle STRATEGIC GAMBIT in the first\nor second turning point. Each friendly DEATH\nKORPS operative wholly within your territory\ncan immediately perform a free Dash action in an\norder of your choice, but each that does so must\nend that move closer to an opponent’s drop zone\nor killzone edge.\nYou cannot use this STRATEGIC GAMBIT and\nthe Regroup strategy ploy during the same\nturning point."
+    },
+    {
+      "id": "kt-death_korps-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "通讯器",
+      "title_en": "COMM-BEADS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-通讯器.png",
+      "is_back": false,
+      "text": "死亡军团\n阵营装备\n通讯器\n通讯传播器和接收器能够让分散的死亡军团\n士兵们在混乱的战斗之中保持联络。\n每当一名己方死亡军团监军或者己方死亡军团\n亲信特工发布守卫命令时，您可以使用本规\n则。若使用，那么您可以选择一名己方死亡军团\n特工来接收那条命令，而不是发布者 6\" 内的每\n一名己方死亡军团特工。",
+      "text_en": "DEATH KORPS\nFACTION EQUIPMENT\nCOMM-BEADS\nVox-casters and receivers allow Death Korps soldiers\nto remain in contact even as they are separated in the\nconfusion of battle.\nWhenever a friendly DEATH KORPS\nWATCHMASTER or friendly DEATH KORPS\nCONFIDANT operative issues a GUARDSMAN\nORDER, you can use this rule. If you do, instead\nof each friendly DEATH KORPS operative within\n6\" of it receiving that order, you can select one\nfriendly DEATH KORPS operative to receive\nthat order."
+    },
+    {
+      "id": "kt-death_korps-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "手斧",
+      "title_en": "HAND AXES",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-手斧.png",
+      "is_back": false,
+      "text": "死亡军团\n阵营装备\n手斧\n这些锋利的斧头并非武器，而是作为工具进\n行配发的。但在无法使用刺刀的狭窄空间\n中，它们也可以被作为近战武器使用。\n己方死亡军团特工拥有以下近战武器：\n名称攻击命中伤害\n手斧 3 4+ 3/4",
+      "text_en": "DEATH KORPS\nFACTION EQUIPMENT\nHAND AXES\nIssued primarily as tools rather than weapons, these\nsharp-bladed axes can be utilised in melee should close\nconfines prevent the use of bayonets.\nFriendly DEATH KORPS operatives have the\nfollowing melee weapon:\nNAME ATK HIT DMG\nHand axe 3 4+ 3/4"
+    },
+    {
+      "id": "kt-death_korps-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "化学轰炸",
+      "title_en": "GAS BOMBARDMENT",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-化学轰炸.png",
+      "is_back": false,
+      "text": "死亡军团\n阵营装备\n化学轰炸\n死亡军团呼叫了化学轰炸的火炮支援，这些\n士兵们知道哪怕是密封的作战制服也无法抵\n御这些毒气的侵袭。\n战略计划，每场战斗限一次。将己方毒气标识放\n置在杀戮区中；这个标识不能被放置在制高点地\n形的下方。当一名特工位于标识的 3\" 内时，其\nAPL 属性减少 1 点。在下一个战略阶段的就绪步\n骤中，将标识移除。请注意，一名特工只有在位\n于标识的 3\" 内时才会获得 APL 的修正效果，如\n果特工移动至了标识的 3\" 外，那么其 APL 属性\n不再受到本规则的影响。",
+      "text_en": "DEATH KORPS\nFACTION EQUIPMENT\nGAS BOMBARDMENT\nCalling for artillery support, the Death Korps request\na chemical barrage, knowing full well that even\nenviro-sealed uniforms will not protect them from the\npoisonous fumes.\nOnce per battle STRATEGIC GAMBIT. Place\nyour Gas marker in the killzone; it cannot be\nplaced underneath Vantage terrain. Whenever\nan operative is within 3\" of that marker, subtract\n1 from its APL stat. In the Ready step of the next\nStrategy phase, remove that marker. Note that\nan operative’s APL stat is only changed while it’s\nwithin 3\" of that marker. If it moves more than\n3\" from that marker, its APL stat is no longer\nchanged by this rule."
+    }
+  ]
+}

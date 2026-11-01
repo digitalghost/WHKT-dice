@@ -1,0 +1,888 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-BLOODED",
+  "team_name_zh": "浴血者",
+  "team_name_en": "Blooded",
+  "source_pdf": "最新杀戮小队规则更新/浴血者 Blooded 杀戮小队规则.pdf",
+  "source_pdf_sha256": "e3918938729c917067b894df70b15db3069c466044d5993a4d648401ade88b9f",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 32,
+    "operative": 13,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-blooded-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "叛军首领-数据卡",
+      "title_en": "TRAITOR CHIEFTAIN",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-叛军首领-数据卡.png",
+      "is_back": false,
+      "text": "叛军首领 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n自动手枪 4 3+ 2/3 \u0007范围\u00078\"\n爆矢手枪 4 3+ 3/4 \u0007范围\u00078\"\n爆矢枪 4 3+ 3/4 -\n激光手枪 4 3+ 2/3 范围\u00078\"\n等离子手枪（标准） 4 3+ 3/5 范围\u00078\" ，穿刺\u00071\n等离子手枪（过载） 4 3+ 4/5 范围\u00078\" ，过热，致命\u00075+，穿刺\u00071\n刺刀 3 3+ 2/3 -\n链锯剑 4 3+ 4/5 -\n土制利刃 4 3+ 2/3 -\n动力武器 4 3+ 4/6 致命\u00075+\n请继续阅读背面规则\n浴血者、混沌、队长、首领 25",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "激光手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "刺刀": "近战",
+        "链锯剑": "近战",
+        "土制利刃": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR CHIEFTAIN\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nAutopistol 4 3+ 2/3 Range 8\"\nBolt pistol 4 3+ 3/4 Range 8\"\nBoltgun 4 3+ 3/4 -\nLaspistol 4 3+ 2/3 Range 8\"\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nBayonet 3 3+ 2/3 -\nChainsword 4 3+ 4/5 -\nImprovised blade 4 3+ 2/3 -\nPower weapon 4 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nBLOODED , CHAOS, LEADER, CHIEFTAIN 25"
+    },
+    {
+      "id": "kt-blooded-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "叛军首领-能力卡",
+      "title_en": "TRAITOR CHIEFTAIN",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-叛军首领-能力卡.png",
+      "is_back": false,
+      "text": "叛军首领 APL 移动豁免耐伤\n2 6\" 5+ 8\n浴血徽记：每个转折点一次，当拥有一枚己方浴血\n指示物的一名己方浴血者特工残废时，若这名特工\n位于其 6\" 内，您便可以重新获得那枚指示物。\n强权领导：每当这名特工拥有一枚己方浴血指示物\n或完全位于您对手的领地内，则将其视为处于诸神\n凝视之下。",
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR CHIEFTAIN\n2 6\" 5+ 8\nBlooded Icon: Once per turning point, when a friendly\nBLOODED operative that has one of your Blooded tokens is\nincapacitated, if this operative is within 6\" of it, you can regain\nthat token.\nLead With Strength: Whenever this operative has one of your\nBlooded tokens or is wholly within your opponent’s territory,\ntreat it as if it’s under the GAZE OF THE GODS."
+    },
+    {
+      "id": "kt-blooded-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "叛军硫磺掷弹兵-数据卡",
+      "title_en": "TRAITOR BRIMSTONE GRENADIER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-叛军硫磺掷弹兵-数据卡.png",
+      "is_back": false,
+      "text": "叛军硫磺掷弹兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n凶恶炸弹 4 3+ 4/3 范围 6\"，爆炸 2\"，毁灭 2，有限 1，重型（仅限\n转移），穿刺 1，集中\n刺刀 3 4+ 2/3 -\n掷弹兵：这名特工可以使用破片手雷和穿甲手雷\n（见通用装备）。这样做并不计入数量限制（这意\n味着您依然可以为其他特工选择这些手雷）。当这\n名特工使用破片或穿甲手雷时，将那个武器的命中\n属性增加 1 点。\n自爆毁灭：当这名特工残废时，那么在将其移出杀\n戮区之前，您可以使用这个规则。若此，掷两枚\nD6，不过若这名特工位于一名敌方特工控制范围内\n则改为掷一枚 D6。若任意掷骰结果为 4+，则位于\n这名特工 2\" 内且可见的每一名特工受到 D3+2 点伤\n害（为每个特工分别掷骰）。若这名特工在战斗中\n没有使用凶恶炸弹，则将伤害改为 D6+2。\n浴血者、混沌、硫磺掷弹兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "凶恶炸弹": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR BRIMSTONE GRENADIER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nDiabolyk bomb 4 3+ 4/3 Range 6\", Blast 2\", Devastating 2, Limited 1,\nHeavy (Reposition only), Piercing 1, Saturate\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nGrenadier: This operative can use frag and krak grenades (see\nuniversal equipment). Doing so doesn’t count towards any\nlimited uses you have (i.e. if you also select those grenades from\nequipment for other operatives). Whenever it’s doing so, improve\nthe Hit stat of that weapon by 1.\nExplosive Demise: If this operative is incapacitated, before it’s\nremoved from the killzone, you can use this rule. If you do, roll\ntwo D6, or one D6 if this operative is within control range of an\nenemy operative. If any result is a 4+, inflict D3+2 damage on\neach operative visible to and within 2\" of this operative (roll\nseparately for each). If this operative hasn’t used its diabolyk\nbomb during the battle, inflict D6+2 damage instead.\nBLOODED , CHAOS, BRIMSTONE GRENADIER 25"
+    },
+    {
+      "id": "kt-blooded-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "叛军屠夫-数据卡",
+      "title_en": "TRAITOR BUTCHER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-叛军屠夫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n叛军屠夫\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n动力武器和劈刀 4 3+ 4/6 无休，致命 5+，血祭*\n不洁滋养：每当这名特工进行近战或反击时，如果\n在其流程中使敌方特工残废，他就能恢复最多 D3\n点失去的耐伤。这一效果可以与“崇血印记”装备\n的效果叠加。\n*血祭：每当这名特工使用这个武器进行近战或反击\n时，在您首次使用一枚关键成功出击时，您便获得\n一枚浴血指示物。\n浴血者、混沌、屠夫 25",
+      "weapon_types": {
+        "动力武器和劈刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR BUTCHER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nPower weapon & cleaver 4 3+ 4/6 Ceaseless, Lethal 5+, Blood Offering*\nUnholy Sustenance: Whenever this operative is fighting or\nretaliating, if it incapacitates the enemy operative in that\nsequence, it regains up to D3 lost wounds. This is cumulative\nwith the Symbols of Bloody Worship equipment.\n*Blood Offering: Whenever this operative is fighting or retaliating\nwith this weapon, the first time you strike with a critical success\nduring that sequence, you gain one Blooded token.\nBLOODED , CHAOS, BUTCHER 25"
+    },
+    {
+      "id": "kt-blooded-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "叛军尸人-数据卡",
+      "title_en": "TRAITOR CORPSEMAN",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-叛军尸人-数据卡.png",
+      "is_back": false,
+      "text": "叛军尸人 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n兴奋针 3 5+ 1/4 致命\u00075+\n常规剂量：在选择特工步骤结束兴奋剂规则：\n时，若选择部署这名特工，您可\n• 复生：这名特工恢复最多 2D3 点失去的耐伤。\n以选择另一名己方浴血者特工在\n• 愤怒：这名特工的近战武器获得“毫不留情”武器规则。\n战斗中获得一条兴奋剂规则（复\n• 强化：每当攻击骰对这名特工造成大于等于 3 点的伤害时，掷一枚\n生除外）。\nD6。若掷骰结果为 5+，便将受到的伤害减去 1 点。\n请继续阅读背面规则\n浴血者、混沌、尸人 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战",
+        "兴奋针": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR CORPSEMAN\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nStimm needle 3 5+ 1/4 Lethal 5+\nRegular Dosage: At the end of the Select STIMM Rules:\nOperatives step, if this operative is\n• Rejuvenated: The operative regains up to 2D3 lost wounds.\nselected for deployment, you can select\n• Enraged: The operative’s melee weapons have the Relentless weapon rule.\none other friendly BLOODED operative\n• Fortified: Whenever an attack dice inflicts damage of 3 or more on the operative, roll\nto gain one STIMM rule for the battle\none D6: on a 5+, subtract 1 from that inflicted damage.\n(excluding Rejuvenated).\nRULES CONTINUE ON OTHER SIDE\nBLOODED , CHAOS, CORPSEMAN 25"
+    },
+    {
+      "id": "kt-blooded-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "叛军尸人-能力卡",
+      "title_en": "TRAITOR CORPSEMAN",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-叛军尸人-能力卡.png",
+      "is_back": false,
+      "text": "叛军尸人 APL 移动豁免耐伤\n2 6\" 5+ 7\n兴奋剂 1AP\n选择位于这名特工控制范围内的一名己方浴血\n者特工，并为其选择“复生”兴奋剂规则，或\n另一条兴奋剂规则用于本场战斗。在每场战斗\n中，每一名特工无法选择同一条兴奋剂规则超\n过一次。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR CORPSEMAN\n2 6\" 5+ 7\nSTIMMS 1AP\nSelect one friendly BLOODED operative within this\noperative’s control range, then select the Rejuvenated\nSTIMM rule, or one other STIMM rule for that operative to\nhave for the battle. You cannot select each STIMM rule for\neach operative more than once per battle.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-blooded-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "叛军通讯兵-数据卡",
+      "title_en": "TRAITOR COMMSMAN",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-叛军通讯兵-数据卡.png",
+      "is_back": false,
+      "text": "叛军通讯兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n发送信号 1AP\n支援。选择这名特工 6\" 内且可见的一名其他己\n方浴血者特工（欧格林除外）。直到它下一\n次激活结束前，为那名特工的 APL 属性增加 1\n点。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n渎神激励 1AP\n您获得一枚浴血指示物。\n这名特工不能在敌方特工的控制范围内执行此行\n动，也不能在没有己方浴血指示物的条件下执\n行此行动。\n浴血者、混沌、通讯兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR COMMSMAN\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nSIGNAL 1AP\nSUPPORT. Select one other friendly BLOODED\noperative (excluding OGRYN) visible to and within 6\" of this\noperative. Until the end of that operative’s next activation,\nadd 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nSACRILEGIOUS ACTUATION 1AP\nYou gain one Blooded token.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if it doesn’t have one of your\nBlooded tokens.\nBLOODED , CHAOS, COMMSMAN 25"
+    },
+    {
+      "id": "kt-blooded-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "叛军执行者-数据卡",
+      "title_en": "TRAITOR ENFORCER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-叛军执行者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n叛军执行者\n2 6\" 4+ 9\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n动力拳 4 4+ 5/7 残暴\n严苛纪律：\n• 当己方浴血者特工位于这名特工 6\" 内时，您可\n以忽略那名特工因为受创而造成的任何属性修正\n（包含武器属性）。\n• 当一名位于该特工 6\" 内的己方浴血者特工被激\n活时，您可以忽略那名特工因受创而导致的属性\n修改效果（包括武器数据)。\n强制执行 1AP\n选择对这名特工可见且位于其 3\" 内的另一名浴\n血者特工。那名特工可以立即执行一个需要消\n耗 1AP 的行动，且无需消耗任何行动点数，但\n在那次行动中无法移动超过 2\"。如果被选择的\n己方特工是通讯兵，则其不能执行“渎神激励”\n或“发送信号”行动。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n浴血者、混沌、执行者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "动力拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR ENFORCER\n2 6\" 4+ 9\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPower fist 4 4+ 5/7 Brutal\nGruelling Disciplinarian:\n• Whenever a friendly BLOODED operative is within 6\" of this\noperative, you can ignore any changes to that operative’s stats\nfrom being injured (including its weapons’ stats).\n• Whenever a friendly BLOODED operative is activated\nwithin 6\" of this operative, you can ignore any changes to\nthat operative’s stats from being injured until the end of its\nactivation (including its weapons’ stats).\nENFORCE 1AP\nSelect one other friendly BLOODED operative visible\nto and within 3\" of this operative. That operative can\nimmediately perform a 1AP action for free, but it cannot\nmove more than 2\" during that action. If the selected\nfriendly operative is a COMMSMAN, it cannot perform the\nSacrilegious Actuation or Signal actions.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nBLOODED , CHAOS, ENFORCER 32"
+    },
+    {
+      "id": "kt-blooded-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "叛军剥皮者-数据卡",
+      "title_en": "TRAITOR FLENSER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-叛军剥皮者-数据卡.png",
+      "is_back": false,
+      "text": "叛军剥皮者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n剥皮利刃 4 3+ 3/4 无休，追踪*\n*追踪：每当这名特工使用这个武器进行近战或反击\n时，若其控制范围内有轻型或重型地形，这个武器\n便获得“致命 5+”武器规则。\n卑鄙：这名特工可以在拥有隐匿命令时执行冲锋行\n动，若这名特工在近战行动中残废，您可以在将其\n从杀戮区移除前用一枚己方未结算的成功对流程中\n的敌方特工执行出击。\n浴血者、混沌、剥皮者 25",
+      "weapon_types": {
+        "剥皮利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR FLENSER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nSkinning blades 4 3+ 3/4 Ceaseless, Stalk*\n*Stalk: Whenever this operative is fighting or retaliating with this\nweapon, if Light or Heavy terrain is within its control range, this\nweapon has the Lethal 5+ weapon rule.\nWretched: This operative can perform the Charge action while\nit has a Conceal order. If this operative is incapacitated during\nthe Fight action, you can strike the enemy operative in that\nsequence with one of your unresolved successes before this\noperative is removed from the killzone.\nBLOODED , CHAOS, FLENSER 25"
+    },
+    {
+      "id": "kt-blooded-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "叛军炮手-数据卡",
+      "title_en": "TRAITOR GUNNER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-叛军炮手-数据卡.png",
+      "is_back": false,
+      "text": "叛军炮手 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"，集中，洪流 2\"\n榴弹发射器（破片） 4 4+ 2/4 爆炸 2”\n榴弹发射器（穿甲） 4 4+ 4/5 穿刺 1\n热熔枪 4 4+ 6/3 范围 6\"，毁灭 4，穿刺 2\n等离子枪（标准） 4 4+ 4/6 穿刺 1\n等离子枪（过载） 4 4+ 5/6 过热，致命 5+，穿刺 1\n刺刀 3 4+ 2/3 -\n浴血者、混沌、炮手 25",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "榴弹发射器（破片）": "远程",
+        "榴弹发射器（穿甲）": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR GUNNER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGrenade launcher (frag) 4 4+ 2/4 Blast 2\"\nGrenade launcher (krak) 4 4+ 4/5 Piercing 1\nMeltagun 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 4+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 4+ 5/6 Hot, Lethal 5+, Piercing 1\nBayonet 3 4+ 2/3 -\nBLOODED , CHAOS, GUNNER 25"
+    },
+    {
+      "id": "kt-blooded-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "叛军欧格林-数据卡",
+      "title_en": "TRAITOR OGRYN",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-叛军欧格林-数据卡.png",
+      "is_back": false,
+      "text": "叛军欧格林 APL 移动豁免耐伤\n2 6\" 5+ 16\n名称攻击命中伤害武器规则\n动力槌和变异利爪 4 3+ 5/6 撕裂，震荡\n肉山雪崩：每当这名特工在冲锋行动中结束移动\n时，您可以对其控制范围内的一名敌方特工造成 D3\n点伤害。\n药剂强化：您可以忽略对这名特工 APL 属性的任何\n修正，并且它不会受到敌方特工的“震荡”和“晕\n眩”武器规则效果影响。\n粗野：每当您的对手在选择有效目标时，若这名特\n工拥有隐匿命令，则它无法使用轻型地形作为掩\n护。尽管这个规则会使这名特工成为目标（假设其\n可见），但这不会导致其掩体豁免被移除（如果\n有）。\n迟钝：当这名特工执行拾取标识和任务行动（操作\n舱门除外）时，必须额外消耗 1 点 AP。\n浴血者、混沌、欧格林 40",
+      "weapon_types": {
+        "动力槌和变异利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR OGRYN\n2 6\" 5+ 16\nNAME ATK HIT DMG WR\nPower maul & mutant claw 4 3+ 5/6 Rending, Shock\nAvalanche of Muscle: Whenever this operative ends its move\nduring the Charge action, you can inflict D3 damage on one\nenemy operative within its control range.\nChem-enhanced: You can ignore any changes to this operative’s\nAPL stat and it’s not affected by enemy operatives’ Shock and\nStun weapon rules.\nBrute: Whenever your opponent is selecting a valid target, if\nthis operative has a Conceal order, it cannot use Light terrain\nfor cover. While this can allow this operative to be targeted\n(assuming it’s visible), it doesn’t remove its cover save (if any).\nSlow-witted: You must spend 1 additional AP for this operative to\nperform the Pick Up Marker and mission actions (excluding\nOperate Hatch).\nBLOODED , CHAOS, OGRYN 40"
+    },
+    {
+      "id": "kt-blooded-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "叛军神射手-数据卡",
+      "title_en": "TRAITOR SHARPSHOOTER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-叛军神射手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n叛军神射手\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n长射程激光枪（机动） 4 3+ 3/4 -\n长射程激光枪（静止） 4 2+ 3/3 毁灭 1，重型（仅限冲刺），安静\n刺刀 3 4+ 2/3 -\n迷彩斗篷：当一名特工对这名特工执行射击时，若\n您保留了任意掩护豁免，则您可以额外保留一个掩\n护豁免。但这无法与制高点提供的掩护豁免累加。\n低语于血中之名：战略计划。在第一个转折点中，\n选择一名敌方特工。当这名特工对那名敌方特工进\n行射击时，这名特工被视为拥有一枚浴血指示物且\n处于诸神凝视之下。\n浴血者、混沌、神射手 25",
+      "weapon_types": {
+        "长射程激光枪（机动）": "远程",
+        "长射程激光枪（静止）": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR SHARPSHOOTER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLong-las (mobile) 4 3+ 3/4 -\nLong-las (stationary) 4 2+ 3/3 Devastating 1, Heavy (Dash only), Silent\nBayonet 3 4+ 2/3 -\nCamo Cloak: Whenever an operative is shooting this operative, A Name Whispered In Blood: STRATEGIC GAMBIT in the\nif you can retain any cover saves, you can retain one additional\ncover save. This isn’t cumulative with improved cover saves from\nVantage terrain.\nfirst turning point. Select one enemy operative. Whenever this\noperative is shooting that enemy operative, treat this operative\nas if it has one of your Blooded tokens and is under the GAZE\nOF THE GODS.\nBLOODED , CHAOS, SHARPSHOOTER 25"
+    },
+    {
+      "id": "kt-blooded-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "叛军暴徒-数据卡",
+      "title_en": "TRAITOR THUG",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-叛军暴徒-数据卡.png",
+      "is_back": false,
+      "text": "叛军暴徒 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n重棒 4 3+ 4/4 残暴\n强韧：当这名特工处于近战或反击，或者被射击\n时，若普通伤害为 3 点或更多，则将其受到的伤害\n减少 1 点。\n浴血者、混沌、暴徒 25",
+      "weapon_types": {
+        "重棒": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR THUG\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nHeavy club 4 3+ 4/4 Brutal\nTough: Whenever this operative is fighting or retaliating, or an\noperative is shooting it, Normal Dmg of 3 or more inflicts 1 less\ndamage on it.\nBLOODED , CHAOS, THUG 25"
+    },
+    {
+      "id": "kt-blooded-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "叛军战壕清理者-数据卡",
+      "title_en": "TRAITOR TRENCH SWEEPER",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-叛军战壕清理者-数据卡.png",
+      "is_back": false,
+      "text": "叛军战壕清理者 APL 移动豁免耐伤\n2 6\" 4+ 9\n名称攻击命中伤害武器规则\n霰弹枪 4 3+ 3/3 范围 6\"\n刺刀和护盾 3 3+ 2/3 护盾*\n*护盾：当这名特工使用这个武器进行近战或反击\n时，己方的每个格挡都可以格挡两个未结算的成功\n（而不是一个）。\n架盾：当这名特工激活时，您可以使用这个规则，\n若此，直到这名特工下一次激活开始前：\n• 将这名特工的移动属性减少 2\"。\n• 当一名特工对这名特工进行射击时，您可以重掷\n任意防御骰。\n浴血者、混沌、战壕清理者 25",
+      "weapon_types": {
+        "霰弹枪": "远程",
+        "刺刀和护盾": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR TRENCH SWEEPER\n2 6\" 4+ 9\nNAME ATK HIT DMG WR\nShotgun 4 3+ 3/3 Range 6\"\nBayonet & shield 3 3+ 2/3 Shield*\n*Shield: Whenever this operative is fighting or retaliating with\nthis weapon, each of your blocks can be allocated to block two\nunresolved successes (instead of one).\nShielding: Whenever this operative is activated, you can use this\nrule. If you do, until the start of this operative’s next activation:\n• Subtract 2\" from its Move stat.\n• Whenever an operative is shooting this operative, you can\nre-roll any of your defence dice.\nBLOODED , CHAOS, TRENCH SWEEPER 25"
+    },
+    {
+      "id": "kt-blooded-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "叛军列兵-数据卡",
+      "title_en": "TRAITOR TROOPER",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-叛军列兵-数据卡.png",
+      "is_back": false,
+      "text": "叛军列兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n成队激活：当这名特工进入待机后，您必须在对手\n特工激活前激活就绪的另一名浴血者列兵特工（如\n果有）。当那名特工进入待机后您的对手便能正常\n激活（换言之，您无法通过这个规则连续激活超过\n两名特工）。\n浴血者、混沌、列兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRAITOR TROOPER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly BLOODED\nTROOPER operative (if able) before your opponent activates.\nWhen that other operative is expended, your opponent then\nactivates as normal (in other words, you cannot activate more\nthan two operatives in succession with this rule).\nBLOODED , CHAOS, TROOPER 25"
+    },
+    {
+      "id": "kt-blooded-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "浴血者杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-浴血者杀戮小队-1.png",
+      "is_back": false,
+      "text": "浴血者杀戮小队\n原型：渗透，搜索与摧毁\n特工\n↘ 1 名浴血者首领特工，装备有以下一种选项:\n• 自动手枪或激光手枪；链锯剑或动力武器\n• 爆矢手枪；链锯剑\n• 爆矢枪；刺刀\n• 等离子手枪；土制利刃2\n↘ 9 名浴血者特工，从以下列表进行选择:\n• 硫磺掷弹兵\n• 尸人\n• 屠夫\n• 通讯兵\n• 剥皮者\n• 装备刺刀和火焰喷射器1的炮手\n• 装备刺刀和榴弹发射器1的炮手\n• 装备刺刀和热熔枪1的炮手\n• 装备刺刀和等离子枪1,2的炮手\n• 神射手1\n请继续阅读背面",
+      "text_en": "BLOODED\nKILL TEAM\nARCHETYPES: INFILTRATION, SEEK & DESTROY\nOPERATIVES\n↘ 1 BLOODED CHIEFTAIN operative with one of\nthe following options:\n• Autopistol or laspistol; chainsword or\npower weapon\n• Bolt pistol; chainsword\n• Boltgun; bayonet\n• Plasma pistol; improvised blade2\n↘ 9 BLOODED operatives selected from the\nfollowing list:\n• BRIMSTONE GRENADIER\n• BUTCHER\n• COMMSMAN\n• CORPSEMAN\n• FLENSER\n• GUNNER with bayonet and flamer1\n• GUNNER with bayonet and\ngrenade launcher1\n• GUNNER with bayonet and meltagun1\n• GUNNER with bayonet and plasma gun1,2\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-blooded-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "浴血者杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-浴血者杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 暴徒\n• 战壕清理者\n• 列兵\n↘ 4 名浴血者特工，从以下列表执行选择:\n• 执行者（视同选择了两名特工）\n• 欧格林（视同选择了两名特工）\n• 列兵\n除了列兵特工以外，这些列表中的每一名特工只\n能被纳入您的杀戮小队一次。\n1您不能选择这类特工超过三次。\n2您不能同时选择这个选项和这名特工，换言之，\n您只能选择一名拥有等离子武器的特工。",
+      "text_en": "• SHARPSHOOTER1\n• THUG\n• TRENCH SWEEPER\n• TROOPER\n↘ 4 BLOODED operatives selected from the\nfollowing list:\n• ENFORCER (counts as two selections)\n• OGRYN (counts as two selections)\n• TROOPER\nOther than TROOPER operatives, your kill team\ncan only include each operative on this list once.\n1 You cannot select more than three of these\noperatives combined.\n2 You cannot select this option and this operative.\nIn other words, you can only have one operative\nwith a plasma weapon."
+    },
+    {
+      "id": "kt-blooded-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "浴血者-1",
+      "title_en": "BLOODED",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-浴血者-1.png",
+      "is_back": false,
+      "text": "浴血者\n阵营规则\n浴血者\n浴血者试图通过在战斗中杀死最为强大的敌人赢得\n恶毒亚空间存在的青睐。若他们在这类尝试中逝\n去，灵魂便会被视为尚可接受的牺牲。\n在下列情况下，您获得一枚浴血指示物：\n• 在每个战略阶段的就绪步骤。\n• 在每个转折点中首次出现一名敌方特工残废。\n• 在每个转折点中首次出现一名己方特工在一名敌\n方特工 6\" 内残废。\n请继续阅读背面",
+      "text_en": "BLOODED\nFACTION RULE\nBLOODED\nThe Blooded seek to earn the favour of malign warp\nentities by hurling themselves into combat and slaying\nthe most potent foes. Should they die in the attempt,\ntheir souls may serve as acceptable sacrifices.\nYou gain one Blooded token:\n• In the Ready step of each Strategy phase.\n• The first time an enemy operative is\nincapacitated during each turning point.\n• The first time a friendly operative is\nincapacitated within 6\" of an enemy operative\nduring each turning point.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-blooded-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "浴血者-2",
+      "title_en": "BLOODED",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-浴血者-2.png",
+      "is_back": true,
+      "text": "作为一个战略计划，您可以将任意未分配的浴血指\n示物给予己方浴血者特工。每一名特工拥有的己\n方浴血指示物不能超过一枚。此后若杀戮区中拥有\n己方浴血指示物的己方特工不少于四名，您便可以\n选择其中的一名在那个转折点结束前处于诸神凝视\n之下。\n每当一名己方浴血者特工拥有一枚己方浴血指示物\n时，其武器便获得“精准 1”武器规则。若那名特\n工处于诸神凝视之下，则您可以将一个作为“精准\n1”效果保留的普通成功替换为关键成功。",
+      "text_en": "As a STRATEGIC GAMBIT, you can assign any\nof your unassigned Blooded tokens to friendly\nBLOODED operatives. Each operative cannot\nhave more than one of your Blooded tokens.\nThen, if four or more friendly operatives in the\nkillzone have one of your Blooded tokens, you can\nselect one of them to be under the GAZE OF THE\nGODS until the end of the turning point.\nWhenever a friendly BLOODED operative has\none of your Blooded tokens, its weapons have\nthe Accurate 1 weapon rule. If that friendly\nBLOODED operative is under the GAZE OF\nTHE GODS, you can retain one of your normal\nsuccesses as a result of the Accurate 1 weapon\nrule as a critical success instead."
+    },
+    {
+      "id": "kt-blooded-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "BLOODED",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "浴血者\n标识/指示物指南\n浴血指示物低语于血中之名架盾指示物\n指示物\n浴血徽记指示物处于诸神凝视之凶恶炸弹指示物\n下指示物\n愤怒兴奋剂强化兴奋剂荣耀击杀指示物\n指示物指示物",
+      "text_en": "BLOODED\nMARKER/TOKEN GUIDE\nBlooded token A Name Shielding token\nWhispered in\nBlood token\nBlooded Icon Under the Diabolyk Bomb\ntoken Gaze of the token\nGods token\nEnraged Stimm Fortified Stimm Glory Kill token\ntoken token"
+    },
+    {
+      "id": "kt-blooded-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "荣耀击杀",
+      "title_en": "GLORY KILL",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-荣耀击杀.png",
+      "is_back": false,
+      "text": "浴血者\n战略计谋\n荣耀击杀\n通过击倒最为强壮或最具实力的敌人，浴血者\n便能为毁灭之力提供有价值的祭品。\n选择对一名己方浴血者特工可见的一名敌方特\n工。直到这个转折点结束前，每当一名己方浴血\n者特工对那名敌方特工进行射击，近战或对其\n反击时，其武器获得“无休”武器规则。如果那\n名进行射击，近战或反击的特工拥有一枚己方浴\n血指示物，则改为获得“毫不留情”武器规则。",
+      "text_en": "BLOODED\nSTRATEGY PLOY\nGLORY KILL\nBy bringing down the strongest and most capable of\nenemies, the Blooded may provide a worthy offering to\nthe Ruinous Powers.\nSelect one enemy operative. Until the end of the\nturning point, whenever a friendly BLOODED\noperative is shooting against, fighting against\nor retaliating against that enemy operative,\nthat shooting, fighting or retaliating operative’s\nweapons have the Ceaseless weapon rule, or\nRelentless if it has one of your Blooded tokens."
+    },
+    {
+      "id": "kt-blooded-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "鲁莽进取",
+      "title_en": "RECKLESS ASPIRANT",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-鲁莽进取.png",
+      "is_back": false,
+      "text": "浴血者\n战略计谋\n鲁莽进取\n怯弱无法赢取荣耀。浴血者们愿意冒着失去肢\n体甚至生命的危险追寻亚空间的歹毒力量。\n每当没有己方浴血指示物的一名己方浴血者特\n工在完全位于您对手领地内的位置进行射击或近\n战时，其武器获得“精准 1”武器规则。\n每当拥有一枚己方浴血指示物的一名己方浴血\n者特工完全位于您对手领地内时，其武器获\n得“重击”武器规则。",
+      "text_en": "BLOODED\nSTRATEGY PLOY\nRECKLESS ASPIRANT\nNo coward can earn glory. The Blooded are willing to\nrisk life and limb in pursuit of malefic warp powers.\nWhenever a friendly BLOODED operative\nthat’s wholly within your opponent’s territory\nand doesn’t have one of your Blooded tokens\nis shooting or fighting, its weapons have the\nAccurate 1 weapon rule.\nWhenever a friendly BLOODED operative that\nhas one of your Blooded tokens is wholly within\nyour opponent’s territory, its weapons have the\nPunishing weapon rule."
+    },
+    {
+      "id": "kt-blooded-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "歹毒勇气",
+      "title_en": "MALEVOLENT GRIT",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-歹毒勇气.png",
+      "is_back": false,
+      "text": "浴血者\n战略计谋\n歹毒勇气\n那些赢得混沌诸神青睐的人们能够利用亚空间\n预判敌人的子弹。\n每当一名特工对拥有一枚己方浴血指示物或完全\n位于您对手领地内的一名己方浴血者特工进行\n射击时，您便可以重掷防御骰中的一枚骰子。",
+      "text_en": "BLOODED\nSTRATEGY PLOY\nMALEVOLENT GRIT\nThose that have earned the favour of the Dark Gods of\nChaos may draw upon the warp to predict and avoid the\nbullets of their foes.\nWhenever an operative is shooting a friendly\nBLOODED operative that has one of your\nBlooded tokens or is wholly within your\nopponent’s territory, you can re-roll one of your\ndefence dice."
+    },
+    {
+      "id": "kt-blooded-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "苦涩退场",
+      "title_en": "BITTER DEMISE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-苦涩退场.png",
+      "is_back": false,
+      "text": "浴血者\n战略计谋\n苦涩退场\n被仇恨吞噬的浴血者会在濒死前吐着唾沫星子\n发出咒骂，并尽其所能发出猛烈攻击。在对敌\n的最后一击中，他们厉声尖啸着异端话语。\n当一名己方浴血者特工残废时，那么在将其移\n出杀戮区之前，掷一枚 D3：如果掷骰结果为 3\n（若那名己方特工拥有一枚己方浴血指示物则掷\n骰结果为 2+），则那名己方特工 2\" 内且可见的\n一名敌方特工受到数量等同于掷骰结果的伤害。",
+      "text_en": "BLOODED\nSTRATEGY PLOY\nBITTER DEMISE\nConsumed by hatred, the Blooded spit, curse and lash\nout as they die, screaming aggrieved words of heresy as\nthey land a final strike upon the foe.\nWhenever a friendly BLOODED operative is\nincapacitated, before it’s removed from the\nkillzone, roll one D3: on a 3 (or 2+ if that friendly\noperative has one of your Blooded tokens),\ninflict damage equal to the result on one\nenemy operative visible to and within 2\" of that\nfriendly operative."
+    },
+    {
+      "id": "kt-blooded-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "冷漠无情",
+      "title_en": "CALLOUS DISREGARD",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-冷漠无情.png",
+      "is_back": false,
+      "text": "浴血者\n交战计谋\n冷漠无情\n怜悯是弱者才有的特质，如果将枪口对准自\n己人能确保消灭敌人，浴血者并不会介意这\n么做。\n当一名己方浴血者特工执行射击行动，在选择\n有效目标时使用此交战计谋。另一名己方浴血者\n特工位于一名敌方特工控制范围内并不能阻止\n那名敌方特工被选为有效目标。直到那个行动结\n束前，每当您弃置一枚失败的攻击骰，您便需要\n选择一名位于目标控制范围内的己方特工受到数\n量等同于掷骰结果的伤害。",
+      "text_en": "BLOODED\nFIREFIGHT PLOY\nCALLOUS DISREGARD\nPity is a trait of the weak. The Blooded will gladly turn\ntheir guns upon their own kin if doing so will ensure the\ndestruction of an enemy.\nUse this firefight ploy when a friendly BLOODED\noperative performs the Shoot action and you’re\nselecting a valid target. Having other friendly\nBLOODED operatives within an enemy\noperative’s control range doesn’t prevent that\nenemy operative from being selected. Until\nthe end of that action, whenever you discard\nan attack dice as a fail, inflict damage equal to\nthe dice result on one friendly operative of your\nchoice within control range of the target."
+    },
+    {
+      "id": "kt-blooded-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "名誉时刻",
+      "title_en": "MOMENT OF REPUTE",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-名誉时刻.png",
+      "is_back": false,
+      "text": "浴血者\n交战计谋\n名誉时刻\n在被注入黑暗诸神之力后，浴血者的速度和好\n斗性都显著增强了。\n当处于诸神凝视之下的一名己方浴血者特工激\n活时，在其执行行动的之前或之后使用此交战计\n谋。在那名特工的激活结束前，为其 APL 属性\n增加 1 点。",
+      "text_en": "BLOODED\nFIREFIGHT PLOY\nMOMENT OF REPUTE\nWhen infused with a portion of the Dark Gods’ power,\nthe Blooded are lent infernal speed and aggression.\nUse this firefight ploy during the activation of a\nfriendly BLOODED operative that’s under the\nGAZE OF THE GODS, before or after it performs\nan action. Until the end of that operative’s\nactivation, add 1 to its APL stat."
+    },
+    {
+      "id": "kt-blooded-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "赢取奖赏",
+      "title_en": "REWARD EARNED",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-赢取奖赏.png",
+      "is_back": false,
+      "text": "浴血者\n交战计谋\n赢取奖赏\n获得毁灭之力注意的最保险办法便是以其名义\n泼洒鲜血。\n当一名敌方特工被拥有一枚己方浴血指示物且位\n于其 2\" 内的一名己方浴血者特工残废时使用此\n交战计谋。您获得一枚浴血指示物。",
+      "text_en": "BLOODED\nFIREFIGHT PLOY\nREWARD EARNED\nThe surest way to earn the attention of the Ruinous\nPowers is to draw blood in their name.\nUse this firefight ploy when an enemy operative is\nincapacitated by a friendly BLOODED operative\nwithin 2\" of it that has one of your Blooded\ntokens. You gain one Blooded token."
+    },
+    {
+      "id": "kt-blooded-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "黑暗青睐",
+      "title_en": "DARK FAVOUR",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-黑暗青睐.png",
+      "is_back": false,
+      "text": "浴血者\n交战计谋\n黑暗青睐\n那些在杀敌过程中流尽鲜血并获得那些炼狱守\n护者青睐的人们或许能免遭死亡厄运——只要\n有其他人代为付出代价即可。\n当拥有一枚己方浴血指示物的一名己方浴血者\n特工在一次近战行动中被选为近战目标或作为射\n击行动的目标时使用此交战计谋。选择这位己方\n特工 3\" 内且可见的另一名己方浴血者特工成为\n那次近战或射击行动的目标（视实际情况选择）\n作为替代（忽略通常会造成无法选择的情况），\n如果是近战行动，则在那次行动中将那位己方特\n工视为位于近战特工的控制范围内。若那是一次\n射击行动，那么其他特工只有在原本目标拥有掩\n护或被遮挡时才能拥有对应的效果。\n若那是一次射击行动且远程武器拥有“爆炸”\n或“洪流”武器规则，此交战计谋无效。",
+      "text_en": "BLOODED\nFIREFIGHT PLOY\nDARK FAVOUR\nThose who have spilled the blood of the foe and earned\nthe favour of their infernal patron may be spared from\ndeath, as long as another pays the price in their stead.\nUse this firefight ploy when a friendly BLOODED\noperative that has one of your Blooded tokens\nis selected as the valid target of a Shoot action\nor to fight against during the Fight action. Select\none other friendly BLOODED operative visible\nto and within 3\" of that first friendly operative to\nbecome the valid target or to be fought against\n(as appropriate) instead (even if it wouldn’t\nnormally be valid for this). If it’s the Fight action,\ntreat that other operative as being within the\nfighting operative’s control range for the duration\nof that action. If it’s the Shoot action, that other\noperative is only in cover or obscured if the\noriginal target was.\nThis ploy has no effect if it’s the Shoot action\nand the ranged weapon has the Blast or Torrent\nweapon rule."
+    },
+    {
+      "id": "kt-blooded-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "混沌纹章",
+      "title_en": "CHAOS SIGIL",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-混沌纹章.png",
+      "is_back": false,
+      "text": "浴血者\n阵营装备\n混沌纹章\n浴血者携带着令人不安的纹章，造成了现实扭\n曲，削弱了现实和不断变化的亚空间浪潮间\n的帷幕。\n“赢取奖赏”交战计谋的消耗变为 0CP。",
+      "text_en": "BLOODED\nFACTION EQUIPMENT\nCHAOS SIGIL\nThe disquieting sigils carried by the Blooded bend\nreality and thin the veil between realspace and the\never-shifting tides of the warp.\nThe Reward Earned firefight ploy costs you 0CP."
+    },
+    {
+      "id": "kt-blooded-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "阴森战利品",
+      "title_en": "SINISTER TROPHIES",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-阴森战利品.png",
+      "is_back": false,
+      "text": "浴血者\n阵营装备\n阴森战利品\n浴血者们会用满是锈迹的钉子将砍下的头颅，\n剥皮制造的斗篷以及受害者尸体上砍下的各种\n可怕物品钉在护甲上装点门面。\n每当一名敌方特工对位于其 2\" 内且拥有一枚己\n方浴血指示物的一名己方浴血者特工进行射\n击，近战或反击时，您的对手无法为结果为 1 的\n攻击骰进行重掷。",
+      "text_en": "BLOODED\nFACTION EQUIPMENT\nSINISTER TROPHIES\nThe Blooded adorn their armour with severed heads\naffixed to rusty spikes, cloaks and tabards of flayed skin,\nand all manner of other grisly trophies hacked from the\ncorpses of their victims.\nWhenever an enemy operative is shooting\nagainst, fighting against or retaliating against\na friendly BLOODED operative that has one of\nyour Blooded tokens and is within 2\" of it, your\nopponent cannot re-roll their attack dice results\nof 1."
+    },
+    {
+      "id": "kt-blooded-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "崇血印记",
+      "title_en": "SYMBOLS OF BLOODY WORSHIP",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-崇血印记.png",
+      "is_back": false,
+      "text": "浴血者\n阵营装备\n崇血印记\n为获得亚空间歹毒恶魔的青睐，浴血者会在护\n甲上涂抹血色符文，并愿意因此承担被注入恶\n毒力量的风险。\n当一名己方浴血者特工结束一个行动时，若其\n没有残废，但在那次行动中对任意敌方特工造成\n伤害，便恢复 1 点失去的耐伤。",
+      "text_en": "BLOODED\nFACTION EQUIPMENT\nSYMBOLS OF BLOODY WORSHIP\nDesperate to garner the favour of malefic warp entities,\nthe Blooded will daub their armour with bloody runes\nand take risks to be imbued with malevolent power.\nWhenever a friendly BLOODED operative ends\nan action, if it wasn’t incapacitated but inflicted\ndamage on any enemy operatives during that\naction, it regains 1 lost wound."
+    },
+    {
+      "id": "kt-blooded-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "邪恶之刃",
+      "title_en": "WICKED BLADES",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-邪恶之刃.png",
+      "is_back": false,
+      "text": "浴血者\n阵营装备\n邪恶之刃\n毁灭之力最为中意的便是在近距离进行致命交\n战，因此浴血者也倾向于用自己的邪恶武器捅\n向敌人。\n在战斗中为每一名己方浴血者特工的刺刀，刺\n刀和护盾以及土制利刃的两个伤害属性各增加\n1 点。",
+      "text_en": "BLOODED\nFACTION EQUIPMENT\nWICKED BLADES\nThe Ruinous Powers respect nothing so much as the\nlethal arena of close combat, and so the Blooded seek\nto plunge their wickedly sharp weapons into the flesh of\ntheir foes.\nAdd 1 to both Dmg stats of each friendly\nBLOODED operative’s bayonet, bayonet & shield\nand improvised blade for the battle."
+    }
+  ]
+}

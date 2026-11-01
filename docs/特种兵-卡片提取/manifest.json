@@ -1,0 +1,748 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-KOMMANDOS",
+  "team_name_zh": "特种兵",
+  "team_name_en": "Kommandos",
+  "source_pdf": "最新杀戮小队规则更新/特种兵 Kommandos 杀戮小队规则.pdf",
+  "source_pdf_sha256": "1a2adfc8fa68890ff391b30c219eee46e9dee555c69bb27f3bbb78590dd75176",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 27,
+    "operative": 11,
+    "operative-ability": 1,
+    "team-selection": 1,
+    "faction-rule": 1,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-kommandos-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "特种兵头目强蛮人-数据卡",
+      "title_en": "KOMMANDO BOSS NOB",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-特种兵头目强蛮人-数据卡.png",
+      "is_back": false,
+      "text": "特种兵头目强蛮人 APL 移动豁免耐伤\n3 6\" 5+ 14\n名称攻击命中伤害武器规则\n短铳 4 4+ 3/4 范围 8\"\n大砍刀 5 3+ 5/6 -\n动力爪 4 3+ 5/7 残暴，震荡\n搞定它！ 1AP\n支援。选择位于这名特工 6\" 内且可见的另一名\n己方特种兵特工（炸弹跳跳除外）。在那名\n特工下一次激活结束前，为其 APL 属性增加 1\n点。\n这名特工不能在敌方特工的控制范围内或执行反\n击时执行此行动。\n碾压时间：该特工在激活期间可以执行两次近战\n行动。\n特种兵、欧克蛮人、队长、头目强蛮人 32",
+      "weapon_types": {
+        "短铳": "远程",
+        "大砍刀": "近战",
+        "动力爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO BOSS NOB\n3 6\" 5+ 14\nNAME ATK HIT DMG WR\nSlugga 4 4+ 3/4 Range 8\"\nBig choppa 5 3+ 5/6 -\nPower klaw 4 3+ 5/7 Brutal, Shock\nKrumpin’ Time: This operative can perform two Fight actions during its activation.\nGET IT DUN! 1AP\nSUPPORT. Select one other friendly KOMMANDO operative (excluding BOMB SQUIG) visible to and within 6\" of this\noperative. Until the end of that operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control range of an enemy operative, or while counteracting.\nKOMMANDO , ORK, LEADER, BOSS NOB 32"
+    },
+    {
+      "id": "kt-kommandos-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "特种兵炸弹跳跳-数据卡",
+      "title_en": "KOMMANDO BOMB SQUIG",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-特种兵炸弹跳跳-数据卡.png",
+      "is_back": false,
+      "text": "特种兵炸弹跳跳 APL 移动豁免耐伤\n2 6\" 5+ 5\n名称攻击命中伤害武器规则\n爆炸物 6 4+ 4/5 爆炸 1\" 、有限 1 、爆炸物*\n啃咬 3 4+ 4/5 -\n*爆炸物：这名特工可以在一名敌方特工的控制范围\n内使用这个武器执行射击行动。在射击时无需选择\n有效目标，将这名特工永远作为主要目标，且不会\n处于掩护或遮挡中。\n嘭！：当一场战斗中这名特工在并没有使用其爆炸\n物的情况下被残废，则按照您的意愿掷一枚或两枚\nD6。若有任何结果为 4+，则在将其从杀戮区移除\n前用“爆炸物”执行一次无消耗射击行动。\n请继续阅读背面规则\n特种兵、欧克蛮人、炸弹跳跳 25",
+      "weapon_types": {
+        "爆炸物": "远程",
+        "啃咬": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO BOMB SQUIG\n2 6\" 5+ 5\nNAME ATK HIT DMG WR\nExplosives 6 4+ 4/5 Blast 1\", Limited 1, Explosive*\nBite 3 4+ 4/5 -\n*Explosive: This operative can perform the Shoot action with\nthis weapon while within control range of an enemy operative.\nDon’t select a valid target. Instead, this operative is always the\nprimary target and cannot be in cover or obscured.\nBoom!: If this operative is incapacitated during a battle in which\nit hasn’t used its explosives, roll one D6, or two D6 if you wish. If\nany result is a 4+, this operative performs a free Shoot action\nwith its explosives before it’s removed from the killzone.\nRULES CONTINUE ON OTHER SIDE\nKOMMANDO , ORK, BOMB SQUIG 25"
+    },
+    {
+      "id": "kt-kommandos-01-03",
+      "sequence": 3,
+      "category": "operative-ability",
+      "title_zh": "特种兵炸弹跳跳-能力卡",
+      "title_en": "KOMMANDO BOMB SQUIG",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工能力-特种兵炸弹跳跳-能力卡.png",
+      "is_back": false,
+      "text": "特种兵炸弹跳跳 APL 移动豁免耐伤\n2 6\" 5+ 5\n愚笨：在交战阶段确定这个特工命令时，您不能为\n其选择隐匿命令。这名特工无法执行除冲锋，冲\n刺，近战，转移和射击外的任何行动，并无法使用\n任何其数据卡上没有的武器。\n消耗品：这名特工在您对手的杀戮/消灭任务中\n（它被残废以及确认您起始特工数量时）将被忽\n略。在判断需要特工“逃离”、“存活”，或者被\n敌方特工残废的胜利条件和 VP 获取方式时，它也\n将被忽略（它是否逃脱/存活/被击杀，确认多少特工\n必须逃脱/存活/被击杀等情况下）。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO BOMB SQUIG\n2 6\" 5+ 5\nStoopid: In the Firefight phase, whenever you determine this\noperative’s order, you cannot select Conceal. This operative\ncannot perform any actions other than Charge, Dash, Fight,\nReposition and Shoot. It cannot use any weapons that aren’t\non its datacard.\nExpendable: This operative is ignored for your opponent’s kill/\nelimination op (when it’s incapacitated, and when determining\nyour starting number of operatives). It’s also ignored for victory\nconditions and scoring VPs if either require operatives to\n‘escape’, ‘survive’ or be incapacitated by enemy operatives (if\nit escapes/survives/is incapacitated, determining how many\noperatives must escape/survive/be incapacitated, etc.)."
+    },
+    {
+      "id": "kt-kommandos-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "特种兵小子-数据卡",
+      "title_en": "KOMMANDO BOY",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-特种兵小子-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n特种兵小子\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n短铳 4 4+ 3/4 范围 8\"\n砍刀 4 3+ 4/5 -\n战术抛掷：以下每项您都可以在每个转折点中执行\n一次：\n• 一名己方特种兵小子特工可以执行烟雾手雷行\n动。\n• 一名己方特种兵小子特工可以执行震荡手雷行\n动。\n这些行动的规则在通用装备相应装备中。但使用本\n规则执行的行动并不计入其可执行的次数限制（在\n您同时在装备中选择了这些手雷的情况下）。\n特种兵、欧克蛮人、小子 32",
+      "weapon_types": {
+        "短铳": "远程",
+        "砍刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nSlugga 4 4+ 3/4 Range 8\"\nChoppa 4 3+ 4/5 -\nTaktical Wot-notz: You can do each of the following once per turning point:\n• One friendly KOMMANDO BOY operative can perform the Smoke Grenade action.\n• One friendly KOMMANDO BOY operative can perform the Stun Grenade action.\nThe rules for these actions are found in universal equipment. Performing these actions using this rule doesn’t count towards their\naction limits (i.e. if you also select those grenades from equipment).\nKOMMANDO , ORK, BOY 32"
+    },
+    {
+      "id": "kt-kommandos-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "特种兵破防小子-数据卡",
+      "title_en": "KOMMANDO BREACHA BOY",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-特种兵破防小子-数据卡.png",
+      "is_back": false,
+      "text": "特种兵破防小子 APL 移动豁免耐伤\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n短铳 4 4+ 3/4 范围 8\"\n突破撞锤 4 4+ 5/5 残暴，严重，震荡\n突破 1AP\n将一枚己方突破标识放置在这名特工控制范围内，且尽可能靠近其这名特工不能在敌方特工的控\n控制范围内一个地形模型的位置。当一名特工位于这个标记 1\" 内制范围内或地形模型不处于其\n时，将那个地形模型厚度不超过 1\" 的部分视为可穿越地形。控制范围内时执行此行动。\n这名特工可以在冲锋或转移行动中执行此行动。并可以在那个行动\n中减少 1 点行动点数消耗。并且在如此使用本行动后，任何余下的\n移动距离依然可以继续正常使用。\n特种兵、欧克蛮人、破防小子 32",
+      "weapon_types": {
+        "短铳": "远程",
+        "突破撞锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO BREACHA BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nSlugga 4 4+ 3/4 Range 8\"\nBreacha ram 4 4+ 5/5 Brutal, Severe, Shock\nBREACH 1AP\nPlace one of your Breach markers within this operative’s control range as close as possible to a terrain feature within control\nrange of it. Whenever an operative is within 1\" of that marker, it treats parts of that terrain feature that are no more than 1\" thick\nas Accessible terrain.\nThis operative can perform this action during the Charge or Reposition action, and it can do so for 1 less AP during those\nactions. Any remaining move distance can be used after it does so.\nThis operative cannot perform this action while within control range of an enemy operative, or if a terrain feature isn’t within its\ncontrol range.\nKOMMANDO , ORK, BREACHA BOY 32"
+    },
+    {
+      "id": "kt-kommandos-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "特种兵喷火小子-数据卡",
+      "title_en": "KOMMANDO BURNA BOY",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-特种兵喷火小子-数据卡.png",
+      "is_back": false,
+      "text": "特种兵喷火小子 APL 移动豁免耐伤\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n喷火枪（汹流） 4 2+ 3/3 范围 4\"，集中，追踪，洪流 0\"\n喷火枪（标准） 4 2+ 3/3 范围 8\"，集中，洪流 2\"\n双拳 3 3+ 3/4 -\n*请注意，洪流 0\" 武器意味着您不能选择次要目\n标，但是武器在其他规则中依旧算作是洪流武器，\n例如拥挤堡垒规则（参见《杀戮小队》核心规则书\n中的杀戮区：沃库斯)。\n特种兵、欧克蛮人、喷火小子 32",
+      "weapon_types": {
+        "喷火枪（汹流）": "远程",
+        "喷火枪（标准）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO BURNA BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nBurna (standard) 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nBurna (deluge) 4 2+ 3/3 Range 4\", Saturate, Seek, Torrent 0\"*\nFists 3 3+ 3/4 -\n*Note that Torrent 0\" means you cannot select secondary\ntargets, but this weapon still has the Torrent weapon rule for all\nother rules purposes, e.g. the Condensed Stronghold rule (see\nKillzone: Volkus, Kill Team Core Book).\nKOMMANDO , ORK, BURNA BOY 32"
+    },
+    {
+      "id": "kt-kommandos-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "特种兵通讯小子-数据卡",
+      "title_en": "KOMMANDO COMMS BOY",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-特种兵通讯小子-数据卡.png",
+      "is_back": false,
+      "text": "特种兵通讯小子 APL 移动豁免耐伤\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n震荡手枪 6 4+ 1/0 范围 8\"，毁灭 2，严重，晕眩\n双拳 3 3+ 3/4 -\n小子们，我有个计划：在这名特\n监听 1AP\n工的每次激活中，这名特工有一\n次机会将执行的放置标识，拾取支援。选择位于这名特工 6\" 这名特工不能在敌方特工的控\n标识或一个任务行动消耗的行动内且可见的另一名己方特种制范围内执行此行动。\n点数减去 1 点。兵特工（炸弹跳跳除外）。\n直到它下一次激活结束前，\n为那名特工的 APL 属性增\n加 1 点。\n特种兵、欧克蛮人、通讯小子 32",
+      "weapon_types": {
+        "震荡手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO COMMS BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nShokka pistol 6 4+ 1/0 Range 8\", Devastating 2, Severe, Stun\nFists 3 3+ 3/4 -\nI Got a Plan, Ladz: Once during each of LISTEN IN 1AP\nthis operative’s activations, it can perform\nSUPPORT. Select one other friendly KOMMANDO operative (excluding\nthe Pick Up Marker, Place Marker\nBOMB SQUIG) visible to and within 6\" of this operative. Until the end of that\nor a mission action for 1 less AP.\noperative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control range of an\nenemy operative.\nKOMMANDO , ORK, COMMS BOY 32"
+    },
+    {
+      "id": "kt-kommandos-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "特种兵突突小子-数据卡",
+      "title_en": "KOMMANDO DAKKA BOY",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-特种兵突突小子-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n特种兵突突小子\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n突突射枪（远距离） 5 4+ 3/4 -\n突突射枪（近距离） 5 4+ 3/4 范围 9\"，无休\n双拳 3 3+ 3/4 -\n突突猛冲 1AP\n以任意顺序执行一次无消耗的冲刺行动和一次无\n消耗的射击行动，您在那次射击行动中只能选择\n突突射枪。\n这名特工不能在敌方特工的控制范围内或拥有隐\n匿命令时执行此行动。\n特种兵、欧克蛮人、突突小子 32",
+      "weapon_types": {
+        "突突射枪（远距离）": "远程",
+        "突突射枪（近距离）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO DAKKA BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nDakka shoota (short range) 5 4+ 3/4 Range 9\", Ceaseless\nDakka shoota (long range) 5 4+ 3/4 -\nFists 3 3+ 3/4 -\nDAKKA DASH 1AP\nPerform a free Dash action and a free Shoot action with this operative in any order. You can only select a dakka shoota for that\nShoot action.\nThis operative cannot perform this action while it has a Conceal order, or while within control range of an enemy operative.\nKOMMANDO , ORK, DAKKA BOY 32"
+    },
+    {
+      "id": "kt-kommandos-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "特种兵地精-数据卡",
+      "title_en": "KOMMANDO GROT",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-特种兵地精-数据卡.png",
+      "is_back": false,
+      "text": "特种兵地精 APL 移动豁免耐伤\n2 6\" 5+ 5\n名称攻击命中伤害武器规则\n地精砍刀 3 5+ 1/4 -\n鬼祟小玩意：这名特工无法获得抓钩 1AP\n交战命令。当这名特工处于掩护\n时，便无法被选为有效目标，本选择一个地形模型上对这名特这个行动被视为转移行动。这\n规则的优先度高于所有其他规则工可见的一个点。将这名特工名特工不能在敌方特工的控制\n（例如‘追踪’武器规则和制高从杀戮区移除，并将其重新部范围内或在执行了冲锋或后撤\n点地形)，除非攻击者位于特工署在那个点水平 1\" 内且可以被的同一个激活中执行此行动\n的 2\" 内。部署，不位于敌方特工控制范（反之亦然）。\n围内且对那个点可见的位置。\n这名特工在行动中不能执行\n“操作舱门”行动。\n特种兵、欧克蛮人、地精 25",
+      "weapon_types": {
+        "地精砍刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO GROT\n2 6\" 5+ 5\nNAME ATK HIT DMG WR\nGrot choppa 3 5+ 1/4 -\nSneaky Zogger: This operative cannot GRAPPLING HOOK 1AP\nhave an Engage order. Whenever this\nSelect a visible point on a terrain feature for this operative. Remove this operative\noperative is in cover, it cannot be selected\nfrom the killzone and set it back up within 1\" horizontally of that point in a location\nas a valid target, taking precedence over\nit can be placed, not within control range of enemy operatives, and with that point\nall other rules (e.g. Seek, Vantage terrain)\nvisible to it. This operative cannot perform the Operate Hatch action during\nexcept being within 2\".\nthis action.\nThis action is treated as a Reposition action. This operative cannot perform this\naction while within control range of an enemy operative, or during an activation in\nwhich it performed the Charge or Fall Back action (or vice versa).\nKOMMANDO , ORK, GROT 25"
+    },
+    {
+      "id": "kt-kommandos-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "特种兵火箭小子-数据卡",
+      "title_en": "KOMMANDO ROKKIT BOY",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-特种兵火箭小子-数据卡.png",
+      "is_back": false,
+      "text": "特种兵火箭小子 APL 移动豁免耐伤\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n火箭发射器（瞄准） 6 4+ 4/5 爆炸 1\"，无休，重型 (仅限冲刺)\n火箭发射器（机动） 6 4+ 4/5 爆炸 1\"\n双拳 3 3+ 3/4 -\n特种兵、欧克蛮人、火箭小子 32",
+      "weapon_types": {
+        "火箭发射器（瞄准）": "远程",
+        "火箭发射器（机动）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO ROKKIT BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nRokkit launcha (aimed) 6 4+ 4/5 Blast 1\", Ceaseless, Heavy (Dash only)\nRokkit launcha (mobile) 6 4+ 4/5 Blast 1\"\nFists 3 3+ 3/4 -\nKOMMANDO , ORK, ROKKIT BOY 32"
+    },
+    {
+      "id": "kt-kommandos-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "特种兵劈砍小子-数据卡",
+      "title_en": "KOMMANDO SLASHA BOY",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-特种兵劈砍小子-数据卡.png",
+      "is_back": false,
+      "text": "特种兵劈砍小子 APL 移动豁免耐伤\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n投掷匕首 4 3+ 2/5 范围 6\"，安静\n双持砍刀 4 3+ 4/5 无休，致命 5+\n就这点能耐？：在这名特工执行近战或反击后，若\n其没有残废，则在那个流程中对敌方特工造成 D3\n点伤害。\n特种兵、欧克蛮人、劈砍小子 32",
+      "weapon_types": {
+        "投掷匕首": "远程",
+        "双持砍刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO SLASHA BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nThrowing knives 4 3+ 2/5 Range 6\", Silent\nTwin choppas 4 3+ 4/5 Ceaseless, Lethal 5+\nDat All You Got?: After this operative fights or retaliates, if it\nwasn’t incapacitated, you can inflict D3 damage on the enemy\noperative in that sequence.\nKOMMANDO , ORK, SLASHA BOY 32"
+    },
+    {
+      "id": "kt-kommandos-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "特种兵狙击小子-数据卡",
+      "title_en": "KOMMANDO SNIPA BOY",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-特种兵狙击小子-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n特种兵狙击小子\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n精准大射枪（隐蔽） 5 3+ 3/3 毁灭 2，重型，安静，隐蔽位置*\n精准大射枪（静止） 5 3+ 3/3 毁灭 2，重型\n精准大射枪（扫射） 5 3+ 3/4 重型 (仅限冲刺)，洪流 1\"\n双拳 3 3+ 3/4 -\n*隐蔽位置：这名特工只能在战斗中的第一次射击行\n动中使用这个武器。\n特种兵、欧克蛮人、狙击小子 32",
+      "weapon_types": {
+        "精准大射枪（隐蔽）": "远程",
+        "精准大射枪（静止）": "远程",
+        "精准大射枪（扫射）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKOMMANDO SNIPA BOY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nScoped big shoota (concealed) 5 3+ 3/3 Devastating 2, Heavy, Silent, Concealed Position*\nScoped big shoota (stationary) 5 3+ 3/3 Devastating 2, Heavy\nScoped big shoota (sweeping) 5 3+ 3/4 Heavy (Dash only), Torrent 1\"\nFists 3 3+ 3/4 -\n*Concealed Position: This operative can only use this weapon\nthe first time it’s performing the Shoot action during the battle.\nKOMMANDO , ORK, SNIPA BOY 32"
+    },
+    {
+      "id": "kt-kommandos-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "特种兵杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-特种兵杀戮小队.png",
+      "is_back": false,
+      "text": "特种兵杀戮小队\n原型：渗透，搜索与摧毁\n特工\n↘ 1 名特种兵头目强蛮人特工，装备有以下一\n种选项:\n• 短铳；大砍刀\n• 短铳；动力爪\n↘ 9 名特种兵特工，从以下列表进行选择:\n• 炸弹跳跳 • 突突小子\n• 小子 • 地精\n• 破防小子 • 火箭小子\n• 喷火小子 • 劈砍小子\n• 通讯小子 • 狙击小子\n除了小子特工以外，列表中的每一名特工只能被\n纳入您的杀戮小队一次。\n这些特工在选择时被视为半个选项，这意味着\n您可以同时选择两者并被合计视为一个选择。",
+      "text_en": "KOMMANDOS\nKILL TEAM\nARCHETYPES: INFILTRATION, SEEK & DESTROY\nOPERATIVES\n↘ 1 KOMMANDO BOSS NOB operative with one\nof the following options:\n• Slugga; big choppa\n• Slugga; power klaw\n↘ 9 KOMMANDO operatives selected from the\nfollowing list:\n• BOMB SQUIG • DAKKA BOY\n• BOY • GROT\n• BREACHA BOY • ROKKIT BOY\n• BURNA BOY • SLASHA BOY\n• COMMS BOY • SNIPA BOY\nOther than BOY operatives, your kill team can\nonly include each operative on this list once.\nThese operatives count as half a selection each,\nmeaning you can select both of them and it’s\ntreated as one selection in total."
+    },
+    {
+      "id": "kt-kommandos-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "割喉者",
+      "title_en": "THROAT SLITTAS",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-割喉者.png",
+      "is_back": false,
+      "text": "特种兵\n阵营规则\n割喉者\n和其他欧克蛮人不同，特种兵们更倾向于用隐匿和\n误导接近敌人，以便使用带齿利刃攻向敌人。\n每一名己方特种兵特工（炸弹跳跳除外）都可以\n在拥有隐匿命令时执行冲锋行动。",
+      "text_en": "KOMMANDO\nFACTION RULE\nTHROAT SLITTAS\nUnusual amongst Orks, Kommandos utilise stealth and\nmisdirection to close in before falling upon the enemy\nwith jagged blades drawn.\nEach friendly KOMMANDO operative (excluding\nBOMB SQUIG) can perform the Charge action\nwhile it has a Conceal order."
+    },
+    {
+      "id": "kt-kommandos-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "KOMMANDO",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "特种兵\n标识/指示物指南\n爆炸物指示物突破标识\n炸药指示物鱼叉指示物\n震荡手雷指示物烟雾手雷指示物",
+      "text_en": "KOMMANDO\nMARKER/TOKEN GUIDE\nExplosives token Breach marker\nDynamite token Harpoon token\nStun Grenade token Smoke Grenade token"
+    },
+    {
+      "id": "kt-kommandos-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "突！突！突！",
+      "title_en": "DAKKA! DAKKA! DAKKA!",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-突！突！突！.png",
+      "is_back": false,
+      "text": "特种兵\n战略计谋\n突！突！突！\n尽管特种兵们比起其他欧克蛮人更为狡诈，但\n他们依然认为单靠倾泻大量火力便足以压制任\n何目标。\n己方特种兵特工的远程武器拥有“重击”武器规\n则。",
+      "text_en": "KOMMANDO\nSTRATEGY PLOY\nDAKKA! DAKKA! DAKKA!\nWhilst they are more subtle than other Orks,\nKommandos hold to the same belief that any target can\nbe overcome by simply applying a greater volume of fire.\nFriendly KOMMANDO operatives’ ranged\nweapons have the Punishing weapon rule."
+    },
+    {
+      "id": "kt-kommandos-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "WAAAGH!",
+      "title_en": "WAAAGH!",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-WAAAGH!.png",
+      "is_back": false,
+      "text": "特种兵\n战略计谋\nWAAAGH!\n欧克蛮人那个臭名昭著的可怕战吼是血雨腥风\n的征兆。\n己方特种兵特工的近战武器获得“平衡”武器规\n则。",
+      "text_en": "KOMMANDO\nSTRATEGY PLOY\nWAAAGH!\nThe infamous and dreaded battle cry of the Orks heralds\na tempest of violence and butchery.\nFriendly KOMMANDO operatives’ melee\nweapons have the Balanced weapon rule."
+    },
+    {
+      "id": "kt-kommandos-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "游荡",
+      "title_en": "SKULK ABOUT",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-游荡.png",
+      "is_back": false,
+      "text": "特种兵\n战略计谋\n游荡\n这群鬼祟的特种兵比一般欧克蛮人更为狡诈，\n能够利用掩护和地形悄然接近敌人。\n每当一名敌方特工对拥有隐匿命令的己方特种兵\n特工执行射击时，您无需掷骰便可以保留一枚防\n御骰作为普通成功（本效果在掩护豁免之外额外生\n效）。",
+      "text_en": "KOMMANDO\nSTRATEGY PLOY\nSKULK ABOUT\nKommandos exploit cover and terrain to confound the\nenemy and confuse their aim.\nWhenever an enemy operative is shooting a\nfriendly KOMMANDO operative that has a\nConceal order, you can retain one of your defence\ndice as a normal success without rolling it (in\naddition to a cover save, if any)."
+    },
+    {
+      "id": "kt-kommandos-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "嘘——！",
+      "title_en": "SSSSHHHH!",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-嘘——！.png",
+      "is_back": false,
+      "text": "特种兵\n战略计谋\n嘘——！\n尽管欧克蛮人特种兵体型硕大，但在需要时依\n然可以在安静到出奇的情况下移动。\n每一名不是敌方特工有效目标或拥有隐匿命令且\n位于敌方特工 6\" 外的己方特种兵特工可以立即\n执行一次无消耗冲刺行动。该计谋不能在第一个转\n折点中使用。",
+      "text_en": "KOMMANDO\nSTRATEGY PLOY\nSSSSHHHH!\nDespite their colossal bulk, Ork Kommandos are capable\nof moving surprisingly quietly, should the situation\ndemand it.\nEach friendly KOMMANDO operative that’s\nnot a valid target for enemy operatives, or has a\nConceal order and is more than 6\" from enemy\noperatives, can immediately perform a free Dash\naction. You cannot use this ploy during the first\nturning point."
+    },
+    {
+      "id": "kt-kommandos-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "擦伤罢了",
+      "title_en": "JUST A SCRATCH",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-擦伤罢了.png",
+      "is_back": false,
+      "text": "特种兵\n交战计谋\n擦伤罢了\n欧克蛮人在受到足以令大多数其他生物伤残的\n伤害时，依然能够保持活力。\n在一名己方特种兵特工（炸弹跳跳和地精除\n外）由于一枚攻击骰受到普通伤害时使用此交战\n计谋。忽略那个伤害。",
+      "text_en": "KOMMANDO\nFIREFIGHT PLOY\nJUST A SCRATCH\nOrks have a remarkable ability to shrug off grievous\ndamage that would incapacitate most other species.\nUse this firefight ploy when an attack dice\ninflicts Normal Dmg on a friendly KOMMANDO\noperative (excluding BOMB SQUIG and GROT).\nIgnore that inflicted damage."
+    },
+    {
+      "id": "kt-kommandos-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "碾碎他们！",
+      "title_en": "KRUMP ’EM!",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-碾碎他们！.png",
+      "is_back": false,
+      "text": "特种兵\n交战计谋\n碾碎他们！\n尽管特种兵们比起一般欧克蛮人更为狡猾，但\n他们依然渴望着战斗与杀戮。\n在交战阶段结束时使用这个交战计谋。选择一名\n己方特种兵特工，它可以立即执行一次无消耗\n的近战行动。",
+      "text_en": "KOMMANDO\nFIREFIGHT PLOY\nKRUMP ’EM!\nWhilst they are far more crafty than your average Ork,\nKommandos are still ultimately driven by a need to fight\nand kill.\nUse this firefight ploy at the end of the Firefight\nphase. Select one friendly KOMMANDO\noperative. It can immediately perform a free\nFight action."
+    },
+    {
+      "id": "kt-kommandos-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "狡诈而残暴",
+      "title_en": "KUNNIN’ BUT BRUTAL",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-狡诈而残暴.png",
+      "is_back": false,
+      "text": "特种兵\n交战计谋\n狡诈而残暴\n特种兵们倾向于通过狡猾的隐匿手段潜入敌\n人之中，但这并不代表他们对残暴的热衷有\n所衰减。\n在拥有隐匿命令且在激活中执行了冲锋行动的\n一名己方特种兵特工执行的近战中，您结算第\n一枚攻击骰为出击的普通成功时使用这个交战计\n谋。将那次普通成功替换为关键成功。",
+      "text_en": "KOMMANDO\nFIREFIGHT PLOY\nKUNNIN’ BUT BRUTAL\nWhilst they may utilise stealth and cunning to get\nwithin range of their enemies, Kommandos are no less\nenthusiastic about meting out brutal violence.\nUse this firefight ploy when a friendly\nKOMMANDO operative that has a Conceal\norder is fighting during an activation in which it\nperformed the Charge action, you’re resolving the\nfirst attack dice, and it’s a strike with a normal\nsuccess. Treat that normal success as a critical\nsuccess instead."
+    },
+    {
+      "id": "kt-kommandos-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "轻松摆脱",
+      "title_en": "SHAKE IT OFF",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-轻松摆脱.png",
+      "is_back": false,
+      "text": "特种兵\n交战计谋\n轻松摆脱\n欧克蛮人的特种兵们不仅天生拥有超强的适应\n力，还披挂着各种土制护甲和防护装备，导致\n他们的脚步很难被拖慢。\n在一名己方特种兵特工激活或者其 APL 属性\n被修正时使用这个交战计谋。直到下一个转折\n点开始前，您可以忽略其 APL 属性受到的任意\n修正。",
+      "text_en": "KOMMANDO\nFIREFIGHT PLOY\nSHAKE IT OFF\nOrk Kommandos bolster their natural resilience with\nmakeshift armour and protective equipment, rendering\ntheir advance almost impossible to slow.\nUse this firefight ploy when a friendly\nKOMMANDO operative is activated, or when its\nAPL stat is changed. Until the start of the next\nturning point, you can ignore any changes to its\nAPL stat."
+    },
+    {
+      "id": "kt-kommandos-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "砍刀",
+      "title_en": "CHOPPAS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-砍刀.png",
+      "is_back": false,
+      "text": "特种兵\n阵营装备\n砍刀\n欧克蛮人的大刀尽管做工粗糙且锈迹斑斑，不\n过对于手起刀落造成的效果几乎没什么影响。\n己方特种兵特工（炸弹跳跳和地精除外）获得\n下列近战武器。请注意，一部分特工已经拥有了\n这个武器且属性更佳，在这种情况下请使用属性\n更佳的版本。\n名称攻击命中伤害\n砍刀 3 3+ 4/5",
+      "text_en": "KOMMANDO\nFACTION EQUIPMENT\nCHOPPAS\nOrk blades may appear crude and rusty, but this is\nof little comfort to those on the receiving end of a\nchoppa blow.\nFriendly KOMMANDO operatives (excluding\nBOMB SQUIG and GROT) have the following\nmelee weapon. Note that some operatives already\nhave this weapon but with better stats; in that\ninstance, use the better version.\nNAME ATK HIT DMG\nChoppa 3 3+ 4/5"
+    },
+    {
+      "id": "kt-kommandos-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "炸药",
+      "title_en": "DYNAMITE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-炸药.png",
+      "is_back": false,
+      "text": "特种兵\n阵营装备\n炸药\n特种兵以使用各种临时制作的爆炸物而闻名，\n最常见的便是一捆极其不稳定的易爆炸药。\n每场战斗限一次，一名己方特种兵特工（炸弹\n跳跳和地精除外）可以使用下列远程武器：\n名称攻击命中伤害\n炸药 5 4+ 4/5\n武器规则\n范围 4\"，爆炸 1\"，重型 (仅限转移)，集中",
+      "text_en": "KOMMANDO\nFACTION EQUIPMENT\nDYNAMITE\nKommandos are known to utilise a variety of improvised\nexplosives, the most common of which are bundles of\nvolatile dynamite.\nOnce per battle, a friendly KOMMANDO\noperative (excluding BOMB SQUIG and GROT) can\nuse the following ranged weapon:\nNAME ATK HIT DMG\nDynamite 5 4+ 4/5\nWR\nRange 4\", Blast 1\", Heavy (Reposition only),\nSaturate"
+    },
+    {
+      "id": "kt-kommandos-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "鱼叉",
+      "title_en": "HARPOON",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-鱼叉.png",
+      "is_back": false,
+      "text": "特种兵\n阵营装备\n鱼叉\n这种武器发射出的尖锐投射物能钉住任何还没\n被其杀死的敌人，使其寸步难行。\n每个转折点限一次，一名己方特种兵特工（炸\n弹跳跳和地精除外）可以使用下列远程武器：\n名称攻击命中伤害\n鱼叉 4 4+ 4/5\n武器规则\n范围 8\"，致命5+，晕眩",
+      "text_en": "KOMMANDO\nFACTION EQUIPMENT\nHARPOON\nThis weapon fires a sharp, barbed projectile that\nsnags any foes it doesn’t kill outright, preventing them\nfrom moving.\nOnce per turning point, a friendly KOMMANDO\noperative (excluding BOMB SQUIG and GROT) can\nuse the following ranged weapon:\nNAME ATK HIT DMG\nHarpoon 4 4+ 4/5\nWR\nRange 8\", Lethal 5+, Stun"
+    },
+    {
+      "id": "kt-kommandos-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "折叠枪托",
+      "title_en": "COLLAPSIBLE STOCKS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-折叠枪托.png",
+      "is_back": false,
+      "text": "特种兵\n阵营装备\n折叠枪托\n特种兵常常使用被裁短或换装折叠枪托的改装\n枪支以增强火力。\n移除下列远程武器的“范围”武器规则：\n• 震荡手枪\n• 短铳",
+      "text_en": "KOMMANDO\nFACTION EQUIPMENT\nCOLLAPSIBLE STOCKS\nKommandos often use modified guns with cut down\nor folding shoulder stocks to enhance the impact of\ntheir firepower.\nRemove the Range weapon rule from the\nfollowing ranged weapons friendly KOMMANDO\noperatives have:\n• Shokka pistol\n• Slugga"
+    }
+  ]
+}

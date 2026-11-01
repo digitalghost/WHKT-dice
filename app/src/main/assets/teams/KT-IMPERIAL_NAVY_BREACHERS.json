@@ -1,0 +1,685 @@
+{
+  "teamId": "KT-IMPERIAL_NAVY_BREACHERS",
+  "name": "帝国海军跳帮者",
+  "nameEn": "Imperial Navy Breachers",
+  "subtitle": "帝国 · 11 种特工",
+  "archetypes": [
+    "安全保护",
+    "搜索与摧毁"
+  ],
+  "source": "官方中文 PDF 26/08/2026（帝国海军跳帮者 Imperial Navy Breachers 杀戮小队规则.pdf），已并入 2026 年 8 月勘误",
+  "operatives": [
+    {
+      "id": "kt_inb_sergeant",
+      "name": "海军武装军士",
+      "role": "武装军士",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 9,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "队长",
+        "武装军士"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-01-特工-海军武装军士-数据卡.png",
+        "KT-IMPERIAL_NAVY_BREACHERS--01-02-特工能力-海军武装军士-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_sgt_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "kt_inb_sgt_heirloom_autopistol",
+          "name": "家传自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 范围 8\"、致命 5+"
+        },
+        {
+          "id": "kt_inb_sgt_shotgun_close",
+          "name": "海军霰弹枪（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\""
+        },
+        {
+          "id": "kt_inb_sgt_shotgun_long",
+          "name": "海军霰弹枪（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 5+ · 1/2"
+        },
+        {
+          "id": "kt_inb_sgt_chainsword",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5"
+        },
+        {
+          "id": "kt_inb_sgt_hatchet",
+          "name": "海军手斧",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        },
+        {
+          "id": "kt_inb_sgt_power_weapon",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_sgt_shotgun_close",
+        "kt_inb_sgt_shotgun_long",
+        "kt_inb_sgt_hatchet"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "指挥突破",
+          "ap": null,
+          "text": "每当您使用“进攻命令”或者“防御命令”计谋时，如果该特工位于杀戮区中，那么那个计谋消耗 0CP。该特工的每次激活限一次，在其执行一次行动之前或之后，如果己方进攻命令或防御命令标识位于杀戮区内（参见对应的战略计谋），您可以：\n• 将标识移出杀戮区并重新放置。\n• 将计谋更改为另一个（例如，您的攻击命令变为防御命令）。\n上述两种行动不能都被执行，并且您不需要消耗任何 CP 来更改计谋。"
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_armsman",
+      "name": "海军船兵",
+      "role": "船兵",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "船兵"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-03-特工-海军船兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_arm_shotgun_close",
+          "name": "海军霰弹枪（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\""
+        },
+        {
+          "id": "kt_inb_arm_shotgun_long",
+          "name": "海军霰弹枪（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 5+ · 1/2"
+        },
+        {
+          "id": "kt_inb_arm_hatchet",
+          "name": "海军手斧",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_arm_shotgun_close",
+        "kt_inb_arm_shotgun_long",
+        "kt_inb_arm_hatchet"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "群体激活",
+          "ap": null,
+          "text": "每当该特工进入待机时，您必须在对手之前激活另一名就绪的己方帝国海军跳帮队海军船兵特工（若有）。在这另一名特工进入待机后，您的对手将照常进行激活（换句话说，您通过本规则连续激活的特工数量不能超过两名）。当您使用“突破扫荡”阵营规则时忽略这条规则。"
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_axejack",
+      "name": "海军巨斧手",
+      "role": "巨斧手",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "巨斧手"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-04-特工-海军巨斧手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_axe_autopistol",
+          "name": "自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 2/3 · 范围 8\""
+        },
+        {
+          "id": "kt_inb_axe_power_weapon",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_axe_autopistol",
+        "kt_inb_axe_power_weapon"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "勇猛",
+          "ap": null,
+          "text": "在该特工执行了冲锋行动的转折点中，如果有一枚攻击骰对其造成了大于等于 3 的伤害，掷一枚 D6：若结果为 5+，那次造成的伤害减少 1 点。"
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_cat_unit",
+      "name": "海军 C.A.T.单位",
+      "role": "C.A.T.单位",
+      "apl": 2,
+      "move": "8\"",
+      "save": "5+",
+      "wounds": 5,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "C.A.T.单位"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-05-特工能力-海军-能力卡1.png",
+        "KT-IMPERIAL_NAVY_BREACHERS--01-06-特工能力-海军-能力卡2.png"
+      ],
+      "weapons": [],
+      "defaultWeaponIds": [],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "机械",
+          "ap": null,
+          "text": "• 如果该特工位于敌方特工的控制范围内，或者己方帝国海军跳帮队侦测员特工被残废，那么该特工不能被激活或执行行动。就算该特工依旧处于就绪状态，转折点也可以结束。\n• 该特工不能执行除了冲锋、冲刺、后撤、转移和侦测以外的行动。\n• 该特工不能在近战中进行反击或协助，也不能攀爬或跳落。\n• 在判断对标识的控制权时，将该特工的 APL 属性视作为比原本要低 1 点。请注意这不是对 APL 属性的修正，因此可以与其他修正效果叠加。\n• 当该特工拥有隐匿命令和掩护时，该特工不能被选择成为有效目标，本规则的优先度高于所有其他规则（例如“追踪”武器规则和制高点地形），除非攻击者位于特工的 2\" 内。\n• 在判断事物是否对该特工可见时，从微缩模型的任意部分画出直线。\n（第五点已并入勘误）"
+        },
+        {
+          "name": "消耗品",
+          "ap": null,
+          "text": "在该特工被残废，以及在判断己方的起始特工数量时，该特工在对手的击杀/灭敌行动中被忽略。在判断需要特工“逃离”、“存活”，或者被敌方特工残废的胜利条件和 VP 获取方式时，将该特工忽略（例如在判断该特工是否逃离/存活/被残废，或者判断有多少特工必须逃离/存活/被残废时）。"
+        },
+        {
+          "name": "侦测",
+          "ap": 1,
+          "text": "选择一名对该特工可见的敌方特工。直到转折点结束前、直到那名敌方特工不再对该特工可见，或者直到该特工再次执行本行动前（以先满足的条件为准），每当一名己方帝国海军跳帮队特工对那名敌方特工进行射击时，您可以使用这个效果。若使用：\n• 那名己方特工的远程武器拥有“追踪轻型”武器规则。\n• 那名敌方特工不能被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_inb_endurant",
+      "name": "海军盾手",
+      "role": "盾手",
+      "apl": 2,
+      "move": "4\"",
+      "save": "2+",
+      "wounds": 11,
+      "baseSizeMm": 28,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "盾手"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-07-特工-海军盾手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_end_hvy_shotgun_close",
+          "name": "海军重型霰弹枪（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\"、毫不留情"
+        },
+        {
+          "id": "kt_inb_end_hvy_shotgun_long",
+          "name": "海军重型霰弹枪（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 5+ · 1/2 · 毫不留情"
+        },
+        {
+          "id": "kt_inb_end_shield_bash",
+          "name": "盾击",
+          "kind": "melee",
+          "profile": "3A · 4+ · 1/2 · 残暴、盾牌"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_end_hvy_shotgun_close",
+        "kt_inb_end_hvy_shotgun_long",
+        "kt_inb_end_shield_bash"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "破袭盾墙",
+          "ap": null,
+          "text": "如果该特工拥有交战命令且造成阻碍，那么您的对手不能将与该特工底座触碰的另一名己方帝国海军跳帮队特工选择成为有效目标。如果与该特工底座触碰的其他己方特工数量超过一个，那么本规则无效。"
+        },
+        {
+          "name": "脱战",
+          "ap": null,
+          "text": "该特工执行后撤行动时可以少消耗 1AP。"
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_gheistskull",
+      "name": "海军幽魂颅骨",
+      "role": "幽魂颅骨",
+      "apl": 2,
+      "move": "8\"",
+      "save": "5+",
+      "wounds": 5,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "幽魂颅骨"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-08-特工能力-海军幽魂颅骨-能力卡.png"
+      ],
+      "weapons": [],
+      "defaultWeaponIds": [],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "机械",
+          "ap": null,
+          "text": "• 该特工不能执行除了推进、冲锋、冲刺、后撤和转移以外的行动。\n• 该特工不能在近战中进行反击或协助。\n• 在判断对标识的控制权时，将该特工的 APL 属性视作为比原本要低 1 点。请注意这不是对 APL 属性的修正，因此可以与其他修正效果叠加。\n• 当该特工拥有隐匿命令和掩护时，该特工不能被选择成为有效目标，本规则的优先度高于所有其他规则（例如“追踪”武器规则和制高点地形），除非攻击者位于特工的 2\" 内。\n（第四点已并入勘误）"
+        },
+        {
+          "name": "消耗品",
+          "ap": null,
+          "text": "在该特工被残废，以及在判断己方的起始特工数量时，该特工在对手的击杀/灭敌行动中被忽略。在判断需要特工“逃离”、“存活”，或者被敌方特工残废的胜利条件和 VP 获取方式时，将该特工忽略（例如在判断该特工是否逃离/存活/被残废，或者判断有多少特工必须逃离/存活/被残废时）。"
+        },
+        {
+          "name": "推进",
+          "ap": 1,
+          "text": "在这名特工在这次激活中执行一个冲锋行动时，为它的可移动距离增加 4\"（替代 2\"）。\n该特工在每场战斗中只能执行此行动一次，并且不能在第一转折点中执行此行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "kt_inb_grenadier",
+      "name": "海军掷弹兵",
+      "role": "掷弹兵",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "掷弹兵"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-09-特工-海军掷弹兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_gren_demo_charge",
+          "name": "爆破炸药",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/6 · 范围 3\"、爆炸 2\"、重型（仅限转移）、有限 1、穿刺 1、集中"
+        },
+        {
+          "id": "kt_inb_gren_shotgun_close",
+          "name": "海军霰弹枪（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\""
+        },
+        {
+          "id": "kt_inb_gren_shotgun_long",
+          "name": "海军霰弹枪（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 5+ · 1/2"
+        },
+        {
+          "id": "kt_inb_gren_hatchet",
+          "name": "海军手斧",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_gren_demo_charge",
+        "kt_inb_gren_shotgun_close",
+        "kt_inb_gren_shotgun_long",
+        "kt_inb_gren_hatchet"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "掷弹兵",
+          "ap": null,
+          "text": "该特工可以使用破片、穿甲和震荡手雷（参见通用装备）。该特工使用这些装备时不算入您拥有的使用限制（如果您还为其他特工选择了手雷类的装备）。每当该特工使用破片或穿甲手雷时，那件武器的命中属性提升 1。"
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_gunner",
+      "name": "海军炮手",
+      "role": "炮手",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 9,
+      "baseSizeMm": 28,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "炮手"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-10-特工-海军炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_gun_lasvolley_focused",
+          "name": "海军激光齐射枪（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 4/5 · 重型（仅限冲刺）、撕裂"
+        },
+        {
+          "id": "kt_inb_gun_lasvolley_sweeping",
+          "name": "海军激光齐射枪（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 重型（仅限冲刺）、撕裂、洪流 1\""
+        },
+        {
+          "id": "kt_inb_gun_meltagun",
+          "name": "热熔枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "kt_inb_gun_plasma_std",
+          "name": "等离子枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/6 · 穿刺 1"
+        },
+        {
+          "id": "kt_inb_gun_plasma_sc",
+          "name": "等离子枪（过载）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 5/6 · 过热、致命 5+、穿刺 1"
+        },
+        {
+          "id": "kt_inb_gun_gun_butt",
+          "name": "枪托",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_gun_lasvolley_focused",
+        "kt_inb_gun_lasvolley_sweeping",
+        "kt_inb_gun_gun_butt"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_hatchcutter",
+      "name": "海军破舱手",
+      "role": "破舱手",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "破舱手"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-11-特工-海军破舱手-数据卡.png",
+        "KT-IMPERIAL_NAVY_BREACHERS--01-12-特工能力-海军破舱手-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_hc_autopistol",
+          "name": "自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 2/3 · 范围 8\""
+        },
+        {
+          "id": "kt_inb_hc_chainfist",
+          "name": "链锯拳套",
+          "kind": "melee",
+          "profile": "4A · 4+ · 5/6 · 残暴、撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_hc_autopistol",
+        "kt_inb_hc_chainfist"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "焊死",
+          "ap": 1,
+          "text": "选择一个位于该特工控制范围内的关闭舱门过道（杀戮区：墓穴世界）。其他特工在通过操作舱门行动将那个舱门过道打开时需要消耗额外 1AP。这个效果将在舱门过道被打开后结束。请注意，该特工不受本效果影响。\n该特工不能在敌方特工的控制范围内执行此行动，也不能在不位于关闭舱门过道 1\" 内的情况下执行此行动。"
+        },
+        {
+          "name": "突破点",
+          "ap": 1,
+          "text": "选择一个位于该特工控制范围内的地形模型。将一枚己方突破标识放置在该特工控制范围内且尽可能靠近那个地形模型的位置。每当有特工位于这枚标识的 1\" 内时，将那个地形模型厚度低于 1\" 的部分视作为可穿越地形。\n该特工不能在一名敌方特工的控制范围内执行此行动，也不能在其控制范围内不存在地形模型时执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_surveyor",
+      "name": "海军侦测员",
+      "role": "侦测员",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "侦测员"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-13-特工-海军侦测员-数据卡.png",
+        "KT-IMPERIAL_NAVY_BREACHERS--01-14-特工能力-海军侦测员-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_sur_shotgun_close",
+          "name": "海军霰弹枪（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\""
+        },
+        {
+          "id": "kt_inb_sur_shotgun_long",
+          "name": "海军霰弹枪（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 5+ · 1/2"
+        },
+        {
+          "id": "kt_inb_sur_hatchet",
+          "name": "海军手斧",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_sur_shotgun_close",
+        "kt_inb_sur_shotgun_long",
+        "kt_inb_sur_hatchet"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "导航",
+          "ap": 1,
+          "text": "支援。选择另一名位于该特工或者己方帝国海军跳帮队C.A.T.单位特工 6\" 内且对其可见的己方帝国海军跳帮队特工（C.A.T.单位或幽魂颅骨除外）。直到那名特工的下一次激活结束前，其 APL 属性提升 1 点。对于“通讯装置”通用装备，决定距离的特工必须控制那个标识。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        },
+        {
+          "name": "远程遥控",
+          "ap": 1,
+          "text": "选择一名己方帝国海军跳帮队C.A.T.单位特工。那名特工可以立即执行一次无消耗的行动，但是在那次行动期间不能移动超过 3\"。\n该特工不能在敌方特工的控制范围内执行此行动，也不能在己方C.A.T.单位特工不位于杀戮区时执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_inb_void_jammer",
+      "name": "海军干扰员",
+      "role": "干扰员",
+      "apl": 2,
+      "move": "6\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "帝国海军跳帮队",
+        "帝国",
+        "干扰员"
+      ],
+      "cards": [
+        "KT-IMPERIAL_NAVY_BREACHERS--01-15-特工-海军干扰员-数据卡.png",
+        "KT-IMPERIAL_NAVY_BREACHERS--01-16-特工能力-海军干扰员-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_inb_vj_detonator",
+          "name": "幽魂颅骨引爆器",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 爆炸 1\"、有限 1、致命 4+、安静、眩晕、引爆"
+        },
+        {
+          "id": "kt_inb_vj_shotgun_close",
+          "name": "海军霰弹枪（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\""
+        },
+        {
+          "id": "kt_inb_vj_shotgun_long",
+          "name": "海军霰弹枪（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 5+ · 1/2"
+        },
+        {
+          "id": "kt_inb_vj_hatchet",
+          "name": "海军手斧",
+          "kind": "melee",
+          "profile": "3A · 4+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_inb_vj_detonator",
+        "kt_inb_vj_shotgun_close",
+        "kt_inb_vj_shotgun_long",
+        "kt_inb_vj_hatchet"
+      ],
+      "abilities": [
+        {
+          "id": "kt-imperial_navy_breachers_faction_rule",
+          "name": "虚空护甲",
+          "ap": null,
+          "text": "帝国海军船兵所穿的护甲是密封的，这意味着他们能够在零重力和无大气的情况下进行战斗。被完全包裹在这类护甲中可以减少爆炸和火焰对船兵的危害。\n\n每当一名特工对己方帝国海军跳帮队特工进行射击时，如果那次流程中使用的远程武器拥有“爆炸”或“洪流”武器规则（拥有扫射武器资料的武器除外），那么您可以重掷一枚自己的防御骰，如果被射击的己方特工是掷弹兵，则可以重掷最多两枚防御骰。\n\n己方帝国海军跳帮队特工不会受到“x\" 毁灭 x”武器规则的影响（也就是拥有范围效果的“毁灭”武器规则），除非特工是那次流程中的目标。",
+          "factionRule": true
+        },
+        {
+          "name": "干扰脉冲",
+          "ap": 1,
+          "text": "选择一名位于己方幽魂颅骨特工 8\" 内且对其可见的敌方特工。掷一枚 D6，如果那名敌方特工是己方幽魂颅骨特工的有效目标，那么掷骰结果增加 1 点：若结果为 3+，那么直到那名敌方特工的下一次激活结束前，其 APL 属性减少 1 点。\n该特工不能在敌方特工的控制范围内执行此行动，也不能在己方幽魂颅骨特工不位于杀戮区时执行此行动。"
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "盾牌",
+      "text": "每当该特工使用本武器进行近战或反击时，您的每一次格挡可以被用来格挡两次未结算的成功（而不是一次）。"
+    },
+    {
+      "name": "引爆",
+      "text": "不要选择一个有效目标。作为替代，己方帝国海军跳帮队幽魂颅骨特工一定是本次攻击的主要目标，并且不能拥有掩护或被遮挡。如果那名特工不位于杀戮区中，那么您不能选择使用本武器。"
+    }
+  ],
+  "compositionHint": "选择 1 名武装军士，再从船兵、巨斧手、C.A.T.单位、盾手、幽魂颅骨、掷弹兵、炮手、破舱手、侦测员和干扰员中选择 11 个名额（幽魂颅骨与 C.A.T.单位需对应控制员在场且合占 1 个名额）；炮手最多 2 名，除船兵外同一种特工最多 1 名。"
+}

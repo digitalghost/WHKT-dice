@@ -1,0 +1,834 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-CORSAIR_VOIDSCARRED",
+  "team_name_zh": "虚空创痕海盗",
+  "team_name_en": "Corsair Voidscarred",
+  "source_pdf": "最新杀戮小队规则更新/虚空创痕海盗 Corsair Voidscarred 杀戮小队规则.pdf",
+  "source_pdf_sha256": "cac7e011a97c7b5efa6cf645a67ca5aad346478a7383a424b1036d3122e6ea72",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 30,
+    "operative": 11,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-corsair_voidscarred-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "虚空创痕费拉奇-数据卡",
+      "title_en": "VOIDSCARRED FELARCH",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-虚空创痕费拉奇-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕费拉奇 APL 移动豁免耐伤\n2 7\" 4+ 9\n名称攻击命中伤害武器规则\n神经破坏枪 4 3+ 4/5 范围 8\"，穿刺 1，晕眩\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n星镖步枪 4 3+ 3/4 撕裂\n动力武器 4 3+ 4/6 致命 5+\n精英掠袭者：这名特工领先一步：每场战斗限一次，在一名敌方特工执行一次行动后，若这名特工处\n可以无消耗执行一次应于就绪状态，您可以使用这个规则。若此，掷一枚 D6：若掷骰结果大于那名\n当消耗 1AP 的行动作敌方特工的 APL 属性，则您可以进行打断并立即执行一次无消耗的射击或近\n为“艾达灵族掠袭者” 战行动，在这个行动中无法选择其他敌方特工作为有效目标或近战目标（请\n规则的效果（即替代其注意，“爆炸”武器规则依然可以将它们选为次要目标）。在执行了那个行动\n猛冲行动）。后，直到其下一次激活结束前将这名特工 APL 属性减去 1 点。\n虚空创痕海盗、艾达灵族、灵族海盗、队长、费拉奇 28",
+      "weapon_types": {
+        "神经破坏枪": "远程",
+        "星镖手枪": "远程",
+        "星镖步枪": "远程",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED FELARCH\n2 7\" 4+ 9\nNAME ATK HIT DMG WR\nNeuro disruptor 4 3+ 4/5 Range 8\", Piercing 1, Stun\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nShuriken rifle 4 3+ 3/4 Rending\nPower weapon 4 3+ 4/6 Lethal 5+\nVeteran Raider: This operative One Step Ahead: Once per battle, after an enemy operative performs an action, if this operative is\ncan perform a 1AP action for ready, you can use this rule. If you do, roll one D6: if the result is higher than that enemy operative’s\nfree during their activation APL stat, you can interrupt and immediately perform either a free Shoot or a free Fight action with\nas a result of the Aeldari this operative, but you cannot select any other enemy operative as a valid target or to fight against\nRaiders rule (instead of the during that action (note that secondary targets from the Blast weapon rule can still be targeted). After\nDash action). you perform that action, subtract 1 from this operative’s APL stat until the end of its next activation.\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, LEADER, FELARCH 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "虚空创痕掌命师-数据卡",
+      "title_en": "VOIDSCARRED FATE DEALER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-虚空创痕掌命师-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕掌命师 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n游侠长步枪（机动） 4 3+ 3/4 -\n游侠长步枪（静止） 4 2+ 3/3 毁灭 3，重型，安静\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n双拳 3 3+ 2/3 -\n迷彩斗篷：当一名特工对这名特工射击时：\n• 忽略“集中”武器规则。\n• 若您保留了任意掩护豁免，则您可以额外保留一\n个掩护豁免，或将保留的一个掩护豁免替换为关\n键成功。但这无法与制高点提供的掩护豁免相累\n加。\n虚空创痕海盗、艾达灵族、灵族海盗、掌命师 28",
+      "weapon_types": {
+        "游侠长步枪（机动）": "远程",
+        "游侠长步枪（静止）": "远程",
+        "星镖手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED FATE DEALER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nRanger long rifle (mobile) 4 3+ 3/4 -\nRanger long rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy, Silent\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nFists 3 3+ 2/3 -\nCamo Cloak: Whenever an operative is shooting this operative:\n• Ignore the Saturate weapon rule.\n• If you can retain any cover saves, you can retain one additional\ncover save, or you can retain one cover save as a critical\nsuccess instead. This isn’t cumulative with improved cover\nsaves from Vantage terrain.\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, FATE DEALER 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "虚空创痕炮手-数据卡",
+      "title_en": "VOIDSCARRED GUNNER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-虚空创痕炮手-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕炮手 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n爆裂炮 4 3+ 4/5 穿刺 2\n粉碎枪 4 3+ 4/5 撕裂，洪流 2\"\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n双拳 3 3+ 2/3 -\n虚空创痕海盗、艾达灵族、灵族海盗、炮手 28",
+      "weapon_types": {
+        "爆裂炮": "远程",
+        "粉碎枪": "远程",
+        "星镖手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED GUNNER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nBlaster 4 3+ 4/5 Piercing 2\nShredder 4 3+ 4/5 Rending, Torrent 2\"\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nFists 3 3+ 2/3 -\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, GUNNER 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "虚空创痕重炮手-数据卡",
+      "title_en": "VOIDSCARRED HEAVY GUNNER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-虚空创痕重炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n虚空创痕重炮手\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n星镖炮（集火） 5 3+ 4/5 重型 (仅限冲刺)，撕裂\n星镖炮（扫射） 4 3+ 4/5 重型 (仅限冲刺)，撕裂，洪流 1\"\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n幽冥炮 4 3+ 6/3 毁灭 4，重型 (仅限冲刺)，穿刺 2\n双拳 3 3+ 2/3 -\n虚空创痕海盗、艾达灵族、灵族海盗、重炮手 28",
+      "weapon_types": {
+        "星镖炮（集火）": "远程",
+        "星镖炮（扫射）": "远程",
+        "星镖手枪": "远程",
+        "幽冥炮": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED HEAVY GUNNER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nShuriken cannon (focused) 5 3+ 4/5 Heavy (Dash only), Rending\nShuriken cannon (sweeping) 4 3+ 4/5 Heavy (Dash only), Rending, Torrent 1\"\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nWraithcannon 4 3+ 6/3 Devastating 4, Heavy (Dash only), Piercing 2\nFists 3 3+ 2/3 -\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, HEAVY GUNNER 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "虚空创痕柯纳斯信徒-数据卡",
+      "title_en": "VOIDSCARRED KURNATHI",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-虚空创痕柯纳斯信徒-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕柯纳斯信徒 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n双持动力武器 4 3+ 4/6 无休，致命 5+\n剑术大师：这名特工可以在执行了冲锋行动的激活\n中执行冲刺行动，但只能使用那个冲锋行动中剩余\n的移动距离（至多 3\"）。\n横刀架势：当这名战士执行近战或反击时，您可以\n在正常顺序前先结算一次成功，若此，则那次成功\n必须用于格挡。\n虚空创痕海盗、艾达灵族、灵族海盗、柯纳斯信徒 28",
+      "weapon_types": {
+        "星镖手枪": "远程",
+        "双持动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED KURNATHI\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nDual power weapons 4 3+ 4/6 Ceaseless, Lethal 5+\nBlademaster: This operative can perform the Dash action\nduring an activation in which it performed the Charge action,\nbut can only use any remaining move distance it had from that\nCharge action (to a maximum of 3\").\nBladed Stance: Whenever this operative is fighting or retaliating,\nyou can resolve one of your successes before the normal order. If\nyou do, that success must be used to block.\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, KURNATHI 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "虚空创痕柯纳斯猎手-数据卡",
+      "title_en": "VOIDSCARRED KURNITE HUNTER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-虚空创痕柯纳斯猎手-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕柯纳斯猎手 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n弗奥楚 4 3+ 1/2 撕裂，集中，追踪轻型，安静\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n动力武器 4 3+ 4/6 致命 5+\n弗奥楚羁绊：在每个转折点中，若这个特工首次进\n行反击时处于就绪状态，那么在流程的结算攻击骰\n步骤中，您结算第一枚攻击骰（即防守方成为进攻\n方）。\n博学猎手：战略计划。选择位于这名特工 9\" 内的一名敌方特\n工。这个转折点中仅限一次，当那个特工执行了产生移动的\n行动时，您可以进行打断并使用该规则，若此，则令这名特\n工执行一次无消耗转移行动（但不能在距离那名特工更远的\n位置结束那次移动）或一次无消耗冲锋行动（您可以为此改\n变特工命令，且它必须在那名敌方特工的控制范围内结束那\n次移动）。在使用近距离战斗规则的杀戮区（如杀戮区：墓\n穴世界），无视墙壁地形。\n虚空创痕海盗、艾达灵族、灵族海盗、柯纳斯猎手 28",
+      "weapon_types": {
+        "弗奥楚": "远程",
+        "星镖手枪": "远程",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED KURNITE HUNTER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nFaolchú 4 3+ 1/2 Rending, Saturate, Seek Light, Silent\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nPower weapon 4 3+ 4/6 Lethal 5+\nFaolchú’s Bond: The first time during each turning point that this operative is retaliating, if it’s ready, in the Resolve Attack Dice step\nof that sequence, you resolve the first attack dice (i.e. defender instead of attacker).\nErudite Hunter: STRATEGIC GAMBIT. Select one enemy operative within 9\" of this operative. Once during this turning point, after\nthat enemy operative performs an action in which it moves, you can interrupt to use this rule. If you do, this operative can immediately\nperform either a free Reposition action (it cannot end that move further away from that enemy operative), or a free Charge action\n(you can change its order to do so, and it must end that move within control range of that enemy operative). In a killzone that uses the\nclose quarters rules (e.g. Killzone: Tomb World), ignore Wall terrain when determining further away.\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, KURNITE HUNTER 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "虚空创痕暗影奔行者-数据卡",
+      "title_en": "VOIDSCARRED SHADE RUNNER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-虚空创痕暗影奔行者-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕暗影奔行者 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n飞刀 4 3+ 2/4 范围 6\"，安静\n巫徒之刃 4 3+ 3/5 无休，致命 5+\n闪跃背包：每当这名战士在执行冲锋，后撤或转移\n行动时，可以执行次元跳跃。若此，请不要移动\n它。作为替代，将其从杀戮区移除并重新放置在完\n全位于原位置 7\" 内的位置（在使用近距离战斗规则\n的杀戮区中，如杀戮区：墓穴世界中，测量距离时\n可以穿过墙壁地形）。它必须被放置于能够放置的\n位置，且除冲锋行动以外不能将这名特工放置在敌\n方特工控制范围内。\n请继续阅读背面规则\n虚空创痕海盗、艾达灵族、灵族海盗、暗影奔行者 28",
+      "weapon_types": {
+        "星镖手枪": "远程",
+        "飞刀": "远程",
+        "巫徒之刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED SHADE RUNNER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nThrowing blades 4 3+ 2/4 Range 6\", Silent\nHekatarii blades 4 3+ 3/5 Ceaseless, Lethal 5+\nBlink Pack: Whenever this operative performs the Charge, Fall Back or Reposition action, it can warp jump. If it does, don’t\nmove it. Instead, remove it from the killzone and set it back up wholly within 7\" horizontally of its original location (in a killzone that\nuses the close quarters rules, e.g. Killzone: Tomb World, this distance can be measured through Wall terrain). It must be set up in a\nlocation it can be placed, and unless it’s the Charge action, it cannot be set up within control range of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, SHADE RUNNER 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "虚空创痕暗影奔行者-能力卡",
+      "title_en": "VOIDSCARRED SHADE RUNNER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-虚空创痕暗影奔行者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n虚空创痕暗影奔行者\n2 7\" 4+ 8\n切裂打击：每当这名特工使用次元跳跃（见本卡另\n一面）执行转移行动时，您可以使用这个规则。若\n此，则在其移动后位置和起始位置间划一条直径为\n1 毫米且长度为 7\" 的假想线段（请注意，这一线段\n并非必须为直线）。与那条线段相交的一名敌方特\n工受到 D3+2 点伤害。您不能对在这个行动开始时\n对该特工不可见的敌方特工造成伤害。在这名特工\n进行移动前可以使用一枚 28mm 的圆形指示物辅助\n确定实际情况。\n暗影奔行者敌方特工\n先前位置\n小于 7\"\n暗影奔行者",
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED SHADE RUNNER\n2 7\" 4+ 8\nSlicing Attack: Whenever this operative performs the\nReposition action with a warp jump (see other side of card),\nyou can use this rule. If you do, after it moves, draw an imaginary\nline 1mm in diameter and up to 7\" long between it and its\nprevious location. Note this doesn’t have to be a straight line.\nInflict D3+2 damage on one enemy operative that line crosses.\nYou cannot inflict damage on an enemy operative that was not\nvisible to this operative at the start of that action. A 28mm round\nmarker can be temporarily placed underneath this operative\nbefore it moves to help determine this.\nShade Runner Enemy operative\nprevious location\nUp to 7\"\nShade Runner"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "虚空创痕织魂者-数据卡",
+      "title_en": "VOIDSCARRED SOUL WEAVER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-虚空创痕织魂者-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕织魂者 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n动力武器 4 3+ 4/6 致命 5+\n灵魂引导 1AP\n灵能。选择这名特工 6\" 内且可见的另一名己方\n虚空创痕海盗特工。直到它下一次激活结束\n前，为那名特工的 APL 属性增加 1 点。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n灵魂治疗 1AP\n灵能。选择这名特工 6\" 内且可见的一名己方虚\n空创痕海盗特工。那名特工恢复最多 2D3 点\n失去的耐伤。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n虚空创痕海盗、艾达灵族、灵族海盗、灵能者、医疗、织魂者 28",
+      "weapon_types": {
+        "星镖手枪": "远程",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED SOUL WEAVER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nPower weapon 4 3+ 4/6 Lethal 5+\nSOUL CHANNEL 1AP\nPSYCHIC. Select one other friendly CORSAIR\nVOIDSCARRED operative visible to and within 6\" of this\noperative. Until the end of that operative’s next activation,\nadd 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nSOUL HEAL 1AP\nPSYCHIC. Select one friendly CORSAIR\nVOIDSCARRED operative visible to and within 6\" of this\noperative. That operative regains up to 2D3 lost wounds.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, PSYKER, MEDIC, SOUL WEAVER 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "虚空创痕星暴决斗家-数据卡",
+      "title_en": "VOIDSCARRED STARSTORM DUELLIST",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-虚空创痕星暴决斗家-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕星暴决斗家 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n熔融手枪 4 3+ 5/3 范围 3\"，毁灭 3，穿刺 2\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n双拳 3 3+ 2/3 -\n快枪手：这名特工可以在一名敌方特工的控制范围\n内执行射击行动。若此，在选择有效目标时，您只\n能选择位于这名特工控制范围内的一名敌方特工，\n并且在其他己方特工位于那名特工的近战范围内的\n情况下也不受影响。\n手枪弹幕 1AP\n使用这名特工执行两次无消耗的射击行动（优先\n于行动限制）。您必须在其中一次行动中选择\n熔融手枪，并在另一次行动中选择星镖手枪（顺\n序不限）。\n这名特工不能在拥有隐匿命令时执行此行动，也\n不能在执行了射击行动的激活期间执行本行动\n（反之亦然)。\n虚空创痕海盗、艾达灵族、灵族海盗、星暴决斗家 28",
+      "weapon_types": {
+        "熔融手枪": "远程",
+        "星镖手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED STARSTORM DUELLIST\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nFusion pistol 4 3+ 5/3 Range 3\", Devastating 3, Piercing 2\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nFists 3 3+ 2/3 -\nQuick on the Trigger: This operative can perform the Shoot\naction while within control range of an enemy operative. If it\ndoes, when selecting a valid target, you can only select an\nenemy operative within this operative’s control range, and can\ndo so even if other friendly operatives are within that enemy\noperative’s control range.\nPISTOL BARRAGE 1AP\nPerform two free Shoot actions with this operative (this\ntakes precedence over action restrictions). You must select\nits fusion pistol for one action and its shuriken pistol for the\nother (in any order).\nThis operative cannot perform this action while it has a\nConceal order, or during an activation in which it performed\nthe Shoot action (or vice versa).\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, STARSTORM DUELLIST 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "虚空创痕战士-数据卡",
+      "title_en": "VOIDSCARRED WARRIOR",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-虚空创痕战士-数据卡.png",
+      "is_back": false,
+      "text": "虚空创痕战士 APL 移动豁免耐伤\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n星镖步枪 4 3+ 3/4 撕裂\n动力武器 4 3+ 4/6 致命 5+\n双拳 3 3+ 2/3 -\n潜行掠袭者：若一名己方战士特工是“灵活善变”\n和“灵巧手活”交战计谋指定的虚空创痕海盗特\n工，则消耗的指挥点数变为 0 点。\n虚空创痕海盗、艾达灵族、灵族海盗、战士 28",
+      "weapon_types": {
+        "星镖手枪": "远程",
+        "星镖步枪": "远程",
+        "动力武器": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED WARRIOR\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nShuriken rifle 4 3+ 3/4 Rending\nPower weapon 4 3+ 4/6 Lethal 5+\nFists 3 3+ 2/3 -\nProwling Raiders: You can use the Capricious Flight and\nLight Fingers firefight ploys for 0CP each if a friendly\nWARRIOR operative is the specified CORSAIR\nVOIDSCARRED operative.\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, WARRIOR 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "虚空创痕寻路者-数据卡",
+      "title_en": "VOIDSCARRED WAY SEEKER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-虚空创痕寻路者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n虚空创痕寻路者\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n冻结之握 4 3+ 1/2 灵能，严重，安静，晕眩\n闪电打击 4 3+ 4/3 灵能，2\" 毁灭 2\n星镖手枪 4 3+ 3/4 范围 8\"，撕裂\n巫师之杖 4 3+ 3/5 灵能，震荡\n请继续阅读背面规则\n虚空创痕海盗、艾达灵族、灵族海盗、灵能者、寻路者 28",
+      "weapon_types": {
+        "冻结之握": "远程",
+        "闪电打击": "远程",
+        "星镖手枪": "远程",
+        "巫师之杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED WAY SEEKER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nFreezing grasp 4 3+ 1/2 PSYCHIC, Severe, Silent, Stun\nLightning strike 4 3+ 4/3 PSYCHIC, 2\" Devastating 2\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nWitch staff 4 3+ 3/5 PSYCHIC, Shock\nRULES CONTINUE ON OTHER SIDE\nCORSAIR VOIDSCARRED , AELDARI, ANHRATHE, PSYKER, WAY SEEKER 28"
+    },
+    {
+      "id": "kt-corsair_voidscarred-01-13",
+      "sequence": 13,
+      "category": "operative-ability",
+      "title_zh": "虚空创痕寻路者-能力卡",
+      "title_en": "VOIDSCARRED WAY SEEKER",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工能力-虚空创痕寻路者-能力卡.png",
+      "is_back": false,
+      "text": "虚空创痕寻路者 APL 移动豁免耐伤\n2 7\" 4+ 8\n次元折跃 1AP\n灵能。选择这名特工 5\" 内且可见的两名己方虚\n空创痕海盗特工。将这两名特工从杀戮区移\n除，并将它们各自放置在对方之前的位置（即交\n换两者位置）。如果其中一名特工在当前转折点\n执行过冲锋，后撤或转移行动，且另一名特工就\n绪，那么另一名特工在这个转折点中不能执行上\n述任意行动。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n守护之盾 1AP\n灵能。选择这名特工 6\" 内且可见的一名己方虚\n空创痕海盗特工。直到这名特工下一次激活\n前，这名特工残废前或这名特工再次执行了这个\n行动前（以首先达成的条件为准），对那名特工\n造成普通伤害的第一枚攻击骰将被忽略。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSCARRED WAY SEEKER\n2 7\" 4+ 8\nWARP FOLD 1AP\nPSYCHIC. Select two friendly CORSAIR\nVOIDSCARRED operatives visible to and within 5\" of this\noperative. Remove them both from the killzone and set them\nback up in each other’s previous locations (in other words,\nswap their positions). If one of them performed the Charge,\nFall Back or Reposition action during this turning point\nand the other is ready, the other cannot perform any of those\nactions in its activation during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nWARDING SHIELD 1AP\nPSYCHIC. Select one friendly CORSAIR\nVOIDSCARRED operative visible to and within 6\" of this\noperative. Until the start of this operative’s next activation,\nuntil it’s incapacitated or until it performs this action\nagain (whichever comes first), the first time an attack dice\ninflicts Normal Dmg on that friendly operative, ignore that\ninflicted damage.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-corsair_voidscarred-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "虚空创痕海盗杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-虚空创痕海盗杀戮小队-1.png",
+      "is_back": false,
+      "text": "虚空创痕海盗杀戮小队\n原型：渗透，侦察\n特工\n↘ 1 名虚空创痕海盗费拉奇特工，装备有以下\n一种选项:\n• 星镖步枪；星镖手枪；动力武器\n• 神经破坏枪；动力武器\n↘ 8 名虚空创痕海盗特工，从以下列表进行选\n择:\n• 掌命师\n• 炮手装备有以下一种选项:\n○ 爆裂炮；星镖手枪；双拳\n○ 粉碎枪；星镖手枪；双拳\n• 重炮手装备有以下一种选项:\n○ 星镖炮；星镖手枪；双拳\n○ 星镖手枪；幽冥炮；双拳\n• 柯纳斯信徒\n• 柯纳斯猎手\n• 暗影奔行者\n• 织魂者\n请继续阅读背面",
+      "text_en": "CORSAIR VOIDSCARRED\nKILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 CORSAIR VOIDSCARRED FELARCH\noperative with one of the following options:\n• Shuriken rifle; shuriken pistol;\npower weapon\n• Neuro disruptor; power weapon\n↘ 8 CORSAIR VOIDSCARRED operatives\nselected from the following list:\n• FATE DEALER\n• GUNNER with one of the following options:\n○ Blaster ; shuriken pistol; fists\n○ Shredder; shuriken pistol; fists\n• HEAVY GUNNER with one of the\nfollowing options:\n○ Shuriken cannon; shuriken pistol; fists\n○ Shuriken pistol; wraithcannon ; fists\n• KURNATHI\n• KURNITE HUNTER\n• SHADE RUNNER\n• SOUL WEAVER\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-corsair_voidscarred-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "虚空创痕海盗杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-虚空创痕海盗杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 星暴决斗家\n• 战士装备有以下一种选项:\n○ 星镖手枪；动力武器\n○ 星镖步枪；双拳\n• 寻路者\n除了战士特工以外，列表中的每一名特工只能被\n纳入您的杀戮小队一次。\n您的杀戮小队中不能同时存在爆裂炮和幽冥\n炮。",
+      "text_en": "• STARSTORM DUELLIST\n• WARRIOR with one of the following options:\n○ Shuriken pistol; power weapon\n○ Shuriken rifle; fists\n• WAY SEEKER\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once.\nYour kill team cannot include both a blaster and\na wraithcannon."
+    },
+    {
+      "id": "kt-corsair_voidscarred-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "步枪",
+      "title_en": "RIFLES",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-步枪.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n阵营规则\n步枪\n尽管并非所有灵族放逐者都走上了战士道途，但他\n们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，\n后撤或转移行动的激活中使用星镖步枪或游侠长\n步枪执行射击时，那个武器获得“精准 1”武器规\n则。请注意，这名特工在射击后执行的行动并不受\n限制。",
+      "text_en": "CORSAIR VOIDSCARRED\nFACTION RULE\nRIFLES\nWhilst not all Aeldari outcasts have walked the Path of\nthe Warrior, all are skilled in the use of rifles.\nWhenever a friendly CORSAIR VOIDSCARRED\noperative is shooting with a shuriken rifle or\nranger long rifle during an activation in which\nit hasn’t performed the Charge, Fall Back or\nReposition action, that weapon has the Accurate\n1 weapon rule. Note that operative isn’t restricted\nfrom performing those actions after shooting."
+    },
+    {
+      "id": "kt-corsair_voidscarred-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "艾达灵族掠袭者",
+      "title_en": "AELDARI RAIDERS",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-艾达灵族掠袭者.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n阵营规则\n艾达灵族掠袭者\n艾达灵族轻盈优雅且灵活的特质使得虚空创痕海盗\n们能够用计谋胜过敌人。\n每一名己方虚空创痕海盗特工在其激活中可以执行\n一次无消耗的冲刺行动。",
+      "text_en": "CORSAIR VOIDSCARRED\nFACTION RULE\nAELDARI RAIDERS\nAeldari are lithe, graceful and swift – qualities\nthe Corsair Voidscarred utilise to outmanoeuvre\ntheir enemies.\nEach friendly CORSAIR VOIDSCARRED\noperative can perform a free Dash action during\ntheir activation."
+    },
+    {
+      "id": "kt-corsair_voidscarred-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "CORSAIR VOIDSCARRED",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n标识/指示物指南\n博学猎手指示物弗奥楚羁绊指示物\n守护之盾指示物领先一步指示物\n迷雾场指示物指引符文指示物",
+      "text_en": "CORSAIR VOIDSCARRED\nMARKER/TOKEN GUIDE\nErudite Hunter token Faolchú’s Bond token\nWarding Shield token One Step Ahead token\nMistfield token Runes of\nGuidance token"
+    },
+    {
+      "id": "kt-corsair_voidscarred-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "掠夺者",
+      "title_en": "PLUNDERERS",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-掠夺者.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n战略计谋\n掠夺者\n灵族海盗比起荣耀更注重获利，他们会迅速冲向自\n己的目标，试图在敌人做出反应前便能夺取战利\n品。\n至多 D3 名己方虚空创痕海盗特工可以立即以任意\n顺序分别执行一次无消耗的冲刺行动。在这个转折\n点中，每个执行了上述行动的特工无法在其激活中\n执行冲刺行动。该计谋在第一个转折点无法使用。",
+      "text_en": "CORSAIR VOIDSCARRED\nSTRATEGY PLOY\nPLUNDERERS\nAeldari Corsairs prioritise profit over glory, moving\nswiftly towards their objective in the hope of seizing\ntheir prize before the foe can react.\nUp to D3 friendly CORSAIR VOIDSCARRED\noperatives can immediately perform a free Dash\naction in an order of your choice. This turning\npoint, each that does so cannot perform the Dash\naction during their activation. You cannot use this\nploy during the first turning point."
+    },
+    {
+      "id": "kt-corsair_voidscarred-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "逐利海盗",
+      "title_en": "PIRATICAL PROFITEERS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-逐利海盗.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n战略计谋\n逐利海盗\n任何尝试去夺取虚空创痕海盗战利品的愚蠢行为很\n快便会面对暴雪般的星镖火力和利刃突刺。\n每当一名己方虚空创痕海盗特工进行射击，近战或\n反击时，若它或对方敌方特工在流程中正在争夺一\n个目标标识或一个己方任务标识时，那名己方特工\n的武器获得“平衡”武器规则。",
+      "text_en": "CORSAIR VOIDSCARRED\nSTRATEGY PLOY\nPIRATICAL PROFITEERS\nAny foolish enough to attempt to contest a prize claimed\nby the Corsair Voidscarred will soon find themselves\ncaught in a blizzard of shuriken fire and sword thrusts.\nWhenever a friendly CORSAIR VOIDSCARRED\noperative is shooting, fighting or retaliating, if it or\nthe enemy operative in that sequence contests an\nobjective marker or one of your mission markers,\nthat friendly operative’s weapons have the\nBalanced weapon rule."
+    },
+    {
+      "id": "kt-corsair_voidscarred-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "机动交战",
+      "title_en": "MOBILE ENGAGEMENT",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-机动交战.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n战略计谋\n机动交战\n灵族海盗依靠卓越的速度躲避火力。\n每当一名特工对一名己方虚空创痕海盗特工进行射\n击时，若那名己方特工在当前转折点执行过进行移\n动的行动，您就可以重掷一枚防御骰。",
+      "text_en": "CORSAIR VOIDSCARRED\nSTRATEGY PLOY\nMOBILE ENGAGEMENT\nAeldari Corsairs rely upon blistering speed to avoid\nheavy fire.\nWhenever an operative is shooting a friendly\nCORSAIR VOIDSCARRED operative that\nperformed an action in which it moved during\nthis turning point, you can re-roll one of your\ndefence dice."
+    },
+    {
+      "id": "kt-corsair_voidscarred-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "放逐者",
+      "title_en": "OUTCASTS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-放逐者.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n战略计谋\n放逐者\n那些走上放逐者道途的存在对孤独早已司空见惯，\n他们甚至觉得独自战斗更有意思。\n当一名己方虚空创痕海盗特工距离其他己方特工 5\"\n外时，其武器获得“重击”武器规则。",
+      "text_en": "CORSAIR VOIDSCARRED\nSTRATEGY PLOY\nOUTCASTS\nThose who walk the Path of the Outcast are no strangers\nto solitude. Some even fight better alone.\nWhenever a friendly CORSAIR VOIDSCARRED\noperative is more than 5\" from other friendly\noperatives, its weapons have the Punishing\nweapon rule."
+    },
+    {
+      "id": "kt-corsair_voidscarred-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "投机战士",
+      "title_en": "OPPORTUNISTIC FIGHTERS",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-投机战士.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n交战计谋\n投机战士\n若敌人的弱点暴露，虚空创痕海盗便会对其加倍打\n击，试图在敌人再次集结前将其消灭。\n在一名敌方特工执行后撤行动时使用本交战计谋。\n在其移动前，其控制范围内每有一名己方虚空创\n痕海盗特工，那名敌方特工便受到一次 2D3 点伤\n害。",
+      "text_en": "CORSAIR VOIDSCARRED\nFIREFIGHT PLOY\nOPPORTUNISTIC FIGHTERS\nShould the foe show weakness, the Corsair Voidscarred\nwill redouble their attack, seeking to slaughter the\nenemy before they can regroup.\nUse this firefight ploy when an enemy operative\nperforms the Fall Back action. Before it moves,\ninflict 2D3 damage on that operative for each\nfriendly CORSAIR VOIDSCARRED operative\nwithin its control range."
+    },
+    {
+      "id": "kt-corsair_voidscarred-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "灵巧手活",
+      "title_en": "LIGHT FINGERS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-灵巧手活.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n交战计谋\n灵巧手活\n追求财富驱使着所有的海盗们。这些灵巧的劫\n掠者们会在敌人眼皮底下夺取战利品，并在反\n击前消失。\n在一名己方虚空创痕海盗特工激活中使用此交\n战计谋。直到那次激活结束前，哪怕有敌方特工\n位于其控制范围内，也不会影响那名己方特工执\n行拾取标识或任务行动，并且在通常需要控制标\n识才能执行的拾取标识或任务行动中无需控制标\n识（这意味着它只需争夺标识）。",
+      "text_en": "CORSAIR VOIDSCARRED\nFIREFIGHT PLOY\nLIGHT FINGERS\nThe pursuit of riches drives all Corsairs. These lithe\nraiders may pluck a prize from under the nose of a foe\nand disappear before a blow can be landed in return.\nUse this firefight ploy during a friendly CORSAIR\nVOIDSCARRED operative’s activation. Until the\nend of that activation, having an enemy operative\nwithin its control range doesn’t prevent that\nfriendly operative from performing the Pick Up\nMarker or mission actions."
+    },
+    {
+      "id": "kt-corsair_voidscarred-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "灵活善变",
+      "title_en": "CAPRICIOUS FLIGHT",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-灵活善变.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n交战计谋\n灵活善变\n虚空创痕海盗常常在数量和火力上居于劣势，\n他们常常会在运用各种佯攻和突袭后消失在\n阴影中。\n在一名己方虚空创痕海盗特工激活时，在其执\n行一次行动之前或之后使用这个交战计谋。在那\n次激活中，将那名特工在执行后撤行动时消耗的\n行动点数降低 1 点。",
+      "text_en": "CORSAIR VOIDSCARRED\nFIREFIGHT PLOY\nCAPRICIOUS FLIGHT\nAlways outnumbered and often outgunned, the Corsair\nVoidscarred utilise feints and trickery to strike before\nmelting away into shadow.\nUse this firefight ploy during a friendly CORSAIR\nVOIDSCARRED operative’s activation, before or\nafter it performs an action. During that activation,\nthat operative can perform the Fall Back action\nfor 1 less AP."
+    },
+    {
+      "id": "kt-corsair_voidscarred-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "高傲冒险家",
+      "title_en": "CONTEMPTUOUS ADVENTURER",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-高傲冒险家.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n交战计谋\n高傲冒险家\n虚空创痕海盗有着一股无所畏惧的高傲气质，他们\n也往往会用高超的武艺佐证这一点。\n在一个转折点中您首次激活一名己方虚空创痕海盗\n特工时，如果它位于其他己方特工 5\" 外，使用\n本交战计谋。在这名特工的那次激活中首次执行\n的射击或近战行动中，其武器获得“毫不留情”\n武器规则。请注意这条计谋不能在一次激活中多\n次生效（您不能在同一次激活的射击和近战行动\n中同时使用）。",
+      "text_en": "CORSAIR VOIDSCARRED\nFIREFIGHT PLOY\nCONTEMPTUOUS ADVENTURER\nThe Corsair Voidscarred possess a fearless arrogance\nthat is often justified by their superior skill at arms.\nUse this firefight ploy when the first friendly\nCORSAIR VOIDSCARRED operative is activated\nduring the turning point, if it’s more than 5\"\nfrom other friendly operatives. The first time that\noperative performs either the Shoot or Fight\naction during that activation, its weapons have\nthe Relentless weapon rule. Note this ploy cannot\ncome into effect more than once per activation\n(you cannot use it during both the Shoot and\nFight action in the same activation)."
+    },
+    {
+      "id": "kt-corsair_voidscarred-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "日耀斗篷",
+      "title_en": "DIUTURNAL MANTLES",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-日耀斗篷.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n阵营装备\n日耀斗篷\n虚空创痕海盗的特工们身披由灵能活性材料织造而\n成，能够随着爆炸或温度波动而硬化的斗篷。\n当一名特工用带有“爆炸”或“洪流”武器规则的\n武器对一名己方虚空创痕海盗特工进行射击时，您\n可以重掷一枚己方防御骰。此外，己方虚空创痕海\n盗特工不受到“X\" 毁灭 X”武器规则（即带有范\n围的毁灭规则）效果的影响，除非被作为目标。",
+      "text_en": "CORSAIR VOIDSCARRED\nFACTION EQUIPMENT\nDIUTURNAL MANTLES\nThe cloaks worn by Corsair Voidscarred operatives\nare woven from psychoactive material that hardens in\nresponse to explosions and fluctuations in temperature.\nWhenever an operative is shooting a friendly\nCORSAIR VOIDSCARRED operative, if the\nranged weapon in that sequence has the Blast\nor Torrent weapon rule, you can re-roll one of\nyour defence dice. In addition, friendly CORSAIR\nVOIDSCARRED operatives aren’t affected by the\nx\" Devastating x weapon rule (i.e. Devastating\nwith a distance) unless they are the target during\nthat sequence."
+    },
+    {
+      "id": "kt-corsair_voidscarred-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "迷雾场",
+      "title_en": "MISTFIELD",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-迷雾场.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n阵营装备\n迷雾场\n迷雾场发生器会在持有者周围投射出一层浓厚的雾\n气，这不仅能遮蔽视野，还能放缓子弹的打击，大\n大降低了致命程度。\n每个转折点一次。当一名特工对一名 3\" 外的己方虚\n空创痕海盗特工进行射击时，在掷防御骰步骤开始\n时，您可以使用这个规则。若此，直到那个流程结\n束前，将“穿刺 X”武器规则的 X 数值降低 1 点，\n请注意，这代表“穿刺 1”武器规则将被忽略。",
+      "text_en": "CORSAIR VOIDSCARRED\nFACTION EQUIPMENT\nMISTFIELD\nA mistfield projects a field of thick moisture around the\nbearer that not only obscures their form, but also slows\nbullets, reducing their lethality.\nOnce per turning point, when an operative is\nshooting a friendly CORSAIR VOIDSCARRED\noperative more than 3\" from it, at the start of the\nRoll Defence Dice step, you can use this rule. If\nyou do, worsen the x of the Piercing weapon rule\nby 1 (if any) until the end of that sequence. Note\nthat Piercing 1 would therefore be ignored."
+    },
+    {
+      "id": "kt-corsair_voidscarred-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "指引符文",
+      "title_en": "RUNES OF GUIDANCE",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-指引符文.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n阵营装备\n指引符文\n虚空创痕海盗能以完美的精度运用亚空间力量，用\n预言能力支援远处的盟友。\n每个转折点一次，当一名己方虚空创痕海盗寻路者\n或虚空创痕海盗织魂者特工执行一次灵能独特行动\n时（次元折跃除外），您便可以使用这个规则。若\n此，在那个行动结束前，为其距离要求增加 3\"。请\n注意这对灵能武器没有效果。",
+      "text_en": "CORSAIR VOIDSCARRED\nFACTION EQUIPMENT\nRUNES OF GUIDANCE\nCorsair psykers wield warp powers with consummate\nprecision, lending their foresight to distant allies.\nOnce per turning point, when a friendly CORSAIR\nVOIDSCARRED WAY SEEKER or CORSAIR\nVOIDSCARRED SOUL WEAVER operative is\nperforming a PSYCHIC unique action (excluding\nWarp Fold), you can use this rule. If you do,\nuntil the end of that action, add 3\" to its\ndistance requirement. Note this has no effect on\nPSYCHIC weapons (e.g. the Devastating distance\nrequirement of lightning strike)."
+    },
+    {
+      "id": "kt-corsair_voidscarred-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "群星宏图",
+      "title_en": "STAR CHARTS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-群星宏图.png",
+      "is_back": false,
+      "text": "虚空创痕海盗\n阵营装备\n群星宏图\n虚空创痕海盗会利用自己对虚空无与伦比的学识来\n胜过敌人。\n战略计划。掷一枚 D3：如果结果大于当前转折点\n的数值，您获得 1CP，且在战斗中不能再次使用该\n战略计划。",
+      "text_en": "CORSAIR VOIDSCARRED\nFACTION EQUIPMENT\nSTAR CHARTS\nThe Corsair Voidscarred utilise their peerless knowledge\nof the void to outmanoeuvre their foes.\nSTRATEGIC GAMBIT. Roll one D3: if the result\nis higher than the number of the current\nturning point, you gain 1CP and cannot use this\nSTRATEGIC GAMBIT for the rest of the battle."
+    }
+  ]
+}

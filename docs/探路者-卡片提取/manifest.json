@@ -1,0 +1,989 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-PATHFINDERS",
+  "team_name_zh": "探路者",
+  "team_name_en": "Pathfinders",
+  "source_pdf": "最新杀戮小队规则更新/探路者 Pathfinders 杀戮小队规则.pdf",
+  "source_pdf_sha256": "9c6b70d893fc380da4078278793b62b44c3d1477584266699eaca4b73cc5882f",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 36,
+    "operative": 16,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 3,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-pathfinders-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "老兵探路者-数据卡",
+      "title_en": "SHAS’UI PATHFINDER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-老兵探路者-数据卡.png",
+      "is_back": false,
+      "text": "老兵探路者 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n脉冲卡宾枪 4 3+ 4/5 -\n枪托 3 4+ 2/3 -\n兵法：战略计划，如果该特工位于杀戮区内。选择\n以下一个效果进行生效，持续至转折点结束为止。\n在每场战斗中每个选项您不能选择超过一次：\n• 蒙特’卡：己方探路者特工的移动属性提升 1\"。\n• 考雍：如果己方探路者特工拥有隐匿命令，则\n它们可以在激活期间执行一次无消耗的标记光行\n动。\n标记光 1AP\n参见“标记光”阵营规则。\n探路者、钛帝国、领袖、老兵 25",
+      "weapon_types": {
+        "脉冲卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSHAS’UI PATHFINDER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nPulse carbine 4 3+ 4/5 -\nGun butt 3 4+ 2/3 -\nArt of War: STRATEGIC GAMBIT if this operative is in the\nkillzone. Select one of the following and apply its rules until the\nend of the turning point. You cannot select each option more\nthan once per battle:\n• Mont’ka: Add 1\" to the Move stat of friendly\nPATHFINDER operatives.\n• Kauyon: Friendly PATHFINDER operatives can perform a\nfree Markerlight action during their activation if they have\na Conceal order.\nMARKERLIGHT 1AP\nSee the Markerlights faction rule.\nPATHFINDER , T'AU EMPIRE, LEADER, SHAS’UI 25"
+    },
+    {
+      "id": "kt-pathfinders-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "突击掷弹兵探路者-数据卡",
+      "title_en": "ASSAULT GRENADIER PATHFINDER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-突击掷弹兵探路者-数据卡.png",
+      "is_back": false,
+      "text": "突击掷弹兵探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n融合手雷 4 3+ 4/3 范围 6\"、毁灭 2、有限 1、穿刺 2、集中 2\n脉冲卡宾枪 4 4+ 4/5 -\n枪托 3 5+ 2/3 -\n手雷专家：该特工可以使用破片和穿甲手雷（参见\n通用装备)。该特工使用这些装备时不算入您拥有的\n使用限制（如果您还为其他特工选择了手雷类的装\n备)。每当该特工使用破片或穿甲手雷时，将那件武\n器的命中属性提升 1。\n标记光 1AP\n参见“标记光”阵营规则。\n探路者、钛帝国、突击掷弹兵 25",
+      "weapon_types": {
+        "融合手雷": "远程",
+        "脉冲卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nASSAULT GRENADIER PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nFusion grenade 4 3+ 4/3 Range 6\", Devastating 2, Limited 1, Piercing 2,\nSaturate\nPulse carbine 4 4+ 4/5 -\nGun butt 3 5+ 2/3 -\nGrenadier Specialist: This operative can use frag and krak\ngrenades (see universal equipment). Doing so doesn’t count\ntowards any limited uses you have (i.e. if you also select those\ngrenades from equipment for other operatives). Whenever it’s\ndoing so, improve the Hit stat of that weapon by 1.\nMARKERLIGHT 1AP\nSee the Markerlights faction rule.\nPATHFINDER , T'AU EMPIRE, ASSAULT GRENADIER 25"
+    },
+    {
+      "id": "kt-pathfinders-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "浴血探路者-数据卡",
+      "title_en": "BLOODED PATHFINDER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-浴血探路者-数据卡.png",
+      "is_back": false,
+      "text": "浴血探路者 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n消声脉冲卡宾枪 4 3+ 4/5 安静\n仿生臂 3 4+ 3/4 -\n浴血老兵：在您使用了己方老兵特工“兵法”战略\n计划的转折点中，如果您选择了“蒙特’卡”，那\n么该特工可以在激活期间使用“考雍”来进行替代\n(反之亦然)。\n标记光 1AP\n参见“标记光”阵营规则。\n探路者、钛帝国、浴血 25",
+      "weapon_types": {
+        "消声脉冲卡宾枪": "远程",
+        "仿生臂": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBLOODED PATHFINDER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nSuppressed pulse carbine 4 3+ 4/5 Silent\nBionic arm 3 4+ 3/4 -\nVeteran: During a turning point in which you have used a friendly\nSHAS’UI operative’s Art of War STRATEGIC GAMBIT and\nyou selected Mont’ka, this operative can use Kauyon instead\nduring its activation (and vice versa).\nMARKERLIGHT 1AP\nSee the Markerlights faction rule.\nPATHFINDER , T'AU EMPIRE, BLOODED 25"
+    },
+    {
+      "id": "kt-pathfinders-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "通讯专家探路者-数据卡",
+      "title_en": "COMMS SPECIALIST PATHFINDER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-通讯专家探路者-数据卡.png",
+      "is_back": false,
+      "text": "通讯专家探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n脉冲卡宾枪 4 4+ 4/5 -\n双拳 3 5+ 2/3 -\n标记光\n参见“标记光”阵营规则。\n1AP 传讯 1AP\n\u0007支援。选择另一名位于该特工 6\" 内且可见的己\n方探路者特工。直到那名特工的下一次激活结\n束前，其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行此行动。\n探路者、钛帝国、通讯专家 25",
+      "weapon_types": {
+        "脉冲卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCOMMS SPECIALIST PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nPulse carbine 4 4+ 4/5 -\nFists 3 5+ 2/3 -\nMARKERLIGHT\nSee the Markerlights faction rule.\n1AP SIGNAL 1AP\nSUPPORT. Select one other friendly PATHFINDER\noperative visible to and within 6\" of this operative. Until the\nend of that operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nPATHFINDER , T'AU EMPIRE, COMMS SPECIALIST 25"
+    },
+    {
+      "id": "kt-pathfinders-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "无人机控制员探路者-数据卡",
+      "title_en": "DRONE CONTROLLER PATHFINDER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-无人机控制员探路者-数据卡.png",
+      "is_back": false,
+      "text": "无人机控制员探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n脉冲卡宾枪 4 4+ 4/5 -\n枪托 3 5+ 2/3 -\n无人机控制员：当该特工位于杀戮区中时：\n• 己方探路者无人机特工的移动属性增加 2\"。\n• “拯救协议”交战计谋花费 0CP。\n标记光 1AP\n参见“标记光”阵营规则。\n请继续阅读背面规则\n探路者、钛帝国、无人机控制员 25",
+      "weapon_types": {
+        "脉冲卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDRONE CONTROLLER PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nPulse carbine 4 4+ 4/5 -\nGun butt 3 5+ 2/3 -\nDrone Controller: Whenever this operative is in the killzone:\n• Add 2\" to the Move stat of friendly PATHFINDER\nDRONE operatives.\n• The Saviour Protocols firefight ploy costs you 0CP.\nMARKERLIGHT 1AP\nSee the Markerlights faction rule.\nRULES CONTINUE ON OTHER SIDE\nPATHFINDER , T'AU EMPIRE, DRONE CONTROLLER 25"
+    },
+    {
+      "id": "kt-pathfinders-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "无人机控制员探路者-能力卡",
+      "title_en": "DRONE CONTROLLER PATHFINDER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-无人机控制员探路者-能力卡.png",
+      "is_back": false,
+      "text": "无人机控制员探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n远程操控 1AP\n位于杀戮区内的一名己方探路者无人机特工可\n以立刻执行一次无消耗的行动，但是在那次行动\n中不能移动超过 2\"。那次行动可以是通常受到\n“无人机”规则限制的一种行动（本规则的优先\n度高于那些规则)。\n本特工不能在敌方特工的控制范围内执行此行\n动。本特工可以在激活期间多次执行此行动，但\n在这么做时，同一名无人机特工在每一次激活中\n执行的相同无消耗行动的次数不能超过一次。",
+      "text_en": "APL MOVE SAVE WOUNDS\nDRONE CONTROLLER PATHFINDER\n2 6\" 5+ 7\nREMOTE PILOT 1AP\nOne friendly PATHFINDER DRONE operative can\nimmediately perform one free action, but it cannot move\nmore than 2\" during that action. That action can be one\nthat’s normally restricted by its Drone rule (this takes\nprecedence over that rule).\nThis operative cannot perform this action while within control\nrange of an enemy operative. This operative can perform this\naction more than once during its activation, but if it does,\nthe same DRONE operative cannot perform the same free\naction more than once per activation."
+    },
+    {
+      "id": "kt-pathfinders-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "神射手探路者-数据卡",
+      "title_en": "MARKSMAN PATHFINDER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-神射手探路者-数据卡.png",
+      "is_back": false,
+      "text": "神射手探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n神射手磁轨步枪（标准） 4 3+ 4/4 毁灭 2、致命 5+、穿刺1\n神射手磁轨步枪（尖镖弹） 4 3+ 3/4 穿刺 1、安静\n枪托 3 5+ 2/3 -\n惯性减缓器：您可以忽略任何对该特工神射手磁轨\n步枪命中属性的修正。\n探路者、钛帝国、神射手 25",
+      "weapon_types": {
+        "神射手磁轨步枪（标准）": "远程",
+        "神射手磁轨步枪（尖镖弹）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMARKSMAN PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nMarksman rail rifle (standard) 4 3+ 4/4 Devastating 2, Lethal 5+, Piercing 1\nMarksman rail rifle (dart round) 4 3+ 3/4 Piercing 1, Silent\nGun butt 3 5+ 2/3 -\nInertial Dampener: You can ignore any changes to the Hit stat of\nthis operative’s marksman rail rifle.\nPATHFINDER , T'AU EMPIRE, MARKSMAN 25"
+    },
+    {
+      "id": "kt-pathfinders-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "医疗技师探路者-数据卡",
+      "title_en": "MEDICAL TECHNICIAN PATHFINDER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-医疗技师探路者-数据卡.png",
+      "is_back": false,
+      "text": "医疗技师探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n脉冲卡宾枪 4 4+ 4/5 -\n枪托 3 5+ 2/3 -\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方探路者特工（无人机除外）将被\n残废时，如果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么\n那名己方特工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名\n己方特工可以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特\n工和那名特工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本\n规则，那么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要\n目标时使用此规则。\n请继续阅读背面规则\n探路者、钛帝国、医疗、医疗技师 25",
+      "weapon_types": {
+        "脉冲卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMEDICAL TECHNICIAN PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nPulse carbine 4 4+ 4/5 -\nGun butt 3 5+ 2/3 -\nMedic!: The first time during each turning point that another friendly PATHFINDER operative (excluding DRONE) would be\nincapacitated while visible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within\ncontrol range of an enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be\nincapacitated for the remainder of the action. After that action, that friendly operative can immediately perform a free Dash action,\nbut must end that move within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their\nnext activations respectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use\nthis rule if this operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nPATHFINDER , T'AU EMPIRE, MEDIC, MEDICAL TECHNICIAN 25"
+    },
+    {
+      "id": "kt-pathfinders-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "医疗技师探路者-能力卡",
+      "title_en": "MEDICAL TECHNICIAN PATHFINDER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-医疗技师探路者-能力卡.png",
+      "is_back": false,
+      "text": "医疗技师探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n标记光\n参见“标记光”阵营规则。\n1AP 医疗包 1AP\n选择一个位于该特工控制范围的己方探路者特\n工（无人机除外)，那名特工回复 2D3 点失去的\n耐伤。选择的特工不能是在转折点中成为“医疗\n兵！”技能目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMEDICAL TECHNICIAN PATHFINDER\n2 6\" 5+ 7\nMARKERLIGHT\nSee the Markerlights faction rule.\n1AP MEDIKIT 1AP\nSelect one friendly PATHFINDER operative (excluding\nDRONE) within this operative’s control range to regain up to\n2D3 lost wounds. It cannot be an operative that the Medic!\nrule was used on during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-pathfinders-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "探路者战士-数据卡",
+      "title_en": "SHAS’LA PATHFINDER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-探路者战士-数据卡.png",
+      "is_back": false,
+      "text": "探路者战士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n脉冲卡宾枪 4 4+ 4/5 -\n枪托 3 5+ 2/3 -\n群体激活：每当该特工进入待机时，您必须在对手\n之前激活另一名就绪的己方探路者战士特工（若\n有)。在这另一名特工进入待机后，您的对手将照常\n进行激活（换句话说，您通过本规则连续激活的特\n工数量不能超过两名)。\n无畏士兵：该特工可以在敌方特工的控制范围内执\n行标记光行动（本规则的优先度高于标记光行动的\n常规条件)。此外，该特工在执行后撤行动时可以\n少消耗 1AP。\n标记光 1AP\n参见“标记光”阵营规则。\n探路者、钛帝国、战士 25",
+      "weapon_types": {
+        "脉冲卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSHAS’LA PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nPulse carbine 4 4+ 4/5 -\nGun butt 3 5+ 2/3 -\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly PATHFINDER\nSHAS’LA operative (if able) before your opponent activates.\nWhen that other operative is expended, your opponent then\nactivates as normal (in other words, you cannot activate more\nthan two operatives in succession with this rule).\nFearless on the Frontline: This operative can perform the\nMarkerlight action while within control range of an enemy\noperative (this takes precedence over the Markerlight action’s\nnormal conditions). In addition, this operative can perform the\nFall Back action for 1 less AP.\nMARKERLIGHT 1AP\nSee the Markerlights faction rule.\nPATHFINDER , T'AU EMPIRE, SHAS’LA 25"
+    },
+    {
+      "id": "kt-pathfinders-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "超光谱干扰探路者-数据卡",
+      "title_en": "TRANSPECTRAL INTERFERENCE PATHFINDER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-超光谱干扰探路者-数据卡.png",
+      "is_back": false,
+      "text": "超光谱干扰探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n脉冲卡宾枪 4 4+ 4/5 -\n枪托 3 5+ 2/3 -\n标记光 1AP 系统干扰 1AP 多次元目镜：该特工射击时，敌方特工\n无法被遮挡。\n参见“标记光”阵选择一个对该特工可见的敌方特工。\n营规则。直到那名特工的下一次激活结束前，\n其 APL 属性减少 1 点。\n该特工不能在拥有隐匿命令时执行此\n行动，也不能在敌方特工的控制范围\n内执行此行动。\n探路者、钛帝国、超光谱干扰 25",
+      "weapon_types": {
+        "脉冲卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTRANSPECTRAL INTERFERENCE PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nPulse carbine 4 4+ 4/5 -\nGun butt 3 5+ 2/3 -\nMARKERLIGHT 1AP SYSTEM JAM 1AP Multi-Dimensional Vision: Whenever this operative\nis shooting, enemy operatives cannot be obscured.\nSee the Markerlights Select one enemy operative visible to this\nfaction rule. operative. Until the end of that operative’s next\nactivation, subtract 1 from its APL stat.\nThis operative cannot perform this action while\nit has a Conceal order, or while within control\nrange of an enemy operative.\nPATHFINDER , T'AU EMPIRE, TRANSPECTRAL INTERFERENCE 25"
+    },
+    {
+      "id": "kt-pathfinders-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "武器专家探路者-数据卡",
+      "title_en": "WEAPONS EXPERT PATHFINDER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-武器专家探路者-数据卡.png",
+      "is_back": false,
+      "text": "武器专家探路者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n离子步枪（标准） 5 4+ 4/5 关键穿刺 1\n离子步枪（过载） 5 4+ 4/5 过热、致命 5+、穿刺 1\n磁轨步枪 4 4+ 4/4 毁灭 2、致命 5+、穿刺 1\n枪托 3 5+ 2/3 -\n探路者、钛帝国、武器专家 25",
+      "weapon_types": {
+        "离子步枪（标准）": "远程",
+        "离子步枪（过载）": "远程",
+        "磁轨步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nWEAPONS EXPERT PATHFINDER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nIon rifle (standard) 5 4+ 4/5 Piercing Crits 1\nIon rifle (overcharge) 5 4+ 4/5 Hot, Lethal 5+, Piercing 1\nRail rifle 4 4+ 4/4 Devastating 2, Lethal 5+, Piercing 1\nGun butt 3 5+ 2/3 -\nPATHFINDER , T'AU EMPIRE, WEAPONS EXPERT 25"
+    },
+    {
+      "id": "kt-pathfinders-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "MB3 侦察无人机-数据卡",
+      "title_en": "MB3 RECON DRONE",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-MB3 侦察无人机-数据卡.png",
+      "is_back": false,
+      "text": "MB3\u0007侦察无人机 APL 移动豁免耐伤\n3 6\" 4+ 12\n名称攻击命中伤害武器规则\n速射炮（集中） 5 4+ 3/4 无休、重型（仅限转移）、重击\n速射炮（扫射） 4 4+ 3/4 无休、重型（仅限转移）、重击、洪流 1\"\n撞击 3 5+ 2/3 -\n分析：每当该特工执行标记光行动时，您可以选择\n任意对该特工可见的敌方特工（无视该特工执行的\n任意射击行动）。此外，每一名位于被那个行动选\n择的敌方特工 3\" 内且对该特工可见的其他敌方特工\n也会获得一枚己方的标记光指示物。\n标记光 1AP\n参见“标记光”阵营规则。\n无人机：\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n标记光、转移和射击以外的行动，也不能使用任\n何不在其数据卡上的武器。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意这不是对\nAPL 的修正，因此可以和任意修正叠加。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n探路者、钛帝国、MB3\u0007侦察、无人机 32",
+      "weapon_types": {
+        "速射炮（集中）": "远程",
+        "速射炮（扫射）": "远程",
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMB3 RECON DRONE\n3 6\" 4+ 12\nNAME ATK HIT DMG WR\nBurst cannon (focused) 5 4+ 3/4 Ceaseless, Heavy (Reposition only), Punishing\nBurst cannon (sweeping) 4 4+ 3/4 Ceaseless, Heavy (Reposition only), Punishing,\nTorrent 1\"\nRam 3 5+ 2/3 -\nAnalyse: Whenever this operative performs the Markerlight\naction, each other enemy operative that’s both visible to this\noperative and within 3\" of the enemy operative you selected for\nthat action also gains one of your Markerlight tokens.\nMARKERLIGHT 1AP\nSee the Markerlights faction rule.\nDrone:\n• This operative cannot perform any actions other than Charge,\nDash, Fall Back, Fight, Markerlight, Reposition and\nShoot. It cannot use any weapons that aren’t on its datacard.\n• Whenever determining control of an objective marker, treat\nthis operative’s APL stat as 1 lower. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\n• Whenever determining what’s visible to this operative, the\nround disc at the top of the miniature is its head.\nPATHFINDER , T'AU EMPIRE, MB3 RECON, DRONE 32"
+    },
+    {
+      "id": "kt-pathfinders-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "MV1 火炮无人机-数据卡",
+      "title_en": "MV1 GUN DRONE",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-MV1 火炮无人机-数据卡.png",
+      "is_back": false,
+      "text": "MV1\u0007火炮无人机 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n双联脉冲卡宾枪 4 4+ 4/5 无休\n撞击 3 5+ 2/3 -\n无人机：\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n转移和射击以外的行动，也不能使用任何不在其\n数据卡上的武器。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意这不是对\nAPL 的修正，因此可以和任意修正叠加。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n探路者、钛帝国、MV1\u0007火炮、无人机 32",
+      "weapon_types": {
+        "双联脉冲卡宾枪": "远程",
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMV1 GUN DRONE\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nTwin pulse carbine 4 4+ 4/5 Ceaseless\nRam 3 5+ 2/3 -\nDrone:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight, Reposition and\nShoot. It cannot use any weapons that aren’t on its datacard.\n• Whenever determining control of an objective marker, treat\nthis operative’s APL stat as 1 lower. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\n• Whenever determining what’s visible to this operative, the\nround disc at the top of the miniature is its head.\nPATHFINDER , T'AU EMPIRE, MV1 GUN, DRONE 32"
+    },
+    {
+      "id": "kt-pathfinders-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "MV4 护盾无人机-数据卡",
+      "title_en": "MV4 SHIELD DRONE",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-MV4 护盾无人机-数据卡.png",
+      "is_back": false,
+      "text": "MV4\u0007护盾无人机 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n撞击 3 5+ 2/3 -\n无人机：\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n和转移以外的行动，也不能使用任何不在其数据\n卡上的武器。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意这不是对\nAPL 的修正，因此可以和任意修正叠加。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n护盾生成器：\n• 该特工忽略“穿刺”武器规则。\n• 每个转折点限一次，在一枚攻击骰对该特工造成普\n通伤害时，您可以忽略那枚攻击骰造成的伤害。\n• 如果该特工是“拯救协议”交战计谋指定的无人机\n特工，则您可以花费 0CP 使用该计谋。\n探路者、钛帝国、MV4\u0007护盾、无人机 32",
+      "weapon_types": {
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMV4 SHIELD DRONE\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRam 3 5+ 2/3 -\nDrone:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight and Reposition. It\ncannot use any weapons that aren’t on its datacard.\n• Whenever determining control of an objective marker, treat\nthis operative’s APL stat as 1 lower. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\n• Whenever determining what’s visible to this operative, the\nround disc at the top of the miniature is its head.\nShield Generator:\n• This operative ignores the Piercing weapon rule.\n• Once per turning point, when an attack dice inflicts Normal\nDmg on this operative, you can ignore that inflicted damage.\n• You can use the Saviour Protocols firefight ploy for 0CP if this\nis the specified DRONE operative.\nPATHFINDER , T'AU EMPIRE, MV4 SHIELD, DRONE 32"
+    },
+    {
+      "id": "kt-pathfinders-01-16",
+      "sequence": 16,
+      "category": "operative",
+      "title_zh": "MV7 标记无人机-数据卡",
+      "title_en": "MV7 MARKER DRONE",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-16-特工-MV7 标记无人机-数据卡.png",
+      "is_back": false,
+      "text": "MV7\u0007标记无人机 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n撞击 3 5+ 2/3 -\n高强度标记光：每当该特工执行标记光行动时，被\n选择的敌方特工获得 2 枚己方标记光指示物（而不\n是 1 枚）。\n标记光 1AP\n参见“标记光”阵营规则。\n无人机：\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n标记光和转移以外的行动，也不能使用任何不在\n其数据卡上的武器。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意这不是对\nAPL 的修正，因此可以和任意修正叠加。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n探路者、钛帝国、MV7\u0007标记、无人机 32",
+      "weapon_types": {
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMV7 MARKER DRONE\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRam 3 5+ 2/3 -\nHigh-intensity Markerlight: Whenever this operative performs\nthe Markerlight action, the selected enemy operative gains\ntwo of your Markerlight tokens (instead of one).\nMARKERLIGHT 1AP\nSee the Markerlights faction rule.\nDrone:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight, Markerlight and\nReposition. It cannot use any weapons that aren’t on\nits datacard.\n• When determining control of an objective marker, treat this\noperative’s APL stat as 1 lower. Note this isn’t a change to its\nAPL stat, so any changes are cumulative with this.\n• When determining what’s visible to this operative, the round\ndisc at the top of the miniature is its head.\nPATHFINDER , T'AU EMPIRE, MV7 MARKER, DRONE 32"
+    },
+    {
+      "id": "kt-pathfinders-01-17",
+      "sequence": 17,
+      "category": "operative",
+      "title_zh": "MV31 脉冲加速无人机-数据卡",
+      "title_en": "MV31 PULSE ACCELERATOR DRONE",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-17-特工-MV31 脉冲加速无人机-数据卡.png",
+      "is_back": false,
+      "text": "MV31\u0007脉冲加速无人机 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n撞击 3 5+ 2/3 -\n无人机：\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n脉冲加速器和转移以外的行动，也不能使用任何\n不在其数据卡上的武器。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意这不是对\nAPL 的修正，因此可以和任意修正叠加。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n脉冲加速器 1AP\n直到该特工的下一次激活开始前，或者直到该特\n工被残废前（以先满足的条件为准），每当一名\n位于其 3\" 内的己方探路者特工使用一件脉冲武\n器进行射击时，那件武器拥有“致命 5+”和\n“严重”武器规则。\n探路者、钛帝国、MV31\u0007脉冲加速、无人机 32",
+      "weapon_types": {
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMV31 PULSE ACCELERATOR DRONE\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRam 3 5+ 2/3 -\nDrone:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight, Pulse Accelerator\nand Reposition. It cannot use any weapons that aren’t on\nits datacard.\n• When determining control of an objective marker, treat this\noperative’s APL stat as 1 lower. Note this isn’t a change to its\nAPL stat, so any changes are cumulative with this.\n• When determining what’s visible to this operative, the round\ndisc at the top of the miniature is its head.\nPULSE ACCELERATOR 1AP\nUntil the start of this operative’s next activation or until it's\nincapacitated (whichever comes first), whenever another\nfriendly PATHFINDER operative is shooting with a pulse\nweapon within 3\" of this operative, that weapon has the\nLethal 5+ and Severe weapon rules.\nPATHFINDER , T'AU EMPIRE, MV31 PULSE ACCELERATOR, DRONE 32"
+    },
+    {
+      "id": "kt-pathfinders-01-18",
+      "sequence": 18,
+      "category": "operative",
+      "title_zh": "MV33 重力抑制无人机-数据卡",
+      "title_en": "MV33 GRAV-INHIBITOR DRONE",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-18-特工-MV33 重力抑制无人机-数据卡.png",
+      "is_back": false,
+      "text": "MV33\u0007重力抑制无人机 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n撞击 3 5+ 2/3 -\n无人机：\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n和转移以外的行动，也不能使用任何不在其数据\n卡上的武器。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意这不是对\nAPL 的修正，因此可以和任意修正叠加。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n重力抑制器：\n• 在一名敌方特工执行一次进行移动的行动时（冲\n刺除外)，如果那次移动会进入该特工 6\" 内且可见\n的位置，将移动的距离视作为比原本要多 2\"，并\n且忽略阻挡和可穿越地形规则的额外距离。\n• 每当位于该特工 6\" 内且对其可见的敌方特工进行\n近战或者反击时，那名敌方特工近战武器的命中\n属性降低 1，并且这可以和受创效果叠加。\n探路者、钛帝国、MV33\u0007重力抑制、无人机 32",
+      "weapon_types": {
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMV33 GRAV-INHIBITOR DRONE\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRam 3 5+ 2/3 -\nDrone:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight and Reposition. It\ncannot use any weapons that aren’t on its datacard.\n• When determining control of an objective marker, treat this\noperative’s APL stat as 1 lower. Note this isn’t a change to its\nAPL stat, so any changes are cumulative with this.\n• When determining what’s visible to this operative, the round\ndisc at the top of the miniature is its head.\nGrav-inhibitor:\n• Whenever an enemy operative performs an action in which it\nmoves (excluding Dash), if it would move visible to and within\n6\" of this operative, treat the distance as an additional 2\"\nand ignore the additional distances from the Obstructing and\nAccessible terrain rules.\n• Whenever an enemy operative is fighting or retaliating while\nvisible to and within 6\" of this operative, worsen the Hit stat of\nthat enemy operative’s melee weapons by 1. This is cumulative\nwith being injured.\nPATHFINDER , T'AU EMPIRE, MV33 GRAV-INHIBITOR, DRONE 32"
+    },
+    {
+      "id": "kt-pathfinders-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "探路者杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-探路者杀戮小队-1.png",
+      "is_back": false,
+      "text": "探路者\n杀戮小队\n原型: 渗透、侦察\n特工\n↘ 1 名探路者老兵特工\n↘ 11 名探路者特工，从以下列表中选择：\n• 突击掷弹兵\n• 浴血\n• 通讯专家\n• 无人机控制员\n• 神射手\n• 医疗技师\n• 战士\n• 超光谱干扰\n• 武器专家，装备有以下一种选项：\n○ 离子步枪；枪托\n○ 磁轨步枪；枪托\n• MB3 侦察无人机（算作选择了两名特工）\n• MV31 脉冲加速无人机\n• MV33 重力抑制无人机\n请继续阅读背面规则",
+      "text_en": "PATHFINDERS\nKILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 PATHFINDER SHAS’UI operative\n↘ 11 PATHFINDER operatives selected from the\nfollowing list:\n• ASSAULT GRENADIER\n• BLOODED\n• COMMS SPECIALIST\n• DRONE CONTROLLER\n• MARKSMAN\n• MEDICAL TECHNICIAN\n• SHAS’LA\n• TRANSPECTRAL INTERFERENCE\n• WEAPONS EXPERT with one of the\nfollowing options:\n○ Ion rifle; gun butt\n○ Rail rifle; gun butt\n• MB3 RECON DRONE (counts as\ntwo selections)\n• MV31 PULSE ACCELERATOR DRONE\n• MV33 GRAV-INHIBITOR DRONE\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-pathfinders-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "探路者杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-探路者杀戮小队-2.png",
+      "is_back": true,
+      "text": "• MV1 火炮无人机\n• MV4 护盾无人机\n• MV7 标记无人机\n除了战士和武器专家特工以外，上述的每一名特\n工只能被纳入您的杀戮小队一次。您的杀戮小队\n只能包含最多两名武器专家特工。\n一些探路者规则会提及“脉冲武器”一词。\n以下武器属于脉冲武器：速射炮、脉冲卡宾\n枪、消声脉冲卡宾枪、双联脉冲卡宾枪。",
+      "text_en": "• MV1 GUN DRONE\n• MV4 SHIELD DRONE\n• MV7 MARKER DRONE\nOther than SHAS’LA and WEAPONS EXPERT\noperatives, your kill team can only include each\noperative on this list once. Your kill team can only\ninclude up to two WEAPONS EXPERT operatives.\nSome PATHFINDER rules refer to a ‘pulse\nweapon’. The following weapons are pulse\nweapons: burst cannon, pulse carbine,\nsuppressed pulse carbine, twin pulse carbine."
+    },
+    {
+      "id": "kt-pathfinders-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "标记光-1",
+      "title_en": "MARKERLIGHTS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-标记光-1.png",
+      "is_back": false,
+      "text": "探路者\n阵营规则\n标记光\n标记光是一种激光瞄准系统，能够将目标的\n信息数据上传至周边钛星人单位的武器瞄具\n以及头盔系统上。\n一些探路者特工（在数据卡上表示）可以执行\n标记光独特行动：\n标记光 1AP\n选择一名对该特工可见的敌方特工。那名\n敌方特工获得一枚己方标记光指示物（最\n多 4 枚)。\n一名特工不能在敌方特工的控制范围内执行\n此行动。如果一名特工会在同一次激活中执\n行此行动以及射击行动（戒备除外)，那么\n只有那次射击行动的目标能被选择成为本行\n动的目标（反之亦然)。\n请继续阅读背面规则",
+      "text_en": "PATHFINDER\nFACTION RULE\nMARKERLIGHTS\nMarkerlights are laser targeting systems that feed\ninformation to the weapon-mounted scopes and helmet\ntargeting systems of nearby T’au units.\nSome PATHFINDER operatives (indicated on\ntheir datacard) can perform the Markerlight\nunique action:\nMARKERLIGHT 1AP\nSelect one enemy operative visible to this\noperative. That enemy operative gains one\nof your Markerlight tokens (to a maximum\nof four).\nAn operative cannot perform this action\nwhile within control range of an enemy\noperative. If an operative (excluding MB3\nRECON) would perform the Shoot action\n(excluding Guard) and this action during\nthe same activation, only the target of that\nShoot action can be selected for this action\n(and vice versa).\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-pathfinders-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "标记光-2",
+      "title_en": "MARKERLIGHTS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-标记光-2.png",
+      "is_back": true,
+      "text": "每次激活限一次，每当一名拥有任何己方标记光\n指示物的敌方特工执行冲刺、冲锋、后撤或转移\n行动时，移除一枚标记光指示物。\n虽然只有部分探路者特工可以执行标记光行\n动，但所有探路者特工都能够获得它的增益效\n果。每当一名己方探路者特工使用其数据卡上\n的武器进行射击时（突击掷弹兵的融合手雷除\n外)，那件武器会根据目标拥有的标记光指示物\n数量获得额外的效果。这些效果是叠加的，因此\n如果一名敌方特工拥有两枚己方标记光指示物，\n那么进行射击的己方特工在流程中获得 1 枚和 2\n枚指示物的规则。\n请继续阅读背面规则",
+      "text_en": "Once during each of their activations, whenever\nan enemy operative that has any of your\nMarkerlight tokens performs the Dash, Charge,\nFall Back or Reposition action, remove one of\nthose tokens.\nWhile only some PATHFINDER operatives can\nperform the Markerlight action, all PATHFINDER\noperatives can benefit from its effects. Whenever\na friendly PATHFINDER operative is shooting\nwith a weapon from its datacard (excluding\nASSAULT GRENADIER’s fusion grenade), it has\nadditional rules determined by the number of\nyour Markerlight tokens the target has. These are\ncumulative, so if an enemy operative has two of\nyour Markerlight tokens, the friendly operative\nshooting it has the rules for 1 and 2 tokens during\nthat sequence.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-pathfinders-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "标记光-3",
+      "title_en": "MARKERLIGHTS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-标记光-3.png",
+      "is_back": true,
+      "text": "标记光\n额外规则\n指示物\n1 “集中和平衡”武器规则。\n2 那名己方特工远程武器的命\n中属性提升 1（最多提升至\n3+）。。\n3 目标不能被遮挡。\n4 “ 追踪轻型”武器规则。\n5 “ 追踪”武器规则。",
+      "text_en": "MARKERLIGHT\nADDITIONAL RULES\nTOKENS\nSaturate and Balanced\n1\nweapon rules.\n2 Improve the Hit stat of that\nfriendly operative’s ranged\nweapons by 1 (to a maximum\nof 3+).\n3 The target cannot\nbe obscured.\n4 Seek Light weapon rule.\n5 Seek weapon rule."
+    },
+    {
+      "id": "kt-pathfinders-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "PATHFINDER",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "探路者\n标识/指示物指南\n标记光\n蒙特’卡\n指示物\n指示物\n(数值 1 和 2)\n拯救协议考雍\n指示物指示物\n融合手雷目标分析镜\n指示物指示物\n高强度\n医疗兵\n标记光\n指示物\n指示物\n多次元光子手雷\n指示物指示物\n轨道观察\n脉冲加速\n协助\n指示物\n指示物",
+      "text_en": "PATHFINDER\nMARKER/TOKEN GUIDE\nMarkerlight\ntokens Mont’ka\n(Values token\n1 & 2)\nSaviour\nKauyon\nProtocols\ntoken\ntokens\nFusion Target\nGrenade Analysis\ntoken Optic token\nHigh-\nintensity\nMedic token\nMarkerlight\ntoken\nMulti- Photon\ndimensional Grenade\ntoken token\nPulse Orbital\nAccelerator Survey\ntoken Uplink token"
+    },
+    {
+      "id": "kt-pathfinders-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "侦察扫描",
+      "title_en": "RECON SWEEP",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-侦察扫描.png",
+      "is_back": false,
+      "text": "探路者\n战略计谋\n侦察扫描\n探路者专门负责执行侦察任务，他们十分擅\n长穿越复杂的地形并包抄毫无防备的敌人。\n选择一个杀戮区边缘（己方杀戮区边缘除外）。\n每一名完全位于那个边缘 6\" 内的己方探路者特\n工可以立即执行一次无消耗的冲刺行动，但是每\n一个执行了该行动的特工必须在结束移动时完全\n位于一个杀戮区边缘的 6\" 内（己方杀戮区边缘\n除外)。您不能在第一转折点中使用本计谋。",
+      "text_en": "PATHFINDER\nSTRATEGY PLOY\nRECON SWEEP\nPathfinders are tasked with reconnaissance roles\nand are skilled at crossing difficult terrain to outflank\nunsuspecting targets.\nSelect one killzone edge (excluding your own).\nEach friendly PATHFINDER operative that’s\nwholly within 6\" of that edge can immediately\nperform a free Dash action in an order of your\nchoice, but each that does so must end that move\nwholly within 6\" of a killzone edge (excluding your\nown). You cannot use this ploy during the first\nturning point."
+    },
+    {
+      "id": "kt-pathfinders-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "火力压制",
+      "title_en": "SUPPRESSING FIRE",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-火力压制.png",
+      "is_back": false,
+      "text": "探路者\n战略计谋\n火力压制\n探路者们以暴风雪一般的火力迫使敌人寻找\n掩护，让他们难以还击。\n每当一名敌方特工执行射击行动时，如果目标\n（如果武器拥有“爆炸”或“洪流”武器规\n则，则是主要目标）不是最近的有效目标，那\n么您的对手不能重掷攻击骰。在判断本规则的\n效果时，忽略拥有隐匿命令或者被遮挡的己方\n探路者特工。",
+      "text_en": "PATHFINDER\nSTRATEGY PLOY\nSUPPRESSING FIRE\nT’au Pathfinders lay down a punishing blizzard of fire,\nforcing their enemies to take cover and fire back in\nscattered, desperate bursts.\nWhenever an enemy operative is performing the\nShoot action, if the target (the primary target\nif the weapon has the Blast or Torrent weapon\nrules) isn’t the closest valid target, your opponent\ncannot re-roll their attack dice. Ignore friendly\nPATHFINDER operatives that have a Conceal\norder or are obscured when determining this."
+    },
+    {
+      "id": "kt-pathfinders-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "团结一致",
+      "title_en": "BONDED",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-团结一致.png",
+      "is_back": false,
+      "text": "探路者\n战略计谋\n团结一致\n烈火战士小队的成员们通常在儿时就一同经\n受训练，并通过仪式结义成为同伴，他们拥\n有着一种超凡的默契。\n每当一名己方探路者特工（无人机除外）进行\n射击或者使用远程武器进行反击时（参见“零距\n离连射”交战计谋)，如果这名特工位于另一名\n己方探路者特工（无人机除外）的 3\" 内，那么\n第一名己方特工的远程武器还拥有“精准 1”武\n器规则。",
+      "text_en": "PATHFINDER\nSTRATEGY PLOY\nBONDED\nOften trained together from youth and bonded by blood\nritual, Fire Warrior teams possess an uncanny degree\nof coordination.\nWhenever a friendly PATHFINDER operative\n(excluding DRONE) is shooting or retaliating with\na ranged weapon (see Point-Blank Fusillade\nfirefight ploy), if it’s within 3\" of another friendly\nPATHFINDER operative (excluding DRONE), that\nfirst friendly operative’s ranged weapons have the\nAccurate 1 weapon rule."
+    },
+    {
+      "id": "kt-pathfinders-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "找掩护",
+      "title_en": "TAKE COVER",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-找掩护.png",
+      "is_back": false,
+      "text": "探路者\n战略计谋\n找掩护\n探路者们身穿轻甲，装备轻便。要想生存，他\n们就必须充分利用身边地形所提供的优势。\n每当一名特工对己方探路者特工进行射击时，\n如果您可以保留任何掩护豁免，那么那名己方特\n工的豁免属性提升 1。",
+      "text_en": "PATHFINDER\nSTRATEGY PLOY\nTAKE COVER\nPathfinders are lightly armoured and equipped for\nmobility. They must use surrounding terrain to their\nadvantage in order to survive.\nWhenever an operative is shooting a friendly\nPATHFINDER operative, if you can retain any\ncover saves, improve that friendly operative’s\nSave stat by 1."
+    },
+    {
+      "id": "kt-pathfinders-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "高上大义",
+      "title_en": "A WORTHY CAUSE",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-高上大义.png",
+      "is_back": false,
+      "text": "探路者\n交战计谋\n高上大义\n无论多么危险，任何能够推进上上善道的行\n动都必须被迅速且毫不犹豫地执行。\n在交战阶段开始时使用此交战计谋。一名己方探\n路者特工（无人机除外）可以立刻执行一次无\n消耗的任务行动。",
+      "text_en": "PATHFINDER\nFIREFIGHT PLOY\nA WORTHY CAUSE\nAny action that furthers the Greater Good must be\nundertaken swiftly and without question, no matter\nhow dangerous.\nUse this firefight ploy at the start of the Firefight\nphase. One friendly PATHFINDER operative\n(excluding DRONE) can immediately perform a\nfree mission action."
+    },
+    {
+      "id": "kt-pathfinders-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "支援射击",
+      "title_en": "SUPPORTING FIRE",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-支援射击.png",
+      "is_back": false,
+      "text": "探路者\n交战计谋\n支援射击\n探路者们是优秀的神枪手，就算在同伴陷入\n近距离战斗时也能够为其提供火力支援。\n在一名己方探路者特工执行射击行动并选择 6\"\n内的有效目标时使用本交战计谋。如果一名敌方\n特工的控制范围内存在其他己方探路者特工，\n那么这个情况不会防止这名敌方特工被选择成为\n目标。",
+      "text_en": "PATHFINDER\nFIREFIGHT PLOY\nSUPPORTING FIRE\nT’au Pathfinders are expert sharpshooters and can grant\ncovering fire even to allies engaged in close combat.\nUse this firefight ploy when a friendly\nPATHFINDER operative is performing the Shoot\naction and you’re selecting a valid target within\n6\" of it. Having other friendly PATHFINDER\noperatives within an enemy operative’s control\nrange doesn’t prevent that enemy operative from\nbeing selected."
+    },
+    {
+      "id": "kt-pathfinders-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "拯救协议",
+      "title_en": "SAVIOUR PROTOCOLS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-拯救协议.png",
+      "is_back": false,
+      "text": "探路者\n交战计谋\n拯救协议\n钛星人的无人机被写入了保护其他人员安全\n的硬代码，在一位战士遭到攻击时，无人机\n会自动飞向同伴的身边进行保护。\n在一名己方探路者特工（无人机除外）被选择\n成为射击行动的有效目标时使用本交战计谋。\n选择一名位于成为目标的己方特工的 3\" 内且对\n其可见的己方探路者无人机特工，选择的特工\n将替代成为那次射击的有效目标（就算特工在\n通常情况下不能被选择成为目标)。那个己方无\n人机特工只有在原本的目标拥有掩护或被遮挡\n时才能拥有对应的效果。本计谋对使用带有“爆\n炸”或者“洪流”武器规则的武器所进行的射击\n行动无效。",
+      "text_en": "PATHFINDER\nFIREFIGHT PLOY\nSAVIOUR PROTOCOLS\nT’au drones are hard-coded to prioritise the\nsafety of their operators, and will automatically\ninterpose themselves between a T’au warrior and an\nincoming attack.\nUse this firefight ploy when a friendly\nPATHFINDER operative (excluding DRONE) is\nselected as the valid target of a Shoot action.\nSelect one friendly PATHFINDER DRONE\noperative visible to and within 3\" of that first\nfriendly operative to become the valid target\ninstead (even if it wouldn’t normally be valid for\nthis). That friendly DRONE operative is only in\ncover or obscured if the original target was. This\nploy has no effect if the ranged weapon has the\nBlast or Torrent weapon rule."
+    },
+    {
+      "id": "kt-pathfinders-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "零距离连射",
+      "title_en": "POINT-BLANK FUSILLADE",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-零距离连射.png",
+      "is_back": false,
+      "text": "探路者\n交战计谋\n零距离连射\n探路者们能够熟练运用手中的远程武器，就\n算是在近距离战斗中也没有任何问题。\n在一名己方探路者特工（无人机除外）进行反\n击时，如果那名特工在激活或反应开始时没有\n位于敌方特工的控制范围内，那么您可以使用\n本交战计谋。在那个流程中，您可以将特工装\n备的一件远程武器作为近战武器进行使用（名称\n中拥有“手雷”一词的武器除外)。若这么做，\n您不能在那个流程中进行格挡，并且直到流程结\n束前，以下武器规则无法生效：“毁灭”、“穿\n刺”、“洪流”。如果那名己方特工处于就绪，\n拥有交战命令，并且使用一件脉冲武器进行反\n击，那么您将结算第一枚攻击骰（也就是防御方\n比攻击方优先结算）。",
+      "text_en": "PATHFINDER\nFIREFIGHT PLOY\nPOINT-BLANK FUSILLADE\nWielding their ranged weapons with practised skill,\nPathfinders are capable of utilising them even at\nclose quarters.\nUse this firefight ploy when a friendly\nPATHFINDER operative (excluding DRONE) is\nretaliating, if it wasn’t within control range of\nenemy operatives at the start of that activation/\ncounteraction. You can use one of its ranged\nweapons as a melee weapon (excluding a weapon\nthat has the word ‘grenade’ in its name) during\nthat sequence. If you do, you cannot block during\nthat sequence, and the following weapon rules\nhave no effect on its weapons until the end of\nthat sequence: Devastating, Piercing, Torrent. If\nthat friendly operative is ready, has an Engage\norder and is retaliating with a pulse weapon, you\nresolve the first attack dice (i.e. defender instead\nof attacker)."
+    },
+    {
+      "id": "kt-pathfinders-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "目标分析镜",
+      "title_en": "TARGET ANALYSIS OPTIC",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-目标分析镜.png",
+      "is_back": false,
+      "text": "探路者\n阵营装备\n目标分析镜\n这种先进的瞄具能够提升标记光的效果，让\n持有者的射击变得异常精准。\n每个转折点限一次，当一名己方探路者特工\n（无人机除外）进行射击行动，并选择有效目\n标时，您可以使用此规则。若这么做，那么直\n到那次行动结束前，如果目标拥有至少一枚己\n方标记光指示物，那么将其视为拥有额外一枚\n标记光指示物。如果选择的武器拥有“爆炸”\n或“洪流”武器规则，那么只有首要目标会受\n到本规则的影响。",
+      "text_en": "PATHFINDER\nFACTION EQUIPMENT\nTARGET ANALYSIS OPTIC\nAdvanced optics enhance the effectiveness of\nmarkerlights, ensuring the bearer’s shots find their mark\nwith unerring accuracy.\nOnce per turning point, when a friendly\nPATHFINDER operative (excluding DRONE) is\nperforming the Shoot action and you’re selecting\na valid target, you can use this rule. If you do,\nuntil the end of that action, if the target has at\nleast one of your Markerlight tokens, it's treated\nas having one more. If the ranged weapon has\nthe Blast or Torrent weapon rule, only the primary\ntarget is affected."
+    },
+    {
+      "id": "kt-pathfinders-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "高强度标记光",
+      "title_en": "HIGH-INTENSITY MARKERLIGHT",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-高强度标记光.png",
+      "is_back": false,
+      "text": "探路者\n阵营装备\n高强度标记光\n这种标记光的效率极佳，其发射出的光线能\n够穿透烟雾、废墟和软掩体。\n每个转折点最多两次，当一名己方探路者特工\n（MV7 标记无人机除外）执行标记光行动时，\n您可以使用本规则。若这么做，那么您选择的\n敌方特工将获得 2 枚己方标记光指示物（而不\n是 1 枚）。",
+      "text_en": "PATHFINDER\nFACTION EQUIPMENT\nHIGH-INTENSITY MARKERLIGHT\nThis markerlight is exceptionally effective, its beam\ntraceable even through obscuring smoke, debris and\nsoft cover.\nUp to twice per turning point, when a friendly\nPATHFINDER operative (excluding MV7\nMARKER DRONE) performs the Markerlight\naction, you can use this rule. If you do, the enemy\noperative you select gains two of your Markerlight\ntokens (instead of one)."
+    },
+    {
+      "id": "kt-pathfinders-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "光子手雷",
+      "title_en": "PHOTON GRENADE",
+      "source_page": 10,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-光子手雷.png",
+      "is_back": false,
+      "text": "探路者\n阵营装备\n光子手雷\n在引爆后，光子手雷所释放出的多光谱强光\n能够致盲并眩晕范围内的目标。\n每个转折点限一次，一名数据卡上拥有标记光行\n动的己方探路者特工（无人机除外）可以执行\n以下独特行动：\n光子手雷 1AP\n为该特工选择一名对这名特工可见的敌方特\n工并掷一枚 D6：若结果为 3+，那么直到\n那名特工的下一次激活结束前，其移动属性\n减少 2\"。\n一名特工不能在敌方特工的控制范围内执行\n此行动。",
+      "text_en": "PATHFINDER\nFACTION EQUIPMENT\nPHOTON GRENADE\nUpon reaching their destination, photon grenades\nrelease bright pulses of multispectrum light that blind\nand shock those caught in the blast.\nOnce per turning point, a friendly PATHFINDER\noperative that has the Markerlight action on their\ndatacard (excluding DRONE) can perform the\nfollowing unique action:\nPHOTON GRENADE 1AP\nSelect one enemy operative visible to this\noperative and roll one D6: on a 3+, until\nthe end of that operative’s next activation,\nsubtract 2\" from its Move stat.\nAn operative cannot perform this\naction while within control range of an\nenemy operative."
+    },
+    {
+      "id": "kt-pathfinders-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "轨道观察协助",
+      "title_en": "ORBITAL SURVEY UPLINK",
+      "source_page": 10,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-轨道观察协助.png",
+      "is_back": false,
+      "text": "探路者\n阵营装备\n轨道观察协助\n钛星人的宇宙飞船装备有极其有效的扫描系\n统，就算在星球的轨道上也可以准确侦测并\n标记单兵目标。\n每个转折点限一次，当一名己方探路者特工执\n行标记光行动时，您可以使用本规则。若使用，\n那么您可以选择一名位于杀戮区内的敌方特工并\n使其获得一枚标记光指示物（而不是选择对特工\n可见的目标)。本规则无法与“高强度标记光”\n或者“分析”规则的效果叠加。",
+      "text_en": "PATHFINDER\nFACTION EQUIPMENT\nORBITAL SURVEY UPLINK\nSo effective are the scanning matrices of T’au voidships\nthat they can detect and illuminate a single infantry\ntarget, even from orbit.\nOnce per turning point, when a friendly\nPATHFINDER operative performs the\nMarkerlight action, you can use this rule. If you\ndo, you can select one enemy operative in the\nkillzone to gain one of your Markerlight tokens\ninstead (it doesn’t need to be visible). This isn’t\ncumulative with the High-intensity Markerlight or\nAnalyse rules."
+    }
+  ]
+}

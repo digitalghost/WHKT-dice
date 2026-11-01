@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="conGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#00687A"/>
+    </linearGradient>
+  </defs>
+  <polygon points="24,6 96,6 114,24 114,96 96,114 24,114 6,96 6,24" fill="#0E1418" stroke="#00C2D1" stroke-width="4" stroke-dasharray="14 6"/>
+  <polygon points="24,42 96,42 84,96 36,96" fill="url(#conGrad)" opacity="0.28"/>
+  <path d="M22 46 H98 M30 62 H90 M38 78 H82" stroke="#00E5FF" stroke-width="5" stroke-linecap="square"/>
+  <polygon points="60,22 78,46 42,46" fill="#00E5FF"/>
+</svg>

@@ -1,0 +1,404 @@
+{
+  "teamId": "KT-GOREMONGERS",
+  "name": "洒血狂",
+  "nameEn": "Goremongers",
+  "subtitle": "混沌 · 7 种特工",
+  "archetypes": [
+    "侦察",
+    "搜索与摧毁"
+  ],
+  "source": "官方中文 PDF 26/08/2026（洒血狂杀戮小队 Goremongers 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "goremongers_01",
+      "name": "洒血狂鲜血使者",
+      "role": "鲜血使者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "5+",
+      "wounds": 11,
+      "baseSizeMm": 32,
+      "keywords": [
+        "洒血狂",
+        "混沌",
+        "队长",
+        "鲜血使者"
+      ],
+      "cards": [
+        "KT-GOREMONGERS--01-01-特工-洒血狂鲜血使者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "goremongers_01_w01",
+          "name": "恐虐符章",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 4/4 · 范围 8\"、集中"
+        },
+        {
+          "id": "goremongers_01_w02",
+          "name": "链锯刃",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5 · 撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "goremongers_01_w01",
+        "goremongers_01_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-goremongers_faction_rule",
+          "name": "恐虐符文",
+          "ap": null,
+          "text": "洒血狂通过将恐虐符文刻入血肉，获得炼狱般的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会失去超过 8 点耐伤。",
+          "factionRule": true
+        },
+        {
+          "name": "恐虐恩泽",
+          "ap": null,
+          "text": "在这名特工的每次激活中限一次，在其执行一次行动之前或之后，若其血污储罐为空载，您便可以增加其血污储罐内容。"
+        },
+        {
+          "name": "即将成魔",
+          "ap": null,
+          "text": "每场战斗限一次，当一枚攻击骰子对这名特工造成普通伤害时，您可以忽视其造成的伤害。"
+        }
+      ]
+    },
+    {
+      "id": "goremongers_02",
+      "name": "洒血狂新进者",
+      "role": "新进者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "洒血狂",
+        "混沌",
+        "新进者"
+      ],
+      "cards": [
+        "KT-GOREMONGERS--01-02-特工-洒血狂新进者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "goremongers_02_w01",
+          "name": "自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 2/3 · 范围 8\""
+        },
+        {
+          "id": "goremongers_02_w02",
+          "name": "链锯长刀",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5 · 撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "goremongers_02_w01",
+        "goremongers_02_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-goremongers_faction_rule",
+          "name": "恐虐符文",
+          "ap": null,
+          "text": "洒血狂通过将恐虐符文刻入血肉，获得炼狱般的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会失去超过 8 点耐伤。",
+          "factionRule": true
+        },
+        {
+          "name": "沉溺渴血",
+          "ap": null,
+          "text": "每个转折点限一次，每当拥有这个规则的一名特工在近战行动结束时，若它不再位于敌方特工控制范围内，您可以使用本规则，若使用，立即执行一次无消耗的冲锋行动（即便其在那次激活中已经执行过冲锋行动），但在那次行动中不能移动超过 2\"。执行本规则不会影响它在那个行动结束后执行冲锋，冲刺或转移行动。"
+        }
+      ]
+    },
+    {
+      "id": "goremongers_03",
+      "name": "洒血狂猎血者",
+      "role": "猎血者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "洒血狂",
+        "混沌",
+        "猎血者"
+      ],
+      "cards": [
+        "KT-GOREMONGERS--01-03-特工-洒血狂猎血者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "goremongers_03_w01",
+          "name": "自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 2/3 · 范围 8\""
+        },
+        {
+          "id": "goremongers_03_w02",
+          "name": "仪式战刃",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/5 · 仪式"
+        }
+      ],
+      "defaultWeaponIds": [
+        "goremongers_03_w01",
+        "goremongers_03_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-goremongers_faction_rule",
+          "name": "恐虐符文",
+          "ap": null,
+          "text": "洒血狂通过将恐虐符文刻入血肉，获得炼狱般的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会失去超过 8 点耐伤。",
+          "factionRule": true
+        },
+        {
+          "name": "输血仪式",
+          "ap": 1,
+          "text": "减少其血污储罐内容，但不要使用猩红活剂规则。您可以为这名特工 8\" 内的另一名己方洒血狂特工增加其血污储罐内容。\n该特工不能在敌方特工的控制范围内或其血污储罐内容为空载时执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "goremongers_04",
+      "name": "洒血狂穿刺者",
+      "role": "穿刺者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "洒血狂",
+        "混沌",
+        "穿刺者"
+      ],
+      "cards": [
+        "KT-GOREMONGERS--01-04-特工-洒血狂穿刺者-数据卡.png",
+        "KT-GOREMONGERS--01-05-特工能力-洒血狂穿刺者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "goremongers_04_w01",
+          "name": "自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 2/3 · 范围 8\""
+        },
+        {
+          "id": "goremongers_04_w02",
+          "name": "血肉穿刺者（远程）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 8\"、眩晕、关键穿刺 1、拖动"
+        },
+        {
+          "id": "goremongers_04_w03",
+          "name": "血肉穿刺者（刺击）",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "goremongers_04_w01",
+        "goremongers_04_w02",
+        "goremongers_04_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-goremongers_faction_rule",
+          "name": "恐虐符文",
+          "ap": null,
+          "text": "洒血狂通过将恐虐符文刻入血肉，获得炼狱般的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会失去超过 8 点耐伤。",
+          "factionRule": true
+        },
+        {
+          "name": "血污燃料",
+          "ap": 1,
+          "text": "减少该特工血污储罐的内容。在该特工使用其血肉穿刺者的任意数据之前，两个武器数据都拥有“严重”武器规则。\n该特工不能在位于敌方特工控制范围内时执行该行动，或在血污储罐为空时执行该行动。"
+        }
+      ]
+    },
+    {
+      "id": "goremongers_05",
+      "name": "洒血狂鼓动者",
+      "role": "鼓动者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "洒血狂",
+        "混沌",
+        "鼓动者"
+      ],
+      "cards": [
+        "KT-GOREMONGERS--01-06-特工-洒血狂鼓动者-数据卡.png",
+        "KT-GOREMONGERS--01-07-特工能力-洒血狂鼓动者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "goremongers_05_w01",
+          "name": "双持自动手枪（集中）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/2 · 范围 8\"、无休、毁灭 1、撕裂"
+        },
+        {
+          "id": "goremongers_05_w02",
+          "name": "双持自动手枪（盲射）",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4 · 无休、撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "goremongers_05_w01",
+        "goremongers_05_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-goremongers_faction_rule",
+          "name": "恐虐符文",
+          "ap": null,
+          "text": "洒血狂通过将恐虐符文刻入血肉，获得炼狱般的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会失去超过 8 点耐伤。",
+          "factionRule": true
+        },
+        {
+          "name": "冲刺速射",
+          "ap": 1,
+          "text": "这名特工以任意顺序执行一次无消耗的冲刺行动和一次无消耗的射击行动，但在那次射击行动中只能选择双持自动手枪（集中）。\n该特工不能在敌方特工的控制范围内或处于隐匿命令时执行此行动。"
+        },
+        {
+          "name": "煽动猎杀",
+          "ap": null,
+          "text": "当这名特工将距离其 2\" 外的一名敌方特工残废时，在将那名特工从杀戮区移除前，您可以增加那名敌方特工 8\" 内的一名己方洒血狂特工的血污储罐内容。\n每当这名特工使用双持自动手枪的任意资料对一名敌方特工造成伤害但并没有将其残废时，那名敌方特工获得一枚己方流血指示物（如果其尚未拥有一个)。当一名己方洒血狂特工在激活或反击中执行行动前或执行行动后，若其位于拥有一枚己方流血指示物的敌方特工 8\" 内，您便可以移除那枚指示物，并增加其血污储罐内容。"
+        }
+      ]
+    },
+    {
+      "id": "goremongers_06",
+      "name": "洒血狂猎颅者",
+      "role": "猎颅者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "洒血狂",
+        "混沌",
+        "猎颅者"
+      ],
+      "cards": [
+        "KT-GOREMONGERS--01-08-特工-洒血狂猎颅者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "goremongers_06_w01",
+          "name": "自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 2/3 · 范围 8\""
+        },
+        {
+          "id": "goremongers_06_w02",
+          "name": "链锯巨斧",
+          "kind": "melee",
+          "profile": "4A · 3+ · 5/6 · 残暴"
+        }
+      ],
+      "defaultWeaponIds": [
+        "goremongers_06_w01",
+        "goremongers_06_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-goremongers_faction_rule",
+          "name": "恐虐符文",
+          "ap": null,
+          "text": "洒血狂通过将恐虐符文刻入血肉，获得炼狱般的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会失去超过 8 点耐伤。",
+          "factionRule": true
+        },
+        {
+          "name": "残暴",
+          "ap": null,
+          "text": "当一枚攻击骰子会对这名特工造成暴击伤害时，您可以选择将那枚攻击骰子替换成造成普通伤害。"
+        },
+        {
+          "name": "猎颅",
+          "ap": null,
+          "text": "每个转折点限一次，当这名特工使用其链锯巨斧残废一名敌方特工时，您便获得 1 CP。"
+        }
+      ]
+    },
+    {
+      "id": "goremongers_07",
+      "name": "洒血狂追猎者",
+      "role": "追猎者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "洒血狂",
+        "混沌",
+        "追猎者"
+      ],
+      "cards": [
+        "KT-GOREMONGERS--01-09-特工-洒血狂追猎者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "goremongers_07_w01",
+          "name": "自动手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 2/3 · 范围 8\""
+        },
+        {
+          "id": "goremongers_07_w02",
+          "name": "撕裂镐",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5 · 撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "goremongers_07_w01",
+        "goremongers_07_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-goremongers_faction_rule",
+          "name": "恐虐符文",
+          "ap": null,
+          "text": "洒血狂通过将恐虐符文刻入血肉，获得炼狱般的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会失去超过 8 点耐伤。",
+          "factionRule": true
+        },
+        {
+          "name": "攀登镐",
+          "ap": null,
+          "text": "每当这名特工攀爬时，将其经过的垂直距离视为 2\"（无论这名特工实际垂直移动了多少距离）。"
+        },
+        {
+          "name": "屋顶上的追猎者",
+          "ap": null,
+          "text": "每当这名特工在激活中从高于杀戮区地面至少 2\" 的制高点地形跳落后近战，或每当这名特工与高于杀戮区地面至少 2\" 的制高点地形上的敌方特工进行近战时，其近战武器都获得“毫不留情”武器规则。"
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "仪式",
+      "text": "当这名特工使用这件武器时，在那个流程中对一名位于其控制范围内的特工首次造成伤害时，您可以增加其血污储罐内容。请注意，这能够与增加血污储罐内容的常规规则累加（即在其控制范围内残废一名特工）。"
+    },
+    {
+      "name": "拖动",
+      "text": "当这名特工使用这个武器时，在结算攻击骰子步骤的开始时（造成伤害之前），您可以将目标移动至多 x\"。X 值为您没有被格挡的成功攻击骰子总数乘以2。目标必须被移动至尽可能靠近这名特工的位置，具体位置由您使用的 x\" 决定。这种移动必须由一条或多条直线组合完成，每条直线的距离都需要向上取整至最近的英寸。若目标在移动中跳落，忽视其垂直距离。随后您可以弃置任意己方未被格挡且成功的攻击骰（换言之，您可以选择不造成任意次数伤害）。"
+    }
+  ],
+  "compositionHint": "选择 1 名鲜血使者，再从新进者、猎血者、穿刺者、鼓动者、猎颅者和追猎者中选择 7 名；除新进者外，同一种特工最多 1 名。"
+}

@@ -63,7 +63,7 @@ object AvatarImages {
     ) {
         val requestKey = "avatar-thumb:$sourceUri"
         target.tag = requestKey
-        target.setImageResource(fallbackResource)
+        setFallback(target, fallbackResource)
 
         memory.get(requestKey)?.let { bitmap ->
             target.setImageBitmap(bitmap)
@@ -79,7 +79,7 @@ object AvatarImages {
             main.post {
                 val image = targetReference.get() ?: return@post
                 if (image.tag != requestKey) return@post
-                if (bitmap != null) image.setImageBitmap(bitmap) else image.setImageResource(fallbackResource)
+                if (bitmap != null) image.setImageBitmap(bitmap) else setFallback(image, fallbackResource)
                 onLoaded?.invoke(bitmap != null)
             }
         }
@@ -87,6 +87,33 @@ object AvatarImages {
 
     fun clear(target: ImageView, fallbackResource: Int) {
         target.tag = null
+        setFallback(target, fallbackResource)
+    }
+
+    /** Data teams have no drawable: the datacard asset set as tag [R.id.card_asset] is shown instead. */
+    internal fun setFallback(target: ImageView, fallbackResource: Int) {
+        val asset = (target.getTag(R.id.card_asset) as? String)
+        if (asset != null) {
+            val cacheKey = "fallback-asset:$asset"
+            memory.get(cacheKey)?.let { cached ->
+                target.setImageBitmap(cached)
+                return
+            }
+            runCatching {
+                CardAssets.open(target.context, asset).use { input ->
+                    val options = BitmapFactory.Options().apply { inSampleSize = 4 }
+                    val raw = BitmapFactory.decodeStream(input, null, options) ?: return@use null
+                    val thumb = if (raw.width > raw.height * 1.2f) {
+                        val size = min(raw.height, (raw.width * 0.42f).toInt()).coerceAtLeast(1)
+                        val x = (raw.width - size - (raw.width * 0.04f).toInt()).coerceAtLeast(0)
+                        val y = ((raw.height - size) * 0.25f).toInt().coerceIn(0, (raw.height - size).coerceAtLeast(0))
+                        Bitmap.createBitmap(raw, x, y, size, size).also { if (it !== raw) raw.recycle() }
+                    } else raw
+                    memory.put(cacheKey, thumb)
+                    target.setImageBitmap(thumb)
+                }
+            }.onSuccess { return }
+        }
         target.setImageResource(fallbackResource)
     }
 
@@ -138,8 +165,9 @@ object AvatarImages {
         squareCrop: Boolean
     ): Bitmap? {
         val bounds = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-        openSource(context, sourceUri)?.use { BitmapFactory.decodeStream(it, null, bounds) }
-            ?: return null
+        // With inJustDecodeBounds, decodeStream always returns null; only the bounds matter.
+        val boundsStream = openSource(context, sourceUri) ?: return null
+        boundsStream.use { BitmapFactory.decodeStream(it, null, bounds) }
         if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null
 
         val sampleSize = calculateAvatarSampleSize(

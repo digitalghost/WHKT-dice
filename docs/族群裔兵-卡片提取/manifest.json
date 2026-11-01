@@ -1,0 +1,1019 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-BROOD_BROTHERS",
+  "team_name_zh": "族群裔兵",
+  "team_name_en": "Brood Brothers",
+  "source_pdf": "最新杀戮小队规则更新/族群裔兵 Brood Brothers 杀戮小队规则.pdf",
+  "source_pdf_sha256": "a02120ecb43a5e3762d360f843faf86d68dbf0ce074309536f6b5fc74631f9b5",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 37,
+    "operative": 15,
+    "operative-ability": 5,
+    "team-selection": 2,
+    "faction-rule": 1,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 5,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-brood_brothers-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "裔兵指挥官-数据卡",
+      "title_en": "BROOD BROTHER COMMANDER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-裔兵指挥官-数据卡.png",
+      "is_back": false,
+      "text": "裔兵指挥官 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n弹鼓自动枪 4 3+ 2/3 无休\n激光手枪 4 3+ 2/3 范围 8\"\n刺刀 3 3+ 2/3 -\n链锯剑与利爪 4 3+ 4/5 平衡，撕裂\n动力武器与利爪 4 3+ 4/6 平衡，致命 5+\n协同：战略计划，如果该特工位于战场。选择一名\n敌方特工获得一枚己方交叉火力指示物。\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、队长、指挥官 25",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "弹鼓自动枪": "远程",
+        "激光手枪": "远程",
+        "刺刀": "近战",
+        "链锯剑与利爪": "近战",
+        "动力武器与利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER COMMANDER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nDrum-fed autogun 4 3+ 2/3 Ceaseless\nLaspistol 4 3+ 2/3 Range 8\"\nBayonet 3 3+ 2/3 -\nChainsword and claw 4 3+ 4/5 Balanced, Rending\nPower weapon and claw 4 3+ 4/6 Balanced , Lethal 5+\nCoordinate: STRATEGIC GAMBIT if this operative is in\nthe killzone. Select one enemy operative to gain one of your\nCrossfire tokens.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, LEADER, COMMANDER 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "裔兵煽动者-数据卡",
+      "title_en": "BROOD BROTHER AGITATOR",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-裔兵煽动者-数据卡.png",
+      "is_back": false,
+      "text": "裔兵煽动者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n电击槌 4 4+ 4/4 震荡\n虔诚：每个转折点限一次。在这名特工进行近战或\n反击的结算攻击骰步骤中，您可以忽略一次普通成\n功造成的伤害。\n教条传播器：每当一名己方族群裔兵特工对位于这\n名特工 6\" 内的一名敌方特工进行射击，近战或反击\n时，您可以重掷一枚己方的攻击骰。\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、煽动者 25",
+      "weapon_types": {
+        "电击槌": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER AGITATOR\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nShock maul 4 4+ 4/4 Shock\nDevoted: Once per turning point, when this operative is fighting\nor retaliating, in the Resolve Attack Dice step, you can ignore the\ndamage inflicted on it from one normal success.\nPsiren Caster: Whenever a friendly BROOD BROTHER\noperative is shooting against, fighting against or retaliating\nagainst an enemy operative within 6\" of this operative, you can\nre-roll one of your attack dice.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, AGITATOR 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "裔兵炮手-数据卡",
+      "title_en": "BROOD BROTHER GUNNER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-裔兵炮手-数据卡.png",
+      "is_back": false,
+      "text": "裔兵炮手 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"，集中，洪流 2\"\n榴弹发射器（破片） 4 4+ 2/4 爆炸 2\"\n榴弹发射器（穿甲） 4 4+ 4/5 穿刺 1\n热熔枪 4 4+ 6/3 范围 6\"，毁灭 4，穿刺 2\n等离子枪（标准） 4 4+ 4/6 穿刺 1\n等离子枪（过载） 4 4+ 5/6 过热，致命 5+，穿刺 1\n刺刀 3 4+ 2/3 -\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、炮手 25",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "榴弹发射器（破片）": "远程",
+        "榴弹发射器（穿甲）": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER GUNNER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGrenade launcher (frag) 4 4+ 2/4 Blast 2\"\nGrenade launcher (krak) 4 4+ 4/5 Piercing 1\nMeltagun 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 4+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 4+ 5/6 Hot, Lethal 5+, Piercing 1\nBayonet 3 4+ 2/3 -\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, GUNNER 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "裔兵持徽手-数据卡",
+      "title_en": "BROOD BROTHER ICONWARD",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-裔兵持徽手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裔兵持徽手\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n大刀 4 4+ 3/5 -\n教派徽记：在确定这名特工 4\" 内一个标识的控制\n时，若至少有一名己方族群裔兵特工在争夺那个标\n识，则将争夺中的己方族群裔兵特工 APL 属性视\n作提升 1 点，请注意这并非对 APL 属性的修正，所\n以任何修正都会与这一效果累加。\n忠于族群意志：每个转折点一次，当一名就绪且可\n见的己方族群裔兵特工在这名特工 6\" 内残废时，\n您可以使用这个规则。若这么做，那么直到那名特\n工被移出杀戮区前，特工可以无消耗执行一个消耗\n1AP 的行动（近战和爆炸除外)，并且您在这么做\n时可以更改特工的指令。之后它按正常流程被移出\n杀戮区，您不能在使用这个规则的同时使用“医务\n兵！”规则（见医务兵数据卡）。\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、持徽手 25",
+      "weapon_types": {
+        "大刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER ICONWARD\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLarge knife 4 4+ 3/5 -\nCult Icon: Whenever determining control of a marker within 4\"\nof this operative, treat the total APL stat of friendly BROOD\nBROTHER operatives that contest it as 1 higher if at least one\nfriendly BROOD BROTHER operative contests that marker.\nNote this isn’t a change to the APL stat, so any changes are\ncumulative with this.\nBroodmind Devotion: Once per turning point, when a ready\nfriendly BROOD BROTHER BROODGUARD operative\nis incapacitated while visible to and within 6\" of this operative,\nyou can use this rule. If you do, before that operative is removed\nfrom the killzone, it can perform a 1AP action for free (excluding\nFight and Explosives), and you can change its order to do so.\nIt’s then removed from the killzone as normal. You cannot use\nthis rule and the Medic! rule (see MEDIC) on the same operative\nat the same time.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, ICONWARD 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "裔兵刀战士-数据卡",
+      "title_en": "BROOD BROTHER KNIFE FIGHTER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-裔兵刀战士-数据卡.png",
+      "is_back": false,
+      "text": "裔兵刀战士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n淬毒格斗匕首 4 3+ 3/4 无休，致命 5+\n刺客：这名特工可以在拥有隐匿命令时执行冲锋\n行动。\n反击：每当这名特工进行近战或反击时，每当您的\n对手结算一次普通成功，敌方特工便在那个流程中\n受到 1 点伤害。\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、刀战士 25",
+      "weapon_types": {
+        "淬毒格斗匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER KNIFE FIGHTER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nPoisoned fighting knives 4 3+ 3/4 Ceaseless, Lethal 5+\nAssassin: This operative can perform the Charge action while it\nhas a Conceal order.\nCounterattack: Whenever this operative is fighting or retaliating,\nwhenever your opponent resolves a normal success, inflict 1\ndamage on the enemy operative in that sequence.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, KNIFE FIGHTER 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "裔兵医务兵-数据卡",
+      "title_en": "BROOD BROTHER MEDIC",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-裔兵医务兵-数据卡.png",
+      "is_back": false,
+      "text": "裔兵医务兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n基因毒针枪 1 4+ 5/7 致命 5+，有限 1\n医务兵！：在每个转折点中，首次出现位于这名特工 3\" 内且可见的另一名己方族群裔兵特工（族长除\n外）将被残废时，如果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使\n用，那么那名己方特工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束\n后，那名己方特工可以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。\n直到该特工和那名特工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间\n使用了本规则，那么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主\n要或次要目标时使用此规则。\n请继续阅读背面规则\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、医务兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战",
+        "基因毒针枪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER MEDIC\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nGene-needler 1 4+ 5/7 Lethal 5+, Limited 1\nMedic!: The first time during each turning point that another friendly BROOD BROTHER operative (excluding PATRIARCH)\nwould be incapacitated while visible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is\nwithin control range of an enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be\nincapacitated for the remainder of the action. After that action, that friendly operative can immediately perform a free Dash action,\nbut must end that move within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their\nnext activations respectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use\nthis rule if this operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, MEDIC 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-07",
+      "sequence": 7,
+      "category": "operative-ability",
+      "title_zh": "裔兵医务兵-能力卡",
+      "title_en": "BROOD BROTHER MEDIC",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工能力-裔兵医务兵-能力卡.png",
+      "is_back": false,
+      "text": "裔兵医务兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n医疗包 1AP\n选择这名特工控制范围内的一名己方族群裔兵\n特工（族长除外）恢复失去的最多 2D3 点耐\n伤。使用对象不能是在同一个转折点中使用了\n“医务兵！”规则的特工。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER MEDIC\n2 6\" 5+ 7\nMEDIKIT 1AP\nSelect one friendly BROOD BROTHER operative\n(excluding PATRIARCH) within this operative’s control\nrange to regain up to 2D3 lost wounds. It cannot be an\noperative that the Medic! rule was used on during this\nturning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-brood_brothers-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "裔兵工程兵-数据卡",
+      "title_en": "BROOD BROTHER SAPPER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-裔兵工程兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裔兵工程兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n爆破炸药 4 3+ 4/6 范围 3\"，爆炸 2\"，重型（仅限转移），\n有限 1，穿刺 1，集中\n刺刀 3 4+ 2/3 -\n最后抵抗：若这名特工残废，则它可以在从杀戮区\n移除前执行一次无消耗的“炸弹”独特行动。\n掷弹兵：这名特工可以使用破片手雷和穿甲手雷\n（见通用装备）。不过这并不计入数量限制（这意\n味着您依然可以为其他特工选择这些手雷）。当这\n名特工使用破片或穿甲手雷时，将那个武器的命中\n属性增加 1 点。\n请继续阅读背面规则\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、工程兵 25",
+      "weapon_types": {
+        "爆破炸药": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER SAPPER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nDemolition charge 4 3+ 4/6 Range 3\", Blast 2\", Heavy (Reposition only),\nLimited 1, Piercing 1, Saturate\nBayonet 3 4+ 2/3 -\nFinal Defiance: If this operative is incapacitated, it can perform\na free Explosives unique action before it’s removed from\nthe killzone.\nGrenadier: This operative can use frag and krak grenades (see\nuniversal equipment). Doing so doesn’t count towards any\nlimited uses you have (i.e. if you also select those grenades from\nequipment for other operatives). Whenever it’s doing so, improve\nthe Hit stat of that weapon by 1.\nRULES CONTINUE ON OTHER SIDE\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, SAPPER 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "裔兵工程兵-能力卡",
+      "title_en": "BROOD BROTHER SAPPER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-裔兵工程兵-能力卡.png",
+      "is_back": false,
+      "text": "裔兵工程兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n炸弹 1AP\n当这名特工在战斗中第一次执行这个行动时，将\n一枚炸弹标识放置在其控制范围内。当这名特\n工第二次执行这个行动时，那枚标记 2\" 内的每\n一名特工受到 2D6 点伤害（为每一名特工分开\n掷骰），但与标识之间被重型地形完全隔开的\n特工除外。\n这名特工在同一场战斗中无法执行这个行动超过\n两次，并且不能在敌方特工的控制范围内或者执\n行了冲锋，冲刺或后撤行动的激活中执行此行动\n（反之亦然）。",
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER SAPPER\n2 6\" 5+ 7\nEXPLOSIVES 1AP\nThe first time this operative performs this action during the\nbattle, place your Explosives marker within its control range.\nThe second time this operative performs this action during\nthe battle, inflict 2D6 damage on each operative within 2\" of\nthat marker (roll separately for each) unless Heavy terrain is\nwholly intervening between that operative and that marker.\nThis operative cannot perform this action more than twice\nper battle, while within control range of an enemy operative,\nor during an activation in which it performed the Charge,\nDash or Fall Back action (or vice versa)."
+    },
+    {
+      "id": "kt-brood_brothers-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "裔兵狙击手-数据卡",
+      "title_en": "BROOD BROTHER SNIPER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-裔兵狙击手-数据卡.png",
+      "is_back": false,
+      "text": "裔兵狙击手 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n狙击步枪（隐匿） 4 2+ 3/3 毁灭 3，重型，安静，隐蔽位置*\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 2+ 3/3 毁灭 3，重型\n双拳 3 4+ 2/3 -\n*隐蔽位置：这名特工只能在其战斗中首次执行射击\n行动时使用这个武器。\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、狙击手 25",
+      "weapon_types": {
+        "狙击步枪（隐匿）": "远程",
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER SNIPER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nSniper rifle (concealed) 4 2+ 3/3 Devastating 3, Heavy, Silent, Concealed Position*\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy\nFists 3 4+ 2/3 -\n*Concealed Position: This operative can only use this weapon\nthe first time it’s performing the Shoot action during the battle.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, SNIPER 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "裔兵战士-数据卡",
+      "title_en": "BROOD BROTHER TROOPER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-裔兵战士-数据卡.png",
+      "is_back": false,
+      "text": "裔兵战士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名族群裔兵战士特工\n（如果有）。当那名特工进入待机后您的对手便能\n正常激活（换言之，您无法通过这个规则连续激活\n超过两名特工）。\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、战士 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER TROOPER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nGroup Activation: Whenever this operative is expended,\nyou must then activate one other ready friendly BROOD\nBROTHER TROOPER operative (if able) before your\nopponent activates. When that other operative is expended, your\nopponent then activates as normal (in other words, you cannot\nactivate more than two operatives in succession with this rule).\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, TROOPER 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "裔兵老兵-数据卡",
+      "title_en": "BROOD BROTHER VETERAN",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-裔兵老兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裔兵老兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n战斗霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n战斗霰弹枪（远距离） 4 5+ 2/2 -\n刺刀和利爪 3 4+ 2/3 平衡\n坚韧：当这名特工受到 3 点或更多的普通伤害时，\n将其受到的伤害减少 1 点。\n护卫：若这名特工是计谋指定的己方族群护卫特\n工，则您可以花费 0CP 使用“忠心耿耿”交战计\n谋。\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、老兵 25",
+      "weapon_types": {
+        "战斗霰弹枪（近距离）": "远程",
+        "战斗霰弹枪（远距离）": "远程",
+        "刺刀和利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER VETERAN\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 3+ 4/4 Range 6\"\nCombat shotgun (long range) 4 5+ 2/2 -\nBayonet & claw 3 4+ 2/3 Balanced\nResilient: Normal Dmg of 3 or more inflicts 1 less damage on\nthis operative.\nBodyguard: You can use the Unquestioning Loyalty\nfirefight ploy for 0CP if this is the specified friendly\nBROODGUARD operative.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, VETERAN 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "裔兵通讯兵-数据卡",
+      "title_en": "BROOD BROTHER VOX-OPERATOR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-裔兵通讯兵-数据卡.png",
+      "is_back": false,
+      "text": "裔兵通讯兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n刺刀 3 4+ 2/3 -\n传讯 1AP\n支援。选择位于这名特工 6\" 内且可见的另一名\n己方族群裔兵族群护卫特工。直到那名特工的\n下一次激活结束前，为其 APL 属性增加 1 点。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n请继续阅读背面规则\n族群裔兵、基因窃取者教派、泰伦虫族、族群护卫、通讯兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER VOX-OPERATOR\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nBayonet 3 4+ 2/3 -\nSIGNAL 1AP\nSUPPORT. Select one other friendly BROOD\nBROTHER BROODGUARD operative visible to and\nwithin 6\" of this operative. Until the end of that operative’s\nnext activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODGUARD, VOX-OPERATOR 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-14",
+      "sequence": 14,
+      "category": "operative-ability",
+      "title_zh": "裔兵通讯兵-能力卡",
+      "title_en": "BROOD BROTHER VOX-OPERATOR",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工能力-裔兵通讯兵-能力卡.png",
+      "is_back": false,
+      "text": "裔兵通讯兵 APL 移动豁免耐伤\n2 6\" 5+ 7\n干扰 1/2AP\n选择可以作为这个特工有效目标的一名就绪敌方\n特工，若额外消耗 1 点指挥点数，则可将条件改\n为对这名特工可见的一名敌方特工。随后掷一枚\nD6。在转折点结束前，那名敌方特工除非是最后\n被激活的敌方特工，或在该行动后被激活的敌方\n特工数量达到那枚 D6 掷骰结果（以先触发的条\n件为准），否则无法被激活或执行行动。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nBROOD BROTHER VOX-OPERATOR\n2 6\" 5+ 7\nJAM 1/2AP\nSelect one ready enemy operative that’s a valid target for this\noperative, or visible to this operative instead if you spend 1\nadditional AP. Roll one D6. Until the end of the turning point,\nthat enemy operative cannot be activated or perform actions\nuntil it’s the last enemy operative to be activated, or until\nyour opponent has activated a number of enemy operatives\nafter this action equal to the result of the D6 (whichever\ncomes first).\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-brood_brothers-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "占星师-数据卡",
+      "title_en": "MAGUS",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-占星师-数据卡.png",
+      "is_back": false,
+      "text": "占星师 APL 移动豁免耐伤\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n生物匕首 2 4+ 3/6 致命 4+\n灵能杖 4 4+ 4/6 灵能，震荡\n精神领袖：如果该特工位于杀戮区内，那么作为一个战略计划，选择以下一个效果，直到转折点结束或者\n该特工被残废前（以先满足的条件为准)，被选择的效果对己方族群裔兵特工生效：\n• 每当一名特工对己方族群裔兵特工射击时，忽视其“穿刺”武器规则。\n• 您可以忽视己方族群裔兵特工由于受创对特工属性的修正（包括武器属性）。\n• 您可以忽视对己方族群裔兵特工 APL 属性的任何修正。\n请继续阅读背面规则\n族群裔兵、基因窃取者教派、泰伦虫族、族群密会、灵能者、队长、占星师 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "生物匕首": "近战",
+        "灵能杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMAGUS\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nBio dagger 2 4+ 3/6 Lethal 4+\nForce stave 4 4+ 4/6 PSYCHIC, Shock\nSpiritual Leader: STRATEGIC GAMBIT if this operative is in the killzone. Select one of the following for friendly BROOD\nBROTHER operatives to have until the end of the turning point or until this operative is incapacitated (whichever comes first):\n• Whenever an operative is shooting a friendly BROOD BROTHER operative, ignore the Piercing weapon rule.\n• You can ignore any changes to friendly BROOD BROTHER operatives’ stats from being injured (including their weapons’ stats).\n• You can ignore any changes to the APL stat of friendly BROOD BROTHER operatives.\nRULES CONTINUE ON OTHER SIDE\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODCOVEN, PSYKER, LEADER, MAGUS 32"
+    },
+    {
+      "id": "kt-brood_brothers-01-16",
+      "sequence": 16,
+      "category": "operative-ability",
+      "title_zh": "占星师-能力卡",
+      "title_en": "MAGUS",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-16-特工能力-占星师-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n占星师\n3 6\" 4+ 9\n心灵过载 1AP\n灵能。选择可以作为这名特工有效目标的一名敌\n方特工。直到它下一次激活结束前，将那名特\n工的 APL 属性减去 1 点。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n精神冲击 1AP\n灵能。选择可以作为这名特工有效目标的一名\n敌方特工，那名特工受到 2 点伤害，若那名特\n工位于这名特工 6\" 内，则改为受到 4 点伤害。\n之后掷一枚 D6：若掷骰结果大于那名敌方特工\n的 APL 属性，则其额外受到 2 点伤害，若那名\n特工位于这名特工 6\" 内，则改为额外受到 4 点\n伤害。持续以这种方式进行 D6 掷骰，直到那名\n敌方特工残废，掷骰结果等于或小于其 APL 属\n性，或在这次行动中造成了 8 点伤害为止。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMAGUS\n3 6\" 4+ 9\nTELEPATHIC OVERLOAD 1AP\nPSYCHIC. Select one enemy operative that’s a valid target\nfor this operative. Until the end of that operative’s next\nactivation, subtract 1 from its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nMENTAL ONSLAUGHT 1AP\nPSYCHIC. Select one enemy operative that’s a valid target\nfor this operative. Inflict 2 damage on it, or 4 damage instead\nif it’s within 6\" of this operative. Then roll one D6: if the\nresult is higher than that enemy operative’s APL stat, inflict\nan additional 2 damage on it, or 4 damage instead if it’s\nwithin 6\" of this operative. Keep rolling one D6 in this manner\nuntil you roll equal to or less than that enemy operative’s APL\nstat, until it’s incapacitated, or until you inflict 8 damage on\nit during this action (whichever comes first).\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-brood_brothers-01-17",
+      "sequence": 17,
+      "category": "operative",
+      "title_zh": "族长-数据卡",
+      "title_en": "PATRIARCH",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-17-特工-族长-数据卡.png",
+      "is_back": false,
+      "text": "族长 APL 移动豁免耐伤\n4 6\" 4+ 21\n名称攻击命中伤害武器规则\n利爪 5 3+ 5/6 毫不留情，撕裂\n顶尖掠食者：每当一名特工对这怪物：这名特工无法使用任何不\n名特工射击时，忽视其“穿刺” 在其数据卡上的武器或执行独特\n武器规则。只要这名特工还有可行动（除了“遁入暗影”和“心遁入暗影 1AP\n消耗的行动点数，则您可以在同灵控制”）。当这名特工拥有隐\n改变这名特工的命令。\n一转折点中第二次激活它（它将匿命令且您的对手在选择有效目\n保持就绪状态并可以被再次激标时，它无法使用轻型地形作为\n这名特工不能在敌方特工的控\n活）。在每个转折点中，它的移掩护。尽管这能使这名特工成为\n制范围内执行此行动。\n动距离不能超过 9\" 且总计不能消目标（假设可见的情况下），\n耗超过 4 点行动点数。但并不会移除其掩护豁免（如果\n有）。\n请继续阅读背面规则\n族群裔兵、泰伦虫族、基因窃取者教派、族群密会、灵能者、队长、族长 50",
+      "weapon_types": {
+        "利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPATRIARCH\n4 6\" 4+ 21\nNAME ATK HIT DMG WR\nClaws 5 3+ 5/6 Relentless, Rending\nAlpha Predator: Whenever an operative Monster: This operative cannot use any INTO SHADOW 1AP\nis shooting this operative, ignore the weapons that aren’t on its datacard,\nChange this operative’s order.\nPiercing weapon rule. You can activate or perform unique actions (excluding\nthis operative twice during the turning Into Shadow and Mind Control).\nThis operative cannot perform this\npoint as long as it has AP to spend (it Whenever your opponent is selecting a\naction while within control range of an\nstays ready while it can still be activated a valid target, if this operative has a Conceal\nenemy operative.\nsecond time). Per turning point, it cannot order, it cannot use Light terrain for cover.\nmove more than 9\" and you cannot spend While this can allow this operative to be\nmore than 4AP in total for it. targeted (assuming it’s visible), it doesn’t\nremove its cover save (if any).\nRULES CONTINUE ON OTHER SIDE\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODCOVEN, PSYKER, LEADER, PATRIARCH 50"
+    },
+    {
+      "id": "kt-brood_brothers-01-18",
+      "sequence": 18,
+      "category": "operative-ability",
+      "title_zh": "族长-能力卡",
+      "title_en": "PATRIARCH",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-18-特工能力-族长-能力卡.png",
+      "is_back": false,
+      "text": "族长 APL 移动豁免耐伤\n4 6\" 4+ 21\n心灵控制 2AP\n灵能。选择对这名特工可见在激活结束前，那名敌方特工这名特工不能在敌方特工的控\n且位于其 2\" 内的一名敌方特将作为一名己方特工（即您对制范围内执行此行动，除非位\n工。双方玩家各掷一枚 D6 并手的敌方特工），您可以改变于控制范围内的唯一一名敌方\n加上各自特工的 APL 属性。其命令，且它可以立即执行一特工被选择执行本行动。\n若己方总和高于您对手，则次无消耗的行动。但它不能执\n您可以结算这个行动的第二行除了冲刺之外的移动（在这\n个效果。种情况下需要向您的对手说明\n其移动位置），您在每场战斗\n中只能结算一次这个技能的第\n二个效果。",
+      "text_en": "APL MOVE SAVE WOUNDS\nPATRIARCH\n4 6\" 4+ 21\nMIND CONTROL 2AP\nPSYCHIC. Select one enemy Until the end of the activation, This operative cannot perform this\noperative visible to and within 2\" that enemy operative is a friendly action while within control range of\nof this operative. Both players roll operative (an enemy operative for an enemy operative, unless the only\none D6 and add their respective your opponent), you can change its enemy operative it’s within control\noperative’s APL stat to their result. order, and it can immediately perform range of is selected for this action.\nIf your total is higher than your one free action. It cannot perform an\nopponent’s, you can resolve this action in which it moves other than\naction’s second effect. Dash (in which case specify the\nlocation for your opponent to move\nthe operative to). You can only resolve\nthis action’s second effect once\nper battle."
+    },
+    {
+      "id": "kt-brood_brothers-01-19",
+      "sequence": 19,
+      "category": "operative",
+      "title_zh": "灵能使魔-数据卡",
+      "title_en": "PSYCHIC FAMILIAR",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-19-特工-灵能使魔-数据卡.png",
+      "is_back": false,
+      "text": "灵能使魔 APL 移动豁免耐伤\n2 6\" 5+ 3\n名称攻击命中伤害武器规则\n尖爪 3 4+ 2/3 撕裂\n渺小：这名特工无法使用任何不在其数据卡上的武\n器或执行独特行动。每当该特工拥有隐匿命令以及\n掩护时，该特工不能被选择成为有效目标，本规则\n的优先度高于所有其他规则（例如‘追踪’武器规\n则和制高点地形)，除非攻击者位于特工的 2\" 内。\n这名特工在执行后撤行动时花费的 AP 减少 1 点。\n难以捕捉：这名特工可以在一名敌方特工的控制范\n围内执行任务行动（这优先于这些行动的普通规\n则）。它可以移动穿过敌方特工，移动进入其控制\n范围，并在冲锋行动中离开它们的控制范围（但仍\n需在那次移动结束时遵循对应规则）。\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名族群裔兵灵能使魔\n特工（如果有）。当那名特工进入待机后，您的对\n手便能正常激活。\n族群裔兵、基因窃取者教派、泰伦虫族、灵能使魔 25",
+      "weapon_types": {
+        "尖爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPSYCHIC FAMILIAR\n2 6\" 5+ 3\nNAME ATK HIT DMG WR\nClaws 3 4+ 2/3 Rending\nSmall: This operative cannot use any weapons that aren’t on its\ndatacard, or perform unique actions. Whenever this operative\nhas a Conceal order and is in cover, it cannot be selected as a\nvalid target, taking precedence over all other rules (e.g. Seek,\nVantage terrain) except being within 2\". This operative can\nperform the Fall Back action for 1 less AP.\nGroup Activation: Whenever this operative is expended, you must\nthen activate one other ready friendly BROOD BROTHER\nPSYCHIC FAMILIAR operative (if able) before your opponent\nactivates. When that other operative is expended, your opponent\nthen activates as normal.\nElusive: This operative can perform mission actions while within\ncontrol range of an enemy operative (this takes precedence over\nthose actions’ normal conditions). It can move through enemy\noperatives, move within control range of them, and during the\nCharge action can leave their control range (it must still end the\nmove following all requirements for that move).\n.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, PSYCHIC FAMILIAR 25"
+    },
+    {
+      "id": "kt-brood_brothers-01-20",
+      "sequence": 20,
+      "category": "operative",
+      "title_zh": "领军-数据卡",
+      "title_en": "PRIMUS",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-20-特工-领军-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n领军\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n带瞄准镜的毒针手枪（远距离） 4 3+ 2/4 安静\n带瞄准镜的毒针手枪（近距离） 4 3+ 2/4 范围 8\"，致命 5+，安静\n坚骨剑和毒素注射爪 5 3+ 4/5 致命 5+，撕裂\n族长之拳：这名特工可以在其激活中执行两次近战行动或两次射击行\n密谋 1AP\n动。\n己方获得 1 点指挥点数。\n战略大师：每个转折点限一次，在决定先手的拼骰中，若这名特工位\n于杀戮区中，您可以选择下列效果之一（每个选项在每场战斗中不能这名特工不能在敌方特工的\n被选择超过一次)：控制范围内执行此行动，并且\n在每个转折点中不能执行超过\n• 为己方掷骰结果增加 1 点。\n一次。\n• 若您在上一个转折点没有获得先手，则重掷己方的骰子。\n族群裔兵、基因窃取者教派、泰伦虫族、族群密会、队长、领军 32",
+      "weapon_types": {
+        "带瞄准镜的毒针手枪（远距离）": "远程",
+        "带瞄准镜的毒针手枪（近距离）": "远程",
+        "坚骨剑和毒素注射爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPRIMUS\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nScoped needle pistol (short range) 4 3+ 2/4 Range 8\", Lethal 5+, Silent\nScoped needle pistol (long range) 4 3+ 2/4 Silent\nBonesword and toxin injector claw 5 3+ 4/5 Lethal 5+, Rending\nFist of the Patriarch: This operative can either perform two Shoot or two Fight CONSPIRE 1AP\nactions during its activation.\nYou gain 1CP.\nMastermind: Once per turning point, after rolling off to determine initiative, if this\noperative is in the killzone, you can do one of the following (you cannot select each This operative cannot perform this\noption more than once per battle): action while within control range of an\nenemy operative, or more than once\n• Add 1 to your dice result. per turning point.\n• If you didn’t have initiative in the previous turning point, re-roll your dice.\nBROOD BROTHER , TYRANID, GENESTEALER CULT, BROODCOVEN, LEADER, PRIMUS 32"
+    },
+    {
+      "id": "kt-brood_brothers-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "族群裔兵杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-族群裔兵杀戮小队-1.png",
+      "is_back": false,
+      "text": "族群裔兵杀戮小队\n原型：渗透，安全保护\n特工\n↘ 1 名族群裔兵指挥官特工，装备有以下一种\n选项:\n• 爆矢手枪；链锯剑与利爪\n• 弹鼓自动枪；刺刀\n• 激光手枪；动力武器与利爪\n↘ 9 名族群裔兵特工，从以下列表进行选择:\n• 煽动者 • 持徽手\n• 装备火焰喷射器和 • 刀战士\n刺刀的炮手 1 • 医务兵\n• 装备榴弹发射器和 • 工程兵\n刺刀的炮手 1 • 狙击手1\n• 装备热熔枪和刺刀 • 战士\n的炮手 1 • 老兵\n• 装备等离子枪和刺 • 通讯兵\n刀的炮手 1\n请继续阅读背面",
+      "text_en": "BROOD BROTHERS\nKILL TEAM\nARCHETYPES: INFILTRATION, SECURITY\nOPERATIVES\n↘ 1 BROOD BROTHER COMMANDER operative\nwith one of the following options:\n• Bolt pistol; chainsword and claw\n• Drum-fed autogun; bayonet\n• Laspistol; power weapon and claw\n↘ 9 BROOD BROTHER operatives selected from\nthe following list:\n• AGITATOR • GUNNER with\n• GUNNER with plasma gun and\nflamer and bayonet1\nbayonet1 • ICONWARD\n• GUNNER with • KNIFE FIGHTER\ngrenade launcher • MEDIC\nand bayonet1 • SAPPER\n• GUNNER with • SNIPER1\nmeltagun and • TROOPER\nbayonet1 • VETERAN\n• VOX-OPERATOR\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-brood_brothers-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "族群裔兵杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-族群裔兵杀戮小队-2.png",
+      "is_back": true,
+      "text": "↘ 3 名族群裔兵特工，从以下列表进行选择3:\n• 2 名灵能使魔（视同选择了一名特工）\n• 占星师（视同选择了两名特工）2\n• 族长（视同选择了三名特工）2\n• 领军（视同选择了两名特工）2\n• 战士\n除了战士特工以外，列表的每个选项只能被纳入\n您的杀戮小队一次。\n1 您不能选择这类特工超过 3 次。\n2 您的杀戮小队只能包含至多一名族群密会特\n工，若一名这类特工被选择进行部署，则您的\n指挥官特工在那场战斗中失去队长关键词。\n3 您可以至多三次将选择的一名特工替换为选择\n在战场上消耗 0 CP 使用一个族群裔兵计谋。\n请注意选项中的“视同”依然适用，例如您选\n择了一名族长特工，则您无法再使用这种替\n换。",
+      "text_en": "↘ 3 BROOD BROTHER operatives selected from\nthe following list3:\n• 2 PSYCHIC FAMILIAR operatives (still\ncounts as one selection)\n• MAGUS (counts as two selections)2\n• PATRIARCH (counts as three selections)2\n• PRIMUS (counts as two selections)2\n• TROOPER\nOther than TROOPER operatives, your kill team\ncan only include each option on this list once.\n1 You cannot select more than three of these\noperatives combined.\n2 Your kill team can only include up to one\nBROODCOVEN operative. If one of these\noperatives is selected for deployment, your\nCOMMANDER operative loses the LEADER\nkeyword for the battle.\n3 Up to three times, instead of selecting one of\nthese operatives, you can select one BROOD\nBROTHER ploy to cost you 0CP for the battle.\nNote that ‘counts as’ selections still apply; for\nexample, if you select a PATRIARCH operative,\nyou could not do this."
+    },
+    {
+      "id": "kt-brood_brothers-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "交叉火力",
+      "title_en": "CROSSFIRE",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-交叉火力.png",
+      "is_back": false,
+      "text": "族群裔兵\n阵营规则\n交叉火力\n族群裔兵所获得的职业训练和高级武器在结合了超\n凡的协调力后会变得极为效命。在异形族群意志的\n引导下，这些士兵能够对目标发起效果拔群的集中\n火力和同步攻击。\n每当一名己方族群裔兵特工对一名敌方特工进\n行射击或近战时，在结算所有己方攻击骰后，若\n那名敌方特工没有残废，则那名敌方特工获得一\n枚己方交叉火力指示物。\n每当一名己方族群裔兵特工对一名拥有任意数\n量己方交叉火力指示物的敌方特工进行射击，近\n战或反击时，您可以移除其任意数量的交叉火力\n指示物。您每移除一枚指示物，便可以重掷一枚\n己方攻击骰。",
+      "text_en": "BROOD BROTHER\nFACTION RULE\nCROSSFIRE\nCombined with their advanced coordination skills, the\nprofessional training and high-grade weapons of Brood\nBrothers make them a deadly threat. With a sinister\nsynchronicity born of the alien Broodmind that worms\nthrough their psyche, these soldiers are capable of a\nconcentration of firepower or a harmonising of blows\nthat is ferociously effective.\nWhenever a friendly BROOD BROTHER operative\nis shooting against or fighting against an enemy\noperative, after resolving all of your attack dice, if\nthat enemy operative isn’t incapacitated it gains\none of your Crossfire tokens.\nWhenever a friendly BROOD BROTHER operative\nis shooting against, fighting against or retaliating\nagainst an enemy operative that has any of your\nCrossfire tokens, you can remove any of those\ntokens. For each that you do, you can re-roll one\nof your attack dice."
+    },
+    {
+      "id": "kt-brood_brothers-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "BROOD BROTHER",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "族群裔兵\n标识/指示物指南\n交叉火力指示物虔诚指示物忠于族群意志\n（1 点和 2 点）指示物\n心灵控制指示物医疗指示物爆破炸药指示物\n基因毒针枪干扰指示物炸弹标识\n指示物\n教派护符指示物",
+      "text_en": "BROOD BROTHER\nMARKER/TOKEN GUIDE\nCrossfire tokens Devoted token Broodmind\n(Values 1 & 2) Devotion token\nMind Control Medic token Demolition\ntoken Charge token\nGene-needler Jam token Explosives\ntoken marker\nCult Talisman token"
+    },
+    {
+      "id": "kt-brood_brothers-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "扩散",
+      "title_en": "PERVASIVE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-扩散.png",
+      "is_back": false,
+      "text": "族群裔兵\n战略计谋\n扩散\n基因窃取者教派无处不在，能同时渗透数十个\n地点并一同发动攻击。\n在每名己方族群裔兵特工的激活中，您可以忽\n略它们在一次向上攀爬中移动的首个 2\" 垂直距\n离。",
+      "text_en": "BROOD BROTHER\nSTRATEGY PLOY\nPERVASIVE\nThe Genestealer Cult is omnipresent and all-pervading,\ninfiltrating and attacking from dozens of locations\nat once.\nDuring each friendly BROOD BROTHER\noperative’s activation, you can ignore the first\nvertical distance of 2\" they move during one\nclimb up."
+    },
+    {
+      "id": "kt-brood_brothers-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "叛逆",
+      "title_en": "UPRISING",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-叛逆.png",
+      "is_back": false,
+      "text": "族群裔兵\n战略计谋\n叛逆\n族群裔兵乍一眼会被误认成盟友，这使得他们\n能在施展背刺前靠近敌人。\n每一名己方族群裔兵特工在其激活中首次执行\n射击或近战行动时，若其命令在那次激活开始时\n从隐匿转为交战，则它选择进行近战的目标或选\n择的有效目标获得一枚己方交叉火力指示物\n（这将替代在结算己方攻击骰之后给予的指示\n物）。若那名己方特工在一名敌方特工控制范围\n内激活，则这个计谋没有效果。请注意这条计谋\n在每次激活中不能多次生效（您不能同时在同一\n次激活的射击和近战行动中使用）。",
+      "text_en": "BROOD BROTHER\nSTRATEGY PLOY\nUPRISING\nAppearing at first to be allied troops, the Brood Brothers\nclose in on their foes before revealing their treachery.\nThe first time each friendly BROOD BROTHER\noperative performs either the Shoot or Fight\naction during each of its activations, if its order\nwas changed from Conceal to Engage at the start\nof that activation, the enemy operative selected\nas the valid target or to fight against gains one\nof your Crossfire tokens as soon as it’s selected\n(instead of after resolving your attack dice).\nThis ploy has no effect if that friendly operative\nwas activated within control range of an enemy\noperative. Note this ploy cannot come into effect\nmore than once per activation (you cannot use\nit during both the Shoot and Fight action in the\nsame activation)."
+    },
+    {
+      "id": "kt-brood_brothers-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "驻防",
+      "title_en": "EMBEDDED",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-驻防.png",
+      "is_back": false,
+      "text": "族群裔兵\n战略计谋\n驻防\n族群裔兵对自己的交战环境非常熟悉——他们\n占据的点位能帮助自己在面对火力时获得最\n佳防护。\n每当一名敌方特工对一名己方族群裔兵特工进\n行射击时，若您因为重型地形保留了任意掩护豁\n免，则您可以额外保留一枚掩护豁免。",
+      "text_en": "BROOD BROTHER\nSTRATEGY PLOY\nEMBEDDED\nBrood Brothers are intimately familiar with the\nbattlefields upon which they fight, taking up positions\nthat offer greatest protection from incoming fire.\nWhenever an enemy operative is shooting a\nfriendly BROOD BROTHER operative, if you\ncan retain any cover saves as a result of Heavy\nterrain, you can retain one additional cover save."
+    },
+    {
+      "id": "kt-brood_brothers-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "忠于教派",
+      "title_en": "CULT DEVOTION",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-忠于教派.png",
+      "is_back": false,
+      "text": "族群裔兵\n战略计谋\n忠于教派\n族群裔兵对教派是如此狂热，他们甘愿献出生\n命换取对敌人的有力打击。\n每当一名己方族群裔兵特工（族长除外）在近\n战或反击中残废，若您有任意未结算的成功，您\n可以掷一枚 D6：若掷骰结果在那次流程的掷攻\n击骰步骤中为成功结果（即使用相同的武器属性\n但不使用重掷），则您可以使用一枚那次流程中\n未结算的普通成功进行出击，若 D6 掷骰结果为\n关键成功，则您可以使用任意未结算的成功进行\n出击。在结算以上两种情况后，将那名己方特工\n从杀戮区中移除。",
+      "text_en": "BROOD BROTHER\nSTRATEGY PLOY\nCULT DEVOTION\nSuch is their devotion to the Cult’s cause that Brood\nBrothers will gladly trade their lives to land a telling blow\nupon their oppressors.\nWhenever a friendly BROOD BROTHER operative\n(excluding PATRIARCH) is incapacitated while\nfighting or retaliating, if you have any unresolved\nsuccesses, you can roll one D6: if the result is\na success as if it were the Roll Attack Dice step\nof that sequence (i.e. using the same weapon,\nbut with no re-rolls), you can strike the enemy\noperative in that sequence with one of your\nunresolved normal successes, or any of your\nsuccesses instead if the D6 result is a critical\nsuccess. In either case, that friendly operative is\nremoved from the killzone afterwards."
+    },
+    {
+      "id": "kt-brood_brothers-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "无情协调-1",
+      "title_en": "RUTHLESS COORDINATION",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-无情协调-1.png",
+      "is_back": false,
+      "text": "族群裔兵\n交战计谋\n无情协调\n族群思维能使族群裔兵组成的杀戮小队沟通无\n间，使得他们之间的火力协调极为精准。\n在为一名己方族群裔兵特工选择有效目标时使\n用此交战计谋。直到那次行动结束前，您可以正\n常按视野确定有效目标，但也可以通过对那名己\n方特工和潜在有效目标均可见的，且不在敌方特\n工控制范围内的另一名己方族群裔兵特工介入\n判断（用于确定是否存在掩护或遮挡）。\n请注意，另一名特工位于制高点上并不会使那名\n己方特工获得额外增益（例如：以拥有隐匿命令\n且仅被轻型地形提供掩护的敌方特工为目标）。\n请继续阅读背面",
+      "text_en": "BROOD BROTHER\nFIREFIGHT PLOY\nRUTHLESS COORDINATION\nThe Broodmind allows for incredibly precise\ncommunication and coordinated fire between the\nmembers of a Brood Brothers kill team.\nUse this firefight ploy when selecting a valid\ntarget for a friendly BROOD BROTHER operative.\nUntil the end of the action, determine visibility\nas normal, but you can instead determine\nintervening (for cover and obscured) from\nanother friendly BROOD BROTHER operative\nthat both that friendly operative and the potential\nvalid target are visible to, but that isn’t itself\nwithin control range of enemy operatives.\nNote the friendly operative doesn’t gain the\nadditional benefits of Vantage terrain if the other\nfriendly operative is on it (e.g. to target an enemy\noperative that has a Conceal order that’s in cover\nprovided only by Light terrain).\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-brood_brothers-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "无情协调-2",
+      "title_en": "RUTHLESS COORDINATION",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-无情协调-2.png",
+      "is_back": true,
+      "text": "为特工 A 选择一个有效目标\n可见且并不牵涉地形\n可见但牵涉地形",
+      "text_en": "Selecting a valid target for operative A\nVisible and no\nintervening terrain\nVisible but\nintervening terrain"
+    },
+    {
+      "id": "kt-brood_brothers-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "忠心耿耿",
+      "title_en": "UNQUESTIONING LOYALTY",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-忠心耿耿.png",
+      "is_back": false,
+      "text": "族群裔兵\n交战计谋\n忠心耿耿\n军事训练巩固了教派的森严等级。级别较低的\n族群裔兵会用身体抵挡子弹或利刃，以保护\n其领袖。\n当一名己方族群裔兵队长特工被选择进行近战\n行动或成为射击行动目标时使用此交战计谋。选\n择对那名队长特工可见且位于其 3\" 内的另一名\n族群裔兵族群护卫特工（队长除外）作为这次\n近战或射击行动的替代目标（即便通常情况它无\n法成为有效目标）。如果这是近战行动，则将那\n名特工视为在那次行动中处于近战特工的控制范\n围内。若那是一次射击行动，那么其他特工只\n有在原本目标拥有掩护或被遮挡时才能拥有对应\n的效果。\n如果那次行动为射击行动且对应的远程武器拥\n有“爆炸”或“洪流”武器规则，则本计谋没有\n效果。",
+      "text_en": "BROOD BROTHER\nFIREFIGHT PLOY\nUNQUESTIONING LOYALTY\nThe Cult’s rigid hierarchy is reinforced by military\ntraining. Lower ranking Brood Brothers will stand in the\nway of bullets or blades to protect their leaders.\nUse this firefight ploy when a friendly BROOD\nBROTHER LEADER operative is selected as the\nvalid target of a Shoot action or to fight against\nduring the Fight action. Select one other friendly\nBROOD BROTHER BROODGUARD operative\n(excluding LEADER) visible to and within 3\" of\nthat LEADER operative to become the valid target\nor to be fought against (as appropriate) instead\n(even if it wouldn’t normally be valid for this). If\nit’s the Fight action, treat that other operative as\nbeing within the fighting operative’s control range\nfor the duration of that action. If it’s the Shoot\naction, that other operative is only in cover or\nobscured if the original target was.\nThis ploy has no effect if it’s the Shoot action\nand the ranged weapon has the Blast or Torrent\nweapon rule."
+    },
+    {
+      "id": "kt-brood_brothers-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "崇拜",
+      "title_en": "IDOLISATION",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-崇拜.png",
+      "is_back": false,
+      "text": "族群裔兵\n交战计谋\n崇拜\n教派领袖会利用族群思维的灵能给予其追随者\n启迪之力。\n在一名己方族群裔兵特工（队长除外）进行射\n击，近战或反击的掷攻击骰步骤中，若一名己方\n族群裔兵队长特工或族群裔兵持徽者特工位于\n那名己方特工 6\" 内，您便可使用此交战计谋。\n若此，您便可以将一枚失败结果改为普通成功，\n或是将一枚普通成功改为一枚关键成功。",
+      "text_en": "BROOD BROTHER\nFIREFIGHT PLOY\nIDOLISATION\nThe Cult’s leaders use the psionic power of the\nBroodmind to provide powerful inspiration to\ntheir followers.\nUse this firefight ploy when a friendly BROOD\nBROTHER operative (excluding LEADER) within\n6\" of a friendly BROOD BROTHER LEADER\nor BROOD BROTHER ICONWARD operative\nis shooting, fighting or retaliating, in the Roll\nAttack Dice step. You can retain one of your fails\nas a normal success instead of discarding it, or\nretain one of your normal successes as a critical\nsuccess instead."
+    },
+    {
+      "id": "kt-brood_brothers-30-05",
+      "sequence": 5,
+      "category": "firefight-ploy",
+      "title_zh": "狡诈",
+      "title_en": "INSIDIOUS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-05-交战计谋-狡诈.png",
+      "is_back": false,
+      "text": "族群裔兵\n交战计谋\n狡诈\n族群裔兵依靠伏击和突袭击败敌人，他们往往\n会在攻击后立即撤退并进行重新部署。\n在一次激活后使用此交战计谋。在下次激活前，\n一名己方族群裔兵特工可以执行一次无消耗的\n冲刺行动，但在那次行动的开始和结束时它不能\n成为敌方特工的有效目标。您不能在第一转折点\n中使用本计谋。",
+      "text_en": "BROOD BROTHER\nFIREFIGHT PLOY\nINSIDIOUS\nBrood Brothers rely upon ambush and surprise to defeat\ntheir enemies, retreating and repositioning as required.\nUse this firefight ploy after an activation.\nBefore the next activation, one friendly BROOD\nBROTHER operative can perform a free Dash\naction, as long as it’s not a valid target for\nenemy operatives when it starts and ends that\naction. You cannot use this ploy during the first\nturning point."
+    },
+    {
+      "id": "kt-brood_brothers-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "教派护符",
+      "title_en": "CULT TALISMAN",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-教派护符.png",
+      "is_back": false,
+      "text": "族群裔兵\n阵营装备\n教派护符\n教派非常重视被注入了族长力量的饰物或护\n符，这些物品被认为能够保护持有者。\n每个转折点一次，当一名特工对一名己方族群裔\n兵特工（族长除外）进行射击时，在掷防御骰\n步骤结束时，您可以将一枚己方普通成功保留为\n一枚关键成功。",
+      "text_en": "BROOD BROTHER\nFACTION EQUIPMENT\nCULT TALISMAN\nThe Cult places great importance on trinkets and\ntalismans infused with the Patriarch’s power. These\nitems are believed to offer protection to the bearer.\nOnce per turning point, when an operative is\nshooting a friendly BROOD BROTHER operative\n(excluding PATRIARCH), in the Roll Defence Dice\nstep, you can retain one of your normal successes\nas a critical success instead."
+    },
+    {
+      "id": "kt-brood_brothers-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "秘密伪装",
+      "title_en": "COVERT GUISES",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-秘密伪装.png",
+      "is_back": false,
+      "text": "族群裔兵\n阵营装备\n秘密伪装\n族群裔兵们能以人类身份生活相当长时间，足\n够用来接近那些毫无防备的敌人。\n在揭示装备选项后，掷一枚 D3。作为第一个转\n折点的战略计划，数量等同于掷骰结果，且完全\n位于己方降落区的己方族群裔兵族群护卫特工\n可以立即进行一次无消耗的转移行动，但必须在\n完全位于己方降落区 3\" 内的位置结束移动。",
+      "text_en": "BROOD BROTHER\nFACTION EQUIPMENT\nCOVERT GUISES\nBrood Brothers are able to pass as Human long enough\nto close upon their unsuspecting enemies.\nAfter revealing this equipment option, roll one\nD3. As a STRATEGIC GAMBIT in the first turning\npoint, a number of friendly BROOD BROTHER\nBROODGUARD operatives equal to the result that\nare wholly within your drop zone can immediately\nperform a free Reposition action, but must end\nthat move wholly within 3\" of your drop zone."
+    },
+    {
+      "id": "kt-brood_brothers-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "教派匕首",
+      "title_en": "CULT KNIVES",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-教派匕首.png",
+      "is_back": false,
+      "text": "族群裔兵\n阵营装备\n教派匕首\n族群裔兵装备着各种非常规武器，其中包括了\n各种装点着异形教派纹路的匕首。\n己方族群裔兵族群护卫特工获得下列近战武\n器：\n名称攻击命中伤害\n教派匕首 3 4+ 3/4",
+      "text_en": "BROOD BROTHER\nFACTION EQUIPMENT\nCULT KNIVES\nBrood Brothers wield an array of nonstandard\nweapons, including various knives decorated with\nxenocult iconography.\nFriendly BROOD BROTHER BROODGUARD\noperatives have the following melee weapon:\nNAME ATK HIT DMG\nCult knife 3 4+ 3/4"
+    },
+    {
+      "id": "kt-brood_brothers-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "警戒守望",
+      "title_en": "LOOKOUT",
+      "source_page": 10,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-警戒守望.png",
+      "is_back": false,
+      "text": "族群裔兵\n阵营装备\n警戒守望\n族群裔兵们尖锐的眼神能辨别出偷摸潜入的敌\n人，并为其点上代表毁灭的标记。\n战略计划。选择一名对己方族群裔兵特工可见\n的敌方特工，令其获得一枚己方交叉火力指示\n物。",
+      "text_en": "BROOD BROTHER\nFACTION EQUIPMENT\nLOOKOUT\nThe Brood Brothers’ keen eyes pick out encroaching\nfoes and mark them for annihilation.\nSTRATEGIC GAMBIT. Select one enemy operative\nvisible to a friendly BROOD BROTHER operative\nto gain one of your Crossfire tokens."
+    }
+  ]
+}

@@ -1,0 +1,718 @@
+{
+  "teamId": "KT-CORSAIR_VOIDSCARRED",
+  "name": "虚空创痕海盗",
+  "nameEn": "Corsair Voidscarred",
+  "subtitle": "艾达灵族 · 灵族海盗 · 11 种特工",
+  "archetypes": [
+    "渗透",
+    "侦察"
+  ],
+  "source": "官方中文 PDF 28/01/2026（虚空创痕海盗 Corsair Voidscarred 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "corsair_voidscarred_01",
+      "name": "虚空创痕费拉奇",
+      "role": "费拉奇",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 9,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "队长",
+        "费拉奇"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-01-特工-虚空创痕费拉奇-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_01_w01",
+          "name": "神经破坏枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 8\"、穿刺 1、晕眩"
+        },
+        {
+          "id": "corsair_voidscarred_01_w02",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_01_w03",
+          "name": "星镖步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_01_w04",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_01_w01",
+        "corsair_voidscarred_01_w02",
+        "corsair_voidscarred_01_w03",
+        "corsair_voidscarred_01_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "精英掠袭者",
+          "ap": null,
+          "text": "这名特工可以无消耗执行一次应当消耗 1AP 的行动作为“艾达灵族掠袭者”规则的效果（即替代其猛冲行动）。"
+        },
+        {
+          "name": "领先一步",
+          "ap": null,
+          "text": "每场战斗限一次，在一名敌方特工执行一次行动后，若这名特工处于就绪状态，您可以使用这个规则。若此，掷一枚 D6：若掷骰结果大于那名敌方特工的 APL 属性，则您可以进行打断并立即执行一次无消耗的射击或近战行动，在这个行动中无法选择其他敌方特工作为有效目标或近战目标（请注意，“爆炸”武器规则依然可以将它们选为次要目标）。在执行了那个行动后，直到其下一次激活结束前将这名特工 APL 属性减去 1 点。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_02",
+      "name": "虚空创痕掌命师",
+      "role": "掌命师",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "掌命师"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-02-特工-虚空创痕掌命师-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_02_w01",
+          "name": "游侠长步枪（机动）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "corsair_voidscarred_02_w02",
+          "name": "游侠长步枪（静止）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 毁灭 3、重型、安静"
+        },
+        {
+          "id": "corsair_voidscarred_02_w03",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_02_w04",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_02_w01",
+        "corsair_voidscarred_02_w02",
+        "corsair_voidscarred_02_w03",
+        "corsair_voidscarred_02_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "迷彩斗篷",
+          "ap": null,
+          "text": "当一名特工对这名特工射击时：\n• 忽略“集中”武器规则。\n• 若您保留了任意掩护豁免，则您可以额外保留一个掩护豁免，或将保留的一个掩护豁免替换为关键成功。但这无法与制高点提供的掩护豁免相累加。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_03",
+      "name": "虚空创痕炮手",
+      "role": "炮手",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "炮手"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-03-特工-虚空创痕炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_03_w01",
+          "name": "爆裂炮",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 穿刺 2"
+        },
+        {
+          "id": "corsair_voidscarred_03_w02",
+          "name": "粉碎枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 撕裂、洪流 2\""
+        },
+        {
+          "id": "corsair_voidscarred_03_w03",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_03_w04",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_03_w01",
+        "corsair_voidscarred_03_w02",
+        "corsair_voidscarred_03_w03",
+        "corsair_voidscarred_03_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_04",
+      "name": "虚空创痕重炮手",
+      "role": "重炮手",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "重炮手"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-04-特工-虚空创痕重炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_04_w01",
+          "name": "星镖炮（集火）",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 4/5 · 重型 (仅限冲刺)、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_04_w02",
+          "name": "星镖炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 重型 (仅限冲刺)、撕裂、洪流 1\""
+        },
+        {
+          "id": "corsair_voidscarred_04_w03",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_04_w04",
+          "name": "幽冥炮",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 6/3 · 毁灭 4、重型 (仅限冲刺)、穿刺 2"
+        },
+        {
+          "id": "corsair_voidscarred_04_w05",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_04_w01",
+        "corsair_voidscarred_04_w02",
+        "corsair_voidscarred_04_w03",
+        "corsair_voidscarred_04_w04",
+        "corsair_voidscarred_04_w05"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_05",
+      "name": "虚空创痕柯纳斯信徒",
+      "role": "柯纳斯信徒",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "柯纳斯信徒"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-05-特工-虚空创痕柯纳斯信徒-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_05_w01",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_05_w02",
+          "name": "双持动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 无休、致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_05_w01",
+        "corsair_voidscarred_05_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "剑术大师",
+          "ap": null,
+          "text": "这名特工可以在执行了冲锋行动的激活中执行冲刺行动，但只能使用那个冲锋行动中剩余的移动距离（至多 3\"）。"
+        },
+        {
+          "name": "横刀架势",
+          "ap": null,
+          "text": "当这名战士执行近战或反击时，您可以在正常顺序前先结算一次成功，若此，则那次成功必须用于格挡。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_06",
+      "name": "虚空创痕柯纳斯猎手",
+      "role": "柯纳斯猎手",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "柯纳斯猎手"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-06-特工-虚空创痕柯纳斯猎手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_06_w01",
+          "name": "弗奥楚",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 1/2 · 撕裂、集中、追踪轻型、安静"
+        },
+        {
+          "id": "corsair_voidscarred_06_w02",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_06_w03",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_06_w01",
+        "corsair_voidscarred_06_w02",
+        "corsair_voidscarred_06_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "弗奥楚羁绊",
+          "ap": null,
+          "text": "在每个转折点中，若这个特工首次进行反击时处于就绪状态，那么在流程的结算攻击骰步骤中，您结算第一枚攻击骰（即防守方成为进攻方）。"
+        },
+        {
+          "name": "博学猎手",
+          "ap": null,
+          "text": "战略计划。选择位于这名特工 9\" 内的一名敌方特工。这个转折点中仅限一次，当那个特工执行了产生移动的行动时，您可以进行打断并使用该规则，若此，则令这名特工执行一次无消耗转移行动（但不能在距离那名特工更远的位置结束那次移动）或一次无消耗冲锋行动（您可以为此改变特工命令，且它必须在那名敌方特工的控制范围内结束那次移动）。在使用近距离战斗规则的杀戮区（如杀戮区：墓穴世界），无视墙壁地形。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_07",
+      "name": "虚空创痕暗影奔行者",
+      "role": "暗影奔行者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "暗影奔行者"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-07-特工-虚空创痕暗影奔行者-数据卡.png",
+        "KT-CORSAIR_VOIDSCARRED--01-08-特工能力-虚空创痕暗影奔行者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_07_w01",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_07_w02",
+          "name": "飞刀",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 范围 6\"、安静"
+        },
+        {
+          "id": "corsair_voidscarred_07_w03",
+          "name": "巫徒之刃",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/5 · 无休、致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_07_w01",
+        "corsair_voidscarred_07_w02",
+        "corsair_voidscarred_07_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "闪跃背包",
+          "ap": null,
+          "text": "每当这名战士在执行冲锋，后撤或转移行动时，可以执行次元跳跃。若此，请不要移动它。作为替代，将其从杀戮区移除并重新放置在完全位于原位置 7\" 内的位置（在使用近距离战斗规则的杀戮区中，如杀戮区：墓穴世界中，测量距离时可以穿过墙壁地形）。它必须被放置于能够放置的位置，且除冲锋行动以外不能将这名特工放置在敌方特工控制范围内。"
+        },
+        {
+          "name": "切裂打击",
+          "ap": null,
+          "text": "该特工对一名敌方特工执行一次免费的近战行动，但双方的每一次成功都算作关键成功，并且您和您的对手都不能重掷或保留未掷出的攻击骰。该特工随后必须立即进行一次免费的后撤或转移行动，即使其在本回合中已经执行过该行动（您也可以穿过敌方特工及其控制范围），但移动总距离不能超过 3\"，且行动结束时必须位于原本位置和该敌方特工的直线延长线上。在本次激活中，该特工不能再次执行近战或冲锋行动。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_08",
+      "name": "虚空创痕织魂者",
+      "role": "织魂者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "灵能者",
+        "医疗",
+        "织魂者"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-09-特工-虚空创痕织魂者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_08_w01",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_08_w02",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_08_w01",
+        "corsair_voidscarred_08_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "灵魂引导",
+          "ap": 1,
+          "text": "灵能。选择这名特工 6\" 内且可见的另一名己方虚空创痕海盗特工。直到它下一次激活结束前，为那名特工的 APL 属性增加 1 点。\n这名特工不能在敌方特工的控制范围内执行此行动。"
+        },
+        {
+          "name": "灵魂治疗",
+          "ap": 1,
+          "text": "灵能。选择这名特工 6\" 内且可见的一名己方虚空创痕海盗特工。那名特工恢复最多 2D3 点失去的耐伤。\n这名特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_09",
+      "name": "虚空创痕星暴决斗家",
+      "role": "星暴决斗家",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "星暴决斗家"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-10-特工-虚空创痕星暴决斗家-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_09_w01",
+          "name": "熔融手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 5/3 · 范围 3\"、毁灭 3、穿刺 2"
+        },
+        {
+          "id": "corsair_voidscarred_09_w02",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_09_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_09_w01",
+        "corsair_voidscarred_09_w02",
+        "corsair_voidscarred_09_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "快枪手",
+          "ap": null,
+          "text": "这名特工可以在一名敌方特工的控制范围内执行射击行动。若此，在选择有效目标时，您只能选择位于这名特工控制范围内的一名敌方特工，并且在其他己方特工位于那名特工的近战范围内的情况下也不受影响。"
+        },
+        {
+          "name": "手枪弹幕",
+          "ap": 1,
+          "text": "使用这名特工执行两次无消耗的射击行动（优先于行动限制）。您必须在其中一次行动中选择熔融手枪，并在另一次行动中选择星镖手枪（顺序不限）。\n这名特工不能在拥有隐匿命令时执行此行动，也不能在执行了射击行动的激活期间执行本行动（反之亦然)。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_10",
+      "name": "虚空创痕战士",
+      "role": "战士",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "战士"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-11-特工-虚空创痕战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_10_w01",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_10_w02",
+          "name": "星镖步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_10_w03",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        },
+        {
+          "id": "corsair_voidscarred_10_w04",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_10_w01",
+        "corsair_voidscarred_10_w02",
+        "corsair_voidscarred_10_w03",
+        "corsair_voidscarred_10_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "潜行掠袭者",
+          "ap": null,
+          "text": "若一名己方战士特工是“灵活善变”和“灵巧手活”交战计谋指定的虚空创痕海盗特工，则消耗的指挥点数变为 0 点。"
+        }
+      ]
+    },
+    {
+      "id": "corsair_voidscarred_11",
+      "name": "虚空创痕寻路者",
+      "role": "寻路者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "虚空创痕海盗",
+        "艾达灵族",
+        "灵族海盗",
+        "灵能者",
+        "寻路者"
+      ],
+      "cards": [
+        "KT-CORSAIR_VOIDSCARRED--01-12-特工-虚空创痕寻路者-数据卡.png",
+        "KT-CORSAIR_VOIDSCARRED--01-13-特工能力-虚空创痕寻路者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "corsair_voidscarred_11_w01",
+          "name": "冻结之握",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 1/2 · 灵能、严重、安静、晕眩"
+        },
+        {
+          "id": "corsair_voidscarred_11_w02",
+          "name": "闪电打击",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/3 · 灵能、2\" 毁灭 2"
+        },
+        {
+          "id": "corsair_voidscarred_11_w03",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "corsair_voidscarred_11_w04",
+          "name": "巫师之杖",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/5 · 灵能、震荡"
+        }
+      ],
+      "defaultWeaponIds": [
+        "corsair_voidscarred_11_w01",
+        "corsair_voidscarred_11_w02",
+        "corsair_voidscarred_11_w03",
+        "corsair_voidscarred_11_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-corsair_voidscarred_faction_rule",
+          "name": "步枪",
+          "ap": null,
+          "text": "尽管并非所有灵族放逐者都走上了战士道途，但他们都精通于对步枪的运用。\n当一名己方虚空创痕海盗特工在尚未执行冲锋，后撤或转移行动的激活中使用星镖步枪或游侠长步枪执行射击时，那个武器获得“精准 1”武器规则。请注意，这名特工在射击后执行的行动并不受限制。",
+          "factionRule": true
+        },
+        {
+          "name": "次元折跃",
+          "ap": 1,
+          "text": "灵能。选择这名特工 5\" 内且可见的两名己方虚空创痕海盗特工。将这两名特工从杀戮区移除，并将它们各自放置在对方之前的位置（即交换两者位置）。如果其中一名特工在当前转折点执行过冲锋，后撤或转移行动，且另一名特工就绪，那么另一名特工在这个转折点中不能执行上述任意行动。\n这名特工不能在敌方特工的控制范围内执行此行动。"
+        },
+        {
+          "name": "守护之盾",
+          "ap": 1,
+          "text": "灵能。选择这名特工 6\" 内且可见的一名己方虚空创痕海盗特工。直到这名特工下一次激活前，这名特工残废前或这名特工再次执行了这个行动前（以首先达成的条件为准），对那名特工造成普通伤害的第一枚攻击骰将被忽略。\n这名特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    }
+  ],
+  "compositionHint": "选择 1 名费拉奇，再从掌命师、炮手、重炮手、柯纳斯信徒、柯纳斯猎手、暗影奔行者、织魂者、星暴决斗家、寻路者和战士中选择 8 名；除战士外同一种特工最多 1 名，爆裂炮与幽冥炮不能同时选择。"
+}

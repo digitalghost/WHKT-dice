@@ -6,11 +6,11 @@ import org.junit.Test
 class RosterCompositionTest {
     @Test
     fun everySupportedTeamHasACompositionHint() {
-        val teamIds = listOf(
-            "IMP-AOD", "CHAOS-PM", "TYR-RAV", "CHAOS-WC",
-            "CHAOS-FELL", "NEC-CAN", "IMP-WS", "IMP-CI",
-        )
-
-        teamIds.forEach { assertTrue(it, RosterComposition.hint(it).isNotBlank()) }
+        val teamIds = RosterCatalog.teams.map { it.id }
+        assertTrue(teamIds.size >= 48)
+        teamIds.forEach {
+            val hint = RosterComposition.hint(it)
+            assertTrue("$it missing custom compositionHint", hint.isNotBlank() && hint != "请按照下方编成规则原卡选择成员。")
+        }
     }
 }

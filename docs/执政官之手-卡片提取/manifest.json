@@ -1,0 +1,844 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-HAND_OF_THE_ARCHON",
+  "team_name_zh": "执政官之手",
+  "team_name_en": "Hand of the Archon",
+  "source_pdf": "最新杀戮小队规则更新/执政官之手 Hand of the Archon 杀戮小队规则.pdf",
+  "source_pdf_sha256": "b787e6cdda34e72d4be704ff656deacb096bc5d3abacf3ad68f97134ad83db60",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 31,
+    "operative": 9,
+    "operative-ability": 4,
+    "team-selection": 2,
+    "faction-rule": 2,
+    "other": 2,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-hand_of_the_archon-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "阴谋团大享乐者-数据卡",
+      "title_en": "KABALITE ARCHSYBARITE",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-阴谋团大享乐者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团大享乐者\n2 7\" 4+ 9\n名称攻击命中伤害武器规则\n爆能手枪 4 3+ 3/4 范围 8\"、穿刺 2\n毒晶手枪 4 3+ 2/4 范围 8\"、致命 5+\n毒晶步枪 4 3+ 2/4 致命 5+\n折磨之鞭 4 3+ 3/5 残暴、致命 5+、震荡\n成套刀具 3 3+ 3/4 -\n动力武器 4 3+ 4/6 致命 5+\n毒刃 4 3+ 4/5 致命 4+\n狡诈：在每个战略阶段的计划步骤中，如果该特工\n位于杀戮区并且您跳过第一次机会，那么您获得\n1CP。结算这个规则时，忽略任务手册中的每一个\n战略计划（若有)。\n请继续阅读背面规则\n执政官之手、艾达灵族、黑暗灵族、队长、大享乐者 25",
+      "weapon_types": {
+        "爆能手枪": "远程",
+        "毒晶手枪": "远程",
+        "毒晶步枪": "远程",
+        "折磨之鞭": "近战",
+        "成套刀具": "近战",
+        "动力武器": "近战",
+        "毒刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE ARCHSYBARITE\n2 7\" 4+ 9\nNAME ATK HIT DMG WR\nBlast pistol 4 3+ 3/4 Range 8\", Piercing 2\nSplinter pistol 4 3+ 2/4 Range 8\", Lethal 5+\nSplinter rifle 4 3+ 2/4 Lethal 5+\nAgoniser 4 3+ 3/5 Brutal, Lethal 5+, Shock\nArray of blades 3 3+ 3/4 -\nPower weapon 4 3+ 4/6 Lethal 5+\nVenom blade 4 3+ 4/5 Lethal 4+\nCunning: In the Gambit step of each Strategy phase, if this operative is in the killzone and you pass at the first opportunity, you gain\n1CP. Ignore each STRATEGIC GAMBIT from the mission pack (if any) when determining this.\nRULES CONTINUE ON OTHER SIDE\nHAND OF THE ARCHON , AELDARI, DRUKHARI, LEADER, ARCHSYBARITE 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "阴谋团大享乐者-能力卡",
+      "title_en": "KABALITE ARCHSYBARITE",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-阴谋团大享乐者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团大享乐者\n2 7\" 4+ 9\n苦痛视界：该特工的每次激活中限一次，若该特工在\n执行近战或射击行动时没有任何己方痛苦指示物，那\n么它在选择射击或近战目标时可以获得一枚己方痛苦\n指示物。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE ARCHSYBARITE\n2 7\" 4+ 9\nTorturous Vision: Once during each of this operative’s\nactivations, if it doesn’t have any of your Pain tokens when it\nperforms either the Fight or Shoot action, it can gain one of\nyour Pain tokens when you select a valid target or an enemy\noperative to fight against."
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "阴谋团特使-数据卡",
+      "title_en": "KABALITE AGENT",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-阴谋团特使-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团特使\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n毒晶步枪 4 3+ 2/4 致命 5+\n成套刀具 3 3+ 3/4 -\n残暴竞争：每个转折点限一次，当一名己方执政官之\n手特工获得一枚己方痛苦指示物时，一名没有痛苦\n指示物的己方执政官之手特使特工也可以获得一\n枚指示物。\n执政官之手、艾达灵族、黑暗灵族、特使 25",
+      "weapon_types": {
+        "毒晶步枪": "远程",
+        "成套刀具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE AGENT\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nSplinter rifle 4 3+ 2/4 Lethal 5+\nArray of blades 3 3+ 3/4 -\nSadistic Competition: Once per turning point, when a friendly\nHAND OF THE ARCHON operative gains one of your Pain\ntokens, one friendly HAND OF THE ARCHON AGENT\noperative that doesn’t have one of your Pain tokens can also\ngain one.\nHAND OF THE ARCHON , AELDARI, DRUKHARI, AGENT 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "阴谋团猩红决斗者-数据卡",
+      "title_en": "KABALITE CRIMSON DUELLIST",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-阴谋团猩红决斗者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团猩红决斗者\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n毒晶手枪 4 3+ 2/4 范围 8\"、致命 5+\n剃刀链枷 4 2+ 4/5 残暴、挥打*\n暴力演出：每个转折点限一次，在该特工将一名位于\n其控制范围内的敌方特工残废时，您可以选择位于\n该特工或者被残废特工 6\" 内且可见的另一名敌方特\n工。直到下一个转折点开始前，那名敌方特工不能控\n制标识或者执行拾取标识和任务行动。\n*挥打：每当该特工使用本武器进行近战或反击时，\n您的每一次格挡可以被用于格挡两个未结算的成功\n(而不是一个)。\n猩红决斗者：该特工可以在激活期间执行两次近战\n行动。\n执政官之手、艾达灵族、黑暗灵族、猩红决斗者 25",
+      "weapon_types": {
+        "毒晶手枪": "远程",
+        "剃刀链枷": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE CRIMSON DUELLIST\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nSplinter pistol 4 3+ 2/4 Range 8\", Lethal 5+\nRazorflail 4 2+ 4/5 Brutal, Tangle*\nBrutal Display: Once per turning point, when this operative incapacitates an enemy operative within its control range, you can select\none other enemy operative visible to and within 6\" of either this operative or the incapacitated enemy operative. Until the start of the\nnext turning point, that other enemy operative cannot control markers or perform the Pick Up Marker or mission actions.\nCrimson Duellist: This operative can perform two Fight actions during its activation.\n*Tangle: Whenever this operative is fighting or retaliating with this weapon, each of your blocks can be allocated to block two\nunresolved successes (instead of one).\nHAND OF THE ARCHON , AELDARI, DRUKHARI, CRIMSON DUELLIST 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "阴谋团叶琳德拉信徒-数据卡",
+      "title_en": "KABALITE DISCIPLE OF YAELINDRA",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-阴谋团叶琳德拉信徒-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团叶琳德拉信徒\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n毒刺手枪 4 3+ 3/5 范围 8\"、致命 5+、毒刺*\n成套刀具 3 3+ 3/4 -\n*毒刺：每当一名敌方特工被本武器残废时，在将其移出杀戮区之前，对那名特工 2\" 内且对其可见的每一名\n特工造成 D3 点伤害（对每一名特工分别掷骰）。在之后的每一名因本武器规则而被残废的特工将再次触发\n本规则。\n请继续阅读背面规则\n执政官之手、艾达灵族、黑暗灵族、叶琳德拉信徒 25",
+      "weapon_types": {
+        "毒刺手枪": "远程",
+        "成套刀具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE DISCIPLE OF YAELINDRA\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nStinger pistol 4 3+ 3/5 Range 8\", Lethal 5+, Stinger*\nArray of blades 3 3+ 3/4 -\n*Stinger: Whenever an enemy operative is incapacitated by this weapon, before it’s removed from the killzone, inflict D3 damage on\neach other operative visible to and within 2\" of it (roll separately for each). Each operative subsequently incapacitated as a result of\nthis weapon rule will cause this to happen again.\nRULES CONTINUE ON OTHER SIDE\nHAND OF THE ARCHON , AELDARI, DRUKHARI, DISCIPLE OF YAELINDRA 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "阴谋团叶琳德拉信徒-能力卡",
+      "title_en": "KABALITE DISCIPLE OF YAELINDRA",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-阴谋团叶琳德拉信徒-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团叶琳德拉信徒\n2 7\" 4+ 8\n折磨手雷 1AP\n选择一名位于该特工 6\" 内且对其可见的敌方特\n工。那名特工以及其 1\" 内的每一名其他特工需要\n进行一次中毒测试。\n在进行中毒测试时，掷一枚 D6，如果特工的豁免\n属性为 4+ 或更差，那么掷骰结果增加 1 点：若结\n果为 3+，对那名特工造成 D3 点伤害，并且获得\n一枚己方的中毒标识（如果特工原先没有这个标识\n的话)。每当一枚拥有己方中毒标识的特工被激活\n时，对其造成 D3 点伤害。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE DISCIPLE OF YAELINDRA\n2 7\" 4+ 8\nTORMENT GRENADE 1AP\nSelect one enemy operative visible to and within 6\" of this\noperative. That operative and each other operative within 1\"\nof it takes a poison test.\nFor an operative to take a poison test, roll one D6, adding 1\nto the result if that operative has a Save stat of 4+ or worse:\non a 3+, inflict D3 damage on that operative and it gains\none of your Poison tokens (if it doesn’t already have one).\nWhenever an operative that has one of your Poison tokens is\nactivated, inflict D3 damage on it.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "阴谋团酏剂师-数据卡",
+      "title_en": "KABALITE ELIXICANT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-阴谋团酏剂师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团酏剂师\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n毒晶步枪 4 3+ 2/4 致命 5+\n激素注射枪 4 3+ 0/0 范围 3\"、致命 3+、眩晕\n成套刀具 3 3+ 3/4 -\n战斗药剂：在选择特工步骤结束 • 痛苦使者：每当一枚攻击骰对该特工造成了 3 点或更多伤害时，掷\n时，如果该特工被选择部署，选一枚 D6：若结果为 6，造成的伤害减少 1 点。\n择以下一个战斗药剂规则，己方 • 肾上腺素：在每个战略阶段的就绪步骤中，您可以选择一名拥有本\n执政官之手特工在战斗中拥有战斗药剂的己方特工，那名特工获得一枚己方痛苦指示物。\n被选择的规则： • 激越药：您可以忽略任何该特工因受创而导致的对移动属性的修正。\n请继续阅读背面规则\n执政官之手、艾达灵族、黑暗灵族、酏剂师 25",
+      "weapon_types": {
+        "毒晶步枪": "远程",
+        "激素注射枪": "远程",
+        "成套刀具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE ELIXICANT\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nSplinter rifle 4 3+ 2/4 Lethal 5+\nStim-needler 4 3+ 0/0 Range 3\", Lethal 3+, Stun\nArray of blades 3 3+ 3/4 -\nCombat Drugs: At the end of the Select Operatives step, if this operative is selected for deployment, select one of the following\nCOMBAT DRUG rules for friendly HAND OF THE ARCHON operatives to have for the battle:\n• Painbringer: Whenever an attack dice inflicts damage of 3 or more on this operative, roll one D6: on a 6, subtract 1 from that\ninflicted damage.\n• Adrenalight: In the Ready step of each Strategy phase, you can select one friendly operative that has this COMBAT DRUG to gain\none of your Pain tokens.\n• Hypex: You can ignore any changes to this operative’s Move stat from being injured.\nRULES CONTINUE ON OTHER SIDE\nHAND OF THE ARCHON , AELDARI, DRUKHARI, ELIXICANT 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "阴谋团酏剂师-能力卡",
+      "title_en": "KABALITE ELIXICANT",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-阴谋团酏剂师-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团酏剂师\n2 7\" 4+ 8\n注射药剂 1AP\n选择一名位于该特工 3\" 内且可见的己方执政官\n之手特工，随后为那名己方特工选择以下一种\n效果：\n• 那名特工回复最多 2D3 点失去的耐伤。\n• 为那名特工选择一个不同的战斗药剂规则在战斗中\n生效（它将替代原先的规则)。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE ELIXICANT\n2 7\" 4+ 8\nADMINISTER DRUG 1AP\nSelect one friendly HAND OF THE ARCHON operative\nvisible to and within 3\" of this operative, then select one of\nthe following for that friendly operative:\n• It regains up to 2D3 lost wounds.\n• Select a different COMBAT DRUG rule for it to have for the\nbattle (this replaces its previous one).\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "阴谋团剥皮者-数据卡",
+      "title_en": "KABALITE FLAYER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-阴谋团剥皮者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团剥皮者\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n塑苦刃 4 3+ 4/5 无休、剥皮*\n不觉疼痛：大于等于 3 的普通伤害和暴击伤害对该\n特工造成的伤害减少 1 点。\n*剥皮：每当该特工使用本武器时，如果您在流程中\n首次使用关键成功出击，那么您可以选择位于其 6\"\n内的一名己方执政官之手特工，那名特工获得一\n枚己方痛苦指示物。\n执政官之手、艾达灵族、黑暗灵族、剥皮者 25",
+      "weapon_types": {
+        "塑苦刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE FLAYER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nPain sculptors 4 3+ 4/5 Ceaseless, Flay*\nInsensible to Pain: Normal and Critical Dmg of 3 or more inflicts\n1 less damage on this operative.\n*Flay: Whenever this operative is using this weapon, the first\ntime you strike with a critical success during that sequence, you\ncan select one friendly HAND OF THE ARCHON operative\nwithin 6\" of it to gain one of your Pain tokens.\nHAND OF THE ARCHON , AELDARI, DRUKHARI, FLAYER 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "阴谋团炮手-数据卡",
+      "title_en": "KABALITE GUNNER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-阴谋团炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团炮手\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n爆能枪 4 3+ 4/5 穿刺 2\n破裂枪 4 3+ 4/5 撕裂、洪流 2\"\n成套刀具 3 3+ 3/4 -\n执政官之手、艾达灵族、黑暗灵族、炮手 25",
+      "weapon_types": {
+        "爆能枪": "远程",
+        "破裂枪": "远程",
+        "成套刀具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE GUNNER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nBlaster 4 3+ 4/5 Piercing 2\nShredder 4 3+ 4/5 Rending, Torrent 2\"\nArray of blades 3 3+ 3/4 -\nHAND OF THE ARCHON , AELDARI, DRUKHARI, GUNNER 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "阴谋团重炮手-数据卡",
+      "title_en": "KABALITE HEAVY GUNNER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-阴谋团重炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团重炮手\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n暗黑光矛 4 3+ 6/7 重型（仅限冲刺)、穿刺 2\n毒晶炮（集中） 5 3+ 3/5 重型（仅限冲刺)、致命 5+\n毒晶炮（扫射） 4 3+ 3/5 重型（仅限冲刺)、洪流 1\"、致命 5+\n成套刀具 3 3+ 3/4 -\n执政官之手、艾达灵族、黑暗灵族、重炮手 25",
+      "weapon_types": {
+        "暗黑光矛": "远程",
+        "毒晶炮（集中）": "远程",
+        "毒晶炮（扫射）": "远程",
+        "成套刀具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE HEAVY GUNNER\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nDark lance 4 3+ 6/7 Heavy (Dash only), Piercing 2\nSplinter cannon (focused) 5 3+ 3/5 Heavy (Dash only), Lethal 5+\nSplinter cannon (sweeping) 4 3+ 3/5 Heavy (Dash only), Lethal 5+, Torrent 1\"\nArray of blades 3 3+ 3/4 -\nHAND OF THE ARCHON , AELDARI, DRUKHARI, HEAVY GUNNER 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "阴谋团天裂刺客-数据卡",
+      "title_en": "KABALITE SKYSPLINTER ASSASSIN",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-阴谋团天裂刺客-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团天裂刺客\n2 7\" 4+ 8\n名称攻击命中伤害武器规则\n刃翼 4 4+ 1/2 集中、追踪、安静\n毒晶卡宾枪 4 2+ 2/2 致命 5+、毁灭 2\n成套刀具 3 3+ 3/4 -\n无情猎手：如果该特工在激活期间没有执行标记独\n特行动（见另一侧)，那么该特工可以在激活期间执\n行两次射击行动，但是其中一次（且只有一次）必\n须使用刃翼进行。\n请继续阅读背面规则\n执政官之手、艾达灵族、黑暗灵族、天裂刺客 25",
+      "weapon_types": {
+        "刃翼": "远程",
+        "毒晶卡宾枪": "远程",
+        "成套刀具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE SKYSPLINTER ASSASSIN\n2 7\" 4+ 8\nNAME ATK HIT DMG WR\nRazorwing 4 4+ 1/2 Saturate, Seek, Silent\nShardcarbine 4 2+ 2/2 Devastating 2, Lethal 5+\nArray of blades 3 3+ 3/4 -\nMerciless Hunter: If this operative doesn’t perform the Mark\nunique action (see other side of card) during its activation, it can\nperform two Shoot actions during its activation, but a razorwing\nmust be selected for one (and only one) of those actions.\nRULES CONTINUE ON OTHER SIDE\nHAND OF THE ARCHON , AELDARI, DRUKHARI, SKYSPLINTER ASSASSIN 25"
+    },
+    {
+      "id": "kt-hand_of_the_archon-01-13",
+      "sequence": 13,
+      "category": "operative-ability",
+      "title_zh": "阴谋团天裂刺客-能力卡",
+      "title_en": "KABALITE SKYSPLINTER ASSASSIN",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工能力-阴谋团天裂刺客-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n阴谋团天裂刺客\n2 7\" 4+ 8\n预示：在选择特工步骤中，您可以选择装备时，您\n可以选择一名敌方特工或者另一名己方执政官之手\n特工（在您揭示装备时揭示您的选择)。在为那名特\n工掷攻击或防御骰时：\n• 如果选择的是一名敌方特工，那么您的对手必须\n重掷结果为 6 的骰子。\n• 如果选择的是一名己方特工，那么您可以重掷任\n何结果为 1 的骰子。\n标记 1AP\n选择一名对该特工可见的敌方特工。直到转折点\n结束前，每当该特工对那名敌方特工进行射击\n时，您可以使用本效果。若使用：\n• 该特工的远程武器拥有“追踪轻型”武器规则。\n• 那名敌方特工不能被遮挡。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKABALITE SKYSPLINTER ASSASSIN\n2 7\" 4+ 8\nOmen: In the Select Operatives step, when you’re selecting\nequipment, you can select one enemy operative or one other\nfriendly HAND OF THE ARCHON operative (reveal your\nselection when you reveal equipment). Whenever attack or\ndefence dice are rolled for that operative:\n• If it’s an enemy operative, your opponent must re-roll their\ndice results of 6.\n• If it’s a friendly operative, you can re-roll any of your dice\nresults of 1.\nMARK 1AP\nSelect one enemy operative visible to this operative. Until the\nend of the turning point, whenever this operative is shooting\nthat enemy operative you can use this effect. If you do:\n• This operative’s ranged weapons have the Seek Light\nweapon rule.\n• That enemy operative cannot be obscured.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hand_of_the_archon-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "执政官之手杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-执政官之手杀戮小队-1.png",
+      "is_back": false,
+      "text": "执政官之手\n杀戮小队\n原型：侦察、搜索与摧毁\n特工\n↘ 1 名执政官之手大享乐者特工，装备有以下\n一种选项：\n• 爆能手枪; 毒刃\n• 毒晶手枪; 毒刃\n• 毒晶手枪; 折磨之鞭\n• 毒晶手枪; 动力武器\n• 毒晶步枪; 成套刀具\n↘ 8 名执政官之手特工，从以下列表中进行\n选择：\n• 特使\n• 猩红决斗家\n• 叶琳德拉信徒\n• 酏剂师\n• 剥皮者\n• 炮手，装备有以下一种选项：\n○ 爆能枪；成套刀具\n○ 破裂枪；成套刀具\n请继续阅读背面规则",
+      "text_en": "HAND OF THE ARCHON\nKILL TEAM\nARCHETYPES: RECON, SEEK & DESTROY\nOPERATIVES\n↘ 1 HAND OF THE ARCHON ARCHSYBARITE\noperative with one of the following options:\n• Blast pistol; venom blade\n• Splinter pistol; venom blade\n• Splinter pistol; agoniser\n• Splinter pistol; power weapon\n• Splinter rifle; array of blades\n↘ 8 HAND OF THE ARCHON operatives selected\nfrom the following list:\n• AGENT\n• CRIMSON DUELLIST\n• DISCIPLE OF YAELINDRA\n• ELIXICANT\n• FLAYER\n• GUNNER with one of the following options:\n○ Blaster; array of blades\n○ Shredder; array of blades\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hand_of_the_archon-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "执政官之手杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-执政官之手杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 重炮手，装备有以下一种选项：\n○ 暗黑光矛；成套刀具\n○ 毒晶炮；成套刀具\n• 天裂刺客\n除了特使特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。您的杀戮小队只能包含最\n多两件暗光武器（爆能手枪、爆能枪和暗黑光矛\n都属于暗光武器)。",
+      "text_en": "• HEAVY GUNNER with one of the\nfollowing options:\n○ Dark lance; array of blades\n○ Splinter cannon; array of blades\n• SKYSPLINTER ASSASSIN\nOther than AGENT operatives, your kill team can\nonly include each operative on this list once. Your\nkill team can only include up to two darklight\nweapons (blast pistol, blaster and dark lance are\ndarklight weapons)."
+    },
+    {
+      "id": "kt-hand_of_the_archon-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "痛苦之力",
+      "title_en": "POWER FROM PAIN",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-痛苦之力.png",
+      "is_back": false,
+      "text": "执政官之手\n阵营规则\n痛苦之力\n黑暗灵族吸食着被杀者与受折磨者的灵魂，\n从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果\n满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有\n被残废。\n• 一名敌方特工在那次行动期间被残废。如果那\n名敌方特工的耐伤属性大于等于 12，那么己方\n特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己\n方特工的痛苦指示物来进行激励。您在每次激活\n或反应中不能使用超过一种激励，“感官刺激”\n除外，它可以在行动和反应期间与其他激励一同\n使用一次。\n请继续阅读背面规则",
+      "text_en": "HAND OF THE ARCHON\nFACTION RULE\nPOWER FROM PAIN\nThe Drukhari feed on the souls of their slain and\ntortured victims, drawing sustenance from the terrible\nagonies they inflict.\nAfter a friendly HAND OF THE ARCHON operative\nperforms an action, it gains one of your Pain\ntokens if:\n• An enemy operative was injured during that\naction, but was not incapacitated.\n• An enemy operative was incapacitated during\nthat action. If that enemy operative had a\nWounds stat of 12 or more, that friendly\noperative gains two of your Pain tokens instead.\nYou can spend friendly operatives’ Pain tokens on\ninvigorations when the ‘when’ condition is met.\nYou cannot use more than one invigoration per\nactivation or counteraction, except Stimulated\nSenses, which can be used once per activation or\ncounteraction in addition to another invigoration.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hand_of_the_archon-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "激励",
+      "title_en": "INVIGORATIONS",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-激励.png",
+      "is_back": false,
+      "text": "激励\n黑暗仇恨\n时机：在特工的激活期间，执行行动之前或之后。\n效果：直到特工的下一次激活开始前，其 APL\n属性增加 1 点。\n加速恢复\n时机：在特工的激活或反应期间，执行行动之前\n或之后。\n效果：特工回复最多 D3+1 点失去的耐伤。\n活力激发\n时机：在特工残废一名敌方特工后，且那名敌方\n特工被移出杀戮区。\n效果：特工可以立即执行一次无消耗的冲刺行动，\n就算特工执行了阻止其执行冲刺行动的行动。\n感官刺激\n时机：在您为特工掷攻击或防御骰之后。\n效果：您可以重掷任何指定结果的骰子（例如结\n果为 2 的骰子)。",
+      "text_en": "INVIGORATIONS\nDark Animus\nWhen: During the operative’s activation, before or\nafter it performs an action.\nEffect: Until the start of the operative’s next\nactivation, add 1 to its APL stat.\nAccelerated Rejuvenation\nWhen: During the operative’s activation or\ncounteraction, before or after it performs\nan action.\nEffect: The operative regains up to D3+1\nlost wounds.\nVitalised Surge\nWhen: After the operative incapacitates an\nenemy operative and that enemy operative is\nremoved from the killzone.\nEffect: The operative can immediately perform a\nfree Dash action, even if it’s performed an action\nthat prevents it from performing the Dash action.\nStimulated Senses\nWhen: After rolling your attack or defence dice for\nthe operative.\nEffect: You can re-roll any of your dice results of\none result (e.g. results of 2)."
+    },
+    {
+      "id": "kt-hand_of_the_archon-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "步枪",
+      "title_en": "RIFLES",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-02-阵营规则-步枪.png",
+      "is_back": false,
+      "text": "执政官之手\n阵营规则\n步枪\n阴谋团战士们所配备的长管毒晶步枪在专家\n的手中极其精准。\n每当一名己方执政官之手特工在没有执行冲\n锋、后撤或转移行动的激活中使用毒晶步枪进行\n射击时，那件武器拥有“精准 1”武器规则。请\n注意，这并不会限制特工在射击之后执行上述的\n行动。",
+      "text_en": "HAND OF THE ARCHON\nFACTION RULE\nRIFLES\nThe long-barrelled splinter rifles carried by Kabalite\nWarriors are incredibly accurate in the hands of a\nskilled user.\nWhenever a friendly HAND OF THE ARCHON\noperative is shooting with a splinter rifle during\nan activation in which it hasn’t performed the\nCharge, Fall Back or Reposition action, that\nweapon has the Accurate 1 weapon rule. Note\nthat operative isn’t restricted from performing\nthose actions after shooting."
+    },
+    {
+      "id": "kt-hand_of_the_archon-16-02",
+      "sequence": 2,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "HAND OF THE ARCHON",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-02-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "执政官之手\n标识/指示物指南\n痛苦指示物暴力演出中毒\n（数值 1&2）指示物指示物\n预兆激越药痛苦使者\n指示物指示物指示物\n剧毒涂层精炼药剂残暴竞争\n指示物指示物指示物",
+      "text_en": "HAND OF THE ARCHON\nMARKER/TOKEN GUIDE\nPain tokens Brutal Display Poison token\n(Values 1 & 2) token\nOmen token Hypex token Painbringer\ntoken\nToxin Coating Refined Poison Sadistic\ntoken token Competition\ntoken"
+    },
+    {
+      "id": "kt-hand_of_the_archon-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "刀艺师",
+      "title_en": "BLADE ARTISTS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-刀艺师.png",
+      "is_back": false,
+      "text": "执政官之手\n战略计谋\n刀艺师\n黑暗灵族将近战肉搏化作血腥的艺术，使用\n剥皮攻击和穿心突刺将敌人屠杀。\n己方执政官之手特工的近战武器拥有“撕裂”\n武器规则。",
+      "text_en": "HAND OF THE ARCHON\nSTRATEGY PLOY\nBLADE ARTISTS\nThe Drukhari have made a macabre art form of melee\ncombat, slaughtering their victims with flensing strikes\nand heart-piercing thrusts.\nFriendly HAND OF THE ARCHON operatives'\nmelee weapons have the Rending weapon rule."
+    },
+    {
+      "id": "kt-hand_of_the_archon-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "无情施虐者",
+      "title_en": "MERCILESS SADISTS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-无情施虐者.png",
+      "is_back": false,
+      "text": "执政官之手\n战略计谋\n无情施虐者\n黑暗灵族通过他人的痛苦来滋养自身，他们\n毫无怜悯之心。对他们而言，没有任何折磨\n手段是不能被利用的。\n每当一名己方执政官之手特工对一名受伤的敌\n方特工进行射击或近战时，那名己方特工的武器\n拥有“平衡”武器规则。",
+      "text_en": "HAND OF THE ARCHON\nSTRATEGY PLOY\nMERCILESS SADISTS\nThe Drukhari are sustained by the agony of others and\nare devoid of pity. There is no act of depraved torture to\nwhich they will not stoop.\nWhenever a friendly HAND OF THE ARCHON\noperative is shooting against or fighting against\na wounded enemy operative, that friendly\noperative’s weapons have the Balanced\nweapon rule."
+    },
+    {
+      "id": "kt-hand_of_the_archon-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "死亡从暗中袭来",
+      "title_en": "FROM DARKNESS, DEATH",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-死亡从暗中袭来.png",
+      "is_back": false,
+      "text": "执政官之手\n战略计谋\n死亡从暗中袭来\n荣誉对黑暗灵族来说是一个陌生的概念。他\n们会利用各种干扰和佯攻手段来欺骗敌人，\n从暗中发起出其不意的攻击。\n每当一名己方执政官之手特工被激活时，在您\n决定它的命令前，您可以选择一名不属于那名己\n方特工有效目标的敌方特工。直到那次激活结束\n前，当那名己方特工首次对那名敌方特工进行射\n击或近战时，您可以将一枚普通成功作为一次关\n键成功进行保留。",
+      "text_en": "HAND OF THE ARCHON\nSTRATEGY PLOY\nFROM DARKNESS, DEATH\nHonour is an alien concept to the Drukhari. They\nmake use of distraction and misdirection to butcher\nunsuspecting foes from the shadows.\nWhenever a friendly HAND OF THE ARCHON\noperative is activated, before you determine its\norder, you can select one enemy operative that\nfriendly operative isn’t a valid target for. Until the\nend of that activation, the first time that friendly\noperative is shooting against or fighting against\nthat enemy operative, you can retain one of your\nnormal successes as a critical success instead."
+    },
+    {
+      "id": "kt-hand_of_the_archon-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "夜之住民",
+      "title_en": "DENIZENS OF NIGHT",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-夜之住民.png",
+      "is_back": false,
+      "text": "执政官之手\n战略计谋\n夜之住民\n黑暗灵族来自于黑暗之城科摩罗，他们在黑\n暗之中出生成长，能够利用黑暗来隐藏自己\n的行动。\n每当一名敌方特工对位于敌方特工 2\" 外的己方\n执政官之手特工进行射击时，如果有造成阻碍\n的重型或轻型地形，或者那名己方特工的任意部\n分位于制高点地形下方，那么您可以重掷一枚自\n己的防御骰。",
+      "text_en": "HAND OF THE ARCHON\nSTRATEGY PLOY\nDENIZENS OF NIGHT\nHailing from Commorragh – the Dark City – the Drukhari\nare born and raised in shadow, and use it to conceal\ntheir movements.\nWhenever an enemy operative is shooting a\nfriendly HAND OF THE ARCHON operative that’s\nmore than 2\" from enemy operatives, if Heavy\nor Light terrain is intervening, or any part of that\nfriendly operative’s base is underneath Vantage\nterrain, you can re-roll one of your defence dice."
+    },
+    {
+      "id": "kt-hand_of_the_archon-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "残酷诡计",
+      "title_en": "CRUEL DECEPTION",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-残酷诡计.png",
+      "is_back": false,
+      "text": "执政官之手\n交战计谋\n残酷诡计\n黑暗之城的住民们十分擅长欺诈与背叛。在\n战斗之中，他们极为擅长发挥这项天赋，在\n痛击敌人之后遁入暗影之中。\n在一名己方执政官之手特工的激活期间，在其\n执行一次行动之前或之后使用本交战计谋。在那\n次激活期间，那名特工在执行后撤行动时可以少\n消耗 1AP。",
+      "text_en": "HAND OF THE ARCHON\nFIREFIGHT PLOY\nCRUEL DECEPTION\nThe denizens of the Dark City are well versed in deceit\nand betrayal. In battle, they put these talents to good\nuse, hitting their foes hard before melting away into\nthe shadows.\nUse this firefight ploy during a friendly HAND OF\nTHE ARCHON operative’s activation, before or\nafter it performs an action. During that activation,\nthat operative can perform the Fall Back action\nfor 1 less AP."
+    },
+    {
+      "id": "kt-hand_of_the_archon-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "邪恶计划",
+      "title_en": "DEVIOUS SCHEME",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-邪恶计划.png",
+      "is_back": false,
+      "text": "执政官之手\n交战计谋\n邪恶计划\n黑暗灵族各个都是心怀鬼胎的阴谋家，他们\n习惯于领先一步并战胜敌人的一举一动。\n在对手使用了交战计谋后（消耗 0CP 的计谋除\n外）使用本交战计谋。在对手下一次使用那个计\n谋时，他们必须消耗额外 1CP 才能使用那个计\n谋（在那之后，本效果结束)。直到本计谋的效\n果结束前，您不能在战斗中再次使用本计谋。",
+      "text_en": "HAND OF THE ARCHON\nFIREFIGHT PLOY\nDEVIOUS SCHEME\nSchemers all, the Drukhari are used to staying one\nstep ahead of their opponents and confounding their\nevery move.\nUse this firefight ploy after an opponent uses a\nfirefight ploy (excluding one that costs 0CP). The\nnext time they would use that ploy, they must\nspend 1 additional CP to do so (at which point\nthis effect ends). You cannot use this ploy again\nduring the battle until its effect has ended."
+    },
+    {
+      "id": "kt-hand_of_the_archon-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "可憎傲慢",
+      "title_en": "HEINOUS ARROGANCE",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-可憎傲慢.png",
+      "is_back": false,
+      "text": "执政官之手\n交战计谋\n可憎傲慢\n对于傲慢的黑暗灵族来说，所有对手都只不过\n是害虫而已——要么无视，要么完全消灭。\n在轮到您激活己方特工时使用本交战计谋。您可\n以跳过那次激活。",
+      "text_en": "HAND OF THE ARCHON\nFIREFIGHT PLOY\nHEINOUS ARROGANCE\nTo the conceited Drukhari, all opponents are little more\nthan vermin – to be ignored or exterminated.\nUse this firefight ploy when it’s your turn to\nactivate a friendly operative. You can skip\nthat activation."
+    },
+    {
+      "id": "kt-hand_of_the_archon-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "掠食伤者",
+      "title_en": "PREY ON THE WOUNDED",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-掠食伤者.png",
+      "is_back": false,
+      "text": "执政官之手\n交战计谋\n掠食伤者\n黑暗灵族被痛苦所吸引，他们会搜寻伤者并赐\n予他们致命一击。\n当己方执政官之手特工对处于受伤状态的敌方\n特工进行射击或近战时，在您掷攻击骰后使用本\n计谋。您可以重掷任何自己的攻击骰。",
+      "text_en": "HAND OF THE ARCHON\nFIREFIGHT PLOY\nPREY ON THE WOUNDED\nDrukhari are drawn to agony, seeking out the injured to\nland a killing blow.\nUse this firefight ploy after rolling your attack dice\nfor a friendly HAND OF THE ARCHON operative,\nif it’s shooting against or fighting against a\nwounded enemy operative. You can re-roll any of\nyour attack dice."
+    },
+    {
+      "id": "kt-hand_of_the_archon-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "链式陷阱",
+      "title_en": "CHAIN SNARE",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-链式陷阱.png",
+      "is_back": false,
+      "text": "执政官之手\n阵营装备\n链式陷阱\n一系列倒钩被安置在了锁链上，这件武器能\n够刺入血肉或护甲之中，阻止使用者的目标\n逃跑。\n每当一名位于己方执政官之手特工控制范围\n内的敌方特工执行后撤行动时，如果那名己方特\n工的控制范围内不存在其他敌方特工，那么您可\n以使用本规则。若使用，则掷两枚 D6，如果那\n名敌方特工的耐伤属性大于己方特工，则掷一枚\nD6。若任意结果结果为 4+，那么那名敌方特工\n不能在那次激活或反应期间执行那个行动（不消\n耗任何 AP)，并且在这个转折点中你不能再次使\n用这个规则。",
+      "text_en": "HAND OF THE ARCHON\nFACTION EQUIPMENT\nCHAIN SNARE\nComposed of hooked blades attached to a length of\nchain, this weapon bites into the flesh or armour of the\nwielder’s target, preventing them from fleeing.\nWhenever an enemy operative would perform the\nFall Back action while within control range of a\nfriendly HAND OF THE ARCHON operative, if no\nother enemy operatives are within that friendly\noperative’s control range, you can use this rule.\nIf you do, roll two D6, or one D6 if that enemy\noperative has a higher Wounds stat than that\nfriendly operative. If any result is a 4+, that enemy\noperative cannot perform that action during that\nactivation/counteraction (no AP are spent on it),\nand you cannot use this rule again during this\nturning point."
+    },
+    {
+      "id": "kt-hand_of_the_archon-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "凶险利刃",
+      "title_en": "WICKED BLADES",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-凶险利刃.png",
+      "is_back": false,
+      "text": "执政官之手\n阵营装备\n凶险利刃\n这些锯齿利刃轻便且致命，能够保证在刺入\n受害者的血肉时产生最大的痛苦。\n己方执政官之手特工成套刀具武器的攻击属性\n提升 1 点。",
+      "text_en": "HAND OF THE ARCHON\nFACTION EQUIPMENT\nWICKED BLADES\nLight yet deadly, the jagged edge of this blade has been\ncrafted to ensure maximum agony as it’s plunged into\nthe flesh of a victim.\nAdd 1 to the Atk stat of friendly HAND OF THE\nARCHON operatives’ array of blades."
+    },
+    {
+      "id": "kt-hand_of_the_archon-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "剧毒涂层",
+      "title_en": "TOXIN COATING",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-剧毒涂层.png",
+      "is_back": false,
+      "text": "执政官之手\n阵营装备\n剧毒涂层\n黑暗灵族掠夺者们时常会在自己的武器上涂\n上毒液，确保哪怕只是轻微的擦伤也能够将\n目标置于死地。\n每个转折点限两次，每当一名己方执政官之手\n特工进行近战和反击时，您可以在选择近战武器\n时使用本规则。若使用，那么直到流程结束前，\n那名特工的近战武器拥有“致命 5+”武器规则。",
+      "text_en": "HAND OF THE ARCHON\nFACTION EQUIPMENT\nTOXIN COATING\nDrukhari raiders are known to coat their blades in\nvenom, ensuring that even the slightest nick of blade\nagainst flesh is fatal.\nUp to twice per turning point, whenever a friendly\nHAND OF THE ARCHON operative is fighting or\nretaliating and you’re selecting a melee weapon,\nyou can use this rule. If you do, until the end of\nthat sequence, that operative’s melee weapon\nhas the Lethal 5+ weapon rule."
+    },
+    {
+      "id": "kt-hand_of_the_archon-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "精炼毒药",
+      "title_en": "REFINED POISON",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-精炼毒药.png",
+      "is_back": false,
+      "text": "执政官之手\n阵营装备\n精炼毒药\n这些毒晶弹药中蕴藏着从危险生物和植物身\n上提取而出的剧毒，比常见毒药更加致命。\n每个转折点限两次，每当一名己方执政官之手\n特工执行射击行动时，如果您选择了一件毒晶卡\n宾枪、毒晶炮、毒晶手枪或毒晶步枪，那么您可\n以使用本规则。若使用，那么直到那次行动结束\n前，那件武器的普通伤害属性提升 1 点。",
+      "text_en": "HAND OF THE ARCHON\nFACTION EQUIPMENT\nREFINED POISON\nSplinter rounds are infused with exquisitely lethal\nconcoctions distilled from the potent venoms and toxins\nof deadly flora and fauna.\nUp to twice per turning point, whenever a friendly\nHAND OF THE ARCHON operative is performing\nthe Shoot action and you select a shardcarbine,\nsplinter cannon, splinter pistol, splinter rifle or\nstinger pistol, you can use this rule. If you do, until\nthe end of that action, add 1 to the Normal Dmg\nstat of that weapon."
+    }
+  ]
+}

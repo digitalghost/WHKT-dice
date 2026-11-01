@@ -136,47 +136,63 @@ object MissionCards {
         readOnly: Boolean = false,
         choose: (MissionCard) -> Unit
     ) {
-        ui.reference(if (tactical) "战术行动" else "关键行动") { box, sheet ->
-            val teamArchetypes = teamId?.let(TeamArchetypes::forTeam).orEmpty()
-            val cards = all.filter { card ->
-                card.category.contains("战术") == tactical &&
-                    (!tactical || teamId == null || TeamArchetypes.supports(teamId, card.archetype))
-            }
-            if (tactical && teamId != null) {
-                val team = RosterCatalog.team(teamId)
-                box.addView(ui.text("${team.name} · 小队原型", 18f, ui.accent, true), ui.wrap(4))
-                box.addView(ui.text(teamArchetypes.joinToString("  ·  "), 16f, bold = true), ui.wrap(8))
-                box.addView(
-                    ui.text("下方仅显示与本小队原型相符的战术行动。", 12f, ui.muted),
-                    ui.wrap(16)
-                )
-            }
-            if(ui.isTablet) {
-                ui.tiles(box, cards) { tile, card ->
-                    tile.addView(ui.text("${if(selected == card.name) "✓ " else ""}${card.name}", 18f, ui.accent, true), ui.wrap())
-                    tile.addView(ui.text(card.displayCategory, 12f, ui.muted, true), ui.wrap())
-                    if(card.reveal.isNotBlank()) tile.addView(ui.text("公开时机\n${card.reveal}"), ui.wrap())
-                    tile.addView(ui.text(card.rule), ui.wrap())
-                    tile.addView(ui.text("VP 结算", 14f, ui.accent, true), ui.wrap())
-                    tile.addView(ui.text(card.scoring), ui.wrap())
-                    if(!readOnly) tile.addView(ui.button(if(selected == card.name) "已选择" else "选择「${card.name}」", true) {
-                        choose(card); sheet.dismiss()
-                    }, ui.wrap())
+        val initialTitle = if (readOnly && teamId == null) "行动卡 · 关键与战术行动" else if (tactical) "战术行动" else "关键行动"
+        ui.reference(initialTitle) { box, sheet ->
+            var currentTactical = tactical
+            val content = ui.column()
+            val kit = CombatKit(ui)
+            fun renderList() {
+                content.removeAllViews()
+                if (readOnly && teamId == null) {
+                    content.addView(kit.segmented("类别", listOf("关键行动 (9)", "战术行动 (12)"), if (currentTactical) 1 else 0) { idx ->
+                        currentTactical = idx == 1
+                        renderList()
+                        ui.refreshDialog()
+                    }, ui.wrap(12))
                 }
-                box.addView(ui.text("通用说明\n${COMMON.replaceFirst("单个任务", "单个行动")}", 12f, ui.muted), ui.wrap())
-                box.addView(ui.text("来源：风来西行动速查 vol.1.29；非官方原卡，歧义请查原卡。", 11f, ui.muted), ui.wrap())
-            } else {
-                cards.forEach { card ->
-                    box.addView(ui.card().apply {
-                        addView(ui.text("${if (selected == card.name) "✓ " else ""}${card.name}", 17f, ui.accent, true), ui.wrap(4))
-                        addView(ui.text(card.displayCategory, 12f, ui.muted, true), ui.wrap(8))
-                        addView(ui.button(if(readOnly) "查看详情 ›" else "查看并选择 ›") {
-                            if (readOnly) detail(ui, card) else detail(ui, card) { choose(card); sheet.dismiss() }
+                val teamArchetypes = teamId?.let(TeamArchetypes::forTeam).orEmpty()
+                val cards = all.filter { card ->
+                    card.category.contains("战术") == currentTactical &&
+                        (!currentTactical || teamId == null || TeamArchetypes.supports(teamId, card.archetype))
+                }
+                if (currentTactical && teamId != null) {
+                    val team = RosterCatalog.team(teamId)
+                    content.addView(ui.text("${team.name} · 小队原型", 18f, ui.accent, true), ui.wrap(4))
+                    content.addView(ui.text(teamArchetypes.joinToString("  ·  "), 16f, bold = true), ui.wrap(8))
+                    content.addView(
+                        ui.text("下方仅显示与本小队原型相符的战术行动。", 12f, ui.muted),
+                        ui.wrap(16)
+                    )
+                }
+                if(ui.isTablet) {
+                    ui.tiles(content, cards) { tile, card ->
+                        tile.addView(ui.text("${if(selected == card.name) "✓ " else ""}${card.name}", 18f, ui.accent, true), ui.wrap())
+                        tile.addView(ui.text(card.displayCategory, 12f, ui.muted, true), ui.wrap())
+                        if(card.reveal.isNotBlank()) tile.addView(ui.text("公开时机\n${card.reveal}"), ui.wrap())
+                        tile.addView(ui.text(card.rule), ui.wrap())
+                        tile.addView(ui.text("VP 结算", 14f, ui.accent, true), ui.wrap())
+                        tile.addView(ui.text(card.scoring), ui.wrap())
+                        if(!readOnly) tile.addView(ui.button(if(selected == card.name) "已选择" else "选择「${card.name}」", true) {
+                            choose(card); sheet.dismiss()
                         }, ui.wrap())
-                    }, ui.wrap(8))
+                    }
+                    content.addView(ui.text("通用说明\n${COMMON.replaceFirst("单个任务", "单个行动")}", 12f, ui.muted), ui.wrap())
+                    content.addView(ui.text("来源：风来西行动速查 vol.1.29；非官方原卡，歧义请查原卡。", 11f, ui.muted), ui.wrap())
+                } else {
+                    cards.forEach { card ->
+                        content.addView(ui.card().apply {
+                            addView(ui.text("${if (selected == card.name) "✓ " else ""}${card.name}", 17f, ui.accent, true), ui.wrap(4))
+                            addView(ui.text(card.displayCategory, 12f, ui.muted, true), ui.wrap(8))
+                            addView(ui.button(if(readOnly) "查看详情 ›" else "查看并选择 ›") {
+                                if (readOnly) detail(ui, card) else detail(ui, card) { choose(card); sheet.dismiss() }
+                            }, ui.wrap())
+                        }, ui.wrap(8))
+                    }
                 }
+                content.addView(ui.button("查看完整行动流程速查图") { original(ui) })
             }
-            box.addView(ui.button("查看完整行动流程速查图") { original(ui) })
+            renderList()
+            box.addView(content)
         }
     }
     fun detail(ui: RecordUi, card: MissionCard, choose: (() -> Unit)? = null) {
@@ -264,7 +280,7 @@ class ZoomReference(context: Context, asset: String? = "missions-2026-reference-
     init {
         scaleType = ImageView.ScaleType.MATRIX
         if (resource != null) setImageBitmap(BitmapFactory.decodeResource(resources, resource))
-        else context.assets.open(requireNotNull(asset)).use { setImageBitmap(BitmapFactory.decodeStream(it)) }
+        else CardAssets.open(context, requireNotNull(asset)).use { setImageBitmap(BitmapFactory.decodeStream(it)) }
         contentDescription = "行动流程速查完整图，支持双指缩放"
     }
     private fun reset() {

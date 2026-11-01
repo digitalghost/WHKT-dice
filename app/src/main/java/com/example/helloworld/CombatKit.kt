@@ -37,14 +37,18 @@ object CoreRules {
     fun topic(context: Context, id: String): Passage? { load(context); return topics?.get(id) }
 
     /** "穿刺 1" / "关键穿刺1" / "致命 5+" / "眩晕" -> original weapon-rule entry. */
-    fun weaponRule(context: Context, keyword: String): Passage? {
+    fun weaponRule(context: Context, keyword: String, teamId: String? = null): Passage? {
         load(context)
+        TeamDataLoader.ensureLoaded(context)
         val base = keyword.replace(" ", "").replace(Regex("[0-9+\"″“”]"), "")
             .replace("眩晕", "晕眩").replace("均衡", "平衡").removePrefix("关键").removeSuffix("轻型")
         return weapons?.get(base)
+            ?: TeamDataLoader.weaponRule(keyword, teamId)?.let { Passage(it.name, emptyList(), it.description) }
+            ?: TeamDataLoader.weaponRule(base, teamId)?.let { Passage(it.name, emptyList(), it.description) }
     }
 
-    fun pageLabel(p: Passage) = "原文 · PDF 第 ${p.pages.joinToString("、")} 页"
+    fun pageLabel(p: Passage) =
+        if (p.pages.isEmpty()) "小队专属武器规则 · 卡面原文" else "原文 · PDF 第 ${p.pages.joinToString("、")} 页"
 
     fun show(ui: RecordUi, id: String) {
         val passage = topic(ui.context, id) ?: return
@@ -469,6 +473,10 @@ data class CombatModifiers(
             "毁灭 1", "毁灭 2", "毁灭 3", "穿刺 1", "穿刺 2", "关键穿刺 1", "关键穿刺 2", "集中", "晕眩",
             "残暴", "震荡"
         )
+        private val shootingOnly = setOf("穿刺 1", "穿刺 2", "关键穿刺 1", "关键穿刺 2", "集中")
+        private val meleeOnly = setOf("震荡")
+        fun grantableFor(shooting: Boolean): List<String> =
+            if (shooting) grantable.filterNot { it in meleeOnly } else grantable.filterNot { it in shootingOnly }
     }
 }
 
@@ -482,7 +490,12 @@ fun CombatKit.modifierSheet(
     onApply: (CombatModifiers) -> Unit
 ) {
     var draft = current
-    ui.dialog(title) { box, sheet ->
+    var applied = false
+    ui.dialog(title, onClose = { if (!applied && draft != current) onApply(draft) }) { box, sheet ->
+        box.addView(ui.row().apply {
+            addView(ui.button("清空") { draft = CombatModifiers(); sheet.dismiss() }, ui.weight())
+            addView(ui.button("应用并关闭", true) { applied = true; sheet.dismiss(); onApply(draft) }, LinearLayout.LayoutParams(0, -2, 1.6f))
+        }, ui.wrap(8))
         val content = ui.column()
         fun render() {
             content.removeAllViews()
@@ -504,7 +517,7 @@ fun CombatKit.modifierSheet(
                 }), ui.wrap(10))
             }
             content.addView(ui.text("获得武器规则", 12f, ui.muted, true), ui.wrap(4))
-            content.addView(flow(ui.context, CombatModifiers.grantable.map { k ->
+            content.addView(flow(ui.context, CombatModifiers.grantableFor(shooting).map { k ->
                 val on = k in draft.extraKeywords
                 tag(if (on) "✓ $k" else k, if (on) ui.accent else ui.muted) {
                     draft = draft.copy(extraKeywords = if (on) draft.extraKeywords - k else draft.extraKeywords + k)
@@ -526,7 +539,7 @@ fun CombatKit.modifierSheet(
         box.addView(content, ui.wrap(10))
         box.addView(ui.row().apply {
             addView(ui.button("清空") { draft = CombatModifiers(); render() }, ui.weight())
-            addView(ui.button("应用", true) { sheet.dismiss(); onApply(draft) }, LinearLayout.LayoutParams(0, -2, 1.6f))
+            addView(ui.button("应用", true) { applied = true; sheet.dismiss(); onApply(draft) }, LinearLayout.LayoutParams(0, -2, 1.6f))
         })
     }
 }

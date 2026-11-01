@@ -454,4 +454,25 @@ class MeleeCombatRulesTest {
         )
         assertEquals(0, state.defenderPool.criticals)
     }
+
+    @Test
+    fun `empty parry with normal success is allowed even against brutal opponent`() {
+        val attacker = fighter(MeleeSide.ATTACKER, "甲", attacks = 1)
+        val defender = fighter(
+            MeleeSide.DEFENDER,
+            "乙",
+            attacks = 1,
+            rules = MeleeWeaponRules(brutal = true)
+        )
+        var state = retained(rolled(attacker, defender, listOf(4), listOf(1)))
+        assertEquals(0, state.defenderPool.successes)
+        assertTrue(MeleeCombatRules.canParryWith(state, MeleeSide.ATTACKER, MeleeSuccess.NORMAL))
+        state = MeleeCombatRules.resolve(
+            state,
+            MeleeSide.ATTACKER,
+            MeleeSuccess.NORMAL,
+            MeleeUse.PARRY
+        )
+        assertEquals(MeleePhase.FINISHED, state.phase)
+    }
 }

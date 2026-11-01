@@ -23,6 +23,10 @@ app/build/
 /docs/杀戮小队中英数据整理工作流.md
 /docs/死亡天使-基础信息-角色与武器.md
 /docs/*-基础信息-角色与武器.md
+# 自动下载的官方杀戮小队规则 PDF（版权方 GW 的资料，不入库；清单 manifest.json 保留）
+/docs/最新杀戮小队规则更新/*.pdf
+# 同批文档的英文版，仅用于生成中英对照（同样不入库）
+/docs/最新杀戮小队规则更新_EN/*.pdf
 
 # Secrets and local signing material
 .env

@@ -1,0 +1,948 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-MURDERWING",
+  "team_name_zh": "屠戮之翼",
+  "team_name_en": "Murderwing",
+  "source_pdf": "最新杀戮小队规则更新/屠戮之翼 Murderwing 杀戮小队规则.pdf",
+  "source_pdf_sha256": "2cfdde4058101ef0a30130d024d3e2483515a2a1f41ef8db65869a1ab4f4216f",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 35,
+    "operative": 9,
+    "operative-ability": 5,
+    "team-selection": 2,
+    "faction-rule": 6,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-murderwing-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "屠戮之翼混沌领主-数据卡",
+      "title_en": "MURDERWING CHAOS LORD",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-屠戮之翼混沌领主-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼混沌领主\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n闪电爪 5 3+ 4/5 致命 5+、撕裂\n动力拳 4 3+ 5/7 残暴、震荡\n动力武器 5 3+ 4/6 致命 5+\n圣物闪电双爪 5 3+ 4/6 无休、致命 5+、撕裂\n请继续阅读背面规则\n屠戮之翼、混沌、阿斯塔特叛军、队长、领主 40",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "闪电爪": "近战",
+        "动力拳": "近战",
+        "动力武器": "近战",
+        "圣物闪电双爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING CHAOS LORD\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nLightning claw 5 3+ 4/5 Lethal 5+, Rending\nPower fist 4 3+ 5/7 Brutal, Shock\nPower weapon 5 3+ 4/6 Lethal 5+\nRelic lightning claws 5 3+ 4/6 Ceaseless, Lethal 5+, Rending\nRULES CONTINUE ON OTHER SIDE\nMURDERWING , CHAOS, HERETIC ASTARTES, LEADER, LORD 40"
+    },
+    {
+      "id": "kt-murderwing-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "屠戮之翼混沌领主-能力卡",
+      "title_en": "MURDERWING CHAOS LORD",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-屠戮之翼混沌领主-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼混沌领主\n3 6\" 3+ 15\n受咒之道：这名特工在战斗开始时拥有 1 点诅咒\n点数，在每次行动中，您可以尝试在特定情况下\n使用一次诅咒恩惠（见右侧）。若此，您需要掷一\n枚 D6 并将结果与这名特工拥有的诅咒点数进行比\n较；若结果：\n• 更高：结算该规则，随后这名特工获得 1 点诅\n咒点数。\n• 相等：不要结算该规则。\n• 更低：这名特工受到数值等同于它诅咒点数数量\n的伤害，并且不要结算该规则。\n若这名特工拥有 6 点诅咒点数，则无需进行掷骰便\n能结算本规则。请注意，无论 D6 结果为何，您在\n每次行动中都只能尝试不超过一次。\n诅咒恩惠：诅咒恩惠如下所示（通过掷一枚 D6 结\n算，见左侧）：\n• 当攻击骰子对这名特工造成了 3 点或更多伤害，\n则您可以忽视等同于这名特工诅咒点数数量的\n伤害。\n• 当这名特工执行近战或反击时，您使用一枚攻击\n骰选择出击，则您可以造成等同于这名特工诅咒\n点数数量的额外伤害。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING CHAOS LORD\n3 6\" 3+ 15\nPath to Damnation: This operative starts the battle with 1\nDamnation point. Once per action, you can attempt to use one\nBoon of Damnation when it specifies (see right). If you do, roll\none D6 and compare the result to the number of Damnation\npoints this operative has; if the result is:\n• Higher: Resolve the rule, then this operative gains 1\nDamnation point.\n• Equal: Do not resolve the rule.\n• Less: Inflict damage on this operative equal to its number of\nDamnation points and do not resolve the rule.\nIf this operative has 6 Damnation points, resolve the rule without\nrolling. Note that you cannot make an attempt more than once\nper action, regardless of the D6 result.\nBoons of Damnation: Boons of Damnation are as follows\n(resolved with a D6 roll, see opposite):\n• When an attack dice inflicts damage of 3 or more on this\noperative, you can ignore an amount of damage equal to this\noperative’s Damnation points.\n• When this operative is fighting or retaliating and you strike\nwith an attack dice, you can inflict an amount of additional\ndamage equal to this operative’s Damnation points."
+    },
+    {
+      "id": "kt-murderwing-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "屠戮之翼勇士-数据卡",
+      "title_en": "MURDERWING CHAMPION",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-屠戮之翼勇士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼勇士\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n动力拳 4 3+ 5/7 残暴、震荡\n动力武器 5 3+ 4/6 致命 5+\n混沌勇士：战略计划。移除敌方特工获得的己方挑战指示物（如果有），随后选择一名敌方特工获得己方\n挑战指示物。每当这名特工与拥有己方挑战指示物的敌方特工近战或反击时，在选择武器步骤中，您可以\n为这名特工近战武器在这一流程结束前选择下列武器规则中的一个：平衡、残暴、重击、震荡。\n请继续阅读背面规则\n屠戮之翼、混沌、阿斯塔特叛军、勇士 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "动力拳": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING CHAMPION\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nPower fist 4 3+ 5/7 Brutal, Shock\nPower weapon 5 3+ 4/6 Lethal 5+\nChaos Champion: STRATEGIC GAMBIT. Remove your Challenge token from the enemy operative that has it (if any), then select\none enemy operative to gain your Challenge token. Whenever this operative is fighting against or retaliating against an enemy\noperative that has your Challenge token, in the Select Weapons step, you can select one of the following weapon rules for this\noperative’s melee weapons to have until the end of the sequence: Balanced, Brutal, Punishing, Severe, Shock.\nRULES CONTINUE ON OTHER SIDE\nMURDERWING , CHAOS, HERETIC ASTARTES, CHAMPION 32"
+    },
+    {
+      "id": "kt-murderwing-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "屠戮之翼勇士-能力卡",
+      "title_en": "MURDERWING CHAMPION",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-屠戮之翼勇士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼勇士\n3 6\" 3+ 14\n荣耀之路：每当这名特工令一名获得己方挑战指示\n物的敌方特工残废，您便获得 1 CP。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING CHAMPION\n3 6\" 3+ 14\nPath to Glory: Whenever this operative incapacitates an enemy\noperative that has your Challenge token, you gain 1CP."
+    },
+    {
+      "id": "kt-murderwing-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "屠戮之翼诅咒利爪-数据卡",
+      "title_en": "MURDERWING CURSECLAW",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-屠戮之翼诅咒利爪-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼诅咒利爪\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n变异利爪 5 3+ 4/5 撕裂\n狂热攻击：若这名特工在近战行动中残废，在将其从杀戮区移除前，您可以在那次流程中使用一枚己方未\n结算的成功对敌方特工进行出击。\n请继续阅读背面规则\n屠戮之翼、混沌、阿斯塔特叛军、诅咒利爪 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "变异利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING CURSECLAW\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nMutated claws 5 3+ 4/5 Rending\nFrenzied Attack: If this operative is incapacitated during the Fight action, you can strike the enemy operative in that sequence with\none of your unresolved successes before this operative is removed from the killzone.\nRULES CONTINUE ON OTHER SIDE\nMURDERWING , CHAOS, HERETIC ASTARTES, CURSECLAW 32"
+    },
+    {
+      "id": "kt-murderwing-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "屠戮之翼诅咒利爪-能力卡",
+      "title_en": "MURDERWING CURSECLAW",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-屠戮之翼诅咒利爪-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼诅咒利爪\n3 6\" 3+ 14\n抓取 1AP\n推进行动。选择位于这名特工推进区域的一名敌\n方特工。双方玩家各掷一枚 D6 后加上各自特工\n的耐伤属性作为结果。若己方结果更高，则将那\n名敌方特工从杀戮区移除，并将其放置在这名特\n工的推进区域或控制范围内。它必须被放置在可\n以被放置的位置，并且不能进一步将其放置在离\n初始位置更远的地方。若那名敌方特工被放置在\n这名特工的控制范围内，则后撤或转移行动结束\n（这允许这名特工在敌方特工控制范围内结束\n那次行动）。\n这名特工无法正常执行这个行动。作为替代，\n只能在后撤或转移行动中进行推进后执行这个\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING CURSECLAW\n3 6\" 3+ 14\nSNATCH 1AP\nBOOST action. Select one enemy operative within this\noperative’s BOOST ZONE. Both players roll one D6 and\nadd their respective operative’s Wounds stat to their result.\nIf your result is higher, remove that enemy operative from the\nkillzone and set it back up within this operative’s BOOST\nZONE or control range. It must be set up in a location it\ncan be placed and cannot be set up further away from this\noperative than where it began. If that enemy operative is set\nup within this operative’s control range, the Fall Back or\nReposition action ends (allowing this operative to end that\naction within control range of enemy operatives).\nThis operative cannot perform this action normally. Instead,\nit performs this action during the Fall Back or Reposition\naction after setting up from a BOOST."
+    },
+    {
+      "id": "kt-murderwing-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "屠戮之翼毁掠者-数据卡",
+      "title_en": "MURDERWING DEPREDATOR",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-屠戮之翼毁掠者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼毁掠者\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n链锯巨斧 5 4+ 5/7 残暴\n可怖肢解：每当这名特工通过近战或反击残废一名敌方特工时，选择这名特工或该残废敌方特工 3\" 内且\n可见的另一名敌方特工。直到那名特工的下一次激活结束前，其 APL 属性减去 1 点。\n请继续阅读背面规则\n屠戮之翼、混沌、阿斯塔特叛军、毁掠者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "链锯巨斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING DEPREDATOR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nGreat chainaxe 5 4+ 5/7 Brutal\nHorrifying Dismemberment: Whenever this operative incapacitates an enemy operative while fighting or retaliating, select one other\nenemy operative visible to and within 3\" of either this operative or the incapacitated enemy operative. Subtract 1 from that enemy\noperative’s APL stat until the end of its next activation.\nRULES CONTINUE ON OTHER SIDE\nMURDERWING , CHAOS, HERETIC ASTARTES, DEPREDATOR 32"
+    },
+    {
+      "id": "kt-murderwing-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "屠戮之翼毁掠者-能力卡",
+      "title_en": "MURDERWING DEPREDATOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-屠戮之翼毁掠者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼毁掠者\n3 6\" 3+ 14\n旋斩劈杀 1AP\n按您选择的顺序对位于这名特工 2\" 内且可见的\n每一名其他特工造成 2D3 点伤害（为每一名特\n工分别进行掷骰）。\n这名特工无法在隐匿命令下以及在执行凌空斩击\n行动（见刃鳍阵营装备），尖爪冲锋行动（见尖\n爪铠甲阵营装备）以及两次近战行动的同一次激\n活中执行这个行动，反之亦然。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING DEPREDATOR\n3 6\" 3+ 14\nCARVING BLOW 1AP\nInflict 2D3 damage on each other operative visible to and\nwithin 2\" of this operative in an order of your choice (roll\nseparately for each).\nThis operative cannot perform this action while it has a\nConceal order, or during the same activation in which it\nperformed the Slice from Above action (see Bladefins\nfaction equipment), the Clawed Charge action (see\nClawed Armour faction equipment) or two Fight actions\n(and vice versa)."
+    },
+    {
+      "id": "kt-murderwing-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "屠戮之翼狩戮者-数据卡",
+      "title_en": "MURDERWING HUNTMASTER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-屠戮之翼狩戮者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼狩戮者\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n动力武器 5 3+ 4/6 致命 5+\n钉住猎物：每当在这名特工控制范围内的一名敌方\n特工将要执行后撤行动时，若这名特工控制范围内\n没有其他敌方特工，则您可以使用本规则。若此，\n掷两枚 D6，若那名敌方特工的耐伤属性高于这名\n特工，则掷一枚 D6 作为替代。若任意结果为 4+，\n那名敌方特工无法执行那次行动/反应（并且没有为\n此消耗 AP）。\n凌空重击 1AP\n推进行动。对位于这名特工推进区域内的一名敌\n方特工造成 2D3+1 点伤害。\n这名特工无法正常执行这个行动。作为替代，\n只能在后撤或转移行动中进行推进后执行这个\n行动。\n屠戮之翼、混沌、阿斯塔特叛军、狩戮者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING HUNTMASTER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPower weapon 5 3+ 4/6 Lethal 5+\nPinned Prey: Whenever an enemy operative would perform the\nFall Back action while within control range of this operative,\nif no other enemy operatives are within this operative’s control\nrange, you can use this rule. If you do, roll two D6, or one D6\nif that enemy operative has a higher Wounds stat than this\noperative. If any result is a 4+, that enemy operative cannot\nperform that action during that activation/counteraction (no AP\nare spent on it).\nSTRIKE FROM ABOVE 1AP\nBOOST action. Inflict 2D3+1 damage on one enemy\noperative within this operative’s BOOST ZONE.\nThis operative cannot perform this action normally. Instead,\nit performs this action during the Fall Back or Reposition\naction after setting up from a BOOST.\nMURDERWING , CHAOS, HERETIC ASTARTES, HUNTMASTER 32"
+    },
+    {
+      "id": "kt-murderwing-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "屠戮之翼猛禽-数据卡",
+      "title_en": "MURDERWING RAPTOR",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-屠戮之翼猛禽-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼猛禽\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n链锯剑 5 3+ 4/5 -\n翱翔之悦：每当这名特工在其激活中使用了推进，则：\n• 您可以移除任何对它 APL 属性的修正。\n• 在激活结束前，它可以忽视因为受创带来的一切修正（包括其武器的属性）。\n屠戮之翼、混沌、阿斯塔特叛军、猛禽 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING RAPTOR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nChainsword 5 3+ 4/5 -\nThrill of Flight: Whenever this operative does a BOOST during its activation:\n• You can remove any changes to its APL stat.\n• You can ignore any changes to its stats from being injured (including its weapons’ stats) until the end of the activation.\nMURDERWING , CHAOS, HERETIC ASTARTES, RAPTOR 32"
+    },
+    {
+      "id": "kt-murderwing-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "屠戮之翼啸叫者-数据卡",
+      "title_en": "MURDERWING SHRIEKER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-屠戮之翼啸叫者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼啸叫者\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n链锯剑 5 3+ 4/5 -\n改装扩声器：每当一名敌方特工位于这名特工 3\" 内，您的对手便需要在那名敌方特工执行拾取标识或任\n务行动时额外消耗 1 点 AP。\n在判断对标识的控制权时，若这名特工 3\" 内至少有一名敌方特工进行了那次争夺，则将敌方特工的 APL\n属性总和视作为比原本低 1 点。请注意这不是对 APL 属性的修正，因此可以与其他修正效果叠加。\n请继续阅读背面规则\n屠戮之翼、混沌、阿斯塔特叛军、啸叫者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING SHRIEKER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nChainsword 5 3+ 4/5 -\nModified Vox-casters: Whenever an enemy operative is within 3\" of this operative, your opponent must spend 1 additional AP for that\nenemy operative to perform the Pick Up Marker and mission actions.\nWhenever determining control of a marker, treat the total APL stat of enemy operatives that contest it as 1 lower if at least one of\nthose enemy operatives is within 3\" of this operative. Note this isn’t a change to the APL stat, so any changes are cumulative with this.\nRULES CONTINUE ON OTHER SIDE\nMURDERWING , CHAOS, HERETIC ASTARTES, SHRIEKER 32"
+    },
+    {
+      "id": "kt-murderwing-01-12",
+      "sequence": 12,
+      "category": "operative-ability",
+      "title_zh": "屠戮之翼啸叫者-能力卡",
+      "title_en": "MURDERWING SHRIEKER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-屠戮之翼啸叫者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼啸叫者\n3 6\" 3+ 14\n啸叫 1AP\n选择一名位于这名特工 6\" 内且可见的敌方特\n工。或者选择位于这名特工推进区域的一名敌方\n特工（在这种情况下，本行动变为推进行动）。\n若有敌方特工位于这名特工控制范围内，则您不\n能选择控制范围外的目标。选定的特工受到 D3\n点伤害，并且直至其下一次激活结束前，将其\nAPL 属性减去 1 点。\n这名特工无法在隐匿命令下执行这个行动。若您\n选择的敌方特工位于这名特工的推进区域，则这\n名特工无法正常执行这个行动。作为替代，只能\n在后撤或转移行动中进行推进后执行这个行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING SHRIEKER\n3 6\" 3+ 14\nSHRIEK 1AP\nSelect one enemy operative that’s visible to and within 6\"\nof this operative. Alternatively, select one enemy operative\nwithin this operative’s BOOST ZONE (at which point this\nbecomes a BOOST action). If enemy operatives are within\ncontrol range of this operative, you cannot select an enemy\noperative that isn’t. Inflict D3 damage on the selected\noperative and subtract 1 from its APL stat until the end of its\nnext activation.\nThis operative cannot perform this action while it has a\nConceal order. If you’re selecting an enemy operative within\nthis operative’s BOOST ZONE, this operative cannot\nperform this action normally. Instead, it performs this action\nduring the Fall Back or Reposition action after setting\nup from a BOOST."
+    },
+    {
+      "id": "kt-murderwing-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "屠戮之翼天燎者-数据卡",
+      "title_en": "MURDERWING SKYSEAR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-屠戮之翼天燎者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼天燎者\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n热熔枪 4 3+ 6/3 范围 6\"、毁灭 4、穿刺 2\n等离子枪（标准） 4 3+ 4/6 穿刺 1\n等离子枪（过载） 4 3+ 5/6 过热、致命 5+、穿刺 1\n双拳 4 3+ 3/4 -\n屠戮之翼、混沌、阿斯塔特叛军、天燎者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "火焰喷射器": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING SKYSEAR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nMeltagun 4 3+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 3+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nFists 4 3+ 3/4 -\nMURDERWING , CHAOS, HERETIC ASTARTES, SKYSEAR 32"
+    },
+    {
+      "id": "kt-murderwing-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "屠戮之翼次元爪-数据卡",
+      "title_en": "MURDERWING WARP TALON",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-屠戮之翼次元爪-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n屠戮之翼次元爪\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n闪电双爪 5 3+ 4/5 无休、致命 5+、撕裂\n割破帷幕：在战斗开始前部署这名特工时，您可以将其部署在亚空间作为替代：将它放在杀戮区的一边。\n在第一个交战阶段中这名特工激活时，将一枚己方亚空间标识放置在完全位于己方领地内的位置，随后这\n名特工进入待机。\n在第二个交战阶段，当这名特工激活时，将它部署在完全位于己方降落区内或完全位于己方领地内且能够\n争夺己方亚空间标识的位置，并拥有您选择的命令。随后正常激活，但在那次激活中它无法执行超过两次\n行动并且移动距离不能超过 4\"。直到下一个战略阶段的就绪步骤，这名特工对于距离它超过 3\" 的特工处\n于遮挡状态。\n当这名特工位于亚空间时，它无法作为独赏自恶交战计谋中就绪的己方屠戮之翼特工。\n屠戮之翼、混沌、阿斯塔特叛军、次元爪 32",
+      "weapon_types": {
+        "闪电双爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMURDERWING WARP TALON\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nLightning claws 5 3+ 4/5 Ceaseless, Lethal 5+, Rending\nSlice the Veil: When setting up this operative before the battle, you can set it up in the warp instead: place it to one side instead of in\nthe killzone. In the first Firefight phase, when this operative is activated, place one of your Warp markers wholly within your territory,\nthen expend this operative.\nIn the second Firefight phase, when this operative is activated, set it up with an order of your choice in a location it can be placed\neither wholly within your drop zone, or wholly within your territory contesting your Warp marker. Continue its activation as normal, but\nduring that activation it cannot perform more than two actions and cannot use more than 4\" of move distance. Until the Ready step of\nthe next Strategy phase, this operative is obscured to operatives more than 3\" from it.\nWhenever this operative is in the warp, it cannot be the ready friendly MURDERWING operative for the Malicious Narcissism\nfirefight ploy.\nMURDERWING , CHAOS, HERETIC ASTARTES, WARP TALON 32"
+    },
+    {
+      "id": "kt-murderwing-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "屠戮之翼杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-屠戮之翼杀戮小队-1.png",
+      "is_back": false,
+      "text": "屠戮之翼\n杀戮小队\n原型：侦察，搜索与摧毁\n特工\n↘ 1 名屠戮之翼混沌领主特工，从以下选项中\n各选择一件装备:\n• 爆矢手枪或等离子手枪\n• 闪电爪，动力拳或动力武器\n或下列选项：\n• 圣物闪电双爪\n请继续阅读背面规则",
+      "text_en": "MURDERWING\nKILL TEAM\nARCHETYPE: RECON, SEEK & DESTROY\nOPERATIVES\n↘ 1 MURDERWING CHAOS LORD operative with\none option from each of the following:\n• Bolt pistol or plasma pistol\n• Lightning claw, power fist or power weapon\nOr the following option:\n• Relic lightning claws\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-murderwing-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "屠戮之翼杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-屠戮之翼杀戮小队-2.png",
+      "is_back": true,
+      "text": "↘ 5 名屠戮之翼特工，从以下列表进行选择:\n• 勇士，从以下选项中各选择一件装备:\n○ 等离子手枪或爆矢手枪\n○ 动力拳或动力武器\n• 诅咒利爪\n• 毁掠者\n• 狩戮者\n• 猛禽 ,装备有以下一种选项:\n○ 爆矢手枪，链锯剑\n○ 等离子手枪，链锯剑\n• 啸叫者\n• 天燎者,装备有以下一种选项:\n○ 火焰喷射器，爆矢手枪，双拳\n○ 热熔枪，爆矢手枪，双拳\n○ 等离子枪，爆矢手枪，双拳\n• 次元爪\n除了猛禽特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。\n在每场战斗中，您无法选择超过两名在选项中\n拥有这些武器的特工。",
+      "text_en": "↘ 5 MURDERWING operatives selected from\nthe following list:\n• CHAMPION with one option from each of\nthe following:\n○ Plasma pistol or bolt pistol\n○ Power fist or power weapon\n• CURSECLAW\n• DEPREDATOR\n• HUNTMASTER\n• RAPTOR with one of the following options:\n○ Bolt pistol; chainsword\n○ Plasma pistol ; chainsword\n• SHRIEKER\n• SKYSEAR with one of the following options:\n○ Flamer; bolt pistol; fists\n○ Meltagun ; bolt pistol; fists\n○ Plasma gun ; bolt pistol; fists\n• WARP TALON\nOther than RAPTOR operatives, your kill team can\nonly include each operative on this list once.\nYou cannot select more than two operatives\nwith these weapons combined."
+    },
+    {
+      "id": "kt-murderwing-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "跳跃背包-1",
+      "title_en": "JUMP PACK",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-跳跃背包-1.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营规则\n跳跃背包\n装备于动力甲的推进系统能够使这些战士通过\n喷气助推跃动在战场上。\n每当一名己方屠戮之翼特工在它的激活中执行\n冲锋，后撤或转移行动时，在开始任意一次直线\n增加移动距离时，若它的底座任何部分不位于制\n高点地形下方，便可以在那次增加移动距离时使\n用推进。若此，则不要在那次增加移动距离中移\n动它。请将它从杀戮区移除并重新放置于完全位\n于它原先位置水平 X\" 内的位置。 X 值为您选择\n移动的距离（向上取整至最近的英寸整数，就如\n同每次转移行动那样），但本次移动的距离会加\n入这次行动中移动距离的总和（换言之，移动中\n使用推进不能超过那次行动所容许的上限）。若\n它在冲锋行动中推进，则它的可移动距离不能超\n过 6\"。\n请继续阅读背面规则",
+      "text_en": "MURDERWING\nFACTION RULE\nJUMP PACK\nArmour-mounted propulsion systems enable these\nwarriors to traverse the battlefield in bounding, jet-\nassisted leaps.\nWhenever a friendly MURDERWING operative is\nperforming the Charge, Fall Back or Reposition\naction during its activation, at the start of any\nstraight-line increment, as long as no part of its\nbase is underneath Vantage terrain, it can do a\nBOOST for that increment. If it does, don’t move\nit for that increment. Instead, remove it from\nthe killzone and set it back up wholly within x\"\nhorizontally of its original location. X is a distance\nof your choice (rounded up to the nearest inch,\nas per the Reposition action), but it’s added to\nthe total move distance used for that action (in\nother words, move plus BOOST cannot exceed\nthe action’s move allowance). If it would BOOST\nduring the Charge action, its move allowance\ncannot be higher than 6\".\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-murderwing-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "跳跃背包-2",
+      "title_en": "JUMP PACK",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-跳跃背包-2.png",
+      "is_back": true,
+      "text": "那名特工必须被放置在可以被放置的位置，且底\n座的任何位置都不位于制高点地形下方。此外，\n除冲锋行动外，它不能放置在敌方特工的控制范\n围内。在推进后，若它依然拥有那个行动内容许\n的剩余移动距离，则它可以继续移动。\n在使用近距离战斗规则的杀戮区中，例如杀戮\n区：墓穴世界中，X\" 在测量时不能越过墙壁地\n形，并且那名特工也不能被放置在访问点的另一\n侧——换言之，它无法在推进时通过打开的舱门\n过道。",
+      "text_en": "That operative must be set up in a location it can\nbe placed and cannot be set up with any part of\nits base underneath Vantage terrain. In addition,\nunless it’s the Charge action, it cannot be set up\nwithin control range of an enemy operative. It can\ncontinue moving after a BOOST if it has any move\ndistance remaining and the action allows it.\nIn a killzone that uses the close quarters rules,\ne.g. Killzone: Tomb World, the x\" cannot be\nmeasured over or through Wall terrain, and that\noperative cannot be set up on the other side of an\naccess point – in other words, it cannot BOOST\nthrough an open hatchway."
+    },
+    {
+      "id": "kt-murderwing-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "跳跃背包范例",
+      "title_en": "JUMP PACK EXAMPLE",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-跳跃背包范例.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营规则\n跳跃背包范例\n在此范例中，屠戮之翼特工（A）在移动的第二\n次增加移动距离中使用了一次推进。由于它无法\n在推进中被放置在制高点地形下方，所以它在第\n一次和第三次增加移动距离中正常进行移动。\n1\" 移动\n4\n\"\n推\n进\n1\" 移动",
+      "text_en": "MURDERWING\nFACTION RULE\nJUMP PACK EXAMPLE\nIn this example, the MURDERWING operative\n(A) does a BOOST for the second increment of\nmovement. It moves as normal during the first\nand third increments, as it cannot BOOST from or\nto a location underneath Vantage terrain.\n1\" MOVE\n4\"\nBOOST\n1\" MOVE"
+    },
+    {
+      "id": "kt-murderwing-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "推进行动",
+      "title_en": "BOOST ACTIONS",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-推进行动.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营规则\n推进行动\n屠戮之翼是空中战斗的行家，随着升腾的火\n柱，他们高高在上地猎杀着落荒而逃的猎物。\n有些行动被称为推进行动。这些行动后会在其他\n行动中使用推进时生效。每一名特工在每次激活\n时使用的推进行动不能超过一次。\n大多推进行动会通过一名己方屠戮之翼特工的\n推进区域对敌方特工造成影响。这是一名己方屠\n戮之翼特工从使用推进时所在位置到当前位置\n的一片水平区域。与特工底座相同尺寸的临时标\n识能够协助确定这片区域。底座任意部分位于制\n高点地形下方的敌方特工不位于己方屠戮之翼\n特工的推进区域内。",
+      "text_en": "MURDERWING\nFACTION RULE\nBOOST ACTIONS\nMurderwings are experts in aerial combat, lashing out at\nflailing prey as they soar overhead on columns of flame.\nSome actions are known as BOOST actions. These\nare actions performed during other actions when\na BOOST is used. Each operative cannot perform\nmore than one BOOST action per activation.\nMost BOOST actions affect enemy operatives\nwithin a friendly MURDERWING operative’s\nBOOST ZONE. This is the horizontal area between\na friendly MURDERWING operative’s current\nlocation and the location from which it used\nBOOST. A marker the same size as the operative’s\nbase can be temporarily placed to help determine\nthis. Enemy operatives with any part of their base\nunderneath Vantage terrain are not within friendly\nMURDERWING operatives’ BOOST ZONEs."
+    },
+    {
+      "id": "kt-murderwing-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "推进行动范例",
+      "title_en": "BOOST ACTIONS EXAMPLE",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-05-阵营规则-推进行动范例.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营规则\n推进行动范例\n在此范例中，上方的特工（C）位于屠戮之翼特\n工（A）的推进区域内。而下方的特工（B）由于\n底座位于制高点地形之下，所以并不位于其中。\n推进区域",
+      "text_en": "MURDERWING\nFACTION RULE\nBOOST ACTIONS EXAMPLE\nIn this example, the top operative (C) is within\nthe MURDERWING operative’s (A) BOOST ZONE.\nThe bottom operative (B) is not, as its base is\nunderneath Vantage terrain.\nBOOST ZONE"
+    },
+    {
+      "id": "kt-murderwing-11-06",
+      "sequence": 6,
+      "category": "faction-rule",
+      "title_zh": "阿斯塔特",
+      "title_en": "ASTARTES",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-06-阵营规则-阿斯塔特.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营规则\n阿斯塔特\n这些经受了基因强化的超人们的存在意义只有\n一个：战争。\n在每一名己方屠戮之翼特工的激活期间，特工\n可以执行两次射击行动或者两次近战行动。如果\n选择执行两次射击行动，那么其中至少有一次必\n须选择使用爆矢手枪进行攻击。\n每一名己方屠戮之翼特工可以进行反应，无论\n其拥有的命令。",
+      "text_en": "MURDERWING\nFACTION RULE\nASTARTES\nThese genetically modified superhumans are made for\none purpose: war.\nDuring each friendly MURDERWING operative’s\nactivation, it can perform either two Shoot\nactions or two Fight actions. If it’s two Shoot\nactions, a bolt pistol must be selected for at least\none of them.\nEach friendly MURDERWING operative can\ncounteract regardless of its order."
+    },
+    {
+      "id": "kt-murderwing-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "MURDERWING",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "屠戮之翼\n标识/指示物指南\n诅咒点数亚空间标识\n挑战指示物亚空间燃料\n指示物\n扩声器\n指示物",
+      "text_en": "MURDERWING\nMARKER/TOKEN GUIDE\nDamnation Warp\nPoints marker\nChallenge Warp Fuel\nToken token\nVox-casters\ntoken"
+    },
+    {
+      "id": "kt-murderwing-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "高空掠食者",
+      "title_en": "PREDATORS ABOVE",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-高空掠食者.png",
+      "is_back": false,
+      "text": "屠戮之翼\n战略计谋\n高空掠食者\n屠戮之翼擅长从高处突袭，凭借着推进器提供\n的卓越机动力和冲力大杀四方。\n每当一名己方屠戮之翼特工高于杀戮区地面至\n少 2\" 时，它的武器获得“平衡”武器规则。每当\n一名己方屠戮之翼特工进行推进时，它的武器\n在那次激活结束前获得“平衡”武器规则。",
+      "text_en": "MURDERWING\nSTRATEGY PLOY\nPREDATORS ABOVE\nMurderwings excel when striking from above, using\ntheir mobility and jet-assisted might to massacre\ntheir enemies.\nWhenever a friendly MURDERWING operative\nis at least 2\" higher than the killzone floor,\nits weapons have the Balanced weapon rule.\nWhenever a friendly MURDERWING operative\ndoes a BOOST, its weapons have the Balanced\nweapon rule until the end of that activation."
+    },
+    {
+      "id": "kt-murderwing-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "捕杀弱者",
+      "title_en": "CULL THE WEAK",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-捕杀弱者.png",
+      "is_back": false,
+      "text": "屠戮之翼\n战略计谋\n捕杀弱者\n作为伺机而动的掠食者，屠戮之翼的每一名战\n士都渴望锁定并猎杀那些最为脆弱的猎物。\n每当一名己方屠戮之翼特工执行射击或近战时，\n若那名己方特工射击或近战的目标符合下列任意\n条件，则它的武器获得“重击”武器规则：\n• 它至少低于那名己方特工 2\"。\n• 它的 APL 属性低于正常情况。\n• 它在激活/反应开始时受伤。",
+      "text_en": "MURDERWING\nSTRATEGY PLOY\nCULL THE WEAK\nOpportunistic predators all, the warriors of a\nMurderwing seek to single out and pick off the most\nvulnerable prey.\nWhenever a friendly MURDERWING operative\nis shooting or fighting, its weapons have the\nPunishing weapon rule if any of the following are\ntrue for the operative that friendly operative is\nshooting or fighting against:\n• It’s at least 2\" lower than that\nfriendly operative.\n• Its APL stat is less than normal.\n• It was wounded at the start of\nthe activation/counteraction."
+    },
+    {
+      "id": "kt-murderwing-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "高处梦魇",
+      "title_en": "NIGHTMARE ON HIGH",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-高处梦魇.png",
+      "is_back": false,
+      "text": "屠戮之翼\n战略计谋\n高处梦魇\n屠戮之翼在空中的速度与诡谲令最优秀的神射\n手都难以锁定身影。\n每当一名特工对高于杀戮区地面至少 2\" ，或者在\n这个转折点执行过推进的一名己方屠戮之翼特\n工执行射击，您便可以重掷一枚己方防御骰子。",
+      "text_en": "MURDERWING\nSTRATEGY PLOY\nNIGHTMARE ON HIGH\nSo swift and elusive are the Murderwing, that even the\nmost skilled of sharpshooters struggle to hit them as\nthey soar above.\nWhenever an operative is shooting a friendly\nMURDERWING operative that’s at least 2\"\nhigher than the killzone floor, or that did a BOOST\nduring this turning point, you can re-roll one of\nyour defence dice."
+    },
+    {
+      "id": "kt-murderwing-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "惧意蚀身",
+      "title_en": "INSTIL FEAR",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-惧意蚀身.png",
+      "is_back": false,
+      "text": "屠戮之翼\n战略计谋\n惧意蚀身\n屠戮之翼带来的狂野与恐惧足以让那些最为英\n勇的战士们畏惧到动弹不得。\n每当一名己方屠戮之翼特工处于近战中，3 点或\n更多的普通伤害造成的伤害将减去 1 点。",
+      "text_en": "MURDERWING\nSTRATEGY PLOY\nINSTIL FEAR\nSuch is the savagery and horror of the Murderwing, that\neven the boldest of combatants find their hearts gripped\nby paralysing fear.\nWhenever a friendly MURDERWING operative is\nfighting, Normal Dmg of 3 or more inflicts 1 less\ndamage on it."
+    },
+    {
+      "id": "kt-murderwing-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "独赏自恶",
+      "title_en": "MALICIOUS NARCISSISM",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-独赏自恶.png",
+      "is_back": false,
+      "text": "屠戮之翼\n交战计谋\n独赏自恶\n直到惧意抵达巅峰，屠戮之翼才会发动突袭。\n在轮到您进行激活，且您只有一名己方屠戮之翼\n特工就绪时使用本交战计谋。直到那个转折点\n结束，每当您就绪的己方特工数量低于您对手\n的，您便可以跳过己方激活（换言之，您可以推\n迟那名己方屠戮之翼特工的激活），直至您对\n手仅剩一名就绪特工时。",
+      "text_en": "MURDERWING\nFIREFIGHT PLOY\nMALICIOUS NARCISSISM\nThe Murderwing wait until fear is at its zenith\nbefore striking.\nUse this firefight ploy when it’s your turn to\nactivate with a friendly operative, if only one\nfriendly MURDERWING operative is ready. Until\nthe end of the turning point, whenever you have\nless ready friendly operatives than your opponent,\nyou can skip your activations (in other words,\nyou can delay that friendly MURDERWING\noperative’s activation until your opponent has\nonly one ready operative). Note that you cannot\ncounteract until that friendly MURDERWING\noperative is expended."
+    },
+    {
+      "id": "kt-murderwing-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "夺命俯冲",
+      "title_en": "MURDEROUS DESCENT",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-夺命俯冲.png",
+      "is_back": false,
+      "text": "屠戮之翼\n交战计谋\n夺命俯冲\n屠戮之翼自高处冲下，伏击那些毫无防备的\n猎物。\n当一名敌方特工在一名己方屠戮之翼特工水平\n距离 3\" 内，且高度低于其 2\" 之下的位置结束冲\n锋，冲刺，后撤或转移行动（在近距离战斗规则\n中，则替代为位于 2\" 内，并且在那名敌方特工\n开始那个行动前必须位于另一个房间）时使用本\n交战计谋。打断那名敌方特工的激活/反应，并使\n那位己方特工立即执行一次无消耗的冲锋行动。\n它必须在那名敌方特工的控制范围内结束那次行\n动。若无法做到这一点，则取消打断，且这个规\n则未被使用。",
+      "text_en": "MURDERWING\nFIREFIGHT PLOY\nMURDEROUS DESCENT\nDescending from lofty perches, Murderwings ambush\nunwary prey.\nUse this firefight ploy when an enemy operative\nends the Charge, Dash, Fall Back or Reposition\naction within 3\" horizontally and more than 2\"\nlower than a friendly MURDERWING operative\n(or in close quarters, within 2\" and that enemy\noperative must be in a different room to where\nit started that action). Interrupt that enemy\noperative’s activation/counteraction and\nimmediately perform a free Charge action with\nthat friendly operative. It must end that action\nwithin control range of that enemy operative. If\nthis isn’t possible, the interruption is cancelled\nand this rule hasn’t been used."
+    },
+    {
+      "id": "kt-murderwing-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "荣耀，早已忘却",
+      "title_en": "LONG FORGOTTEN HONOUR",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-荣耀，早已忘却.png",
+      "is_back": false,
+      "text": "屠戮之翼\n交战计谋\n荣耀，早已忘却\n作为彻底堕落的叛徒，屠戮之翼早已抛弃所有\n战士荣光。\n在一名己方屠戮之翼特工近战或反击中，您结\n算一次关键成功时使用本交战计谋。作为出击或\n格挡的替代，结束那次流程（弃置任意剩余的攻\n击骰子），并且那名特工立即执行一次无消耗且\n至多移动 3\" 的后撤行动（随后近战行动结束）\n。那名特工即便执行了阻止其执行后撤行动的行\n动也依然可以这么做。",
+      "text_en": "MURDERWING\nFIREFIGHT PLOY\nLONG FORGOTTEN HONOUR\nDebased traitors all, Murderwings retain no codes of\nmartial honour.\nUse this firefight ploy when a friendly\nMURDERWING operative is fighting or\nretaliating, when you resolve a critical success.\nInstead of striking or blocking, end that sequence\n(any remaining attack dice are discarded) and\nimmediately perform a free Fall Back action\nup to 3\" with that operative (then the Fight\naction ends). That operative can do so even if\nit’s performed an action that prevents it from\nperforming the Fall Back action."
+    },
+    {
+      "id": "kt-murderwing-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "黑暗翼群",
+      "title_en": "WINGS OF DARKNESS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-黑暗翼群.png",
+      "is_back": false,
+      "text": "屠戮之翼\n交战计谋\n黑暗翼群\n经受了亚空间污染的跳跃背包让使用者拥有了\n可怕的速度。\n在一名己方屠戮之翼特工执行了使用推进的后\n撤或转移行动时使用本交战计谋。那名特工可以\n在那次推进中被放置在额外 3\" 以外的位置（将\n这段额外距离加入可用的移动距离），但直到下\n一个转折点之前无法执行射击，近战或旋斩劈杀\n（见毁掠者特工），您无法在第一个转折点中使\n用这个计谋。",
+      "text_en": "MURDERWING\nFIREFIGHT PLOY\nWINGS OF DARKNESS\nWarp-corrupted jump packs lend their wearers\nterrifying speed.\nUse this firefight ploy when a friendly\nMURDERWING operative is performing the Fall\nBack or Reposition action, when it does a BOOST.\nThat operative can be set up an additional\n3\" away during that BOOST (adding this to\nthe permitted move distance), but it cannot\nperform the Shoot, Fight or Carving Blow (see\nDEPREDATOR operative) action until the next\nturning point. You cannot use this ploy during the\nfirst turning point."
+    },
+    {
+      "id": "kt-murderwing-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "刃鳍",
+      "title_en": "BLADEFINS",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-刃鳍.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营装备\n刃鳍\n腐化动力装甲和注入亚空间力量的跳跃背包点\n缀着金属尖刺和镰刃，撕扯着那些毫无防备猎\n物的血肉。\n己方屠戮之翼特工可以执行下列独特行动：\n凌空斩击 1AP\n推进行动。对位于这名特工推进区域内的一\n名敌方特工造成 2D3+1 点伤害。\n这名特工无法正常执行这个行动。作为替\n代，只能在后撤或转移行动中进行推进后执\n行这个行动。",
+      "text_en": "MURDERWING\nFACTION EQUIPMENT\nBLADEFINS\nCorrupted power armour and warp-infused jump packs\nbristle with metallic spikes and scything blades with\nwhich to rend the flesh of unsuspecting prey.\nFriendly MURDERWING operatives can perform\nthe following unique action:\nSLICE FROM ABOVE 1AP\nBOOST action. Inflict D3+1 damage on one\nenemy operative within this operative’s\nBOOST ZONE.\nAn operative cannot perform this action\nnormally. Instead it performs this action\nduring the Fall Back or Reposition action\nafter setting up from a BOOST."
+    },
+    {
+      "id": "kt-murderwing-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "尖爪铠甲",
+      "title_en": "CLAWED ARMOUR",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-尖爪铠甲.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营装备\n尖爪铠甲\n这些掠食成性的战士们的华丽动力甲上嵌满了\n各种倒钩和尖刺。\n己方屠戮之翼特工可以执行下列独特行动：\n尖爪冲锋 0AP\n推进行动。位于这名特工控制范围内的一\n名敌方特工受到 1 点伤害，随后冲锋行动\n结束。\n这名特工无法正常执行这个行动。作为替\n代，只能在冲锋行动中进行推进后执行这\n个行动。",
+      "text_en": "MURDERWING\nFACTION EQUIPMENT\nCLAWED ARMOUR\nSnaring claws and sharpened spurs protrude from the\ngrotesque power armour of these predatory warriors.\nFriendly MURDERWING operatives can perform\nthe following unique action:\nCLAWED CHARGE 0AP\nBOOST action. Inflict 1 damage on one\nenemy operative within this operative’s\ncontrol range, then the Charge action ends.\nAn operative cannot perform this action\nnormally. Instead, it performs this action\nduring the Charge action after setting up\nfrom a BOOST."
+    },
+    {
+      "id": "kt-murderwing-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "亚空间燃料",
+      "title_en": "WARP FUEL",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-亚空间燃料.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营装备\n亚空间燃料\n亚空间的浸润导致了这名战士肉体变异，将他\n们的血液转化为高能燃料，在血脉中燃烧，驱\n动着肌肉和喷气引擎。\n每个转折点限一次，每当一名敌方特工在激活中\n结束后撤行动时，若至少有一名己方屠戮之翼\n特工在那次行动开始时位于它控制范围内，则您\n可以使用这个规则。这些己方特工中的一名可以\n立即执行一次无消耗的转移或冲锋行动，但移动\n距离不能超过 3\"。请注意，若敌方特工没有在\n自己的激活中执行后撤行动，则这个规则没有\n效果。",
+      "text_en": "MURDERWING\nFACTION EQUIPMENT\nWARP FUEL\nImmersion within the warp has mutated this warrior’s\nbody, transforming their blood into high-octane fuel that\nburns through veins and arteries, powering muscles and\njet engines alike.\nOnce per turning point, when an enemy operative\nends the Fall Back action during its activation, if\nat least one friendly MURDERWING operative\nwas within its control range at the start of that\naction, you can use this rule. One of those friendly\noperatives can immediately perform a free\nReposition or Charge action, but cannot use more\nthan 3\" of move distance. Note that if the enemy\noperative doesn’t perform the Fall Back action\nduring its own activation, this has no effect."
+    },
+    {
+      "id": "kt-murderwing-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "扩声器",
+      "title_en": "VOX-CASTERS",
+      "source_page": 10,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-扩声器.png",
+      "is_back": false,
+      "text": "屠戮之翼\n阵营装备\n扩声器\n融入了腐化动力甲的扩声器面板强化了引擎轰\n鸣以及掠食性战士们动物般的呼嚎，震慑着那\n些受惊猎物的知觉。\n每个转折点限一次，己方屠戮之翼特工可以执\n行下列独特行动：\n震耳呼嚎 1AP\n这名特工 2\" 内的每一名敌方特工进行一次\n晕眩测试。一名特工在进行眩晕测试时，\n需要掷一枚 D6：若掷骰结果为 3+，则直\n至其下一次激活结束前，将其 APL 属性减\n去 1 点。\n特工在拥有隐蔽命令时无法执行这个行动。",
+      "text_en": "MURDERWING\nFACTION EQUIPMENT\nVOX-CASTERS\nVox-speakers wrought into the panels of corrupted\npower armour enhance the roar of engines and the\nanimal cries of predatory warriors, overwhelming the\nsenses of stunned prey.\nOnce per turning point, one friendly\nMURDERWING operative can perform the\nfollowing unique action:\nVOX-CRY 1AP\nEach enemy operative within 2\" of this\noperative takes a stun test. For an operative\nto take a stun test, roll one D6: on a 3+,\nsubtract 1 from its APL stat until the end of\nits next activation.\nAn operative cannot perform this action\nwhile it has a Conceal order."
+    }
+  ]
+}

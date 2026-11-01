@@ -1,59 +1,92 @@
-# 洁天使隐伏者卡片提取
+# 洁天使隐伏者（Celestian Insidiants）卡片索引
 
-提取与核对日期：2026-09-24。来源：[洁天使隐伏者 Celestian Insidiants 杀戮小队规则.pdf](../洁天使隐伏者%20Celestian%20Insidiants%20杀戮小队规则.pdf)。
+- 小队 ID：`IMP-CI`
+- 来源 PDF：`最新杀戮小队规则更新/洁天使隐伏者 Celestian Insidiants 杀戮小队规则.pdf`
+- 提取日期：2026-10-26
+- 数据来源：官方中文 PDF（唯一信源）
+- 独立卡图总数：**32**（总览图不计入）
 
-200 DPI 整页渲染后裁切；坐标使用 PDF 点坐标（左上原点，x/y/宽/高）。卡框外的白边和裁切线已去除，圆角外为透明 alpha。原卡内容未修改，当前规则以完整资料及 manifest 中正文为准。
-
-[完整规则资料](../洁天使隐伏者-完整规则资料.md) · [manifest](manifest.json) · [当前API快照](ktdash-current.json)
+## 分类计数
 
 | 类别 | 数量 |
-|---|---|
-| 特工 | 8 |
-| 特工能力 | 4 |
-| 小队选择 | 1 |
-| 阵营规则 | 5 |
-| 其他 | 2 |
-| 战略计谋 | 4 |
-| 交战计谋 | 4 |
-| 阵营装备 | 4 |
+|---|---:|
+| faction-equipment | 4 |
+| faction-rule | 5 |
+| firefight-ploy | 4 |
+| operative | 8 |
+| operative-ability | 4 |
+| other | 2 |
+| strategic-ploy | 4 |
+| team-selection | 1 |
 
-独立卡片 32 张；另有2张总览，不计入卡片数。
+## 特工（8 张）
 
-![特工总览](00-总览-特工卡.png)
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 隐伏长执-数据卡 | 第 1 页 | [01-01-特工-隐伏长执-数据卡.png](01-01-特工-隐伏长执-数据卡.png) |
+| 3 | 隐伏弃绝者-数据卡 | 第 1 页 | [01-03-特工-隐伏弃绝者-数据卡.png](01-03-特工-隐伏弃绝者-数据卡.png) |
+| 5 | 隐伏肃戒者-数据卡 | 第 2 页 | [01-05-特工-隐伏肃戒者-数据卡.png](01-05-特工-隐伏肃戒者-数据卡.png) |
+| 6 | 隐伏焰灭者-数据卡 | 第 2 页 | [01-06-特工-隐伏焰灭者-数据卡.png](01-06-特工-隐伏焰灭者-数据卡.png) |
+| 7 | 隐伏揭谕者-数据卡 | 第 2 页 | [01-07-特工-隐伏揭谕者-数据卡.png](01-07-特工-隐伏揭谕者-数据卡.png) |
+| 9 | 隐伏圣殁者-数据卡 | 第 3 页 | [01-09-特工-隐伏圣殁者-数据卡.png](01-09-特工-隐伏圣殁者-数据卡.png) |
+| 11 | 隐伏司圣者-数据卡 | 第 3 页 | [01-11-特工-隐伏司圣者-数据卡.png](01-11-特工-隐伏司圣者-数据卡.png) |
+| 12 | 隐伏战士-数据卡 | 第 3 页 | [01-12-特工-隐伏战士-数据卡.png](01-12-特工-隐伏战士-数据卡.png) |
 
-![规则总览](00-总览-规则卡.png)
+## 特工能力（4 张）
 
-| 编号 | 类别 | 中文标题 / English | 页 | 本地ID | KTDash ID | 状态 |
-|---|---|---|---|---|---|---|
-| 1 | 特工 | [隐伏长执-数据卡](01-特工-隐伏长执-数据卡.png) / Superior | 1 | imp-ci-card-01 | IMP-CI-SUP、IMP-CI-SUP-HE | current |
-| 2 | 特工能力 | [隐伏长执-能力卡](02-特工能力-隐伏长执-能力卡.png) / Superior | 1 | imp-ci-card-02 | IMP-CI-SUP、IMP-CI-SUP-SM | current |
-| 3 | 特工 | [隐伏弃绝者-数据卡](03-特工-隐伏弃绝者-数据卡.png) / Abjuror | 1 | imp-ci-card-03 | IMP-CI-ABJ、IMP-CI-ABJ-SH | current |
-| 4 | 特工能力 | [隐伏弃绝者-能力卡](04-特工能力-隐伏弃绝者-能力卡.png) / Abjuror | 1 | imp-ci-card-04 | IMP-CI-ABJ、IMP-CI-ABJ-HD | current |
-| 5 | 特工 | [隐伏肃戒者-数据卡](05-特工-隐伏肃戒者-数据卡.png) / Censor | 2 | imp-ci-card-05 | IMP-CI-CEN、IMP-CI-CEN-NF、IMP-CI-CEN-NR、IMP-CI-CEN-VOAIB | current |
-| 6 | 特工 | [隐伏焰灭者-数据卡](06-特工-隐伏焰灭者-数据卡.png) / Cremator | 2 | imp-ci-card-06 | IMP-CI-CRE、IMP-CI-CRE-T0、IMP-CI-CRE-IP | current |
-| 7 | 特工 | [隐伏揭谕者-数据卡](07-特工-隐伏揭谕者-数据卡.png) / Denuncia | 2 | imp-ci-card-07 | IMP-CI-DEN、IMP-CI-DEN-AE | current |
-| 8 | 特工能力 | [隐伏揭谕者-能力卡](08-特工能力-隐伏揭谕者-能力卡.png) / Denuncia | 2 | imp-ci-card-08 | IMP-CI-DEN、IMP-CI-DEN-SOHD | current |
-| 9 | 特工 | [隐伏圣殁者-数据卡](09-特工-隐伏圣殁者-数据卡.png) / Mortisanctus | 3 | imp-ci-card-09 | IMP-CI-MOR、IMP-CI-MOR-ZU | current |
-| 10 | 特工能力 | [隐伏圣殁者-能力卡](10-特工能力-隐伏圣殁者-能力卡.png) / Mortisanctus | 3 | imp-ci-card-10 | IMP-CI-MOR、IMP-CI-MOR-BS | current |
-| 11 | 特工 | [隐伏司圣者-数据卡](11-特工-隐伏司圣者-数据卡.png) / Reliquarius | 3 | imp-ci-card-11 | IMP-CI-REL、IMP-CI-REL-DEV、IMP-CI-REL-SNIB | current |
-| 12 | 特工 | [隐伏战士-数据卡](12-特工-隐伏战士-数据卡.png) / Warrior | 3 | imp-ci-card-12 | IMP-CI-WAR、IMP-CI-WAR-IS | current |
-| 13 | 小队选择 | [洁天使隐伏者杀戮小队](13-小队选择-洁天使隐伏者杀戮小队.png) / Celestian Insidiants | 4 | imp-ci-card-13 | IMP-CI | current |
-| 14 | 阵营规则 | [殉道](14-阵营规则-殉道.png) / Martyrdom | 4 | imp-ci-card-14 | IMP-CI-SUP-MAR、IMP-CI-ABJ-MAR、IMP-CI-CEN-MAR、IMP-CI-CRE-MAR、IMP-CI-DEN-MAR、IMP-CI-MOR-MAR、IMP-CI-REL-MAR、IMP-CI-WAR-MAR | current |
-| 15 | 阵营规则 | [祷祝](15-阵营规则-祷祝.png) / Benedictions | 4 | imp-ci-card-15 | IMP-CI-SUP-BEN、IMP-CI-ABJ-BEN、IMP-CI-CEN-BEN、IMP-CI-CRE-BEN、IMP-CI-DEN-BEN、IMP-CI-MOR-BEN、IMP-CI-REL-BEN、IMP-CI-WAR-BEN | current |
-| 16 | 阵营规则 | [猎巫者的武备](16-阵营规则-猎巫者的武备.png) / Weapons Of The Witch Hunters | 4 | imp-ci-card-16 | IMP-CI-SUP-WOTWH、IMP-CI-ABJ-WOTWH、IMP-CI-CEN-WOTWH、IMP-CI-CRE-WOTWH、IMP-CI-DEN-WOTWH、IMP-CI-MOR-WOTWH、IMP-CI-REL-WOTWH、IMP-CI-WAR-WOTWH | current |
-| 17 | 阵营规则 | [猎巫者的武备-反灵能者](17-阵营规则-猎巫者的武备-反灵能者.png) / Anti-PSYKER | 5 | imp-ci-card-17 | null | PDF-only |
-| 18 | 阵营规则 | [圣勉](18-阵营规则-圣勉.png) / Inspiration | 5 | imp-ci-card-18 | IMP-CI-SUP-INS、IMP-CI-ABJ-INS、IMP-CI-CEN-INS、IMP-CI-CRE-INS、IMP-CI-DEN-INS、IMP-CI-MOR-INS、IMP-CI-REL-INS、IMP-CI-WAR-INS | current |
-| 19 | 其他 | [标识-指示物指南-1](19-其他-标识-指示物指南-1.png) / PDF未提供英文标题 | 5 | imp-ci-card-19 | null | PDF-only |
-| 20 | 其他 | [标识-指示物指南-2](20-其他-标识-指示物指南-2.png) / PDF未提供英文标题 | 5 | imp-ci-card-20 | null | PDF-only |
-| 21 | 战略计谋 | [猜疑并歼灭](21-战略计谋-猜疑并歼灭.png) / Suspect & Eliminate | 6 | imp-ci-card-21 | IMP-CI-SAI | current |
-| 22 | 战略计谋 | [毅然怒火](22-战略计谋-毅然怒火.png) / Wrathful Determination | 6 | imp-ci-card-22 | IMP-CI-WD | current |
-| 23 | 战略计谋 | [神圣强韧](23-战略计谋-神圣强韧.png) / Holy Resilience | 6 | imp-ci-card-23 | IMP-CI-HR | current |
-| 24 | 战略计谋 | [苦难与牺牲](24-战略计谋-苦难与牺牲.png) / Suffering & Sacrifice | 6 | imp-ci-card-24 | IMP-CI-SAS | current |
-| 25 | 交战计谋 | [殉道荣光](25-交战计谋-殉道荣光.png) / Glory To The Martyrs | 7 | imp-ci-card-25 | IMP-CI-GTTM | current |
-| 26 | 交战计谋 | [信念与怒火](26-交战计谋-信念与怒火.png) / Faith & Fury | 7 | imp-ci-card-26 | IMP-CI-FAF | current |
-| 27 | 交战计谋 | [穷追不舍](27-交战计谋-穷追不舍.png) / Unshakeable Pursuit | 7 | imp-ci-card-27 | IMP-CI-UP | current |
-| 28 | 交战计谋 | [炽热憎恨](28-交战计谋-炽热憎恨.png) / Fervent Hate | 7 | imp-ci-card-28 | IMP-CI-FH | current |
-| 29 | 阵营装备 | [灭灵手雷](29-阵营装备-灭灵手雷.png) / Psyk-Out Grenades | 8 | imp-ci-card-29 | IMP-CI-POG | current |
-| 30 | 阵营装备 | [殉道悼歌](30-阵营装备-殉道悼歌.png) / Vocifera Mortis | 8 | imp-ci-card-30 | IMP-CI-VM | current |
-| 31 | 阵营装备 | [遗珍圣物](31-阵营装备-遗珍圣物.png) / Saintly Relics | 8 | imp-ci-card-31 | IMP-CI-SR | current |
-| 32 | 阵营装备 | [自动鞭笞装置](32-阵营装备-自动鞭笞装置.png) / Auto-Flagellator | 8 | imp-ci-card-32 | IMP-CI-AF | current |
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 2 | 隐伏长执-能力卡 | 第 1 页 | [01-02-特工能力-隐伏长执-能力卡.png](01-02-特工能力-隐伏长执-能力卡.png) |
+| 4 | 隐伏弃绝者-能力卡 | 第 1 页 | [01-04-特工能力-隐伏弃绝者-能力卡.png](01-04-特工能力-隐伏弃绝者-能力卡.png) |
+| 8 | 隐伏揭谕者-能力卡 | 第 2 页 | [01-08-特工能力-隐伏揭谕者-能力卡.png](01-08-特工能力-隐伏揭谕者-能力卡.png) |
+| 10 | 隐伏圣殁者-能力卡 | 第 3 页 | [01-10-特工能力-隐伏圣殁者-能力卡.png](01-10-特工能力-隐伏圣殁者-能力卡.png) |
+
+## 小队选择（1 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 洁天使隐伏者杀戮小队 | 第 4 页 | [10-01-小队选择-洁天使隐伏者杀戮小队.png](10-01-小队选择-洁天使隐伏者杀戮小队.png) |
+
+## 阵营规则（5 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 殉道 | 第 4 页 | [11-01-阵营规则-殉道.png](11-01-阵营规则-殉道.png) |
+| 2 | 祷祝 | 第 4 页 | [11-02-阵营规则-祷祝.png](11-02-阵营规则-祷祝.png) |
+| 3 | 猎巫者的武备-1 | 第 4 页 | [11-03-阵营规则-猎巫者的武备-1.png](11-03-阵营规则-猎巫者的武备-1.png) |
+| 4 | 猎巫者的武备-2 | 第 5 页 | [11-04-阵营规则-猎巫者的武备-2.png](11-04-阵营规则-猎巫者的武备-2.png) |
+| 5 | 圣勉 | 第 5 页 | [11-05-阵营规则-圣勉.png](11-05-阵营规则-圣勉.png) |
+
+## 战略计谋（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 猜疑并歼灭 | 第 6 页 | [20-01-战略计谋-猜疑并歼灭.png](20-01-战略计谋-猜疑并歼灭.png) |
+| 2 | 毅然怒火 | 第 6 页 | [20-02-战略计谋-毅然怒火.png](20-02-战略计谋-毅然怒火.png) |
+| 3 | 神圣强韧 | 第 6 页 | [20-03-战略计谋-神圣强韧.png](20-03-战略计谋-神圣强韧.png) |
+| 4 | 苦难与牺牲 | 第 6 页 | [20-04-战略计谋-苦难与牺牲.png](20-04-战略计谋-苦难与牺牲.png) |
+
+## 交战计谋（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 殉道荣光 | 第 7 页 | [30-01-交战计谋-殉道荣光.png](30-01-交战计谋-殉道荣光.png) |
+| 2 | 信念与怒火 | 第 7 页 | [30-02-交战计谋-信念与怒火.png](30-02-交战计谋-信念与怒火.png) |
+| 3 | 穷追不舍 | 第 7 页 | [30-03-交战计谋-穷追不舍.png](30-03-交战计谋-穷追不舍.png) |
+| 4 | 炽热憎恨 | 第 7 页 | [30-04-交战计谋-炽热憎恨.png](30-04-交战计谋-炽热憎恨.png) |
+
+## 阵营装备（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 灭灵手雷 | 第 8 页 | [40-01-阵营装备-灭灵手雷.png](40-01-阵营装备-灭灵手雷.png) |
+| 2 | 殉道悼歌 | 第 8 页 | [40-02-阵营装备-殉道悼歌.png](40-02-阵营装备-殉道悼歌.png) |
+| 3 | 遗珍圣物 | 第 8 页 | [40-03-阵营装备-遗珍圣物.png](40-03-阵营装备-遗珍圣物.png) |
+| 4 | 自动鞭策装置 | 第 8 页 | [40-04-阵营装备-自动鞭策装置.png](40-04-阵营装备-自动鞭策装置.png) |
+
+## 其他（2 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 标识/指示物指南-1 | 第 5 页 | [16-01-其他-标识-指示物指南-1.png](16-01-其他-标识-指示物指南-1.png) |
+| 2 | 标识/指示物指南-2 | 第 5 页 | [16-02-其他-标识-指示物指南-2.png](16-02-其他-标识-指示物指南-2.png) |

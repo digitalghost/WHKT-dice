@@ -43,6 +43,9 @@ data class DiceRoll(val expression: DiceExpression, val dice: List<RolledDie>) {
             if (expression.modifier != 0 || dice.size > 1) append(" → 合计 $total")
         }
     }
+
+    fun logLine(purpose: String = ""): String =
+        "掷骰" + (if (purpose.isBlank()) "" else "（${purpose.trim()}）") + "：${describe()}"
 }
 
 object DiceRolls {

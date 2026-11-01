@@ -1,0 +1,901 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-IMPERIAL_NAVY_BREACHERS",
+  "team_name_zh": "帝国海军跳帮者",
+  "team_name_en": "Imperial Navy Breachers",
+  "source_pdf": "最新杀戮小队规则更新/帝国海军跳帮者 Imperial Navy Breachers 杀戮小队规则.pdf",
+  "source_pdf_sha256": "9de3a91c318e3dde27b6ab3949e2a84349007f9e78bd8eed9e20824fbb22d4b6",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 33,
+    "operative": 9,
+    "operative-ability": 7,
+    "team-selection": 2,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-imperial_navy_breachers-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "海军武装军士-数据卡",
+      "title_en": "NAVIS SERGEANT-AT-ARMS",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-海军武装军士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军武装军士\n2 6\" 4+ 9\n名称攻击命中伤害武器规则\n爆矢手枪 4 4+ 3/4 范围 8\"\n家传自动手枪 4 3+ 2/4 范围 8\"、致命 5+\n海军霰弹枪 (近距离） 4 3+ 3/3 范围 6\"\n海军霰弹枪 (远距离） 4 5+ 1/2 -\n链锯剑 4 3+ 4/5 -\n海军手斧 3 4+ 3/4 -\n动力武器 4 3+ 4/6 致命 5+\n请继续阅读背面规则\n帝国海军跳帮队、帝国、队长、武装军士 25",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "家传自动手枪": "远程",
+        "海军霰弹枪 (近距离）": "远程",
+        "海军霰弹枪 (远距离）": "远程",
+        "链锯剑": "近战",
+        "海军手斧": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS SERGEANT-AT-ARMS\n2 6\" 4+ 9\nNAME ATK HIT DMG WR\nBolt pistol 4 4+ 3/4 Range 8\"\nHeirloom autopistol 4 3+ 2/4 Range 8\", Lethal 5+\nNavis shotgun (close range) 4 3+ 3/3 Range 6\"\nNavis shotgun (long range) 4 5+ 1/2 -\nChainsword 4 3+ 4/5 -\nNavis hatchet 3 4+ 3/4 -\nPower weapon 4 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nIMPERIAL NAVY BREACHER , IMPERIUM, LEADER, SERGEANT-AT-ARMS 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "海军武装军士-能力卡",
+      "title_en": "NAVIS SERGEANT-AT-ARMS",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-海军武装军士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军武装军士\n2 6\" 4+ 9\n指挥突破：每当您使用“进攻命令”或者“防御命令”计谋时，如果该特工位于杀戮区中，那么那个计谋\n消耗 0CP。该特工的每次激活限一次，在其执行一次行动之前或之后，如果己方进攻命令或防御命令标识\n位于杀戮区内（参见对应的战略计谋)，您可以：\n• 将标识移出杀戮区并重新放置。\n• 将计谋更改为另一个（例如，您的攻击命令变为防御命令)。\n上述两种行动不能都被执行，并且您不需要消耗任何 CP 来更改计谋。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS SERGEANT-AT-ARMS\n2 6\" 4+ 9\nCommand Breach: Whenever you would use the Attack Order or Defence Order strategy ploy, if this operative is in the killzone, it\ncosts you 0CP. Once during each of this operative’s activations, before or after it performs an action, if your Attack Order or Defence\nOrder marker is in the killzone (see relevant strategy ploy), you can either:\n• Remove that marker and place it again.\n• Change the selected ploy to the other (e.g. your Attack Order becomes a Defence Order).\nYou cannot do both, and you don’t need to spend any CP to change the ploy."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "海军船兵-数据卡",
+      "title_en": "NAVIS ARMSMAN",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-海军船兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军船兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n海军霰弹枪 (近距离） 4 3+ 3/3 范围 6\"\n海军霰弹枪 (远距离） 4 5+ 1/2 -\n海军手斧 3 4+ 3/4 -\n群体激活：每当该特工进入待机时，您必须在对手\n之前激活另一名就绪的己方帝国海军跳帮队海军\n船兵特工（若有)。在这另一名特工进入待机后，您\n的对手将照常进行激活（换句话说，您通过本规则\n连续激活的特工数量不能超过两名)。当您使用“突\n破扫荡”阵营规则时忽略这条规则。\n帝国海军跳帮队、帝国、船兵 25",
+      "weapon_types": {
+        "海军霰弹枪 (近距离）": "远程",
+        "海军霰弹枪 (远距离）": "远程",
+        "海军手斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS ARMSMAN\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nNavis shotgun (close range) 4 3+ 3/3 Range 6\"\nNavis shotgun (long range) 4 5+ 1/2 -\nNavis hatchet 3 4+ 3/4 -\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly IMPERIAL NAVY\nBREACHER ARMSMAN operative (if able) before your\nopponent activates. When that other operative is expended,\nyour opponent then activates as normal (in other words, you\ncannot activate more than two operatives in succession with this\nrule). Ignore this rule when you are using the Breach and Clear\nfaction rule.\nIMPERIAL NAVY BREACHER , IMPERIUM, ARMSMAN 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "海军巨斧手-数据卡",
+      "title_en": "NAVIS AXEJACK",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-海军巨斧手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军巨斧手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n动力武器 4 3+ 4/6 致命 5+\n勇猛：在该特工执行了冲锋行动的转折点中，如果\n有一枚攻击骰对其造成了大于等于 3 的伤害，掷一\n枚 D6：若结果为 5+，那次造成的伤害减少 1 点。\n帝国海军跳帮队、帝国、巨斧手 25",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS AXEJACK\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nPower weapon 4 3+ 4/6 Lethal 5+\nEmboldened: Whenever an attack dice inflicts damage of 3\nor more on this operative during a turning point in which it\nperformed the Charge action, roll one D6: on a 5+, subtract 1\nfrom that inflicted damage.\nIMPERIAL NAVY BREACHER , IMPERIUM, AXEJACK 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "海军-能力卡1",
+      "title_en": "NAVIS C.A.T. UNIT",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-海军-能力卡1.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军 C.A.T.单位\n2 8\" 5+ 5\n机械：\n• 如果该特工位于敌方特工的控制范围内，或者己\n方帝国海军跳帮队侦测员特工被残废，那么该\n特工不能被激活或执行行动。就算该特工依旧处\n于就绪状态，转折点也可以结束。\n• 该特工不能执行除了冲锋、冲刺、后撤、转移和\n侦测以外的行动。\n• 该特工不能在近战中进行反击或协助，也不能攀\n爬或跳落。\n• 在判断对标识的控制权时，将该特工的 APL 属性\n视作为比原本要低 1 点。请注意这不是对 APL 属\n性的修正，因此可以与其他修正效果叠加。\n• 当该特工拥有隐匿命令并且拥有掩护时，该特工\n不能被选择成为有效目标，本规则的优先度高于\n所有其他规则（例如制高点地形)。\n• 在判断事物是否对该特工可见时，从微缩模型的\n任意部分画出直线。\n请继续阅读背面规则\n帝国海军跳帮队、帝国、C.A.T.单位 25",
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS C.A.T. UNIT\n2 8\" 5+ 5\nMachine:\n• This operative cannot be activated or perform actions if it’s within control range of an enemy operative, or if a friendly IMPERIAL\nNAVY BREACHER SURVEYOR operative has been incapacitated. The turning point can end even if this operative is\nstill ready.\n• This operative cannot perform any actions other than Charge, Dash, Fall Back, Reposition and Spot.\n• It cannot retaliate, assist in a fight, climb or jump.\n• Whenever determining control of a marker, treat this operative’s APL stat as 1 lower. Note this isn’t a change to its APL stat, so any\nchanges are cumulative with this.\n• Whenever this operative has a Conceal order and is in cover, it cannot be selected as a valid target, taking precedence over all other\nrules (e.g. Seek, Vantage terrain) except being within 2\".\n• Whenever determining what's visible to this operative, draw the line from any part of the miniature.\nRULES CONTINUE ON OTHER SIDE\nIMPERIAL NAVY BREACHER , IMPERIUM, C.A.T. UNIT 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "海军-能力卡2",
+      "title_en": "NAVIS C.A.T. UNIT",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-海军-能力卡2.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军 C.A.T.单位\n2 8\" 5+ 5\n消耗品：在该特工被残废，以及侦测 1AP\n在判断己方的起始特工数量时，\n选择一名对该特工可见的敌方特工。直到转折点结束前、直到那名\n该特工在对手的击杀/灭敌行动\n敌方特工不再对该特工可见，或者直到该特工再次执行本行动前（\n中被忽略。在判断需要特工“逃\n以先满足的条件为准)，每当一名己方帝国海军跳帮队特工对那\n离”、“存活”，或者被敌方特工\n名敌方特工进行射击时，您可以使用这个效果。若使用：\n残废的胜利条件和 VP 获取方式\n• 那名己方特工的远程武器拥有“追踪轻型”武器规则。\n时，将该特工忽略（例如在判断\n• 那名敌方特工不能被遮挡。\n该特工是否逃离/存活/被残废，或\n者判断有多少特工必须逃离/存活/\n该特工不能在敌方特工的控制范围内执行此行动。\n被残废时)。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS C.A.T. UNIT\n2 8\" 5+ 5\nExpendable: This operative is ignored for SPOT 1AP\nyour opponent’s kill/elimination op (when\nSelect one enemy operative visible to this operative. Until the end of the turning\nit’s incapacitated, and when determining\npoint, until that enemy operative is no longer visible to this operative or until this\nyour starting number of operatives). It’s\noperative performs this action again (whichever comes first), whenever a friendly\nalso ignored for victory conditions and\nIMPERIAL NAVY BREACHER operative is shooting that enemy operative, you\nscoring VPs if either require operatives to\ncan use this effect. If you do:\n‘escape’, ‘survive’ or be incapacitated by\nenemy operatives (if it escapes/survives/ • That friendly operative’s ranged weapons have the Seek Light weapon rule.\nis incapacitated, determining how many • That enemy operative cannot be obscured.\noperatives must escape/survive/be\nincapacitated, etc.). This operative cannot perform this action while within control range of an\nenemy operative."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "海军盾手-数据卡",
+      "title_en": "NAVIS ENDURANT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-海军盾手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军盾手\n2 4\" 2+ 11\n名称攻击命中伤害武器规则\n海军重型霰弹枪（近距离） 4 3+ 3/3 范围 6\"、毫不留情\n海军重型霰弹枪（远距离） 4 5+ 1/2 毫不留情\n盾击 3 4+ 1/2 残暴、盾牌*\n破袭盾墙：如果该特工拥有交战命令且造成阻碍，那\n么您的对手不能将与该特工底座触碰的另一名己方\n帝国海军跳帮队特工选择成为有效目标。如果与该\n特工底座触碰的其他己方特工数量超过一个，那么本\n规则无效。\n*盾牌：每当该特工使用本武器进行近战或反击时，您\n的每一次格挡可以被用来格挡两次未结算的成功（而\n不是一次）。\n脱战：该特工执行后撤行动时可以少消耗 1AP。\n帝国海军跳帮队、帝国、盾手 28",
+      "weapon_types": {
+        "海军重型霰弹枪（近距离）": "远程",
+        "海军重型霰弹枪（远距离）": "远程",
+        "盾击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS ENDURANT\n2 4\" 2+ 11\nNAME ATK HIT DMG WR\nNavis heavy shotgun (close range) 4 3+ 3/3 Range 6\", Relentless\nNavis heavy shotgun (long range) 4 5+ 1/2 Relentless\nShield bash 3 4+ 1/2 Brutal, Shield*\nBreachwall: Whenever your opponent is selecting a valid\ntarget, they cannot select another friendly IMPERIAL NAVY\nBREACHER operative whose base is touching this operative’s\nif this operative has an Engage order and is intervening. This rule\nhas no effect if more than one other friendly operative’s base is\ntouching this operative’s.\n*Shield: Whenever this operative is fighting or retaliating with\nthis weapon, each of your blocks can be allocated to block two\nunresolved successes (instead of one).\nDisengage: This operative can perform the Fall Back action\nfor 1 less AP.\nIMPERIAL NAVY BREACHER , IMPERIUM, ENDURANT 28"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "海军幽魂颅骨-能力卡",
+      "title_en": "NAVIS GHEISTSKULL",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-海军幽魂颅骨-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军幽魂颅骨\n2 8\" 5+ 5\n机械：消耗品：在该特工被残废，以及在判断己方的起始特工数量\n• 该特工不能执行除了推进、冲锋、冲时，该特工在对手的击杀/灭敌行动中被忽略。在判断需要特\n刺、后撤和转移以外的行动。工“逃离”、“存活”，或者被敌方特工残废的胜利条件和 VP\n• 该特工不能在近战中进行反击或协助。获取方式时，将该特工忽略（例如在判断该特工是否逃离/存\n• 在判断对标识的控制权时，将该特工的\n活/被残废，或者判断有多少特工必须逃离/存活/被残废时)。\nAPL 属性视作为比原本要低 1 点。请\n注意这不是对 APL 属性的修正，因此推进 1AP\n可以与其他修正效果叠加。\n在这名特工在这次激活中执行一个冲锋行动时，为它的可移\n• 当该特工拥有隐匿命令并且拥有掩护\n动距离增加 4\" （替代 2\"）。\n时，该特工不能被选择成为有效目标，\n该特工在每场战斗中只能执行此行动一次，并且不能在第一\n本规则的优先度高于所有其他规则（例\n转折点中执行此行动。\n如制高点地形)。\n帝国海军跳帮队、帝国、幽魂颅骨 25",
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS GHEISTSKULL\n2 8\" 5+ 5\nMachine: Expendable: This operative is ignored for your opponent’s kill/elimination\nop (when it’s incapacitated, and when determining your starting number\n• This operative cannot perform any actions other\nof operatives). It’s also ignored for victory conditions and scoring VPs if\nthan Boost, Charge, Dash, Fall Back\neither require operatives to ‘escape’, ‘survive’ or be incapacitated by enemy\nand Reposition.\noperatives (if it escapes/survives/is incapacitated, determining how many\n• It cannot retaliate or assist in a fight.\noperatives must escape/survive/be incapacitated, etc.).\n• Whenever determining control of a marker, treat\nthis operative’s APL stat as 1 lower. Note this\nBOOST 1AP\nisn’t a change to its APL stat, so any changes are\ncumulative with this. The next time this operative performs a Charge action during this\n• Whenever this operative has a Conceal order and activation, add 4\" to the distance it can move (instead of 2\").\nis in cover, it cannot be selected as a valid target,\ntaking precedence over all other rules (e.g. Seek, This operative cannot perform this action more than once per battle, and\nVantage terrain) except being within 2\". cannot perform it during the first turning point.\nIMPERIAL NAVY BREACHER , IMPERIUM, GHEISTSKULL 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "海军掷弹兵-数据卡",
+      "title_en": "NAVIS GRENADIER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-海军掷弹兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军掷弹兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n爆破炸药 4 3+ 4/6 范围 3\"、爆炸 2\"、重型（仅限转移)、\n有限 1、穿刺 1、集中\n海军霰弹枪 (近距离） 4 3+ 3/3 范围 6\"\n海军霰弹枪 (远距离） 4 5+ 1/2 -\n海军手斧 3 4+ 3/4 -\n掷弹兵：该特工可以使用破片、穿甲和震荡手雷（参见通用装备)。该特工使用这些装备时不算入您拥有的\n使用限制（如果您还为其他特工选择了手雷类的装备)。每当该特工使用破片或穿甲手雷时，那件武器的命\n中属性提升 1。\n帝国海军跳帮队、帝国、掷弹兵 25",
+      "weapon_types": {
+        "爆破炸药": "远程",
+        "海军霰弹枪 (近距离）": "远程",
+        "海军霰弹枪 (远距离）": "远程",
+        "海军手斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS GRENADIER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nDemolition charge 4 3+ 4/6 Range 3\", Blast 2\", Heavy (Reposition only),\nLimited 1, Piercing 1, Saturate\nNavis shotgun (close range) 4 3+ 3/3 Range 6\"\nNavis shotgun (long range) 4 5+ 1/2 -\nNavis hatchet 3 4+ 3/4 -\nGrenadier: This operative can use frag, krak and stun grenades (see universal equipment). Doing so doesn’t count towards any limited\nuses you have (i.e. if you also select those grenades from equipment for other operatives). Whenever this operative is using a frag or\nkrak grenade, improve the Hit stat of that weapon by 1.\nIMPERIAL NAVY BREACHER , IMPERIUM, GRENADIER 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "海军炮手-数据卡",
+      "title_en": "NAVIS GUNNER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-海军炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军炮手\n2 6\" 4+ 9\n名称攻击命中伤害武器规则\n海军激光齐射枪（集中） 5 4+ 4/5 重型（仅限冲刺)、撕裂\n海军激光齐射枪（扫射） 4 4+ 4/5 重型（仅限冲刺)、撕裂、洪流 1\"\n热熔枪 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n等离子枪（标准） 4 4+ 4/6 穿刺 1\n等离子枪（过载） 4 4+ 5/6 过热、致命 5+、穿刺 1\n枪托 3 4+ 2/3 -\n帝国海军跳帮队、帝国、炮手 28",
+      "weapon_types": {
+        "海军激光齐射枪（集中）": "远程",
+        "海军激光齐射枪（扫射）": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS GUNNER\n2 6\" 4+ 9\nNAME ATK HIT DMG WR\nMeltagun 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nNavis las-volley (focused) 5 4+ 4/5 Heavy (Dash only), Rending\nNavis las-volley (sweeping) 4 4+ 4/5 Heavy (Dash only), Rending, Torrent 1\"\nPlasma gun (standard) 4 4+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 4+ 5/6 Hot, Lethal 5+, Piercing 1\nGun butt 3 4+ 2/3 -\nIMPERIAL NAVY BREACHER , IMPERIUM, GUNNER 28"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "海军破舱手-数据卡",
+      "title_en": "NAVIS HATCHCUTTER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-海军破舱手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军破舱手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n链锯拳套 4 4+ 5/6 残暴、撕裂\n焊死 1AP\n选择一个位于该特工控制范围内的关闭舱门过\n道（杀戮区：墓穴世界)。其他特工在通过操作\n舱门行动将那个舱门过道打开时需要消耗额外\n1AP。这个效果将在舱门过道被打开后结束。请\n注意，该特工不受本效果影响。\n该特工不能在敌方特工的控制范围内执行此行\n动，也不能在不位于关闭舱门过道 1\" 内的情况\n下执行此行动。\n请继续阅读背面规则\n帝国海军跳帮队、帝国、破舱手 25",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "链锯拳套": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS HATCHCUTTER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nChainfist 4 4+ 5/6 Brutal, Rending\nWELD SHUT 1AP\nSelect a closed hatchway (e.g. Killzone: Tomb World) within\nthis operative’s control range. 1 additional AP must be spent\nfor other operatives to perform the Operate Hatch action\nto open that hatchway. This effect ends when that hatchway\nis opened. Note this operative isn’t affected by this effect.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if it isn’t within 1\" of a\nclosed hatchway.\nRULES CONTINUE ON OTHER SIDE\nIMPERIAL NAVY BREACHER , IMPERIUM, HATCHCUTTER 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-12",
+      "sequence": 12,
+      "category": "operative-ability",
+      "title_zh": "海军破舱手-能力卡",
+      "title_en": "NAVIS HATCHCUTTER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-海军破舱手-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军破舱手\n2 6\" 4+ 8\n突破点 1AP\n选择一个位于该特工控制范围内的地形模型。将\n一枚己方突破标识放置在该特工控制范围内且尽\n可能靠近那个地形模型的位置。每当有特工位于\n这枚标识的 1\" 内时，将那个地形模型厚度低于\n1\" 的部分视作为可穿越地形。\n该特工不能在一名敌方特工的控制范围内执行此\n行动，也不能在其控制范围内不存在地形模型时\n执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS HATCHCUTTER\n2 6\" 4+ 8\nBREACH POINT 1AP\nPlace one of your Breach markers within this operative’s\ncontrol range as close as possible to a terrain feature within\ncontrol range of it. Whenever an operative is within 1\" of that\nmarker, it treats parts of that terrain feature that are no more\nthan 1\" thick as Accessible terrain.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if a terrain feature isn’t\nwithin its control range."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "海军侦测员-数据卡",
+      "title_en": "NAVIS SURVEYOR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-海军侦测员-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军侦测员\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n海军霰弹枪 (近距离） 4 3+ 3/3 范围 6\"\n海军霰弹枪 (远距离） 4 5+ 1/2 -\n海军手斧 3 4+ 3/4 -\n导航 1AP\n支援。选择另一名位于该特工或者己方帝国海军跳帮队 C.A.T.单该特工不能在敌方特工的控制\n位特工 6\" 内且对其可见的己方帝国海军跳帮队特工（C.A.T.单位范围内执行此行动。\n或幽魂颅骨除外)。直到那名特工的下一次激活结束前，其 APL 属\n性提升 1 点。对于“通讯装置”通用装备，决定距离的特工必须控\n制那个标识。\n请继续阅读背面规则\n帝国海军跳帮队、帝国、侦测员 25",
+      "weapon_types": {
+        "海军霰弹枪 (近距离）": "远程",
+        "海军霰弹枪 (远距离）": "远程",
+        "海军手斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS SURVEYOR\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nNavis shotgun (close range) 4 3+ 3/3 Range 6\"\nNavis shotgun (long range) 4 5+ 1/2 -\nNavis hatchet 3 4+ 3/4 -\nWAYFIND 1AP\nSUPPORT. Select one other friendly IMPERIAL NAVY BREACHER operative This operative cannot perform this\n(excluding C.A.T. UNIT or GHEISTSKULL) visible to and within 6\" of this action while within control range of an\noperative, or visible to and within 6\" of a friendly IMPERIAL NAVY BREACHER enemy operative.\nC.A.T. UNIT operative. Until the end of that operative’s next activation, add 1 to its\nAPL stat. For the purposes of the Comms Device universal equipment, the operative\nthe distance is being determined from must control that marker.\nRULES CONTINUE ON OTHER SIDE\nIMPERIAL NAVY BREACHER , IMPERIUM, SURVEYOR 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-14",
+      "sequence": 14,
+      "category": "operative-ability",
+      "title_zh": "海军侦测员-能力卡",
+      "title_en": "NAVIS SURVEYOR",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工能力-海军侦测员-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军侦测员\n2 6\" 4+ 8\n远程遥控 1AP\n选择一名己方帝国海军跳帮队 C.A.T.单位特\n工。那名特工可以立即执行一次无消耗的行动，\n但是在那次行动期间不能移动超过 3\"。\n该特工不能在敌方特工的控制范围内执行此行\n动，也不能在己方C.A.T.单位特工不位于杀戮区\n时执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS SURVEYOR\n2 6\" 4+ 8\nREMOTE CONTROL 1AP\nSelect one friendly IMPERIAL NAVY BREACHER\nC.A.T. UNIT operative. That operative can immediately\nperform one free action, but it cannot move more than 3\"\nduring that action.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if a friendly IMPERIAL\nNAVY BREACHER C.A.T. UNIT operative isn’t in\nthe killzone."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "海军干扰员-数据卡",
+      "title_en": "NAVIS VOID-JAMMER",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-海军干扰员-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军干扰员\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n幽魂颅骨引爆器 4 3+ 3/4 爆炸 1\"、有限 1、致命 4+、安静、\n眩晕、引爆\n海军霰弹枪 (近距离） 4 3+ 3/3 范围 6\"\n海军霰弹枪 (远距离） 4 5+ 1/2 -\n海军手斧 3 4+ 3/4 -\n* 引爆：不要选择一个有效目标。作为替代，己方帝国海军跳帮队幽魂颅骨特工一定是本次攻击的主要目\n标，并且不能拥有掩护或被遮挡。如果那名特工不位于杀戮区中，那么您不能选择使用本武器。\n请继续阅读背面规则\n帝国海军跳帮队、帝国、干扰员 25",
+      "weapon_types": {
+        "幽魂颅骨引爆器": "远程",
+        "海军霰弹枪 (近距离）": "远程",
+        "海军霰弹枪 (远距离）": "远程",
+        "海军手斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS VOID-JAMMER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nGheistskull detonator 4 3+ 3/4 Blast 1\", Lethal 4+, Limited 1, Silent,\nStun, Detonate*\nNavis shotgun (close range) 4 3+ 3/3 Range 6\"\nNavis shotgun (long range) 4 5+ 1/2 -\nNavis hatchet 3 4+ 3/4 -\n*Detonate: Don’t select a valid target. Instead, a friendly IMPERIAL NAVY BREACHER GHEISTSKULL operative is always\nthe primary target and cannot be in cover or obscured. If that operative isn’t in the killzone, you cannot select this weapon.\nRULES CONTINUE ON OTHER SIDE\nIMPERIAL NAVY BREACHER , IMPERIUM, VOID-JAMMER 25"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-01-16",
+      "sequence": 16,
+      "category": "operative-ability",
+      "title_zh": "海军干扰员-能力卡",
+      "title_en": "NAVIS VOID-JAMMER",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-16-特工能力-海军干扰员-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n海军干扰员\n2 6\" 4+ 8\n干扰脉冲 1AP\n选择一名位于己方幽魂颅骨特工 8\" 内且对其可\n见的敌方特工。掷一枚 D6，如果那名敌方特\n工是己方幽魂颅骨特工的有效目标，那么掷骰\n结果增加 1 点：若结果为 3+，那么直到那名\n敌方特工的下一次激活结束前，其 APL 属性减\n少 1 点。\n该特工不能在敌方特工的控制范围内执行此行\n动，也不能在己方幽魂颅骨特工不位于杀戮区时\n执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNAVIS VOID-JAMMER\n2 6\" 4+ 8\nINTERFERENCE PULSE 1AP\nSelect one enemy operative visible to and within 8\" of a\nfriendly GHEISTSKULL operative. Roll one D6, adding\n1 to the result if that enemy operative is a valid target for\nthat friendly GHEISTSKULL operative: on a 3+, subtract\n1 from that enemy operative’s APL stat until the end of its\nnext activation.\nThis operative cannot perform this action while within\ncontrol range of an enemy operative, or if a friendly\nGHEISTSKULL operative isn’t in the killzone."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "帝国海军跳帮者杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-帝国海军跳帮者杀戮小队-1.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n杀戮小队\n原型：安全保护、搜索与摧毁\n特工\n↘ 1 名帝国海军跳帮队武装军士特工，装备有\n以下选项：\n• 海军霰弹枪和海军手斧\n或者从以下选项中各选择一件武器进行装备：\n• 爆矢手枪或家传自动手枪\n• 链锯剑或动力武器\n↘ 11 名帝国海军跳帮队特工，从以下列表中进\n行选择：\n• 船兵\n• 巨斧手\n• C.A.T.单位\n• 盾手\n• 幽魂颅骨\n• 掷弹兵\n• 炮手，装备有海军激光齐射枪和枪托\n• 炮手，装备有热熔枪和枪托\n• 炮手，装备有等离子枪和枪托\n请继续阅读背面规则",
+      "text_en": "IMPERIAL NAVY BREACHERS\nKILL TEAM\nARCHETYPES: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 IMPERIAL NAVY BREACHER\nSERGEANT-AT-ARMS operative with the\nfollowing option:\n• Navis shotgun and Navis hatchet\nOr one option from each of the following:\n• Bolt pistol or heirloom autopistol\n• Chainsword or power weapon\n↘ 10 IMPERIAL NAVY BREACHER operatives\nselected from the following list:\n• ARMSMAN\n• AXEJACK\n• C.A.T. UNIT\n• ENDURANT\n• GHEISTSKULL\n• GRENADIER\n• GUNNER with Navis las-volley and gun butt\n• GUNNER with meltagun and gun butt\n• GUNNER with plasma gun and gun butt\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "帝国海军跳帮者杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-帝国海军跳帮者杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 破舱手\n• 侦测员\n• 干扰员\n除了士兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。您的杀戮小队中最多包含\n两名炮手特工。\n您的杀戮小队只有在包含了干扰员特工时才能包\n含一名幽魂颅骨特工，并且只有在包含一名侦测\n员特工时才能包含一名C.A.T.单位特工。\n这些特工被算作为半个选项，意味着如果您纳\n入了这两名特工，它们总共算是一个选项。",
+      "text_en": "• HATCHCUTTER\n• SURVEYOR\n• VOID-JAMMER\nOther than ARMSMAN operatives, your kill team\ncan only include each operative on this list\nonce. Your kill team can only include up to two\nGUNNER operatives.\nYour kill team can only include a GHEISTSKULL\noperative if it also includes a VOID-JAMMER\noperative, and it can only include a\nC.A.T. UNIT operative if it also includes a\nSURVEYOR operative.\nThese operatives count as half a selection each,\nmeaning you can select both of them and it’s\ntreated as one selection in total."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "虚空护甲",
+      "title_en": "VOID ARMOUR",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-虚空护甲.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n阵营规则\n虚空护甲\n帝国海军船兵所穿的护甲是密封的，这意味\n着他们能够在零重力和无大气的情况下进行\n战斗。被完全包裹在这类护甲中可以减少爆\n炸和火焰对船兵的危害。\n每当一名特工对己方帝国海军跳帮队特工进行\n射击时，如果那次流程中使用的远程武器拥有\n“爆炸”或“洪流”武器规则（拥有扫射武器资\n料的武器除外)，那么您可以重掷一枚自己的防\n御骰，如果被射击的己方特工是掷弹兵，则可以\n重掷最多两枚防御骰。\n己方帝国海军跳帮队特工不会受到 “x\" 毁灭 x”\n武器规则的影响（也就是拥有范围效果的“毁\n灭”武器规则)，除非特工是那次流程中的目标。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFACTION RULE\nVOID ARMOUR\nThe armour worn by Imperial Navy Armsmen\nis void-sealed, meaning that they can fight in\nenvironments devoid of gravity or atmosphere. Such\narmour also serves to protect them from explosive\nblasts and flaming torrents.\nWhenever an operative is shooting a friendly\nIMPERIAL NAVY BREACHER operative, if the\nranged weapon in that sequence has the Blast\nor Torrent weapon rule (excluding weapons that\nhave a sweeping profile), you can re-roll one of\nyour defence dice, or up to two of your defence\ndice if that friendly operative is a GRENADIER.\nFriendly IMPERIAL NAVY BREACHER operatives\naren’t affected by the x\" Devastating x weapon\nrule (i.e. Devastating with a distance) unless they\nare the target during that sequence."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "突破扫荡",
+      "title_en": "BREACH AND CLEAR",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-突破扫荡.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n阵营规则\n突破扫荡\n帝国海军跳帮者是纪律严谨且训练有素的职\n业士兵，他们能够协力突破并扫荡敌方飞\n船、太空荒舟或空间站中的走廊和舱室。\n每个转折点限一次，当一名就绪的己方帝国海军\n跳帮队特工被激活时，您可以使用本规则。若\n使用，那么选择位于那名特工 3\" 内且可见的另\n一名己方帝国海军跳帮队特工。在第一名己方\n特工进入待机后，您可以在对手激活特工前将选\n择的另一名己方特工激活。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFACTION RULE\nBREACH AND CLEAR\nMethodical, professional and well-drilled, Imperial\nNavy Breachers work as a unit to breach and clear the\ncorridors and chambers of enemy voidcraft, space\nhulks, orbital stations and more.\nOnce per turning point, when a ready friendly\nIMPERIAL NAVY BREACHER operative is\nactivated, you can use this rule. If you do,\nselect one other ready friendly IMPERIAL NAVY\nBREACHER operative visible to and within 3\" of\nthat operative. When that first friendly operative\nis expended, you can activate that other friendly\noperative before your opponent activates. When\nthat other operative is expended, your opponent\nthen activates as normal."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "IMPERIAL NAVY BREACHER",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n标识/指示物指南\n勇猛爆破炸药封锁\n指示物指示物指示物\n侦测幽魂颅骨焊死\n指示物引爆器指示物\n指示物\n进攻命令防御命令系统覆盖装置\n指示物指示物指示物\n独头弹\n突破标识\n指示物",
+      "text_en": "IMPERIAL NAVY BREACHER\nMARKER/TOKEN GUIDE\nEmboldened Demolition Lock it Down\ntoken Charge token token\nSpot token Gheistskull Weld Shut\nDetonator marker\ntoken\nAttack Order Defence Order System\nmarker marker Override\nDevice token\nSlugs Breach\ntoken marker"
+    },
+    {
+      "id": "kt-imperial_navy_breachers-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "进攻命令",
+      "title_en": "ATTACK ORDER",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-进攻命令.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n战略计谋\n进攻命令\n在被指示对目标地点进行突袭时，帝国海军\n跳帮队能够协调且坚定地完成目标。\n将己方进攻命令标识放置在杀戮区中。每当一名\n位于该标识 3\" 内的己方帝国海军跳帮队特工进\n行射击、近战或反击时，其武器拥有“无休”武\n器规则。在下一个战略阶段的就绪步骤中，移除\n这枚标识。您不能在同一个战略阶段中使用本计\n谋以及“防御命令”战略计谋。",
+      "text_en": "IMPERIAL NAVY BREACHER\nSTRATEGY PLOY\nATTACK ORDER\nWhen directed to assault a designated position, Imperial\nNavy Breachers achieve their goal through coordination\nand determination.\nPlace your Attack Order marker in the killzone.\nWhenever a friendly IMPERIAL NAVY\nBREACHER operative within 3\" of that marker is\nshooting, fighting or retaliating, its weapons have\nthe Ceaseless weapon rule. In the Ready step\nof the next Strategy phase, remove that marker.\nYou cannot use this ploy and the Defence Order\nstrategy ploy during the same Strategy phase."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "防御命令",
+      "title_en": "DEFENCE ORDER",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-防御命令.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n战略计谋\n防御命令\n在需要进行防守时，帝国海军跳帮队会维持\n紧凑的阵型，建起由盾牌和枪械构成的铜墙\n铁壁。\n将己方防御命令标识放置在杀戮区中。每当一名\n特工对位于该标识 3\" 内的己方帝国海军跳帮队\n特工进行射击时，您可以重掷任何拥有特定结果\n的防御骰（例如任何结果为 2 的防御骰)。在下\n一个战略阶段的就绪步骤中，将标识移除。您不\n能在同一个战略阶段中使用本计谋以及“进攻命\n令”战略计谋。",
+      "text_en": "IMPERIAL NAVY BREACHER\nSTRATEGY PLOY\nDEFENCE ORDER\nWhen called upon to hold a position, Imperial Navy\nBreachers move into tight formation, creating an\nimpenetrable wall of shields and guns.\nPlace your Defence Order marker in the killzone.\nWhenever an operative is shooting a friendly\nIMPERIAL NAVY BREACHER operative that’s\nwithin 3\" of that marker, you can re-roll any\nof your defence dice results of one result (e.g.\nresults of 2). In the Ready step of the next\nStrategy phase, remove that marker. You cannot\nuse this ploy and the Attack Order strategy ploy\nduring the same Strategy phase."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "近战突袭",
+      "title_en": "CLOSE ASSAULT",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-近战突袭.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n战略计谋\n近战突袭\n跳帮队船兵习惯了在狭窄空间中的战斗，在\n与敌人展开近距离战斗时表现得极其高效。\n每当一名己方帝国海军跳帮队特工对位于其 3\"\n内的特工进行射击或近战时：\n• 为海军霰弹枪或海军重型霰弹枪（如果有）所\n有数据的两种伤害属性增加 1 点。\n• 若您掷出了两枚或更多失败，则您可以弃置其\n中一枚并将另一枚保留为普通成功作为替代。",
+      "text_en": "IMPERIAL NAVY BREACHER\nSTRATEGY PLOY\nCLOSE ASSAULT\nBreachers are used to fighting in the close confines of\na voidship's decks and are devastatingly effective when\nengaging foes at close range.\nWhenever a friendly IMPERIAL NAVY\nBREACHER operative is fighting or shooting an\noperative within 3\" of it:\n• Add 1 to both Dmg stats of all profiles of\nits Navis shotguns or Navis heavy shotguns\n(if any).\n• If you roll two or more fails, you can discard\none of them to retain another as a normal\nsuccess instead."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "抵挡反击",
+      "title_en": "BRACE FOR COUNTERATTACK",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-抵挡反击.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n战略计谋\n抵挡反击\n在组建了防御阵型后，跳帮队准备好迎击袭\n来的敌人。\n每当一名特工对己方帝国海军跳帮队特工进行\n射击、近战或反击时，如果那名己方特工位于己\n方领地内，或者在转折点中没有执行过冲锋、后\n撤或转移行动，那么伤害数值大于等于 3 的普通\n和暴击伤害对那名特工造成的伤害减少 1 点。",
+      "text_en": "IMPERIAL NAVY BREACHER\nSTRATEGY PLOY\nBRACE FOR COUNTERATTACK\nTaking up a defensive stance, the Breachers prepare to\nrepel the oncoming enemy.\nWhenever an operative is shooting against,\nfighting against or retaliating against a friendly\nIMPERIAL NAVY BREACHER operative that’s\nwithin your territory or that hasn’t performed\nthe Charge, Fall Back or Reposition action\nduring this turning point, Normal and Critical\nDmg of 3 or more inflicts 1 less damage on that\nfriendly operative."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "压垮目标",
+      "title_en": "OVERWHELM TARGET",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-压垮目标.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n交战计谋\n压垮目标\n在一部分跳帮队船兵进行火力压制的同时，另\n一组船兵们从掩体中冲出，尝试包抄敌人。\n在您使用“突破扫荡”阵营规则激活任意己方帝\n国海军跳帮队特工时使用本交战计谋。直到那\n名特工的激活结束前，其 APL 属性提升 1 点。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFIREFIGHT PLOY\nOVERWHELM TARGET\nAs some Breachers lay down pinning fire, others break\ncover in at attempt to outflank the foe.\nUse this firefight ploy when you activate either\nfriendly IMPERIAL NAVY BREACHER operative\nwhile using the Breach and Clear faction rule.\nUntil the end of that operative’s activation, add 1\nto its APL stat."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "闪击",
+      "title_en": "BLITZ",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-闪击.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n交战计谋\n闪击\n登舰行动成功的关键就在于速度与暴力。船兵\n们必须迅速前进，维持火力压制并消灭任何阻\n挡去路的敌人。\n在一名己方帝国海军跳帮队特工执行射击或近\n战行动时，如果您选择了其 6\" 内的一名敌方特\n工作为有效目标或近战对象，那么您可以使用本\n交战计谋。如果那名己方特工是首个在转折点中\n执行上述一个行动的己方特工，那么该特工的武\n器在行动期间拥有“精准 1”武器规则。如果该\n特工是转折点中第一个被激活的己方特工，那么\n该特工的武器还在行动期间拥有“严重”武器\n规则。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFIREFIGHT PLOY\nBLITZ\nThe keys to a successful boarding action are speed\nand violence. Breachers advance quickly, maintaining\na rapid rate of fire and cutting down any who block\ntheir progress.\nUse this firefight ploy when a friendly IMPERIAL\nNAVY BREACHER operative performs the\nShoot or Fight action, and you select an enemy\noperative within 6\" of it as a valid target or to\nfight against. If it’s the first friendly operative\nto perform either of those actions during this\nturning point, its weapons have the Accurate 1\nweapon rule for that action. If it’s the first friendly\noperative to be activated during this turning\npoint, its weapons also have the Severe weapon\nrule for that action."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "封锁",
+      "title_en": "LOCK IT DOWN",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-封锁.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n交战计谋\n封锁\n跳帮队的船兵全副武装，他们十分擅长防守刚\n刚占据的位置。\n在一名己方帝国海军跳帮队特工被激活时使用\n本交战计谋。选择一个目标标识。直到战斗结束\n前，或者直到您再次使用本计谋前（以先满足\n的条件为准)，在判断对那枚目标标识的控制权\n时，将那名己方特工的 APL 属性视为比原本要\n高 1 点。请注意，这不是对 APL 属性的修正，\n因此任何修正效果可以与本规则的效果叠加。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFIREFIGHT PLOY\nLOCK IT DOWN\nHeavily armed and armoured, Breachers are adept at\nholding the positions they seize.\nUse this firefight ploy when a friendly IMPERIAL\nNAVY BREACHER operative is activated. Select\none objective marker. Until the end of the battle\nor until you use this ploy again (whichever comes\nfirst), when determining control of that objective\nmarker, treat that friendly operative’s APL stat as\n1 higher. Note this isn’t a change to the APL stat,\nso any changes are cumulative with this."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "资深船员",
+      "title_en": "DECK HAND",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-资深船员.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n交战计谋\n资深船员\n跳帮队船兵一生中的大部分时间都在虚空舰\n上，他们也习惯了在甲板之间和狭窄的船舱中\n进行战斗。\n在一名己方帝国海军跳帮队特工的激活期间，\n您可以在其执行一次行动之前或之后使用本交战\n计谋。那名特工可以在激活期间移动穿过一个可\n穿越地形模型并不计算额外的 1\" 距离，以及/或\n者执行一次无消耗的操作舱门行动，并且可以在\n冲锋或后撤行动期间执行这个行动。如果访问点\n被焊死（参见破舱手特工），那么您不能使用本\n计谋，除非激活的特工是己方破舱手特工。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFIREFIGHT PLOY\nDECK HAND\nSpending the vast majority of their lives aboard\nvoidships, Breachers are used to fighting their way\nacross decks and through cramped hatchways\nand bulkheads.\nUse this firefight ploy during a friendly IMPERIAL\nNAVY BREACHER operative’s activation, before\nor after it performs an action. That operative\ncan move through one Accessible terrain\nfeature without it counting as an additional 1\"\nand/or perform a free Operate Hatch action\nduring its activation, and can do so during the\nCharge or Fall Back action. You cannot use\nthis ploy if the access point has been welded\nshut (see HATCHCUTTER) unless it’s a friendly\nHATCHCUTTER operative’s activation."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "呼吸面罩",
+      "title_en": "REBREATHERS",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-呼吸面罩.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n阵营装备\n呼吸面罩\n这些面罩能够循环利用氧气补给，让穿戴者\n可以在有毒大气、水下或真空环境中进行长\n时间的活动。\n您可以忽略任何对己方帝国海军跳帮队特工\nAPL 属性的修正，并且特工不会受到敌方特工\n的“震荡”武器规则的影响。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFACTION EQUIPMENT\nREBREATHERS\nThese masks recycle a supply of oxygen, allowing the\nbearer to survive for extended periods in poisonous\natmospheres, underwater or in the vacuum of space.\nYou can ignore any changes to the APL stat of\nfriendly IMPERIAL NAVY BREACHER operatives,\nand they aren’t affected by enemy operatives’\nShock weapon rule."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "独头弹",
+      "title_en": "SLUGS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-独头弹.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n阵营装备\n独头弹\n这些重型霰弹枪弹药牺牲了近距离的冲击力，\n但提升了有效范围和对单体目标的杀伤性。\n每个转折点最多三次，每当一名己方帝国海军跳\n帮队特工执行射击行动时，如果您选择使用海\n军霰弹枪(远距离)，那么您可以使用本规则。若\n使用，那么直到那次行动结束前，那件武器的命\n中属性提升 1，且两个伤害属性都提升 1 点，并\n且那个武器获得“精准 1”武器规则。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFACTION EQUIPMENT\nSLUGS\nThese heavy projectiles can be fired from a shotgun,\ntrading close-quarters impact for increased range and\nlethality against a single target.\nUp to three times per turning point, whenever a\nfriendly IMPERIAL NAVY BREACHER operative\nis performing the Shoot action and you select a\nNavis shotgun (long range), you can use this rule.\nIf you do, until the end of that action, improve the\nHit stat of that weapon by 1 and add 1 to both of\nits Dmg stats, and that weapon has the Accurate\n1 weapon rule."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "战斗激素",
+      "title_en": "COMBAT STIMMS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-战斗激素.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n阵营装备\n战斗激素\n许多帝国士兵都会携带战斗激素，它们可以缓\n解疲劳、麻痹疼痛并提升专注。\n您可以忽略任何己方帝国海军跳帮队特工因受\n创而导致的对移动属性的修正效果。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFACTION EQUIPMENT\nCOMBAT STIMMS\nMany Imperial soldiers carry combat stimms designed to\nstave off fatigue, dull pain and enhance concentration.\nYou can ignore any changes to the Move stat of\nfriendly IMPERIAL NAVY BREACHER operatives\nfrom being injured."
+    },
+    {
+      "id": "kt-imperial_navy_breachers-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "系统覆盖装置",
+      "title_en": "SYSTEM OVERRIDE DEVICE",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-系统覆盖装置.png",
+      "is_back": false,
+      "text": "帝国海军跳帮队\n阵营装备\n系统覆盖装置\n在将这个装置连接至计算机面板后，它可以转\n移锁定系统所用的能源，让跳帮队可以强制突\n入设施中。\n每个转折点限一次，一名己方帝国海军跳帮队\n特工在执行操作舱门行动时可以少消耗 1AP。",
+      "text_en": "IMPERIAL NAVY BREACHER\nFACTION EQUIPMENT\nSYSTEM OVERRIDE DEVICE\nThis device, when attached to cogitator panels, reroutes\npower away from locking mechanisms, allowing\nBreachers to force entry.\nOnce per turning point, one friendly IMPERIAL\nNAVY BREACHER operative can perform the\nOperate Hatch action for 1 less AP."
+    }
+  ]
+}

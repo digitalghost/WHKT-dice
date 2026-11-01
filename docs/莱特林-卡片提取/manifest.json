@@ -1,0 +1,863 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-RATLINGS",
+  "team_name_zh": "莱特林",
+  "team_name_en": "Ratlings",
+  "source_pdf": "最新杀戮小队规则更新/莱特林 Ratlings 杀戮小队规则.pdf",
+  "source_pdf_sha256": "1544da69ca1b8ddb7ba7579ccc389cc38d2c81847735772ef7c99da8b2042487",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 31,
+    "operative": 13,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 1,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-ratlings-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "莱特林安排人-数据卡",
+      "title_en": "RATLING FIXER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-莱特林安排人-数据卡.png",
+      "is_back": false,
+      "text": "莱特林安排人 APL 移动豁免耐伤\n2 5\" 5+ 7\n名称攻击命中伤害武器规则\n战斗步枪 4 2+ 3/4 -\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 2+ 3/3 毁灭 3，重型\n双拳 3 5+ 1/2 -\n军务部联系人：您可以额外选择指定目标：战略计划。选择一名敌方特工。直到该转折点结束，每当\n一个装备选项。一名己方莱特林特工对那名特工使用步枪进行射击，那个武器便获\n得“致命 5+”武器规则。\n莱特林、帝国、星界军、队长、安排人 25",
+      "weapon_types": {
+        "战斗步枪": "远程",
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING FIXER\n2 5\" 5+ 7\nNAME ATK HIT DMG WR\nBattle rifle 4 2+ 3/4 -\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy\nFists 3 5+ 1/2 -\nMunitorum Contacts: You can select one Target Designation: STRATEGIC GAMBIT. Select one enemy operative. Until the\nadditional equipment option. end of the turning point, whenever a friendly RATLING operative is shooting that\nenemy operative with a rifle, that weapon has the Lethal 5+ weapon rule.\nRATLING , IMPERIUM, ASTRA MILITARUM, LEADER, FIXER 25"
+    },
+    {
+      "id": "kt-ratlings-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "莱特林战斗恶犬-数据卡",
+      "title_en": "RATLING BATTLEMUTT",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-莱特林战斗恶犬-数据卡.png",
+      "is_back": false,
+      "text": "莱特林战斗恶犬 APL 移动豁免耐伤\n2 6\" 5+ 4\n名称攻击命中伤害武器规则\n撕咬 4 3+ 2/4 -\n提前预警：每个转折点一次，在一名敌方特工进行\n涉及移动或者被部署的行动后，您可以进行打断来\n使用本规则。若此，位于这名特工 6\" 内，并位于那\n名敌方特工 2\" 内的每一名己方莱特林特工（牛格\n林和欧格林除外）可以进行一次无消耗的冲刺行动\n或后撤行动，但它的移动距离不能超过 3\"。在任何\n情况下，每名特工都不能在一名敌方特工的 2\" 内结\n束那次移动，除非其在那次移动结束时对每一名敌\n方特工都不可见（若一名特工无法达成上述条件，\n则其无法移动）。\n预警：这名特工无法进行除了冲锋，冲刺，后撤，\n近战和转移外的任何行动，并无法使用任何其数据\n卡上没有的武器。\n莱特林、帝国、星界军、战斗恶犬 25",
+      "weapon_types": {
+        "撕咬": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING BATTLEMUTT\n2 6\" 5+ 4\nNAME ATK HIT DMG WR\nBite 4 3+ 2/4 -\nEarly Warning: Once per turning point, after an enemy operative\nperforms an action in which it moves or is set up, you can\ninterrupt to use this rule. If you do, each friendly RATLING\noperative (excluding OGRYN and BULLGRYN) within 6\"\nof this operative and within 2\" of that enemy operative can\nimmediately perform a free Dash or Fall Back action in an\norder of your choice (choose separately for each), but it cannot\nmove more than 3\" during that action. In either case, each one\ncannot end that move within 2\" of an enemy operative unless it’s\nnot visible to every enemy operative when it ends that move (if\nthis isn’t possible for an operative, it cannot move).\nBeast: This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight and Reposition. It cannot\nuse any weapons that aren’t on its datacard.\nRATLING , IMPERIUM, ASTRA MILITARUM, BATTLEMUTT 25"
+    },
+    {
+      "id": "kt-ratlings-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "牛格林-数据卡",
+      "title_en": "BULLGRYN",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-牛格林-数据卡.png",
+      "is_back": false,
+      "text": "牛格林 APL 移动豁免耐伤\n2 6\" 4+ 16\n名称攻击命中伤害武器规则\n掷弹拳套 4 4+ 3/5 爆炸 2\"\n能量槌 4 3+ 4/6 震荡\n简易护盾 4 3+ 3/4 -\n厚重盾牌 4 4+ 3/4 -\n护盾：若这名特工装备了厚重盾牌，则它拥有 3+\n豁免属性；若其装备了简易护盾，则在它近战或反\n击中，您每次进行格挡时可以挡下两个没有结算的\n成功（而不是一个）。\n粗野：每当您的对手在选择有效目标时，若这名特\n工处于隐匿命令，则它无法使用轻型地形作为掩\n护。尽管这个规则会使这名特工成为目标（假设\n其可见），但这不会导致掩护豁免被移除（如果\n有）。\n迟钝：当这名特工进行拾取标识和任务行动（操作\n舱门除外）时，必须额外花费 1 点 AP。\n莱特林、帝国、星界军、牛格林 40",
+      "weapon_types": {
+        "掷弹拳套": "远程",
+        "能量槌": "近战",
+        "简易护盾": "近战",
+        "厚重盾牌": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBULLGRYN\n2 6\" 4+ 16\nNAME ATK HIT DMG WR\nGrenadier gauntlet 4 4+ 3/5 Blast 2\"\nPower maul 4 3+ 4/6 Shock\nBrute shield 4 3+ 3/4 -\nSlabshield 4 4+ 3/4 -\nShield: If this operative has a slabshield, it has a 3+ Save stat; if\nit has a brute shield, whenever it’s fighting or retaliating, each of\nyour blocks can be allocated to block two unresolved successes\n(instead of one).\nBrute: Whenever your opponent is selecting a valid target, if\nthis operative has a Conceal order, it cannot use Light terrain\nfor cover. While this can allow this operative to be targeted\n(assuming it’s visible), it doesn’t remove its cover save (if any).\nSlow-witted: You must spend 1 additional AP for this operative to\nperform the Pick Up Marker and mission actions (excluding\nOperate Hatch).\nRATLING , IMPERIUM, ASTRA MILITARUM, BULLGRYN 40"
+    },
+    {
+      "id": "kt-ratlings-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "欧格林-数据卡",
+      "title_en": "OGRYN",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-欧格林-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n欧格林\n2 6\" 5+ 16\n名称攻击命中伤害武器规则\n撕裂枪 4 3+ 4/5 范围 8\" ，重击\n刺刀 4 3+ 4/5 -\n刺刀冲锋：每当这名特工在冲锋行动中结束移动\n时，便可以使位于其控制范围内的一名敌方特工受\n到 D3+1 点伤害。\n粗野：每当您的对手在选择有效目标时，若这名特\n工处于隐匿命令，则它无法使用轻型地形作为掩\n护。尽管这个规则会使这名特工成为目标（假设\n其可见），但这不会导致掩护豁免被移除（如果\n有）。\n迟钝：当这名特工进行拾取标识和任务行动（操作\n舱门除外）时，必须额外花费 1 点 AP。\n莱特林、帝国、星界军、欧格林 40",
+      "weapon_types": {
+        "撕裂枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nOGRYN\n2 6\" 5+ 16\nNAME ATK HIT DMG WR\nRipper gun 4 3+ 4/5 Range 8\", Punishing\nBayonet 4 3+ 4/5 -\nBayonet Charge: Whenever this operative finishes moving during\nthe Charge action, you can inflict D3+1 damage on one enemy\noperative within its control range.\nBrute: Whenever your opponent is selecting a valid target, if\nthis operative has a Conceal order, it cannot use Light terrain\nfor cover. While this can allow this operative to be targeted\n(assuming it’s visible), it doesn’t remove its cover save (if any).\nSlow-witted: You must spend 1 additional AP for this operative to\nperform the Pick Up Marker and mission actions (excluding\nOperate Hatch).\nRATLING , IMPERIUM, ASTRA MILITARUM, OGRYN 40"
+    },
+    {
+      "id": "kt-ratlings-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "莱特林强射手-数据卡",
+      "title_en": "RATLING BIG SHOT",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-莱特林强射手-数据卡.png",
+      "is_back": false,
+      "text": "莱特林强射手 APL 移动豁免耐伤\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n反坦克步枪（机动） 4 3+ 4/4 毁灭 1，重型 (仅限冲刺) ，穿刺 1\n反坦克步枪（静止） 4 2+ 4/2 毁灭 4，重型，穿刺 1，严重\n双拳 3 5+ 1/2 -\n莱特林、帝国、星界军、强射手 28",
+      "weapon_types": {
+        "反坦克步枪（机动）": "远程",
+        "反坦克步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING BIG SHOT\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nTankstopper rifle (mobile) 4 3+ 4/4 Devastating 1, Heavy (Dash only), Piercing 1\nTankstopper rifle (stationary) 4 2+ 4/2 Devastating 4, Heavy, Piercing 1, Severe\nFists 3 5+ 1/2 -\nRATLING , IMPERIUM, ASTRA MILITARUM, BIG SHOT 28"
+    },
+    {
+      "id": "kt-ratlings-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "莱特林爆破手-数据卡",
+      "title_en": "RATLING BOMBER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-莱特林爆破手-数据卡.png",
+      "is_back": false,
+      "text": "莱特林爆破手 APL 移动豁免耐伤\n2 5\" 4+ 6\n名称攻击命中伤害武器规则\n军用爆破物 5 3+ 4/5 范围 3\"，爆炸 1\"，重型 (仅限转移)，有限 1，\n穿刺 1，集中\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 3+ 3/3 毁灭 3，重型\n仿生手臂 3 5+ 3/4 -\n绊线雷：在战斗开始前配置装备时，您可以将最多两枚己方绊线雷标识部署于其他标识、访问点和可穿越\n地形 2\" 外且完全位于己方领地内的位置。当那个标识首次进入敌方特工控制范围内时，结束那名特工的行\n动（如果有），移除那个标识，直到那名特工下一次激活前将其 APL 属性减去 1 点。\n剩余规则请见下一面\n莱特林、帝国、星界军、爆破手 25",
+      "weapon_types": {
+        "军用爆破物": "远程",
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "仿生手臂": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING BOMBER\n2 5\" 4+ 6\nNAME ATK HIT DMG WR\nExplosive arsenal 5 3+ 4/5 Range 3\", Blast 1\", Heavy (Reposition only),\nLimited 1, Piercing 1, Saturate\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 3+ 3/3 Devastating 3, Heavy\nBionic arm 3 5+ 3/4 -\nTripwire: When setting up equipment before the battle, you can set up to two of your Tripwire markers up wholly within your territory\nand more than 2\" from other markers, access points and Accessible terrain. The first time that marker is within an enemy operative’s\ncontrol range, remove that marker, subtract 1 from that operative’s APL stat until the end of its next activation and end its action (if\nany), even if that action’s effects aren’t fulfilled. If it cannot be placed, move it the minimum amount to do so.\nRULES CONTINUE ON OTHER SIDE\nRATLING , IMPERIUM, ASTRA MILITARUM, BOMBER 25"
+    },
+    {
+      "id": "kt-ratlings-01-07",
+      "sequence": 7,
+      "category": "operative-ability",
+      "title_zh": "莱特林爆破手-能力卡",
+      "title_en": "RATLING BOMBER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工能力-莱特林爆破手-能力卡.png",
+      "is_back": false,
+      "text": "莱特林爆破手 APL 移动豁免耐伤\n2 5\" 4+ 6\n地雷：您从通用装备中选择的地雷造成的伤害为\n2D3+3 点伤害，且己方莱特林特工（牛格林和欧\n格林除外）无视其效果（即它们无法触发，也不会\n因此受到伤害）。本规则优先于普通地雷规则。",
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING BOMBER\n2 5\" 4+ 6\nMine: Mines you select from universal equipment inflict 2D3+3\ndamage instead, and friendly RATLING operatives (excluding\nOGRYN and BULLGRYN) are ignored for your mines’ effects\n(i.e. they cannot trigger or take damage from them). This takes\nprecedence over the normal mines rules."
+    },
+    {
+      "id": "kt-ratlings-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "莱特林硬汉-数据卡",
+      "title_en": "RATLING HARDBIT",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-莱特林硬汉-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n莱特林硬汉\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n战斗步枪 4 3+ 3/4 -\n战斗刀具 3 3+ 3/5 平衡\n猎手：这名特工可以在隐匿命令状态下进行冲锋行\n动。若它在拥有隐匿命令的激活中进行了冲锋行\n动，则直到那次激活结束前，其战斗刀具的攻击属\n性增加 1 点并获得“残暴”武器规则。\n潜伏静候：若这名特工在其控制范围内存在轻型或\n重型地形的情况下进行反击时，您将结算首个攻击\n骰（即由防御方替代攻击方进行首次结算）。\n莱特林、帝国、星界军、硬汉 25",
+      "weapon_types": {
+        "战斗步枪": "远程",
+        "战斗刀具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING HARDBIT\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nBattle rifle 4 3+ 3/4 -\nCombat knife 3 3+ 3/5 Balanced\nHunter: This operative can perform the Charge action while it\nhas a Conceal order. If it does so during its activation, until the\nend of that activation, add 1 to the Atk stat of its combat knife\nand that melee weapon has the Brutal weapon rule.\nLie in Wait: Whenever this operative is retaliating while Light\nor Heavy terrain is within its control range, you resolve the first\nattack dice (i.e. defender instead of attacker).\nRATLING , IMPERIUM, ASTRA MILITARUM, HARDBIT 25"
+    },
+    {
+      "id": "kt-ratlings-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "莱特林突袭手-数据卡",
+      "title_en": "RATLING RAIDER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-莱特林突袭手-数据卡.png",
+      "is_back": false,
+      "text": "莱特林突袭手 APL 移动豁免耐伤\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n消声狙击步枪（机动） 4 3+ 3/4 安静\n消声狙击步枪（静止） 4 3+ 3/3 毁灭 2，重型，安静\n匕首 3 4+ 2/3 -\n剩余规则请见下一面\n莱特林、帝国、星界军、突袭手 25",
+      "weapon_types": {
+        "消声狙击步枪（机动）": "远程",
+        "消声狙击步枪（静止）": "远程",
+        "匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING RAIDER\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nSuppressed sniper rifle (mobile) 4 3+ 3/4 Silent\nSuppressed sniper rifle (stationary) 4 3+ 3/3 Devastating 2, Heavy, Silent\nDagger 3 4+ 2/3 -\nRULES CONTINUE ON OTHER SIDE\nRATLING , IMPERIUM, ASTRA MILITARUM, RAIDER 25"
+    },
+    {
+      "id": "kt-ratlings-01-10",
+      "sequence": 10,
+      "category": "operative-ability",
+      "title_zh": "莱特林突袭手-能力卡",
+      "title_en": "RATLING RAIDER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工能力-莱特林突袭手-能力卡.png",
+      "is_back": false,
+      "text": "莱特林突袭手 APL 移动豁免耐伤\n2 5\" 5+ 6\n索荡 1AP\n选择一个位于地形模型上且位于这名特工水平 6\"\n内，对其可见且高于这名特工的一个点。将这名\n特工从杀戮区移除并将其放回完全位于那个点水\n平 6\" 内，不位于敌方特工控制范围内，且从那\n个点可见的可放置位置上。\n这个行动被视为转移行动。这名特工不能在位于\n一名敌方特工控制范围内或在进行了冲锋，后撤\n或射击行动的激活中执行此行动（反之亦然）。\n索荡\n位于\n内\n6\" 内位于 6\"\n抓钩：每当这名特工向上攀爬地形时，您可以将垂\n直距离视为 2\"（无论特工实际移动了多少垂直距\n离）。",
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING RAIDER\n2 5\" 5+ 6\nSLINGSHOT 1AP\nSelect a point on a terrain feature; that point must be visible\nto and within 6\" of this operative. Remove this operative from\nthe killzone and set it back up in a location it can be placed\nwholly within 6 \" horizontally of that point , not within control\nrange of enemy operatives , and with that point visible to it .\nThis action is treated as a Reposition action. This\noperative cannot perform this action while within control\nrange of an enemy operative, or during an activation in which\nit performed the Charge, Fall Back or Shoot action (or\nvice versa).\nSLINGSHOT\nWHOLLY\n6\"\nWITHIN WITHIN\n6\"\nGrappling Hook: Whenever this operative is climbing up, you\ncan treat the vertical distance as 2\" (regardless of how far the\noperative actually moves vertically)."
+    },
+    {
+      "id": "kt-ratlings-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "莱特林潜行客-数据卡",
+      "title_en": "RATLING SNEAK",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-莱特林潜行客-数据卡.png",
+      "is_back": false,
+      "text": "莱特林潜行客 APL 移动豁免耐伤\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n消声狙击步枪（机动） 4 3+ 3/4 安静\n消声狙击步枪（静止） 4 3+ 3/3 毁灭 2，重型，安静\n双拳 3 5+ 1/2 -\n精确瞄准 1AP\n直到这名特工的下一次激活开始前，当它进行\n射击时，敌方特工的遮挡将被无视，并且该特\n工消音狙击步枪的静止数据拥有“致命 5+”武\n器规则。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n躲避：每个转折点一次，在一名敌方特工进行一次\n行动时，您可以进行中断并用这名特工进行一次无\n消耗的冲刺行动。请注意这名特工无法使用“小巧\n灵敏”阵营规则（它获得了本规则作为替代）。\n莱特林、帝国、星界军、潜行客 25",
+      "weapon_types": {
+        "消声狙击步枪（机动）": "远程",
+        "消声狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING SNEAK\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nSuppressed sniper rifle (mobile) 4 3+ 3/4 Silent\nSuppressed sniper rifle (stationary) 4 3+ 3/3 Devastating 2, Heavy, Silent\nFists 3 5+ 1/2 -\nOPTICS 1AP\nUntil the start of this operative’s next activation, whenever\nit’s shooting, enemy operatives cannot be obscured and the\nstationary profile of this operative’s suppressed sniper rifle\nhas the Lethal 5+ weapon rule.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nEvade: Once per turning point, after an enemy operative\nperforms an action, you can interrupt and perform a free Dash\naction with this operative. Note this operative cannot use the\nScarper faction rule (it has this rule instead).\nRATLING , IMPERIUM, ASTRA MILITARUM, SNEAK 25"
+    },
+    {
+      "id": "kt-ratlings-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "莱特林狙击手-数据卡",
+      "title_en": "RATLING SNIPER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-莱特林狙击手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n莱特林狙击手\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 2+ 3/3 毁灭 3，重型\n双拳 3 5+ 1/2 -\n莱特林、帝国、星界军、狙击手 25",
+      "weapon_types": {
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING SNIPER\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy\nFists 3 5+ 1/2 -\nRATLING , IMPERIUM, ASTRA MILITARUM, SNIPER 25"
+    },
+    {
+      "id": "kt-ratlings-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "莱特林观察手-数据卡",
+      "title_en": "RATLING SPOTTER",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-莱特林观察手-数据卡.png",
+      "is_back": false,
+      "text": "莱特林观察手 APL 移动豁免耐伤\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 3+ 3/3 毁灭 3，重型\n双拳 3 5+ 1/2 -\n标定 1AP\n支援。选择对这名特工可见的一名敌方特工。每个转折点一次，当位于这名特工 3\" 内的一名己方莱特\n林特工对那个敌方特工射击时，您便可以使用以下效果：\n• 那名己方特工的射击武器获得“追踪轻型”武器规则。\n• 那名敌方特工的遮挡将被无视。\n这名特工不能在敌方特工的控制范围内执行此行动。\n莱特林、帝国、星界军、观察手 25",
+      "weapon_types": {
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING SPOTTER\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 3+ 3/3 Devastating 3, Heavy\nFists 3 5+ 1/2 -\nSPOT 1AP\nSUPPORT. Select one enemy operative visible to this operative. Until the end of the turning point, whenever a friendly\nRATLING operative within 3\" of this operative is shooting that enemy operative, you can use this effect. If you do:\n• That friendly operative’s ranged weapons have the Seek Light weapon rule.\n• That enemy operative cannot be obscured.\nThis operative cannot perform this action while within control range of an enemy operative.\nRATLING , IMPERIUM, ASTRA MILITARUM, SPOTTER 25"
+    },
+    {
+      "id": "kt-ratlings-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "莱特林贮藏大师-数据卡",
+      "title_en": "RATLING STASHMASTER",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-莱特林贮藏大师-数据卡.png",
+      "is_back": false,
+      "text": "莱特林贮藏大师 APL 移动豁免耐伤\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 3+ 3/3 毁灭 3，重型\n双拳 3 5+ 1/2 -\n灵巧手活：该特工的每次激活中有一次机会，当这\n名特工执行放置标识，拾取标识或一个任务行动\n时，其花费的 AP 减少 1 点。\n库存充裕：若您选择了通用装备中的弹药储备，则\n您可以额外放置一枚弹药储备标识。\n莱特林、帝国、星界军、贮藏大师 25",
+      "weapon_types": {
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING STASHMASTER\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 3+ 3/3 Devastating 3, Heavy\nFists 3 5+ 1/2 -\nLight-fingered: Once during each of this operative’s activations,\nit can perform the Pick Up Marker, Place Marker or a\nmission action for 1 less AP.\nWell Stocked: If you select an Ammo Cache from universal\nequipment, you can set up an additional Ammo Cache marker.\nRATLING , IMPERIUM, ASTRA MILITARUM, STASHMASTER 25"
+    },
+    {
+      "id": "kt-ratlings-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "莱特林窃讯贼-数据卡",
+      "title_en": "RATLING VOX-THIEF",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-莱特林窃讯贼-数据卡.png",
+      "is_back": false,
+      "text": "莱特林窃讯贼 APL 移动豁免耐伤\n2 5\" 5+ 6\n名称攻击命中伤害武器规则\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 3+ 3/3 毁灭 3，重型\n双拳 3 5+ 1/2 -\n截断通讯 1AP\n支援。选择这名特工 6\" 内且可见的一名己方莱\n特林特工。直到它下一次激活结束前，为那名\n特工的 APL 属性增加 1 点。\n这名特工不能在敌方特工的控制范围内执行此\n行动。.\n莱特林、帝国、星界军、窃讯贼 25",
+      "weapon_types": {
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRATLING VOX-THIEF\n2 5\" 5+ 6\nNAME ATK HIT DMG WR\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 3+ 3/3 Devastating 3, Heavy\nFists 3 5+ 1/2 -\nINTERCEPT COMMUNICATIONS 1AP\nSUPPORT. Select one other friendly RATLING\noperative visible to and within 6\" of this operative. Until the\nend of its next activation, add 1 to that operative’s APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nRATLING , IMPERIUM, ASTRA MILITARUM, VOX-THIEF 25"
+    },
+    {
+      "id": "kt-ratlings-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "莱特林杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-莱特林杀戮小队-1.png",
+      "is_back": false,
+      "text": "莱特林杀戮小队\n原型：安全保护，渗透\n特工\n↘ 1 名莱特林安排人特工，装备有以下一种选\n项:\n• 狙击步枪；双拳 • 战斗步枪；双拳\n↘ 10 名莱特林特工，从以下列表进行选择:\n• 战斗恶犬 • 爆破手\n• 牛格林装备有以 • 硬汉\n下一种选项: • 突袭手\n○ 掷弹拳套或能量槌 • 潜行客\n○ 简易护盾或厚重 • 狙击手\n盾牌 • 观察手\n• 欧格林 • 贮藏大师\n• 强射手 • 窃讯贼\n请继续阅读背面",
+      "text_en": "RATLING KILL TEAM\nARCHETYPES: SECURITY, INFILTRATION\nOPERATIVES\n↘ 1 RATLING FIXER operative with one of the\nfollowing options:\n• Battle rifle; fists • Sniper rifle; fists\n↘ 10 RATLING operatives selected from the\nfollowing list:\n• BATTLEMUTT • OGRYN\n• BULLGRYN • BIG SHOT\nwith one option • BOMBER\nfrom each of • HARDBIT\nthe following: • RAIDER\n○ Grenadier • SNEAK\ngauntlet or • SNIPER\npower maul • SPOTTER\n○ Brute shield or • STASHMASTER\nslabshield • VOX-THIEF\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-ratlings-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "莱特林杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-莱特林杀戮小队-2.png",
+      "is_back": true,
+      "text": "带有此标识的特工合计不能选择超过三次。您\n还可以为战队选择一个莱特林计谋，仅需花\n费 0CP 使用，作为选择这类特工的替换方案，\n这种替换至多可进行三次。\n除了牛格林，欧格林和狙击手特工以外，上述的\n每一名特工只能被纳入您的杀戮小队一次。\n一些莱特林规则中会提及“步枪”。步枪武器\n指的是一个名称中包含了“步枪”两字的远程武\n器，例如：狙击步枪，反坦克步枪等。",
+      "text_en": "Other than BULLGRYN, OGRYN and SNIPER\noperatives, your kill team can only include each\noperative on this list once.\nYou cannot select more than three of these\noperatives combined. Up to three times,\ninstead of selecting one of these operatives,\nyou can select one RATLING ploy to cost you\n0CP for the battle.\nSome RATLING rules refer to a ‘rifle’. This\nis a ranged weapon that includes ‘rifle’ in its\nname, e.g. tankstopper rifle, all profiles of a\nsniper rifle, etc."
+    },
+    {
+      "id": "kt-ratlings-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "小巧灵敏",
+      "title_en": "SCARPER",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-小巧灵敏.png",
+      "is_back": false,
+      "text": "莱特林\n阵营规则\n小巧灵敏\n体格不大的莱特林人们行动迅捷，能依靠自己的速\n度和机敏追上或避开敌人。\n在每一名敌方特工的激活后，下一名特工激活前，\n一名己方莱特林特工（牛格林，欧格林和潜行客除\n外）可以进行一次无消耗的冲刺行动，但不能在一\n名敌方特工的 3\" 内结束那次移动，除非在那次移动\n结束时这名己方特工对每一名敌方特工都不可见。\n每一名己方特工在每个转折点中只能使用本阵营规\n则一次，且不能在转折点中的最后一次激活后使用\n本阵营规则。",
+      "text_en": "RATLING\nFACTION RULE\nSCARPER\nDespite their small stature, Ratlings are fleet of foot,\nusing their speed and agility to outpace and evade\ntheir foes.\nAfter each enemy operative’s activation, before\nthe next operative is activated, one friendly\nRATLING operative (excluding BULLGRYN,\nOGRYN and SNEAK) can perform a free Dash\naction, but it cannot end that move within 3\" of\nan enemy operative unless it’s not visible to every\nenemy operative when it ends that move.\nEach friendly operative can only do this once per\nturning point, and cannot do so after the final\nactivation of the turning point."
+    },
+    {
+      "id": "kt-ratlings-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "RATLING",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "莱特林\n标识/指示物指南\n指定目标提前预警精确瞄准\n指示物指示物指示物\n标定指示物军用爆破物绊线雷标识\n指示物\n小巧灵敏躲避指示物好运子弹指示物\n指示物\n赃物口粮指示物",
+      "text_en": "RATLING\nMARKER/TOKEN GUIDE\nTarget Early Warning Optics token\nDesignation token\ntoken\nSpot token Explosive Tripwire\nArsenal token marker\nScarper token Evade token Lucky Round\ntoken\nPurloined Rations token"
+    },
+    {
+      "id": "kt-ratlings-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "狙击阵位",
+      "title_en": "SNIPER POSITIONS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-狙击阵位.png",
+      "is_back": false,
+      "text": "莱特林\n战略计谋\n狙击阵位\n莱特林往往需要花费数小时甚至数日来选定有\n利位置，以确保自己能获得足够的掩护以及能\n够消灭前来敌人的清晰视野。\n当一名己方莱特林特工距离敌方特工 6\" 外且\n位于重型地形的 1\" 内，则其步枪的静止属性\n（如果有）获得“安静”武器属性。",
+      "text_en": "RATLING\nSTRATEGY PLOY\nSNIPER POSITIONS\nRatlings spend hours or even days selecting vantage\npoints, ensuring that any position they take affords them\neffective cover and clear sight lines from which to pick\noff the advancing foe.\nWhenever a friendly RATLING operative is more\nthan 6\" from enemy operatives and within 1\" of\nHeavy terrain, the stationary profile of its rifle (if\nany) has the Silent weapon rule."
+    },
+    {
+      "id": "kt-ratlings-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "精准射击",
+      "title_en": "CRACK SHOTS",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-精准射击.png",
+      "is_back": false,
+      "text": "莱特林\n战略计谋\n精准射击\n据说莱特林能在千米之外将子弹射穿对手的\n眼窝。\n每当一名己方莱特林特工对距离自己 6\" 外的\n一名敌方特工进行射击时，若那名己方特工在\n那次激活中没有进行冲锋，后撤或转移行动，\n或在进行反应时，其步枪获得“平衡”武器属\n性。",
+      "text_en": "RATLING\nSTRATEGY PLOY\nCRACK SHOTS\nIt is said that a Ratling can put a bullet through an\nopponent’s eye socket from more than a thousand\nyards away.\nWhenever a friendly RATLING operative is\nshooting an enemy operative more than 6\" from\nit, if that friendly operative hasn’t performed the\nCharge, Fall Back or Reposition action during\nthe activation, or if it’s a counteraction, its rifle\n(if any) has the Balanced weapon rule. Note that\noperative isn’t restricted from performing those\nactions after shooting."
+    },
+    {
+      "id": "kt-ratlings-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "闪转腾挪",
+      "title_en": "SHIFTY",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-闪转腾挪.png",
+      "is_back": false,
+      "text": "莱特林\n战略计谋\n闪转腾挪\n莱特林人身材矮小，擅长躲避更大的敌人。因\n此他们擅长利用地形和阴影发挥自身优势。\n每当一名拥有隐匿命令的己方莱特林特工（牛\n格林和欧格林除外）处于掩护中时，则其无法被\n选为有效目标，本规则优先于其他所有规则\n（例如地形制高点）",
+      "text_en": "RATLING\nSTRATEGY PLOY\nSHIFTY\nSmall of stature and well used to hiding from larger foes,\nRatlings use terrain and shadow to their advantage.\nWhenever a friendly RATLING operative\n(excluding OGRYN or BULLGRYN) has a Conceal\norder and is in cover, it cannot be selected as\na valid target, taking precedence over all other\nrules (e.g. Seek, Vantage terrain) except being\nwithin 2\"."
+    },
+    {
+      "id": "kt-ratlings-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "前线突袭",
+      "title_en": "FRONTLINE ASSAULT",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-前线突袭.png",
+      "is_back": false,
+      "text": "莱特林\n战略计谋\n前线突袭\n欧格林是野蛮且肌肉发达的士兵，在部署为近\n战士兵时拥有最高效率。\n每当一名己方莱特林牛格林特工或己方莱特林\n欧格林特工在您对手领地内或位于一个目标标\n识 3\" 内进行射击，近战或反击时，其武器便获\n得“平衡”武器属性。",
+      "text_en": "RATLING\nSTRATEGY PLOY\nFRONTLINE ASSAULT\nOgryns are brutish, muscular soldiers who are most\neffective when deployed as close combat troops.\nWhenever a friendly RATLING BULLGRYN or\nfriendly RATLING OGRYN operative within your\nopponent’s territory or within 3\" of an objective\nmarker is shooting, fighting or retaliating, its\nweapons have the Balanced weapon rule."
+    },
+    {
+      "id": "kt-ratlings-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "生存本能",
+      "title_en": "SURVIVAL INSTINCTS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-生存本能.png",
+      "is_back": false,
+      "text": "莱特林\n交战计谋\n生存本能\n由于缺少体力和毅力，莱特林人更依靠自己的\n反应力和本能确保自己免受伤害。\n如果敌方特工对一名己方莱特林特工（牛格林\n和欧格林除外）进行射击或近战且您正使用一\n枚骰子进行格挡时使用此交战计谋。若为普通成\n功，则其可以格挡一个尚未结算的关键成功；若\n为关键成功，则其可以格挡两个尚未结算的成功\n（正常或关键皆可）。",
+      "text_en": "RATLING\nFIREFIGHT PLOY\nSURVIVAL INSTINCTS\nLacking physical strength and fortitude, Ratlings\nrely upon their reflexes and natural instincts to save\nthemselves from harm.\nUse this firefight ploy when an enemy operative\nis shooting against or fighting against a friendly\nRATLING operative (excluding OGRYN or\nBULLGRYN) and you’re allocating a dice to\nblock. If it’s a normal success, it can block\none unresolved critical success; if it’s a critical\nsuccess, it can block two unresolved successes\n(normal or critical)."
+    },
+    {
+      "id": "kt-ratlings-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "精妙狙击",
+      "title_en": "SHARPSHOT",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-精妙狙击.png",
+      "is_back": false,
+      "text": "莱特林\n交战计谋\n精妙狙击\n即便是在最为混乱的战斗中，莱特林人也能识\n别敌人。而这也使得许多士兵由于他们的精妙\n狙击而幸存。\n在一名己方莱特林特工使用步枪进行射击行动\n并正在选择有效目标时使用此交战计谋。若此，\n即使敌方特工控制范围有其他己方莱特林特工\n也不会阻止那名敌方特工被选中。",
+      "text_en": "RATLING\nFIREFIGHT PLOY\nSHARPSHOT\nRatlings can pick out enemies in the thick of even the\nmost chaotic battles. Many soldiers have been saved\nfrom certain death by their precise fire.\nUse this firefight ploy when a friendly RATLING\noperative is performing the Shoot action with a\nrifle and you’re selecting a valid target. Having\nother friendly RATLING operatives within an\nenemy operative’s control range doesn’t prevent\nthat enemy operative from being selected."
+    },
+    {
+      "id": "kt-ratlings-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "偷窃成性",
+      "title_en": "LARCENOUS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-偷窃成性.png",
+      "is_back": false,
+      "text": "莱特林\n交战计谋\n偷窃成性\n莱特林人小巧的身材加上隐匿本能使他们掌握\n了与生俱来的偷窃天赋。\n在一名己方莱特林特工（牛格林和欧格林除\n外）的激活中使用此交战计谋。直到那次激活结\n束前，那名特工在通常需要控制标识才能进行的\n捡起标识或任务行动时无需控制标识（这意味着\n它只需争夺标识），且即便其位于敌方特工控制\n范围内也不会阻止本计谋进行。",
+      "text_en": "RATLING\nFIREFIGHT PLOY\nLARCENOUS\nTheir diminutive size and gift for stealth makes Ratlings\nnaturally skilled thieves.\nUse this firefight ploy during a friendly\nRATLING operative’s activation (excluding\nOGRYN or BULLGRYN). Until the end of that\nactivation, that operative doesn’t have to control\na marker to perform the Pick Up Marker or\nmission actions that usually require this (this\ntakes precedence over that action’s conditions –\nit only needs to contest the marker), and having\nan enemy operative within its control range\ndoesn’t prevent it from doing so."
+    },
+    {
+      "id": "kt-ratlings-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "射击后隐蔽",
+      "title_en": "SHOOT AND HIDE",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-射击后隐蔽.png",
+      "is_back": false,
+      "text": "莱特林\n交战计谋\n射击后隐蔽\n在方位暴露后，狙击手便非常脆弱，因此莱特\n林神射手会悄无声息地多次溜走。\n在一名有交战命令的己方莱特林特工使用步枪\n执行射击行动后使用此交战计谋。若它距离敌方\n特工 3” 以外，或对每一名敌方特工都不可见，\n则您可以将其命令变为隐匿。",
+      "text_en": "RATLING\nFIREFIGHT PLOY\nSHOOT AND HIDE\nA sniper is vulnerable once their position has been\ndetected, thus Ratling sharpshooters are constantly\nsneaking away.\nUse this firefight ploy after a friendly RATLING\noperative that has an Engage order performs the\nShoot action with a rifle. If it’s more than 3\" from\nenemy operatives, or not visible to every enemy\noperative, you can change its order to Conceal."
+    },
+    {
+      "id": "kt-ratlings-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "赃物口粮",
+      "title_en": "PURLOINED RATIONS",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-赃物口粮.png",
+      "is_back": false,
+      "text": "莱特林\n阵营装备\n赃物口粮\n莱特林的贪婪臭名远扬，而任何野战厨房都躲\n不开他们的偷窃巧手。在莱特林中，打出致命\n射击前先用新鲜的蛋白质营养棒果腹的行为极\n为常见。\n每个转折点一次，当一名己方莱特林特工使用\n一件步枪进行射击时，在您掷攻击骰后，您可以\n使用本规则。若使用，那么直到流程结束前，该\n特工装备的步枪的命中属性提升 1。您可以在行\n动中提升该命中属性（优先级高于核心规则）。",
+      "text_en": "RATLING\nFACTION EQUIPMENT\nPURLOINED RATIONS\nRatlings have a well-earned reputation for greed. No\nfield kitchen is safe from their thieving hands. It is not\nuncommon for a Ratling to settle a rumbling belly with\na link of freshly liberated protein reconstitution prior to\nfiring a killing shot.\nOnce per turning point, when a friendly RATLING\noperative is shooting with a rifle and you’ve rolled\nyour attack dice, you can use this rule. If you do,\nimprove the Hit stat of its rifle by 1 until the end\nof that sequence. This can allow you to apply\nthe Hit stat change during an action (this takes\nprecedence over the core rules)."
+    },
+    {
+      "id": "kt-ratlings-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "好运子弹",
+      "title_en": "LUCKY ROUND",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-好运子弹.png",
+      "is_back": false,
+      "text": "莱特林\n阵营装备\n好运子弹\n许多莱特林有着迷信天性，他们往往会将一枚\n好运子弹留着用于对付巨大或强力敌人。这往\n往会击杀误判形势的敌人，或是造就了一次精\n妙的射击。\n每个转折点一次，当一名己方莱特林特工使用\n步枪进行射击，在您掷攻击骰后，您可以使用\n本规则。若此，那个武器在那个步骤中拥有“严\n重”武器规则。",
+      "text_en": "RATLING\nFACTION EQUIPMENT\nLUCKY ROUND\nSuperstitious by nature, many Ratlings hold back a lucky\nround with which to target a large or powerful foe, kill\nan enemy that’s wronged them, or make a particularly\ntricky shot.\nOnce per turning point, when a friendly RATLING\noperative is shooting with a rifle and you’ve rolled\nyour attack dice, you can use this rule. If you do,\nthat weapon has the Severe weapon rule until the\nend of that sequence."
+    },
+    {
+      "id": "kt-ratlings-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "窃取资财",
+      "title_en": "STOLEN GOODS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-窃取资财.png",
+      "is_back": false,
+      "text": "莱特林\n阵营装备\n窃取资财\n莱特林的“手活”可是出了名的灵巧，足以在\n敌人眼皮底下获取情报和设备。\n在选择特工步骤结束时，掷一枚 D3，并执行掷\n骰结果对应的效果：\n• 1，您损失 1 点指挥点数。\n• 2，您获得 1 点指挥点数。\n• 3，您的对手损失 1 点指挥点数。",
+      "text_en": "RATLING\nFACTION EQUIPMENT\nSTOLEN GOODS\nRatlings are notoriously light-fingered, capable of\nseizing intel and equipment from under the noses of\ntheir foes.\nAt the end of the Select Operatives step, roll one\nD3. If the result is:\n• 1, you lose 1CP.\n• 2, you gain 1CP.\n• 3, your opponent loses 1CP."
+    },
+    {
+      "id": "kt-ratlings-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "粗糙护甲",
+      "title_en": "IMPROVISED ARMOUR",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-粗糙护甲.png",
+      "is_back": false,
+      "text": "莱特林\n阵营装备\n粗糙护甲\n欧格林的庞大体型导致珍贵的标准护甲难以进\n行适配。因此他们多数都会用损毁载具的坦克\n履带以及厚重装甲制成的临时板材保护自己。\n每当一名特工对一名己方莱特林牛格林特工或\n莱特林欧格林特工进行射击时，防御骰结果为\n5+便为关键成功。",
+      "text_en": "RATLING\nFACTION EQUIPMENT\nIMPROVISED ARMOUR\nSuch is the size of Ogryns that precious little\nstandard-issue armour fits their bulky frames. Most are\noutfitted instead with makeshift plates forged from thick\narmour and tank tracks ripped from destroyed vehicles.\nWhenever an operative is shooting a friendly\nRATLING BULLGRYN or friendly RATLING\nOGRYN operative, defence dice results of 5+ are\ncritical successes."
+    }
+  ]
+}

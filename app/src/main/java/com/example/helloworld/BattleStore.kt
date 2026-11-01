@@ -35,6 +35,7 @@ class BattleStore(context: Context) {
     fun active(): BattleRecord? = preferences.getString(KEY_ACTIVE_BATTLE, null)
         ?.let(::load)
         ?.takeUnless { it.completed }
+        ?: all().firstOrNull { !it.completed }
 
     /** What the next undo would revert, for the undo button label. */
     fun undoPreview(battleId: String): String? {

@@ -1,0 +1,906 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-PHOBOS_STRIKE_TEAM",
+  "team_name_zh": "恐惧突袭小队",
+  "team_name_en": "Phobos Strike Team",
+  "source_pdf": "最新杀戮小队规则更新/恐惧突袭小队 Phobos Strike Team 杀戮小队规则.pdf",
+  "source_pdf_sha256": "cca01e2b97e1bbe1a1367c3698d6e3aa66f032170c96dfb65bf41b3826cb29bf",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 33,
+    "operative": 13,
+    "operative-ability": 1,
+    "team-selection": 2,
+    "faction-rule": 4,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-phobos_strike_team-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "渗透者军士-数据卡",
+      "title_en": "INFILTRATOR SERGEANT",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-渗透者军士-数据卡.png",
+      "is_back": false,
+      "text": "渗透者军士 APL 移动豁免耐伤\n3 7\" 3+ 13\n名称攻击命中伤害武器规则\n神射手爆矢卡宾枪 4 3+ 3/4 致命 5+\n双拳 4 3+ 3/4 -\n战术优势：在每场战斗中，您可以各进行一次以下行动。\n• 在进行拼骰来判断先手权时，如果该特工位于杀戮区内，那么您可以重掷您的 D6。\n• 在使用一个交战计谋时，如果该特工是计谋指定的恐惧突袭小队特工（如果该特工通过“指挥重掷”计\n谋重掷攻击或防御骰）；或者在使用“耐心埋伏”交战计谋时，该特工就绪且不位于敌方特工控制范围\n内，那么这次计谋消耗 0CP。\n恐惧突袭小队、帝国、阿斯塔特修会、领袖、渗透者、军士 32",
+      "weapon_types": {
+        "神射手爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR SERGEANT\n3 7\" 3+ 13\nNAME ATK HIT DMG WR\nMarksman bolt carbine 4 3+ 3/4 Lethal 5+\nFists 4 3+ 3/4 -\nTactical Advantage: You can do each of the following once per battle:\n• After rolling-off to decide initiative, if this operative is in the killzone, you can re-roll your dice.\n• You can use a firefight ploy for 0CP if this is the specified PHOBOS STRIKE TEAM operative (including Command Re-roll if the\nattack or defence dice was rolled for this operative), or the Patient Ambush firefight ploy for 0CP if this operative is ready and not\nwithin control range of enemy operatives.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, LEADER, INFILTRATOR, SERGEANT 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "渗透者通讯兵-数据卡",
+      "title_en": "INFILTRATOR COMMSMAN",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-渗透者通讯兵-数据卡.png",
+      "is_back": false,
+      "text": "渗透者通讯兵 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n神射手爆矢卡宾枪 4 3+ 3/4 致命 5+\n双拳 4 3+ 3/4 -\n战略监视：在每个战略阶段的就绪步骤中，在您获\n得 CP 时，如果该特工处于杀戮区内，且不位于敌\n方特工的控制范围内，那么您可以使用本规则。\n若这么做，掷一枚 D6：若结果为 4+，您获得额\n外 1CP。\n通讯阵列：每个转折点限一次，在一名己方恐惧\n突袭小队特工的激活或反应期间，在那名特工\n执行行动之前或之后，如果该特工位于杀戮区\n内，那么您可以更换一个在当前转折点中使用的\n战略计谋（这么做不会消耗任何 CP)。\n恐惧突袭小队、帝国、阿斯塔特修会、渗透者、通讯兵 32",
+      "weapon_types": {
+        "神射手爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR COMMSMAN\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nMarksman bolt carbine 4 3+ 3/4 Lethal 5+\nFists 4 3+ 3/4 -\nStrategic Oversight: In the Ready step of each Strategy phase, when you gain CP, if this operative is in the killzone and isn’t within\ncontrol range of enemy operatives, you can use this rule. If you do, roll one D6: on a 4+, you gain one additional CP.\nComms Array: Once per turning point, during a friendly PHOBOS STRIKE TEAM operative’s activation or counteraction, before\nor after it performs an action, if this operative is in the killzone, you can change one strategy ploy you’ve used this turning point (it\ndoesn’t cost you any CP to do so).\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INFILTRATOR, COMMSMAN 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "渗透者基因医生-数据卡",
+      "title_en": "INFILTRATOR HELIX ADEPT",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-渗透者基因医生-数据卡.png",
+      "is_back": false,
+      "text": "渗透者基因医生 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n神射手爆矢卡宾枪 4 3+ 3/4 致命 5+\n双拳 4 3+ 3/4 -\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方恐惧突袭小队特工将被残废时，\n如果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方\n特工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工\n可以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名\n特工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，\n那么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时\n使用此规则。\n请继续阅读背面规则\n恐惧突袭小队、帝国、阿斯塔特修会、医疗、渗透者、基因医生 32",
+      "weapon_types": {
+        "神射手爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR HELIX ADEPT\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nMarksman bolt carbine 4 3+ 3/4 Lethal 5+\nFists 4 3+ 3/4 -\nMedic!: The first time during each turning point that another friendly PHOBOS STRIKE TEAM operative would be incapacitated\nwhile visible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range of\nan enemy operative. If you do, that friendly operative isn’t incapacitated, has D3 wounds remaining and cannot be incapacitated for\nthe remainder of the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that\nmove within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations\nrespectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this\noperative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, MEDIC, INFILTRATOR, HELIX ADEPT 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "渗透者基因医师-能力卡",
+      "title_en": "INFILTRATOR HELIX ADEPT",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-渗透者基因医师-能力卡.png",
+      "is_back": false,
+      "text": "渗透者基因医师 APL 移动豁免耐伤\n3 7\" 3+ 12\n螺旋臂铠 1AP\n选择一个位于该特工控制范围的己方恐惧突袭小\n队特工，那名特工回复最多 D3+3 点失去的耐\n伤。选择的特工不能是在转折点中成为“医疗\n兵！”技能目标的特工。\n该特工不能在敌方特工的交战范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR HELIX ADEPT\n3 7\" 3+ 12\nHELIX GAUNTLET 1AP\nSelect one friendly PHOBOS STRIKE TEAM operative\nwithin this operative’s control range to regain up to D3+3 lost\nwounds. It cannot be an operative that the Medic! rule was\nused on during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-phobos_strike_team-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "渗透者破坏兵-数据卡",
+      "title_en": "INFILTRATOR SABOTEUR",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-渗透者破坏兵-数据卡.png",
+      "is_back": false,
+      "text": "渗透者破坏兵 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n神射手爆矢卡宾枪 4 3+ 3/4 致命 5+\n远程引爆器 4 2+ 5/6 重型（仅限冲刺）、有限 1、\n穿刺 1、安静、引爆*\n双拳 4 3+ 3/4 -\n*引爆：不要选择有效目标。作为替代，对己方炸弹标识 2\"\n内的每一名特工进行射击，除非范围内的特工与标识之间存\n在完全阻碍的重型地形模型。每一名被射击的特工无法拥有\n掩护或者被遮挡。按照您所决定的顺序来为每一次流程分别\n进行掷骰。若己方炸弹标识不位于杀戮区，则您不能选择该\n武器。在该行动结束时，将己方炸弹标识移出杀戮区。在\n一个使用近距离战斗规则的杀戮区中（如杀戮区：墓穴世\n界），本武器拥有“致命 5+”武器规则。\n设置炸弹：该特工携带一枚己方的炸弹标识。特工\n可以对这个标识执行拾取标识行动，并且在该特工\n对该标识使用放置标识行动时，该特工可以立即在\n之后执行一次无消耗的冲刺行动。\n恐惧突袭小队、帝国、阿斯塔特修会、渗透者、破坏兵 32",
+      "weapon_types": {
+        "神射手爆矢卡宾枪": "远程",
+        "远程引爆器": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR SABOTEUR\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nMarksman bolt carbine 4 3+ 3/4 Lethal 5+\nRemote detonator 4 2+ 5/6 Heavy (Dash only), Limited 1,\nPiercing 1, Silent, Detonate*\nFists 4 3+ 3/4 -\nPlant Explosives: This operative is carrying your Explosives marker. It can perform the Pick Up Marker action on that marker, and\nwhenever it performs the Place Marker action on that marker, it can immediately perform a free Dash action.\n*Detonate: Don’t select a valid target. Instead, shoot against each operative within 2\" of your Explosives marker, unless Heavy terrain\nis wholly intervening between that operative and that marker. Each of those operatives cannot be in cover or obscured. Roll each\nsequence separately in an order of your choice. This weapon cannot be selected if your Explosives marker isn’t in the killzone. At the\nend of the action, remove your Explosives marker from the killzone. In a killzone that uses the close quarters rules (e.g. Killzone: Tomb\nWorld), this weapon has the Lethal 5+ weapon rule.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INFILTRATOR, SABOTEUR 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "渗透者老兵-数据卡",
+      "title_en": "INFILTRATOR VETERAN",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-渗透者老兵-数据卡.png",
+      "is_back": false,
+      "text": "渗透者老兵 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n特制爆矢卡宾枪 4 3+ 3/4 特制*\n双拳 4 3+ 3/4 -\n*特制：在选择特工步骤结束时，如果该特工被选择部\n署，那么选择最多以下两种武器规则，该武器在战斗\n中拥有被选择的规则：平衡、致命 5+、关键穿刺 1、\n撕裂、集中。\n恐惧突袭小队、帝国、阿斯塔特修会、渗透者、老兵 32",
+      "weapon_types": {
+        "特制爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR VETERAN\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nCustom bolt carbine 4 3+ 3/4 Custom*\nFists 4 3+ 3/4 -\n*Custom: At the end of the Select Operatives step, if this\noperative is selected for deployment, select up to two of the\nfollowing weapon rules for this weapon to have for the battle:\nBalanced, Lethal 5+, Piercing Crits 1, Rending, Saturate.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INFILTRATOR, VETERAN 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "渗透者破讯兵-数据卡",
+      "title_en": "INFILTRATOR VOXBREAKER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-渗透者破讯兵-数据卡.png",
+      "is_back": false,
+      "text": "渗透者破讯兵 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n神射手爆矢卡宾枪 4 3+ 3/4 致命 5+\n双拳 4 3+ 3/4 -\n破讯：当敌方特工位于该特工的 6\" 扫描 1AP\n内时，您的对手不能重掷那名特工\n直到该特工的下一次激活开始或残废前（以先触发的条件为准），每\n的攻击或防御骰。\n当一名己方恐惧突袭小队特工对位于该特工 8\" 内的敌方特工进行\n射击时，那名敌方特工无法被遮挡；如果射击的己方特工是一名入侵\n者，那么特工的远程武器拥有“追踪轻型”武器规则。\n该特工不能在敌方特工的控制范围内执行此行动。\n恐惧突袭小队、帝国、阿斯塔特修会、渗透者、破讯兵 32",
+      "weapon_types": {
+        "神射手爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR VOXBREAKER\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nMarksman bolt carbine 4 3+ 3/4 Lethal 5+\nFists 4 3+ 3/4 -\nVoxbreak: Whenever an enemy operative AUSPEX SCAN 1AP\nis within 6\" of this operative, your\nUntil the start of this operative’s next activation or until it’s incapacitated\nopponent cannot re-roll their attack or\n(whichever comes first), whenever a friendly PHOBOS STRIKE TEAM\ndefence dice for that operative.\noperative is shooting an enemy operative within 8\" of this operative, that enemy\noperative cannot be obscured; if that friendly operative is an INCURSOR, its\nranged weapons also have the Seek Light weapon rule.\nThis operative cannot perform this action while within control range of an\nenemy operative.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INFILTRATOR, VOXBREAKER 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "渗透者战士-数据卡",
+      "title_en": "INFILTRATOR WARRIOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-渗透者战士-数据卡.png",
+      "is_back": false,
+      "text": "渗透者战士 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n神射手爆矢卡宾枪 4 3+ 3/4 致命 5+\n双拳 4 3+ 3/4 -\n先锋：每个转折点限一次，一名拥有本规则的己方恐\n惧突袭小队特工在执行拾取标识或任务行动时可以\n少消耗 1AP。\n恐惧突袭小队、帝国、阿斯塔特修会、渗透者、战士 32",
+      "weapon_types": {
+        "神射手爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINFILTRATOR WARRIOR\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nMarksman bolt carbine 4 3+ 3/4 Lethal 5+\nFists 4 3+ 3/4 -\nVanguard: Once per turning point, one friendly PHOBOS\nSTRIKE TEAM operative with this rule can perform the Pick\nUp Marker or a mission action for 1 less AP.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INFILTRATOR, WARRIOR 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "入侵者军士-数据卡",
+      "title_en": "INCURSOR SERGEANT",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-入侵者军士-数据卡.png",
+      "is_back": false,
+      "text": "入侵者军士 APL 移动豁免耐伤\n3 7\" 3+ 13\n名称攻击命中伤害武器规则\n全知者爆矢卡宾枪 4 3+ 3/4 集中\n双拳 4 3+ 3/4 -\n战术优势：在每场战斗中，您可以各进行一次以下行动。\n• 在进行拼骰来判断先手权时，如果该特工位于杀戮区内，那么您可以重掷您的 D6。\n• 在使用一个交战计谋时，如果该特工是计谋指定的恐惧突袭小队特工（如果该特工通过“指挥重掷”计\n谋重掷攻击或防御骰）；或者在使用“耐心埋伏”交战计谋时，该特工就绪且不位于敌方特工控制范围\n内，那么这次计谋消耗 0CP。\n恐惧突袭小队、帝国、阿斯塔特修会、领袖、入侵者、军士 32",
+      "weapon_types": {
+        "全知者爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINCURSOR SERGEANT\n3 7\" 3+ 13\nNAME ATK HIT DMG WR\nOcculus bolt carbine 4 3+ 3/4 Saturate\nFists 4 3+ 3/4 -\nTactical Advantage: You can do each of the following once per battle:\n• After rolling-off to decide initiative, if this operative is in the killzone, you can re-roll your dice.\n• You can use a firefight ploy for 0CP if this is the specified PHOBOS STRIKE TEAM operative (including Command Re-roll if the\nattack or defence dice was rolled for this operative), or the Patient Ambush firefight ploy for 0CP if this operative is ready and not\nwithin control range of enemy operatives.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, LEADER, INCURSOR, SERGEANT 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "入侵者神射手-数据卡",
+      "title_en": "INCURSOR MARKSMAN",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-入侵者神射手-数据卡.png",
+      "is_back": false,
+      "text": "入侵者神射手 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n追猎者型神射手爆矢卡宾枪 4 2+ 3/4 致命 5+、穿刺 1\n双拳 4 3+ 3/4 -\n监视目标：无论身处哪个杀戮区，该特工都可以在其\n激活中执行戒备行动（参见《杀戮小队》核心规则书\n中的近距离战斗规则）。该特工可以在拥有隐匿命令\n时执行戒备行动，但是在您通过打断来执行无消耗\n的近战或射击行动时，您必须将该特工的命令变为\n交战命令。\n恐惧突袭小队、帝国、阿斯塔特修会、入侵者、神射手 32",
+      "weapon_types": {
+        "追猎者型神射手爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINCURSOR MARKSMAN\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nStalker marksman bolt carbine 4 2+ 3/4 Lethal 5+, Piercing 1\nFists 4 3+ 3/4 -\nTrack Target: This operative can perform the Guard action\nduring its activation regardless of the killzone (see close quarters\nrules, Kill Team Core Book). It can perform the Guard action\nwhile it has a Conceal order, but when you perform the free\nShoot or Fight action during the interruption, you must change\nits order to Engage.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INCURSOR, MARKSMAN 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "入侵者布雷兵-数据卡",
+      "title_en": "INCURSOR MINELAYER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-入侵者布雷兵-数据卡.png",
+      "is_back": false,
+      "text": "入侵者布雷兵 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n全知者爆矢卡宾枪 4 3+ 3/4 集中\n双拳 4 3+ 3/4 -\n干扰地雷：该特工携带有一枚己方的干扰地雷标识。\n该特工可以对这枚标识执行拾取标识行动，但是这\n枚标识不能被放置在敌方特工的控制范围内（如果\n该特工在携带该标识的期间被残废，那么该标识不\n能被放置，将其与特工一同移除)。\n感应式地雷：当己方的干扰地雷标识首次位于另一名\n特工的控制范围内时，将该标识移除，直到那名特工的\n下一次激活结束前，其 APL 属性减少 1 点，并对其造\n成 2D3+3 点伤害；如果特工没有因此残废，那么结束\n其执行的行动（若有)，就算行动的效果没有被满足。\n如果那名特工因此不能被放置，那么移动最短的距离\n来满足放置条件。请注意，该特工忽略此规则的效果\n（该特工不会触发该标识，也不会受到其造成的伤\n害)。\n恐惧突袭小队、帝国、阿斯塔特修会、入侵者、布雷兵 32",
+      "weapon_types": {
+        "全知者爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINCURSOR MINELAYER\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nOcculus bolt carbine 4 3+ 3/4 Saturate\nFists 4 3+ 3/4 -\nHaywire Mine: This operative is carrying your Haywire Mine\nmarker. It can perform the Pick Up Marker action on that\nmarker, but that marker cannot be placed within an enemy\noperative’s control range (if this operative is incapacitated while\ncarrying that marker and that marker cannot be placed, it’s\nremoved with this operative).\nProximity Mine: The first time your Haywire Mine marker is\nwithin another operative’s control range, remove that marker,\nsubtract 1 from that operative’s APL stat until the end of\nits next activation, and inflict 2D3+3 damage on it; if it isn’t\nincapacitated, end its action (if any), even if that action’s effects\naren’t fulfilled. If it cannot be placed, move it the minimum\namount to do so. Note that this operative is ignored for these\neffects (i.e. it cannot set it off or take damage from that marker).\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INCURSOR, MINELAYER 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "入侵者战士-数据卡",
+      "title_en": "INCURSOR WARRIOR",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-入侵者战士-数据卡.png",
+      "is_back": false,
+      "text": "入侵者战士 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n全知者爆矢卡宾枪 4 3+ 3/4 集中\n双拳 4 3+ 3/4 -\n先锋：每个转折点限一次，一名拥有本规则的己方恐\n惧突袭小队特工在执行拾取标识或任务行动时可以\n少消耗 1AP。\n恐惧突袭小队、帝国、阿斯塔特修会、入侵者、战士 32",
+      "weapon_types": {
+        "全知者爆矢卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINCURSOR WARRIOR\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nOcculus bolt carbine 4 3+ 3/4 Saturate\nFists 4 3+ 3/4 -\nVanguard: Once per turning point, one friendly PHOBOS\nSTRIKE TEAM operative with this rule can perform the Pick\nUp Marker or a mission action for 1 less AP.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, INCURSOR, WARRIOR 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "掠夺者军士-数据卡",
+      "title_en": "REIVER SERGEANT",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-掠夺者军士-数据卡.png",
+      "is_back": false,
+      "text": "掠夺者军士 APL 移动豁免耐伤\n3 7\" 3+ 13\n名称攻击命中伤害武器规则\n爆矢卡宾枪 4 3+ 3/4 精准 1\n特种爆矢手枪 4 3+ 3/4 距离 8\"、穿刺 1\n格斗刀 5 3+ 4/5 -\n双拳 4 3+ 3/4 -\n重力伞与爪钩发射器：在该特工向上进行攀爬时，\n您可以将其移动的垂直距离视作为 2\"（无论特工实\n际移动的垂直距离是多少)。每当该特工进行跳落\n时，无视垂直距离。\n战术优势：在每场战斗中，您可以各进行一次以下\n行动。\n• 在进行拼骰来判断先手权时，如果该特工位于杀\n戮区内，那么您可以重掷您的 D6。\n• 在使用一个交战计谋时，如果该特工是计谋指定\n的恐惧突袭小队特工（如果该特工通过“指挥重\n掷”计谋重掷攻击或防御骰）；或者在使用“耐心\n埋伏”交战计谋时，该特工就绪且不位于敌方特工\n控制范围内，那么这次计谋消耗 0CP。\n恐惧突袭小队、帝国、阿斯塔特修会、领袖、掠夺者、军士 32",
+      "weapon_types": {
+        "爆矢卡宾枪": "远程",
+        "特种爆矢手枪": "远程",
+        "格斗刀": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nREIVER SERGEANT\n3 7\" 3+ 13\nNAME ATK HIT DMG WR\nBolt carbine 4 3+ 3/4 Accurate 1\nSpecial issue bolt pistol 4 3+ 3/4 Range 8\", Piercing 1\nCombat knife 5 3+ 4/5 -\nFists 4 3+ 3/4 -\nGrav-chute and Grapnel Launcher: Whenever this operative is climbing up, you can treat the vertical distance as 2\" (regardless of\nhow far the operative actually moves vertically). Whenever this operative is dropping, ignore the vertical distance.\nTactical Advantage: You can do each of the following once per battle:\n• After rolling-off to decide initiative, if this operative is in the killzone, you can re-roll your dice.\n• You can use a firefight ploy for 0CP if this is the specified PHOBOS STRIKE TEAM operative (including Command Re-roll if the\nattack or defence dice was rolled for this operative), or the Patient Ambush firefight ploy for 0CP if this operative is ready and not\nwithin control range of enemy operatives.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, LEADER, REIVER, SERGEANT 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "掠夺者战士-数据卡",
+      "title_en": "REIVER WARRIOR",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-掠夺者战士-数据卡.png",
+      "is_back": false,
+      "text": "掠夺者战士 APL 移动豁免耐伤\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n爆矢卡宾枪 4 3+ 3/4 精准 1\n特种爆矢手枪 4 3+ 3/4 距离 8”、穿刺 1\n格斗刀 5 3+ 4/5 -\n双拳 4 3+ 3/4 -\n重力伞与爪钩发射器：在该特工向上进行攀爬时，\n您可以将其移动的垂直距离视作为 2\"（无论特工实\n际移动的垂直距离是多少)。每当该特工进行跳落\n时，无视垂直距离。\n先锋：每个转折点限一次，一名拥有本规则的己方恐\n惧突袭小队特工在执行拾取标识或任务行动时可以\n少消耗 1AP。\n恐惧突袭小队、帝国、阿斯塔特修会、掠夺者、战士 32",
+      "weapon_types": {
+        "爆矢卡宾枪": "远程",
+        "特种爆矢手枪": "远程",
+        "格斗刀": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nREIVER WARRIOR\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nBolt carbine 4 3+ 3/4 Accurate 1\nSpecial issue bolt pistol 4 3+ 3/4 Range 8\", Piercing 1\nCombat knife 5 3+ 4/5 -\nFists 4 3+ 3/4 -\nGrav-chute and Grapnel Launcher: Whenever this operative is\nclimbing up, you can treat the vertical distance as 2\" (regardless\nof how far the operative actually moves vertically). Whenever this\noperative is dropping, ignore the vertical distance.\nVanguard: Once per turning point, one friendly PHOBOS\nSTRIKE TEAM operative with this rule can perform the Pick\nUp Marker or a mission action for 1 less AP.\nPHOBOS STRIKE TEAM , IMPERIUM, ADEPTUS ASTARTES, REIVER, WARRIOR 32"
+    },
+    {
+      "id": "kt-phobos_strike_team-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "恐惧突袭小队杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-恐惧突袭小队杀戮小队-1.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n杀戮小队\n原型: 渗透、侦察\n特工\n↘ 1 名恐惧突袭小队特工，从以下列表中选择:\n• 渗透者军士\n• 入侵者军士\n• 掠夺者军士，装备有以下一种选项：\n○ 特种爆矢手枪；格斗刀\n○ 爆矢卡宾枪；双拳\n↘ 5 名恐惧突袭小队特工，从以下列表中选择:\n• 渗透者通讯兵\n• 渗透者基因医生\n• 渗透者破坏兵\n• 渗透者老兵\n• 渗透者破讯兵\n• 渗透者战士\n• 入侵者神射手\n• 入侵者布雷兵\n请继续阅读背面规则",
+      "text_en": "PHOBOS STRIKE TEAM\nKILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 PHOBOS STRIKE TEAM operative selected\nfrom the following list:\n• INFILTRATOR SERGEANT\n• INCURSOR SERGEANT\n• REIVER SERGEANT with one of the\nfollowing options:\n○ Special issue bolt pistol; combat knife\n○ Bolt carbine; fists\n↘ 5 PHOBOS STRIKE TEAM operatives selected\nfrom the following list:\n• INFILTRATOR COMMSMAN\n• INFILTRATOR HELIX ADEPT\n• INFILTRATOR SABOTEUR\n• INFILTRATOR VETERAN\n• INFILTRATOR VOXBREAKER\n• INFILTRATOR WARRIOR\n• INCURSOR MARKSMAN\n• INCURSOR MINELAYER\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-phobos_strike_team-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "恐惧突袭小队杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-恐惧突袭小队杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 入侵者战士\n• 掠夺者战士，装备有以下一种选项：\n○ 特种爆矢手枪；格斗刀\n○ 爆矢卡宾枪；双拳\n除了战士特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。",
+      "text_en": "• INCURSOR WARRIOR\n• REIVER WARRIOR with one of the\nfollowing options:\n○ Special issue bolt pistol; combat knife\n○ Bolt carbine; fists\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-phobos_strike_team-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "全方位扰频器",
+      "title_en": "OMNI-SCRAMBLER",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-全方位扰频器.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营规则\n全方位扰频器\n安装在背包上的全方位扰频器能够干扰敌军\n的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区\n内）。选择对一名己方渗透者特工可见的一名敌\n方特工，如果是一名破讯兵特工，则选择一名位\n于其 6\" 内的敌方特工。在该转折点的交战阶段\n中，那个敌方特工不能被激活或者执行行动，直\n到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用\n时位于杀戮区中的己方渗透者特工数量的敌方\n特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION RULE\nOMNI-SCRAMBLER\nBackpack-mounted omni-scramblers serve to disrupt\nenemy communications.\nSTRATEGIC GAMBIT if a friendly INFILTRATOR\noperative is in the killzone. Select one enemy\noperative visible to a friendly INFILTRATOR\noperative, or within 6\" of a friendly VOXBREAKER\noperative. In the Firefight phase of this turning\npoint, that enemy operative cannot be activated\nor perform actions until one of the following\nis true:\n• Your opponent has activated a number of\nenemy operatives equal to the number of\nfriendly INFILTRATOR operatives in the killzone\nwhen this STRATEGIC GAMBIT was used.\n• It’s the last enemy operative to be activated."
+    },
+    {
+      "id": "kt-phobos_strike_team-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "恐惧",
+      "title_en": "TERROR",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-恐惧.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营规则\n恐惧\n星际战士掠夺者是专门的恐惧部队，他们使\n用骷髅面具、震荡手雷和受通讯强化的怒吼\n来惊吓敌人。\n在一名敌方特工位于任何己方掠夺者特工的 3\"\n内时，您的对手必须消耗额外 1AP 才能让那名\n敌方特工执行拾取标识或者任务行动。\n在判断对一枚标识的控制权时，如果有至少一名\n争夺标识的敌方特工位于己方掠夺者特工的 3\"\n内，那么将争夺标识的敌方特工的 APL 属性总\n和视作为比原本低 1 点。请注意，这不是对 APL\n属性的修改，因此任何修改效果会与本规则的效\n果叠加。",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION RULE\nTERROR\nDedicated terror troops, Space Marine Reivers utilise\nskull masks, shock grenades and vox-enhanced roars to\nterrify their victims.\nWhenever an enemy operative is within 3\" of\nfriendly REIVER operatives, your opponent must\nspend 1 additional AP for that enemy operative to\nperform the Pick Up Marker and mission actions.\nWhenever determining control of a marker,\ntreat the total APL stat of enemy operatives\nthat contest it as 1 lower if at least one of those\nenemy operatives is within 3\" of friendly REIVER\noperatives. Note this isn’t a change to the APL\nstat, so any changes are cumulative with this."
+    },
+    {
+      "id": "kt-phobos_strike_team-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "阿斯塔特",
+      "title_en": "ASTARTES",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-阿斯塔特.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营规则\n阿斯塔特\n这些经受了基因强化的超人们的存在意义只\n有一个：战争。\n在每一名己方恐惧突袭小队特工的激活期间，\n特工可以执行两次近战行动或者两次射击行动。\n如果选择执行两次射击行动，那么其中至少有一\n次必须选择使用一件爆矢武器进行攻击。一件爆\n矢武器是任何名称中存在“爆矢”一词的远程武\n器，例如神射手爆矢卡宾枪、特种爆矢手枪等。\n每一名己方恐惧突袭小队特工可以进行反应，\n无论其拥有的命令。",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION RULE\nASTARTES\nThese genetically modified superhumans are made for\none purpose: war.\nDuring each friendly PHOBOS STRIKE TEAM\noperative’s activation, it can perform either two\nShoot actions or two Fight actions. If it’s two\nShoot actions, a bolt weapon must be selected\nfor at least one of them. A bolt weapon is any\nranged weapon that includes ‘bolt’ in its name,\ne.g. marksman bolt carbine, special issue bolt\npistol, etc.\nEach friendly PHOBOS STRIKE TEAM operative\ncan counteract regardless of its order."
+    },
+    {
+      "id": "kt-phobos_strike_team-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "多光谱阵列",
+      "title_en": "MULTI-SPECTRUM ARRAY",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-多光谱阵列.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营规则\n多光谱阵列\n多光谱阵列能够将信息传入持有者护甲的自\n动感知器中，帮助揭示隐藏的敌人。\n每当己方入侵者特工进行射击时，敌方特工不能\n被遮挡。",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION RULE\nMULTI-SPECTRUM ARRAY\nFeeding into the auto-senses of the bearer’s armour, the\nmulti-spectrum array’s powerful augurs help to reveal\nhidden foes.\nWhenever a friendly INCURSOR operative is\nshooting, enemy operatives cannot be obscured."
+    },
+    {
+      "id": "kt-phobos_strike_team-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "PHOBOS STRIKE TEAM",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n标识/指示物指南\n全方位扰\n先锋\n频器\n指示物\n指示物\n战术优势\n炸弹标识\n指示物\n医疗兵干扰地雷\n指示物标识\n远程引爆器纯洁印章\n指示物指示物\n特种弹药\n扫描指示物\n指示物",
+      "text_en": "PHOBOS STRIKE TEAM\nMARKER/TOKEN GUIDE\nOmni-\nVanguard\nscrambler\ntoken\ntoken\nTactical\nExplosives\nAdvantage\nmarker\ntoken\nHaywire\nMedic token\nMine marker\nRemote\nPurity Seals\nDetonator\ntoken\ntoken\nSpecial Issue\nAuspex Scan\nAmmunition\ntoken\ntoken"
+    },
+    {
+      "id": "kt-phobos_strike_team-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "游击战术",
+      "title_en": "GUERRILLA WARFARE",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-游击战术.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n战略计谋\n游击战术\n恐惧突袭小队通过使用隐匿和伏击来压制自\n己的敌人，发起出其不意的突袭。\n己方恐惧突袭小队特工可以执行以下独特行动:\n游击战术 1AP\n更改该特工的命令。\n一名特工不能在敌方特工的控制范围内执\n行此行动。",
+      "text_en": "PHOBOS STRIKE TEAM\nSTRATEGY PLOY\nGUERRILLA WARFARE\nPhobos Strike Teams utilise stealth and ambush tactics\nto overwhelm their foes, striking when least expected.\nFriendly PHOBOS STRIKE TEAM operatives can\nperform the following unique action:\nGUERRILLA WARFARE 1AP\nChange this operative’s order.\nAn operative cannot perform this\naction while within control range of an\nenemy operative."
+    },
+    {
+      "id": "kt-phobos_strike_team-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "他们无所畏惧",
+      "title_en": "AND THEY SHALL KNOW NO FEAR",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-他们无所畏惧.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n战略计谋\n他们无所畏惧\n星际战士拥有超凡的勇气和坚定的意志，就\n算是面对究极的恐惧之物或者看似不可能的\n绝境也绝不会动摇。\n您可以忽略任何己方恐惧突袭小队特工因受创\n而导致的属性变化（包括武器数据）。",
+      "text_en": "PHOBOS STRIKE TEAM\nSTRATEGY PLOY\nAND THEY SHALL KNOW NO FEAR\nSpace Marines possess superhuman courage and are\nutterly unflinching in the face of terrifying horrors and\noverwhelming odds.\nYou can ignore any changes to the stats of\nfriendly PHOBOS STRIKE TEAM operatives from\nbeing injured (including their weapons’ stats)."
+    },
+    {
+      "id": "kt-phobos_strike_team-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "致命射手",
+      "title_en": "DEADLY SHOTS",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-致命射手.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n战略计谋\n致命射手\n星际战士花费了漫长的时间将自己的射击技\n巧磨练到了极致。\n当一名己方恐惧突袭小队特工进行射击时，如\n果该特工没有在激活期间执行冲锋、后撤或转移\n行动，或者如果目标特工没有掩护并且位于其 6\"\n外，那么它使用的远程武器拥有“平衡”武器规\n则。请注意，上述的第一个条件不会限制特工在\n射击之后执行相关的行动。",
+      "text_en": "PHOBOS STRIKE TEAM\nSTRATEGY PLOY\nDEADLY SHOTS\nSpace Marines spend countless hours perfecting\ntheir marksmanship.\nWhenever a friendly PHOBOS STRIKE TEAM\noperative is shooting during an activation in\nwhich it hasn’t performed the Charge, Fall Back\nor Reposition action, or against an operative\nthat isn’t in cover and is more than 6\" from it,\nthat friendly operative’s ranged weapons have\nthe Balanced weapon rule. Note that for the first\nrequirement, that operative isn’t restricted from\nperforming those actions after shooting."
+    },
+    {
+      "id": "kt-phobos_strike_team-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "致命突袭",
+      "title_en": "LETHAL ASSAULTS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-致命突袭.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n战略计谋\n致命突袭\n星际战士们能够以极其猛烈且精准的方式将\n敌人消灭。\n每当一名己方恐惧突袭小队特工进行近战时，\n其装备的近战武器拥有“平衡”武器规则。如\n果那名己方特工在激活期间执行了冲锋行动，\n那么其装备的近战武器还拥有“致命 5+”武器\n规则。",
+      "text_en": "PHOBOS STRIKE TEAM\nSTRATEGY PLOY\nLETHAL ASSAULTS\nSpace Marine warriors strike down their foes with\nincredible power and precision.\nWhenever a friendly PHOBOS STRIKE TEAM\noperative is fighting, its melee weapons have the\nBalanced weapon rule. If that friendly operative\nis doing so during an activation in which it\nperformed the Charge action, its melee weapons\nalso have the Lethal 5+ weapon rule."
+    },
+    {
+      "id": "kt-phobos_strike_team-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "耐心埋伏",
+      "title_en": "PATIENT AMBUSH",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-耐心埋伏.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n交战计谋\n耐心埋伏\n恐惧突袭小队可以在原地静候数小时、数\n日、甚至数周，在敌人毫无防备的时候发起\n进攻。\n在轮到您来激活一名己方特工时使用此交战计\n谋。您可以跳过那一次激活。",
+      "text_en": "PHOBOS STRIKE TEAM\nFIREFIGHT PLOY\nPATIENT AMBUSH\nA Phobos Strike Team may lay in wait for hours, days\nor even weeks before launching an assault upon an\nunsuspecting enemy.\nUse this firefight ploy when it’s your turn to\nactivate a friendly operative. You can skip\nthat activation."
+    },
+    {
+      "id": "kt-phobos_strike_team-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "射击要害",
+      "title_en": "CRITICAL SHOT",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-射击要害.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n交战计谋\n射击要害\n一次精准的射击足以将最为坚韧的敌人击毙。\n在您为一名使用爆矢武器射击的己方恐惧突袭小\n队特工结算一次关键成功时使用此交战计谋。\n造成额外 D3 点伤害。",
+      "text_en": "PHOBOS STRIKE TEAM\nFIREFIGHT PLOY\nCRITICAL SHOT\nA well-placed bolt round can fell even the most resilient\nof foes.\nUse this firefight ploy when you resolve a critical\nsuccess for a friendly PHOBOS STRIKE TEAM\noperative that’s shooting with a bolt weapon.\nInflict D3 additional damage."
+    },
+    {
+      "id": "kt-phobos_strike_team-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "超人体格",
+      "title_en": "TRANSHUMAN PHYSIOLOGY",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-超人体格.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n交战计谋\n超人体格\n经受了基因强化的星际战士能够承受那些对\n凡人来说致命的重伤。\n在一名特工对己方恐惧突袭小队特工进行射击\n时使用此交战计谋。在掷防御骰步骤中，您可以\n将一枚普通成功作为关键成功进行保留。",
+      "text_en": "PHOBOS STRIKE TEAM\nFIREFIGHT PLOY\nTRANSHUMAN PHYSIOLOGY\nThe genetically modified physiology of a Space\nMarine is capable of resisting wounds that would kill a\nlesser being.\nUse this firefight ploy when an operative is\nshooting a friendly PHOBOS STRIKE TEAM\noperative, in the Roll Defence Dice step. You can\nretain one of your normal successes as a critical\nsuccess instead."
+    },
+    {
+      "id": "kt-phobos_strike_team-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "隐匿突袭",
+      "title_en": "STEALTH ASSAULT",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-隐匿突袭.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n交战计谋\n隐匿突袭\n恐惧型动力护甲之中安装的消声传动装置能\n够让一名星际战士以惊人的速度向敌人发动\n奇袭。\n在一名拥有隐匿命令的己方恐惧突袭小队特工\n被激活，获得交战命令，执行冲锋并在之后执行\n近战行动时，在您结算那次激活的第一枚攻击骰\n时使用此交战计谋。在完成结算后，您可以在对\n手之前立即结算另一枚己方攻击骰。在这次激活\n中该特工不能执行过任意其他行动（但是在结算\n该计谋后可以）。",
+      "text_en": "PHOBOS STRIKE TEAM\nFIREFIGHT PLOY\nSTEALTH ASSAULT\nThe silenced servos of Phobos-pattern power armour\nallow a Space Marine to strike swiftly and overwhelm a\nsurprised foe.\nUse this firefight ploy when a friendly PHOBOS\nSTRIKE TEAM operative that has a Conceal\norder is activated, is given an Engage order,\nperforms the Charge and then the Fight action,\nand you’re resolving your first attack dice\nfrom this activation. After doing so, you can\nimmediately resolve another of your attack dice\n(before your opponent). The operative cannot\nhave performed any other actions during this\nactivation (but can do so after resolving this ploy)."
+    },
+    {
+      "id": "kt-phobos_strike_team-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "纯洁印章",
+      "title_en": "PURITY SEALS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-纯洁印章.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营装备\n纯洁印章\n战团牧师会将纯洁印章授予星际战士，上面写\n有的祝福能够让持有者更加奋勇作战。\n每个转折点限一次，在一名己方恐惧突袭小队\n特工进行射击、近战或反击时，如果您掷出了两\n次或更多失败，那么您可以将其中一次舍弃，并\n将剩余的一次失败作为普通成功进行保留。",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION EQUIPMENT\nPURITY SEALS\nAwarded by the Chapter’s Chaplains, purity seals are\ninscribed with blessings and inspire the bearer to fight\nwith increased vigour.\nOnce per turning point, when a friendly PHOBOS\nSTRIKE TEAM operative is shooting, fighting or\nretaliating, if you roll two or more fails, you can\ndiscard one of them to retain another as a normal\nsuccess instead."
+    },
+    {
+      "id": "kt-phobos_strike_team-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "额外功能型手雷",
+      "title_en": "ADDITIONAL UTILITY GRENADES",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-额外功能型手雷.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营装备\n额外功能型手雷\n一些星际战士会选择携带额外的烟雾弹、震荡\n弹和其他类型的投掷爆炸物。\n这个装备允许您从功能型手雷装备中选择四枚功\n能型手雷（参见通用装备)。您不能以常规方式\n选择那个装备（如：给你六个）。",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION EQUIPMENT\nADDITIONAL UTILITY GRENADES\nSome Space Marines opt to carry additional smoke\ngrenades, shock grenades and other forms of\nhand-held explosives.\nThis equipment allows you to select four utility\ngrenades from the utility grenades equipment\n(see universal equipment). You cannot also select\nthat equipment as normal (i.e. to give you six)."
+    },
+    {
+      "id": "kt-phobos_strike_team-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "名称攻击命中伤害",
+      "title_en": "COMBAT BLADES",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-名称攻击命中伤害.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营装备\n格斗刀\n这些厚实的匕首极度锋利。\n己方恐惧突袭小队特工拥有以下近战武器：\n名称攻击命中伤害\n格斗刀 5 3+ 3/4",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION EQUIPMENT\nCOMBAT BLADES\nThese blades are tough, thick and possess a razor-sharp\ncutting edge.\nFriendly PHOBOS STRIKE TEAM operatives have\nthe following melee weapon:\nNAME ATK HIT DMG\nCombat blade 5 3+ 3/4"
+    },
+    {
+      "id": "kt-phobos_strike_team-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "特种弹药",
+      "title_en": "SPECIAL ISSUE AMMUNITION",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-特种弹药.png",
+      "is_back": false,
+      "text": "恐惧突袭小队\n阵营装备\n特种弹药\n星际战士的爆矢武器能够装填各种特殊类型\n的弹药。\n每个转折点限一次，在一名己方恐惧突袭小队\n特工执行射击行动时，如果您选择使用爆矢卡\n宾枪、神射手爆矢卡宾枪，或者全知者爆矢卡\n宾枪，那么您可以使用本规则。若选择使用，那\n么直到转折点结束前，那件武器拥有“穿刺 1”\n规则。",
+      "text_en": "PHOBOS STRIKE TEAM\nFACTION EQUIPMENT\nSPECIAL ISSUE AMMUNITION\nSpace Marine bolt weapons can be loaded with a variety\nof special ammunition.\nOnce per turning point, when a friendly PHOBOS\nSTRIKE TEAM operative is performing the\nShoot action and you select a bolt carbine,\nmarksman bolt carbine or occulus bolt carbine,\nyou can use this rule. If you do, until the end of\nthe turning point, that weapon has the Piercing 1\nweapon rule."
+    }
+  ]
+}

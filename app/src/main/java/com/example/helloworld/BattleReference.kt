@@ -4,16 +4,25 @@ import android.widget.LinearLayout
 
 /** Team references are shared; member pages contain only that operative's rules. */
 class BattleReference(private val ui: RecordUi) {
-    private fun files(teamId: String)=ui.context.assets.list("team_rules").orEmpty().filter { it.startsWith("$teamId--") }.sorted()
+    private fun files(teamId: String)=CardAssets.list(ui.context, "team_rules").filter { it.startsWith("$teamId--") }.sorted()
 
     private data class ReferenceCard(val title: String,val asset: String)
 
     private fun referenceCards(teamId: String,category: String): List<ReferenceCard> {
-        val teamCards=files(teamId).filter { it.contains("-$category-") }.map { file ->
-            ReferenceCard(file.substringAfter("-$category-").removeSuffix(".png"),"team_rules/$file")
+        val entriesByCard = runCatching {
+            TeamRuleBook(ui, teamId).entries.flatMap { e -> e.cards.map { c -> c to e.title } }.toMap()
+        }.getOrDefault(emptyMap())
+        val teamCards=files(teamId).filter { file ->
+            file.contains("-$category-") || (category == "阵营规则" && file.contains("-其他-"))
+        }.map { file ->
+            val rawLabel = (if (file.contains("-$category-")) file.substringAfter("-$category-") else file.substringAfter("-其他-"))
+                .removeSuffix(".png")
+            val resolvedTitle = entriesByCard[file]
+                ?: if (rawLabel == "名称攻击命中伤害") "武器型阵营装备" else rawLabel
+            ReferenceCard(resolvedTitle,"team_rules/$file")
         }
         if(teamCards.isNotEmpty() || category!="阵营装备") return teamCards
-        return ui.context.assets.list("equipment").orEmpty()
+        return CardAssets.list(ui.context, "equipment")
             .filter { it.startsWith("$teamId--") }
             .sorted()
             .map { file -> ReferenceCard(file.substringAfter("--").removeSuffix(".png"),"equipment/$file") }
@@ -27,7 +36,7 @@ class BattleReference(private val ui: RecordUi) {
         }
         ui.tiles(box,cards) { tile,card ->
             tile.addView(ui.text(card.title,17f,ui.accent,true),ui.wrap())
-            ui.preview(tile,card.title,card.asset,expandable=false)
+            ui.preview(tile,card.title,card.asset,expandable=true)
         }
         box.addView(ui.text("原卡可能包含旧数值；以采用的勘误版本为准。",12f,ui.muted),ui.wrap())
     }
@@ -56,6 +65,7 @@ class BattleReference(private val ui: RecordUi) {
             }
             rules.addView(ui.text("小队特殊规则",18f,ui.accent,true),ui.wrap())
             factionContents(rules,teamId)
+            TeamRuleBook(ui,teamId).categories(rules)
             box.addView(rules,ui.wrap())
             box.addView(ui.divider())
             strategy.addView(ui.text("战略计谋",18f,ui.accent,true),ui.wrap())
@@ -102,11 +112,11 @@ class BattleReference(private val ui: RecordUi) {
 
     fun operativeCard(teamId: String, state: BattleOperativeState) {
         val template = RosterCatalog.operative(RosterCatalog.team(teamId), state.operativeId) ?: return
-        ReferenceOverlay.show(
+        ReferenceOverlay.showCards(
             context = ui.context,
             tag = "battle_operative_card_overlay",
             description = "${state.displayName}人物卡",
-            resource = template.cardRes
+            cards = template.cardSources()
         )
     }
 
@@ -123,8 +133,7 @@ class BattleReference(private val ui: RecordUi) {
             val personal=RuleOrganization.personalAbilities(operativeId)
             if(current!=null) box.addView(ui.text(current.body),ui.wrap())
             else if(personal.isEmpty()) box.addView(ui.text(
-                if(teamId=="CHAOS-FELL") "该成员的专属能力与独特行动收录在下方中文成员原卡中。"
-                else "此成员没有额外的专属能力。",
+                "此成员没有额外的专属能力。",
                 color=ui.muted
             ),ui.wrap())
                 else if(ui.isTablet) ui.tiles(box, personal) { tile, ability ->
@@ -134,35 +143,32 @@ class BattleReference(private val ui: RecordUi) {
                 box.addView(ui.text(ability.name+(ability.apCost?.let { " · ${it}AP" } ?: ""),15f,ui.accent,true),ui.wrap(6))
                 box.addView(ui.text(ability.description),ui.wrap())
             }
-            if(template!=null && ui.isTablet) {
+            val cardSources = template?.cardSources().orEmpty()
+            val dataCard = cardSources.firstOrNull { it.label == "数据卡" } ?: cardSources.firstOrNull()
+            val abilityCards = cardSources.filter { it !== dataCard }
+            if(template!=null && dataCard!=null && ui.isTablet) {
                 box.addView(ui.text("成员数据原卡 · 原卡可能含旧数值", 12f, ui.muted), ui.wrap())
-                ui.preview(box, template.name, resource = template.cardRes)
+                ui.preview(box, template.name, asset = dataCard.asset, resource = dataCard.resource.takeIf { dataCard.asset == null })
             }
-            if(template!=null && !ui.isTablet) box.addView(ui.link("成员数据原卡 ›") {
+            if(template!=null && dataCard!=null && !ui.isTablet) box.addView(ui.link("成员数据原卡 ›") {
                 ui.reference(template.name) { card,_ ->
                     card.addView(ui.text("双指缩放 · 拖动查看 · 原卡可能含旧数值",11f,ui.muted),ui.wrap())
-                    card.addView(ZoomReference(ui.context,asset=null,resource=template.cardRes),LinearLayout.LayoutParams(-1,ui.dp(400)))
+                    card.addView(ZoomReference(ui.context,asset=dataCard.asset,resource=dataCard.resource.takeIf { dataCard.asset == null }),LinearLayout.LayoutParams(-1,ui.dp(400)))
                 }
             },ui.wrap())
-            val abilityCardName=when(operativeId) {
-                "aod_assault_sergeant" -> "突击仲裁者军士"
-                "aod_sergeant" -> "仲裁者军士"
-                "aod_sniper" -> "歼灭者狙击手"
-                "wc_sod" -> "命运巫师"
-                "wc_sot" -> "时间巫师"
-                "wc_sow" -> "亚空间炽焰巫师"
-                "pm_plaguecaster" -> "恶瘟投放者"
-                else -> null
-            }
-            if(abilityCardName!=null) files(teamId).filter { it.contains("-特工-$abilityCardName-能力卡") }.forEach { file ->
-                if(ui.isTablet) ui.preview(box, "$abilityCardName · 能力卡", "team_rules/$file")
-                else box.addView(ui.link("成员能力原卡 ›") { original("$abilityCardName · 能力卡",file) },ui.wrap())
-            }
             box.addView(ui.divider())
-            val abilityCards=(ImportedTeamCatalog.abilityCards[operativeId] ?: FellgorCatalog.abilityCards[operativeId]).orEmpty()
-            if(ui.isTablet) ui.tiles(box,abilityCards) { tile,file -> ui.preview(tile,"$displayName · 能力原卡","team_rules/$file") }
-            else abilityCards.forEachIndexed { index,file ->
-                box.addView(ui.link("成员能力原卡 ${index+1} ›") { original("$displayName · 能力原卡",file) },ui.wrap())
+            if(abilityCards.isNotEmpty() && ui.isTablet) {
+                ui.tiles(box,abilityCards) { tile,src ->
+                    ui.preview(tile,"$displayName · ${src.label}",asset=src.asset,resource=src.resource.takeIf { src.asset == null })
+                }
+            } else abilityCards.forEachIndexed { index,src ->
+                val label = if(abilityCards.size > 1) "成员能力原卡 ${index+1} ›" else "成员能力原卡 ›"
+                box.addView(ui.link(label) {
+                    ui.reference("$displayName · ${src.label}") { card,_ ->
+                        card.addView(ui.text("双指缩放 · 拖动查看 · 原卡可能含旧数值",11f,ui.muted),ui.wrap())
+                        card.addView(ZoomReference(ui.context,asset=src.asset,resource=src.resource.takeIf { src.asset == null }),LinearLayout.LayoutParams(-1,ui.dp(400)))
+                    }
+                },ui.wrap())
             }
             box.addView(ui.text("小队共享资料",12f,ui.muted),ui.wrap(4))
             box.addView(ui.link("小队计谋 ›") { ploys(teamId) },ui.wrap(2))

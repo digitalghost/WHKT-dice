@@ -1,0 +1,1310 @@
+{
+  "generated_at": "2026-10-25T01:48:15+08:00",
+  "game_system": "kill-team",
+  "language": "english",
+  "api_params": "filters=locale%3Aen-gb+AND+game_systems%3Akill-team+AND+download_languages%3Aenglish&hitsPerPage=500&page=0",
+  "counts": {
+    "downloaded": 48,
+    "skipped": 21
+  },
+  "files": [
+    {
+      "slug": "warpcoven",
+      "title_zh": "Warpcoven",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kt_teamrules_warpcoven-dlvflmyfdc-tqfq81iy7v.pdf",
+      "file_size": "10.54 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kt_teamrules_warpcoven-dlvflmyfdc-tqfq81iy7v.pdf",
+      "language": "english",
+      "local_name": "Warpcoven 杀戮小队规则.pdf",
+      "bytes": 11056990,
+      "sha256": "468140fce74077922df86f83f634f9ca247a26b7ff375236d4d5d7fe68098ef6",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:30+08:00"
+    },
+    {
+      "slug": "scout-squad",
+      "title_zh": "Scout Squad",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kt_teamrules_scout_squad-gsh9kmjzgi-cx2xtxmp8b.pdf",
+      "file_size": "8.85 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kt_teamrules_scout_squad-gsh9kmjzgi-cx2xtxmp8b.pdf",
+      "language": "english",
+      "local_name": "Scout Squad 杀戮小队规则.pdf",
+      "bytes": 9284852,
+      "sha256": "82054fa904561ff3e6875b93664c9a87f93e9a554578323e3a6489a3e3e9a825",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:13+08:00"
+    },
+    {
+      "slug": "ratlings",
+      "title_zh": "Ratlings",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kt_teamrules_ratlings-ulbqsnxhjb-jmv6tjlrsi.pdf",
+      "file_size": "10.07 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "18/12/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kt_teamrules_ratlings-ulbqsnxhjb-jmv6tjlrsi.pdf",
+      "language": "english",
+      "local_name": "Ratlings 杀戮小队规则.pdf",
+      "bytes": 10560304,
+      "sha256": "fac43967a7e53d1f27d162ba0680d4e654415f064db67ad529abdb3d091a7426",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:53+08:00"
+    },
+    {
+      "slug": "kasrkin",
+      "title_zh": "Kasrkin",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kt_teamrules_kasrkin-9s2gsy4iq7-hexyjwjqrx.pdf",
+      "file_size": "8.40 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kt_teamrules_kasrkin-9s2gsy4iq7-hexyjwjqrx.pdf",
+      "language": "english",
+      "local_name": "Kasrkin 杀戮小队规则.pdf",
+      "bytes": 8809057,
+      "sha256": "7e1013d9b6b1b2ba34917f7cf81d2e5928d5e6f808c76072ce6ceb20904b7918",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:17+08:00"
+    },
+    {
+      "slug": "hearthkyn-salvagers",
+      "title_zh": "Hearthkyn Salvagers",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kill_team_team_rules_hearthkyn_salvagers-7ih6r2u7u4-sof3ovjopi.pdf",
+      "file_size": "8.26 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kill_team_team_rules_hearthkyn_salvagers-7ih6r2u7u4-sof3ovjopi.pdf",
+      "language": "english",
+      "local_name": "Hearthkyn Salvagers 杀戮小队规则.pdf",
+      "bytes": 8658042,
+      "sha256": "1150abc0749c1135985f3dbfaed8442c41c04afca073b725d20c261211f508b1",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:37+08:00"
+    },
+    {
+      "slug": "elucidian-starstriders",
+      "title_zh": "Elucidian Starstriders",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kill_team_team_rules_elucidian_starstriders-4c0hnv9gz9-4fuvbi96ce.pdf",
+      "file_size": "8.35 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kill_team_team_rules_elucidian_starstriders-4c0hnv9gz9-4fuvbi96ce.pdf",
+      "language": "english",
+      "local_name": "Elucidian Starstriders 杀戮小队规则.pdf",
+      "bytes": 8759118,
+      "sha256": "0df3d6cd167a659277d79fc017e018c4480929ab98ff321c5c28c458f8d1c02e",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:39+08:00"
+    },
+    {
+      "slug": "death-korps",
+      "title_zh": "Death Korps",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kill_team_team_rules_death_korps-t7f9rdqq5a-uzoyjhayvf.pdf",
+      "file_size": "8.85 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kill_team_team_rules_death_korps-t7f9rdqq5a-uzoyjhayvf.pdf",
+      "language": "english",
+      "local_name": "Death Korps 杀戮小队规则.pdf",
+      "bytes": 9280783,
+      "sha256": "1743df415a29476d1d151c01f7ccbabad76b0dfb22d36c4b921a83ab8320564d",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:49+08:00"
+    },
+    {
+      "slug": "blooded",
+      "title_zh": "Blooded",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_kill_team_team_rules_blooded-djvqgciu6s-zvnlalulmo.pdf",
+      "file_size": "8.79 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kill_team_team_rules_blooded-djvqgciu6s-zvnlalulmo.pdf",
+      "language": "english",
+      "local_name": "Blooded 杀戮小队规则.pdf",
+      "bytes": 9221245,
+      "sha256": "0bf0ae64b0879aa17d1b516f2336e11ca199a4f6c426e552b3c3fae35a95ad6a",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:40+08:00"
+    },
+    {
+      "slug": "blades-of-khaine",
+      "title_zh": "Blades of Khaine",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_29-04_killl_team_team_rules_blades_of_khaine-p7jsqt6jno-y4kh2lus1f.pdf",
+      "file_size": "7.25 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_killl_team_team_rules_blades_of_khaine-p7jsqt6jno-y4kh2lus1f.pdf",
+      "language": "english",
+      "local_name": "Blades of Khaine 杀戮小队规则.pdf",
+      "bytes": 7599684,
+      "sha256": "02458a0f200bd931a7bee1d429c559502c4a224572fd047e4a80aba6bd794e43",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:20+08:00"
+    },
+    {
+      "slug": "mandrakes",
+      "title_zh": "Mandrakes",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_28-01_kill_team_team_rules_mandrakes-w2j9qwhaxz-oveknnlmoe.pdf",
+      "file_size": "14.79 MB",
+      "last_updated": "28/01/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_28-01_kill_team_team_rules_mandrakes-w2j9qwhaxz-oveknnlmoe.pdf",
+      "language": "english",
+      "local_name": "Mandrakes 杀戮小队规则.pdf",
+      "bytes": 15505032,
+      "sha256": "ee587fa5d71721f14c8440da5d6bde9af2dc3e1067220f5cf9e42f51cf21e81c",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:50+08:00"
+    },
+    {
+      "slug": "hunter-clade",
+      "title_zh": "Hunter Clade",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_28-01_kill_team_team_rules_hunter_clade-iw4pezoqcm-axjoncdqci.pdf",
+      "file_size": "18.26 MB",
+      "last_updated": "28/01/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_28-01_kill_team_team_rules_hunter_clade-iw4pezoqcm-axjoncdqci.pdf",
+      "language": "english",
+      "local_name": "Hunter Clade 杀戮小队规则.pdf",
+      "bytes": 19152030,
+      "sha256": "87994116786a116d5cad00abacc5f58dcde8ecb0b1d3a0a3aa6560c1394bdb5d",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:17+08:00"
+    },
+    {
+      "slug": "hand-of-the-archon",
+      "title_zh": "Hand of the Archon",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_28-01_kill_team_team_rules_hand_of_the_archon-ijq4ui6dxc-qnz6k5jaxl.pdf",
+      "file_size": "14.06 MB",
+      "last_updated": "28/01/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_28-01_kill_team_team_rules_hand_of_the_archon-ijq4ui6dxc-qnz6k5jaxl.pdf",
+      "language": "english",
+      "local_name": "Hand of the Archon 杀戮小队规则.pdf",
+      "bytes": 14738965,
+      "sha256": "283d3718baa5b5731c18e542f5bbeb0e96db6b864744191dfc43b40adb60e560",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:50:06+08:00"
+    },
+    {
+      "slug": "corsair-voidscarred",
+      "title_zh": "Corsair Voidscarred",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_28-01_kill_team_team_rules_corsair_voidscarred-3war9i1i61-vjohvdpcb9.pdf",
+      "file_size": "17.47 MB",
+      "last_updated": "28/01/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_28-01_kill_team_team_rules_corsair_voidscarred-3war9i1i61-vjohvdpcb9.pdf",
+      "language": "english",
+      "local_name": "Corsair Voidscarred 杀戮小队规则.pdf",
+      "bytes": 18315171,
+      "sha256": "db46adfeb1d99c0e587944ad25a2f6660b2912ac184e7f29e0263a93d846c97f",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:56+08:00"
+    },
+    {
+      "slug": "xv26-stealth-battlesuits",
+      "title_zh": "XV26 Stealth Battlesuits",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_xv26_stealth_battlesuits_online_rules-ghynf2pcnr-7rcqocpns8.pdf",
+      "file_size": "9.23 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "19/11/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_xv26_stealth_battlesuits_online_rules-ghynf2pcnr-7rcqocpns8.pdf",
+      "language": "english",
+      "local_name": "XV26 Stealth Battlesuits 杀戮小队规则.pdf",
+      "bytes": 9678128,
+      "sha256": "af457a503c4cdffe81ce072abaed9807b1a6a4f21d1c380d3c39130d1c6739a3",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:31+08:00"
+    },
+    {
+      "slug": "wolf-scouts",
+      "title_zh": "Wolf Scouts",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_wolf_scouts_online_rules-hgzknhj5cl-c3yqxctedv.pdf",
+      "file_size": "9.49 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "19/11/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_wolf_scouts_online_rules-hgzknhj5cl-c3yqxctedv.pdf",
+      "language": "english",
+      "local_name": "Wolf Scouts 杀戮小队规则.pdf",
+      "bytes": 9948650,
+      "sha256": "89d2d33a4f225f4a9a1095a0f12959ace6e6e5b9b544043d5a3957e63a773536",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:00+08:00"
+    },
+    {
+      "slug": "vespid-stingwings",
+      "title_zh": "Vespid Stingwings",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_vespid_stingwings_online_rules-im3is77cs2-gtnx7xocbs.pdf",
+      "file_size": "11.33 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_vespid_stingwings_online_rules-im3is77cs2-gtnx7xocbs.pdf",
+      "language": "english",
+      "local_name": "Vespid Stingwings 杀戮小队规则.pdf",
+      "bytes": 11881574,
+      "sha256": "ad688285678a1f5b0c8b9f8dc05b871926dacfc6bdc7e8d85cca4f659d370441",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:34+08:00"
+    },
+    {
+      "slug": "tempestus-aquilons",
+      "title_zh": "Tempestus Aquilons",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_tempestus_aquilons_online_rules-ulwuv6xiox-urjoo7nn95.pdf",
+      "file_size": "11.26 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_tempestus_aquilons_online_rules-ulwuv6xiox-urjoo7nn95.pdf",
+      "language": "english",
+      "local_name": "Tempestus Aquilons 杀戮小队规则.pdf",
+      "bytes": 11811379,
+      "sha256": "d1b5a63dd04a52966e437f60a0d4aaf80d9bd4d9094da12e3adcf7485e373acf",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:56+08:00"
+    },
+    {
+      "slug": "spectre-squad",
+      "title_zh": "Spectre Squad",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_spectre_squad_online_rules-bmoqs5lbyu-7d9zjtfxni.pdf",
+      "file_size": "8.54 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "06/05/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_spectre_squad_online_rules-bmoqs5lbyu-7d9zjtfxni.pdf",
+      "language": "english",
+      "local_name": "Spectre Squad 杀戮小队规则.pdf",
+      "bytes": 8956488,
+      "sha256": "68bc5f2b7b3c0439c2f933a1a0ce15f453f6b1bdac7d63dfae85424f664e09ad",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:50:06+08:00"
+    },
+    {
+      "slug": "raveners",
+      "title_zh": "Raveners",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_raveners_online_rules-8vfeyxgbks-nf6lxfcbfw.pdf",
+      "file_size": "9.60 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "25/06/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_raveners_online_rules-8vfeyxgbks-nf6lxfcbfw.pdf",
+      "language": "english",
+      "local_name": "Raveners 杀戮小队规则.pdf",
+      "bytes": 10068572,
+      "sha256": "4ec96e2d486dd73b6e37b897ac143cb0ad725afd0f33605ce3408f47e9b6e23e",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:44+08:00"
+    },
+    {
+      "slug": "plague-marines",
+      "title_zh": "Plague Marines",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_plague_marines_online_rules-wqjvit50wj-jvekzllwdl.pdf",
+      "file_size": "10.69 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "06/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_plague_marines_online_rules-wqjvit50wj-jvekzllwdl.pdf",
+      "language": "english",
+      "local_name": "Plague Marines 杀戮小队规则.pdf",
+      "bytes": 11208031,
+      "sha256": "cb87c7a2e4178cb2f4635b66d83c9de181af98c2f7d6391ce47d67ad6018b7d9",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:50:06+08:00"
+    },
+    {
+      "slug": "pathfinders",
+      "title_zh": "Pathfinders",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_pathfinders_online_rules-dj9snutji1-zk16jiuxxe.pdf",
+      "file_size": "9.30 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_pathfinders_online_rules-dj9snutji1-zk16jiuxxe.pdf",
+      "language": "english",
+      "local_name": "Pathfinders 杀戮小队规则.pdf",
+      "bytes": 9753815,
+      "sha256": "387b2ee199a76f884cca7aafccbe3c2605092940b4bad7e4e6348c2d0314663c",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:31+08:00"
+    },
+    {
+      "slug": "novitiates",
+      "title_zh": "Novitiates",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_novitiates_online_rules-b4a5xsy3fu-5twxaatuzc.pdf",
+      "file_size": "7.68 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_novitiates_online_rules-b4a5xsy3fu-5twxaatuzc.pdf",
+      "language": "english",
+      "local_name": "Novitiates 杀戮小队规则.pdf",
+      "bytes": 8050850,
+      "sha256": "b02563f4b3dabfb18e621bc33f036e57defdad1832f996a5ff641ecfb466f19d",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:26+08:00"
+    },
+    {
+      "slug": "murderwing",
+      "title_zh": "Murderwing",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_murderwing_online_rules-ie4p7d3ji0-puunmglkc2.pdf",
+      "file_size": "11.67 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "28/01/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_murderwing_online_rules-ie4p7d3ji0-puunmglkc2.pdf",
+      "language": "english",
+      "local_name": "Murderwing 杀戮小队规则.pdf",
+      "bytes": 12233763,
+      "sha256": "95b628647c246a0e08787d68a39637a9d9e3ba96448073667a04001de934f52b",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:53+08:00"
+    },
+    {
+      "slug": "inquisitorial-agents",
+      "title_zh": "Inquisitorial Agents",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_inquisitorial_agents_online_rules-wxk0cybqst-vpe1dopkcv.pdf",
+      "file_size": "8.35 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_inquisitorial_agents_online_rules-wxk0cybqst-vpe1dopkcv.pdf",
+      "language": "english",
+      "local_name": "Inquisitorial Agents 杀戮小队规则.pdf",
+      "bytes": 8755121,
+      "sha256": "2e29152f2d5a234e5687dc933cf4a34ac64ed38036f70618f1dbbf148da52170",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:12+08:00"
+    },
+    {
+      "slug": "imperial-navy-breachers",
+      "title_zh": "Imperial Navy Breachers",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_imperial_navy_breachers_online_rules-n7skbopw8m-0bb7tzt799.pdf",
+      "file_size": "8.29 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_imperial_navy_breachers_online_rules-n7skbopw8m-0bb7tzt799.pdf",
+      "language": "english",
+      "local_name": "Imperial Navy Breachers 杀戮小队规则.pdf",
+      "bytes": 8689147,
+      "sha256": "4f018d21c64a3f5f6e4ce84283f6ec37b05bcb8bac0b5d1deb9d06107887d34d",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:43+08:00"
+    },
+    {
+      "slug": "hierotek-circle",
+      "title_zh": "Hierotek Circle",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_hierotek_circle_online_rules-df98wqycag-bek3q27dqk.pdf",
+      "file_size": "12.11 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_hierotek_circle_online_rules-df98wqycag-bek3q27dqk.pdf",
+      "language": "english",
+      "local_name": "Hierotek Circle 杀戮小队规则.pdf",
+      "bytes": 12693852,
+      "sha256": "28410d873e8aaa03b33ba803eb82828c5d884d4fce302f6e426b1dc3a081f189",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:44+08:00"
+    },
+    {
+      "slug": "hernkyn-yaegris",
+      "title_zh": "Hernkyn Yaegirs",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_hernkyn_yaegirs_online_rules-7vprxsaew8-0p1ctuqlni.pdf",
+      "file_size": "6.71 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_hernkyn_yaegirs_online_rules-7vprxsaew8-0p1ctuqlni.pdf",
+      "language": "english",
+      "local_name": "Hernkyn Yaegirs 杀戮小队规则.pdf",
+      "bytes": 7037431,
+      "sha256": "6891007b0fc5220cdac922d8ff3ab5939dff97f7f2e126229aab9824db0a5b5a",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:53+08:00"
+    },
+    {
+      "slug": "goremongers",
+      "title_zh": "Goremongers",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_goremongers_online_rules-9ba5skdxij-r0u7lafcas.pdf",
+      "file_size": "10.57 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "02/04/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_goremongers_online_rules-9ba5skdxij-r0u7lafcas.pdf",
+      "language": "english",
+      "local_name": "Goremongers 杀戮小队规则.pdf",
+      "bytes": 11082168,
+      "sha256": "ca509694909c893a6952746b2cf6a996c59488f744e2bc4e36e55941ed3f852e",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:57+08:00"
+    },
+    {
+      "slug": "gellerpox-infected",
+      "title_zh": "Gellerpox Infected",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_gellerpox_infected_online_rules-cchcqkm6eu-fsvtx5g2ca.pdf",
+      "file_size": "9.87 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_gellerpox_infected_online_rules-cchcqkm6eu-fsvtx5g2ca.pdf",
+      "language": "english",
+      "local_name": "Gellerpox Infected 杀戮小队规则.pdf",
+      "bytes": 10351643,
+      "sha256": "6205bcfeb76bfd84eafd2cc1031432fce90d21840f9ea6f84f2400d7cb601957",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:05+08:00"
+    },
+    {
+      "slug": "fellgor-ravagers",
+      "title_zh": "Fellgor Ravagers",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_fellgor_ravagers_online_rules-98ktzb7tza-d8lud7bdhh.pdf",
+      "file_size": "7.38 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_fellgor_ravagers_online_rules-98ktzb7tza-d8lud7bdhh.pdf",
+      "language": "english",
+      "local_name": "Fellgor Ravagers 杀戮小队规则.pdf",
+      "bytes": 7742185,
+      "sha256": "4eb7968bf7fa9669a310d4bbc02edd377d29b8dd06077e4074d5ee815b2e5a1d",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:51+08:00"
+    },
+    {
+      "slug": "deathwatch",
+      "title_zh": "Deathwatch",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_deathwatch_online_rules-vn8chdq2c8-xfl54bekws.pdf",
+      "file_size": "10.42 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "10/09/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_deathwatch_online_rules-vn8chdq2c8-xfl54bekws.pdf",
+      "language": "english",
+      "local_name": "Deathwatch 杀戮小队规则.pdf",
+      "bytes": 10927151,
+      "sha256": "a757952f653e51aa377dfec4e7f7bfb5bbf2d25d4bccfe8dfe31aa81c41bd33b",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:11+08:00"
+    },
+    {
+      "slug": "celestian-insidiants",
+      "title_zh": "Celestian Insidiants",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_celestian_insidiants_online_rules-lqzptdkmld-qrehe4wai4.pdf",
+      "file_size": "9.18 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "28/01/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_celestian_insidiants_online_rules-lqzptdkmld-qrehe4wai4.pdf",
+      "language": "english",
+      "local_name": "Celestian Insidiants 杀戮小队规则.pdf",
+      "bytes": 9622105,
+      "sha256": "346b9bb609f5e51c321ab253ec7a331c474e99948c7120a8b0eb987b3dc9ac85",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:05+08:00"
+    },
+    {
+      "slug": "canoptek-circle",
+      "title_zh": "Canoptek Circle",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_canoptek_circle_online_rules-oyuqtupnb7-kwrjrlduzv.pdf",
+      "file_size": "12.10 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "10/09/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_canoptek_circle_online_rules-oyuqtupnb7-kwrjrlduzv.pdf",
+      "language": "english",
+      "local_name": "Canoptek Circle 杀戮小队规则.pdf",
+      "bytes": 12684635,
+      "sha256": "1fdb059fa796381ed25dbbee41570b571ef95afa16c4a914c130446be1cad0a9",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:42+08:00"
+    },
+    {
+      "slug": "brood-brothers",
+      "title_zh": "Brood Brothers",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_brood_brothers_online_rules-ztviivggwv-tdvilxxaue.pdf",
+      "file_size": "7.42 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_brood_brothers_online_rules-ztviivggwv-tdvilxxaue.pdf",
+      "language": "english",
+      "local_name": "Brood Brothers 杀戮小队规则.pdf",
+      "bytes": 7777832,
+      "sha256": "b184ff3b545ce39890cbb7e6d6b4b9fad0affc87b2af6b5c05d4076e0f504a9b",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:21+08:00"
+    },
+    {
+      "slug": "battleclade",
+      "title_zh": "Battleclade",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_battleclade_online_rules-crotgv4bz2-4lvylnxlku.pdf",
+      "file_size": "9.44 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "25/06/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_battleclade_online_rules-crotgv4bz2-4lvylnxlku.pdf",
+      "language": "english",
+      "local_name": "Battleclade 杀戮小队规则.pdf",
+      "bytes": 9902199,
+      "sha256": "fd98b8d5bf1e37f956e9202b256f12fbf23456e6195624be82d3e2122af6ca4c",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:58+08:00"
+    },
+    {
+      "slug": "angels-of-death",
+      "title_zh": "Angels of Death",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_26-08_killteam_angels_of_death_online_rules-1rwlnicmkz-qjtykwlybg.pdf",
+      "file_size": "7.62 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_26-08_killteam_angels_of_death_online_rules-1rwlnicmkz-qjtykwlybg.pdf",
+      "language": "english",
+      "local_name": "Angels of Death 杀戮小队规则.pdf",
+      "bytes": 7990645,
+      "sha256": "2accbc12dd174a170173ecff0022234a42611a6cf20b8f11e31e65239a25d9c5",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:24+08:00"
+    },
+    {
+      "slug": "sanctifiers",
+      "title_zh": "Sanctifiers",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_25-02_kt_teamrules_sanctifiers-3vpsecfbfe-vclbyfaed7.pdf",
+      "file_size": "4.07 MB",
+      "last_updated": "25/02/2026",
+      "created_at": "02/04/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_25-02_kt_teamrules_sanctifiers-3vpsecfbfe-vclbyfaed7.pdf",
+      "language": "english",
+      "local_name": "Sanctifiers 杀戮小队规则.pdf",
+      "bytes": 4270804,
+      "sha256": "b5e7192765e69557c017da678be50988e7c3eef3b852dcde8cfc1dc79107360c",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:20+08:00"
+    },
+    {
+      "slug": "farstalker-kinband",
+      "title_zh": "Farstalker Kinband",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_22-07_kill_team_team_rules_farstalker_kinband-d5j2c72vs0-mulu2ghc6b.pdf",
+      "file_size": "7.40 MB",
+      "last_updated": "22/07/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_22-07_kill_team_team_rules_farstalker_kinband-d5j2c72vs0-mulu2ghc6b.pdf",
+      "language": "english",
+      "local_name": "Farstalker Kinband 杀戮小队规则.pdf",
+      "bytes": 7761669,
+      "sha256": "ff03dd9facab3dcac0a59fe6877204e34db8a3fdece2f43de032b5fcafebbf63",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:53+08:00"
+    },
+    {
+      "slug": "exodite-dragon-masters",
+      "title_zh": "Exodite Dragon Masters",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_22-07_kill_team_team_rules_exodite_dragon_masters-bfqzdncjqz-ijdqo65ctu.pdf",
+      "file_size": "10.32 MB",
+      "last_updated": "22/07/2026",
+      "created_at": "22/07/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_22-07_kill_team_team_rules_exodite_dragon_masters-bfqzdncjqz-ijdqo65ctu.pdf",
+      "language": "english",
+      "local_name": "Exodite Dragon Masters 杀戮小队规则.pdf",
+      "bytes": 10821021,
+      "sha256": "b442eb3f735b153a10c73985ba1642b02a90f3bbf5d5242ace7c77deb52c490e",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:00+08:00"
+    },
+    {
+      "slug": "wyrmblade",
+      "title_zh": "Wyrmblade",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-12_killteam_wyrmblade_online_rules-nzx8yswdj0-9lcmzodiqo.pdf",
+      "file_size": "12.53 MB",
+      "last_updated": "17/12/2025",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-12_killteam_wyrmblade_online_rules-nzx8yswdj0-9lcmzodiqo.pdf",
+      "language": "english",
+      "local_name": "Wyrmblade 杀戮小队规则.pdf",
+      "bytes": 13142799,
+      "sha256": "42fd6036b851aae1c469dc9b172e602140f045a3bbac37576e1e9f2c97958e11",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:46+08:00"
+    },
+    {
+      "slug": "phobos-strike-team",
+      "title_zh": "Phobos Strike Team",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-12_kt_phobos_strike_team_online_rules-6mf867flcl-2xdbnfouex.pdf",
+      "file_size": "15.37 MB",
+      "last_updated": "17/12/2025",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-12_kt_phobos_strike_team_online_rules-6mf867flcl-2xdbnfouex.pdf",
+      "language": "english",
+      "local_name": "Phobos Strike Team 杀戮小队规则.pdf",
+      "bytes": 16116010,
+      "sha256": "56b10a4fb1b97cb43c453759485a770083289aa67c8d482b454af3b87009f1e5",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:27+08:00"
+    },
+    {
+      "slug": "legionaries",
+      "title_zh": "Legionaries",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-12_kt_legionaries_online_rules-wdpu85w6pv-8ndq4m5egw.pdf",
+      "file_size": "15.03 MB",
+      "last_updated": "17/12/2025",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-12_kt_legionaries_online_rules-wdpu85w6pv-8ndq4m5egw.pdf",
+      "language": "english",
+      "local_name": "Legionaries 杀戮小队规则.pdf",
+      "bytes": 15761768,
+      "sha256": "7482128142403e9f14d366f57c6fad676a8fc92fbfde4e106925d8edd916fb44",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:10+08:00"
+    },
+    {
+      "slug": "chaos-cult",
+      "title_zh": "Chaos Cult",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-12_kill_team_team_rules_chaos_cult-x4tsrknbaq-lc1rwd37iy.pdf",
+      "file_size": "12.81 MB",
+      "last_updated": "17/12/2025",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-12_kill_team_team_rules_chaos_cult-x4tsrknbaq-lc1rwd37iy.pdf",
+      "language": "english",
+      "local_name": "Chaos Cult 杀戮小队规则.pdf",
+      "bytes": 13433895,
+      "sha256": "b49e5052284432c3d7b4fff28e69a9d26e61c1241770b8493f0f8fdf1be2f6e6",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:28+08:00"
+    },
+    {
+      "slug": "wrecka-krew",
+      "title_zh": "Wrecka Krew",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-06_kill_team_team_rules_wrecka_krew_online_rules-1o31d0dshf-1p2z1ugswl.pdf",
+      "file_size": "9.18 MB",
+      "last_updated": "17/06/2026",
+      "created_at": "18/12/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-06_kill_team_team_rules_wrecka_krew_online_rules-1o31d0dshf-1p2z1ugswl.pdf",
+      "language": "english",
+      "local_name": "Wrecka Krew 杀戮小队规则.pdf",
+      "bytes": 9630805,
+      "sha256": "3b956943653f93526b5eb8369d57e953b8519faa33d0a697e186e3ccd18d80ba",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:36+08:00"
+    },
+    {
+      "slug": "void-dancer-troupe",
+      "title_zh": "Void-Dancer Troupe",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-06_kill_team_team_rules_void-dancer_troupe_online_rules-ee8qymqvq4-w24lgiuhhz.pdf",
+      "file_size": "6.20 MB",
+      "last_updated": "17/06/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-06_kill_team_team_rules_void-dancer_troupe_online_rules-ee8qymqvq4-w24lgiuhhz.pdf",
+      "language": "english",
+      "local_name": "Void-Dancer Troupe 杀戮小队规则.pdf",
+      "bytes": 6498909,
+      "sha256": "40ca1c367c28b8413597aae0ec8b11554ba03d6a96692dc66ecc4f6f007e0bca",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:43+08:00"
+    },
+    {
+      "slug": "nemesis-claw",
+      "title_zh": "Nemesis Claw",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-06_kill_team_team_rules_nemesis_claw_online_rules-oyryxud2oc-jylng5bujl.pdf",
+      "file_size": "8.40 MB",
+      "last_updated": "17/06/2026",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-06_kill_team_team_rules_nemesis_claw_online_rules-oyryxud2oc-jylng5bujl.pdf",
+      "language": "english",
+      "local_name": "Nemesis Claw 杀戮小队规则.pdf",
+      "bytes": 8803743,
+      "sha256": "2d966bb9fdaafb462586d735897c253174f75fa8de43d70c8a68229afff3e139",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:21+08:00"
+    },
+    {
+      "slug": "kommandos",
+      "title_zh": "Kommandos",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-06_kill_team_team_rules_kommandos_online_rules-ova8v1kjds-ds3ouz4k04.pdf",
+      "file_size": "7.45 MB",
+      "last_updated": "17/06/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-06_kill_team_team_rules_kommandos_online_rules-ova8v1kjds-ds3ouz4k04.pdf",
+      "language": "english",
+      "local_name": "Kommandos 杀戮小队规则.pdf",
+      "bytes": 7813359,
+      "sha256": "ca6631e25c4324a7a278305a0fabd9a50d847e29c68ff257e6405e3ac7aaab6c",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:49:48+08:00"
+    },
+    {
+      "slug": "exaction-squad",
+      "title_zh": "Exaction Squad",
+      "title_en": "",
+      "categories": [
+        "team-rules"
+      ],
+      "source_file": "eng_17-06_kill_team_team_rules_exaction_squad_online_rules-w6tqairoed-qhpndqu8fq.pdf",
+      "file_size": "7.46 MB",
+      "last_updated": "17/06/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-06_kill_team_team_rules_exaction_squad_online_rules-w6tqairoed-qhpndqu8fq.pdf",
+      "language": "english",
+      "local_name": "Exaction Squad 杀戮小队规则.pdf",
+      "bytes": 7822040,
+      "sha256": "c266a0ab700ab7dee766b0e25c39648eb9dc9c70e8fe6ee697d2845f6c510106",
+      "classification": "category:team-rules",
+      "status": "downloaded",
+      "downloaded_at": "2026-10-25T01:48:29+08:00"
+    }
+  ],
+  "skipped": [
+    {
+      "slug": "ctesiphus-expedition",
+      "title_zh": "Ctesiphus Expedition",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_17-12_kill_team_team_rules_ctesiphus_expedition-4gmks2si6k-rne9inhkqe.pdf",
+      "file_size": "31.75 MB",
+      "last_updated": "17/12/2025",
+      "created_at": "17/12/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_17-12_kill_team_team_rules_ctesiphus_expedition-4gmks2si6k-rne9inhkqe.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "approved-ops-2024-tournament-companion",
+      "title_zh": "Approved Ops 2025 Tournament Companion",
+      "title_en": "",
+      "categories": [
+        "key-downloads"
+      ],
+      "source_file": "eng_kt_approved_ops_2025_tournament_companion-fpsaag6ryp-uwnxgflxow.pdf",
+      "file_size": "8.15 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "03/06/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_kt_approved_ops_2025_tournament_companion-fpsaag6ryp-uwnxgflxow.pdf",
+      "language": "english",
+      "classification": "category:key-downloads",
+      "hint": []
+    },
+    {
+      "slug": "killzone-tomb-world",
+      "title_zh": "Killzone Tomb World",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_29-04_kt_mission_pack_killzone_tomb_world-jgm5ebvcoy-fu3lfpskgq.pdf",
+      "file_size": "18.17 MB",
+      "last_updated": "29/04/2026",
+      "created_at": "10/09/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_29-04_kt_mission_pack_killzone_tomb_world-jgm5ebvcoy-fu3lfpskgq.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "tomb-world-mission-pack",
+      "title_zh": "Tomb World Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_19-11_kt_mission_pack_tomb_world-nmh1irpi3k-61f8fzzxqa.pdf",
+      "file_size": "17.85 MB",
+      "last_updated": "19/11/2025",
+      "created_at": "19/11/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_19-11_kt_mission_pack_tomb_world-nmh1irpi3k-61f8fzzxqa.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "blood-and-zeal-mission-pack",
+      "title_zh": "Blood and Zeal Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_25-06_kill_team_blood_and_zeal_mission_pack-mbwbeocxvq-acdl2frmxf.pdf",
+      "file_size": "3.56 MB",
+      "last_updated": "25/06/2025",
+      "created_at": "25/06/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_25-06_kill_team_blood_and_zeal_mission_pack-mbwbeocxvq-acdl2frmxf.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "joint-ops-terror-on-devlan",
+      "title_zh": "Joint Ops: Terror on Devlan",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_terror_on_devlan_mission_pack-xxesbxnr8b-lyb0mbmtbe.pdf",
+      "file_size": "25.60 MB",
+      "last_updated": "06/05/2026",
+      "created_at": "06/05/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_terror_on_devlan_mission_pack-xxesbxnr8b-lyb0mbmtbe.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "lieutenant-titus-mission-pack",
+      "title_zh": "Lieutenant Titus Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_kt_lieutenant_titus_mission_pack_warcom-8pbo4zdtxy-s4n4cfrgz9.pdf",
+      "file_size": "1.46 MB",
+      "last_updated": "03/12/2024",
+      "created_at": "03/12/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_kt_lieutenant_titus_mission_pack_warcom-8pbo4zdtxy-s4n4cfrgz9.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "approved-ops-update-log",
+      "title_zh": "Approved Ops: Update Log",
+      "title_en": "",
+      "categories": [
+        "key-downloads"
+      ],
+      "source_file": "eng_kt_approved_ops_update_log-c46bfdlsms-senqgrexsi.pdf",
+      "file_size": "1.35 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "10/09/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_kt_approved_ops_update_log-c46bfdlsms-senqgrexsi.pdf",
+      "language": "english",
+      "classification": "category:key-downloads",
+      "hint": []
+    },
+    {
+      "slug": "joint-ops-shadowhunt-mission-pack",
+      "title_zh": "Joint Ops: Shadowhunt Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_25-02_kt_missionpacks_shadowhunt_mission_pack-rwuncqguq4-cchozr3air.pdf",
+      "file_size": "30.39 MB",
+      "last_updated": "25/02/2026",
+      "created_at": "25/02/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_25-02_kt_missionpacks_shadowhunt_mission_pack-rwuncqguq4-cchozr3air.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "warcom-core-rules",
+      "title_zh": "Core Rules: Update Log",
+      "title_en": "",
+      "categories": [
+        "key-downloads"
+      ],
+      "source_file": "eng_17-06_kill_team_key_downloads_core_rules_update_log-9dzdz0ewle-wutcyhpgzf.pdf",
+      "file_size": "1.91 MB",
+      "last_updated": "17/06/2026",
+      "created_at": "18/12/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-06_kill_team_key_downloads_core_rules_update_log-9dzdz0ewle-wutcyhpgzf.pdf",
+      "language": "english",
+      "classification": "category:key-downloads",
+      "hint": []
+    },
+    {
+      "slug": "mission-packs-update-log",
+      "title_zh": "Mission Packs Update Log",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_mission_packs_update_log-51t6hsixc0-buxngu8xav.pdf",
+      "file_size": "1.04 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "27/08/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_mission_packs_update_log-51t6hsixc0-buxngu8xav.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "typhon-mission-pack",
+      "title_zh": "Typhon Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_aug25_kt_typhon_mission_pack-ydwnd50fsr-2twheuflko.pdf",
+      "file_size": "16.84 MB",
+      "last_updated": "27/08/2025",
+      "created_at": "27/08/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_aug25_kt_typhon_mission_pack-ydwnd50fsr-2twheuflko.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "universal-equipment",
+      "title_zh": "Universal Equipment",
+      "title_en": "",
+      "categories": [
+        "key-downloads"
+      ],
+      "source_file": "eng_17-06_kill_team_key_downloads_universal_equipment-prsd0j8pih-ikfmigl0za.pdf",
+      "file_size": "2.54 MB",
+      "last_updated": "17/06/2026",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_17-06_kill_team_key_downloads_universal_equipment-prsd0j8pih-ikfmigl0za.pdf",
+      "language": "english",
+      "classification": "category:key-downloads",
+      "hint": []
+    },
+    {
+      "slug": "hivestorm-mission",
+      "title_zh": "The Great Gun Fires Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "rules-downloads/kill-team/mission-packs/hivestorm-mission/killteam_missionpacks_hivestorm_eng_07.10.24.pdf",
+      "file_size": "2.45 MB",
+      "last_updated": "07/10/2024",
+      "created_at": "07/10/2024",
+      "source_url": "https://assets.warhammer-community.com/rules-downloads/kill-team/mission-packs/hivestorm-mission/killteam_missionpacks_hivestorm_eng_07.10.24.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "ambull-mission-pack",
+      "title_zh": "Ambull Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_ambull_mission_pack-fxyqry76tu-hy0r3phikw.pdf",
+      "file_size": "7.68 MB",
+      "last_updated": "06/05/2026",
+      "created_at": "06/05/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_ambull_mission_pack-fxyqry76tu-hy0r3phikw.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "kill-team-lite-rules",
+      "title_zh": "Kill Team Lite Rules",
+      "title_en": "",
+      "categories": [
+        "key-downloads"
+      ],
+      "source_file": "eng_jul25_kt_lite_rules-jmjv4hdamy-qlsqxdf83p.pdf",
+      "file_size": "1.09 MB",
+      "last_updated": "23/07/2025",
+      "created_at": "02/10/2024",
+      "source_url": "https://assets.warhammer-community.com/eng_jul25_kt_lite_rules-jmjv4hdamy-qlsqxdf83p.pdf",
+      "language": "english",
+      "classification": "category:key-downloads",
+      "hint": []
+    },
+    {
+      "slug": "the-archivist-mission-pack",
+      "title_zh": "The Archivist Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_the_archivist_mission_pack-izuueemzxv-hjug8aifii.pdf",
+      "file_size": "7.66 MB",
+      "last_updated": "06/05/2026",
+      "created_at": "06/05/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_the_archivist_mission_pack-izuueemzxv-hjug8aifii.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "killzone-tomb-world-update-log",
+      "title_zh": "Killzone: Tomb World Update Log",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_killzone_tomb_world_update_log-ptyzlo3dfr-ivlzsazxnf.pdf",
+      "file_size": "1.08 MB",
+      "last_updated": "26/08/2026",
+      "created_at": "25/02/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_killzone_tomb_world_update_log-ptyzlo3dfr-ivlzsazxnf.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "sniper-rules",
+      "title_zh": "Deadly Sniper Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "kt_sniper_rules_eng_20-puwbum7ej6-n24dgcrcdd.pdf",
+      "file_size": "4.54 MB",
+      "last_updated": "20/11/2024",
+      "created_at": "20/11/2024",
+      "source_url": "https://assets.warhammer-community.com/kt_sniper_rules_eng_20-puwbum7ej6-n24dgcrcdd.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "volkus-compound-mission-pack",
+      "title_zh": "Volkus Compound Mission Pack",
+      "title_en": "",
+      "categories": [
+        "mission-packs"
+      ],
+      "source_file": "eng_kt_volkus_compound_mission_pack-oai8j5hmhd-a6ugpgdgkj.pdf",
+      "file_size": "9.27 MB",
+      "last_updated": "30/04/2025",
+      "created_at": "30/04/2025",
+      "source_url": "https://assets.warhammer-community.com/eng_kt_volkus_compound_mission_pack-oai8j5hmhd-a6ugpgdgkj.pdf",
+      "language": "english",
+      "classification": "category:mission-packs",
+      "hint": []
+    },
+    {
+      "slug": "exodite-architecture-terrain-templates",
+      "title_zh": "Exodite Architecture Terrain Templates",
+      "title_en": "",
+      "categories": [
+        "key-downloads"
+      ],
+      "source_file": "eng_22-07_kill_team_key_downloads_exodite_architecture_terrain_templates-uyhsjpzv6w-tkm2bqogxz.pdf",
+      "file_size": "1.65 MB",
+      "last_updated": "22/07/2026",
+      "created_at": "22/07/2026",
+      "source_url": "https://assets.warhammer-community.com/eng_22-07_kill_team_key_downloads_exodite_architecture_terrain_templates-uyhsjpzv6w-tkm2bqogxz.pdf",
+      "language": "english",
+      "classification": "category:key-downloads",
+      "hint": []
+    }
+  ]
+}

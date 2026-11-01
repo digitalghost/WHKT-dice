@@ -1,0 +1,690 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-HERNKYN_YAEGRIS",
+  "team_name_zh": "远行者猎手",
+  "team_name_en": "Hernkyn Yaegirs",
+  "source_pdf": "最新杀戮小队规则更新/远行者猎手 Hernkyn Yaegirs 杀戮小队规则.pdf",
+  "source_pdf_sha256": "27cedbcf6daad603c043f4ee75c1b57567a4d0744f9a33713589440e7e6dd262",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 25,
+    "operative": 8,
+    "team-selection": 1,
+    "faction-rule": 3,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-hernkyn_yaegris-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "猎手头领-数据卡",
+      "title_en": "YAEGIR THEYN",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-猎手头领-数据卡.png",
+      "is_back": false,
+      "text": "猎手头领 APL 移动豁免耐伤\n2 5\" 4+ 9\n名称攻击命中伤害武器规则\n爆矢左轮手枪 4 3+ 3/5 范围 8\"\n爆矢霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n爆矢霰弹枪（远距离） 4 5+ 2/3 -\n等离子尖刀 4 3+ 3/5 致命 5+\n老练冒险家：在第一个战略阶段之后的每个战略阶\n段的就绪步骤中，若这名特工位于杀戮区内并且\n不位于敌方特工控制范围内，您便获得 1 点机敏\n点数。\n坚定决心：当这名特工在战斗中首次将被残废时，\n它不会残废且剩余 1 点耐伤，并在那个行动结束前\n不会被残废。所有剩余的攻击骰将被弃置（其中包\n括这名特工用于近战或反击的骰子。）\n远行者猎手、沃坦联盟、队长、头领 28",
+      "weapon_types": {
+        "爆矢左轮手枪": "远程",
+        "爆矢霰弹枪（近距离）": "远程",
+        "爆矢霰弹枪（远距离）": "远程",
+        "等离子尖刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR THEYN\n2 5\" 4+ 9\nNAME ATK HIT DMG WR\nBolt revolver 4 3+ 3/5 Range 8\"\nBolt shotgun (short range) 4 3+ 4/4 Range 6\"\nBolt shotgun (long range) 4 5+ 2/3 -\nPlasma knife 4 3+ 3/5 Lethal 5+\nVeteran Adventurer: In the Ready step of each Strategy phase\nafter the first, if this operative is in the killzone and isn’t within\ncontrol range of enemy operatives, you gain 1 Resourceful point.\nOutright Conviction: The first time this operative would be\nincapacitated during the battle, it’s not incapacitated, has 1\nwound remaining and cannot be incapacitated for the remainder\nof the action. All remaining attack dice are discarded (including\nyours if this operative is fighting or retaliating).\nHERNKYN YAEGIR , LEAGUES OF VOTANN, LEADER, THEYN 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "猎手尖刀士-数据卡",
+      "title_en": "YAEGIR BLADEKYN",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-猎手尖刀士-数据卡.png",
+      "is_back": false,
+      "text": "猎手尖刀士 APL 移动豁免耐伤\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n等离子飞刀 4 3+ 3/5 范围 6\" ，致命 5+ ，有限 1，安静\n等离子双刀 4 3+ 3/5 无休，致命 5+\n追猎者：这名特工可以在拥有隐匿命令时执行冲锋\n行动。\n不屈不挠：若这名特工在近战行动中被残废，您可\n以在它从杀戮区中被移除前将一枚己方未结算成功\n做为出击攻击流程中的那名敌方特工。\n远行者猎手、沃坦联盟、尖刀士 28",
+      "weapon_types": {
+        "等离子飞刀": "远程",
+        "等离子双刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR BLADEKYN\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nThrowing plasma knife 4 3+ 3/5 Range 6\", Lethal 5+, Limited 1, Silent\nDual plasma knives 4 3+ 3/5 Ceaseless, Lethal 5+\nStalker: This operative can perform the Charge action while it\nhas a Conceal order.\nIrrepressible Hardiness: If this operative is incapacitated during\nthe Fight action, you can strike the enemy operative in that\nsequence with one of your unresolved successes before this\noperative is removed from the killzone.\nHERNKYN YAEGIR , LEAGUES OF VOTANN, BLADEKYN 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "猎手噪枪士-数据卡",
+      "title_en": "YAEGIR BOMBAST",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-猎手噪枪士-数据卡.png",
+      "is_back": false,
+      "text": "猎手噪枪士 APL 移动豁免耐伤\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n撞锤左轮手枪 4 3+ 3/5 范围 9\"，无休，致命 5+\n双拳 3 4+ 2/3 -\n撞锤交涉：战略计划。这名特工可以立即进行一次\n无消耗的射击行动（您可以为此将其命令转为交\n战）。\n无耻杀手：每当这名特工使用其撞锤左轮手枪残废\n一名敌方特工时，为位于那名敌方特工 2\" 内且对其\n可见的每一名其他敌方特工各掷一枚 D6：若掷骰结\n果大于那些敌方特工的 APL 属性，则在其下一次激\n活结束前，将那些敌方特工的 APL 属性减去 1 点。\n远行者猎手、沃坦联盟、噪枪士 28",
+      "weapon_types": {
+        "撞锤左轮手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR BOMBAST\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nWroughtlock revolvers 4 3+ 3/5 Range 9\", Ceaseless, Lethal 5+\nFists 3 4+ 2/3 -\nWroughtlock Negotiation: STRATEGIC GAMBIT. This\noperative can immediately perform a free Shoot action (you can\nchange its order to Engage to do so).\nBrazen Killer: Whenever this operative incapacitates an enemy\noperative with its wroughtlock revolvers, roll one D6 separately\nfor each other enemy operative visible to and within 2\" of that\nenemy operative: if the result is higher than that other enemy\noperative’s APL stat, subtract 1 from its APL stat until the end of\nits next activation.\nHERNKYN YAEGIR , LEAGUES OF VOTANN, BOMBAST 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "猎手炮手-数据卡",
+      "title_en": "YAEGIR GUNNER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-猎手炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n猎手炮手\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\nAPM 发射器（穿甲） 5 4+ 4/5 重型（仅限转移），穿刺 1，脚架*\nAPM 发射器（破防） 5 4+ 3/5 爆炸 2\" ，重型（仅限转移），脚架*\nAPM 发射器（高爆） 5 4+ 2/4 爆炸 3\" ，重型（仅限转移），脚架*\n双拳 3 4+ 2/3 -\n*脚架：每当这名特工使用这个武器进行射击时，若\n它在那次激活中尚未进行移动或这是一个反应，则\n那个武器获得“无休”武器规则。请注意，这并不\n会限制它在射击后进行移动。\n远行者猎手、沃坦联盟、炮手 28",
+      "weapon_types": {
+        "APM 发射器（穿甲）": "远程",
+        "APM 发射器（破防）": "远程",
+        "APM 发射器（高爆）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR GUNNER\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nAPM launcher (armour piercing) 5 4+ 4/5 Heavy (Reposition only), Piercing 1, Bipod*\nAPM launcher (breaching) 5 4+ 3/5 Blast 2\", Heavy (Reposition only), Bipod*\nAPM launcher (high explosive) 5 4+ 2/4 Blast 3\", Heavy (Reposition only), Bipod*\nFists 3 4+ 2/3 -\n*Bipod: Whenever this operative is shooting with this weapon, if\nit hasn’t moved during the activation, or if it’s a counteraction,\nthis weapon has the Ceaseless weapon rule. Note this operative\nisn’t restricted from moving after shooting.\nHERNKYN YAEGIR , LEAGUES OF VOTANN, GUNNER 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "猎手碎铁者-数据卡",
+      "title_en": "YAEGIR IRONBRAEK",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-猎手碎铁者-数据卡.png",
+      "is_back": false,
+      "text": "猎手碎铁者 APL 移动豁免耐伤\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n爆矢左轮手枪 4 4+ 3/5 范围 8\"\n建壕工具 3 4+ 3/4 -\n地雷区：您在战斗中拥有五枚地雷区标识。在背\n面，其中有三枚为海佩克斯地雷（见右侧），另两\n枚则为空白。将己方的所有地雷区标识作为同一件\n装备部署。每一枚标识都必须正面朝下（不要将它\n们处于揭示状态），并被部署至距离所有其他标\n识，访问点和可穿越地形 2\" 外，且距离敌方降落区\n和其他己方地雷区标识 6\" 外的位置。当这名特工就\n绪，且不位于敌方特工控制范围内，则您可以重置\n位于其控制范围内已翻转的一枚地雷区标识（将其\n背面重新翻下）。\n海佩克斯地雷：当一枚己方正面朝下的地雷区标识\n位于一名敌方特工的控制范围内，且不位于己方远\n行者猎手特工的控制范围内时，将其翻面。若那枚\n标识为空白，则没有效果。若那枚标识为海佩克斯\n地雷，则那名敌方特工受到 3 点伤害并掷一枚 D6：\n若掷骰结果低于那名敌方特工的豁免属性，则其额\n外受到数值等同于掷骰结果的伤害。无论掷骰结果\n如何，如果它没有残废，终止其行动（如果有），\n如果它因此无法被放置，移动最小距离以放置。无\n论最终是什么结果，那枚标识都将留在原地。\n远行者猎手、沃坦联盟、碎铁者 28",
+      "weapon_types": {
+        "爆矢左轮手枪": "远程",
+        "建壕工具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR IRONBRAEK\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nBolt revolver 4 4+ 3/5 Range 8\"\nEntrencher 3 4+ 3/4 -\nMinefield: You have five Minefield markers for the battle. On the reverse side, three of them are HY-Pex mines (see below) and two are\nblank. Set up all your Minefield markers as if they were one item of equipment. Each must be set up reverse-side down (their specifics\naren’t revealed), more than 2\" from other markers, access points and Accessible terrain, and more than 6\" from your opponent’s drop\nzone and your other Minefield markers. Whenever this operative is readied, if it’s not within control range of enemy operatives, you can\nreset one of your flipped Minefield markers that’s within its control range (flip the marker back over again).\nHY-Pex Mines: Whenever one of your reverse-side down Minefield markers is both within an enemy operative’s control range and not\nwithin a friendly HERNKYN YAEGIR operative’s control range, flip the marker over. If it’s a blank, there’s no effect. If it’s a HY-Pex\nmine, inflict 3 damage on that enemy operative and roll one D6: if the result is less than that enemy operative’s Save stat, inflict additional\ndamage on it equal to the dice result; regardless of the result, if it isn’t incapacitated, end its action (if any), even if that action’s effects\naren’t fulfilled. If it cannot be placed, move it the minimum amount to do so. Regardless, that marker isn’t removed.\nHERNKYN YAEGIR , LEAGUES OF VOTANN, IRONBRAEK 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "猎手步枪士-数据卡",
+      "title_en": "YAEGIR RIFLEKYN",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-猎手步枪士-数据卡.png",
+      "is_back": false,
+      "text": "猎手步枪士 APL 移动豁免耐伤\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n磁轨步枪（隐蔽） 4 2+ 3/3 毁灭 3，重型，穿刺 1，安静，隐蔽位置*\n磁轨步枪（机动） 4 3+ 3/4 重型（仅限转移），穿刺 1\n磁轨步枪（静止） 4 2+ 3/3 毁灭 3，重型，穿刺 1\n双拳 3 4+ 2/3 -\n*隐蔽位置：这名特工只能在战织锦披风：当一名特工对这名特工进行射击时：\n斗中的第一次射击行动中使用这\n• 忽略“集中”武器规则。\n个武器。\n• 若您保留了任意掩护豁免，则您可以额外保留一个掩护豁免，或将\n保留的一个掩护豁免替代为关键成功。但这无法与制高点地形提供\n的掩护豁免相累加。\n远行者猎手、沃坦联盟、步枪士 28",
+      "weapon_types": {
+        "磁轨步枪（隐蔽）": "远程",
+        "磁轨步枪（机动）": "远程",
+        "磁轨步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR RIFLEKYN\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nMagna-coil rifle (concealed) 4 2+ 3/3 Devastating 3, Heavy, Piercing 1, Silent,\nConcealed Position*\nMagna-coil rifle (mobile) 4 3+ 3/4 Heavy (Reposition only), Piercing 1\nMagna-coil rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy, Piercing 1\nFists 3 4+ 2/3 -\n*Concealed Position: This operative Weavewërke Cloak: Whenever an operative is shooting this operative:\ncan only use this weapon the first time\n• Ignore the Saturate weapon rule.\nit’s performing the Shoot action during\n• If you can retain any cover saves, you can retain one additional cover save, or you\nthe battle.\ncan retain one cover save as a critical success instead. This isn’t cumulative with\nimproved cover saves from Vantage terrain.\nHERNKYN YAEGIR , LEAGUES OF VOTANN, RIFLEKYN 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "猎手追踪士-数据卡",
+      "title_en": "YAEGIR TRACKER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-猎手追踪士-数据卡.png",
+      "is_back": false,
+      "text": "猎手追踪士 APL 移动豁免耐伤\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\nSiNR 手弩 4 4+ 3/5 安静\n飞斧 4 3+ 3/5 范围 6\"，有限 1 ，撕裂，安静\n手斧 4 3+ 4/5 -\n多光谱目镜：当这名特工对位于其 6\" 内的特工进\n行射击时：\n• 这名特工的武器获得“追踪轻型”武器规则。\n• 那名特工无法被遮挡。\n追踪者：每当这名特工对位于其 6\" 内进入待机的\n特工进行射击或近战时，这名特工的武器获得“重\n击”武器规则。\n远行者猎手、沃坦联盟、追踪士 28",
+      "weapon_types": {
+        "SiNR 手弩": "远程",
+        "飞斧": "远程",
+        "手斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR TRACKER\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nSiNR handbow 4 4+ 3/5 Silent\nThrowing hatchet 4 3+ 3/5 Range 6\", Limited 1, Rending, Silent\nHatchet 4 3+ 4/5 -\nPan Spectral Visor: Whenever this operative is shooting an\noperative within 6\" of it:\n• This operative’s weapons have the Seek Light weapon rule.\n• That operative cannot be obscured.\nTracker: Whenever this operative is shooting against or fighting\nagainst an expended operative within 6\" of it, this operative’s\nweapons have the Punishing weapon rule.\nHERNKYN YAEGIR , LEAGUES OF VOTANN, TRACKER 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "猎手战士-数据卡",
+      "title_en": "YAEGIR WARRIOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-猎手战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n猎手战士\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n爆矢左轮手枪 4 4+ 3/5 范围 8\"\n爆矢霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n爆矢霰弹枪（远距离） 4 5+ 2/3 -\n双拳 3 4+ 2/3 -\n等离子尖刀 4 4+ 3/5 致命 5+\n无所畏惧：当您为这名特工花费机敏点数时，适用\n下列规则：\n• 若您为其 APL 属性增加 1 点，则改为持续到下一\n次激活开始前。\n• 若您为其恢复失去的耐伤，则改为恢复最多 4 点。\n远行者猎手、沃坦联盟、战士 28",
+      "weapon_types": {
+        "爆矢左轮手枪": "远程",
+        "爆矢霰弹枪（近距离）": "远程",
+        "爆矢霰弹枪（远距离）": "远程",
+        "双拳": "近战",
+        "等离子尖刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nYAEGIR WARRIOR\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nBolt revolver 4 4+ 3/5 Range 8\"\nBolt shotgun (short range) 4 3+ 4/4 Range 6\"\nBolt shotgun (long range) 4 5+ 2/3 -\nFists 3 4+ 2/3 -\nPlasma knife 4 4+ 3/5 Lethal 5+\nIntrepid: Whenever you spend a Resourceful point for this\noperative, the following take precedence:\n• If you add 1 to its APL stat, it lasts until the start of its next\nactivation instead.\n• If it regains lost wounds, it regains up to 4 instead.\nHERNKYN YAEGIR , LEAGUES OF VOTANN, WARRIOR 28"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "远行者猎手杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-远行者猎手杀戮小队.png",
+      "is_back": false,
+      "text": "远行者猎手杀戮小队\n原型：渗透，搜索与摧毁\nOPERATIVES\n↘ 1 名远行者猎手头领特工\n↘ 9 名远行者猎手特工，从以下列表进行选择:\n• 尖刀士\n• 噪枪士\n• 炮手\n• 碎铁者\n• 步枪士\n• 追踪士\n• 战士，装备有以下一种选项:\n○ 爆矢左轮手枪；等离子尖刀\n○ 爆矢霰弹枪；双拳\n除了战士特工以外，列表中的每一名特工只能被\n纳入您的杀戮小队一次。",
+      "text_en": "HERNKYN YAEGIRS\nKILL TEAM\nARCHETYPES: INFILTRATION, SEEK & DESTROY\nOPERATIVES\n↘ 1 HERNKYN YAEGIR THEYN operative\n↘ 9 HERNKYN YAEGIR operatives selected\nfrom the following list:\n• BLADEKYN\n• BOMBAST\n• GUNNER\n• IRONBRAEK\n• RIFLEKYN\n• TRACKER\n• WARRIOR with one of the following options:\n○ Bolt revolver; plasma knife\n○ Bolt shotgun; fists\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "机敏-1",
+      "title_en": "RESOURCEFUL",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-机敏-1.png",
+      "is_back": false,
+      "text": "远行者猎手\n阵营规则\n机敏\n远行者猎手专精于自给自足。这些饱经历练的战士\n们往往会在缺乏支援的任务中面对无数突发状况。\n在这种情况下，猎手小队会通过灵活应变适应危险\n环境和敌方活动。\n在第一个战略阶段之后每个战略阶段的就绪步骤\n中，您会通过杀戮区中不位于敌方特工控制范围\n内的己方远行者猎手特工数量获得一定数量的\n机敏点数。在每个转折点结束时，弃置己方的机\n敏点数。\n特工数量机敏点数\n5+ 2\n3-5 1\n请继续阅读背面",
+      "text_en": "HERNKYN YAEGIR\nFACTION RULE\nRESOURCEFUL\nHernkyn Yaegirs are self-sufficiency specialists. They are\nalso skilled warriors who, usually unsupported, embark\nupon missions equipped for countless contingencies.\nThis allows them to adapt to hazardous environments\nand enemy actions with decisive speed.\nIn the Ready step of each Strategy phase after\nthe first, you gain Resourceful points determined\nby the number of friendly HERNKYN YAEGIR\noperatives in the killzone that aren’t within control\nrange of enemy operatives. At the end of each\nturning point, discard your Resourceful points.\nOPERATIVES RESOURCEFUL POINTS\n5+ 2\n1-4 1\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "机敏-2",
+      "title_en": "RESOURCEFUL",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-机敏-2.png",
+      "is_back": true,
+      "text": "在每一名己方远行者猎手特工的激活期间，您\n可以花费 1 点机敏点数并选择以下一个效果：\n• 在特工执行一次行动之前或者之后，如果特工\n不位于敌方特工的控制范围内，那么您可以使\n用本规则，若使用，直到激活结束前，那名己\n方特工的 APL 属性增加 1 点。\n• 在该特工被激活时，如果该特工不位于敌方特\n工的控制范围内，那么回复 D3+1 处失去的\n耐伤。",
+      "text_en": "You can spend 1 of your Resourceful points\nduring each activation of each friendly HERNKYN\nYAEGIR operative to do one of the following:\n• Before or after it performs an action, if it’s\nnot within control range of enemy operatives,\nyou can use this rule. If you do, add 1 to that\nfriendly operative’s APL stat until the end of\nits activation.\n• When it’s activated, if it’s not within control\nrange of enemy operatives, it regains up to\nD3+1 lost wounds."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "无畏探险家",
+      "title_en": "DAUNTLESS EXPLORERS",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-无畏探险家.png",
+      "is_back": false,
+      "text": "远行者猎手\n阵营规则\n无畏探险家\n猎手们是氏族中最先踏上新世界的炉裔，常常会面\n临长时间部署，他们十分擅长对行动区域进行快速\n探索和评估。\n第一个转折点的战略计划。完全位于己方降落区\n的每一名己方远行者猎手特工可以立即执行一\n次无消耗的转移行动。但那些移动必须在其结束\n时完全位于己方降落区 4\" 内。",
+      "text_en": "HERNKYN YAEGIR\nFACTION RULE\nDAUNTLESS EXPLORERS\nThe first of their kindred to set foot on new worlds,\nYaegirs are frequently deployed for extended periods\nand are experts in swiftly evaluating and exploiting their\narea of operations.\nSTRATEGIC GAMBIT in the first turning point.\nEach friendly HERNKYN YAEGIR operative\nwholly within your drop zone can immediately\nperform a free Reposition action. Each that does\nso must end that move wholly within 4\" of your\ndrop zone."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "HERNKYN YAEGIR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "远行者猎手\n标识/指示物指南\n坚定决心指示物等离子飞刀飞斧指示物\n指示物\n机敏点数陨落族人标识地雷区标识\n（1 点和 2 点）\n海佩克斯地雷精准爆矢弹药烈焰爆矢弹药\n标识指示物指示物",
+      "text_en": "HERNKYN YAEGIR\nMARKER/TOKEN GUIDE\nOutright Throwing Throwing\nConviction Plasma Knife Hatchet token\ntoken token\nResourceful Fallen Kin Minefield\npoints marker marker\n(Values 1 & 2)\nHY-Pex Mine Stabilised Bolt Firestorm Bolt\nmarker Shells token Shells token"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "隐秘交战",
+      "title_en": "HIDDEN ENGAGEMENT",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-隐秘交战.png",
+      "is_back": false,
+      "text": "远行者猎手\n战略计谋\n隐秘交战\n作为经验丰富的生存专家，远行者猎手是老练\n的猎人，擅长于从暗处追踪猎物并进行交战。\n每当一名己方远行者猎手特工进行射击时，若\n从目标视角而言它处于掩护中，则它的武器获\n得“平衡”武器规则。请注意，瞄准直线依然应\n当由您的对手确定（即由他们决定从自己特工底\n盘的哪个点划出瞄准直线）。",
+      "text_en": "HERNKYN YAEGIR\nSTRATEGY PLOY\nHIDDEN ENGAGEMENT\nBeing experienced survivalists, Hernkyn Yaegirs are\nskilled hunters, well used to stalking and engaging their\nprey from the shadows.\nWhenever a friendly HERNKYN YAEGIR\noperative is shooting, if it’s in cover from the\ntarget’s perspective, that friendly operative’s\nweapons have the Balanced weapon rule. Note\nthat your opponent still determines the targeting\nlines for this (i.e. they decide which point of their\noperative’s base targeting lines are drawn from)."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "娴熟刀法",
+      "title_en": "MASTERFUL BLADEWORK",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-娴熟刀法.png",
+      "is_back": false,
+      "text": "远行者猎手\n战略计谋\n娴熟刀法\n远行者猎手对使用等离子尖刀和其他近战武器\n进行了大量训练，能够无情且精确地挥舞这\n些武器。\n每当一名己方远行者猎手特工进行近战或在拥\n有隐匿命令的情况下进行反击时，其近战武器\n的攻击属性增加 1 点（最多提升至 4），并且拥\n有“平衡”武器规则；如果那件武器已经拥有“\n平衡”武器规则，则会拥有“无休”武器规则作\n为替代。",
+      "text_en": "HERNKYN YAEGIR\nSTRATEGY PLOY\nMASTERFUL BLADEWORK\nYaegirs are extensively trained in the use of plasma\nknives and other close combat weapons, wielding them\nwith ruthless precision.\nWhenever a friendly HERNKYN YAEGIR\noperative is fighting, or has a Conceal order and\nis retaliating, add 1 to the Atk stat of its melee\nweapons (to a maximum of 4) and they have the\nBalanced weapon rule; if the weapon already has\nthat weapon rule, it has the Ceaseless weapon\nrule instead of Balanced."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "坚毅求生家",
+      "title_en": "TOUGH SURVIVALISTS",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-坚毅求生家.png",
+      "is_back": false,
+      "text": "远行者猎手\n战略计谋\n坚毅求生家\n远行者猎手一辈子都在探索前线，他们在面对\n伤害时表现得极为刚毅。\n当每名己方远行者猎手特工在转折点中第一次\n由于攻击骰受到伤害时，在结算攻击骰步骤中，\n您可以将伤害减半（向上取整，至多减少至 2\n点）。",
+      "text_en": "HERNKYN YAEGIR\nSTRATEGY PLOY\nTOUGH SURVIVALISTS\nA lifetime of frontier exploration coupled with their\nkind’s natural fortitude renders Hernkyn Yaegirs highly\nresistant to injury.\nThe first time an attack dice inflicts damage\non each friendly HERNKYN YAEGIR operative\nduring the turning point in the Resolve Attack\nDice step, you can halve that inflicted damage\n(rounding up, to a minimum of 2)."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "各就各位",
+      "title_en": "IN POSITION",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-各就各位.png",
+      "is_back": false,
+      "text": "远行者猎手\n战略计谋\n各就各位\n远行者猎手会在追踪猎物上付出大量耐心，并\n利用周围环境隐蔽自己，免遭窥视。\n每当一名己方远行者猎手特工拥有隐匿命令且\n处于掩护中，则其无法被选为有效目标，本规\n则的优先度高于所有其他规则（例如‘追踪’\n武器规则和制高点地形)，除非攻击者位于特工\n的 2\" 内。",
+      "text_en": "HERNKYN YAEGIR\nSTRATEGY PLOY\nIN POSITION\nHernkyn Yaegirs stalk their enemies with great patience,\nusing the surrounding terrain to conceal themselves\nfrom prying eyes.\nWhenever a friendly HERNKYN YAEGIR\noperative has a Conceal order and is in cover,\nit cannot be selected as a valid target, taking\nprecedence over all other rules (e.g. Seek,\nVantage terrain) except being within 2\"."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "坚韧",
+      "title_en": "STURDY",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-坚韧.png",
+      "is_back": false,
+      "text": "远行者猎手\n交战计谋\n坚韧\n远行者猎手身形浑厚坚毅，坚韧不拔，面对其\n他种族早已慌乱不堪的伤势仍能镇定自若。\n一名特工对一名己方远行者猎手特工进行射击\n时，当您拿取己方防御骰时使用此交战计谋。将\n攻击者保留的关键成功改为普通成功（任意已经\n结算的武器规则同样会失去效果，例如“穿刺”\n武器规则的暴击）。",
+      "text_en": "HERNKYN YAEGIR\nFIREFIGHT PLOY\nSTURDY\nStocky and stalwart, Hernkyn Yaegirs grit their teeth and\nshrug off wounds that would fell other species.\nUse this firefight ploy when an operative is\nshooting a friendly HERNKYN YAEGIR operative,\nwhen you collect your defence dice. Change the\nattacker’s retained critical successes to normal\nsuccesses (any weapon rules they’ve already\nresolved aren’t affected, e.g. Piercing Crits)."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "羁绊稳固",
+      "title_en": "BONDS THAT BIND",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-羁绊稳固.png",
+      "is_back": false,
+      "text": "远行者猎手\n交战计谋\n羁绊稳固\n远行者猎手组成的小队关系极为紧密，会在行\n动中展现出本能般的协调。\n当一名己方远行者猎手特工激活时使用此交战\n计谋。选择位于那名特工 3\" 内且可见的另一名\n己方远行者猎手特工。在第一名特工待机时，\n您可以在对手激活前激活那个另一名己方特工。\n在另一名己方特工激活后，您的对手可以照常激\n活特工。\n若这个转折点中使用过撞锤交涉战略计划，则两\n名特工均不能为噪枪士特工。",
+      "text_en": "HERNKYN YAEGIR\nFIREFIGHT PLOY\nBONDS THAT BIND\nSquads of Hernkyn Yaegirs are exceptionally close-knit\nand operate with instinctive coordination.\nUse this firefight ploy when a friendly HERNKYN\nYAEGIR operative is activated. Select one other\nready friendly HERNKYN YAEGIR operative\nvisible to and within 3\" of that operative. When\nthat first friendly operative is expended, you can\nactivate that other friendly operative before your\nopponent activates. When that other operative\nis expended, your opponent then activates\nas normal.\nNeither operative can be a BOMBAST operative if\nits Wroughtlock Negotiation STRATEGIC GAMBIT\nhas been used this turning point."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "绝不抛弃",
+      "title_en": "NO KIN LEFT BEHIND",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-绝不抛弃.png",
+      "is_back": false,
+      "text": "远行者猎手\n交战计谋\n绝不抛弃\n所有炉裔都希望在死后回到自己的先祖核心。\n因此远行者会全力保证没有陨落者被抛弃。\n当一名己方远行者猎手特工残废时使用此交战\n计谋。在那名特工从杀戮区移除前，将杀戮区中\n己方的陨落族人标识移除（如果有），然后将其\n放置在那名特工的控制范围内，之后，那名特工\n照常被移出杀戮区。\n当一名在己方陨落族人标识 3\" 内的己方远行者猎\n手特工射击，近战或反击时，在掷攻击骰步骤\n中，您可以将己方的一枚失败保留为普通成功，\n或将一枚普通成功保留为关键成功。",
+      "text_en": "HERNKYN YAEGIR\nFIREFIGHT PLOY\nNO KIN LEFT BEHIND\nAll Kin desire to return to their Hold’s Ancestor Core\nupon their death. Hernkyn will fight tooth and nail to\nensure that none of their fallen are left behind.\nUse this firefight ploy when a friendly HERNKYN\nYAEGIR operative is incapacitated. Before that\noperative is removed from the killzone, remove\nyour Fallen Kin marker from the killzone (if any),\nthen place it within that operative’s control range.\nThat operative is then removed from the killzone\nas normal.\nWhenever a friendly HERNKYN YAEGIR\noperative within 3\" of your Fallen Kin marker\nis shooting, fighting or retaliating, in the Roll\nAttack Dice step, you can retain one of your fails\nas a normal success instead of discarding it, or\nretain one of your normal successes as a critical\nsuccess instead."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "严密防御",
+      "title_en": "STALWART DEFENCE",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-严密防御.png",
+      "is_back": false,
+      "text": "远行者猎手\n交战计谋\n严密防御\n炉裔在防守中会展现出坚韧不拔的特质，能在\n敌人的步步紧逼下维持精准且密集的火力。\n当一名敌方特工在一名己方远行者猎手特工控\n制范围内结束冲锋行动时使用此交战计谋。选择\n位于那名己方特工 6\" 内，对其可见且不位于敌\n方特工控制范围内的另一名己方远行者猎手特\n工。被选中的特工可以执行一次无消耗的射击行\n动。在那次行动中：\n• 即便那名敌方特工位于一名己方特工控制范围\n内，那名敌方特工也可以作为目标。\n• 其他敌方特工不能被选为有效目标。\n• 您不能选择破片或穿甲手雷，也不能选择拥\n有“爆炸”或“x\" 毁灭 x”武器规则（即带有\n距离的毁灭）的武器。",
+      "text_en": "HERNKYN YAEGIR\nFIREFIGHT PLOY\nSTALWART DEFENCE\nThe Kin are steadfast and determined in defence. They\nmaintain accurate and punishing fire even as their\nenemies close in.\nUse this firefight ploy when an enemy operative\nends the Charge action within control range of\na friendly HERNKYN YAEGIR operative. Select\none other friendly HERNKYN YAEGIR operative\nvisible to and within 6\" of that friendly operative,\nbut that isn’t itself within control range of enemy\noperatives. The selected operative can perform a\nfree Shoot action. During that action:\n• It can target that enemy operative even though\nit’s within control range of a friendly operative.\n• You cannot select any other enemy operative\nas a valid target.\n• You cannot select a frag or krak grenade, or\na weapon with the Blast or x\" Devastating\nx weapon rule (i.e. Devastating with a distance)."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "等离子尖刀",
+      "title_en": "PLASMA KNIVES",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-等离子尖刀.png",
+      "is_back": false,
+      "text": "远行者猎手\n阵营装备\n等离子尖刀\n等离子尖刀极为炽热的刃面足够切开数尺厚的\n坚实金属。无论是护甲，还是骨肉都难以抵挡\n其锋芒。\n己方远行者猎手特工获得下列近战武器。请注\n意，一部分特工已经拥有了这个武器且属性更\n佳，在这种情况下请使用属性更佳的版本，并且\n那件武器在战斗中获得“平衡”武器规则。\n名称攻击命中伤害\n等离子尖刀 3 4+ 3/5\n武器规则\n致命 5+",
+      "text_en": "HERNKYN YAEGIR\nFACTION EQUIPMENT\nPLASMA KNIVES\nThe superheated edge of a plasma knife can slice\nthrough several inches of solid metal. Armour and bone\nare no match for such a cutting edge.\nFriendly HERNKYN YAEGIR operatives have\nthe following melee weapon. Note that some\noperatives already have this weapon but with\nbetter stats; in that instance, use the better\nversion, and that weapon has the Balanced\nweapon rule for the battle.\nNAME ATK HIT DMG\nPlasma knife 3 4+ 3/5\nWR\nLethal 5+"
+    },
+    {
+      "id": "kt-hernkyn_yaegris-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "精准爆矢弹药",
+      "title_en": "STABILISED BOLT SHELLS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-精准爆矢弹药.png",
+      "is_back": false,
+      "text": "远行者猎手\n阵营装备\n精准爆矢弹药\n这种特制爆矢弹药装有稳定翼面，能在极限距\n离提高其精准性和杀伤力。\n每个转折点限两次，当一名己方远行者猎手特\n工执行射击行动且选择了爆矢霰弹枪（远距离）\n时，您便可以使用这个规则。若此，直到那个行\n动结束前，将那个武器的命中属性和两个伤害属\n性各自增加 1 点，并且那个武器拥有“精准 1”\n武器规则。",
+      "text_en": "HERNKYN YAEGIR\nFACTION EQUIPMENT\nSTABILISED BOLT SHELLS\nFitted with fin stabilisers, these specially crafted bolt\nshells are designed to enhance accuracy and lethality at\nextreme range.\nUp to twice per turning point, whenever a friendly\nHERNKYN YAEGIR operative is performing the\nShoot action and you select a bolt shotgun (long\nrange), you can use this rule. If you do, until the\nend of that action, improve the Hit stat of that\nweapon by 1 and add 1 to both of its Dmg stats,\nand that weapon has the Accurate 1 weapon rule."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "烈焰爆矢弹药",
+      "title_en": "FIRESTORM BOLT SHELLS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-烈焰爆矢弹药.png",
+      "is_back": false,
+      "text": "远行者猎手\n阵营装备\n烈焰爆矢弹药\n这种爆矢弹药装填了破片和磷火，会在撞击后\n的爆炸中散播出一大片致命的燃烧弹片。\n每个转折点一次，当一名己方远行者猎手特工\n执行射击行动且选择了爆矢霰弹枪（近距离）\n时，您便可以使用这个规则。若此，直到那个行\n动结束前，那个武器获得“爆炸 1\"”武器规则。",
+      "text_en": "HERNKYN YAEGIR\nFACTION EQUIPMENT\nFIRESTORM BOLT SHELLS\nThese bolt rounds are packed with shrapnel and\nphosphor, detonating on impact and emitting a cloud of\nlethal burning shards.\nOnce per turning point, when a friendly HERNKYN\nYAEGIR operative is performing the Shoot action\nand you select a bolt shotgun (short range), you\ncan use this rule. If you do, until the end of that\naction, that weapon has the Blast 1\" weapon rule."
+    },
+    {
+      "id": "kt-hernkyn_yaegris-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "KV-陶钢防护服",
+      "title_en": "KV-CERAMIDE UNDERSUIT",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-KV-陶钢防护服.png",
+      "is_back": false,
+      "text": "远行者猎手\n阵营装备\nKV-陶钢防护服\n远行者猎手通常会穿着轻型护甲，而这种轻薄\n且极具弹性的陶钢防护服能为使用者提供一层\n额外的防护。\n每当一名特工对一名己方远行者猎手特工使用\n带有“爆炸”或“洪流”武器规则的远程武器执\n行射击行动时，您可以重掷一枚己方防御骰。此\n外，己方远行者猎手特工在那个流程中不会受\n到“x\" 毁灭 x”武器规则（即带有距离的毁灭）\n的效果影响，除非它们是这一流程中的目标。",
+      "text_en": "HERNKYN YAEGIR\nFACTION EQUIPMENT\nKV-CERAMIDE UNDERSUIT\nHernkyn Yaegirs ordinarily wear only light armour. These\nthin but resilient semi-ceramic undersuits provide the\nwearer with an additional layer of protection.\nWhenever an operative is shooting a friendly\nHERNKYN YAEGIR operative, if the ranged\nweapon in that sequence has the Blast or Torrent\nweapon rule, you can re-roll one of your defence\ndice. In addition, friendly HERNKYN YAEGIR\noperatives aren’t affected by the x\" Devastating\nx weapon rule (i.e. Devastating with a distance)\nunless they are the target during that sequence."
+    }
+  ]
+}

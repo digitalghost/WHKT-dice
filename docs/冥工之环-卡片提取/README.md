@@ -1,55 +1,87 @@
-# 冥工之环卡片提取
+# 冥工之环（Canoptek Circle）卡片索引
 
-提取与核对日期：2026-09-24。来源：[冥工之环 Canoptek Circle 杀戮小队规则.pdf](../冥工之环%20Canoptek%20Circle%20杀戮小队规则.pdf)。
+- 小队 ID：`NEC-CAN`
+- 来源 PDF：`最新杀戮小队规则更新/冥工之环 Canoptek Circle 杀戮小队规则.pdf`
+- 提取日期：2026-10-26
+- 数据来源：官方中文 PDF（唯一信源）
+- 独立卡图总数：**27**（总览图不计入）
 
-200 DPI 整页渲染后裁切；坐标使用 PDF 点坐标（左上原点，x/y/宽/高）。卡框外的白边和裁切线已去除，圆角外为透明 alpha。原卡内容未修改，当前规则以完整资料及 manifest 中正文为准。
-
-[完整规则资料](../冥工之环-完整规则资料.md) · [manifest](manifest.json) · [当前API快照](ktdash-current.json)
+## 分类计数
 
 | 类别 | 数量 |
-|---|---|
-| 特工 | 5 |
-| 特工能力 | 6 |
-| 其他 | 2 |
-| 小队选择 | 1 |
-| 阵营规则 | 2 |
-| 战略计谋 | 4 |
-| 交战计谋 | 4 |
-| 阵营装备 | 4 |
+|---|---:|
+| faction-equipment | 4 |
+| faction-rule | 2 |
+| firefight-ploy | 4 |
+| operative | 5 |
+| operative-ability | 6 |
+| other | 1 |
+| strategic-ploy | 4 |
+| team-selection | 1 |
 
-独立卡片 28 张；另有2张总览，不计入卡片数。
+## 特工（5 张）
 
-![特工总览](00-总览-特工卡.png)
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 地相技师-数据卡 | 第 1 页 | [01-01-特工-地相技师-数据卡.png](01-01-特工-地相技师-数据卡.png) |
+| 4 | 冥工加速巨虫-数据卡 | 第 1 页 | [01-04-特工-冥工加速巨虫-数据卡.png](01-04-特工-冥工加速巨虫-数据卡.png) |
+| 6 | 冥工重生巨虫-数据卡 | 第 2 页 | [01-06-特工-冥工重生巨虫-数据卡.png](01-06-特工-冥工重生巨虫-数据卡.png) |
+| 8 | 冥工巨虫战士-数据卡 | 第 2 页 | [01-08-特工-冥工巨虫战士-数据卡.png](01-08-特工-冥工巨虫战士-数据卡.png) |
+| 10 | 墓穴爬行者-数据卡 | 第 3 页 | [01-10-特工-墓穴爬行者-数据卡.png](01-10-特工-墓穴爬行者-数据卡.png) |
 
-![规则总览](00-总览-规则卡.png)
+## 特工能力（6 张）
 
-| 编号 | 类别 | 中文标题 / English | 页 | 本地ID | KTDash ID | 状态 |
-|---|---|---|---|---|---|---|
-| 1 | 特工 | [地相技师-数据卡](01-特工-地相技师-数据卡.png) / Geomancer | 1 | nec-can-card-01 | NEC-CAN-GEO、NEC-CAN-GEO-SNC | current |
-| 2 | 特工能力 | [地相技师-能力卡1](02-特工能力-地相技师-能力卡1.png) / Geomancer | 1 | nec-can-card-02 | NEC-CAN-GEO、NEC-CAN-GEO-CC、NEC-CAN-GEO-GD | current |
-| 3 | 特工能力 | [地相技师-能力卡2](03-特工能力-地相技师-能力卡2.png) / Geomancer | 1 | nec-can-card-03 | NEC-CAN-GEO、NEC-CAN-GEO-MB | current |
-| 4 | 特工 | [冥工加速巨虫-数据卡](04-特工-冥工加速巨虫-数据卡.png) / Canoptek Macrocyte Accelerator | 1 | nec-can-card-04 | NEC-CAN-ACC | current |
-| 5 | 特工能力 | [冥工加速巨虫-能力卡](05-特工能力-冥工加速巨虫-能力卡.png) / Canoptek Macrocyte Accelerator | 2 | nec-can-card-05 | NEC-CAN-ACC、NEC-CAN-ACC-CO、NEC-CAN-ACC-OC | current |
-| 6 | 特工 | [冥工重生巨虫-数据卡](06-特工-冥工重生巨虫-数据卡.png) / Canoptek Macrocyte Reanimator | 2 | nec-can-card-06 | NEC-CAN-REA | current |
-| 7 | 特工能力 | [冥工重生巨虫-能力卡](07-特工能力-冥工重生巨虫-能力卡.png) / Canoptek Macrocyte Reanimator | 2 | nec-can-card-07 | NEC-CAN-REA、NEC-CAN-REA-NB、NEC-CAN-REA-REA | current |
-| 8 | 特工 | [冥工巨虫战士-数据卡](08-特工-冥工巨虫战士-数据卡.png) / Canoptek Macrocyte Warrior | 2 | nec-can-card-08 | NEC-CAN-WAR | current |
-| 9 | 特工能力 | [冥工巨虫战士-能力卡](09-特工能力-冥工巨虫战士-能力卡.png) / Canoptek Macrocyte Warrior | 3 | nec-can-card-09 | NEC-CAN-WAR、NEC-CAN-WAR-ACS、NEC-CAN-WAR-AD、NEC-CAN-WAR-EC | current |
-| 10 | 特工 | [墓穴爬行者-数据卡](10-特工-墓穴爬行者-数据卡.png) / Canoptek Tomb Crawler | 3 | nec-can-card-10 | NEC-CAN-TC、NEC-CAN-TC-DB | current |
-| 11 | 特工能力 | [墓穴爬行者-能力卡](11-特工能力-墓穴爬行者-能力卡.png) / Canoptek Tomb Crawler | 3 | nec-can-card-11 | NEC-CAN-TC、NEC-CAN-TC-SF、NEC-CAN-TC-WS | current |
-| 12 | 其他 | [笔记](12-其他-笔记.png) / PDF未提供英文标题 | 3 | nec-can-card-12 | null | PDF-only |
-| 13 | 小队选择 | [冥工之环杀戮小队](13-小队选择-冥工之环杀戮小队.png) / Canoptek Circle | 4 | nec-can-card-13 | NEC-CAN | current |
-| 14 | 阵营规则 | [方尖碑节点矩阵-说明](14-阵营规则-方尖碑节点矩阵-说明.png) / Obelisk Node Matrix | 4 | nec-can-card-14 | NEC-CAN-GEO-ONM、NEC-CAN-ACC-ONM、NEC-CAN-REA-ONM、NEC-CAN-WAR-ONM、NEC-CAN-TC-ONM | current |
-| 15 | 阵营规则 | [方尖碑节点矩阵-效果与示意](15-阵营规则-方尖碑节点矩阵-效果与示意.png) / Obelisk Node Matrix | 4 | nec-can-card-15 | NEC-CAN-GEO-ONM、NEC-CAN-ACC-ONM、NEC-CAN-REA-ONM、NEC-CAN-WAR-ONM、NEC-CAN-TC-ONM | current |
-| 16 | 其他 | [标识-指示物指南](16-其他-标识-指示物指南.png) / PDF未提供英文标题 | 4 | nec-can-card-16 | null | PDF-only |
-| 17 | 战略计谋 | [超维护盾](17-战略计谋-超维护盾.png) / Hypershielding | 5 | nec-can-card-17 | NEC-CAN-S-HS | current |
-| 18 | 战略计谋 | [动力转换增幅](18-战略计谋-动力转换增幅.png) / Transdynamic Amplification | 5 | nec-can-card-18 | NEC-CAN-S-TDA | current |
-| 19 | 战略计谋 | [冥工重力推斥](19-战略计谋-冥工重力推斥.png) / Cryptogravitic Repulsion | 5 | nec-can-card-19 | NEC-CAN-S-CGR | current |
-| 20 | 战略计谋 | [吸魂](20-战略计谋-吸魂.png) / Souldrain | 5 | nec-can-card-20 | NEC-CAN-S-SD | current |
-| 21 | 交战计谋 | [护盾闪耀](21-交战计谋-护盾闪耀.png) / Shield Flare | 6 | nec-can-card-21 | NEC-CAN-T-SF | current |
-| 22 | 交战计谋 | [灵动方尖碑节点](22-交战计谋-灵动方尖碑节点.png) / Animate Obelisk Nodes | 6 | nec-can-card-22 | NEC-CAN-T-AON | current |
-| 23 | 交战计谋 | [节点响应](23-交战计谋-节点响应.png) / Nodal Response | 6 | nec-can-card-23 | NEC-CAN-T-NR | current |
-| 24 | 交战计谋 | [可消耗奴仆](24-交战计谋-可消耗奴仆.png) / Sacrificial Thrall | 6 | nec-can-card-24 | NEC-CAN-T-ST | current |
-| 25 | 阵营装备 | [矩阵操纵器](25-阵营装备-矩阵操纵器.png) / Matrix Manipulator | 7 | nec-can-card-25 | NEC-CAN-MM | current |
-| 26 | 阵营装备 | [觉醒的方尖碑节点](26-阵营装备-觉醒的方尖碑节点.png) / Awakened Obelisk Nodes | 7 | nec-can-card-26 | NEC-CAN-AON | current |
-| 27 | 阵营装备 | [纳米甲虫匣](27-阵营装备-纳米甲虫匣.png) / Nanoscarab Caskets | 7 | nec-can-card-27 | NEC-CAN-SDC | current |
-| 28 | 阵营装备 | [移相器](28-阵营装备-移相器.png) / Phase Shifter | 7 | nec-can-card-28 | NEC-CAN-PS | current |
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 2 | 地相技师-能力卡1 | 第 1 页 | [01-02-特工能力-地相技师-能力卡1.png](01-02-特工能力-地相技师-能力卡1.png) |
+| 3 | 地相技师-能力卡2 | 第 1 页 | [01-03-特工能力-地相技师-能力卡2.png](01-03-特工能力-地相技师-能力卡2.png) |
+| 5 | 冥工加速巨虫-能力卡 | 第 2 页 | [01-05-特工能力-冥工加速巨虫-能力卡.png](01-05-特工能力-冥工加速巨虫-能力卡.png) |
+| 7 | 冥工重生巨虫-能力卡 | 第 2 页 | [01-07-特工能力-冥工重生巨虫-能力卡.png](01-07-特工能力-冥工重生巨虫-能力卡.png) |
+| 9 | 冥工巨虫战士-能力卡 | 第 3 页 | [01-09-特工能力-冥工巨虫战士-能力卡.png](01-09-特工能力-冥工巨虫战士-能力卡.png) |
+| 11 | 墓穴爬行者-能力卡 | 第 3 页 | [01-11-特工能力-墓穴爬行者-能力卡.png](01-11-特工能力-墓穴爬行者-能力卡.png) |
+
+## 小队选择（1 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 冥工之环杀戮小队 | 第 4 页 | [10-01-小队选择-冥工之环杀戮小队.png](10-01-小队选择-冥工之环杀戮小队.png) |
+
+## 阵营规则（2 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 方尖碑节点矩阵-1 | 第 4 页 | [11-01-阵营规则-方尖碑节点矩阵-1.png](11-01-阵营规则-方尖碑节点矩阵-1.png) |
+| 2 | 方尖碑节点矩阵-2 | 第 4 页 | [11-02-阵营规则-方尖碑节点矩阵-2.png](11-02-阵营规则-方尖碑节点矩阵-2.png) |
+
+## 战略计谋（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 超维护盾 | 第 5 页 | [20-01-战略计谋-超维护盾.png](20-01-战略计谋-超维护盾.png) |
+| 2 | 动力转换增幅 | 第 5 页 | [20-02-战略计谋-动力转换增幅.png](20-02-战略计谋-动力转换增幅.png) |
+| 3 | 冥工重力推斥 | 第 5 页 | [20-03-战略计谋-冥工重力推斥.png](20-03-战略计谋-冥工重力推斥.png) |
+| 4 | 吸魂 | 第 5 页 | [20-04-战略计谋-吸魂.png](20-04-战略计谋-吸魂.png) |
+
+## 交战计谋（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 护盾闪耀 | 第 6 页 | [30-01-交战计谋-护盾闪耀.png](30-01-交战计谋-护盾闪耀.png) |
+| 2 | 灵动方尖碑节点 | 第 6 页 | [30-02-交战计谋-灵动方尖碑节点.png](30-02-交战计谋-灵动方尖碑节点.png) |
+| 3 | 节点响应 | 第 6 页 | [30-03-交战计谋-节点响应.png](30-03-交战计谋-节点响应.png) |
+| 4 | 可消耗奴仆 | 第 6 页 | [30-04-交战计谋-可消耗奴仆.png](30-04-交战计谋-可消耗奴仆.png) |
+
+## 阵营装备（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 矩阵操纵器 | 第 7 页 | [40-01-阵营装备-矩阵操纵器.png](40-01-阵营装备-矩阵操纵器.png) |
+| 2 | 觉醒的方尖碑节点 | 第 7 页 | [40-02-阵营装备-觉醒的方尖碑节点.png](40-02-阵营装备-觉醒的方尖碑节点.png) |
+| 3 | 纳米甲虫闸 | 第 7 页 | [40-03-阵营装备-纳米甲虫闸.png](40-03-阵营装备-纳米甲虫闸.png) |
+| 4 | 移相器 | 第 7 页 | [40-04-阵营装备-移相器.png](40-04-阵营装备-移相器.png) |
+
+## 其他（1 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 标识/指示物指南 | 第 4 页 | [16-01-其他-标识-指示物指南.png](16-01-其他-标识-指示物指南.png) |

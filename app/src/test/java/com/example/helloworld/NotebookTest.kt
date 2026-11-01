@@ -47,8 +47,8 @@ class NotebookTest {
         assertEquals(12,MissionCards.all.count { it.category.contains("战术") })
         assertEquals(21,MissionCards.all.map { it.name }.toSet().size)
         assertTrue(MissionCards.all.all { it.rule.isNotBlank() && it.scoring.isNotBlank() })
-        assertEquals(10,EquipmentCards.universal.size)
-        assertEquals(10,EquipmentCards.universal.map { it.name }.toSet().size)
+        assertEquals(11,EquipmentCards.universal.size)
+        assertEquals(11,EquipmentCards.universal.map { it.name }.toSet().size)
         assertTrue(EquipmentCards.universal.all { it.rules.isNotBlank() && it.count.isNotBlank() })
     }
 }

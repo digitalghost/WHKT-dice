@@ -1,0 +1,1094 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-EXODITE_DRAGON_MASTERS",
+  "team_name_zh": "流亡驭龙师",
+  "team_name_en": "Exodite Dragon Masters",
+  "source_pdf": "最新杀戮小队规则更新/流亡驭龙师 Exodite Dragon Masters 杀戮小队规则.pdf",
+  "source_pdf_sha256": "b93ac6b1c3b2fcf00a06c15e018feaeb610a1a9aa92ad033a51e5ea8c806302d",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 42,
+    "operative": 4,
+    "operative-ability": 1,
+    "team-selection": 1,
+    "faction-rule": 6,
+    "other": 18,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-exodite_dragon_masters-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "驭龙师氏族之刃-数据卡",
+      "title_en": "DRAGON MASTER CLANBLADE",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-驭龙师氏族之刃-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n驭龙师氏族之刃\n4 12\" 3+ 24\n名称攻击命中伤害武器规则\n曜光卡宾枪 4 3+ 3/3 毁灭 1\n龙骥的獠牙与利爪 6 3+ 3/5 残暴\n月刃 5 3+ 4/6 致命 5+\n鳞盾：每当一名特工向这名特工射击，并且没有攻\n击骰被保留为关键成功，则将“穿刺”武器规则的\nX 降低 1 点（如果有）。请注意，这意味着“穿刺\n1”将被无视。\n氏族之刃升级：当这名特工被选择进行战斗，则选\n择下方至多两项不同的升级规则（见阵营规则）加\n入其战斗时的数据卡。\n流亡驭龙师、艾达灵族、骑乘、氏族之刃 75x42",
+      "weapon_types": {
+        "曜光卡宾枪": "远程",
+        "龙骥的獠牙与利爪": "近战",
+        "月刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDRAGON MASTER CLANBLADE\n4 12\" 3+ 24\nNAME ATK HIT DMG WR\nSolar carbine 4 3+ 3/3 Devastating 1\nDrakesteed fangs & talons 6 3+ 3/5 Brutal\nMoonblades 5 3+ 4/6 Lethal 5+\nScaleshield: Whenever an operative is shooting this operative,\nand no attack dice are retained as critical successes, worsen the\nx of the Piercing weapon rule by 1 (if any). Note that Piercing 1\nwould therefore be ignored.\nClanblade Upgrades: When this operative is selected for the\nbattle, select up to two different Clanblade Upgrade rules (see\nFaction Rules) to be added to its datacard for the battle.\nEXODITE DRAGON MASTER , AELDARI, MOUNTED, CLANBLADE 75x42"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "驭龙师地脉潜行者-数据卡",
+      "title_en": "DRAGON MASTER LEYSTALKER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-驭龙师地脉潜行者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n驭龙师地脉潜行者\n4 12\" 3+ 24\n名称攻击命中伤害武器规则\n长步枪（机动） 4 3+ 3/3 毁灭 1\n长步枪（静止） 4 2+ 3/3 毁灭 3、静瞄*\n龙骥的獠牙与利爪 6 3+ 3/5 残暴\n猎刀 3 3+ 3/5 致命 5+\n*静瞄：这名特工不能在一次移动超过 3\" 的激活使\n用这个武器，同时也不能在使用了这个武器的激活\n中移动超过 3\"。这个武器规则的效果不会阻止戒\n备行动。\n坚毅龙骥：您可以忽视这名特工的龙骥的獠牙与利\n爪武器的命中属性因为受创受到的修正。\n地脉潜行者升级：当这名特工被选择进行战斗，则\n选择下方至多两项不同的升级规则（见阵营规则）\n加入其战斗时的数据卡。\n流亡驭龙师、艾达灵族、骑乘、地脉潜行者 75x42",
+      "weapon_types": {
+        "长步枪（机动）": "远程",
+        "长步枪（静止）": "远程",
+        "龙骥的獠牙与利爪": "近战",
+        "猎刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDRAGON MASTER LEYSTALKER\n4 12\" 3+ 24\nNAME ATK HIT DMG WR\nLong rifle (mobile) 4 3+ 3/3 Devastating 1\nLong rifle (stationary) 4 2+ 3/3 Devastating 3, Aimed*\nDrakesteed fangs & talons 6 3+ 3/5 Brutal\nHunting blade 3 3+ 3/5 Lethal 5+\n*Aimed: This operative cannot use this weapon during an\nactivation in which it moved more than 3\", and it cannot move\nmore than 3\" during an activation in which it used this weapon.\nThis weapon rule has no effect on preventing the Guard action.\nImplacable Darkscale: You can ignore any changes to this\noperative’s drakesteed fangs & talons weapon’s Hit stat from\nbeing injured.\nLeystalker Upgrades: When this operative is selected for the\nbattle, select up to two different Leystalker Upgrade rules (see\nFaction Rules) to be added to its datacard for the battle.\nEXODITE DRAGON MASTER , AELDARI, MOUNTED, LEYSTALKER 75x42"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "驭龙师石歌者-数据卡",
+      "title_en": "DRAGON MASTER STONESINGER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-驭龙师石歌者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n驭龙师石歌者\n4 12\" 3+ 24\n名称攻击命中伤害武器规则\n曜光卡宾枪 4 3+ 3/3 毁灭 1\n毒冠喷涎 4 3+ 3/4 范围 8\"，严重，洪流 2\"\n龙骥的獠牙与利爪 6 3+ 3/5 残暴\n石杖 4 3+ 3/5 灵能，致命 5+，震荡，晕眩\n石歌者升级：当这名特工被选择进行战斗，则选择下方至多两项不同的升级规则（见阵营规则）加入其战\n斗时的数据卡。\n请继续阅读背面规则\n流亡驭龙师、艾达灵族、骑乘、灵能者、石歌者 75x42",
+      "weapon_types": {
+        "曜光卡宾枪": "远程",
+        "毒冠喷涎": "远程",
+        "龙骥的獠牙与利爪": "近战",
+        "石杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDRAGON MASTER STONESINGER\n4 12\" 3+ 24\nNAME ATK HIT DMG WR\nSolar carbine 4 3+ 3/3 Devastating 1\nVenomcrest spit 4 3+ 3/4 Range 8\", Severe, Torrent 2\"\nDrakesteed fangs & talons 6 3+ 3/5 Brutal\nStone stave 4 3+ 3/5 PSYCHIC, Lethal 5+, Shock, Stun\nStonesinger Upgrades: When this operative is selected for the battle, select up to two different Stonesinger Upgrade rules (see\nFaction Rules) to be added to its datacard for the battle.\nRULES CONTINUE ON OTHER SIDE\nEXODITE DRAGON MASTER , AELDARI, MOUNTED, PSYKER, STONESINGER 75x42"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "驭龙师石歌者-能力卡",
+      "title_en": "DRAGON MASTER STONESINGER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-驭龙师石歌者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n驭龙师石歌者\n4 12\" 3+ 24\n焕新之吟 1AP\n灵能。选择对这名特工可见的一名己方流亡驭龙师特工，那名特工恢复最多 2D3 点失去的耐伤。\n灵能。或者，每一名己方流亡驭龙师特工可以恢复最多 D3 点失去的耐伤。\n该特工不能在敌方特工的控制范围内执行此行动，或者在每个转折点中执行本行动超过一次。",
+      "text_en": "APL MOVE SAVE WOUNDS\nDRAGON MASTER STONESINGER\n4 12\" 3+ 24\nSONG OF RENEWAL 1AP\nPSYCHIC. Select one friendly EXODITE DRAGON MASTER operative visible to this operative. That operative regains up to\n2D3 lost wounds.\nPSYCHIC. Alternatively, each friendly EXODITE DRAGON MASTER operative can regain up to D3 lost wounds.\nThis operative cannot perform this action while within control range of an enemy operative, or more than once per turning point."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "矫龙-数据卡",
+      "title_en": "DRAKOLITHE",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-矫龙-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n矫龙\n2 8\" 5+ 7\n名称攻击命中伤害武器规则\n獠牙与利爪 4 3+ 3/4 撕裂\n超然躲闪：每当这名特工执行冲锋，后撤或转移行\n动时，若它结束那次行动的位置距离原先位置超过\n2\"，则它处于速度 4+；若它结束那次行动的位置\n距离原先位置超过 5\"，则它处于速度7+。若它没有\n在那次激活中获得速度 4+ 或速度 7+，则它处于速\n度 3-。请注意，此处判断的是与原先位置的距离，\n而非移动的距离（换言之，它不能通过绕回原先位\n置来获得更高的速度）。\n野兽：这名特工无法进行除冲锋，冲刺，后撤，近\n战，戒备，拾取标识，放置标识，转移和任务行动\n以外的任何行动。除非有一名己方地脉潜行者特工\n没有被残废，不然这名特工无法执行拾取标识，放\n置标识或任务行动。此外这名特工无法使用任何其\n数据卡上没有的武器。\n流亡驭龙师、艾达灵族、矫龙 32",
+      "weapon_types": {
+        "獠牙与利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDRAKOLITHE\n2 8\" 5+ 7\nNAME ATK HIT DMG WR\nFangs & talons 4 3+ 3/4 Rending\nPreternatural Evasion: Whenever this operative performs the\nCharge, Fall Back or Reposition action, if it ends that\naction more than 2\" from its previous location, it has SPEED\n4+; if it ends more than 5\" from its previous location, it has\nSPEED 7+ instead. Whenever this operative ends its activation,\nif it didn't gain SPEED 4+ or SPEED 7+ during that activation,\nit has SPEED 3-. Note that it's the distance from the previous\nlocation, not the distance moved (in other words it cannot just\ncircle back to its previous location and gain high SPEED).\nBeast: This operative cannot perform any actions other\nthan Charge, Dash, Fall Back, Fight, Guard, Pick\nUp Marker, Place Marker, Reposition and mission\nactions. This operative cannot perform the Pick Up Marker,\nPlace Marker or mission actions unless there's a friendly\nLEYSTALKER operative that isn't incapacitated. It cannot use\nany weapons that aren’t on its datacard.\nEXODITE DRAGON MASTER , AELDARI, DRAKOLITHE 32"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "流亡驭龙师杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-流亡驭龙师杀戮小队.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n杀戮小队\n原型：侦查，搜索与摧毁\n特工\n↘ 1 流亡驭龙师\n氏族之刃特工\n↘ 1 流亡驭龙师\n地脉潜行者特工\n↘ 1 流亡驭龙师\n石歌者特工\n↘ 2 流亡驭龙师\n矫龙特工",
+      "text_en": "EXODITE DRAGON MASTERS\nKILL TEAM\nARCHETYPE: RECON, SEEK & DESTROY\nOPERATIVES\n↘ 1 EXODITE DRAGON MASTER\nCLANBLADE operative\n↘ 1 EXODITE DRAGON MASTER\nLEYSTALKER operative\n↘ 1 EXODITE DRAGON MASTER\nSTONESINGER operative\n↘ 2 EXODITE DRAGON MASTER\nDRAKOLITHE operatives"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "龙骥之敏-1",
+      "title_en": "DRAKESTEED AGILITY",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-龙骥之敏-1.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n阵营规则\n龙骥之敏\n驭龙师会引导他们的龙骥进行猛烈冲锋或转\n向以追击猎物。\n流亡驭龙师骑乘特工无法执行冲锋，冲刺，后\n撤或转移行动；作为替代，它们可以执行疾驰和\n转向独特行动。\n疾驰 0AP\n移动活跃特工至其可以被放置的位置。移动必\n须沿直线向前或向后进行，可以分为一个或多\n个直线增量，并且始终向上取整至最近的英寸\n数值。它在每次激活中不能前进移动超过 9\"\n或后退移动超过 3\"，并且在每个转折点不能移\n动超过 12\"。\n在一次直线增量的之前或之后，您可以将活跃\n特工旋转至多 45°。该旋转不消耗任何移动\n数值，并且之后特工可继续使用剩余的移动距\n离完成移动。\n请继续阅读背面规则",
+      "text_en": "EXODITE DRAGON MASTER\nFACTION RULE\nDRAKESTEED AGILITY\nDragon Masters guide their drakesteeds in rushing\ncharges or banking turns to home in on their prey.\nEXODITE DRAGON MASTER MOUNTED\noperatives cannot perform the Charge, Dash,\nFall Back or Reposition actions; instead they can\nperform the Sprint and Turn unique actions.\nSPRINT 0AP\nMove the active operative to a location it can\nbe placed. This must be directly forwards\nor backwards in one or more straight-line\nincrements, and increments are always\nrounded up to the nearest inch. It cannot move\nmore than 9\" forwards or 3\" backwards per\nactivation, and it cannot move more than 12\"\nper turning point.\nBefore or after one of the increments, you\ncan pivot the active operative up to 45°. This\ndoesn’t use any of its movement allowance,\nand it can then continue its movement with\nany remaining move distance.\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "龙骥之敏-2",
+      "title_en": "DRAKESTEED AGILITY",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-龙骥之敏-2.png",
+      "is_back": true,
+      "text": "活跃特工不能攀爬或在高于杀戮区地面 2\" 的\n制高点地形上结束移动。它可以移动穿过特\n工，并且将所有低于 2\" 的地形模型部分视为\n可穿越地形。当它穿过一个装备地形模型时，\n将那个地形模型从战斗中移除。\n一名特工无法在反应时执行这个行动。对于您\n对手的规则，任务规则以及杀戮区规则而言，\n这个行动被视为转移行动，若活跃特工在结束\n行动时位于一名敌方特工控制范围内，则被视\n为冲锋行动。\n转向 1AP\n将活跃特工旋转至多 45°。这不会消耗任何\n移动数值。\n一名特工无法在反应时执行这个行动。对于您\n对手的规则，任务规则以及杀戮区规则而言，\n这个行动被视为冲刺行动，若活跃特工在结束\n行动时位于一名敌方特工控制范围内，则被视\n为冲锋行动。",
+      "text_en": "The active operative cannot climb or finish\nthe move on Vantage terrain higher than 2\"\nfrom the killzone floor. It can move through\noperatives and it treats terrain parts less than\n2\" tall as Accessible terrain. Whenever it\nmoves through an equipment terrain feature,\nremove that terrain feature from the battle.\nAn operative cannot perform this action\nwhile counteracting. For the purposes of your\nopponent's rules, mission rules and killzone\nrules, this action is treated as the Reposition\naction, or the Charge action if the active\noperative ends the action within control range\nof an enemy operative.\nTURN 1AP\nPivot the active operative up to 45°. This\ndoesn’t use any of its movement allowance.\nAn operative cannot perform this action\nwhile counteracting. For the purposes of your\nopponent's rules, mission rules and killzone\nrules, this action is treated as the Dash action,\nor the Charge action if the active operative\nends the action within control range of an\nenemy operative."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "龙骑兵战术-1",
+      "title_en": "DRACONIC CAVALRY TACTICS",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-龙骑兵战术-1.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n阵营规则\n龙骑兵战术\n驭龙师三杰会派出他们的矫龙驱赶猎物，然\n后从埋伏处冲出。骑手们的龙骥拥有敏锐的\n狩猎本能，而流亡者则能从高处攻击那些试\n图躲避的猎物。\n在战斗前部署流亡驭龙师杀戮小队时，己方杀\n戮小队的前三分之一必须为己方矫龙特工，且正\n常进行部署。随后的每一名己方流亡驭龙师骑\n乘特工必须部署于预备队；将它们放在一旁，而\n不是杀戮区中。\n在第一个交战阶段中，部署于预备队的每一名己\n方流亡驭龙师骑乘特工会正常激活。激活时，\n将其部署在它能被部署，且底座接触己方杀戮区\n边缘的杀戮区地面上（它不再处于预备队中）。\n这名特工被视为执行了转向行动（并依此消耗对\n应 AP），随后继续正常进行它的激活。\n请继续阅读背面规则",
+      "text_en": "EXODITE DRAGON MASTER\nFACTION RULE\nDRACONIC CAVALRY TACTICS\nDragon Master triads send forth their Drakolithes to\nflush out the prey before surging from ambush. The\nriders’ drakesteeds possess acute hunting instincts,\nwhile from their elevated positions the Exodites can\nstrike down prey who seek to stay out of reach.\nWhen setting up an EXODITE DRAGON\nMASTER kill team before the battle, the\nfirst third of your kill team must be friendly\nDRAKOLITHE operatives set up as normal. Each\nfriendly EXODITE DRAGON MASTER MOUNTED\noperative thereafter must be set up in reserve:\nplace it to one side instead of in the killzone.\nIn the first Firefight phase, each friendly EXODITE\nDRAGON MASTER MOUNTED operative set\nup in reserve is activated as normal. When it is,\nset it up in a location it can be placed on the\nkillzone floor with its base touching your killzone\nedge (it’s no longer in reserve). The operative\nis treated as performing the Turn action (spend\nthe AP accordingly), then continue its activation\nas normal.\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "龙骑兵战术-2",
+      "title_en": "DRACONIC CAVALRY TACTICS",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-龙骑兵战术-2.png",
+      "is_back": true,
+      "text": "每一名己方流亡驭龙师骑乘特工在每个转折\n点中会激活两次（它只会在第二次激活后进入\n待机）。在每次激活中，您不能消耗超过 3 点\nAP，或者在每个转折点超出其 APL 属性。\n每一名己方流亡驭龙师骑乘特工不能因为轻型\n地形，地形中高度低于 2\" 的部分或没有完全造\n成阻碍的情况获得掩护或遮挡。每当一名己方流\n亡驭龙师骑乘特工将要执行近战行动时，则在\n那次行动结束前，它的控制范围中的距离可以被\n修正为水平 1\"，垂直 4\"。",
+      "text_en": "Each friendly EXODITE DRAGON MASTER\nMOUNTED operative is activated twice per turning\npoint (it’s only expended after the second\nactivation). You cannot spend more than 3AP for\nit per activation, or more than its APL stat per\nturning point.\nEach friendly EXODITE DRAGON MASTER\nMOUNTED operative cannot be in cover from or\nobscured by Light terrain, terrain parts less than\n2\" tall or terrain that's not wholly intervening.\nWhenever a friendly EXODITE DRAGON MASTER\nMOUNTED operative would perform the Fight\naction, the distance requirements of its control\nrange can be changed to 1\" horizontally and 4\"\nvertically until the end of that action."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "幻变疾势-1",
+      "title_en": "MERCURIAL SPEED",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-05-阵营规则-幻变疾势-1.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n阵营规则\n幻变疾势\n严格的繁殖和严酷的环境赋予了龙骥强大的\n肌肉。只要主人一声令下，它们就能从泰然\n自若的静止状态瞬间跃起，快得令人目不暇\n接。\n每一名己方流亡驭龙师特工都拥有一个分成\n三个级别的速度状态：速度 3-，速度 4+ 和速度\n7+。一名特工在同一时间只能处于一种速度状\n态，并且在战斗开始时处于速度 3-。\n当一名流亡驭龙师骑乘特工符合任意下列条\n件，则处于速度 3-：\n• 它结束了疾驰行动，并且进行了后退移动，或\n前进少于 4\"。\n• 它在没有执行疾驰行动的情况下结束激活。\n一名流亡驭龙师骑乘特工若结束了疾驰行动并\n且在那次移动中移动了 4\" 或更多，则处于速度\n4+。若在那次行动中移动了 7\" 或更多，则处于\n速度 7+。",
+      "text_en": "EXODITE DRAGON MASTER\nFACTION RULE\nMERCURIAL SPEED\nControlled breeding and harsh environments have\ngranted drakesteeds powerful muscles. At their master’s\ncommand, they can switch from poised stillness to\nbreakneck lunges too fast for the eye to follow.\nEach friendly EXODITE DRAGON MASTER\noperative has a SPEED that has three levels:\nSPEED 3-, SPEED 4+ and SPEED 7+. An operative\ncan only have one SPEED level at a time, and it\nstarts the battle with SPEED 3-.\nAn EXODITE DRAGON MASTER MOUNTED\noperative has SPEED 3- if either of the following\nare true:\n• It ends the Sprint action and it either moved\nbackwards or less than 4\" forwards.\n• It ends its activation without performing the\nSprint action.\nAn EXODITE DRAGON MASTER MOUNTED\noperative has SPEED 4+ if it ends the Sprint\naction and moved 4\" or more during that action,\nor SPEED 7+ instead if it moved 7\" or more during\nthat action."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-11-06",
+      "sequence": 6,
+      "category": "faction-rule",
+      "title_zh": "幻变疾势-2",
+      "title_en": "MERCURIAL SPEED",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-06-阵营规则-幻变疾势-2.png",
+      "is_back": true,
+      "text": "当一名特工对一名己方流亡驭龙师特工射击\n时，若那名己方特工处于速度 4+，则您可以无\n需掷骰便将一枚己方防御骰子保留为普通成功；\n若处于速度 7+，则您可以将一枚己方防御骰子\n保留为关键成功。\n流亡驭龙师矫龙特工的速度变化请参阅它的数\n据卡。",
+      "text_en": "Whenever an operative is shooting a friendly\nEXODITE DRAGON MASTER operative, if that\nfriendly operative has SPEED 4+, you can retain\none of your defence dice as a normal success\nwithout rolling it; if it has SPEED 7+, you can\nretain one as a critical success instead.\nEXODITE DRAGON MASTER DRAKOLITHE\noperatives' SPEED changes as described on\ntheir datacard."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "氏族之刃升级-1",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-氏族之刃升级-1.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n氏族之刃升级\n月吟清歼\n相传月刃得名于神话兵器，其歌声会随每一\n次斩魂而愈发嘹亮。部分氏族之刃会效仿这\n萦绕心魄的哀歌，于猎杀之间奔袭不止，血\n雾与惨嚎相随。\n这名特工每次激活中限一次，在执行疾驰行动前\n进并通过近战行动残废一名敌方特工后，若它不\n再位于敌方特工的控制范围内，您便可以使用这\n个规则。若此，它可以立即执行一次无消耗的疾\n驰行动前进，使用在第一个疾驰行动中剩余的移\n动距离，但不能在这个无消耗行动中进行转向。\n那名特工可以因此在其激活中执行两次疾驰行\n动，并且其速度由两次疾驰行动的移动距离总\n和决定。特工不能在这些行动之间执行任何其他\n行动。",
+      "text_en": "EXODITE DRAGON MASTER\nCLANBLADE UPGRADE\nMOONSONG CULL\nThe mythic weapons after which moonblades are named\nwere said to sing louder with every soul thread they\nsevered. Some Clanblades emulate this haunting dirge,\nsurging from prey to prey with the screams and arterial\nsprays of their foes ever in their wake.\nOnce during each of this operative’s activations,\nafter it’s performed the Sprint action forwards\nand incapacitated an enemy operative during\nthe Fight action, if it’s no longer within control\nrange of enemy operatives, you can use this\nrule. If you do, it can immediately perform a\nfree Sprint action forwards using any remaining\nmove distance it had from that first Sprint action,\nbut it cannot pivot during that free action. That\noperative can perform two Sprint actions during\nits activation to do so, and its SPEED is measured\nby the distance moved during both Sprint actions\ncombined. The operative cannot have performed\nany other actions between those actions."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-02",
+      "sequence": 2,
+      "category": "other",
+      "title_zh": "氏族之刃升级-2",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-02-其他-氏族之刃升级-2.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n氏族之刃升级\n幻光之晕\n凡历经过极端严酷历练的氏族之刃，皆能\n精通对鳞盾能量的掌控。他们以灵能融汇操\n纵，将保护的能量化作一圈幽辉灵晕，环绕\n周身，拨开那些足以致命的伤害。\n每个转折点限一次，当这名特工近战或反击时，\n在您对手掷攻击骰后，进行重掷前，您可以使用\n这个规则。若此，您对手在那次流程中无法将低\n于 6 的掷骰结果保留为关键成功（对应了致命，\n撕裂或严重武器规则）。",
+      "text_en": "EXODITE DRAGON MASTER\nCLANBLADE UPGRADE\nSPECTRAL NIMBUS\nThose Clanblades fated to endure the deadliest trials\nmaster their control of the scaleshield’s energies.\nThey become skilled in imbuing their own psychic gifts\nthrough its haptic controls, projecting a warding nimbus\nof empyric energy that can cast aside what should be\nthe most grievous of wounds.\nOnce per turning point, when this operative is\nfighting or retaliating, after your opponent rolls\ntheir attack dice, but before re-rolls, you can\nuse this rule. If you do, your opponent cannot\nretain attack dice results of less than 6 as critical\nsuccesses during that sequence (e.g. as a result\nof the Lethal, Rending or Severe weapon rules)."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-03",
+      "sequence": 3,
+      "category": "other",
+      "title_zh": "氏族之刃升级-3",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-03-其他-氏族之刃升级-3.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n氏族之刃升级\n专注反射\n凭借超常的反应与对鳞盾的精妙操控，氏族\n之刃能够将无耻对手的射击能量反射回去。\n每当一名敌方特工在 6\" 内对这名特工进行射\n击，若您有一枚或更多关键成功能够格挡您对手\n的攻击骰，则您可以使用本规则。若此，在那次\n行动后，在将残废特工移除前（如果有，并且与\n其相关），您每有一个这样的关键成功，那名敌\n方特工便受到 1 点伤害。",
+      "text_en": "EXODITE DRAGON MASTER\nCLANBLADE UPGRADE\nFOCUSED REFLECTION\nWith preternatural reactions and expert tilts of their\nscaleshield, the Clanblade is capable of angling the\nrefracted energy of an honourless foe’s shots right back\nat them.\nWhenever an enemy operative is shooting this\noperative while within 6\" of it, if you allocate\none or more critical successes to block your\nopponent’s attack dice, you can use this rule.\nIf you do, after the action, before incapacitated\noperatives are removed (including this one,\nif relevant), inflict 1 damage on that enemy\noperative for each critical success allocated\nthis way."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-04",
+      "sequence": 4,
+      "category": "other",
+      "title_zh": "氏族之刃升级-4",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-04-其他-氏族之刃升级-4.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n氏族之刃升级\n氏族矛首\n在三杰仪式的分工中，氏族之刃在狩猎中肩\n负带头冲锋的职责。那些传奇典范犹如天枪\n骤落，凭藉自身之速，犹如兵刃般锋芒毕\n露。\n每当这名特工进行近战时：\n• 若其拥有速度 4+，则您在那次流程中首次使\n用普通成功进行出击，则造成额外 1 点伤害。\n• 若其拥有速度 7+，则为其数据卡中近战武器\n的普通伤害属性增加 1 点。",
+      "text_en": "EXODITE DRAGON MASTER\nCLANBLADE UPGRADE\nSPEARTIP OF THE CLAN\nIt is the Clanblade’s ritual role amongst their triad\nto lead the charge into their prey. The most storied\nexemplars hit their targets like a celestial lance, speed\nitself honed as much as any weapon in their arsenal.\nWhenever this operative is fighting:\n• If it has SPEED 4+, the first time you strike with\na normal success during that sequence, inflict\n1 additional damage.\n• If it has SPEED 7+, add 1 to the Normal Dmg\nstat of melee weapons on its datacard."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-05",
+      "sequence": 5,
+      "category": "other",
+      "title_zh": "氏族之刃升级-5",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-05-其他-氏族之刃升级-5.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n氏族之刃升级\n横刀招架\n氏族之刃以狩猎最为凶险的龙类来磨砺武\n艺。这种生物速度极快且十分顽强，唯有反\n应敏捷到足以挡下其先头一击，方能从这等\n遭遇中生还。\n当这名特工在近战或反击中使用月刃，您可以在\n正常顺序前结算一枚己方的成功，但那枚成功必\n须为格挡。",
+      "text_en": "EXODITE DRAGON MASTER\nCLANBLADE UPGRADE\nBLADED STANCE\nClanblades sharpen their martial skills by hunting some\nof the most dangerous dragons. These are creatures of\nsuch speed and strength that only those with reactions\nswift enough to blunt and deflect their first strike ever\nsurvive the encounter.\nWhenever this operative is fighting or retaliating\nwith its moonblades, you can resolve one of your\nsuccesses before the normal order. If you do, that\nsuccess must be used to block."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-06",
+      "sequence": 6,
+      "category": "other",
+      "title_zh": "地脉潜行者升级-1",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-06-其他-地脉潜行者升级-1.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n地脉潜行者升级\n游猎处决者\n妄图避开驭龙师狩猎队伍的对手很快便会被\n三杰中身手敏捷的神射手迅速追猎。地脉潜\n行者能在行进间备妥长枪、装填、瞄准、发\n射，整个流程优雅流畅；而在第一个猎物尚\n未倒下前，眼神已然投向下一个目标。\n每当这名特工执行疾驰行动时，它可以在那个行\n动中执行射击行动（它必须位于可以被放置的位\n置，并且那次疾驰行动剩余的移动距离可以在随\n后继续使用）。请注意，由于该射击行动发生在\n疾驰行动结束前，所以在那次射击行动中，这名\n特工的速度为它在该疾驰行动开始之前的状态。",
+      "text_en": "EXODITE DRAGON MASTER\nLEYSTALKER UPGRADE\nNOMAD EXECUTIONER\nThose who think to outmanoeuvre hunting groups\nof Dragon Masters are rapidly tracked down by the\ntriads’ exceptionally dexterous marksmen. Leystalkers\nunlimber, load, aim and fire their long rifles in single,\ngraceful movements on the move, already seeking out\ntheir next target before the first victim falls.\nWhenever this operative is performing the Sprint\naction, it can perform the Shoot action during\nthat action (it must do so in a location it can be\nplaced, and any remaining move distance it had\nfrom that Sprint action can be used after it does\nso). Note that as the Shoot action occurs before\nthe Sprint action ends, for that Shoot action,\nthis operative’s SPEED is whatever it had before\nbeginning the Sprint action."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-07",
+      "sequence": 7,
+      "category": "other",
+      "title_zh": "地脉潜行者升级-2",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-07-其他-地脉潜行者升级-2.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n地脉潜行者升级\n虚幽幻影\n地脉潜行者不断游走，他们侦察着三杰的狩\n猎场，探查敌方位置、试探敌方实力，同时\n一次又一次在敌人的掌控中悄然脱身。他们\n的技艺令不少流亡者之敌误认为他们是某种\n无实体的幽魂。当敌人的疑虑与恐惧不断加\n深之时，地脉潜行者已悄然从另一个意想不\n到的角度锁定了目标。\n在每个交战阶段结束时，若这名特工不位于敌方\n特工的控制范围内。它便可以执行一次无消耗的\n疾驰或转向行动，但它不能在那次行动中移动超\n过 3\"，并且它的速度维持原状。请注意，该特工\n在本转折点中仍必须保有足够的移动数值。",
+      "text_en": "EXODITE DRAGON MASTER\nLEYSTALKER UPGRADE\nELUSIVE PHANTASM\nLeystalkers are constantly on the move. They scout the\ntriad’s hunting ground, seek the foe’s position and test\ntheir strengths, all while slipping through the enemy’s\nclutches again and again. Their skills have led a number\nof the Exodites' foes to believe them some kind of\ninsubstantial spirit. While the enemy's paranoia grows,\na Leystalker is already drawing a bead on them from yet\nanother unexpected angle.\nAt the end of each Firefight phase, if this\noperative isn’t within control range of enemy\noperatives, it can perform a free Sprint or\nTurn action, but it cannot move more than 3\"\nduring that action and its SPEED remains the\nsame. Note that it must still have the necessary\namount of movement allowance remaining this\nturning point."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-08",
+      "sequence": 8,
+      "category": "other",
+      "title_zh": "地脉潜行者升级-3",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-08-其他-地脉潜行者升级-3.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n地脉潜行者升级\n命定一击\n部分地脉潜行者能洞悉世界地脉中的潜藏路\n径，并将其运用于射击之中。借此，射束得\n以穿越烟雾与茂林，掠过友军而不伤，直击\n敌军防线最脆弱之处。\n每个转折点限一次，当这名特工执行射击行动并\n且您为此选择了长步枪时，您便可以使用这个规\n则。若此，在那次流程结束前，选择下列规则之\n一使用：\n• 敌方特工无法被遮挡。\n• 即使敌方特工控制范围内有其他己方流亡驭龙\n师特工存在，也不会阻止那名敌方特工被选\n为有效目标。",
+      "text_en": "EXODITE DRAGON MASTER\nLEYSTALKER UPGRADE\nFATED SHOT\nSome Leystalkers read hidden paths in a world’s ley\nlines for more than themselves. They trace the route of\na precision shot so that it lances through gusting fumes\nand lashing vegetation, whispering safely past allies and\ninto the most vulnerable spot of a foe’s defences.\nOnce per turning point, when this operative\nperforms the Shoot action and you select a profile\nof its long rifle, you can use this rule. If you do,\nselect one of the following rules for it to have until\nthe end of that sequence:\n• Enemy operatives cannot be obscured.\n• Having other friendly EXODITE DRAGON\nMASTER operatives within an enemy\noperative’s control range doesn’t prevent that\nenemy operative from being selected as a\nvalid target."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-09",
+      "sequence": 9,
+      "category": "other",
+      "title_zh": "地脉潜行者升级-4",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-09-其他-地脉潜行者升级-4.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n地脉潜行者升级\n节点哨位\n在地脉之力汇聚之处——无论是流亡世界中\n鲜明的脉络还是自然流动的涓涓能量——地\n脉潜行者的感知极其广阔而敏锐。在他们据\n守的地脉汇聚处，鲜有敌人能在不被察觉的\n情况下逼近。\n每个转折点限一次，这名特工在激活中可以在其\n处于速度 3- 时执行戒备行动，无论所在的杀戮\n区（见近距离战斗规则，《杀戮小队核心规则\n书》）。\n每当这名特工在戒备行动中执行零距离射击时，\n不要降低其武器在执行零距离射击时的命中属\n性。",
+      "text_en": "EXODITE DRAGON MASTER\nLEYSTALKER UPGRADE\nNEXUS SENTINEL\nWhere lines of power converge – whether the vivid\nleys of an Exodite world or the muted energies of\nnatural flows – Leystalkers can access sensory\nperceptions of incredible breadth and acuity. Few\nenemies can approach such a site held by a Leystalker\nwithout detection.\nOnce per turning point, this operative can\nperform the Guard action during its activation\nregardless of the killzone if it has SPEED 3- (see\nclose quarters rules, Kill Team Core Book).\nWhenever this operative performs a point-\nblank shot as a result of the Guard action, don’t\nworsen the Hit stat of its weapons as a result of\nperforming a point-blank shot."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-10",
+      "sequence": 10,
+      "category": "other",
+      "title_zh": "地脉潜行者升级-5",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-10-其他-地脉潜行者升级-5.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n地脉潜行者升级\n暮影斗篷\n地脉潜行者是融身环境的宗师，亦能唤起隐\n匿地脉的能量。在猎手的窥探下，他们身影\n淡去，仿佛被一袭超自然的暮色所笼罩。\n每当距离 8\" 外的特工对这名特工射击时，若您\n无法保留任意掩护豁免，则您无需掷骰就可以将\n一枚己方防御骰作为普通成功保留；若您可以保\n留任意掩护豁免，则您可以将一个掩护豁免作为\n一个关键成功保留。",
+      "text_en": "EXODITE DRAGON MASTER\nLEYSTALKER UPGRADE\nGLOAMING MANTLE\nMasters of merging with their environment and\ninvoking the cloaking energies of hidden ley lines,\nLeystalkers can fade from the scrutiny of those\nattempting to hunt them as if mantling themselves in a\nsupernatural gloaming.\nWhenever an operative is shooting this operative\nfrom more than 8\" away, if you cannot retain any\ncover saves, you can retain one of your defence\ndice as a normal success without rolling it; if you\ncan retain any cover saves, you can retain one\ncover save as a critical success instead."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-11",
+      "sequence": 11,
+      "category": "other",
+      "title_zh": "石歌者升级-1",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-11-其他-石歌者升级-1.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n石歌者升级\n世界之恸\n石歌者发出的悲怆哀鸣，昭示着他对仇敌的\n深恶痛绝。回响不绝的恸哭愈扬愈高，直至\n敌军周遭的空气与脚下的大地都为之震颤。\n凡身形不够敏捷的敌人或将被骤然开裂的岩\n壑吞噬，或被滚落的巨石击中，抑或是深陷\n于泥泞的粘稠物质之中。\n世界之恸 1AP\n灵能。选择对这名特工可见的一名敌方特工。\n那名特工和每一名位于它 2\" 内的其他敌方特\n工的移动属性在它们各自的下一次激活结束前\n均减少 2\"（这不与受创累加）。骑乘特工不\n受影响。\n请继续阅读背面规则",
+      "text_en": "EXODITE DRAGON MASTER\nSTONESINGER UPGRADE\nWAILS OF THE WORLD\nA keening lament emitted by a Stonesinger signals their\nabhorrence of the foe. It rises in a reverberating wail\nuntil the air around the enemy and the ground beneath\nthem shudder. Those without the agility to retain their\nfooting risk being claimed by sudden crevasses, struck\nby tumbling rocks or mired in viscous flows of formerly\nsolid matter.\nWAILS OF THE WORLD 1AP\nPSYCHIC. Select one enemy operative visible\nto this operative. Subtract 2\" from the Move\nstat of that operative and each other enemy\noperative within 2\" of it until the end of\ntheir next activations respectively (this isn’t\ncumulative with being injured). MOUNTED\noperatives are unaffected.\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-12",
+      "sequence": 12,
+      "category": "other",
+      "title_zh": "石歌者升级-2",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-12-其他-石歌者升级-2.png",
+      "is_back": true,
+      "text": "为这些特工分别掷 2D3：对应的那名特工受到\n等同于掷骰结果和其修正后移动属性差值的伤\n害（本规则优先级高于在行动中属性不变的规\n则）。骑乘特工不受影响。\n该特工不能在敌方特工的控制范围内执行此\n行动，或者在每个转折点中执行本行动超过\n一次。",
+      "text_en": "Roll 2D3 separately for each of those\noperatives: inflict damage on that operative\nequal to the difference between the result and\ntheir new Move stat (this takes precedence\nover stats not changing during an action).\nMOUNTED operatives are unaffected.\nThis operative cannot perform this action while\nwithin control range of an enemy operative, or\nmore than once per turning point."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-13",
+      "sequence": 13,
+      "category": "other",
+      "title_zh": "石歌者升级-3",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-13-其他-石歌者升级-3.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n石歌者升级\n皎月清祓\n石歌者织出一曲净化的灵能之吟。毒素被尽\n数驱逐，痛苦亦随之抚平，而那早已失落的\n处女之月在此刻被祈唤。\n皎月清祓 1AP\n灵能。选择对这名特工可见的一名己方流亡驭\n龙师特工。移除对手对它施加的一项规则效\n果或属性变化（例如中毒指示物，-1APL，无\n法被激活或执行行动等），但这个规则不能恢\n复失去的耐伤，移除任务包规则或无视受创造\n成的效果。\n该特工不能在敌方特工的控制范围内执行此行\n动。请注意，和这名特工的其他独特行动升\n级不同，它在每个转折点中可以执行本行动超\n过一次。",
+      "text_en": "EXODITE DRAGON MASTER\nSTONESINGER UPGRADE\nCLEANSING OF THE PALE MOON\nThe Stonesinger weaves a psychic skirl of purification.\nToxins are purged and anguish is soothed as the long-\nlost Maiden Moon is invoked.\nCLEANSING OF 1AP\nTHE PALE MOON\nPSYCHIC. Select one friendly EXODITE\nDRAGON MASTER operative visible to this\noperative. Remove one rules effect or stat\nchange your opponent has applied to it (e.g.\nPoison token, -1APL, cannot be activated or\nperform actions, etc.) This cannot allow it to\nregain lost wounds, remove mission pack rules\nor ignore the effects of being injured.\nThis operative cannot perform this action while\nwithin control range of an enemy operative.\nNote that unlike this operative's other unique\naction upgrades, it can perform this action\nmore than once per turning point."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-14",
+      "sequence": 14,
+      "category": "other",
+      "title_zh": "石歌者升级-4",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-14-其他-石歌者升级-4.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n石歌者升级\n播下种子\n通过加速植物缓慢的律动，藤蔓与根须便会\n不自然地疾速生长迸发，将所在之地烙印为\n石歌者的支配之域。\n每个转折点限一次，在这名特工的激活中执行行\n动的之前或之后，您可以使用这个规则。若此，\n选择一个它控制的目标标识。在这个特工残废\n前，您再次使用这个规则前或者一名敌方特工控\n制那个标识前（以先达成的条件为准），这名特\n工被视为使用 APL 1 争夺那个目标，并且在任务\n行动和胜利条件中均被视为控制了它（即便它不\n位于该特工的控制范围内）。请注意，这允许这\n名特工执行需要它控制那个标识的任务行动。",
+      "text_en": "EXODITE DRAGON MASTER\nSTONESINGER UPGRADE\nSOW THE SEEDS\nQuickening the slow rhythms of plant life, unnaturally\nmotile vines and roots burst forth, marking sites as\nunder the Stonesinger’s dominance.\nOnce per turning point, during this operative’s\nactivation, before or after it performs an action,\nyou can use this rule. If you do, select one\nobjective marker it controls. Until this operative\nis incapacitated, until you use this rule again or\nuntil an enemy operative controls that marker\n(whichever comes first), this operative is treated\nas contesting that marker with an APL of 1 and\ncontrolling it for the purposes of mission actions\nand victory conditions (even if it’s not within this\noperative’s control range). Note that this could\nallow this operative to perform a mission action\nthat would require it to control that marker."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-15",
+      "sequence": 15,
+      "category": "other",
+      "title_zh": "石歌者升级-5",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-15-其他-石歌者升级-5.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n石歌者升级\n风恩庇佑\n灵能者唤起回旋微风，将盟友之形化作朦胧\n幻影。\n风恩庇佑 1AP\n灵能。选择对这名特工可见的一名己方流亡驭\n龙师特工。直到这名特工在下一个转折点的\n首次激活前，直到其残废前或直到其再次执行\n这个行动前（以先达成的条件为准），那名被\n选择特工的速度提高一级（即：若它处于速\n度 3-，则它为速度 4+；若它处于速度 4+，则\n它为速度 7+）。\n该特工不能在敌方特工的控制范围内执行此\n行动，或者在每个转折点中执行本行动超过\n一次。",
+      "text_en": "EXODITE DRAGON MASTER\nSTONESINGER UPGRADE\nWIND’S GRACE\nWith swirling zephyrs, the psyker blurs their allies’ forms\nto shield them.\nWIND’S GRACE 1AP\nPSYCHIC. Select one friendly EXODITE\nDRAGON MASTER operative visible to this\noperative. Until the start of this operative’s first\nactivation in the next turning point, until it’s\nincapacitated or until it performs this action\nagain (whichever comes first), that selected\noperative’s SPEED is one higher (i.e. if it would\nhave SPEED 3-, it has SPEED 4+; if it would\nhave SPEED 4+, it has SPEED 7+).\nThis operative cannot perform this action while\nwithin control range of an enemy operative, or\nmore than once per turning point."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-16",
+      "sequence": 16,
+      "category": "other",
+      "title_zh": "石歌者升级-6",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-16-其他-石歌者升级-6.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n石歌者升级\n大地之怒\n石歌者一个奥秘手势便可令岩屑自地底迸\n发，或使坚实的土地化为流沙，吞没敌人。\n这名特工获得下列远程武器：\n名称攻击命中伤害\n大地之怒 4 3+ 4/3\nWR\n毁灭 2，集中，大地之怒*\n*大地之怒：若目标处于掩护，这个武器获得\n“致命 5+”武器规则。",
+      "text_en": "EXODITE DRAGON MASTER\nSTONESINGER UPGRADE\nEARTHEN WRATH\nA Stonesinger’s eldritch gesture can command\neruptions of rocky shards or liquefy once solid ground to\nengulf the foe.\nThis operative has the following ranged weapon:\nNAME ATK HIT DMG\nEarthen Wrath 4 3+ 4/3\nWR\nDevastating 2, Saturate, Earthen Wrath*\n*Earthen Wrath: If the target is in cover, this\nweapon has the Lethal 5+ weapon rule."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-17",
+      "sequence": 17,
+      "category": "other",
+      "title_zh": "标识/指示物指南-1",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-17-其他-标识-指示物指南-1.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n标识/指示物指南\n剩余行动播下种子速度\n（速度 3- 用无指\n示物表示）\n幻光之晕世界之恸风恩庇佑\n焕新之吟命定一击节点哨位\n龙鳞网甲氏族护符利莱斯安\n晶阵",
+      "text_en": "EXODITE DRAGON MASTER\nMARKER/TOKEN GUIDE\nRemaining Sow the Speed\nActions Seeds (SPEED 3- indicated\nby no token)\nSpectral Wails of the Wind’s\nNimbus World Grace\nSong of Fated Nexus\nRenewal Shot Sentinel\nDragonscale Clan Lileathan\nMesh Talismans Crystal\nMatrices"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-16-18",
+      "sequence": 18,
+      "category": "other",
+      "title_zh": "标识/指示物指南-2",
+      "title_en": "EXODITE DRAGON MASTER",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-18-其他-标识-指示物指南-2.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n标识/指示物指南\n疾驰模版\n前进/后退旋转模版\n中心旋转模版",
+      "text_en": "EXODITE DRAGON MASTER\nMARKER/TOKEN GUIDE\nSprint template\nFront/Back Pivot Template\nCentre Pivot Template"
+    },
+    {
+      "id": "kt-exodite_dragon_masters-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "精准疾袭",
+      "title_en": "WIND-SWIFT PRECISION",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-精准疾袭.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n战略计谋\n精准疾袭\n驭龙师们是骑射技艺高超的神射手，在坐骑\n疾驰时，他们在短暂的稳定区间也能精准射\n击惊慌失措的敌人。\n每当一名己方流亡驭龙师特工射击时，若它处\n于速度 4+，则其远程武器获得“平衡”武器规\n则。",
+      "text_en": "EXODITE DRAGON MASTER\nSTRATEGY PLOY\nWIND-SWIFT PRECISION\nDragon Masters are superior mounted marksmen. At\nhigh speed, they intuitively exploit slivers of calm amidst\ntheir drakesteeds’ gait to deliver pinpoint shots into\nstunned foes.\nWhenever a friendly EXODITE DRAGON MASTER\noperative is shooting, if it has SPEED 4+, its\nranged weapons have the Balanced weapon rule."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "龙怒",
+      "title_en": "DRACONIC FURY",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-龙怒.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n战略计谋\n龙怒\n在迅疾的穿袭或冲破敌阵的突击中，流亡者\n及其龙骥在高速下展现的身法与平衡堪称传\n奇。\n每当一名己方流亡驭龙师特工处于近战时：\n• 若它为速度 4+，其近战武器获得“平衡”武\n器规则。\n• 若它为速度 7+，其近战武器获得“无休”武\n器规则。",
+      "text_en": "EXODITE DRAGON MASTER\nSTRATEGY PLOY\nDRACONIC FURY\nIn rapid hit-and-run lunges or daring thrusts through\nenemy lines, the poise and balance of Exodites and their\ndragons at speed are legendary.\nWhenever a friendly EXODITE DRAGON MASTER\noperative is fighting:\n• If it has SPEED 4+, its melee weapons have the\nBalanced weapon rule.\n• If it has SPEED 7+, its melee weapons have the\nCeaseless weapon rule."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "幻流行影",
+      "title_en": "SINUOUS FLUX",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-幻流行影.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n战略计谋\n幻流行影\n捕猎中的驭龙师是可畏的灵巧掠食者。无论\n是经验丰富的骑手，还是其爬行动物坐骑及\n猎兽，都能在战场上扭转闪动，避开敌人的\n攻击。\n每当一名敌方特工向距离它 6\" 外的一名己方流\n亡驭龙师特工射击时，若那名己方特工处于速\n度 4+ 或速度 7+，您对手无法重掷其攻击骰子。",
+      "text_en": "EXODITE DRAGON MASTER\nSTRATEGY PLOY\nSINUOUS FLUX\nDragon Masters on the hunt are frighteningly evasive\npredators. The expert riders, as well as their reptilian\nmounts and hunting beasts, weave and coil to elude the\nfoe’s attacks.\nWhenever an enemy operative is shooting a\nfriendly EXODITE DRAGON MASTER operative\nmore than 6\" from it, if that friendly operative has\nSPEED 4+ or SPEED 7+, your opponent cannot\nre-roll their attack dice."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "碾压他们",
+      "title_en": "RIDE THEM DOWN",
+      "source_page": 10,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-碾压他们.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n战略计谋\n碾压他们\n作为一种大型猛兽，当龙骥的利爪与獠牙伴\n随其粉碎冲击而来时，威力极其致命。\n在己方流亡驭龙师骑乘特工每次激活中，在它\n们疾驰行动的移动结束时，您有一次机会：\n• 若它在那次行动中移动超过 4\"，则其控制范围\n内的一名敌方特工便会受到 1 点伤害。\n• 若它在那次行动中移动超过 7\"，或者它是一名\n氏族之刃特工，则其控制范围内的一名敌方特\n工便会受到 D3 点伤害。",
+      "text_en": "EXODITE DRAGON MASTER\nSTRATEGY PLOY\nRIDE THEM DOWN\nDrakesteeds are large and ferocious beasts, utterly\ndeadly when their slashing talons and rending fangs are\nmagnified by crushing impact.\nOnce during each friendly EXODITE DRAGON\nMASTER MOUNTED operative’s activation,\nwhenever it ends its move during the\nSprint action:\n• If it moved 4\" or more during that action, you\ncan inflict 1 damage on one enemy operative\nwithin its control range.\n• If it moved 7\" or more during that action, or\nit's a CLANBLADE operative, you can inflict\nD3 damage on one enemy operative within its\ncontrol range instead."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "生存家之魂",
+      "title_en": "SURVIVALIST SPIRIT",
+      "source_page": 10,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-生存家之魂.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n交战计谋\n生存家之魂\n驭龙师历经漫长而严酷的磨炼，坚韧的灵魂\n能抵御诸多伤害。\n在一名己方流亡驭龙师骑乘特工激活或反应中\n执行一次行动的之前或之后使用此交战计谋。直\n到它的下一次激活开始前，您可以忽视受创对那\n名特工的武器属性造成的修正。",
+      "text_en": "EXODITE DRAGON MASTER\nFIREFIGHT PLOY\nSURVIVALIST SPIRIT\nDragon Masters have endured long lives of gruelling\ntrials. Their deep reserves of spiritual resilience harden\nthem against many hurts.\nUse this firefight ploy during a friendly EXODITE\nDRAGON MASTER MOUNTED operative’s\nactivation or counteraction, before or after it\nperforms an action. Until the start of its next\nactivation, you can ignore any changes to that\noperative's weapon stats from being injured."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "跃行",
+      "title_en": "LEAP",
+      "source_page": 10,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-跃行.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n交战计谋\n跃行\n龙骥天生灵巧、肌肉紧实有力，能在一次敏\n捷的动作中迅速改变位置。\n在一名己方流亡驭龙师骑乘特工执行疾驰行动\n时使用此交战计谋。不要移动那名特工，而是将\n其从杀戮区移除并重新放置在距离原先位置水平\n1\" 内且可以被放置的位置。这一距离的测量不\n能穿过高于 2\" 的地形模型，并且那名特工不能\n被放置在距离杀戮区地面 2\" 以上的制高点地形\n上。那名特工在消耗移动距离时被视为移动了\n3\"，并且获得速度 3-。",
+      "text_en": "EXODITE DRAGON MASTER\nFIREFIGHT PLOY\nLEAP\nThe preternatural agility and corded muscles of\ndrakesteeds enable them to rapidly reposition in a\nsingle, nimble motion.\nUse this firefight ploy when a friendly EXODITE\nDRAGON MASTER MOUNTED operative\nperforms the Sprint action. Instead of moving that\noperative, remove it from the killzone and set it\nback up in a location it can be placed within 1\"\nhorizontally of its original location. This distance\ncannot be measured through terrain features\nmore than 2\" tall, and that operative cannot be\nset up on Vantage terrain higher than 2\" from the\nkillzone floor. That operative is treated as having\nmoved 3\" for the purposes of its movement\nallowance and has SPEED 3-."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "野性饥渴",
+      "title_en": "FERAL HUNGER",
+      "source_page": 10,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-野性饥渴.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n交战计谋\n野性饥渴\n当流亡者嗅闻到空气中弥漫的血腥与恐惧的\n气息时，便会毫不犹豫地释放其嗜肉龙骥最\n凶猛、最野性的本能。\n在为一名己方流亡驭龙师特工进行攻击掷骰后\n使用此交战计谋。若其使用龙骥的獠牙与利爪或\n獠牙与利爪对一名受伤敌方特工进行近战，则您\n可以重掷任意己方攻击骰子。",
+      "text_en": "EXODITE DRAGON MASTER\nFIREFIGHT PLOY\nFERAL HUNGER\nWith the scent of blood and fear in the air, the Exodites\nwill willingly unleash their carnivorous dragons’ most\nvicious and feral instincts.\nUse this firefight ploy after rolling your\nattack dice for a friendly EXODITE DRAGON\nMASTER operative, if it’s fighting against a\nwounded enemy operative with its Drakesteed\nfangs & talons or fangs & talons. You can re-roll\nany of your attack dice."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "精于骑术",
+      "title_en": "RIDING MASTERY",
+      "source_page": 11,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-精于骑术.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n交战计谋\n精于骑术\n驭龙师对其龙骥的掌控，与他们自身种族卓\n越的灵巧和运动能力相得益彰。为保卫氏族\n的未来，驭龙师在穿越敌对区域时能够施展\n令人惊叹的机动奇技。\n在一名己方流亡驭龙师骑乘特工在其激活中执\n行疾驰行动时使用此交战计谋。那名特工可以在\n那个行动中执行拾取标识，放置标识或一个任务\n行动（您可以在那次行动中确定控制），并且那\n次疾驰行动中剩余的移动距离可以在随后继续\n使用。",
+      "text_en": "EXODITE DRAGON MASTER\nFIREFIGHT PLOY\nRIDING MASTERY\nDragon Masters’ command of their drakesteeds is\npaired with the exceptional dexterity and athleticism\nof their own species. In defence of their clan’s future,\nDragon Masters can perform incredible feats of\nmanoeuvre while surging through hostile territory.\nUse this firefight ploy when a friendly EXODITE\nDRAGON MASTER MOUNTED operative\nperforms the Sprint action during its activation.\nDuring that action, that operative can perform the\nPick Up Marker, Place Marker or a mission action\n(you can determine control during that action\nto do so), and any remaining move distance it\nhad from that Sprint action can be used after it\ndoes so."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "龙鳞网甲",
+      "title_en": "DRAGONSCALE MESH",
+      "source_page": 11,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-龙鳞网甲.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n阵营装备\n龙鳞网甲\n这件独特的鳞网护甲由年长龙类晶莹的鳞片\n编织而成，闪耀夺目，能够抵挡那些最为怪\n异的袭击。\n每个转折点限一次，每当一名特工射击一名己方\n流亡驭龙师骑乘特工，则在掷防御骰步骤中，\n您可以将一枚己方普通成功保留为关键成功。",
+      "text_en": "EXODITE DRAGON MASTER\nFACTION EQUIPMENT\nDRAGONSCALE MESH\nThese unique suits of mesh armour incorporate the\nglittering, crystalline scales of elder dragons and can\nwithstand even esoteric assaults.\nOnce per turning point, when an operative\nis shooting a friendly EXODITE DRAGON\nMASTER MOUNTED operative, in the Roll\nDefence Dice step, you can retain one of your\nnormal successes as a critical success instead."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "氏族护符",
+      "title_en": "CLAN TALISMANS",
+      "source_page": 11,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-氏族护符.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n阵营装备\n氏族护符\n这些护符可能承载着天象神话的祈引、氏族\n领主的祝福，或蕴含着奥秘的科技与灵能符\n印。此类圣物能在战士心中注入决意，使其\n以无与伦比的优雅与战技为氏族而战。\n每个转折点限一次，当一名己方流亡驭龙师骑\n乘特工射击，近战或反击时，若您的掷骰结果中\n有两个或更多失败，您便可以弃置其中一枚，并\n将另一枚替代为普通成功保留。",
+      "text_en": "EXODITE DRAGON MASTER\nFACTION EQUIPMENT\nCLAN TALISMANS\nPotent talismans may invoke celestial myths, bear the\nblessings of clan lords, or carry arcane technology and\npsychic sigils. Such tokens instil a resolve to fight for the\nclan with exquisite grace and finesse.\nOnce per turning point, when a friendly EXODITE\nDRAGON MASTER MOUNTED operative is\nshooting, fighting or retaliating, if you roll two or\nmore fails, you can discard one of them to retain\nanother as a normal success instead."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "利莱斯安晶阵",
+      "title_en": "LILEATHAN CRYSTAL MATRICES",
+      "source_page": 11,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-利莱斯安晶阵.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n阵营装备\n利莱斯安晶阵\n这些源自处女世界最难抵达之处的稀有水\n晶能将流亡者的激光武器射击凝练为灼热光\n束。\n每个转折点限一次，当一名己方流亡驭龙师特\n工执行射击行动并且您选择了曜光卡宾枪或长步\n枪的一个选项时，您可以使用这个规则。若此，\n直到那次激活结束前，那个武器获得“穿刺 1”\n武器规则。",
+      "text_en": "EXODITE DRAGON MASTER\nFACTION EQUIPMENT\nLILEATHAN CRYSTAL MATRICES\nExceptionally rare crystals from the hardest to reach\nmaiden worlds focus the shots of the Exodites’ laser\nweaponry into searing beams.\nOnce per turning point, when a friendly EXODITE\nDRAGON MASTER operative is performing the\nShoot action and you select a solar carbine or a\nprofile of its long rifle, you can use this rule. If you\ndo, until the end of that activation, that weapon\nhas the Piercing 1 weapon rule."
+    },
+    {
+      "id": "kt-exodite_dragon_masters-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "灵魂石",
+      "title_en": "SPIRIT STONES",
+      "source_page": 12,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-灵魂石.png",
+      "is_back": false,
+      "text": "流亡驭龙师\n阵营装备\n灵魂石\n承载着曾为三杰之魂的灵魂石乃无价圣物，\n其中栖居之魂依然会为在世同族授予智慧。\n若此等圣物的持有者战殁，其同袍必以更炽\n烈之战意夺回此石与远古英魂之晶。绝不容\n许这些氏族最强大的灵魂落入亵渎魔掌。\n每当一名己方流亡驭龙师骑乘特工残废，您便\n获得 1 CP。",
+      "text_en": "EXODITE DRAGON MASTER\nFACTION EQUIPMENT\nSPIRIT STONES\nSpirit stones carrying the souls of a former triad are\npriceless artefacts whose occupants provide wisdom to\ntheir living peers. Should the bearer of such treasures\nfall in battle, their comrades fight all the harder to\nrecover their stone and those of the long departed. Such\na collection of the clan’s most powerful souls cannot be\nallowed to slip into the enemy’s profane clutches.\nWhenever a friendly EXODITE DRAGON\nMASTER MOUNTED operative is incapacitated,\nyou gain 1CP."
+    }
+  ]
+}

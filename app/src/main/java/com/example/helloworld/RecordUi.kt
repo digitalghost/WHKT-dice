@@ -74,8 +74,10 @@ class RecordUi(val context: Context) {
         uri: String?,
         fallbackResource: Int,
         size: Int=48,
-        photoTitle: String="棋子照片"
+        photoTitle: String="棋子照片",
+        fallbackAsset: String?=null
     )=ImageView(context).apply {
+        setTag(R.id.card_asset,fallbackAsset)
         scaleType=ImageView.ScaleType.CENTER_CROP
         background=bg(base,line);clipToOutline=true
         layoutParams=LinearLayout.LayoutParams(dp(size),dp(size)).apply { marginEnd=dp(10) }
@@ -147,7 +149,7 @@ class RecordUi(val context: Context) {
 
     /** Keep readable column widths; preserve row-wise reading and accessibility order. */
     fun <T> tiles(box: LinearLayout, items: List<T>, build: (LinearLayout, T) -> Unit) {
-        val columns = if(isTablet) ((referenceWidth / context.resources.displayMetrics.density - 32) / 280).toInt().coerceIn(1, 4).coerceAtMost(items.size.coerceAtLeast(1)) else 1
+        val columns = if(isTablet) ((referenceWidth / context.resources.displayMetrics.density - 32) / 280).toInt().coerceIn(1, 3) else 1
         items.chunked(columns).forEach { group ->
             val row = row().apply { gravity = Gravity.TOP }
             group.forEachIndexed { index, item ->
@@ -172,7 +174,7 @@ class RecordUi(val context: Context) {
     ) {
         val options = android.graphics.BitmapFactory.Options().apply { inJustDecodeBounds = true }
         fun decode() = if(resource != null) android.graphics.BitmapFactory.decodeResource(context.resources, resource, options)
-            else context.assets.open(requireNotNull(asset)).use { android.graphics.BitmapFactory.decodeStream(it, null, options) }
+            else CardAssets.open(context, requireNotNull(asset)).use { android.graphics.BitmapFactory.decodeStream(it, null, options) }
         decode()
         val target = dp(600)
         options.inSampleSize = 1
@@ -202,13 +204,18 @@ class RecordUi(val context: Context) {
     private data class Page(val token: Any,val view: View,val expanded: Boolean,val onClose: (() -> Unit)?)
     private val pages=mutableListOf<Page>()
     private var host: Dialog?=null
+    private var currentImeBottom: Int=0
     /** One actual dialog window. Page handles dismiss their own page and descendants. */
     fun dialog(title: String,expanded: Boolean=false,closeLabel: String="关闭",onClose: (() -> Unit)?=null,build: (LinearLayout,Dialog)->Unit): Dialog {
         val token=Any()
         val handle=object: Dialog(context) {
             override fun dismiss() { dismissPage(token) }
         }
-        val page=column(16).apply { background=bg(surface,line) }
+        val page=column(16).apply {
+            background=bg(surface,line)
+            isFocusable=true
+            isFocusableInTouchMode=true
+        }
         page.addView(row().apply {
             if(pages.isNotEmpty() && onClose==null) addView(link("‹ 返回") { dismissPage(token) })
             addView(text(title,18f,ink,true),weight())
@@ -220,7 +227,18 @@ class RecordUi(val context: Context) {
         page.addView(divider())
         val body=column()
         build(body,handle)
-        page.addView(ScrollView(context).apply { isFillViewport=false;addView(body) },LinearLayout.LayoutParams(-1,0,1f))
+        val sv = ScrollView(context).apply {
+            isFillViewport = false
+            clipToPadding = false
+            androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener(this) { _, insets ->
+                val imeBottom = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.ime()).bottom
+                currentImeBottom = imeBottom
+                displayPage(imeBottom)
+                insets
+            }
+            addView(body)
+        }
+        page.addView(sv, LinearLayout.LayoutParams(-1, 0, 1f))
         pages.add(Page(token,page,expanded,onClose))
         if(host==null) {
             host=Dialog(context).apply {
@@ -233,7 +251,7 @@ class RecordUi(val context: Context) {
                 setOnDismissListener { dismissed ->
                     if(host!==dismissed) return@setOnDismissListener
                     val closed=pages.toList().asReversed()
-                    pages.clear();host=null
+                    pages.clear();host=null;currentImeBottom=0
                     closed.forEach { it.onClose?.invoke() }
                 }
                 setOnKeyListener { _,key,event ->
@@ -244,12 +262,12 @@ class RecordUi(val context: Context) {
                 }
             }
         }
-        displayPage()
+        displayPage(currentImeBottom)
         return handle
     }
     /** Re-measure the current page after inline reveal/hide content changes. */
     fun refreshDialog() {
-        host?.window?.decorView?.post { if(host?.isShowing==true) displayPage() }
+        host?.window?.decorView?.post { if(host?.isShowing==true) displayPage(currentImeBottom) }
     }
     private fun dismissPage(token: Any) {
         val index=pages.indexOfFirst { it.token===token }
@@ -257,24 +275,36 @@ class RecordUi(val context: Context) {
         val closed=pages.subList(index,pages.size).toList().asReversed()
         pages.subList(index,pages.size).clear()
         closed.forEach { it.onClose?.invoke() }
-        if(pages.isEmpty()) { val window=host;host=null;window?.dismiss() } else displayPage()
+        if(pages.isEmpty()) { val window=host;host=null;currentImeBottom=0;window?.dismiss() } else displayPage(currentImeBottom)
     }
-    private fun displayPage() {
+    private fun displayPage(imeBottom: Int = currentImeBottom) {
         val page=pages.lastOrNull()?.view ?: return
-        (page.parent as? ViewGroup)?.removeView(page)
+        val metrics=context.resources.displayMetrics
+        val expanded=pages.last().expanded
+        val width=if(expanded) referenceWidth else minOf(metrics.widthPixels-dp(24),dp(660))
+        val body=((page as LinearLayout).getChildAt(2) as ScrollView).getChildAt(0)
+        body.measure(View.MeasureSpec.makeMeasureSpec(width-dp(32),View.MeasureSpec.EXACTLY),View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED))
+        val availableHeight = (metrics.heightPixels - imeBottom - dp(24)).coerceAtLeast(dp(240))
+        val baseHeight=if(expanded) (metrics.heightPixels*.94f).toInt() else minOf(body.measuredHeight+dp(108),(metrics.heightPixels*.88f).toInt(),dp(760))
+        val height = minOf(baseHeight, availableHeight)
         host?.apply {
-            setContentView(page)
-            if(!isShowing) show()
-            val metrics=context.resources.displayMetrics
-            val expanded=pages.last().expanded
-            val width=if(expanded) referenceWidth else minOf(metrics.widthPixels-dp(24),dp(660))
-            val body=((page as LinearLayout).getChildAt(2) as ScrollView).getChildAt(0)
-            body.measure(View.MeasureSpec.makeMeasureSpec(width-dp(32),View.MeasureSpec.EXACTLY),View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED))
-            val height=if(expanded) (metrics.heightPixels*.94f).toInt() else minOf(body.measuredHeight+dp(108),(metrics.heightPixels*.88f).toInt(),dp(760))
+            if (page.parent == null) {
+                setContentView(page)
+            } else if ((window?.decorView as? ViewGroup)?.findViewById<View>(android.R.id.content)?.let { (it as? ViewGroup)?.getChildAt(0) !== page } == true) {
+                (page.parent as? ViewGroup)?.removeView(page)
+                setContentView(page)
+            }
+            if(!isShowing) {
+                page.requestFocus()
+                show()
+            }
             window?.setBackgroundDrawableResource(android.R.color.transparent)
             window?.setLayout(width,height)
             window?.setDimAmount(.6f)
-            window?.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+            window?.setSoftInputMode(
+                android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN or
+                    android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+            )
         }
     }
     fun note(message: String) { dialog("提示") { body,_->body.addView(text(message)) } }

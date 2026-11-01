@@ -1,0 +1,493 @@
+{
+  "teamId": "CHAOS-PM",
+  "name": "瘟疫战士",
+  "nameEn": "Plague Marines",
+  "subtitle": "混沌 · 阿斯塔特叛军 · 7 种成员",
+  "archetypes": [
+    "安全保护",
+    "搜索与摧毁"
+  ],
+  "compositionHint": "选择 1 名瘟疫战士勇士，再从掷弹兵、斗士、重炮手、持徽手、恶瘟投放者和士兵中选择 5 名；每种特工最多 1 名。",
+  "source": "官方中文 PDF 26/08/2026（瘟疫战士 Plague Marines 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "pm_champion",
+      "name": "瘟疫战士勇士",
+      "role": "领袖",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 15,
+      "baseSizeMm": 32,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "领袖",
+        "勇士"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "CHAOS-PM--01-01-特工-瘟疫战士勇士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_champion_plasma_standard",
+          "name": "等离子手枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、穿刺 1"
+        },
+        {
+          "id": "pm_champion_plasma_super",
+          "name": "等离子手枪（过载）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 8\"、过热、致命 5+、穿刺 1"
+        },
+        {
+          "id": "pm_champion_plague_sword",
+          "name": "瘟疫之剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 严重、毒素、剧毒"
+        }
+      ],
+      "defaultWeaponIds": [
+        "pm_champion_plasma_standard",
+        "pm_champion_plasma_super",
+        "pm_champion_plague_sword"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_blessing",
+          "name": "慈父赐福",
+          "ap": null,
+          "text": "7 英寸内带有己方毒素标识的敌人损失耐伤时，该特工恢复等量已损耐伤；每个转折点最多恢复 3 点，且该特工必须仍在场。"
+        }
+      ]
+    },
+    {
+      "id": "pm_bombardier",
+      "name": "瘟疫战士掷弹兵",
+      "role": "专家",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "掷弹兵"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "CHAOS-PM--01-02-特工-瘟疫战士掷弹兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_bombardier_boltgun",
+          "name": "爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "pm_bombardier_blight_grenade",
+          "name": "疫病手雷",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 范围 6\"、爆炸 2\"、集中、严重、毒素、剧毒"
+        },
+        {
+          "id": "pm_bombardier_krak",
+          "name": "穿甲手雷",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 6\"、穿刺 1、集中"
+        },
+        {
+          "id": "pm_bombardier_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "pm_bombardier_boltgun",
+        "pm_bombardier_blight_grenade",
+        "pm_bombardier_krak",
+        "pm_bombardier_fists"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_grenadier",
+          "name": "掷弹兵",
+          "ap": null,
+          "text": "可使用疫病与穿甲手雷，不占用队伍装备的有限次数；使用时命中属性改善 1，疫病手雷同时获得“剧毒”。"
+        }
+      ]
+    },
+    {
+      "id": "pm_fighter",
+      "name": "瘟疫战士斗士",
+      "role": "斗士",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "斗士"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "CHAOS-PM--01-03-特工-瘟疫战士斗士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_fighter_flail",
+          "name": "腐蚀连枷",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 残暴、严重、震荡、毒素"
+        }
+      ],
+      "defaultWeaponIds": [
+        "pm_fighter_flail"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_flail",
+          "name": "连枷",
+          "ap": 1,
+          "text": "对 2 英寸内其他每名可见特工分别造成 D3+2 伤害；若敌人对应的 D3 为 3，还获得己方毒素标识。按阿斯塔特限制视为战斗行动，隐匿命令下不能执行。"
+        }
+      ]
+    },
+    {
+      "id": "pm_heavy_gunner",
+      "name": "瘟疫战士重炮手",
+      "role": "重炮手",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "重炮手"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "CHAOS-PM--01-04-特工-瘟疫战士重炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_heavy_gunner_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "pm_heavy_gunner_plague_spewer",
+          "name": "瘟疫喷吐炮",
+          "kind": "ranged",
+          "profile": "5A · 2+ · 3/3 · 范围 7\"、集中、严重、洪流 2\"、毒素"
+        },
+        {
+          "id": "pm_heavy_gunner_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "pm_heavy_gunner_bolt_pistol",
+        "pm_heavy_gunner_plague_spewer",
+        "pm_heavy_gunner_fists"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "pm_icon_bearer",
+      "name": "瘟疫战士持徽手",
+      "role": "持徽手",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "持徽手"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "CHAOS-PM--01-05-特工-瘟疫战士持徽手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_icon_bearer_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "pm_icon_bearer_plague_knife",
+          "name": "瘟疫匕首",
+          "kind": "melee",
+          "profile": "5A · 3+ · 3/4 · 严重、毒素"
+        }
+      ],
+      "defaultWeaponIds": [
+        "pm_icon_bearer_bolt_pistol",
+        "pm_icon_bearer_plague_knife"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_icon_bearer",
+          "name": "持徽手",
+          "ap": null,
+          "text": "判断标识控制权时，该特工的 APL 视为加 1；这不是属性修改，可与其他效果叠加。"
+        },
+        {
+          "id": "pm_icon_contagion",
+          "name": "传染圣像",
+          "ap": null,
+          "text": "该特工位于对手领地内时，“传染”战略计谋花费 0CP。"
+        }
+      ]
+    },
+    {
+      "id": "pm_plaguecaster",
+      "name": "恶瘟投放者",
+      "role": "灵能者",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "恶瘟投放者"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "CHAOS-PM--01-06-特工-恶瘟投放者-数据卡.png",
+        "CHAOS-PM--01-07-特工能力-恶瘟投放者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_plaguecaster_entropy",
+          "name": "衰败术",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/7 · 灵能、范围 7\"、集中、严重、毒素"
+        },
+        {
+          "id": "pm_plaguecaster_plague_wind",
+          "name": "瘟疫之风",
+          "kind": "ranged",
+          "profile": "6A · 3+ · 2/3 · 灵能、集中、严重、洪流 1\"、毒素"
+        },
+        {
+          "id": "pm_plaguecaster_staff",
+          "name": "腐化法杖",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4 · 灵能、严重、震荡、晕眩、毒素"
+        }
+      ],
+      "defaultWeaponIds": [
+        "pm_plaguecaster_entropy",
+        "pm_plaguecaster_plague_wind",
+        "pm_plaguecaster_staff"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_miasma",
+          "name": "有毒瘴气",
+          "ap": 1,
+          "text": "灵能。选择 7 英寸内可见的敌方特工或该特工的有效目标：目标获得己方毒素标识；若已有标识，则改为造成 3 点伤害。处于敌方控制范围内时不能执行。"
+        },
+        {
+          "id": "pm_vitality",
+          "name": "腐烂活力",
+          "ap": 1,
+          "text": "灵能。选择 3 英寸内可见的友方特工并掷 2D6：总和为 7 时恢复最多 7 点耐伤，否则按较高的一枚 D6 恢复。每个转折点一次，处于敌方控制范围内时不能执行。"
+        }
+      ]
+    },
+    {
+      "id": "pm_warrior",
+      "name": "瘟疫战士士兵",
+      "role": "战士",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "士兵"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "CHAOS-PM--01-08-特工-瘟疫战士士兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_warrior_boltgun",
+          "name": "爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 剧毒"
+        },
+        {
+          "id": "pm_warrior_plague_knife",
+          "name": "瘟疫匕首",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4 · 严重、毒素"
+        },
+        {
+          "id": "pm_warrior_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        }
+      ],
+      "defaultWeaponIds": [
+        "pm_warrior_boltgun",
+        "pm_warrior_plague_knife"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_fortitude",
+          "name": "排斥韧性",
+          "ap": null,
+          "text": "敌人射击该特工时，其防御骰结果 5+ 视为暴击。"
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "毒素",
+      "text": "瘟疫战士规则：这件武器以任意成功造成伤害后，目标获得毒素标识；带标识的特工激活时受到 1 点伤害。"
+    },
+    {
+      "name": "剧毒",
+      "text": "瘟疫战士规则：若目标在行动开始时已有己方毒素标识，这件武器的普通和暴击伤害都加 1。"
+    }
+  ]
+}

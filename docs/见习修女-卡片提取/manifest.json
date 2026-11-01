@@ -1,0 +1,827 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-NOVITIATES",
+  "team_name_zh": "见习修女",
+  "team_name_en": "Novitiates",
+  "source_pdf": "最新杀戮小队规则更新/见习修女 Novitiates 杀戮小队规则.pdf",
+  "source_pdf_sha256": "31e77b219e7ffeee8b73e3202143a56fc0260e3d5bfe035f0193f700b5e0579c",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 30,
+    "operative": 12,
+    "operative-ability": 2,
+    "team-selection": 1,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-novitiates-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "见习队长-数据卡",
+      "title_en": "NOVITIATE SUPERIOR",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-见习队长-数据卡.png",
+      "is_back": false,
+      "text": "见习队长 APL 移动豁免耐伤\n3 6\" 3+ 9\n名称攻击命中伤害武器规则\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n圣物爆矢手枪 4 3+ 3/5 范围 8\"、致命 5+\n圣物爆矢枪 4 3+ 3/5 致命 5+\n枪托 3 3+ 2/3 -\n动力武器 4 3+ 4/6 致命 5+\n鼓舞人心的模范：在该特工残废一名敌方特工时，您获得 1 点信仰点数，如果被残废敌方特工的耐伤属性\n大于等于 12，则获得 2 点信仰点数。\n见习修女、帝国、修女会、领袖、见习队长 32",
+      "weapon_types": {
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "圣物爆矢手枪": "远程",
+        "圣物爆矢枪": "远程",
+        "枪托": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE SUPERIOR\n3 6\" 3+ 9\nNAME ATK HIT DMG WR\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nRelic bolt pistol 4 3+ 3/5 Range 8\", Lethal 5+\nRelic boltgun 4 3+ 3/5 Lethal 5+\nGun butt 3 3+ 2/3 -\nPower weapon 4 3+ 4/6 Lethal 5+\nInspirational Example: Whenever this operative incapacitates an enemy operative, you gain 1 Faith point, or 2 Faith points if that\nenemy operative had a Wounds stat of 12 or more. This rule has no effect when using the Glorious Martyrdom firefight ploy.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, LEADER, SUPERIOR 32"
+    },
+    {
+      "id": "kt-novitiates-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "见习降罪者-数据卡",
+      "title_en": "NOVITIATE CONDEMNOR",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-见习降罪者-数据卡.png",
+      "is_back": false,
+      "text": "见习降罪者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n降罪者木桩发射器 4 3+ 3/3 针对灵能者*、毁灭 2、关键穿刺 1、安静\n虚无权杖 4 4+ 3/3 针对灵能者*、震荡\n虚无权杖：灵能远程武器无法对该特工造成伤害。在结算灵能行动的 *针对灵能者：在使用该武器对拥\n效果时，该特工不能被选择成为目标，并且不会被视作为位于这些行有灵能者关键词的特工进行攻击\n动的要求范围内。当一名特工位于该特工的 6\" 内时：时，该武器的两个伤害属性都增\n• 那名特工不能执行灵能行动，或者使用灵能额外规则。加 1 点，并且拥有“致命 5+”\n• 那名特工不能使用灵能远程武器。武器规则。\n• 灵能近战武器无法拥有武器规则，并且其伤害属性不能大于 3/4。\n见习修女、帝国、修女会、降罪者 28",
+      "weapon_types": {
+        "降罪者木桩发射器": "远程",
+        "虚无权杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE CONDEMNOR\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nCondemnor stakethrower 4 3+ 3/3 Anti-PSYKER*, Devastating 2, Piercing Crits 1,\nSilent\nNull rod 4 4+ 3/3 Anti-PSYKER*, Shock\nNull Rod: PSYCHIC ranged weapons cannot inflict damage on this operative. For the *Anti-PSYKER: Whenever this weapon is\neffects of PSYCHIC actions, this operative cannot be selected and is never treated as being used against an operative that has\nbeing within those actions’ required distances. Whenever an operative is within 6\" of the PSYKER keyword, add 1 to both\nthis operative: Dmg stats of this weapon and it has the\nLethal 5+ weapon rule.\n• That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n• That operative cannot use PSYCHIC ranged weapons.\n• PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher\nthan 3/4.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, CONDEMNOR 28"
+    },
+    {
+      "id": "kt-novitiates-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "见习书记官-数据卡",
+      "title_en": "NOVITIATE DIALOGUS",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-见习书记官-数据卡.png",
+      "is_back": false,
+      "text": "见习书记官 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n书记官手杖 4 4+ 3/3 震荡\n激励措辞 1AP\n支援。选择一名位于该特工 6\" 内，或位于己方\n自动广播器标识 6\" 内的其他己方见习修女特\n工。直到那名特工下一次激活结束前，其 APL\n属性增加 1 点（经过所有修正后其 APL 属性不\n能超过 3 点）。\n该特工不能在敌方特工的控制范围内执行此\n行动。\n请继续阅读背面规则\n见习修女、帝国、修女会、书记官 28",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "书记官手杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE DIALOGUS\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nDialogus stave 4 4+ 3/3 Shock\nSTIRRING RHETORIC 1AP\nSUPPORT. Select one other friendly NOVITIATE operative visible to and within 6\" of this operative, or within 6\" of your\nAuto-broadcaster marker. Until the end of that operative’s next activation, add 1 to its APL stat (to a maximum of 3 after all APL\nstat changes have been totalled).\nThis operative cannot perform this action while within control range of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, DIALOGUS 28"
+    },
+    {
+      "id": "kt-novitiates-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "见习书记官-能力卡",
+      "title_en": "NOVITIATE DIALOGUS",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-见习书记官-能力卡.png",
+      "is_back": false,
+      "text": "见习书记官 APL 移动豁免耐伤\n2 6\" 4+ 7\n自动广播器 0AP\n如果您的自动广播器标识不位于杀戮区内，那么\n将其部署在该特工水平 8\" 内的位置；若是其他\n情况，那么将您的自动广播器标识移动最多水平\n8\"。如果该特工被移出杀戮区，那么将您的自动\n广播器标识移出杀戮区。\n当一名位于己方自动广播器标识 3\" 内的敌方特\n工进行射击、近战或者反击时，您的对手不能重\n掷攻击骰。\n该特工不能再敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE DIALOGUS\n2 6\" 4+ 7\nAUTO-BROADCASTER 0AP\nIf your Auto-broadcaster marker isn’t in the killzone, place it within 8\" horizontally of this operative; otherwise, move your Auto-\nbroadcaster marker up to 8\" horizontally. If this operative is removed from the killzone, remove your Auto-broadcaster marker\nfrom the killzone.\nWhenever an enemy operative within 3\" of your Auto-broadcaster marker is shooting, fighting or retaliating, your opponent cannot\nre-roll their attack dice.\nThis operative cannot perform this action while within control range of an enemy operative."
+    },
+    {
+      "id": "kt-novitiates-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "见习决斗者-数据卡",
+      "title_en": "NOVITIATE DUELLIST",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-见习决斗者-数据卡.png",
+      "is_back": false,
+      "text": "见习决斗者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n决斗对剑 4 3+ 4/5 无休、反击*\n*反击：每当您使用关键成功进行格挡时，您还可以对\n流程中的敌方特工造成数量相当于该武器暴击伤害\n属性的伤害。\n见习修女、帝国、修女会、决斗者 28",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "决斗对剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE DUELLIST\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nDuelling blades 4 3+ 4/5 Ceaseless, Riposte*\n*Riposte: Whenever you block with a critical success, you can\nalso inflict damage equal to the weapon’s Critical Dmg stat on\nthe enemy operative in that sequence.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, DUELLIST 28"
+    },
+    {
+      "id": "kt-novitiates-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "见习征收者-数据卡",
+      "title_en": "NOVITIATE EXACTOR",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-见习征收者-数据卡.png",
+      "is_back": false,
+      "text": "见习征收者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n神经鞭（远程） 5 3+ 2/3 范围 3\"、致命 5+、眩晕\n神经鞭（近战） 5 3+ 2/3 致命 5+、震荡\n鞭挞狂暴 1AP\n选择一名位于该特工 3\" 内且可见的其他己方见\n习修女特工(见习队长除外)，且那名特工没有\n被该行动的效果影响。直到那名特工的下一次激\n活结束前，为其 APL 属性增加 1 点，其移动属\n性增加 1\"，并且可以在下一次激活中执行两次\n近战行动。\n该特工不能在敌方特工的控制范围内执行此行动。\n见习修女、帝国、修女会、征收者 28",
+      "weapon_types": {
+        "神经鞭（远程）": "远程",
+        "神经鞭（近战）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE EXACTOR\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nNeural whips (ranged) 5 3+ 2/3 Range 3\", Lethal 5+, Stun\nNeural whips (melee) 5 3+ 2/3 Lethal 5+, Shock\nWHIP INTO FRENZY 1AP\nSelect one other friendly NOVITIATE operative (excluding SUPERIOR) visible to and within 3\" of this operative that isn’t\ncurrently benefitting from the effects of this action. Until the end of that operative’s next activation, add 1 to its APL stat, add 1\"\nto its Move stat, and it can perform two Fight actions during its next activation.\nThis operative cannot perform this action while within control range of an enemy operative.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, EXACTOR 28"
+    },
+    {
+      "id": "kt-novitiates-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "见习医疗官-数据卡",
+      "title_en": "NOVITIATE HOSPITALLER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-见习医疗官-数据卡.png",
+      "is_back": false,
+      "text": "见习医疗官 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8”\n手术工具 4 4+ 2/3 致命 5+、撕裂 5+\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方见习修女特工将被残废时，如果\n该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方特工\n不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工可以\n立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名特工\n的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，那么\n那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时使用\n此规则。\n请继续阅读背面规则\n见习修女、帝国、修女会、医疗、医疗官 28",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "手术工具": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE HOSPITALLER\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nSurgical saw 4 4+ 2/3 Lethal 5+, Rending\nMedic!: The first time during each turning point that another friendly NOVITIATE operative would be incapacitated while visible\nto and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range of an enemy\noperative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder\nof the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that move within\nthis operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations respectively,\nand if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this operative is\nincapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, MEDIC, HOSPITALLER 28"
+    },
+    {
+      "id": "kt-novitiates-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "见习医疗官-能力卡",
+      "title_en": "NOVITIATE HOSPITALLER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-见习医疗官-能力卡.png",
+      "is_back": false,
+      "text": "见习医疗官 APL 移动豁免耐伤\n2 6\" 4+ 7\n手术工具 1AP\n选择一个位于该特工控制范围的己方见习修女\n特工，那名特工回复最多 2D3 点失去的耐伤。\n选择的特工不能是在转折点中成为“医疗兵！”\n技能目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE HOSPITALLER\n2 6\" 4+ 7\nCHIRURGEON’S TOOLS 1AP\nSelect one friendly NOVITIATE operative within this\noperative’s control range to regain up to 2D3 lost wounds.\nIt cannot be an operative that the Medic! rule was used on\nduring this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-novitiates-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "见习武装者-数据卡",
+      "title_en": "NOVITIATE MILITANT",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-见习武装者-数据卡.png",
+      "is_back": false,
+      "text": "见习武装者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n自动枪 4 4+ 2/3 -\n自动手枪 4 4+ 2/3 范围 8\"\n枪托 3 4+ 2/3 -\n见习修女剑 4 4+ 4/5 -\n武装信徒：在该特工进行射击、近战或者反击时，如果您在流程中使用了一次信仰之举，并且有一名敌方\n特工被残废，那么将返还那次信仰之举所消耗的信仰点数。如果您使用了“信仰徽记”装备，那么您只能\n返还其中一次信仰之举所消耗的信仰点数(由您选择)。\n见习修女、帝国、修女会、武装者 28",
+      "weapon_types": {
+        "自动枪": "远程",
+        "自动手枪": "远程",
+        "枪托": "近战",
+        "见习修女剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE MILITANT\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nAutogun 4 4+ 2/3 -\nAutopistol 4 4+ 2/3 Range 8\"\nGun butt 3 4+ 2/3 -\nNovitiate blade 4 4+ 4/5 -\nMilitant Faith: Whenever this operative is shooting, fighting or retaliating, if you use an ACT OF FAITH during that sequence\nand an enemy operative is incapacitated, the Faith points spent on that ACT OF FAITH are refunded. If you use the Icon of Faith\nequipment, Faith points are only refunded for one of those ACTS OF FAITH (your choice).\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, MILITANT 28"
+    },
+    {
+      "id": "kt-novitiates-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "见习赎罪者-数据卡",
+      "title_en": "NOVITIATE PENITENT",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-见习赎罪者-数据卡.png",
+      "is_back": false,
+      "text": "见习赎罪者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n忏悔者开膛剑 4 4+ 5/6 残暴、热诚狂怒*\n*热诚狂怒：每当该特工使用本武以毁灭换取赦免：每当该特工执行近战行动时，如果该特工没有被残\n器进行近战时，该武器拥有“无废，那么可以在之后立即进行一次无消耗的近战行动。本规则的优先度\n休”武器规则。高于行动限制规则，您不能因此执行超过两次后续的近战行动。如果该\n特工受到“鞭挞狂暴”行动效果的影响（见征收者），那么每次近战行动\n都会受到该技能影响。\n见习修女、帝国、修女会、赎罪者 28",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "忏悔者开膛剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE PENITENT\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nPenitent eviscerator 4 4+ 5/6 Brutal, Zealous Rage*\n*Zealous Rage: Whenever this operative is fighting with this\nweapon, it has the Ceaseless weapon rule.\nAbsolution Through Destruction: Whenever this operative\nperforms the Fight action, if it isn’t incapacitated, it can\nimmediately perform a free Fight action afterwards. This takes\nprecedence over action restrictions, and you cannot perform\nmore than two Fight actions in succession as a result of this\nrule. If this operative is benefitting from the effects of the Whip\nInto Frenzy action (see EXACTOR), this applies to each of\nthe Fight actions from those effects.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, PENITENT 28"
+    },
+    {
+      "id": "kt-novitiates-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "见习训导者-数据卡",
+      "title_en": "NOVITIATE PRECEPTOR",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-见习训导者-数据卡.png",
+      "is_back": false,
+      "text": "见习训导者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n正义钉头槌 4 4+ 5/5 残暴、严重\n坚定楷模：每当该特工将一名其控制范围内的就绪\n敌方特工残废时，您获得 1 点信仰点数，如果那名\n敌方特工的耐伤属性大于等于 12，则获得 2 点信\n仰点数。\n光辉赞美诗：支援。位于该特工 3\" 内的己方见习\n修女特工装备的武器拥有“严重”武器规则。\n见习修女、帝国、修女会、训导者 28",
+      "weapon_types": {
+        "正义钉头槌": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE PRECEPTOR\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nMace of the Righteous 4 4+ 5/5 Brutal, Severe\nUnflinching Example: Whenever this operative incapacitates a\nready enemy operative within its control range, you gain 1 Faith\npoint, or 2 Faith points if that enemy operative had a Wounds stat\nof 12 or more.\nGlorious Hymnal: SUPPORT. Whenever a friendly\nNOVITIATE operative is within 3\" of this operative, that\nfriendly operative’s weapons have the Severe weapon rule.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, PRECEPTOR 28"
+    },
+    {
+      "id": "kt-novitiates-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "见习维控者-数据卡",
+      "title_en": "NOVITIATE PRONATUS",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-见习维控者-数据卡.png",
+      "is_back": false,
+      "text": "见习维控者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n枪托 3 4+ 2/3 -\n圣物搜寻者：每次激活限一次，该特工在执行拾取\n标识、放置标识或者任务行动时可以少消耗 1 点\nAP。\n获取圣物：每个转折点限一次，当该特工执行一次\n需要通过控制目标或者任务标识才能执行的任务行\n动时，您获得数量相当于当前转折点数的信仰点\n数，。\n见习修女、帝国、修女会、维控者 28",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE PRONATUS\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nGun butt 3 4+ 2/3 -\nRelic Seeker: Once during each of this operative’s activations,\nit can perform the Pick Up Marker, Place Marker or a\nmission action for 1 less AP.\nDivine Acquisition: Once per turning point, when this operative\nperforms a mission action that requires it to control an objective\nor mission marker, you gain a number of Faith points equal to the\nturning point number.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, PRONATUS 28"
+    },
+    {
+      "id": "kt-novitiates-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "见习净化者-数据卡",
+      "title_en": "NOVITIATE PURGATUS",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-见习净化者-数据卡.png",
+      "is_back": false,
+      "text": "见习净化者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n教廷火焰喷射器 4 2+ 4/4 范围 8\"、集中、洪流 2\"\n枪托 3 4+ 2/3 -\n火焰净化：每个转折点限一次，如果您选择该特工\n作为“地狱火”交战计谋中要求的己方见习修女\n特工，那么您可以消耗 0CP 来使用这个计谋。\n见习修女、帝国、修女会、净化者 28",
+      "weapon_types": {
+        "教廷火焰喷射器": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE PURGATUS\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nMinistorum flamer 4 2+ 4/4 Range 8\", Saturate, Torrent 2\"\nGun butt 3 4+ 2/3 -\nPurge with Flame: Once per turning point, you can use the\nInferno firefight ploy for 0CP if this is the specified friendly\nNOVITIATE operative.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, PURGATUS 28"
+    },
+    {
+      "id": "kt-novitiates-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "见习掌圣者-数据卡",
+      "title_en": "NOVITIATE RELIQUARIUS",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-见习掌圣者-数据卡.png",
+      "is_back": false,
+      "text": "见习掌圣者 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n枪托 3 4+ 2/3 -\n持徽手：在判断一个标识的控制高举圣徽 1AP\n权时，将该特工的 APL 属性视作\n您获得 1 点信仰点数。如果该特工控制一个目标标识，您还可以获\n为比原本高 1 点。请注意，这并\n得数量相当于当前转折点数的信仰点数。\n非对 APL 属性的修改，因此任何\n修改效果会与本规则累计叠加。该特工只能在每个转折点中执行此行动一次，并且不能在敌方特工\n的控制范围内执行此行动。\n见习修女、帝国、修女会、掌圣者 28",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNOVITIATE RELIQUARIUS\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nGun butt 3 4+ 2/3 -\nIcon Bearer: Whenever determining RAISE ICON 1AP\ncontrol of a marker, treat this operative’s\nYou gain 1 Faith point. If this operative controls an objective marker, you also gain a\nAPL stat as 1 higher. Note this isn’t a\nnumber of Faith points equal to the turning point number.\nchange to its APL stat, so any changes are\ncumulative with this.\nThis operative cannot perform this action more than once per turning point, and\ncannot perform it while within control range of an enemy operative.\nNOVITIATE , IMPERIUM, ADEPTA SORORITAS, RELIQUARIUS 28"
+    },
+    {
+      "id": "kt-novitiates-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "见习修女杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-见习修女杀戮小队.png",
+      "is_back": false,
+      "text": "见习修女\n杀戮小队\n原型: 侦察、安全保护\n特工\n↘ 1 名见习修女见习队长特工，装备有以下一\n种选项:\n• 等离子手枪；动力武器\n• 圣物爆矢枪；枪托\n• 圣物爆矢手枪；动力武器\n↘ 9 名见习修女特工，从以下列表中进行选择:\n• 降罪者 • 净化者\n• 书记官 • 掌圣者\n• 决斗者 • 武装者，装备有以\n• 征收者下一种选项：\n• 医疗官 ○ 自动手枪；\n• 赎罪者见习修女剑\n• 训导者 ○ 自动枪；枪托\n• 维控者\n除了武装者和净化者特工以外，上述的每一名特\n工只能被纳入您的杀戮小队一次。您的杀戮小队\n只能包含最多两名净化者特工。",
+      "text_en": "NOVITIATES\nKILL TEAM\nARCHETYPES: RECON, SECURITY\nOPERATIVES\n↘ 1 NOVITIATE SUPERIOR operative with one of\nthe following options:\n• Plasma pistol; power weapon\n• Relic boltgun; gun butt\n• Relic bolt pistol; power weapon\n↘ 9 NOVITIATE operatives selected from the\nfollowing list:\n• CONDEMNOR • RELIQUARIUS\n• DIALOGUS • MILITANT with\n• DUELLIST one of the\n• EXACTOR following options:\n• HOSPITALLER ○ Autopistol;\n• PENITENT Novitiate blade\n• PRECEPTOR ○ Autogun;\n• PRONATUS gun butt\n• PURGATUS\nOther than MILITANT and PURGATUS operatives,\nyour kill team can only include each operative on\nthis list once. Your kill team can only include up to\ntwo PURGATUS operatives."
+    },
+    {
+      "id": "kt-novitiates-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "信仰之举-1",
+      "title_en": "ACTS OF FAITH",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-信仰之举-1.png",
+      "is_back": false,
+      "text": "见习修女\n阵营规则\n信仰之举\n修女会的狂热能够使帝皇的神圣意志具象化。\n在每个战略阶段的就绪步骤中，您获得信仰点\n数，具体数量相当于还没有被残废的己方见习修\n女特工数量的一半（向上取整)。每当一名己方\n见习修女特工进行射击、近战或反击，或者遭\n到射击时，您可以在掷攻击骰（如果特工遭到射\n击，则是掷防御骰）步骤中消耗信仰点数来使用\n一个信仰之举。您在每个流程中使用的信仰之举\n次数不能超过一次。信仰之举的效果与点数消耗\n如下（请查看卡片的另一面)：\n请继续阅读背面规则",
+      "text_en": "NOVITIATE\nFACTION RULE\nACTS OF FAITH\nSuch is the zeal of the Adepta Sororitas that in their\npresence the Emperor’s divine will is made manifest.\nIn the Ready step of each Strategy phase, you\ngain a number of Faith points equal to half the\nnumber of friendly NOVITIATE operatives\nthat haven’t been incapacitated (rounding up).\nWhenever a friendly NOVITIATE operative is\nshooting, fighting or retaliating, or an operative\nis shooting it, in the Roll Attack Dice (or Roll\nDefence Dice step if an operative is shooting it),\nyou can spend your Faith points to use one ACT\nOF FAITH. You cannot use more than one ACT OF\nFAITH per sequence, and their costs and effects\nare as follows (see other side of card):\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-novitiates-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "信仰之举-2",
+      "title_en": "ACTS OF FAITH",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-信仰之举-2.png",
+      "is_back": true,
+      "text": "指引 1 点信仰点数\n您可以重掷一枚骰子。\n祝福 2 点信仰点数\n您可以将一次普通成功作为关键成功进行保留。\n干预 3 点信仰点数\n您可以将一枚失败作为一次普通成功进行保留。",
+      "text_en": "GUIDANCE 1 FAITH POINT\nYou can re-roll one of your dice.\nBLESSING 2 FAITH POINTS\nYou can retain one of your normal successes as a\ncritical success instead.\nINTERVENTION 3 FAITH POINTS\nYou can retain one of your fails as a normal\nsuccess instead of discarding it."
+    },
+    {
+      "id": "kt-novitiates-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "NOVITIATE",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "见习修女\n标识/指示物指南\n燃烧鞭挞狂暴医疗兵\n指示物指示物指示物\n获取圣物信仰圣徽自动儆戒器\n指示物指示物指示物\n信仰点数自动广播器\n（1 点& 2 点）标识",
+      "text_en": "NOVITIATE\nMARKER/TOKEN GUIDE\nBlaze token Whip into Medic token\nFrenzy token\nDivine Icon of Faith Auto-\nAcquisition token chastisers\ntoken token\nFaith points Auto-broadcaster\n(Values 1 & 2) marker"
+    },
+    {
+      "id": "kt-novitiates-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "热诚复仇",
+      "title_en": "ARDENT VENGEANCE",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-热诚复仇.png",
+      "is_back": false,
+      "text": "见习修女\n战略计谋\n热诚复仇\n异端分子、变种人、异形：无论什么身份，\n修女会都会以同样狂热的态度将敌人肃清。\n每当一名己方见习修女特工对一名进入待机的\n敌方特工进行射击、近战或者反击时，那名己方\n特工的武器拥有“重击”武器规则。",
+      "text_en": "NOVITIATE\nSTRATEGY PLOY\nARDENT VENGEANCE\nThe heretic, the mutant, the alien: the Adepta Sororitas\npurge all with equal fervour.\nWhenever a friendly NOVITIATE operative is\nshooting against, fighting against or retaliating\nagainst an expended enemy operative, that\nfriendly operative’s weapons have the Punishing\nweapon rule."
+    },
+    {
+      "id": "kt-novitiates-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "信仰守护者",
+      "title_en": "DEFENDERS OF THE FAITH",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-信仰守护者.png",
+      "is_back": false,
+      "text": "见习修女\n战略计谋\n信仰守护者\n所有想要加入武装修会的人都必须经受痛苦的\n试炼。信仰能够为战士们带来极强的韧性。\n当一名特工针对己方见习修女特工进行射击、\n近战或者反击时，如果那名己方见习修女特工\n正在争夺一个目标标识，那么在那个流程的结算\n攻击骰步骤中，您可以让一次成功对那名己方特\n工所造成的伤害减半（向上取整，最低至 2)。",
+      "text_en": "NOVITIATE\nSTRATEGY PLOY\nDEFENDERS OF THE FAITH\nAll who aspire to join the ranks of the Orders Militant\nmust endure trials of suffering. Faith lends these\nwarriors great resilience.\nWhenever an operative is shooting against,\nfighting against or retaliating against a friendly\nNOVITIATE operative that contests an objective\nmarker, in the Resolve Attack Dice step of that\nsequence, you can halve the damage inflicted\n(rounding up and to a minimum of 2) on that\nfriendly operative from one success."
+    },
+    {
+      "id": "kt-novitiates-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "祝福治疗",
+      "title_en": "BLESSED REJUVENATION",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-祝福治疗.png",
+      "is_back": false,
+      "text": "见习修女\n战略计谋\n祝福治疗\n一名虔诚的见习修女能够通过信仰的力量来修\n复自己的精神、肉体和灵魂。\n每当您消耗信仰点数，在那次行动结束时，消\n耗了信仰点数的己方特工将回复最多 D3 点失\n去的耐伤。请注意，如果特工在那次行动中被\n残废，或者信仰之举本身没有消耗任何信仰点\n数（例如“自动儆戒器”装备)，那么这个计谋\n没有效果。",
+      "text_en": "NOVITIATE\nSTRATEGY PLOY\nBLESSED REJUVENATION\nA devout Sister Novitiate may draw upon the wellspring\nof her faith to salve mind, body and spirit.\nWhenever you spend Faith points, at the end\nof that action, the friendly operative you spent\nthem on can regain up to D3 lost wounds. Note\nthis ploy has no effect if that friendly operative\nwas incapacitated during that action, or if the\nACT OF FAITH doesn’t cost any Faith points, e.g.\nAuto-chastisers equipment."
+    },
+    {
+      "id": "kt-novitiates-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "正义前行",
+      "title_en": "RIGHTEOUS ADVANCE",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-正义前行.png",
+      "is_back": false,
+      "text": "见习修女\n战略计谋\n正义前行\n见习修女们热切地想要证明自己的价值，她\n们毫不犹豫地冲入战斗，完全不在乎自身的\n安危。\n位于杀戮区内最多三分之一（向下取整，最低\n为 1）的己方见习修女可以立刻进行一次无消\n耗的冲刺行动，特工的命令由您来决定。但是，\n每一名进行了上述冲刺行动的特工必须在结束移\n动时比原先要更接近最近的敌方特工、最近的目\n标标识，或者对手的降落区（您可以为每一名特\n工分别进行选择）。您不能在第一个转折点使用\n该计谋。",
+      "text_en": "NOVITIATE\nSTRATEGY PLOY\nRIGHTEOUS ADVANCE\nEager to prove themselves worthy, Sisters Novitiate\nhurl themselves into combat with scant regard for their\nown lives.\nUp to one third of the friendly NOVITIATE\noperatives in the killzone (rounding down, to a\nminimum of 1) can immediately perform a free\nDash action in an order of your choice, but each\nthat does so must end that move closer to its\nclosest enemy operative, its closest objective\nmarker or your opponent’s drop zone (you can\nchoose separately for each). You cannot use this\nploy during the first turning point."
+    },
+    {
+      "id": "kt-novitiates-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "光荣殉教",
+      "title_en": "GLORIOUS MARTYRDOM",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-光荣殉教.png",
+      "is_back": false,
+      "text": "见习修女\n交战计谋\n光荣殉教\n没有任何荣誉能比为帝皇牺牲更加伟大。那些\n目睹了这一壮举的战士们将受到无穷的激励。\n在一名己方见习修女特工被残废时，在将其移\n出杀戮区前使用此交战计谋。该特工的 2\" 内每\n存在一名可见的敌方特工，您便获得 1 点信仰点\n数，并对那名敌方特工造成 D3 点伤害（为每名\n特工分别进行掷骰)。",
+      "text_en": "NOVITIATE\nFIREFIGHT PLOY\nGLORIOUS MARTYRDOM\nThere is no greater honour than to die in service of the\nEmperor. Such a glorious end provides inspiration to\nthose who witness it.\nUse this firefight ploy when a friendly NOVITIATE\noperative is incapacitated, before it’s removed\nfrom the killzone. For each enemy operative\nvisible to and within 2\" of it, you gain 1 Faith point\nand inflict D3 damage on that enemy operative\n(roll separately for each)."
+    },
+    {
+      "id": "kt-novitiates-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "燃烧地狱火",
+      "title_en": "BLAZING INFERNO",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-燃烧地狱火.png",
+      "is_back": false,
+      "text": "见习修女\n交战计谋\n燃烧地狱火\n神圣的火焰喷射器是能够宣泄帝皇圣怒的强大\n兵器。无论是异端分子、巫师、变种人，还是\n异形：没有任何敌人能够逃过它的炽热惩罚。\n在一名己方见习修女特工使用教廷火焰喷射器\n进行射击并且通过任意关键成功造成伤害时使用\n此交战计谋。目标获得一枚己方燃烧指示物(如\n果目标还没有获得它的话)。在一名拥有己方燃\n烧指示物的特工被激活时：\n• 对其造成 D3 点伤害。\n• 那名特工的控制玩家可以在那次激活结束前扣\n除 1 点特工的 APL 属性并将指示物移除。请\n注意，这个过程必须在被激活的特工执行任何\n行动前进行结算。",
+      "text_en": "NOVITIATE\nFIREFIGHT PLOY\nBLAZING INFERNO\nThe holy flamer is a potent instrument of the Emperor’s\ndivine wrath. Heretic, witch, mutant or alien: none may\nhide from its searing wrath.\nUse this firefight ploy when a friendly NOVITIATE\noperative is shooting with a Ministorum\nflamer and you inflict damage with any critical\nsuccesses. The target gains one of your Blaze\ntokens (if it doesn’t already have one). Whenever\nan operative that has one of your Blaze tokens\nis activated:\n• Inflict D3 damage on it.\n• Its controlling player can subtract 1 from\nthat operative’s APL stat until the end of that\nactivation to remove that token. Note that this\nmust be done before that operative performs\nany actions during that activation."
+    },
+    {
+      "id": "kt-novitiates-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "耀眼光环",
+      "title_en": "BLINDING AURA",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-耀眼光环.png",
+      "is_back": false,
+      "text": "见习修女\n交战计谋\n耀眼光环\n信仰能够违背任何逻辑。据说，最为热忱的\n正义修女能够散发出眩眼的强光，致盲周边\n的不信者。\n在一名敌方特工执行射击行动，并将一名己方见\n习修女特工选择成为有效目标时使用本交战计\n谋。直到那次激活或反应结束前，如果那名己方\n特工位于那名敌方特工的 2\" 外，那么您的对手\n不能将其选择成为有效目标。如果您的对手没有\n任何剩余的有效目标可以选择，那么那次行动结\n束（这次行动没有被取消，特工被算作执行了那\n次行动)。请注意，本计谋对未被选择成为目标\n的特工无效，例如特工成为“爆炸”武器规则的\n次要目标。",
+      "text_en": "NOVITIATE\nFIREFIGHT PLOY\nBLINDING AURA\nFaith defies explanation. The most devout and righteous\nSisters are said to manifest dazzling halos of light that\nblind the faithless.\nUse this firefight ploy when an enemy operative is\nperforming the Shoot action and selects a friendly\nNOVITIATE operative as the valid target. Until\nthe end of that activation/counteraction, while\nthat friendly operative is more than 2\" from that\nenemy operative, your opponent cannot select it\nas a valid target. If there are no other valid targets\nthat your opponent can select, that action ends\n(it’s not cancelled, so that operative has still\nperformed it). Note this ploy has no effect if it’s\nnot the selected operative, e.g. if it’s a secondary\ntarget from the Blast weapon rule."
+    },
+    {
+      "id": "kt-novitiates-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "信仰指引",
+      "title_en": "GUIDED BY FAITH",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-信仰指引.png",
+      "is_back": false,
+      "text": "见习修女\n交战计谋\n信仰指引\n见习修女低声祈祷，请求神皇指引她的射击，\n以求迅速消灭敌人。\n在一名己方见习修女特工执行射击行动并选择\n远程武器时使用此交战计谋。直到那次行动结\n束前，在那名特工对位于其 6\" 内的特工进行射\n击时，进行射击的武器拥有“追踪轻型”武器\n规则。",
+      "text_en": "NOVITIATE\nFIREFIGHT PLOY\nGUIDED BY FAITH\nWhispering a prayer, a Sister Novitiate beseeches the\nGod-Emperor to guide her aim that she may swiftly slay\nher foe.\nUse this firefight ploy when a friendly NOVITIATE\noperative is performing the Shoot action and\nyou’re selecting a ranged weapon. Until the end\nof that action, whenever that operative is shooting\nan operative within 6\" of it, that weapon has the\nSeek Light weapon rule."
+    },
+    {
+      "id": "kt-novitiates-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "信仰圣徽",
+      "title_en": "ICON OF FAITH",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-信仰圣徽.png",
+      "is_back": false,
+      "text": "见习修女\n阵营装备\n信仰圣徽\n国教的神圣徽记对于携带它们的修女来说极\n其重要，在战斗之中能够进一步加深了她们\n的信仰。\n每个转折点限一次，您可以在一个流程中使用两\n次信仰之举，但是每一个都必须是不同的信仰之\n举。本规则的优先度高于常规的信仰之举规则。",
+      "text_en": "NOVITIATE\nFACTION EQUIPMENT\nICON OF FAITH\nHoly icons of the Ecclesiarchy hold great significance to\nthe Sisters who bear them, reinforcing their faith in the\nheart of battle.\nOnce per turning point, you can use up to two\nACTS OF FAITH during a sequence, but each one\nmust be different. This takes precedence over the\nnormal ACTS OF FAITH rules."
+    },
+    {
+      "id": "kt-novitiates-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "圣化弹药",
+      "title_en": "SANCTIFIED ROUNDS",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-圣化弹药.png",
+      "is_back": false,
+      "text": "见习修女\n阵营装备\n圣化弹药\n这些弹药被涂抹上了圣人的血泪，并且受到\n了高阶祭司的祝福，是不洁之徒的克星。\n当一名己方见习修女特工使用自动枪、自动手\n枪、圣物爆矢手枪或圣物爆矢枪射击时，如果您\n消耗了一点信仰点数，那么直到那次流程结束\n前，那件武器还拥有“关键穿刺 1”武器规则。",
+      "text_en": "NOVITIATE\nFACTION EQUIPMENT\nSANCTIFIED ROUNDS\nAnointed with the blood and tears of saints and blessed\nby high-ranking members of the clergy, this ammunition\nis anathema to the unholy.\nWhenever a friendly NOVITIATE operative is\nshooting with an autogun, autopistol, relic bolt\npistol or relic boltgun, if you spend a Faith point,\nthat weapon has the Piercing Crits 1 weapon rule\nuntil the end of that sequence."
+    },
+    {
+      "id": "kt-novitiates-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "自动儆戒器",
+      "title_en": "AUTO-CHASTISERS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-自动儆戒器.png",
+      "is_back": false,
+      "text": "见习修女\n阵营装备\n自动儆戒器\n这种苦修道具能够对持有者施加祝福的痛苦，\n让他们的狂热之火变得更加猛烈。\n每个转折点限一次，在一名己方见习修女特工\n进行射击、近战或者反击时，在掷攻击骰步骤\n中，您可以对那名己方特工造成 1-3 点伤害（这\n个伤害不能足够将该特工残废)。若造成伤害，\n那么您可以在不消耗信仰点数的情况下使用一次\n信仰之举，这个信仰之举原本的点数消耗不能超\n过您通过本规则所造成的伤害。",
+      "text_en": "NOVITIATE\nFACTION EQUIPMENT\nAUTO-CHASTISERS\nThese instruments of self-flagellation inflict blessed\nagonies upon the bearer, fanning the flames of their\nblazing zeal.\nOnce per turning point, when a friendly\nNOVITIATE operative is shooting, fighting or\nretaliating, in the Roll Attack Dice step, you can\ninflict 1-3 damage on that friendly operative (but\nnot enough to incapacitate it). If you do, you\ncan use one ACT OF FAITH for free during that\nsequence with a Faith points cost no more than\nthe damage you inflicted from this rule."
+    },
+    {
+      "id": "kt-novitiates-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "神圣药膏",
+      "title_en": "HOLY EMBROCATIONS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-神圣药膏.png",
+      "is_back": false,
+      "text": "见习修女\n阵营装备\n神圣药膏\n圣油和药膏能够缓解疼痛并让使用者集中精\n力，使见习修女可以忽视严重的伤势。\n您可以无视己方见习修女特工因为受创而导致\n的任何对其移动属性的修正。",
+      "text_en": "NOVITIATE\nFACTION EQUIPMENT\nHOLY EMBROCATIONS\nHoly oils and salves dull the pain and focus the mind,\nenabling a Novitiate to shrug off wounds that would\notherwise hobble them.\nYou can ignore any changes to the Move\nstat of friendly NOVITIATE operatives from\nbeing injured."
+    }
+  ]
+}

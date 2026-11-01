@@ -1,0 +1,304 @@
+{
+ "CHAOS-FELL": [
+  {
+   "ref": "#6",
+   "text": "狂暴残废条件"
+  },
+  {
+   "ref": "#11",
+   "text": "暴怒再生治疗对象"
+  },
+  {
+   "ref": "#12",
+   "text": "点燃怒火 +1APL"
+  }
+ ],
+ "CHAOS-PM": [
+  {
+   "ref": "#9",
+   "text": "毒素挂标/扣血"
+  }
+ ],
+ "CHAOS-WC": [
+  {
+   "ref": "#27",
+   "text": "奸奇恩惠缺 4 项"
+  },
+  {
+   "ref": "#13",
+   "text": "附魔弹药"
+  }
+ ],
+ "IMP-AOD": [
+  {
+   "ref": "#16",
+   "text": "战团战术子项名称"
+  }
+ ],
+ "IMP-CI": [
+  {
+   "ref": "#27",
+   "text": "祷祝正文为改写"
+  },
+  {
+   "ref": "数据",
+   "text": "无勘误条目，需对照 2026 更新 PDF"
+  }
+ ],
+ "KT-BLADES_OF_KHAINE": [
+  {
+   "ref": "#33",
+   "text": "支派技艺重复出现/次数限制"
+  }
+ ],
+ "KT-BLOODED": [
+  {
+   "ref": "#50",
+   "text": "「发送信号」+1APL 匹配不到"
+  }
+ ],
+ "KT-CHAOS_CULT": [
+  {
+   "ref": "#30",
+   "text": "变异换卡后的呼号与 AP 上限"
+  }
+ ],
+ "KT-DEATHWATCH": [
+  {
+   "ref": "#43",
+   "text": "特制弹药应为「撕裂」而非「集中」"
+  }
+ ],
+ "KT-DEATH_KORPS": [
+  {
+   "ref": "check_team_data",
+   "text": "「传讯」+1APL 匹配不到"
+  },
+  {
+   "ref": "#50",
+   "text": "上刺刀！无休作用方"
+  }
+ ],
+ "KT-ELUCIDIAN_STARSTRIDERS": [
+  {
+   "ref": "#37",
+   "text": "自建编成武装船兵配装"
+  }
+ ],
+ "KT-EXACTION_SQUAD": [
+  {
+   "ref": "check_team_data",
+   "text": "R-VR 赛博猎犬卡名与 manifest 不一致"
+  }
+ ],
+ "KT-EXODITE_DRAGON_MASTERS": [
+  {
+   "ref": "#26",
+   "text": "石歌者升级 6 选 2"
+  },
+  {
+   "ref": "#45",
+   "text": "「共鸣点数」无依据"
+  }
+ ],
+ "KT-FARSTALKER_KINBAND": [
+  {
+   "ref": "#12",
+   "text": "空中视野 +1APL 不生效"
+  }
+ ],
+ "KT-HAND_OF_THE_ARCHON": [
+  {
+   "ref": "#3",
+   "text": "半角括号重型武器射击后可移动"
+  }
+ ],
+ "KT-HEARTHKYN_SALVAGERS": [
+  {
+   "ref": "#14",
+   "text": "「机敏点数」挂错队"
+  },
+  {
+   "ref": "#44",
+   "text": "系统干扰前缀误判"
+  }
+ ],
+ "KT-HERNKYN_YAEGRIS": [
+  {
+   "ref": "#14",
+   "text": "缺机敏计数器"
+  }
+ ],
+ "KT-HIEROTEK_CIRCLE": [
+  {
+   "ref": "#25",
+   "text": "重生行动挂错特工"
+  },
+  {
+   "ref": "#12",
+   "text": "植入命令/强化武器误入 +1APL"
+  }
+ ],
+ "KT-HUNTER_CLADE": [
+  {
+   "ref": "#16",
+   "text": "「教义条令」子项从不显示"
+  }
+ ],
+ "KT-INQUISITORIAL_AGENTS": [
+  {
+   "ref": "#37",
+   "text": "寂静修女匕首判定"
+  },
+  {
+   "ref": "#27",
+   "text": "征用命令残文"
+  }
+ ],
+ "KT-KASRKIN": [
+  {
+   "ref": "#16",
+   "text": "技能点子项"
+  },
+  {
+   "ref": "#13",
+   "text": "前握把/长距离瞄具"
+  },
+  {
+   "ref": "#23",
+   "text": "射手步枪译名"
+  }
+ ],
+ "KT-KOMMANDOS": [
+  {
+   "ref": "#8",
+   "text": "嘘——！TP1 应禁用"
+  },
+  {
+   "ref": "#8",
+   "text": "「愚笨」名称不匹配"
+  },
+  {
+   "ref": "#13",
+   "text": "折叠枪托"
+  }
+ ],
+ "KT-LEGIONARIES": [
+  {
+   "ref": "#3",
+   "text": "半角括号重型武器"
+  }
+ ],
+ "KT-MANDRAKES": [
+  {
+   "ref": "#36",
+   "text": "灵魂打击未计 APL 指示物"
+  }
+ ],
+ "KT-MURDERWING": [
+  {
+   "ref": "#37",
+   "text": "扩声器隐蔽命令限制"
+  }
+ ],
+ "KT-PATHFINDERS": [
+  {
+   "ref": "#10/#21",
+   "text": "标记光层级与上限"
+  },
+  {
+   "ref": "#44",
+   "text": "系统干扰"
+  }
+ ],
+ "KT-RATLINGS": [
+  {
+   "ref": "#39",
+   "text": "生存本能格挡"
+  },
+  {
+   "ref": "#42",
+   "text": "「护盾」未定义"
+  }
+ ],
+ "KT-SANCTIFIERS": [
+  {
+   "ref": "#37",
+   "text": "圣珠效果"
+  },
+  {
+   "ref": "#26",
+   "text": "烈火士缺「烈焰」"
+  }
+ ],
+ "KT-SCOUT_SQUAD": [
+  {
+   "ref": "#51",
+   "text": "迷彩斗篷装备误忽略集中"
+  }
+ ],
+ "KT-SPECTRE_SQUAD": [
+  {
+   "ref": "#14",
+   "text": "野战点数不清零"
+  },
+  {
+   "ref": "#27",
+   "text": "野战精锐正文不全"
+  }
+ ],
+ "KT-VOID_DANCER_TROUPE": [
+  {
+   "ref": "#16",
+   "text": "剧目子项"
+  },
+  {
+   "ref": "#15",
+   "text": "第 6/7 名演员限定武器重复"
+  },
+  {
+   "ref": "#13",
+   "text": "尖啸者毒素弹"
+  }
+ ],
+ "KT-WRECKA_KREW": [
+  {
+   "ref": "#41",
+   "text": "坦克锤爆破波及与破坏点数"
+  },
+  {
+   "ref": "#3",
+   "text": "半角重型"
+  }
+ ],
+ "KT-XV26_STEALTH_BATTLESUITS": [
+  {
+   "ref": "#44",
+   "text": "标记光聚焦/系统干扰"
+  },
+  {
+   "ref": "数据",
+   "text": "无勘误条目"
+  }
+ ],
+ "NEC-CAN": [
+  {
+   "ref": "#37",
+   "text": "自建编成墓穴爬行者武器上限"
+  }
+ ],
+ "TYR-RAV": [
+  {
+   "ref": "#9",
+   "text": "中毒 D3/暴击触发"
+  },
+  {
+   "ref": "#11",
+   "text": "钻地缺两条"
+  },
+  {
+   "ref": "#27",
+   "text": "隧道正文不全"
+  }
+ ]
+}

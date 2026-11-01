@@ -1,0 +1,4458 @@
+{
+  "schema_version": 1,
+  "team_id": "IMP-WS",
+  "team_name_zh": "狼侦察",
+  "source_pdf": "../狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+  "source_pdf_sha256": "3f027d381ebbf69545c4afaab5f880aa0c0003e8c2df289c5300189bcc256adb",
+  "extracted_at": "2026-09-24",
+  "website": "https://ktdash.app/killteams/IMP-WS",
+  "api": "https://ktdash.app/api/killteams/IMP-WS",
+  "pdf_metadata": {
+    "pages": 14,
+    "encrypted": false,
+    "metadata": {
+      "format": "PDF 1.7",
+      "title": "",
+      "author": "",
+      "subject": "",
+      "keywords": "",
+      "creator": "",
+      "producer": "",
+      "creationDate": "",
+      "modDate": "",
+      "trapped": "",
+      "encryption": null
+    }
+  },
+  "page_audit": [
+    {
+      "page": 1,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "特工、特工能力",
+      "expected_cards": 4,
+      "card_orientation": "横向",
+      "layout": "单列4张",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 2,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "特工、特工能力",
+      "expected_cards": 4,
+      "card_orientation": "横向",
+      "layout": "单列4张",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 3,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "特工、特工能力、其他",
+      "expected_cards": 4,
+      "card_orientation": "横向",
+      "layout": "单列4张",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 4,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "小队选择、阵营规则、其他",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 5,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "战略计谋",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 6,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "交战计谋",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 7,
+      "size_pt": [
+        595.2760009765625,
+        841.8900146484375
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "阵营装备",
+      "expected_cards": 4,
+      "card_orientation": "纵向",
+      "layout": "2×2",
+      "integration": "完整卡图、当前全文与实体关联"
+    },
+    {
+      "page": 8,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "更新日志",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "辅助核对当前规则；不导入冲突旧文"
+    },
+    {
+      "page": 9,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "既往勘误及规则问答",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "辅助核对当前规则；不导入冲突旧文"
+    },
+    {
+      "page": 10,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "角色介绍",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 11,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "小队概述及角色介绍",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 12,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "阵容与模型示意",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 13,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "模型与武器示意",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    },
+    {
+      "page": 14,
+      "size_pt": [
+        609.448974609375,
+        793.7009887695312
+      ],
+      "orientation": "纵向",
+      "text_layer": true,
+      "use": "设计师注解",
+      "expected_cards": 0,
+      "card_orientation": null,
+      "layout": "非卡片页",
+      "integration": "术语、角色定位与概述核验"
+    }
+  ],
+  "counts": {
+    "roles": 8,
+    "weapon_objects": 17,
+    "profiles": 21,
+    "cards": 28,
+    "by_category": {
+      "operative": 8,
+      "operative-ability": 3,
+      "other": 2,
+      "team-selection": 1,
+      "faction-rule": 2,
+      "strategic-ploy": 4,
+      "firefight-ploy": 4,
+      "faction-equipment": 4
+    },
+    "faction_rule_records": 16,
+    "faction_rule_names": 2,
+    "strategic_ploys": 4,
+    "firefight_ploys": 4,
+    "faction_equipment": 4,
+    "universal_equipment": 13
+  },
+  "per_operative_counts": [
+    {
+      "opTypeId": "IMP-WS-LDR",
+      "name_zh": "狼侦察狼群领袖",
+      "weapon_objects": 2,
+      "profiles": 3
+    },
+    {
+      "opTypeId": "IMP-WS-FB",
+      "name_zh": "狼侦察獠牙使者",
+      "weapon_objects": 2,
+      "profiles": 2
+    },
+    {
+      "opTypeId": "IMP-WS-FE",
+      "name_zh": "狼侦察霜眼",
+      "weapon_objects": 2,
+      "profiles": 2
+    },
+    {
+      "opTypeId": "IMP-WS-GNR",
+      "name_zh": "狼侦察炮手",
+      "weapon_objects": 2,
+      "profiles": 3
+    },
+    {
+      "opTypeId": "IMP-WS-HNT",
+      "name_zh": "狼侦察猎手",
+      "weapon_objects": 2,
+      "profiles": 3
+    },
+    {
+      "opTypeId": "IMP-WS-RP",
+      "name_zh": "狼侦察符文祭司诗人",
+      "weapon_objects": 4,
+      "profiles": 4
+    },
+    {
+      "opTypeId": "IMP-WS-TM",
+      "name_zh": "狼侦察陷阱大师",
+      "weapon_objects": 2,
+      "profiles": 3
+    },
+    {
+      "opTypeId": "IMP-WS-WLF",
+      "name_zh": "狼侦察芬里斯狼",
+      "weapon_objects": 1,
+      "profiles": 1
+    }
+  ],
+  "cards": [
+    {
+      "category": "operative",
+      "title_zh": "狼侦察狼群领袖-数据卡",
+      "title_en": "Pack Leader",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        125.5,
+        24.5,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-LDR",
+        "IMP-WS-LDR-GV",
+        "IMP-WS-LDR-LG"
+      ],
+      "current_text_zh": "狼侦察狼群领袖 / Pack Leader；APL 3；移动 7\"；豁免 3+；耐伤 13；底座 32 mm。\n\n等离子手枪（标准）：攻击 4；命中 3+；伤害 3/5；范围 8\", 穿刺1（Rng 8\", Prc1）。\n\n等离子手枪（过载）：攻击 4；命中 3+；伤害 4/5；范围 8\", 过热, 致命 5+, 穿刺1（Rng 8\", Hot, Lethal 5+, Prc1）。\n\n动力武器（单一档案）：攻击 5；命中 3+；伤害 4/6；致命 5+（Lethal 5+）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, PACK, LEADER\n\n沧桑老兵\n这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。丢弃所有剩余攻击骰，包括这名特工近战或反击时的己方骰子。该行动结束时，不能使用“反击”交战计谋，也不能通过“狂野斗士”战略计谋造成伤害。\n\n狡诈如狼\n每场战斗一次，在掷骰决定先手之后，如果这名特工位于杀戮区中，可以重掷己方的骰子。",
+      "text_status": "current",
+      "id": "imp-ws-card-01",
+      "sequence": 1,
+      "image": "01-特工-狼侦察狼群领袖-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.02910119,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          24.5,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Grizzled Veteran\nThe first time this operative would be incapacitated during the battle, it is not incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder of the action. All remaining attack dice are discarded (including yours if this operative is fighting or retaliating). You cannot use the Counterattack firefight ploy or inflict damage as a result of the Savage Fighters strategy ploy at the end of that action.\n\nLupine Guile\nOnce per battle, after rolling off to decide initiative, if this operative is in the killzone, you can re-roll your dice.",
+      "rule_record_ids": [
+        "IMP-WS-LDR-GV",
+        "IMP-WS-LDR-LG"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-LDR-GV",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-LDR-LG",
+          "cost": null
+        }
+      ],
+      "timing": "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。",
+      "target": "动力武器（单一档案）：攻击 5；",
+      "duration": [
+        "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。"
+      ],
+      "limits": [
+        "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。",
+        "该行动结束时，不能使用“反击”交战计谋，也不能通过“狂野斗士”战略计谋造成伤害。",
+        "每场战斗一次，在掷骰决定先手之后，如果这名特工位于杀戮区中，可以重掷己方的骰子。"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "狼侦察獠牙使者-数据卡",
+      "title_en": "Fangbearer",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        125.5,
+        222.925,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-FB",
+        "IMP-WS-FB-HB",
+        "IMP-WS-FB-SC"
+      ],
+      "current_text_zh": "狼侦察獠牙使者 / Fangbearer；APL 3；移动 7\"；豁免 3+；耐伤 13；底座 32 mm。\n\n赦免者爆矢手枪（单一档案）：攻击 4；命中 3+；伤害 4/5；范围 8\", 关键穿刺 1（Rng 8\", PrcCrit 1）。\n\n格斗刀（单一档案）：攻击 5；命中 3+；伤害 4/5；无（—）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FANGBEARER\n\n治疗膏药（1 AP）\n选择位于这名特工控制范围内的一名己方狼侦察特工，其恢复至多 D3+3 点已损失的耐伤。\n这名特工位于敌方特工的控制范围内时不能执行此行动；每个转折点最多执行一次。\n\n精神医术\n可以忽略己方狼侦察特工（芬里斯狼除外）因受伤而受到的任何属性修改，包括其武器属性的修改。只要将这名特工选入战斗，其他己方特工便拥有此规则，即使这名特工随后残废。",
+      "text_status": "current",
+      "id": "imp-ws-card-02",
+      "sequence": 2,
+      "image": "02-特工-狼侦察獠牙使者-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.26479112,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          222.925,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Healing Balms\nSelect one friendly WOLF SCOUT operative within this operative’s control range to regain up to D3+3 lost wounds.\r \r This operative cannot perform this action while within control range of an enemy operative, or more than once per turning point.\n\nSpiritual Chirurgy\nYou can ignore any changes to the stats of friendly WOLF SCOUT operatives (excluding FENRISIAN WOLF) from being injured (including their weapons’ stats). Note that friendly operatives have this rule if you select this operative for the battle (even if it’s incapacitated later). ",
+      "rule_record_ids": [
+        "IMP-WS-FB-HB",
+        "IMP-WS-FB-SC"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-FB-HB",
+          "cost": "1 AP"
+        },
+        {
+          "id": "IMP-WS-FB-SC",
+          "cost": null
+        }
+      ],
+      "timing": "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+      "target": "选择位于这名特工控制范围内的一名己方狼侦察特工，其恢复至多 D3+3 点已损失的耐伤。",
+      "duration": [],
+      "limits": [
+        "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+        "每个转折点最多执行一次。",
+        "可以忽略己方狼侦察特工（芬里斯狼除外）因受伤而受到的任何属性修改，包括其武器属性的修改。"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "狼侦察霜眼-数据卡",
+      "title_en": "Frosteye",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        125.5,
+        421.35,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-FE",
+        "IMP-WS-FE-SVE"
+      ],
+      "current_text_zh": "狼侦察霜眼 / Frosteye；APL 3；移动 7\"；豁免 3+；耐伤 13；底座 32 mm。\n\n煽动者爆矢卡宾枪（单一档案）：攻击 4；命中 3+；伤害 3/4；关键穿刺 1, 安静（PrcCrit 1, Silent）。\n\n格斗刀（单一档案）：攻击 4；命中 3+；伤害 4/5；无（—）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FROSTEYE\n\n隐藏于风暴的处刑\n每当这名特工完全位于己方风暴内：\n- 无论使用哪个杀戮区，均可执行戒备行动（见核心规则中的近距离战斗规则）。\n- 可以在拥有隐匿命令时执行戒备行动；若如此，在本转折点余下期间最多执行一次射击行动，即不能在中断和反应时各射击一次。",
+      "text_status": "current",
+      "id": "imp-ws-card-03",
+      "sequence": 3,
+      "image": "03-特工-狼侦察霜眼-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.50048105,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        564
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          421.35,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Storm-Veiled Execution\nWhenever this operative is wholly within your STORM:\n- It can perform the Guard action regardless of the killzone (see close quarters rules, Kill Team Core Book).\n- It can perform the Guard action while it has a Conceal order, but if it does, it cannot perform more than one Shoot action for the rest of the turning point (i.e. it cannot Shoot both during the interruption and during counteract).",
+      "rule_record_ids": [
+        "IMP-WS-FE-SVE"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-FE-SVE",
+          "cost": null
+        }
+      ],
+      "timing": "每当这名特工完全位于己方风暴内：",
+      "target": "每当这名特工完全位于己方风暴内：",
+      "duration": [
+        "若如此，在本转折点余下期间最多执行一次射击行动，即不能在中断和反应时各射击一次。"
+      ],
+      "limits": [
+        "若如此，在本转折点余下期间最多执行一次射击行动，即不能在中断和反应时各射击一次。"
+      ]
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "狼侦察霜眼-能力卡",
+      "title_en": "Frosteye",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        125.5,
+        619.7750000000001,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-FE",
+        "IMP-WS-FE-HS"
+      ],
+      "current_text_zh": "猎人感官（1 AP）\n为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：\n- “严重”（Severe）。\n- “集中”（Saturate），且这名特工使用此武器射击时，敌方特工不能被遮挡。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "text_status": "current",
+      "id": "imp-ws-card-04",
+      "sequence": 4,
+      "image": "04-特工能力-狼侦察霜眼-能力卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.73617098,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 1,
+        "bbox_pt": [
+          125.5,
+          619.7750000000001,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Hunter's Senses\nSelect one of the following rules for this operative’s instigator bolt carbine to have until the start of its next activation:\r - Severe.\r - Saturate, and whenever this operative is shooting with that weapon, enemy operatives cannot be obscured.\r \r This operative cannot perform this action while within control range of an enemy operative.",
+      "rule_record_ids": [
+        "IMP-WS-FE-HS"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-FE-HS",
+          "cost": "1 AP"
+        }
+      ],
+      "timing": "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：",
+      "target": "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：",
+      "duration": [
+        "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始："
+      ],
+      "limits": [
+        "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：",
+        "- “集中”（Saturate），且这名特工使用此武器射击时，敌方特工不能被遮挡。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "狼侦察炮手-数据卡",
+      "title_en": "Gunner",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        125.5,
+        24.5,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-GNR",
+        "IMP-WS-GNR-TF"
+      ],
+      "current_text_zh": "狼侦察炮手 / Gunner；APL 3；移动 7\"；豁免 3+；耐伤 13；底座 32 mm。\n\n等离子枪（标准）：攻击 4；命中 3+；伤害 4/6；穿刺1（Prc1）。\n\n等离子枪（过载）：攻击 4；命中 3+；伤害 5/6；过热, 致命 5+, 穿刺1（Hot, Lethal 5+, Prc1）。\n\n格斗刀（单一档案）：攻击 4；命中 3+；伤害 4/5；无（—）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, GUNNER\n\n风暴之怒\n每当这名特工完全位于己方风暴内：\n- 其等离子枪的所有档案拥有“重击”（Punishing）武器规则。\n- 其等离子枪的过载档案失去“过热”（Hot）武器规则。",
+      "text_status": "current",
+      "id": "imp-ws-card-05",
+      "sequence": 5,
+      "image": "05-特工-狼侦察炮手-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.02910119,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          24.5,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Tempest's Fury\nWhenever this operative is wholly within your STORM:\n- All profiles of its plasma gun have the Punishing weapon rule.\n- Its plasma gun (supercharge) doesn’t have the Hot weapon rule.",
+      "rule_record_ids": [
+        "IMP-WS-GNR-TF"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-GNR-TF",
+          "cost": null
+        }
+      ],
+      "timing": "每当这名特工完全位于己方风暴内：",
+      "target": "每当这名特工完全位于己方风暴内：",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "operative",
+      "title_zh": "狼侦察猎手-数据卡",
+      "title_en": "Hunter",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        125.5,
+        222.925,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-HNT",
+        "IMP-WS-HNT-FT"
+      ],
+      "current_text_zh": "狼侦察猎手 / Hunter；APL 3；移动 7\"；豁免 3+；耐伤 13；底座 32 mm。\n\n等离子手枪（标准）：攻击 4；命中 3+；伤害 3/5；范围 8\", 穿刺1（Rng 8\", Prc1）。\n\n等离子手枪（过载）：攻击 4；命中 3+；伤害 4/5；范围 8\", 过热, 致命 5+, 穿刺1（Rng 8\", Hot, Lethal 5+, Prc1）。\n\n格斗刀（单一档案）：攻击 5；命中 3+；伤害 4/5；无（—）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, HUNTER\n\n凶猛暴躁\n每当这名特工完全位于己方风暴内，其武器拥有“严重”（Severe）武器规则。",
+      "text_status": "current",
+      "id": "imp-ws-card-06",
+      "sequence": 6,
+      "image": "06-特工-狼侦察猎手-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.26479112,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          222.925,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Fierce Temperament\nWhenever this operative is wholly within your STORM, its weapons have the Severe weapon rule.",
+      "rule_record_ids": [
+        "IMP-WS-HNT-FT"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-HNT-FT",
+          "cost": null
+        }
+      ],
+      "timing": "每当这名特工完全位于己方风暴内，其武器拥有“严重”（Severe）武器规则。",
+      "target": "每当这名特工完全位于己方风暴内，其武器拥有“严重”（Severe）武器规则。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "operative",
+      "title_zh": "狼侦察符文祭司诗人-数据卡",
+      "title_en": "Rune Priest Skjald",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        125.5,
+        421.35,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-RP",
+        "IMP-WS-RP-CTR"
+      ],
+      "current_text_zh": "狼侦察符文祭司诗人 / Rune Priest Skjald；APL 3；移动 7\"；豁免 3+；耐伤 13；底座 32 mm。\n\n爆矢手枪（单一档案）：攻击 4；命中 3+；伤害 3/4；范围 8\"（Rng 8\"）。\n\n世界狼撕咬（单一档案）：攻击 4；命中 3+；伤害 3/5；灵能, 爆炸 2\", 严重（PSYCHIC, Blast 2\", Sev）。\n\n雷霆冲击（单一档案）：攻击 5；命中 2+；伤害 2/2；灵能, 范围 6\", 集中, 追踪轻型, 晕眩, 洪流 2\"（PSYCHIC, Rng 6\", Sat, Seek Light, Stun, Tor 2\"）。\n\n符文杖（单一档案）：攻击 5；命中 3+；伤害 4/6；灵能, 震荡（PSYCHIC, Shock）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, PSYKER, RUNE PRIEST SKJALD\n\n释放符文\n选择这名特工之后、战斗开始之前，掷三枚 D6 并放在一旁。每个 1–4 的结果使你可以在编号与结果相同的转折点免费使用一次“指挥重掷”交战计谋。如果至少有一个结果为 5–6，获得 1CP。例如结果为 2、2、5，则获得 1CP，并可在第二个转折点使用两次 0CP 指挥重掷。",
+      "text_status": "current",
+      "id": "imp-ws-card-07",
+      "sequence": 7,
+      "image": "07-特工-狼侦察符文祭司诗人-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.50048105,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        564
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          421.35,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Cast the Runes\nAfter selecting this operative, before the battle, roll three D6 and put them to one side.\r For each result of 1-4, you can use the Command Re-roll firefight ploy for OCP once during the turning point that matches the result.\r If one or more results are 5-6, you gain 1CP.\r For example, if you roll 2, 2 and 5, you gain 1CP and twice during the second turning point you can use Command Re-roll for 0CP",
+      "rule_record_ids": [
+        "IMP-WS-RP-CTR"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-RP-CTR",
+          "cost": null
+        }
+      ],
+      "timing": "选择这名特工之后、战斗开始之前，掷三枚 D6 并放在一旁。",
+      "target": "选择这名特工之后、战斗开始之前，掷三枚 D6 并放在一旁。",
+      "duration": [],
+      "limits": [
+        "每个 1–4 的结果使你可以在编号与结果相同的转折点免费使用一次“指挥重掷”交战计谋。",
+        "如果至少有一个结果为 5–6，获得 1CP。"
+      ]
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "狼侦察符文祭司诗人-能力卡",
+      "title_en": "Rune Priest Skjald",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        125.5,
+        619.7750000000001,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-RP",
+        "IMP-WS-RP-CTS"
+      ],
+      "current_text_zh": "召唤风暴（1 AP）\n灵能。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。\n灵能。也可以不结算上述效果，改为选择一名己方狼侦察特工。直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "text_status": "current",
+      "id": "imp-ws-card-08",
+      "sequence": 8,
+      "image": "08-特工能力-狼侦察符文祭司诗人-能力卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.73617098,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 2,
+        "bbox_pt": [
+          125.5,
+          619.7750000000001,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Call the Storm\nPSYCHIC. Remove your Storm marker from the killzone (if any), then place it in the killzone.\n\nPSYCHIC. Alternatively, instead of resolving the above effect, select one friendly WOLF SCOUT operative.\nUntil the start of this operative’s next activation, until it’s incapacitated or until it performs this action again (whichever comes first),\nwhenever that friendly operative is wholly within your STORM and more than 3\" from the active operative, it’s obscured.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+      "rule_record_ids": [
+        "IMP-WS-RP-CTS"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-RP-CTS",
+          "cost": "1 AP"
+        }
+      ],
+      "timing": "直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [
+        "直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。"
+      ],
+      "limits": [
+        "直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "狼侦察陷阱大师-数据卡",
+      "title_en": "Trapmaster",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        125.5,
+        24.5,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-TM",
+        "IMP-WS-TM-HWM"
+      ],
+      "current_text_zh": "狼侦察陷阱大师 / Trapmaster；APL 3；移动 7\"；豁免 3+；耐伤 13；底座 32 mm。\n\n等离子手枪（标准）：攻击 4；命中 3+；伤害 3/5；范围 8\", 穿刺1（Rng 8\", Prc1）。\n\n等离子手枪（过载）：攻击 4；命中 3+；伤害 4/5；范围 8\",  过热, 致命 5+, 穿刺1（Rng 8\",  Hot, Lethal 5+, Prc1）。\n\n格斗刀（单一档案）：攻击 5；命中 3+；伤害 4/5；无（—）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, TRAPMASTER\n\n干扰地雷\n这名特工携带己方干扰地雷标识，并可以对该标识执行拾取标识行动。不能将该标识放置在另一名特工的控制范围内；如果这名特工携带标识时残废，而标识无法合法放置，则随该特工一起移除。",
+      "text_status": "current",
+      "id": "imp-ws-card-09",
+      "sequence": 9,
+      "image": "09-特工-狼侦察陷阱大师-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.02910119,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          24.5,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Haywire Mine\nThis operative is carrying your Haywire Mine marker.\nIt can perform the Pick Up Marker action on that marker, but that marker cannot be placed within another operative’s control range (if this operative is incapacitated while carrying that marker and that marker cannot be placed, it’s removed with this operative).",
+      "rule_record_ids": [
+        "IMP-WS-TM-HWM"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-TM-HWM",
+          "cost": null
+        }
+      ],
+      "timing": "如果这名特工携带标识时残废，而标识无法合法放置，则随该特工一起移除。",
+      "target": "这名特工携带己方干扰地雷标识，并可以对该标识执行拾取标识行动。",
+      "duration": [],
+      "limits": [
+        "不能将该标识放置在另一名特工的控制范围内；"
+      ]
+    },
+    {
+      "category": "operative-ability",
+      "title_zh": "狼侦察陷阱大师-能力卡",
+      "title_en": "Trapmaster",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        125.5,
+        222.925,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-TM",
+        "IMP-WS-TM-PM"
+      ],
+      "current_text_zh": "感应式地雷\n己方干扰地雷标识首次位于另一名特工的控制范围内时，移除标识；直到该特工下一次激活结束，其 APL 属性减少 1，并对其造成 2D3+3 点伤害；若标识在水平方向位于己方风暴标识 6\" 内，则改为 D3+6 点伤害。\n若其没有残废，立即结束其当前行动（若有），即使行动效果尚未完成。若模型无法放置，将其移动能够合法放置所需的最小距离。这名陷阱大师忽略本规则效果，既不会触发地雷，也不会受到地雷伤害。",
+      "text_status": "current",
+      "id": "imp-ws-card-10",
+      "sequence": 10,
+      "image": "10-特工能力-狼侦察陷阱大师-能力卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.26479112,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          222.925,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Proximity Mine\nThe first time your Haywire Mine marker is within another operative’s control range, remove that marker, subtract 1 from that operative’s APL stat until the end of its next activation,\nand inflict 2D3+3 damage on it (or D3+6 if that marker is within 6\" horizontally of your Storm marker);\nif it isn’t incapacitated, end its action (if any), even if that action’s effects aren’t fulfilled.\nIf it cannot be placed, move it the minimum amount to do so. Note that this operative is ignored for these effects (i.e. it cannot set it off or take damage from that marker).",
+      "rule_record_ids": [
+        "IMP-WS-TM-PM"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-TM-PM",
+          "cost": null
+        }
+      ],
+      "timing": "己方干扰地雷标识首次位于另一名特工的控制范围内时，移除标识；",
+      "target": "己方干扰地雷标识首次位于另一名特工的控制范围内时，移除标识；",
+      "duration": [
+        "直到该特工下一次激活结束，其 APL 属性减少 1，并对其造成 2D3+3 点伤害；"
+      ],
+      "limits": [
+        "直到该特工下一次激活结束，其 APL 属性减少 1，并对其造成 2D3+3 点伤害；"
+      ]
+    },
+    {
+      "category": "operative",
+      "title_zh": "狼侦察芬里斯狼-数据卡",
+      "title_en": "Fenrisian Wolf",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        125.5,
+        421.35,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [
+        "IMP-WS-WLF",
+        "IMP-WS-WLF-IP",
+        "IMP-WS-WLF-P"
+      ],
+      "current_text_zh": "狼侦察芬里斯狼 / Fenrisian Wolf；APL 2；移动 8\"；豁免 5+；耐伤 9；底座 60 mm。\n\n獠牙（单一档案）：攻击 4；命中 3+；伤害 4/5；撕裂（Rending）。\n\n关键词：WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FENRISIAN WOLF\n\n掠食直觉\n这名特工只能执行冲锋、冲刺、后撤、近战、戒备和转移行动，不能执行其他行动；不能使用数据卡之外的武器。其可以在拥有隐匿命令时执行冲锋行动。\n\n扑袭\n每场战斗一次，战略计谋。如果这名特工的 APL 属性至少为 2，其可以免费执行一次冲锋、后撤或转移行动。若如此，直到其下一次激活结束，其 APL 属性减少 1，且不能再执行上述任何行动。",
+      "text_status": "current",
+      "id": "imp-ws-card-11",
+      "sequence": 11,
+      "image": "11-特工-狼侦察芬里斯狼-数据卡.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.50048105,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        564
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          421.35,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Instinctive Predator\nThis operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Guard and Reposition. It cannot use any weapons that aren’t on its datacard. This operative can perform the Charge action while it has a Conceal order.\n\nPounce\nOnce per battle STRATEGIC GAMBIT. If this operative’s APL stat is 2 or more, this operative can perform a free Charge, Fall Back or Reposition action.\nIf it does, until the end of its next activation, subtract 1 from its APL stat and it cannot perform any of the aforementioned actions.",
+      "rule_record_ids": [
+        "IMP-WS-WLF-IP",
+        "IMP-WS-WLF-P"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-WLF-IP",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-WLF-P",
+          "cost": null
+        }
+      ],
+      "timing": "其可以在拥有隐匿命令时执行冲锋行动。",
+      "target": "这名特工只能执行冲锋、冲刺、后撤、近战、戒备和转移行动，不能执行其他行动；",
+      "duration": [
+        "若如此，直到其下一次激活结束，其 APL 属性减少 1，且不能再执行上述任何行动。"
+      ],
+      "limits": [
+        "这名特工只能执行冲锋、冲刺、后撤、近战、戒备和转移行动，不能执行其他行动；",
+        "不能使用数据卡之外的武器。",
+        "每场战斗一次，战略计谋。",
+        "如果这名特工的 APL 属性至少为 2，其可以免费执行一次冲锋、后撤或转移行动。",
+        "若如此，直到其下一次激活结束，其 APL 属性减少 1，且不能再执行上述任何行动。"
+      ]
+    },
+    {
+      "category": "other",
+      "title_zh": "笔记",
+      "title_en": null,
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        125.5,
+        619.7750000000001,
+        343.9,
+        198.425
+      ],
+      "ktdash_ids": [],
+      "current_text_zh": "笔记：\n（供玩家记录的空白横线，无规则正文。）",
+      "text_status": "PDF-only",
+      "id": "imp-ws-card-12",
+      "sequence": 12,
+      "image": "12-其他-笔记.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.21082657,
+        0.73617098,
+        0.57771521,
+        0.23568993
+      ],
+      "image_size_px": [
+        967,
+        563
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 3,
+        "bbox_pt": [
+          125.5,
+          619.7750000000001,
+          343.9,
+          198.425
+        ]
+      },
+      "translation_status": "PDF原文（无网站独立正文）",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": null,
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "team-selection",
+      "title_zh": "狼侦察杀戮小队",
+      "title_en": "Wolf Scouts",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS"
+      ],
+      "current_text_zh": "由 6 名特工组成：1 名芬里斯狼，以及从狼群领袖、獠牙使者、霜眼、炮手、陷阱大师、符文祭司诗人、猎手中选择的 5 名狼侦察特工。除猎手可重复外，列表中的每种特工最多选择一次。网站构成没有另行强制选择狼群领袖。\n角色武器均为其固定装备，等离子武器的标准／过载是同一件武器的可选档案。",
+      "text_status": "current",
+      "id": "imp-ws-card-13",
+      "sequence": 13,
+      "image": "13-小队选择-狼侦察杀戮小队.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "A WOLF SCOUTS KillTeam is composed of:\r - 1 WOLF SCOUT FENRISIAN WOLF\r - 5 WOLF SCOUT operatives selected from the following list:\r   - PACK LEADER\r   - FANGBEARER\r   - FROSTEYE\r   - GUNNER\r   - TRAPMASTER\r   - RUNE PRIEST SKJALD\r   - HUNTER\r \r Other than HUNTER operatives, your kill team can only include each operative on this list once.",
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": "由 6 名特工组成：1 名芬里斯狼，以及从狼群领袖、獠牙使者、霜眼、炮手、陷阱大师、符文祭司诗人、猎手中选择的 5 名狼侦察特工。",
+      "duration": [],
+      "limits": [
+        "除猎手可重复外，列表中的每种特工最多选择一次。"
+      ]
+    },
+    {
+      "category": "faction-rule",
+      "title_zh": "元素风暴",
+      "title_en": "Elemental Storm",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-LDR-ES",
+        "IMP-WS-FB-ES",
+        "IMP-WS-FE-ES",
+        "IMP-WS-GNR-ES",
+        "IMP-WS-HNT-ES",
+        "IMP-WS-RP-ES",
+        "IMP-WS-TM-ES",
+        "IMP-WS-WLF-ES"
+      ],
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "text_status": "current",
+      "id": "imp-ws-card-14",
+      "sequence": 14,
+      "image": "14-阵营规则-元素风暴.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Elemental Storm\nSTRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "rule_record_ids": [
+        "IMP-WS-LDR-ES",
+        "IMP-WS-FB-ES",
+        "IMP-WS-FE-ES",
+        "IMP-WS-GNR-ES",
+        "IMP-WS-HNT-ES",
+        "IMP-WS-RP-ES",
+        "IMP-WS-TM-ES",
+        "IMP-WS-WLF-ES"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-LDR-ES",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-FB-ES",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-FE-ES",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-GNR-ES",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-HNT-ES",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-RP-ES",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-TM-ES",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-WLF-ES",
+          "cost": null
+        }
+      ],
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "faction-rule",
+      "title_zh": "猎手阿斯塔特",
+      "title_en": "Hunting Astartes",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-LDR-HA",
+        "IMP-WS-FB-HA",
+        "IMP-WS-FE-HA",
+        "IMP-WS-GNR-HA",
+        "IMP-WS-HNT-HA",
+        "IMP-WS-RP-HA",
+        "IMP-WS-TM-HA",
+        "IMP-WS-WLF-HA"
+      ],
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "text_status": "current",
+      "id": "imp-ws-card-15",
+      "sequence": 15,
+      "image": "15-阵营规则-猎手阿斯塔特.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Hunting Astartes\nDuring each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "rule_record_ids": [
+        "IMP-WS-LDR-HA",
+        "IMP-WS-FB-HA",
+        "IMP-WS-FE-HA",
+        "IMP-WS-GNR-HA",
+        "IMP-WS-HNT-HA",
+        "IMP-WS-RP-HA",
+        "IMP-WS-TM-HA",
+        "IMP-WS-WLF-HA"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-LDR-HA",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-FB-HA",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-FE-HA",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-GNR-HA",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-HNT-HA",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-RP-HA",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-TM-HA",
+          "cost": null
+        },
+        {
+          "id": "IMP-WS-WLF-HA",
+          "cost": null
+        }
+      ],
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ]
+    },
+    {
+      "category": "other",
+      "title_zh": "标识-指示物指南",
+      "title_en": null,
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [],
+      "current_text_zh": "狼侦察\n\n标识／指示物指南（按卡面阅读顺序）：\n\n- 符文守护指示物\n- 狼牙项链指示物\n- 风暴标识\n- 释放符文指示物\n- 干扰地雷标识\n- 召唤风暴指示物\n- 猎人感官指示物\n- 扑袭指示物\n- 狡诈如狼指示物\n- 戒备指示物",
+      "text_status": "PDF-only",
+      "id": "imp-ws-card-16",
+      "sequence": 16,
+      "image": "16-其他-标识-指示物指南.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 4,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "PDF原文（无网站独立正文）",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": null,
+      "rule_record_ids": [],
+      "cost": [],
+      "timing": null,
+      "target": null,
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "隐藏于暴风",
+      "title_en": "Cloaked By The Storm",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-CBTS"
+      ],
+      "current_text_zh": "每当一名特工向位于己方风暴内的一名己方狼侦察特工射击，可以重掷一枚己方防御骰。",
+      "text_status": "current",
+      "id": "imp-ws-card-17",
+      "sequence": 17,
+      "image": "17-战略计谋-隐藏于暴风.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Cloaked By The Storm\nWhenever an operative is shooting a friendly WOLF SCOUT operative that’s within your STORM, you can re-roll one of your defence dice.",
+      "rule_record_ids": [
+        "IMP-WS-CBTS"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-CBTS",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每当一名特工向位于己方风暴内的一名己方狼侦察特工射击，可以重掷一枚己方防御骰。",
+      "target": "每当一名特工向位于己方风暴内的一名己方狼侦察特工射击，可以重掷一枚己方防御骰。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "寒风之怒",
+      "title_en": "Tempestuous Wrath",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-TW"
+      ],
+      "current_text_zh": "每当一名己方狼侦察特工近战或反击，如果其位于己方风暴内，或在该次激活开始时位于己方风暴内，其近战武器拥有“平衡”（Balanced）武器规则。",
+      "text_status": "current",
+      "id": "imp-ws-card-18",
+      "sequence": 18,
+      "image": "18-战略计谋-寒风之怒.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Tempestuous Wrath\nWhenever a friendly WOLF SCOUT operative is fighting or retaliating, if it’s within your STORM or was within your STORM at the start of the activation, its melee weapons have the Balanced weapon rule.",
+      "rule_record_ids": [
+        "IMP-WS-TW"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-TW",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每当一名己方狼侦察特工近战或反击，如果其位于己方风暴内，或在该次激活开始时位于己方风暴内，其近战武器拥有“平衡”（Balanced）武器规则。",
+      "target": "每当一名己方狼侦察特工近战或反击，如果其位于己方风暴内，或在该次激活开始时位于己方风暴内，其近战武器拥有“平衡”（Balanced）武器规则。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "狂风肆虐",
+      "title_en": "Storm's Bite",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-SB"
+      ],
+      "current_text_zh": "每当一名己方狼侦察特工与位于己方风暴内的一名敌方特工近战，将该敌方特工近战武器的攻击属性减少 1，最低为 3。",
+      "text_status": "current",
+      "id": "imp-ws-card-19",
+      "sequence": 19,
+      "image": "19-战略计谋-狂风肆虐.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Storm's Bite\nWhenever a friendly WOLF SCOUT operative is fighting against an enemy operative that is within your STORM, subtract 1 from the Atk stat of that enemy operative's melee weapons (to a minimum of 3).",
+      "rule_record_ids": [
+        "IMP-WS-SB"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-SB",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每当一名己方狼侦察特工与位于己方风暴内的一名敌方特工近战，将该敌方特工近战武器的攻击属性减少 1，最低为 3。",
+      "target": "每当一名己方狼侦察特工与位于己方风暴内的一名敌方特工近战，将该敌方特工近战武器的攻击属性减少 1，最低为 3。",
+      "duration": [],
+      "limits": [
+        "每当一名己方狼侦察特工与位于己方风暴内的一名敌方特工近战，将该敌方特工近战武器的攻击属性减少 1，最低为 3。"
+      ]
+    },
+    {
+      "category": "strategic-ploy",
+      "title_zh": "狂野斗士",
+      "title_en": "Savage Fighters",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-SF"
+      ],
+      "current_text_zh": "每当一名己方狼侦察特工完成反击，如果其未残废且仍位于该流程中敌方特工的控制范围内，可以对该敌方特工造成 D3+1 点伤害。",
+      "text_status": "current",
+      "id": "imp-ws-card-20",
+      "sequence": 20,
+      "image": "20-战略计谋-狂野斗士.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 5,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Savage Fighters\nWhenever a friendly WOLF SCOUT operative finishes retaliating, if it wasn’t incapacitated and is still within control range of the enemy operative in that sequence, you can inflict D3+1 damage on that enemy operative.",
+      "rule_record_ids": [
+        "IMP-WS-SF"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-SF",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "每当一名己方狼侦察特工完成反击，如果其未残废且仍位于该流程中敌方特工的控制范围内，可以对该敌方特工造成 D3+1 点伤害。",
+      "target": "每当一名己方狼侦察特工完成反击，如果其未残废且仍位于该流程中敌方特工的控制范围内，可以对该敌方特工造成 D3+1 点伤害。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "敏锐感官",
+      "title_en": "Acute Senses",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-AS"
+      ],
+      "current_text_zh": "一名己方狼侦察特工执行射击行动、正在选择有效目标时使用。直到该行动结束，其远程武器拥有“范围 6\"”（Range 6\"）和“追踪轻型”（Seek Light）武器规则，且敌方特工不能被遮挡。",
+      "text_status": "current",
+      "id": "imp-ws-card-21",
+      "sequence": 21,
+      "image": "21-交战计谋-敏锐感官.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Acute Senses\nUse this firefight ploy when a friendly WOLF SCOUT operative performs the Shoot action and you’re selecting a valid target. Until the end of that action, that friendly operative’s ranged weapons have the Range 6\" and Seek Light weapon rules and enemy operatives cannot be obscured.",
+      "rule_record_ids": [
+        "IMP-WS-AS"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-AS",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "一名己方狼侦察特工执行射击行动、正在选择有效目标时使用。",
+      "target": "一名己方狼侦察特工执行射击行动、正在选择有效目标时使用。",
+      "duration": [
+        "直到该行动结束，其远程武器拥有“范围 6\"”（Range 6\"）和“追踪轻型”（Seek Light）武器规则，且敌方特工不能被遮挡。"
+      ],
+      "limits": [
+        "直到该行动结束，其远程武器拥有“范围 6\"”（Range 6\"）和“追踪轻型”（Seek Light）武器规则，且敌方特工不能被遮挡。"
+      ]
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "反击",
+      "title_en": "Counterattack",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-CA"
+      ],
+      "current_text_zh": "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。一名己方狼侦察特工可以立即免费执行一次近战行动，但只能选择该敌方特工为近战对象。",
+      "text_status": "current",
+      "id": "imp-ws-card-22",
+      "sequence": 22,
+      "image": "22-交战计谋-反击.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Counterattack\nUse this firefight ploy at the end of an enemy operative’s activation, or after an enemy operative performs the Fight action. One friendly WOLF SCOUT operative can immediately perform a free Fight action, but you cannot select any other enemy operative to fight against during that action.",
+      "rule_record_ids": [
+        "IMP-WS-CA"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-CA",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。",
+      "target": "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。",
+      "duration": [],
+      "limits": [
+        "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。",
+        "一名己方狼侦察特工可以立即免费执行一次近战行动，但只能选择该敌方特工为近战对象。"
+      ]
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "洛基雅尔之魂",
+      "title_en": "Touched By Lokyar",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-TBL"
+      ],
+      "current_text_zh": "为一名己方狼侦察特工（芬里斯狼除外）掷出攻击骰后使用。如果其正在近战，且位于所有其他己方特工 5\" 之外，可以重掷任意己方攻击骰。",
+      "text_status": "current",
+      "id": "imp-ws-card-23",
+      "sequence": 23,
+      "image": "23-交战计谋-洛基雅尔之魂.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Touched By Lokyar\nUse this firefight ploy after rolling your attack dice for a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF), if it’s fighting more than 5\" from other friendly operatives. You can re-roll any of your attack dice.",
+      "rule_record_ids": [
+        "IMP-WS-TBL"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-TBL",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": null,
+      "target": "为一名己方狼侦察特工（芬里斯狼除外）掷出攻击骰后使用。",
+      "duration": [],
+      "limits": [
+        "为一名己方狼侦察特工（芬里斯狼除外）掷出攻击骰后使用。"
+      ]
+    },
+    {
+      "category": "firefight-ploy",
+      "title_zh": "超人体格",
+      "title_en": "Transhuman Physiology",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-THP"
+      ],
+      "current_text_zh": "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。在掷防御骰步骤中，可以将一枚普通成功改为保留为关键成功。",
+      "text_status": "current",
+      "id": "imp-ws-card-24",
+      "sequence": 24,
+      "image": "24-交战计谋-超人体格.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 6,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Transhuman Physiology\nUse this firefight ploy when an operative is shooting a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF), in the Roll Defence Dice step. You can retain one of your normal successes as a critical success instead.",
+      "rule_record_ids": [
+        "IMP-WS-THP"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-THP",
+          "cost": "1 CP"
+        }
+      ],
+      "timing": "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。",
+      "target": "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。",
+      "duration": [],
+      "limits": [
+        "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。"
+      ]
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "冰霜武器",
+      "title_en": "Frost Weapons",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-FW"
+      ],
+      "current_text_zh": "每当一名己方狼侦察特工完全位于己方风暴内，其格斗刀（若有）拥有“致命 5+”（Lethal 5+）武器规则。",
+      "text_status": "current",
+      "id": "imp-ws-card-25",
+      "sequence": 25,
+      "image": "25-阵营装备-冰霜武器.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          99.2,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Frost Weapons\nWhenever a friendly WOLF SCOUT operative is wholly within your STORM, its combat blades (if any) has the Lethal 5+ weapon rule",
+      "rule_record_ids": [
+        "IMP-WS-FW"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-FW",
+          "cost": null
+        }
+      ],
+      "timing": "每当一名己方狼侦察特工完全位于己方风暴内，其格斗刀（若有）拥有“致命 5+”（Lethal 5+）武器规则。",
+      "target": "每当一名己方狼侦察特工完全位于己方风暴内，其格斗刀（若有）拥有“致命 5+”（Lethal 5+）武器规则。",
+      "duration": [],
+      "limits": []
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "符文守护",
+      "title_en": "Runic Charms",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.625,
+        77.85,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-RC"
+      ],
+      "current_text_zh": "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。因此，“穿刺 1”会被忽略。",
+      "text_status": "current",
+      "id": "imp-ws-card-26",
+      "sequence": 26,
+      "image": "26-阵营装备-符文守护.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.09247051,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        968
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          297.625,
+          77.85,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Runic Charms\nOnce per turning point, when an operative is shooting a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) that is wholly within your STORM, at the start of the Roll Defence Dice step, you can use this rule.\r If you do, worsen the x of the Piercing weapon rule by 1 (if any) until the end of that sequence.\r Note that Piercing 1 would therefore be ignored.",
+      "rule_record_ids": [
+        "IMP-WS-RC"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-RC",
+          "cost": null
+        }
+      ],
+      "timing": "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。",
+      "target": "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。",
+      "duration": [
+        "直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。"
+      ],
+      "limits": [
+        "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。"
+      ]
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "狼牙项链",
+      "title_en": "Wolfteeth Necklaces",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-WTNL"
+      ],
+      "current_text_zh": "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。",
+      "text_status": "current",
+      "id": "imp-ws-card-27",
+      "sequence": 27,
+      "image": "27-阵营装备-狼牙项链.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.16664539,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          99.2,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Wolfteeth Necklaces\nOnce per turning point, when a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) is shooting, fighting or retaliating, if you roll two or more fails, you can discard one of them to retain another as a normal success instead.",
+      "rule_record_ids": [
+        "IMP-WS-WTNL"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-WTNL",
+          "cost": null
+        }
+      ],
+      "timing": "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。",
+      "target": "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。",
+      "duration": [],
+      "limits": [
+        "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。"
+      ]
+    },
+    {
+      "category": "faction-equipment",
+      "title_zh": "战利品护符",
+      "title_en": "Talismanic Trophies",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.625,
+        421.75,
+        198.425,
+        343.9
+      ],
+      "ktdash_ids": [
+        "IMP-WS-TT"
+      ],
+      "current_text_zh": "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。",
+      "text_status": "current",
+      "id": "imp-ws-card-28",
+      "sequence": 28,
+      "image": "28-阵营装备-战利品护符.png",
+      "render_dpi": 200,
+      "added_margin_px": 6,
+      "bbox_norm": [
+        0.49997816,
+        0.50095617,
+        0.33333277,
+        0.40848566
+      ],
+      "image_size_px": [
+        563,
+        967
+      ],
+      "translation_source": {
+        "pdf": "狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf",
+        "page": 7,
+        "bbox_pt": [
+          297.625,
+          421.75,
+          198.425,
+          343.9
+        ]
+      },
+      "translation_status": "人工按当前KTDash整理，PDF用于中文名称和术语",
+      "errata_status": "已检查更新日志；有效正文仅采用网站当前规则；卡图不改字",
+      "verification_note": "2026-09-24：已核对类别、完整边界、中文标题及关联条目。",
+      "website_text_en": "Talismanic Trophies\nWhenever a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) that's wholly within your STORM is fighting or retaliating, in the Resolve Attack Dice step, you can subtract 1 from the damage inflicted on it from one normal success.",
+      "rule_record_ids": [
+        "IMP-WS-TT"
+      ],
+      "cost": [
+        {
+          "id": "IMP-WS-TT",
+          "cost": null
+        }
+      ],
+      "timing": "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。",
+      "target": "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。",
+      "duration": [],
+      "limits": [
+        "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。"
+      ]
+    }
+  ],
+  "rule_records": [
+    {
+      "id": "IMP-WS-LDR-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-LDR-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-LDR-GV",
+      "category": "operative-ability",
+      "title_en": "Grizzled Veteran",
+      "title_zh": "沧桑老兵",
+      "current_text_zh": "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。丢弃所有剩余攻击骰，包括这名特工近战或反击时的己方骰子。该行动结束时，不能使用“反击”交战计谋，也不能通过“狂野斗士”战略计谋造成伤害。",
+      "website_text_en": "The first time this operative would be incapacitated during the battle, it is not incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder of the action. All remaining attack dice are discarded (including yours if this operative is fighting or retaliating). You cannot use the Counterattack firefight ploy or inflict damage as a result of the Savage Fighters strategy ploy at the end of that action.",
+      "website_id": "IMP-WS-LDR-GV",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。",
+      "target": "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。",
+      "duration": [
+        "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。"
+      ],
+      "limits": [
+        "这名特工在本场战斗中首次将要残废时，不会残废，而是剩余 1 点耐伤，且在该行动余下期间不能残废。",
+        "该行动结束时，不能使用“反击”交战计谋，也不能通过“狂野斗士”战略计谋造成伤害。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "imp-ws-card-01",
+          "image": "01-特工-狼侦察狼群领袖-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-LDR-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-LDR-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-LDR-LG",
+      "category": "operative-ability",
+      "title_en": "Lupine Guile",
+      "title_zh": "狡诈如狼",
+      "current_text_zh": "每场战斗一次，在掷骰决定先手之后，如果这名特工位于杀戮区中，可以重掷己方的骰子。",
+      "website_text_en": "Once per battle, after rolling off to decide initiative, if this operative is in the killzone, you can re-roll your dice.",
+      "website_id": "IMP-WS-LDR-LG",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每场战斗一次，在掷骰决定先手之后，如果这名特工位于杀戮区中，可以重掷己方的骰子。",
+      "target": "每场战斗一次，在掷骰决定先手之后，如果这名特工位于杀戮区中，可以重掷己方的骰子。",
+      "duration": [],
+      "limits": [
+        "每场战斗一次，在掷骰决定先手之后，如果这名特工位于杀戮区中，可以重掷己方的骰子。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "imp-ws-card-01",
+          "image": "01-特工-狼侦察狼群领袖-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FB-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-FB-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FB-HB",
+      "category": "operative-ability",
+      "title_en": "Healing Balms",
+      "title_zh": "治疗膏药",
+      "current_text_zh": "选择位于这名特工控制范围内的一名己方狼侦察特工，其恢复至多 D3+3 点已损失的耐伤。\n这名特工位于敌方特工的控制范围内时不能执行此行动；每个转折点最多执行一次。",
+      "website_text_en": "Select one friendly WOLF SCOUT operative within this operative’s control range to regain up to D3+3 lost wounds.\r \r This operative cannot perform this action while within control range of an enemy operative, or more than once per turning point.",
+      "website_id": "IMP-WS-FB-HB",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+      "target": "选择位于这名特工控制范围内的一名己方狼侦察特工，其恢复至多 D3+3 点已损失的耐伤。",
+      "duration": [],
+      "limits": [
+        "这名特工位于敌方特工的控制范围内时不能执行此行动；",
+        "每个转折点最多执行一次。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "imp-ws-card-02",
+          "image": "02-特工-狼侦察獠牙使者-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FB-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-FB-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FB-SC",
+      "category": "operative-ability",
+      "title_en": "Spiritual Chirurgy",
+      "title_zh": "精神医术",
+      "current_text_zh": "可以忽略己方狼侦察特工（芬里斯狼除外）因受伤而受到的任何属性修改，包括其武器属性的修改。只要将这名特工选入战斗，其他己方特工便拥有此规则，即使这名特工随后残废。",
+      "website_text_en": "You can ignore any changes to the stats of friendly WOLF SCOUT operatives (excluding FENRISIAN WOLF) from being injured (including their weapons’ stats). Note that friendly operatives have this rule if you select this operative for the battle (even if it’s incapacitated later). ",
+      "website_id": "IMP-WS-FB-SC",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": null,
+      "target": "可以忽略己方狼侦察特工（芬里斯狼除外）因受伤而受到的任何属性修改，包括其武器属性的修改。",
+      "duration": [],
+      "limits": [
+        "可以忽略己方狼侦察特工（芬里斯狼除外）因受伤而受到的任何属性修改，包括其武器属性的修改。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "imp-ws-card-02",
+          "image": "02-特工-狼侦察獠牙使者-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FE-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-FE-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FE-HS",
+      "category": "operative-ability",
+      "title_en": "Hunter's Senses",
+      "title_zh": "猎人感官",
+      "current_text_zh": "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：\n- “严重”（Severe）。\n- “集中”（Saturate），且这名特工使用此武器射击时，敌方特工不能被遮挡。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "website_text_en": "Select one of the following rules for this operative’s instigator bolt carbine to have until the start of its next activation:\r - Severe.\r - Saturate, and whenever this operative is shooting with that weapon, enemy operatives cannot be obscured.\r \r This operative cannot perform this action while within control range of an enemy operative.",
+      "website_id": "IMP-WS-FE-HS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：",
+      "target": "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：",
+      "duration": [
+        "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始："
+      ],
+      "limits": [
+        "为这名特工的煽动者爆矢卡宾枪选择以下一项规则，持续至其下一次激活开始：",
+        "- “集中”（Saturate），且这名特工使用此武器射击时，敌方特工不能被遮挡。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "imp-ws-card-04",
+          "image": "04-特工能力-狼侦察霜眼-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FE-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-FE-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FE-SVE",
+      "category": "operative-ability",
+      "title_en": "Storm-Veiled Execution",
+      "title_zh": "隐藏于风暴的处刑",
+      "current_text_zh": "每当这名特工完全位于己方风暴内：\n- 无论使用哪个杀戮区，均可执行戒备行动（见核心规则中的近距离战斗规则）。\n- 可以在拥有隐匿命令时执行戒备行动；若如此，在本转折点余下期间最多执行一次射击行动，即不能在中断和反应时各射击一次。",
+      "website_text_en": "Whenever this operative is wholly within your STORM:\n- It can perform the Guard action regardless of the killzone (see close quarters rules, Kill Team Core Book).\n- It can perform the Guard action while it has a Conceal order, but if it does, it cannot perform more than one Shoot action for the rest of the turning point (i.e. it cannot Shoot both during the interruption and during counteract).",
+      "website_id": "IMP-WS-FE-SVE",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每当这名特工完全位于己方风暴内：",
+      "target": "每当这名特工完全位于己方风暴内：",
+      "duration": [
+        "若如此，在本转折点余下期间最多执行一次射击行动，即不能在中断和反应时各射击一次。"
+      ],
+      "limits": [
+        "若如此，在本转折点余下期间最多执行一次射击行动，即不能在中断和反应时各射击一次。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 1,
+          "card_id": "imp-ws-card-03",
+          "image": "03-特工-狼侦察霜眼-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-GNR-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-GNR-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-GNR-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-GNR-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-GNR-TF",
+      "category": "operative-ability",
+      "title_en": "Tempest's Fury",
+      "title_zh": "风暴之怒",
+      "current_text_zh": "每当这名特工完全位于己方风暴内：\n- 其等离子枪的所有档案拥有“重击”（Punishing）武器规则。\n- 其等离子枪的过载档案失去“过热”（Hot）武器规则。",
+      "website_text_en": "Whenever this operative is wholly within your STORM:\n- All profiles of its plasma gun have the Punishing weapon rule.\n- Its plasma gun (supercharge) doesn’t have the Hot weapon rule.",
+      "website_id": "IMP-WS-GNR-TF",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每当这名特工完全位于己方风暴内：",
+      "target": "每当这名特工完全位于己方风暴内：",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "imp-ws-card-05",
+          "image": "05-特工-狼侦察炮手-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-HNT-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-HNT-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-HNT-FT",
+      "category": "operative-ability",
+      "title_en": "Fierce Temperament",
+      "title_zh": "凶猛暴躁",
+      "current_text_zh": "每当这名特工完全位于己方风暴内，其武器拥有“严重”（Severe）武器规则。",
+      "website_text_en": "Whenever this operative is wholly within your STORM, its weapons have the Severe weapon rule.",
+      "website_id": "IMP-WS-HNT-FT",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每当这名特工完全位于己方风暴内，其武器拥有“严重”（Severe）武器规则。",
+      "target": "每当这名特工完全位于己方风暴内，其武器拥有“严重”（Severe）武器规则。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "imp-ws-card-06",
+          "image": "06-特工-狼侦察猎手-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-HNT-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-HNT-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-RP-CTS",
+      "category": "operative-ability",
+      "title_en": "Call the Storm",
+      "title_zh": "召唤风暴",
+      "current_text_zh": "灵能。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。\n灵能。也可以不结算上述效果，改为选择一名己方狼侦察特工。直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。\n这名特工位于敌方特工的控制范围内时，不能执行此行动。",
+      "website_text_en": "PSYCHIC. Remove your Storm marker from the killzone (if any), then place it in the killzone.\n\nPSYCHIC. Alternatively, instead of resolving the above effect, select one friendly WOLF SCOUT operative.\nUntil the start of this operative’s next activation, until it’s incapacitated or until it performs this action again (whichever comes first),\nwhenever that friendly operative is wholly within your STORM and more than 3\" from the active operative, it’s obscured.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+      "website_id": "IMP-WS-RP-CTS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 AP",
+      "timing": "直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [
+        "直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。"
+      ],
+      "limits": [
+        "直到这名施术特工的下一次激活开始、其残废或其再次执行此行动（以最先发生者为准），每当被选己方特工完全位于己方风暴内，且在当前行动的特工 3\" 之外，其被遮挡。",
+        "这名特工位于敌方特工的控制范围内时，不能执行此行动。"
+      ],
+      "cost_source": "KTDash AP字段",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "imp-ws-card-08",
+          "image": "08-特工能力-狼侦察符文祭司诗人-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-RP-CTR",
+      "category": "operative-ability",
+      "title_en": "Cast the Runes",
+      "title_zh": "释放符文",
+      "current_text_zh": "选择这名特工之后、战斗开始之前，掷三枚 D6 并放在一旁。每个 1–4 的结果使你可以在编号与结果相同的转折点免费使用一次“指挥重掷”交战计谋。如果至少有一个结果为 5–6，获得 1CP。例如结果为 2、2、5，则获得 1CP，并可在第二个转折点使用两次 0CP 指挥重掷。",
+      "website_text_en": "After selecting this operative, before the battle, roll three D6 and put them to one side.\r For each result of 1-4, you can use the Command Re-roll firefight ploy for OCP once during the turning point that matches the result.\r If one or more results are 5-6, you gain 1CP.\r For example, if you roll 2, 2 and 5, you gain 1CP and twice during the second turning point you can use Command Re-roll for 0CP",
+      "website_id": "IMP-WS-RP-CTR",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "选择这名特工之后、战斗开始之前，掷三枚 D6 并放在一旁。",
+      "target": "选择这名特工之后、战斗开始之前，掷三枚 D6 并放在一旁。",
+      "duration": [],
+      "limits": [
+        "每个 1–4 的结果使你可以在编号与结果相同的转折点免费使用一次“指挥重掷”交战计谋。",
+        "如果至少有一个结果为 5–6，获得 1CP。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 2,
+          "card_id": "imp-ws-card-07",
+          "image": "07-特工-狼侦察符文祭司诗人-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-RP-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-RP-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-RP-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-RP-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-TM-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-TM-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-TM-HWM",
+      "category": "operative-ability",
+      "title_en": "Haywire Mine",
+      "title_zh": "干扰地雷",
+      "current_text_zh": "这名特工携带己方干扰地雷标识，并可以对该标识执行拾取标识行动。不能将该标识放置在另一名特工的控制范围内；如果这名特工携带标识时残废，而标识无法合法放置，则随该特工一起移除。",
+      "website_text_en": "This operative is carrying your Haywire Mine marker.\nIt can perform the Pick Up Marker action on that marker, but that marker cannot be placed within another operative’s control range (if this operative is incapacitated while carrying that marker and that marker cannot be placed, it’s removed with this operative).",
+      "website_id": "IMP-WS-TM-HWM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "如果这名特工携带标识时残废，而标识无法合法放置，则随该特工一起移除。",
+      "target": "这名特工携带己方干扰地雷标识，并可以对该标识执行拾取标识行动。",
+      "duration": [],
+      "limits": [
+        "不能将该标识放置在另一名特工的控制范围内；"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "imp-ws-card-09",
+          "image": "09-特工-狼侦察陷阱大师-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-TM-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-TM-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-TM-PM",
+      "category": "operative-ability",
+      "title_en": "Proximity Mine",
+      "title_zh": "感应式地雷",
+      "current_text_zh": "己方干扰地雷标识首次位于另一名特工的控制范围内时，移除标识；直到该特工下一次激活结束，其 APL 属性减少 1，并对其造成 2D3+3 点伤害；若标识在水平方向位于己方风暴标识 6\" 内，则改为 D3+6 点伤害。\n若其没有残废，立即结束其当前行动（若有），即使行动效果尚未完成。若模型无法放置，将其移动能够合法放置所需的最小距离。这名陷阱大师忽略本规则效果，既不会触发地雷，也不会受到地雷伤害。",
+      "website_text_en": "The first time your Haywire Mine marker is within another operative’s control range, remove that marker, subtract 1 from that operative’s APL stat until the end of its next activation,\nand inflict 2D3+3 damage on it (or D3+6 if that marker is within 6\" horizontally of your Storm marker);\nif it isn’t incapacitated, end its action (if any), even if that action’s effects aren’t fulfilled.\nIf it cannot be placed, move it the minimum amount to do so. Note that this operative is ignored for these effects (i.e. it cannot set it off or take damage from that marker).",
+      "website_id": "IMP-WS-TM-PM",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "己方干扰地雷标识首次位于另一名特工的控制范围内时，移除标识；",
+      "target": "己方干扰地雷标识首次位于另一名特工的控制范围内时，移除标识；",
+      "duration": [
+        "直到该特工下一次激活结束，其 APL 属性减少 1，并对其造成 2D3+3 点伤害；"
+      ],
+      "limits": [
+        "直到该特工下一次激活结束，其 APL 属性减少 1，并对其造成 2D3+3 点伤害；"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "imp-ws-card-10",
+          "image": "10-特工能力-狼侦察陷阱大师-能力卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-WLF-ES",
+      "category": "faction-rule",
+      "title_en": "Elemental Storm",
+      "title_zh": "元素风暴",
+      "current_text_zh": "战略计谋。将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。每当一名特工完全位于该标识水平距离 6\" 内，其完全位于己方风暴内。\n每名己方狼侦察特工可以在拥有隐匿命令时执行冲锋行动，但必须在己方风暴内结束该行动。",
+      "website_text_en": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+      "website_id": "IMP-WS-WLF-ES",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "战略计谋。",
+      "target": "将己方风暴标识移出杀戮区（若有），然后放置在杀戮区中。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-14",
+          "image": "14-阵营规则-元素风暴.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-WLF-HA",
+      "category": "faction-rule",
+      "title_en": "Hunting Astartes",
+      "title_zh": "猎手阿斯塔特",
+      "current_text_zh": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。若执行两次射击：\n- 如果两次射击都使用等离子枪或等离子手枪，第二次行动必须额外消耗 1AP。\n- 不能选择两件灵能远程武器。\n每名己方狼侦察特工均可反应，无论其命令为何。若其在完全位于己方风暴内时反应，可以先更改命令，或以更改命令代替执行行动；后一种情况下，仍视为其已在本转折点反应。",
+      "website_text_en": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+      "website_id": "IMP-WS-WLF-HA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "target": "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。",
+      "duration": [
+        "在每名己方狼侦察特工的激活期间，其可以执行两次射击行动或两次近战行动。"
+      ],
+      "limits": [
+        "- 不能选择两件灵能远程武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 4,
+          "card_id": "imp-ws-card-15",
+          "image": "15-阵营规则-猎手阿斯塔特.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-WLF-IP",
+      "category": "operative-ability",
+      "title_en": "Instinctive Predator",
+      "title_zh": "掠食直觉",
+      "current_text_zh": "这名特工只能执行冲锋、冲刺、后撤、近战、戒备和转移行动，不能执行其他行动；不能使用数据卡之外的武器。其可以在拥有隐匿命令时执行冲锋行动。",
+      "website_text_en": "This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Guard and Reposition. It cannot use any weapons that aren’t on its datacard. This operative can perform the Charge action while it has a Conceal order.",
+      "website_id": "IMP-WS-WLF-IP",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "其可以在拥有隐匿命令时执行冲锋行动。",
+      "target": "这名特工只能执行冲锋、冲刺、后撤、近战、戒备和转移行动，不能执行其他行动；",
+      "duration": [],
+      "limits": [
+        "这名特工只能执行冲锋、冲刺、后撤、近战、戒备和转移行动，不能执行其他行动；",
+        "不能使用数据卡之外的武器。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "imp-ws-card-11",
+          "image": "11-特工-狼侦察芬里斯狼-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-WLF-P",
+      "category": "operative-ability",
+      "title_en": "Pounce",
+      "title_zh": "扑袭",
+      "current_text_zh": "每场战斗一次，战略计谋。如果这名特工的 APL 属性至少为 2，其可以免费执行一次冲锋、后撤或转移行动。若如此，直到其下一次激活结束，其 APL 属性减少 1，且不能再执行上述任何行动。",
+      "website_text_en": "Once per battle STRATEGIC GAMBIT. If this operative’s APL stat is 2 or more, this operative can perform a free Charge, Fall Back or Reposition action.\nIf it does, until the end of its next activation, subtract 1 from its APL stat and it cannot perform any of the aforementioned actions.",
+      "website_id": "IMP-WS-WLF-P",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每场战斗一次，战略计谋。",
+      "target": "如果这名特工的 APL 属性至少为 2，其可以免费执行一次冲锋、后撤或转移行动。",
+      "duration": [
+        "若如此，直到其下一次激活结束，其 APL 属性减少 1，且不能再执行上述任何行动。"
+      ],
+      "limits": [
+        "每场战斗一次，战略计谋。",
+        "如果这名特工的 APL 属性至少为 2，其可以免费执行一次冲锋、后撤或转移行动。",
+        "若如此，直到其下一次激活结束，其 APL 属性减少 1，且不能再执行上述任何行动。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 3,
+          "card_id": "imp-ws-card-11",
+          "image": "11-特工-狼侦察芬里斯狼-数据卡.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-CBTS",
+      "category": "strategic-ploy",
+      "title_en": "Cloaked By The Storm",
+      "title_zh": "隐藏于暴风",
+      "current_text_zh": "每当一名特工向位于己方风暴内的一名己方狼侦察特工射击，可以重掷一枚己方防御骰。",
+      "website_text_en": "Whenever an operative is shooting a friendly WOLF SCOUT operative that’s within your STORM, you can re-roll one of your defence dice.",
+      "website_id": "IMP-WS-CBTS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每当一名特工向位于己方风暴内的一名己方狼侦察特工射击，可以重掷一枚己方防御骰。",
+      "duration": [
+        "本转折点，除非规则另有持续时间。"
+      ],
+      "limits": [],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "imp-ws-card-17",
+          "image": "17-战略计谋-隐藏于暴风.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-TW",
+      "category": "strategic-ploy",
+      "title_en": "Tempestuous Wrath",
+      "title_zh": "寒风之怒",
+      "current_text_zh": "每当一名己方狼侦察特工近战或反击，如果其位于己方风暴内，或在该次激活开始时位于己方风暴内，其近战武器拥有“平衡”（Balanced）武器规则。",
+      "website_text_en": "Whenever a friendly WOLF SCOUT operative is fighting or retaliating, if it’s within your STORM or was within your STORM at the start of the activation, its melee weapons have the Balanced weapon rule.",
+      "website_id": "IMP-WS-TW",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每当一名己方狼侦察特工近战或反击，如果其位于己方风暴内，或在该次激活开始时位于己方风暴内，其近战武器拥有“平衡”（Balanced）武器规则。",
+      "duration": [
+        "本转折点，除非规则另有持续时间。"
+      ],
+      "limits": [],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "imp-ws-card-18",
+          "image": "18-战略计谋-寒风之怒.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-SB",
+      "category": "strategic-ploy",
+      "title_en": "Storm's Bite",
+      "title_zh": "狂风肆虐",
+      "current_text_zh": "每当一名己方狼侦察特工与位于己方风暴内的一名敌方特工近战，将该敌方特工近战武器的攻击属性减少 1，最低为 3。",
+      "website_text_en": "Whenever a friendly WOLF SCOUT operative is fighting against an enemy operative that is within your STORM, subtract 1 from the Atk stat of that enemy operative's melee weapons (to a minimum of 3).",
+      "website_id": "IMP-WS-SB",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每当一名己方狼侦察特工与位于己方风暴内的一名敌方特工近战，将该敌方特工近战武器的攻击属性减少 1，最低为 3。",
+      "duration": [
+        "本转折点，除非规则另有持续时间。"
+      ],
+      "limits": [
+        "每当一名己方狼侦察特工与位于己方风暴内的一名敌方特工近战，将该敌方特工近战武器的攻击属性减少 1，最低为 3。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "imp-ws-card-19",
+          "image": "19-战略计谋-狂风肆虐.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-SF",
+      "category": "strategic-ploy",
+      "title_en": "Savage Fighters",
+      "title_zh": "狂野斗士",
+      "current_text_zh": "每当一名己方狼侦察特工完成反击，如果其未残废且仍位于该流程中敌方特工的控制范围内，可以对该敌方特工造成 D3+1 点伤害。",
+      "website_text_en": "Whenever a friendly WOLF SCOUT operative finishes retaliating, if it wasn’t incapacitated and is still within control range of the enemy operative in that sequence, you can inflict D3+1 damage on that enemy operative.",
+      "website_id": "IMP-WS-SF",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "战略阶段；被其他规则允许时可在其指定时机使用。效果触发条件见current_text_zh。",
+      "target": "每当一名己方狼侦察特工完成反击，如果其未残废且仍位于该流程中敌方特工的控制范围内，可以对该敌方特工造成 D3+1 点伤害。",
+      "duration": [
+        "本转折点，除非规则另有持续时间。"
+      ],
+      "limits": [],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 5,
+          "card_id": "imp-ws-card-20",
+          "image": "20-战略计谋-狂野斗士.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-AS",
+      "category": "firefight-ploy",
+      "title_en": "Acute Senses",
+      "title_zh": "敏锐感官",
+      "current_text_zh": "一名己方狼侦察特工执行射击行动、正在选择有效目标时使用。直到该行动结束，其远程武器拥有“范围 6\"”（Range 6\"）和“追踪轻型”（Seek Light）武器规则，且敌方特工不能被遮挡。",
+      "website_text_en": "Use this firefight ploy when a friendly WOLF SCOUT operative performs the Shoot action and you’re selecting a valid target. Until the end of that action, that friendly operative’s ranged weapons have the Range 6\" and Seek Light weapon rules and enemy operatives cannot be obscured.",
+      "website_id": "IMP-WS-AS",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "一名己方狼侦察特工执行射击行动、正在选择有效目标时使用。",
+      "target": "一名己方狼侦察特工执行射击行动、正在选择有效目标时使用。",
+      "duration": [
+        "直到该行动结束，其远程武器拥有“范围 6\"”（Range 6\"）和“追踪轻型”（Seek Light）武器规则，且敌方特工不能被遮挡。"
+      ],
+      "limits": [
+        "直到该行动结束，其远程武器拥有“范围 6\"”（Range 6\"）和“追踪轻型”（Seek Light）武器规则，且敌方特工不能被遮挡。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "imp-ws-card-21",
+          "image": "21-交战计谋-敏锐感官.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-CA",
+      "category": "firefight-ploy",
+      "title_en": "Counterattack",
+      "title_zh": "反击",
+      "current_text_zh": "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。一名己方狼侦察特工可以立即免费执行一次近战行动，但只能选择该敌方特工为近战对象。",
+      "website_text_en": "Use this firefight ploy at the end of an enemy operative’s activation, or after an enemy operative performs the Fight action. One friendly WOLF SCOUT operative can immediately perform a free Fight action, but you cannot select any other enemy operative to fight against during that action.",
+      "website_id": "IMP-WS-CA",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。",
+      "target": "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。",
+      "duration": [],
+      "limits": [
+        "一名敌方特工的激活结束时，或其执行一次近战行动之后使用。",
+        "一名己方狼侦察特工可以立即免费执行一次近战行动，但只能选择该敌方特工为近战对象。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "imp-ws-card-22",
+          "image": "22-交战计谋-反击.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-TBL",
+      "category": "firefight-ploy",
+      "title_en": "Touched By Lokyar",
+      "title_zh": "洛基雅尔之魂",
+      "current_text_zh": "为一名己方狼侦察特工（芬里斯狼除外）掷出攻击骰后使用。如果其正在近战，且位于所有其他己方特工 5\" 之外，可以重掷任意己方攻击骰。",
+      "website_text_en": "Use this firefight ploy after rolling your attack dice for a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF), if it’s fighting more than 5\" from other friendly operatives. You can re-roll any of your attack dice.",
+      "website_id": "IMP-WS-TBL",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": null,
+      "target": "为一名己方狼侦察特工（芬里斯狼除外）掷出攻击骰后使用。",
+      "duration": [],
+      "limits": [
+        "为一名己方狼侦察特工（芬里斯狼除外）掷出攻击骰后使用。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "imp-ws-card-23",
+          "image": "23-交战计谋-洛基雅尔之魂.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-THP",
+      "category": "firefight-ploy",
+      "title_en": "Transhuman Physiology",
+      "title_zh": "超人体格",
+      "current_text_zh": "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。在掷防御骰步骤中，可以将一枚普通成功改为保留为关键成功。",
+      "website_text_en": "Use this firefight ploy when an operative is shooting a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF), in the Roll Defence Dice step. You can retain one of your normal successes as a critical success instead.",
+      "website_id": "IMP-WS-THP",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": "1 CP",
+      "timing": "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。",
+      "target": "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。",
+      "duration": [],
+      "limits": [
+        "一名特工向己方狼侦察特工（芬里斯狼除外）射击时使用。"
+      ],
+      "cost_source": "核心规则的计谋默认消耗；API未提供CP字段，免费使用和追加费用见正文",
+      "translation_source": [
+        {
+          "source_page": 6,
+          "card_id": "imp-ws-card-24",
+          "image": "24-交战计谋-超人体格.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-FW",
+      "category": "faction-equipment",
+      "title_en": "Frost Weapons",
+      "title_zh": "冰霜武器",
+      "current_text_zh": "每当一名己方狼侦察特工完全位于己方风暴内，其格斗刀（若有）拥有“致命 5+”（Lethal 5+）武器规则。",
+      "website_text_en": "Whenever a friendly WOLF SCOUT operative is wholly within your STORM, its combat blades (if any) has the Lethal 5+ weapon rule",
+      "website_id": "IMP-WS-FW",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每当一名己方狼侦察特工完全位于己方风暴内，其格斗刀（若有）拥有“致命 5+”（Lethal 5+）武器规则。",
+      "target": "每当一名己方狼侦察特工完全位于己方风暴内，其格斗刀（若有）拥有“致命 5+”（Lethal 5+）武器规则。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "imp-ws-card-25",
+          "image": "25-阵营装备-冰霜武器.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-RC",
+      "category": "faction-equipment",
+      "title_en": "Runic Charms",
+      "title_zh": "符文守护",
+      "current_text_zh": "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。因此，“穿刺 1”会被忽略。",
+      "website_text_en": "Once per turning point, when an operative is shooting a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) that is wholly within your STORM, at the start of the Roll Defence Dice step, you can use this rule.\r If you do, worsen the x of the Piercing weapon rule by 1 (if any) until the end of that sequence.\r Note that Piercing 1 would therefore be ignored.",
+      "website_id": "IMP-WS-RC",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。",
+      "target": "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。",
+      "duration": [
+        "直到该流程结束，将“穿刺”武器规则的 X 降低 1（若有）。"
+      ],
+      "limits": [
+        "每个转折点一次，一名特工向完全位于己方风暴内的一名己方狼侦察特工（芬里斯狼除外）射击时，在掷防御骰步骤开始时可以使用。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "imp-ws-card-26",
+          "image": "26-阵营装备-符文守护.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-WTNL",
+      "category": "faction-equipment",
+      "title_en": "Wolfteeth Necklaces",
+      "title_zh": "狼牙项链",
+      "current_text_zh": "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。",
+      "website_text_en": "Once per turning point, when a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) is shooting, fighting or retaliating, if you roll two or more fails, you can discard one of them to retain another as a normal success instead.",
+      "website_id": "IMP-WS-WTNL",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。",
+      "target": "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。",
+      "duration": [],
+      "limits": [
+        "每个转折点一次，一名己方狼侦察特工（芬里斯狼除外）射击、近战或反击时，若掷出至少两枚失败，可以丢弃其中一枚，并将另一枚改为保留为普通成功。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "imp-ws-card-27",
+          "image": "27-阵营装备-狼牙项链.png"
+        }
+      ]
+    },
+    {
+      "id": "IMP-WS-TT",
+      "category": "faction-equipment",
+      "title_en": "Talismanic Trophies",
+      "title_zh": "战利品护符",
+      "current_text_zh": "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。",
+      "website_text_en": "Whenever a friendly WOLF SCOUT operative (excluding FENRISIAN WOLF) that's wholly within your STORM is fighting or retaliating, in the Resolve Attack Dice step, you can subtract 1 from the damage inflicted on it from one normal success.",
+      "website_id": "IMP-WS-TT",
+      "translation_status": "人工按KTDash当前英文整理；中文标题与术语来自PDF",
+      "verification_status": "已核对当前API与PDF卡面",
+      "cost": null,
+      "timing": "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。",
+      "target": "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。",
+      "duration": [],
+      "limits": [
+        "每当一名完全位于己方风暴内的己方狼侦察特工（芬里斯狼除外）近战或反击，在结算攻击骰步骤中，可以使一枚普通成功对其造成的伤害减少 1。"
+      ],
+      "cost_source": "被动规则、装备或战略计谋行动；API无独立消耗字段，适用条件见正文",
+      "translation_source": [
+        {
+          "source_page": 7,
+          "card_id": "imp-ws-card-28",
+          "image": "28-阵营装备-战利品护符.png"
+        }
+      ]
+    }
+  ],
+  "operatives": [
+    {
+      "opTypeId": "IMP-WS-LDR",
+      "killteamId": "IMP-WS",
+      "seq": 1,
+      "opTypeName": "Pack Leader",
+      "MOVE": "7\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 13,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, PACK, LEADER",
+      "basesize": 32,
+      "nameType": "CORVIUS",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-LDR-PP",
+          "opTypeId": "IMP-WS-LDR",
+          "seq": 1,
+          "wepName": "Plasma Pistol",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-LDR-PP-1",
+              "wepId": "IMP-WS-LDR-PP",
+              "seq": 1,
+              "profileName": "Standard",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "3/5",
+              "WR": "Rng 8\", Prc1",
+              "name_zh": "标准",
+              "rules_zh": "范围 8\", 穿刺1（Rng 8\", Prc1）"
+            },
+            {
+              "wepprofileId": "IMP-WS-LDR-PP-2",
+              "wepId": "IMP-WS-LDR-PP",
+              "seq": 2,
+              "profileName": "Supercharge",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "Rng 8\", Hot, Lethal 5+, Prc1",
+              "name_zh": "过载",
+              "rules_zh": "范围 8\", 过热, 致命 5+, 穿刺1（Rng 8\", Hot, Lethal 5+, Prc1）"
+            }
+          ],
+          "name_zh": "等离子手枪"
+        },
+        {
+          "wepId": "IMP-WS-LDR-PW",
+          "opTypeId": "IMP-WS-LDR",
+          "seq": 2,
+          "wepName": "Power Weapon",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-LDR-PW-1",
+              "wepId": "IMP-WS-LDR-PW",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "5",
+              "HIT": "3+",
+              "DMG": "4/6",
+              "WR": "Lethal 5+",
+              "name_zh": "单一档案",
+              "rules_zh": "致命 5+（Lethal 5+）"
+            }
+          ],
+          "name_zh": "动力武器"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-LDR-ES",
+          "opTypeId": "IMP-WS-LDR",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-LDR-GV",
+          "opTypeId": "IMP-WS-LDR",
+          "abilityName": "Grizzled Veteran",
+          "AP": null,
+          "description": "The first time this operative would be incapacitated during the battle, it is not incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder of the action. All remaining attack dice are discarded (including yours if this operative is fighting or retaliating). You cannot use the Counterattack firefight ploy or inflict damage as a result of the Savage Fighters strategy ploy at the end of that action.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-LDR-HA",
+          "opTypeId": "IMP-WS-LDR",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-LDR-LG",
+          "opTypeId": "IMP-WS-LDR",
+          "abilityName": "Lupine Guile",
+          "AP": null,
+          "description": "Once per battle, after rolling off to decide initiative, if this operative is in the killzone, you can re-roll your dice.",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 13,
+      "opName": "Pack Leader",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察狼群领袖",
+      "role_zh": "领袖、先攻干预"
+    },
+    {
+      "opTypeId": "IMP-WS-FB",
+      "killteamId": "IMP-WS",
+      "seq": 2,
+      "opTypeName": "Fangbearer",
+      "MOVE": "7\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 13,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FANGBEARER",
+      "basesize": 32,
+      "nameType": "CORVIUS",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-FB-ABP",
+          "opTypeId": "IMP-WS-FB",
+          "seq": 1,
+          "wepName": "Absolver Bolt Pistol",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-FB-ABP-1",
+              "wepId": "IMP-WS-FB-ABP",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "Rng 8\", PrcCrit 1",
+              "name_zh": "单一档案",
+              "rules_zh": "范围 8\", 关键穿刺 1（Rng 8\", PrcCrit 1）"
+            }
+          ],
+          "name_zh": "赦免者爆矢手枪"
+        },
+        {
+          "wepId": "IMP-WS-FB-CB",
+          "opTypeId": "IMP-WS-FB",
+          "seq": 2,
+          "wepName": "Combat Blade",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-FB-CB-1",
+              "wepId": "IMP-WS-FB-CB",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "5",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "格斗刀"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-FB-ES",
+          "opTypeId": "IMP-WS-FB",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-FB-HB",
+          "opTypeId": "IMP-WS-FB",
+          "abilityName": "Healing Balms",
+          "AP": 1,
+          "description": "Select one friendly WOLF SCOUT operative within this operative’s control range to regain up to D3+3 lost wounds.\r \r This operative cannot perform this action while within control range of an enemy operative, or more than once per turning point.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-FB-HA",
+          "opTypeId": "IMP-WS-FB",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-FB-SC",
+          "opTypeId": "IMP-WS-FB",
+          "abilityName": "Spiritual Chirurgy",
+          "AP": null,
+          "description": "You can ignore any changes to the stats of friendly WOLF SCOUT operatives (excluding FENRISIAN WOLF) from being injured (including their weapons’ stats). Note that friendly operatives have this rule if you select this operative for the battle (even if it’s incapacitated later). ",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 13,
+      "opName": "Fangbearer",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察獠牙使者",
+      "role_zh": "医疗与伤势支援"
+    },
+    {
+      "opTypeId": "IMP-WS-FE",
+      "killteamId": "IMP-WS",
+      "seq": 3,
+      "opTypeName": "Frosteye",
+      "MOVE": "7\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 13,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FROSTEYE",
+      "basesize": 32,
+      "nameType": "CORVIUS",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-FE-IBC",
+          "opTypeId": "IMP-WS-FE",
+          "seq": 1,
+          "wepName": "Instigator Bolt Carbine",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-FE-IBC-2",
+              "wepId": "IMP-WS-FE-IBC",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "3/4",
+              "WR": "PrcCrit 1, Silent",
+              "name_zh": "单一档案",
+              "rules_zh": "关键穿刺 1, 安静（PrcCrit 1, Silent）"
+            }
+          ],
+          "name_zh": "煽动者爆矢卡宾枪"
+        },
+        {
+          "wepId": "IMP-WS-FE-CB",
+          "opTypeId": "IMP-WS-FE",
+          "seq": 2,
+          "wepName": "Combat Blade",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-FE-CB-1",
+              "wepId": "IMP-WS-FE-CB",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "格斗刀"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-FE-ES",
+          "opTypeId": "IMP-WS-FE",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-FE-HS",
+          "opTypeId": "IMP-WS-FE",
+          "abilityName": "Hunter's Senses",
+          "AP": 1,
+          "description": "Select one of the following rules for this operative’s instigator bolt carbine to have until the start of its next activation:\r - Severe.\r - Saturate, and whenever this operative is shooting with that weapon, enemy operatives cannot be obscured.\r \r This operative cannot perform this action while within control range of an enemy operative.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-FE-HA",
+          "opTypeId": "IMP-WS-FE",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-FE-SVE",
+          "opTypeId": "IMP-WS-FE",
+          "abilityName": "Storm-Veiled Execution",
+          "AP": null,
+          "description": "Whenever this operative is wholly within your STORM:\n- It can perform the Guard action regardless of the killzone (see close quarters rules, Kill Team Core Book).\n- It can perform the Guard action while it has a Conceal order, but if it does, it cannot perform more than one Shoot action for the rest of the turning point (i.e. it cannot Shoot both during the interruption and during counteract).",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 13,
+      "opName": "Frosteye",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察霜眼",
+      "role_zh": "警戒射手"
+    },
+    {
+      "opTypeId": "IMP-WS-GNR",
+      "killteamId": "IMP-WS",
+      "seq": 4,
+      "opTypeName": "Gunner",
+      "MOVE": "7\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 13,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, GUNNER",
+      "basesize": 32,
+      "nameType": "CORVIUS",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-GNR-PG",
+          "opTypeId": "IMP-WS-GNR",
+          "seq": 1,
+          "wepName": "Plasma Gun",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-GNR-PG-1",
+              "wepId": "IMP-WS-GNR-PG",
+              "seq": 1,
+              "profileName": "Standard",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/6",
+              "WR": "Prc1",
+              "name_zh": "标准",
+              "rules_zh": "穿刺1（Prc1）"
+            },
+            {
+              "wepprofileId": "IMP-WS-GNR-PG-2",
+              "wepId": "IMP-WS-GNR-PG",
+              "seq": 2,
+              "profileName": "Supercharge",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "5/6",
+              "WR": "Hot, Lethal 5+, Prc1",
+              "name_zh": "过载",
+              "rules_zh": "过热, 致命 5+, 穿刺1（Hot, Lethal 5+, Prc1）"
+            }
+          ],
+          "name_zh": "等离子枪"
+        },
+        {
+          "wepId": "IMP-WS-GNR-CB",
+          "opTypeId": "IMP-WS-GNR",
+          "seq": 2,
+          "wepName": "Combat Blade",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-GNR-CB-1",
+              "wepId": "IMP-WS-GNR-CB",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "格斗刀"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-GNR-ES",
+          "opTypeId": "IMP-WS-GNR",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-GNR-HA",
+          "opTypeId": "IMP-WS-GNR",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-GNR-TF",
+          "opTypeId": "IMP-WS-GNR",
+          "abilityName": "Tempest's Fury",
+          "AP": null,
+          "description": "Whenever this operative is wholly within your STORM:\n- All profiles of its plasma gun have the Punishing weapon rule.\n- Its plasma gun (supercharge) doesn’t have the Hot weapon rule.",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 13,
+      "opName": "Gunner",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察炮手",
+      "role_zh": "等离子火力"
+    },
+    {
+      "opTypeId": "IMP-WS-HNT",
+      "killteamId": "IMP-WS",
+      "seq": 5,
+      "opTypeName": "Hunter",
+      "MOVE": "7\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 13,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, HUNTER",
+      "basesize": 32,
+      "nameType": "CORVIUS",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-HNT-PP",
+          "opTypeId": "IMP-WS-HNT",
+          "seq": 1,
+          "wepName": "Plasma Pistol",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-HNT-PP-1",
+              "wepId": "IMP-WS-HNT-PP",
+              "seq": 1,
+              "profileName": "Standard",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "3/5",
+              "WR": "Rng 8\", Prc1",
+              "name_zh": "标准",
+              "rules_zh": "范围 8\", 穿刺1（Rng 8\", Prc1）"
+            },
+            {
+              "wepprofileId": "IMP-WS-HNT-PP-2",
+              "wepId": "IMP-WS-HNT-PP",
+              "seq": 2,
+              "profileName": "Supercharge",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "Rng 8\", Hot, Lethal 5+, Prc1",
+              "name_zh": "过载",
+              "rules_zh": "范围 8\", 过热, 致命 5+, 穿刺1（Rng 8\", Hot, Lethal 5+, Prc1）"
+            }
+          ],
+          "name_zh": "等离子手枪"
+        },
+        {
+          "wepId": "IMP-WS-HNT-CB",
+          "opTypeId": "IMP-WS-HNT",
+          "seq": 2,
+          "wepName": "Combat Blade",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-HNT-CB-1",
+              "wepId": "IMP-WS-HNT-CB",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "5",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "格斗刀"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-HNT-ES",
+          "opTypeId": "IMP-WS-HNT",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-HNT-FT",
+          "opTypeId": "IMP-WS-HNT",
+          "abilityName": "Fierce Temperament",
+          "AP": null,
+          "description": "Whenever this operative is wholly within your STORM, its weapons have the Severe weapon rule.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-HNT-HA",
+          "opTypeId": "IMP-WS-HNT",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 13,
+      "opName": "Hunter",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察猎手",
+      "role_zh": "近战猎手"
+    },
+    {
+      "opTypeId": "IMP-WS-RP",
+      "killteamId": "IMP-WS",
+      "seq": 6,
+      "opTypeName": "Rune Priest Skjald",
+      "MOVE": "7\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 13,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, PSYKER, RUNE PRIEST SKJALD",
+      "basesize": 32,
+      "nameType": "CORVIUS",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-RP-BP",
+          "opTypeId": "IMP-WS-RP",
+          "seq": 1,
+          "wepName": "Bolt Pistol",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-RP-BP-1",
+              "wepId": "IMP-WS-RP-BP",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "3/4",
+              "WR": "Rng 8\"",
+              "name_zh": "单一档案",
+              "rules_zh": "范围 8\"（Rng 8\"）"
+            }
+          ],
+          "name_zh": "爆矢手枪"
+        },
+        {
+          "wepId": "IMP-WS-RP-JOTWW",
+          "opTypeId": "IMP-WS-RP",
+          "seq": 2,
+          "wepName": "Jaws of the World Wolf",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-RP-JOTWW-1",
+              "wepId": "IMP-WS-RP-JOTWW",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "3/5",
+              "WR": "PSYCHIC, Blast 2\", Sev",
+              "name_zh": "单一档案",
+              "rules_zh": "灵能, 爆炸 2\", 严重（PSYCHIC, Blast 2\", Sev）"
+            }
+          ],
+          "name_zh": "世界狼撕咬"
+        },
+        {
+          "wepId": "IMP-WS-RP-TC",
+          "opTypeId": "IMP-WS-RP",
+          "seq": 3,
+          "wepName": "Thunderclap",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-RP-TC-1",
+              "wepId": "IMP-WS-RP-TC",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "5",
+              "HIT": "2+",
+              "DMG": "2/2",
+              "WR": "PSYCHIC, Rng 6\", Sat, Seek Light, Stun, Tor 2\"",
+              "name_zh": "单一档案",
+              "rules_zh": "灵能, 范围 6\", 集中, 追踪轻型, 晕眩, 洪流 2\"（PSYCHIC, Rng 6\", Sat, Seek Light, Stun, Tor 2\"）"
+            }
+          ],
+          "name_zh": "雷霆冲击"
+        },
+        {
+          "wepId": "IMP-WS-RP-RS",
+          "opTypeId": "IMP-WS-RP",
+          "seq": 4,
+          "wepName": "Runic Stave",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-RP-RS-1",
+              "wepId": "IMP-WS-RP-RS",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "5",
+              "HIT": "3+",
+              "DMG": "4/6",
+              "WR": "PSYCHIC, Shock",
+              "name_zh": "单一档案",
+              "rules_zh": "灵能, 震荡（PSYCHIC, Shock）"
+            }
+          ],
+          "name_zh": "符文杖"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-RP-CTS",
+          "opTypeId": "IMP-WS-RP",
+          "abilityName": "Call the Storm",
+          "AP": 1,
+          "description": "PSYCHIC. Remove your Storm marker from the killzone (if any), then place it in the killzone.\n\nPSYCHIC. Alternatively, instead of resolving the above effect, select one friendly WOLF SCOUT operative.\nUntil the start of this operative’s next activation, until it’s incapacitated or until it performs this action again (whichever comes first),\nwhenever that friendly operative is wholly within your STORM and more than 3\" from the active operative, it’s obscured.\n\nThis operative cannot perform this action while within control range of an enemy operative.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-RP-CTR",
+          "opTypeId": "IMP-WS-RP",
+          "abilityName": "Cast the Runes",
+          "AP": null,
+          "description": "After selecting this operative, before the battle, roll three D6 and put them to one side.\r For each result of 1-4, you can use the Command Re-roll firefight ploy for OCP once during the turning point that matches the result.\r If one or more results are 5-6, you gain 1CP.\r For example, if you roll 2, 2 and 5, you gain 1CP and twice during the second turning point you can use Command Re-roll for 0CP",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-RP-ES",
+          "opTypeId": "IMP-WS-RP",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-RP-HA",
+          "opTypeId": "IMP-WS-RP",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 13,
+      "opName": "Rune Priest Skjald",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察符文祭司诗人",
+      "role_zh": "灵能与风暴控制"
+    },
+    {
+      "opTypeId": "IMP-WS-TM",
+      "killteamId": "IMP-WS",
+      "seq": 7,
+      "opTypeName": "Trapmaster",
+      "MOVE": "7\"",
+      "APL": 3,
+      "SAVE": "3+",
+      "WOUNDS": 13,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, TRAPMASTER",
+      "basesize": 32,
+      "nameType": "CORVIUS",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-TM-PP",
+          "opTypeId": "IMP-WS-TM",
+          "seq": 1,
+          "wepName": "Plasma Pistol",
+          "wepType": "R",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-TM-PP-1",
+              "wepId": "IMP-WS-TM-PP",
+              "seq": 1,
+              "profileName": "Standard",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "3/5",
+              "WR": "Rng 8\", Prc1",
+              "name_zh": "标准",
+              "rules_zh": "范围 8\", 穿刺1（Rng 8\", Prc1）"
+            },
+            {
+              "wepprofileId": "IMP-WS-TM-PP-2",
+              "wepId": "IMP-WS-TM-PP",
+              "seq": 2,
+              "profileName": "Supercharge",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "Rng 8\",  Hot, Lethal 5+, Prc1",
+              "name_zh": "过载",
+              "rules_zh": "范围 8\",  过热, 致命 5+, 穿刺1（Rng 8\",  Hot, Lethal 5+, Prc1）"
+            }
+          ],
+          "name_zh": "等离子手枪"
+        },
+        {
+          "wepId": "IMP-WS-TM-CB",
+          "opTypeId": "IMP-WS-TM",
+          "seq": 2,
+          "wepName": "Combat Blade",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-TM-CB-1",
+              "wepId": "IMP-WS-TM-CB",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "5",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "",
+              "name_zh": "单一档案",
+              "rules_zh": "无（—）"
+            }
+          ],
+          "name_zh": "格斗刀"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-TM-ES",
+          "opTypeId": "IMP-WS-TM",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-TM-HWM",
+          "opTypeId": "IMP-WS-TM",
+          "abilityName": "Haywire Mine",
+          "AP": null,
+          "description": "This operative is carrying your Haywire Mine marker.\nIt can perform the Pick Up Marker action on that marker, but that marker cannot be placed within another operative’s control range (if this operative is incapacitated while carrying that marker and that marker cannot be placed, it’s removed with this operative).",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-TM-HA",
+          "opTypeId": "IMP-WS-TM",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-TM-PM",
+          "opTypeId": "IMP-WS-TM",
+          "abilityName": "Proximity Mine",
+          "AP": null,
+          "description": "The first time your Haywire Mine marker is within another operative’s control range, remove that marker, subtract 1 from that operative’s APL stat until the end of its next activation,\nand inflict 2D3+3 damage on it (or D3+6 if that marker is within 6\" horizontally of your Storm marker);\nif it isn’t incapacitated, end its action (if any), even if that action’s effects aren’t fulfilled.\nIf it cannot be placed, move it the minimum amount to do so. Note that this operative is ignored for these effects (i.e. it cannot set it off or take damage from that marker).",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 13,
+      "opName": "Trapmaster",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察陷阱大师",
+      "role_zh": "地雷与区域控制"
+    },
+    {
+      "opTypeId": "IMP-WS-WLF",
+      "killteamId": "IMP-WS",
+      "seq": 8,
+      "opTypeName": "Fenrisian Wolf",
+      "MOVE": "8\"",
+      "APL": 2,
+      "SAVE": "5+",
+      "WOUNDS": 9,
+      "keywords": "WOLF SCOUT, IMPERIUM, ADEPTUS ASTARTES, SPACE WOLVES, FENRISIAN WOLF",
+      "basesize": 60,
+      "nameType": "Fido",
+      "isOpType": true,
+      "weapons": [
+        {
+          "wepId": "IMP-WS-WLF-F",
+          "opTypeId": "IMP-WS-WLF",
+          "seq": 1,
+          "wepName": "Fangs",
+          "wepType": "M",
+          "isDefault": true,
+          "profiles": [
+            {
+              "wepprofileId": "IMP-WS-WLF-F-1",
+              "wepId": "IMP-WS-WLF-F",
+              "seq": 1,
+              "profileName": "",
+              "ATK": "4",
+              "HIT": "3+",
+              "DMG": "4/5",
+              "WR": "Rending",
+              "name_zh": "单一档案",
+              "rules_zh": "撕裂（Rending）"
+            }
+          ],
+          "name_zh": "獠牙"
+        }
+      ],
+      "abilities": [
+        {
+          "abilityId": "IMP-WS-WLF-ES",
+          "opTypeId": "IMP-WS-WLF",
+          "abilityName": "Elemental Storm",
+          "AP": null,
+          "description": "STRATEGIC GAMBIT. Remove your Storm marker from the killzone (if any), then place it in the killzone.\r Whenever an operative is wholly within 6\" horizontally of your Storm marker, it’s wholly within your STORM.\r \r Each friendly WOLF SCOUT operative can perform the Charge action while it has a Conceal order if it ends that action within your STORM.",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-WLF-HA",
+          "opTypeId": "IMP-WS-WLF",
+          "abilityName": "Hunting Astartes",
+          "AP": null,
+          "description": "During each friendly WOLF SCOUT operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions:\n- 1 additional AP must be spent for the second action if both actions are using a plasma gun or plasma pistol.\n- You cannot select two PSYCHIC ranged weapons.\n\nEach friendly WOLF SCOUT operative can counteract regardless of its order. Whenever it does so wholly within your STORM, you can change its order first, or change its order instead of performing an action (for the latter, still treat it as having counteracted this turning point).",
+          "isFactionRule": true
+        },
+        {
+          "abilityId": "IMP-WS-WLF-IP",
+          "opTypeId": "IMP-WS-WLF",
+          "abilityName": "Instinctive Predator",
+          "AP": null,
+          "description": "This operative cannot perform any actions other than Charge, Dash, Fall Back, Fight, Guard and Reposition. It cannot use any weapons that aren’t on its datacard. This operative can perform the Charge action while it has a Conceal order.",
+          "isFactionRule": false
+        },
+        {
+          "abilityId": "IMP-WS-WLF-P",
+          "opTypeId": "IMP-WS-WLF",
+          "abilityName": "Pounce",
+          "AP": null,
+          "description": "Once per battle STRATEGIC GAMBIT. If this operative’s APL stat is 2 or more, this operative can perform a free Charge, Fall Back or Reposition action.\nIf it does, until the end of its next activation, subtract 1 from its APL stat and it cannot perform any of the aforementioned actions.",
+          "isFactionRule": false
+        }
+      ],
+      "options": [],
+      "isActivated": false,
+      "currWOUNDS": 9,
+      "opName": "Fenrisian Wolf",
+      "opType": null,
+      "opId": null,
+      "name_zh": "狼侦察芬里斯狼",
+      "role_zh": "机动近战野兽",
+      "basesize_note": "API只返回数值60；未提供形状或第二条轴长，不推定为圆形。"
+    }
+  ],
+  "scope_note": "收录全部独立PDF卡片与网站小队专属规则。13条通用装备单列附录；无对应小队卡片。PDF背景、模型页和设计师战术评论用于来源审计，不冒充独立规则卡。",
+  "supplementary_universal_equipment": [
+    {
+      "id": "UNIVERSAL-UE-AC",
+      "category": "universal-equipment",
+      "title_zh": "弹药库（1个）",
+      "title_en": "Ammo Cache (x1)",
+      "current_text_zh": "战斗开始前，可以将一枚己方弹药库标识放置在完全位于己方领地的位置。己方特工可以执行以下任务行动。\n弹药补给（0AP）：将行动特工控制的一枚己方弹药库标识标记为本转折点已使用。直到下一个转折点开始，每当该特工使用其数据卡上的武器射击，可以重掷一枚攻击骰。位于敌方特工控制范围内、标识不属于己方或标识本转折点已经使用时，不能执行此行动。",
+      "website_text_en": "Before the battle, you can set up one of your Ammo Cache markers wholly within your territory. Friendly operatives can perform the following mission action during the battle:\r **AMMO RESUPPLY (0 AP):** One of your Ammo Cache markers the active operative controls is used during this turning point.  \n\r Until the start of the next turning point, whenever this operative is shooting with a weapon from its datacard, you can re-roll one of your attack dice.\n\n\r An operative cannot perform this action while within control range of an enemy operative, if that marker is not yours, or if that marker has been used this turning point.",
+      "website_id": "UNIVERSAL-UE-AC",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "0 AP（弹药补给任务行动）",
+      "timing": "战斗开始前，可以将一枚己方弹药库标识放置在完全位于己方领地的位置。",
+      "target": "战斗开始前，可以将一枚己方弹药库标识放置在完全位于己方领地的位置。",
+      "duration": [
+        "直到下一个转折点开始，每当该特工使用其数据卡上的武器射击，可以重掷一枚攻击骰。"
+      ],
+      "limits": [
+        "位于敌方特工控制范围内、标识不属于己方或标识本转折点已经使用时，不能执行此行动。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-RW",
+      "category": "universal-equipment",
+      "title_zh": "铁丝网（1个）",
+      "title_en": "Razor Wire (x1)",
+      "current_text_zh": "铁丝网属于暴露、阻碍地形。战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，并与其他装备地形、入口及可进入地形相距超过 2\" 的位置。\n阻碍：每当特工将跨越此地形，或在其 1\" 内跨越时，将该距离视为额外增加 1\"。",
+      "website_text_en": "Razor wire is Exposed and Obstructing terrain. Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.  \n\r Obstructing: Whenever an operative would cross over this terrain feature within 1\" of it, treat the distance as an additional 1\".",
+      "website_id": "UNIVERSAL-UE-RW",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，并与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "target": "阻碍：每当特工将跨越此地形，或在其 1\" 内跨越时，将该距离视为额外增加 1\"。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-CD",
+      "category": "universal-equipment",
+      "title_zh": "通讯装置（1个）",
+      "title_en": "Comms Device (x1)",
+      "current_text_zh": "战斗开始前，可以将一枚己方通讯装置标识放置在完全位于己方领地的位置。己方特工控制此标识时，其提及己方特工的支援规则距离要求增加 3\"，例如“选择6\"内的一名己方特工”改为9\"。不能从对手的通讯装置标识获益。",
+      "website_text_en": "Before the battle, you can set up one of your Comms Device markers wholly within your territory.\nWhile a friendly operative controls this marker, add 3\" to the distance requirements of its SUPPORT rules that refer to friendly operatives\n(e.g. ‘select one friendly operative within 6\"’ would be 9\" instead).\nNote that you cannot benefit from your opponent's Comms Device markers.",
+      "website_id": "UNIVERSAL-UE-CD",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将一枚己方通讯装置标识放置在完全位于己方领地的位置。",
+      "target": "战斗开始前，可以将一枚己方通讯装置标识放置在完全位于己方领地的位置。",
+      "duration": [],
+      "limits": [
+        "不能从对手的通讯装置标识获益。"
+      ],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-MN",
+      "category": "universal-equipment",
+      "title_zh": "地雷（1个）",
+      "title_en": "Mines (x1)",
+      "current_text_zh": "战斗开始前，可以将一枚己方地雷标识放置在完全位于己方领地，且与其他标识、入口及可进入地形相距超过 2\" 的位置。该标识首次位于一名特工的控制范围内时，移除标识并对该特工造成 D3+3 点伤害。",
+      "website_text_en": "Before the battle, you can set up one of your Mines markers wholly within your territory and more than 2\" from other markers, access points, and Accessible terrain.\r The first time that marker is within an operative's control range, remove that marker and inflict D3+3 damage on that operative.",
+      "website_id": "UNIVERSAL-UE-MN",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将一枚己方地雷标识放置在完全位于己方领地，且与其他标识、入口及可进入地形相距超过 2\" 的位置。",
+      "target": "战斗开始前，可以将一枚己方地雷标识放置在完全位于己方领地，且与其他标识、入口及可进入地形相距超过 2\" 的位置。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-LB",
+      "category": "universal-equipment",
+      "title_zh": "轻型路障（2个）",
+      "title_en": "Light Barricades (x2)",
+      "current_text_zh": "轻型路障属于轻型地形，但支脚属于无关紧要和暴露地形。战斗开始前，可以部署任意数量的所选路障，必须完全位于己方领地、位于杀戮区地面，并与其他装备地形、入口及可进入地形相距超过 2\"。",
+      "website_text_en": "Light barricades are Light terrain, except the feet, which are Insignificant and Exposed. Before the battle, you can set up any of them wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+      "website_id": "UNIVERSAL-UE-LB",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以部署任意数量的所选路障，必须完全位于己方领地、位于杀戮区地面，并与其他装备地形、入口及可进入地形相距超过 2\"。",
+      "target": null,
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-HB",
+      "category": "universal-equipment",
+      "title_zh": "重型路障（1个）",
+      "title_en": "Heavy Barricade (x1)",
+      "current_text_zh": "重型路障属于重型地形。战斗开始前，可以将其放置在完全位于己方降落区 4\" 内、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "website_text_en": "A heavy barricade is Heavy terrain. Before the battle, you can set it up wholly within 4\" of your drop zone, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.",
+      "website_id": "UNIVERSAL-UE-HB",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前，可以将其放置在完全位于己方降落区 4\" 内、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "target": null,
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-LAD",
+      "category": "universal-equipment",
+      "title_zh": "梯子（2个）",
+      "title_en": "Ladders (x2)",
+      "current_text_zh": "梯子属于无关紧要和暴露地形。战斗开始前可以部署任意数量的所选梯子，须满足：\n- 完全位于己方领地。\n- 直立靠在至少 2\" 高的地形上。\n- 与其他装备地形相距超过 2\"。\n- 与门及入口相距超过 1\"。\n每次行动一次，特工攀爬梯子所靠的地形时，如果整个攀爬过程中梯子都位于其控制范围内，将该次垂直距离视为 1\"。",
+      "website_text_en": "Ladders are Insignificant and Exposed terrain. Before the battle, you can set up any of them as follows:\n- Wholly within your territory.\n- Upright against terrain that’s at least 2\" tall.\n- More than 2\" from other equipment terrain features.\n- More than 1\" from doors and access points.\n\nOnce per action, whenever an operative is climbing the terrain feature a ladder is placed against, treat the vertical distance as 1\" if the ladder is within that operative’s control range during that entire climb.",
+      "website_id": "UNIVERSAL-UE-LAD",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "战斗开始前可以部署任意数量的所选梯子，须满足：",
+      "target": "每次行动一次，特工攀爬梯子所靠的地形时，如果整个攀爬过程中梯子都位于其控制范围内，将该次垂直距离视为 1\"。",
+      "duration": [],
+      "limits": [
+        "- 直立靠在至少 2\" 高的地形上。",
+        "每次行动一次，特工攀爬梯子所靠的地形时，如果整个攀爬过程中梯子都位于其控制范围内，将该次垂直距离视为 1\"。"
+      ],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-PB",
+      "category": "universal-equipment",
+      "title_zh": "便携式路障（1个）",
+      "title_en": "Portable Barricade (x1)",
+      "current_text_zh": "便携式路障属于轻型、防护和便携地形，但支脚属于无关紧要和暴露地形。战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。\n防护：特工从此地形获得掩护时，其豁免属性改善1，最好为2+。\n便携：仅当特工与其接触且盾面造成阻碍时提供掩护，忽略支脚。与内侧接触的特工可以执行以下独特行动。\n携障移动（1AP）：如同转移行动，但行动特工最多移动其移动属性减去2\"的距离，不能攀爬、跳落、跳跃，也不能使用任何将特工移除并重新放置的小队规则，例如炉裔打捞者的飞行或曼德拉的暗影通道。移动前移除与其接触的便携式路障；移动后重新放置，使其再次与特工接触，但不能放在其他装备地形、入口或可进入地形的2\"内。\n此行动视为转移行动。位于敌方特工控制范围内时不能执行；也不能在已执行后撤或冲锋的同一次激活中执行。",
+      "website_text_en": "A portable barricade is Light, Protective and Portable terrain, except the feet which are Insignificant and Exposed.\r Before the battle, you can set it up wholly within your territory, on the killzone floor and more than 2\" from other equipment terrain features, access points, and Accessible terrain.\r   \r \r **Protective:** While an operative is in cover from this terrain feature, improve its Save stat by 1 (to a maximum of 2+).  \r \r **Portable:** This terrain feature only provides cover while an operative is connected to it and if the shield is intervening (ignore its feet).\r Operatives connected to the inside of it can perform the following unique action during the battle:  \r \r **Move With Barricade (1 AP):**\r The same as the Reposition action, except the active operative can move no more than its Move stat minus 2\" and cannot climb, drop, jump, or use any killteam's rules that remove it and set it back up again (e.gh. HEARTHKYN SALVAGER Fly, MANDRAKE Shadow Passage).  \r \r Before this operative moves, remove the portable barricade it is connected to. After it moves, set up the portable barricade so it is connected again, but the portable barricade cannot be set up within 2\" of\r other equipment terrain features, access points or Accessible terrain. If this is not possible, the portable barricade is not set up again.  \r \r This action is treated as a Reposition action. An operative cannot perform this action while within control range of an enemy operative, or in the same activation in which it performed the Fall Back or Charge action.",
+      "website_id": "UNIVERSAL-UE-PB",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "1 AP（独特行动）",
+      "timing": "战斗开始前，可以将其放在完全位于己方领地、杀戮区地面上，且与其他装备地形、入口及可进入地形相距超过 2\" 的位置。",
+      "target": "防护：特工从此地形获得掩护时，其豁免属性改善1，最好为2+。",
+      "duration": [],
+      "limits": [
+        "便携：仅当特工与其接触且盾面造成阻碍时提供掩护，忽略支脚。",
+        "携障移动（1AP）：如同转移行动，但行动特工最多移动其移动属性减去2\"的距离，不能攀爬、跳落、跳跃，也不能使用任何将特工移除并重新放置的小队规则，例如炉裔打捞者的飞行或曼德拉的暗影通道。",
+        "移动后重新放置，使其再次与特工接触，但不能放在其他装备地形、入口或可进入地形的2\"内。",
+        "位于敌方特工控制范围内时不能执行；",
+        "也不能在已执行后撤或冲锋的同一次激活中执行。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-UG-SMK",
+      "category": "universal-equipment",
+      "title_zh": "功能型手雷—烟雾",
+      "title_en": "Utility Grenade - Smoke (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。\n烟雾手雷（1AP）：\n- 将一枚己方烟雾手雷标识放置在这名特工6\"内，且必须对其可见；也可以放在对其可见的地形模型的制高点地形上。标识在其水平方向1\"内、垂直上方无限高处形成烟雾区域，但不延伸到下方。\n- 完全位于烟雾中的特工对于距其超过2\"的特工被遮挡，反之亦然。此外，射击完全位于烟雾中的敌方特工时，拥有穿刺2或关键穿刺2的武器分别改为穿刺1或关键穿刺1，除非双方在彼此2\"内。\n- 下一次战略阶段的备战步骤，掷一枚D3；当等于结果次数的激活完成后，或在该转折点结束时（取最先者），移除烟雾标识。\n- 位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。",
+      "website_text_en": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\r Each selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\r   \r \r **SMOKE GRENADE (1 AP):**  \r \r \r - Place one of your Smoke Grenade markers within 6\" of this operative. It must be visible to this operative,\r or on Vantage terrain of a terrain feature that is visible to this operative. The marker creates an area of smoke 1\" horizontally and unlimited height vertically from (but not below) it.\r - While an operative is wholly within an area of smoke, it is obscured to operatives more than 2\" from it, and vice versa.\r In addition, whenever an operative is shooting an enemy operative wholly within an area of smoke, weapons with the Piercing 2 or Piercing Crits 2 weapon rule have the Piercing 1 or Piercing Crits 1 weapon rule (respectively) instead, unless they’re within 2\" of each other.\r - In the Ready step of the next Strategy phase, roll one D3. Remove that Smoke Grenade marker after a number of activations equal to that D3 have been completed\r or at the end of the turning point (whichever comes first).\r - An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\r ",
+      "website_id": "UNIVERSAL-UE-UG-SMK",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "1 AP（独特行动）",
+      "timing": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "target": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "duration": [],
+      "limits": [
+        "每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。",
+        "- 下一次战略阶段的备战步骤，掷一枚D3；",
+        "- 位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-UG-STN",
+      "category": "universal-equipment",
+      "title_zh": "功能型手雷—震荡",
+      "title_en": "Utility Grenade - Stun (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。\n震荡手雷（1AP）：选择对这名特工可见且位于其6\"内的一名敌方特工。该特工及其1\"内的每名其他特工均进行震荡测试：每名分别掷一枚D6，3+时其APL属性减少1，直到其下一次激活结束。\n位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。",
+      "website_text_en": "When you select this equipment, select two utility grenades (2 smoke, 2 stun, or 1 smoke and 1 stun).\nEach selection is a unique action your operatives can perform, but your kill team can only perform that action a total number of times during the battle equal to your selection.\n  \n\n**STUN GRENADE (1 AP):**  \n\n\n- Select one enemy operative visible to and within 6\" of this operative. That operative and each other operative within 1\" of it takes a stun test. For an operative to take a stun test, roll one D6: on a 3+, subtract 1 from its APL stat until the end of its next activation.\n- An operative cannot perform this action while within control range of an enemy operative, or if you have reached the total number of times your kill team can perform it.\n",
+      "website_id": "UNIVERSAL-UE-UG-STN",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": "1 AP（独特行动）",
+      "timing": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "target": "选择此装备时，选择两枚功能型手雷：两枚烟雾、两枚震荡，或各一枚。",
+      "duration": [
+        "该特工及其1\"内的每名其他特工均进行震荡测试：每名分别掷一枚D6，3+时其APL属性减少1，直到其下一次激活结束。"
+      ],
+      "limits": [
+        "每个选项赋予己方特工可执行的独特行动，但全队每场战斗执行该行动的总次数不得超过所选该类手雷的数量。",
+        "该特工及其1\"内的每名其他特工均进行震荡测试：每名分别掷一枚D6，3+时其APL属性减少1，直到其下一次激活结束。",
+        "位于敌方特工控制范围内，或全队已达到使用次数上限时，不能执行此行动。"
+      ],
+      "cost_source": "当前API正文中动作标注；非独立字段"
+    },
+    {
+      "id": "UNIVERSAL-UE-XG-FRAG",
+      "category": "universal-equipment",
+      "title_zh": "爆炸型手雷—破片",
+      "title_en": "Explosive Grenade - Frag (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。\n破片手雷：攻击4；命中4+；伤害2/4；范围6\"、爆炸2\"、集中（Range 6\", Blast 2\", Saturate）。",
+      "website_text_en": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\n\n|**Name**|**ATK**|**HIT**|**DMG**|\n|-----|:-----:|:-----:|:-----:|\n|Frag Grenade|4|4+|2/4|\n|**Weapon Rules**|\n|Rng 6\", Blast 2\", Saturate|",
+      "website_id": "UNIVERSAL-UE-XG-FRAG",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "target": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-XG-KRAK",
+      "category": "universal-equipment",
+      "title_zh": "爆炸型手雷—穿甲",
+      "title_en": "Explosive Grenade - Krak (x1/2)",
+      "current_text_zh": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。\n穿甲手雷：攻击4；命中4+；伤害4/5；范围6\"、穿刺1、集中（Range 6\", Piercing 1, Saturate）。",
+      "website_text_en": "When you select this equipment, select two explosive grenades (2 frag, 2 krak, or 1 frag and 1 krak).\r \r |**Name**|**ATK**|**HIT**|**DMG**|\r |-----|:-----:|:-----:|:-----:|\r |Krak Grenade|4|4+|4/5|\r |**Weapon Rules**|\r |Rng 6\", Piercing 1, Saturate|",
+      "website_id": "UNIVERSAL-UE-XG-KRAK",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "target": "选择此装备时，选择两枚爆炸型手雷：两枚破片、两枚穿甲，或各一枚。",
+      "duration": [],
+      "limits": [],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    },
+    {
+      "id": "UNIVERSAL-UE-BC",
+      "category": "universal-equipment",
+      "title_zh": "破障炸药",
+      "title_en": "Breaching Charge",
+      "current_text_zh": "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。该行动的AP消耗减少1，最低为1AP，并视为该特工数据卡上具有“破障标识”（breach marker）字样。",
+      "website_text_en": "Once per battle, when a friendly operative performs the Breach action, you can use this rule. If you do, that operative can perform that action for 1 less AP (to a minimum of 1AP) as though it had the word \"breach marker\" on its datacard.",
+      "website_id": "UNIVERSAL-UE-BC",
+      "text_status": "website-only",
+      "translation_status": "人工补译，非本队PDF原文",
+      "translation_source": null,
+      "source_page": null,
+      "image": null,
+      "cost": null,
+      "timing": "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。",
+      "target": "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。",
+      "duration": [],
+      "limits": [
+        "每场战斗一次，一名己方特工执行破障（Breach）行动时可以使用。",
+        "该行动的AP消耗减少1，最低为1AP，并视为该特工数据卡上具有“破障标识”（breach marker）字样。"
+      ],
+      "cost_source": "API未给独立AP/CP消耗；特殊修正见正文"
+    }
+  ],
+  "supplementary_pdf_only_rules": [
+    {
+      "id": "IMP-WS-PDF-FAQ",
+      "title_zh": "规则问答",
+      "source_page": 9,
+      "website_id": null,
+      "current_text_zh": "问：近距离战斗中，己方风暴能穿过墙壁地形测量吗？\n答：不能。\n\n问：反击计谋的免费近战使恶角兽掠夺者在其激活时狂暴，其立即残废还是下次激活结束时残废？\n答：在其下一次激活结束时。\n\n问：芬里斯狼的60×35mm底座移动时旋转，怎样测量距离？\n答：底座任何部分均不能移动超过允许距离，因此旋转时也应计入距离。例如允许移动8\"，底座前部已移动8\"且过程中旋转90°，底座后部可能移动超过8\"，这样的移动超过了允许距离。",
+      "text_status": "PDF-only",
+      "translation_status": "PDF问答整理，非网站当前规则实体"
+    }
+  ],
+  "verification": {
+    "date": "2026-09-24",
+    "visual_pages_reviewed": 14,
+    "visual_cards_reviewed": 28,
+    "card_counts_match": true,
+    "all_current_rules_linked": true,
+    "all_local_links_validated": true,
+    "note": "已查看全部原页、全部卡图总览和高密度独立卡；最终字段与链接检查见验收记录。",
+    "local_link_count": 66,
+    "numeric_fields_exact_api_match": true,
+    "all_rule_ids_exact_api_match": true,
+    "all_profile_rows_exactly_once": true,
+    "result": "通过：数量、字段、来源关联、全文、文件链接与视觉验收"
+  }
+}

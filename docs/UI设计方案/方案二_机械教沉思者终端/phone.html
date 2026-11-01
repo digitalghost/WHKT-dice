@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案二：机械教沉思者终端 — 手机版 UI (Handheld Auspex & Cogitator)</title>
+<style>
+  :root {
+    --iron-dark: #100E0B;
+    --brass-dark: #2A2319;
+    --brass-mid: #52432E;
+    --brass-bright: #A88D5A;
+    --crt-bg: #06130B;
+    --crt-panel: #0A1D12;
+    --phosphor: #42E66C;
+    --phosphor-dim: rgba(66, 230, 108, 0.16);
+    --amber: #F0A830;
+    --amber-dim: rgba(240, 168, 48, 0.18);
+    --crimson: #E0483E;
+    --parchment: #DED6C1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #080705;
+    color: var(--parchment);
+    font-family: "SF Mono", "Menlo", "PingFang SC", monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 12px 40px;
+    min-height: 100vh;
+  }
+  .showcase-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .showcase-tag {
+    font-size: 12px;
+    color: var(--phosphor);
+    border: 1px solid var(--brass-bright);
+    background: #1A1610;
+    padding: 5px 12px;
+    font-weight: 700;
+  }
+  .screen-switch {
+    display: flex;
+    gap: 6px;
+    background: #18140F;
+    padding: 4px;
+    border: 1px solid var(--brass-mid);
+  }
+  .screen-btn {
+    background: #241E16;
+    color: var(--brass-bright);
+    border: 1px solid #3D3223;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .screen-btn.active {
+    background: var(--phosphor);
+    color: #051008;
+    border-color: #88FFAA;
+  }
+
+  /* Heavy Riveted Brass Handheld Auspex Frame (412 x 892) */
+  .phone-frame {
+    width: 412px;
+    height: 892px;
+    background: linear-gradient(160deg, #2D261C 0%, #17130E 50%, #241E15 100%);
+    border: 4px solid var(--brass-mid);
+    box-shadow:
+      inset 0 0 0 2px #0B0907,
+      inset 0 0 28px rgba(0,0,0,0.85),
+      0 24px 70px rgba(0,0,0,0.95);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
+  }
+
+  /* Heavy Cogitator Header Plate */
+  .cog-header {
+    height: 82px;
+    background: url('assets/header_cogitator_plate.jpg') center/cover no-repeat;
+    border: 2px solid var(--brass-bright);
+    box-shadow: inset 0 0 18px rgba(0,0,0,0.9);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 8px 10px;
+  }
+  .cog-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(16,14,11,0.2) 0%, rgba(16,14,11,0.88) 100%);
+  }
+  .cog-header-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .lamp-cluster {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lamp {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--phosphor);
+    box-shadow: 0 0 10px var(--phosphor);
+    border: 1.5px solid #C8FFD8;
+  }
+  .lamp.amber {
+    background: var(--amber);
+    box-shadow: 0 0 10px var(--amber);
+    border-color: #FFE4A0;
+  }
+  .cog-undo-btn {
+    background: linear-gradient(180deg, #3A3022, #221B13);
+    border: 1.5px solid var(--brass-bright);
+    color: var(--amber);
+    padding: 5px 9px;
+    font-size: 11px;
+    font-weight: 800;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    cursor: pointer;
+  }
+
+  /* Brass Rotary Dial & Nixie Score Bar */
+  .brass-telemetry-panel {
+    background: #18140F;
+    border: 2px solid var(--brass-mid);
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+  }
+  .nixie-box {
+    background: #090806;
+    border: 1px solid #4A3D2A;
+    padding: 6px 8px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.9);
+  }
+  .nixie-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--amber);
+    display: flex;
+    justify-content: space-between;
+  }
+  .nixie-title.b { color: var(--phosphor); }
+  .nixie-digits {
+    margin-top: 4px;
+    display: flex;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 900;
+  }
+  .nixie-tube {
+    background: #14100A;
+    border: 1px solid #3B2E1E;
+    padding: 2px 6px;
+    color: var(--amber);
+    text-shadow: 0 0 6px rgba(240,168,48,0.6);
+  }
+  .nixie-tube.green {
+    color: var(--phosphor);
+    text-shadow: 0 0 6px rgba(66,230,108,0.6);
+  }
+  .cog-center-wheel {
+    text-align: center;
+  }
+  .cog-center-wheel img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid var(--brass-bright);
+  }
+  .tp-stamp {
+    display: block;
+    font-size: 10px;
+    color: var(--phosphor);
+    font-weight: 800;
+    margin-top: 2px;
+  }
+
+  /* Recessed CRT Phosphor Green Screen */
+  .crt-viewport {
+    flex: 1;
+    background: var(--crt-bg);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(66,230,108,0.05) 0 1px, transparent 1px 3px),
+      radial-gradient(circle at 50% 35%, rgba(66,230,108,0.12), rgba(4,10,6,0.96) 80%);
+    border: 3px solid #4A3D28;
+    box-shadow: inset 0 0 24px rgba(0,0,0,0.95);
+    padding: 10px;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    gap: 9px;
+    position: relative;
+  }
+  .crt-viewport.active { display: flex; }
+
+  .crt-scan-banner {
+    border: 1px solid var(--phosphor);
+    background: rgba(66, 230, 108, 0.1);
+    padding: 6px 10px;
+    font-size: 11px;
+    color: var(--phosphor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Auspex Bio-Monitor Operative Slate */
+  .bio-slate {
+    background: rgba(10, 29, 18, 0.88);
+    border: 1.5px solid #28663B;
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+  }
+  .bio-slate.active-lock {
+    border-color: var(--phosphor);
+    box-shadow: 0 0 12px rgba(66, 230, 108, 0.22);
+  }
+  .bio-slate.warning-lock {
+    border-color: var(--amber);
+    background: rgba(40, 28, 10, 0.65);
+  }
+  .auspex-porthole {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--brass-bright);
+    position: relative;
+    overflow: hidden;
+  }
+  .auspex-porthole img.unit-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(30%) hue-rotate(65deg) contrast(1.15);
+  }
+  .auspex-porthole img.reticle {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .bio-name {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--phosphor);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .warning-lock .bio-name { color: var(--amber); }
+  .bio-sub {
+    font-size: 10px;
+    color: #8CCCA0;
+    margin-top: 2px;
+  }
+  .ecg-bar {
+    margin-top: 5px;
+    font-size: 10px;
+    color: var(--amber);
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .machine-tag {
+    border: 1px solid var(--amber);
+    background: var(--amber-dim);
+    padding: 1px 5px;
+  }
+
+  .vitals-gauge {
+    text-align: right;
+  }
+  .vitals-num {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--phosphor);
+    text-shadow: 0 0 6px rgba(66,230,108,0.5);
+  }
+  .warning-lock .vitals-num {
+    color: var(--crimson);
+    text-shadow: 0 0 6px rgba(224,72,62,0.6);
+  }
+  .brass-rockers {
+    display: inline-flex;
+    gap: 4px;
+    margin-top: 6px;
+  }
+  .rocker-btn {
+    width: 26px;
+    height: 22px;
+    background: linear-gradient(180deg, #4B3D2A, #251E14);
+    border: 1px solid var(--brass-bright);
+    color: var(--parchment);
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  /* Screen 2: Ballistic Cogitator (Shooting / Melee) */
+  .radar-widget {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 10px;
+    border: 1px solid #2D7342;
+    background: rgba(6, 20, 12, 0.9);
+    padding: 8px;
+    align-items: center;
+  }
+  .radar-widget img {
+    width: 96px;
+    height: 96px;
+    border: 1px solid var(--brass-bright);
+  }
+  .toggle-bank {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .mech-switch {
+    background: #0E2316;
+    border: 1px solid #2A6B3F;
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+  .mech-switch strong {
+    display: block;
+    color: var(--amber);
+    margin-top: 3px;
+    font-size: 11px;
+  }
+
+  .oscilloscope-dice {
+    border: 1.5px solid var(--phosphor);
+    background: #040D07;
+    padding: 10px;
+  }
+  .osc-row {
+    display: flex;
+    gap: 8px;
+    margin: 6px 0;
+  }
+  .cog-die {
+    width: 58px;
+    height: 58px;
+    background: #0C2415;
+    border: 2px solid var(--phosphor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--phosphor);
+  }
+  .cog-die.amber {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: #241B0B;
+  }
+  .cog-die strong { font-size: 20px; }
+  .cog-die span { font-size: 9px; }
+
+  /* Heavy Brass Mechanical Push-Button Deck */
+  .brass-control-deck {
+    background: linear-gradient(180deg, #2B2318, #18130D);
+    border: 2px solid var(--brass-mid);
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .brass-switches-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+  .brass-key {
+    background: linear-gradient(180deg, #3D3222 0%, #221B12 100%);
+    border: 1px solid var(--brass-bright);
+    padding: 6px 3px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--parchment);
+    font-weight: 800;
+  }
+  .brass-key small {
+    display: block;
+    color: var(--phosphor);
+    font-size: 9px;
+  }
+  .master-engage-bar {
+    background: linear-gradient(180deg, #C88228 0%, #7E4B10 100%);
+    border: 2px solid #F4C46C;
+    color: #120B04;
+    padding: 11px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 3px 8px rgba(0,0,0,0.8);
+  }
+</style>
+</head>
+<body>
+
+<div class="showcase-bar">
+  <span class="showcase-tag">方案二 · 机械教沉思者终端 (手机版 412×892 掌上鸟卜仪)</span>
+  <div class="screen-switch">
+    <button class="screen-btn active" onclick="switchAus('bio', this)">1. 鸟卜仪生命监测台</button>
+    <button class="screen-btn" onclick="switchAus('ballistic', this)">2. 弹道沉思者结算</button>
+    <button class="screen-btn" onclick="switchAus('hub', this)">3. 机魂圣物总控</button>
+  </div>
+</div>
+
+<div class="phone-frame">
+  <!-- Heavy Riveted Header Plate -->
+  <header class="cog-header">
+    <div class="cog-header-content">
+      <div class="lamp-cluster">
+        <span class="lamp"></span>
+        <span class="lamp amber"></span>
+        <div>
+          <div style="font-size:9px;color:var(--amber);letter-spacing:0.14em;">++ AUSPEX MK-IX // COGITATOR ++</div>
+          <div style="font-size:14px;font-weight:900;color:var(--parchment);" id="aus-title">转折点 II · 交战序列</div>
+        </div>
+      </div>
+      <button class="cog-undo-btn">↶ 机魂回溯 (18)</button>
+    </div>
+  </header>
+
+  <!-- Brass Nixie Score & Initiative Bar -->
+  <section class="brass-telemetry-panel">
+    <div class="nixie-box">
+      <div class="nixie-title"><span>▲ 冥工之环</span><span>★先手</span></div>
+      <div class="nixie-digits">
+        <span class="nixie-tube">04 CP</span>
+        <span class="nixie-tube">06 VP</span>
+      </div>
+    </div>
+    <div class="cog-center-wheel">
+      <img src="assets/emblem_cog_mechanicum.jpg" alt="Mechanicum">
+      <span class="tp-stamp">TP-02</span>
+    </div>
+    <div class="nixie-box">
+      <div class="nixie-title b"><span>▼ 狼侦察小队</span><span>待命</span></div>
+      <div class="nixie-digits">
+        <span class="nixie-tube green">03 CP</span>
+        <span class="nixie-tube green">05 VP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 1: BIO-SIGN AUSPEX MONITOR -->
+  <main class="crt-viewport active" id="aus-bio">
+    <div class="crt-scan-banner">
+      <span>++ 扫描波段：生物与死灵能量信号 (6/6 在场) ++</span>
+      <span>[矩阵节点: 3]</span>
+    </div>
+
+    <img src="assets/divider_cogitator.svg" alt="" style="width:100%;height:20px;">
+
+    <!-- Bio Slate 1 -->
+    <article class="bio-slate active-lock">
+      <div class="auspex-porthole">
+        <img class="unit-pic" src="../shared-portraits/roster_aod_captain.webp" alt="">
+        <img class="reticle" src="assets/crt_reticle_overlay.svg" alt="">
+      </div>
+      <div>
+        <div class="bio-name">● 地相技师 (GEOMANCER)</div>
+        <div class="bio-sub">APL 03 · 移动 06" · 豁免 3+ · [交战指令]</div>
+        <div class="ecg-bar">
+          <span class="machine-tag">⚙ 方尖碑节点矩阵</span>
+          <span class="machine-tag">⚙ 重生协议就绪</span>
+        </div>
+      </div>
+      <div class="vitals-gauge">
+        <div class="vitals-num">15/15</div>
+        <div style="font-size:9px;color:#8CCCA0;">VITAL: 100%</div>
+        <div class="brass-rockers">
+          <button class="rocker-btn">−</button>
+          <button class="rocker-btn">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bio Slate 2 -->
+    <article class="bio-slate">
+      <div class="auspex-porthole">
+        <img class="unit-pic" src="../shared-portraits/roster_aod_sniper.webp" alt="">
+        <img class="reticle" src="assets/crt_reticle_overlay.svg" alt="">
+      </div>
+      <div>
+        <div class="bio-name">◎ 冥工加速巨虫</div>
+        <div class="bio-sub">APL 02 · 移动 06" · 豁免 4+ · [隐匿指令]</div>
+        <div class="ecg-bar">
+          <span class="machine-tag">⚙ 隧道潜行标记 #2</span>
+        </div>
+      </div>
+      <div class="vitals-gauge">
+        <div class="vitals-num">12/12</div>
+        <div style="font-size:9px;color:#8CCCA0;">VITAL: 100%</div>
+        <div class="brass-rockers">
+          <button class="rocker-btn">−</button>
+          <button class="rocker-btn">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Bio Slate 3 (Damaged Warning) -->
+    <article class="bio-slate warning-lock">
+      <div class="auspex-porthole" style="border-color:var(--crimson);">
+        <img class="unit-pic" src="../shared-portraits/roster_aod_heavy_gunner.webp" alt="">
+        <img class="reticle" src="assets/crt_reticle_overlay.svg" alt="">
+      </div>
+      <div>
+        <div class="bio-name">▲ 冥工巨虫战士 [受损警报]</div>
+        <div class="bio-sub">APL 02 · 移动 04"▼ · 豁免 3+ · [交战指令]</div>
+        <div class="ecg-bar">
+          <span class="machine-tag" style="border-color:var(--crimson);color:var(--crimson);">!! 机体受创：命中阈值恶化 1 !!</span>
+        </div>
+      </div>
+      <div class="vitals-gauge">
+        <div class="vitals-num">04/14</div>
+        <div style="font-size:9px;color:var(--crimson);">VITAL: 28%</div>
+        <div class="brass-rockers">
+          <button class="rocker-btn">−</button>
+          <button class="rocker-btn">+</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- SCREEN 2: BALLISTIC COGITATOR -->
+  <main class="crt-viewport" id="aus-ballistic">
+    <section class="radar-widget">
+      <img src="assets/auspex_radar_dial.jpg" alt="Auspex Dial">
+      <div>
+        <div style="font-size:10px;color:var(--amber);">++ 弹道解算器 // 锁定目标 ++</div>
+        <div style="font-size:13px;font-weight:900;color:var(--phosphor);margin:2px 0;">高斯震击枪 → 狼侦察猎手</div>
+        <div style="font-size:10px;color:#8CCCA0;">档案：4A · 命中 3+ · 伤害 4/5 · 穿刺1 / 严重</div>
+        <div style="font-size:10px;color:var(--amber);margin-top:4px;">机魂推导：目标防御骰 3 − 穿刺 1 = 2 枚</div>
+      </div>
+    </section>
+
+    <div class="toggle-bank">
+      <div class="mech-switch">
+        <span>掩护拨杆 (COVER)</span>
+        <strong>● 普通掩护预留 [ON]</strong>
+      </div>
+      <div class="mech-switch">
+        <span>制高点探针 (VANTAGE)</span>
+        <strong>● ≥2" 精准 1 [ON]</strong>
+      </div>
+      <div class="mech-switch">
+        <span>遮挡扫描 (OBSCURED)</span>
+        <strong style="color:#639673;">○ 未遮挡 [OFF]</strong>
+      </div>
+      <div class="mech-switch">
+        <span>额外修饰 (MODIFIERS)</span>
+        <strong>+ 方尖碑节点 (平衡)</strong>
+      </div>
+    </div>
+
+    <section class="oscilloscope-dice">
+      <div style="font-size:10px;color:var(--amber);display:flex;justify-content:space-between;">
+        <span>▲ 攻击脉冲波形 (1 暴击 · 2 普通)</span>
+        <span>[点选骰子触发机械重投]</span>
+      </div>
+      <div class="osc-row">
+        <div class="cog-die amber"><strong>6</strong><span>★暴击 5伤</span></div>
+        <div class="cog-die"><strong>5</strong><span>◆精准 4伤</span></div>
+        <div class="cog-die" style="opacity:0.4;border-style:dashed;"><strong>3</strong><span>已抵消</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--phosphor);margin-top:6px;">▼ 防御护盾波形 (1 掩护普通) → 预计净损耐伤：-9 HP</div>
+    </section>
+  </main>
+
+  <!-- SCREEN 3: RELIC HUB -->
+  <main class="crt-viewport" id="aus-hub">
+    <div style="text-align:center;padding:8px;">
+      <img src="assets/auspex_radar_dial.jpg" alt="" style="width:150px;height:150px;border:2px solid var(--brass-bright);">
+      <h3 style="color:var(--phosphor);margin-top:6px;">++ 欧姆尼赛亚战术圣物库 ++</h3>
+      <p style="font-size:10px;color:#8CCCA0;margin-top:3px;">已载入 48 支杀戮小队机魂数据卡与 v11.5 核心律法</p>
+    </div>
+    <div class="toggle-bank">
+      <div class="mech-switch"><span>01 // 启动新战局</span><strong>4步认证行动协议</strong></div>
+      <div class="mech-switch"><span>02 // 军械编成库</span><strong>特工与装备烙印</strong></div>
+      <div class="mech-switch"><span>03 // 物理投骰仪</span><strong>双通道攻防振荡器</strong></div>
+      <div class="mech-switch"><span>04 // 律法档案馆</span><strong>原文页码检索</strong></div>
+    </div>
+  </main>
+
+  <!-- Heavy Brass Push-Button Deck -->
+  <footer class="brass-control-deck">
+    <div class="brass-switches-row">
+      <div class="brass-key">机动推进<small>1 AP · 6"</small></div>
+      <div class="brass-key" style="border-color:var(--phosphor);">远程齐射<small>1 AP · 开火</small></div>
+      <div class="brass-key">近战格杀<small>1 AP · 突击</small></div>
+      <div class="brass-key">机魂指令<small>节点 / 计谋</small></div>
+    </div>
+    <button class="master-engage-bar">⚙ 执行机魂裁决 // EXECUTE DIRECTIVE</button>
+  </footer>
+</div>
+
+<script>
+function switchAus(id, btn) {
+  document.querySelectorAll('.crt-viewport').forEach(el => el.classList.remove('active'));
+  document.getElementById('aus-' + id).classList.add('active');
+  document.querySelectorAll('.screen-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+const p = new URLSearchParams(location.search).get('screen');
+if (p) {
+  const btns = document.querySelectorAll('.screen-btn');
+  const idx = {bio:0, ballistic:1, hub:2}[p] || 0;
+  switchAus(p, btns[idx]);
+}
+</script>
+</body>
+</html>

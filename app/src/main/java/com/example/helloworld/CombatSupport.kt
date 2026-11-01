@@ -44,6 +44,7 @@ object KeywordValues {
     fun normalize(keywords: List<String>): List<String> = keywords.map { it.replace(" ", "") }
 
     fun values(normalized: List<String>, prefix: String): List<Int> = normalized
+        .map { it.replace(Regex("^[0-9]+[\"″“”]"), "") }
         .filter { it.startsWith(prefix) }
         .mapNotNull { number.find(it.removePrefix(prefix))?.groupValues?.getOrNull(1)?.toIntOrNull() }
 
@@ -60,4 +61,27 @@ object KeywordValues {
 
     fun lethal(normalized: List<String>, criticalThreshold: Int): Int =
         (values(normalized, "致命") + criticalThreshold).min().coerceIn(2, 6)
+}
+
+/** Datacard stats of an operative for the combat headers, with injured Move and stun APL applied. */
+object OperativeStats {
+    fun injuredMoveInches(baseInches: Int, injured: Boolean): Int =
+        if (injured) (baseInches - 2).coerceAtLeast(minOf(baseInches, 4)) else baseInches
+
+    fun line(context: android.content.Context, side: BattleSide, operative: BattleOperativeState, wounds: Int = operative.currentWounds): String {
+        val t = RosterCatalog.operative(RosterCatalog.team(side.teamId), operative.operativeId)
+        val baseApl = t?.apl ?: operative.apl
+        val apl = BattleFlow.effectiveApl(operative.copy(apl = baseApl))
+        val injured = wounds > 0 && wounds * 2 < operative.maxWounds
+        val move = t?.move?.let { printed ->
+            val inches = printed.filter(Char::isDigit).toIntOrNull()
+            if (injured && inches != null) "${injuredMoveInches(inches, true)}″（$printed）" else printed
+        }
+        return listOfNotNull(
+            "APL $apl" + if (apl != baseApl) "（$baseApl）" else "",
+            move?.let { "移动 $it" },
+            t?.save?.let { "豁免 $it" },
+            "耐伤 $wounds/${operative.maxWounds}"
+        ).joinToString(" · ")
+    }
 }

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案二：机械教沉思者终端 — 平板版 UI (Magos Bridge Dual-Cogitator Console)</title>
+<style>
+  :root {
+    --brass-dark: #1E1810;
+    --brass-mid: #5A4930;
+    --brass-bright: #B59760;
+    --crt-bg: #051109;
+    --phosphor: #42E66C;
+    --amber: #F0A830;
+    --crimson: #E0483E;
+    --parchment: #E2DAC6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #070604;
+    color: var(--parchment);
+    font-family: "SF Mono", "Menlo", "PingFang SC", monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+  }
+  .showcase-label {
+    font-size: 12px;
+    color: var(--phosphor);
+    border: 1px solid var(--brass-bright);
+    background: #1B160F;
+    padding: 5px 14px;
+    margin-bottom: 12px;
+    font-weight: 800;
+  }
+
+  /* Tablet Frame (1280 x 800) */
+  .tablet-frame {
+    width: 1280px;
+    height: 800px;
+    background: linear-gradient(135deg, #2D251A 0%, #16120D 50%, #261F15 100%);
+    border: 5px solid var(--brass-mid);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 28px 90px rgba(0,0,0,0.95);
+    padding: 12px;
+    display: grid;
+    grid-template-rows: 86px 1fr 56px;
+    gap: 10px;
+    clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px);
+  }
+
+  /* Top Heavy Armor Header with Servo-Skull Plate */
+  .cog-bridge-top {
+    background: url('assets/header_cogitator_plate.jpg') center/cover no-repeat;
+    border: 2px solid var(--brass-bright);
+    position: relative;
+    display: grid;
+    grid-template-columns: 370px 1fr 370px;
+    align-items: center;
+    padding: 0 16px;
+  }
+  .cog-bridge-top::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(14,11,8,0.92) 0%, rgba(14,11,8,0.65) 50%, rgba(14,11,8,0.92) 100%);
+  }
+  .bridge-cell { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; }
+  .bridge-cell.right { justify-content: flex-end; text-align: right; }
+  .bridge-center { position: relative; z-index: 1; text-align: center; }
+
+  .nixie-rack {
+    display: flex;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 900;
+  }
+  .nixie-unit {
+    background: #0C0906;
+    border: 1.5px solid var(--brass-bright);
+    padding: 4px 9px;
+    color: var(--amber);
+    text-shadow: 0 0 8px var(--amber);
+  }
+  .nixie-unit.green {
+    color: var(--phosphor);
+    text-shadow: 0 0 8px var(--phosphor);
+  }
+
+  /* 3-Bay Cogitator Main Console */
+  .cog-bays {
+    display: grid;
+    grid-template-columns: 350px 1fr 350px;
+    gap: 12px;
+    overflow: hidden;
+  }
+  .crt-bay {
+    background: var(--crt-bg);
+    background-image: repeating-linear-gradient(0deg, rgba(66,230,108,0.05) 0 1px, transparent 1px 3px);
+    border: 3px solid var(--brass-mid);
+    box-shadow: inset 0 0 24px rgba(0,0,0,0.95);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+  }
+  .bay-title {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--amber);
+    border-bottom: 1px solid #2C683D;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bay-unit-row {
+    background: rgba(11, 31, 19, 0.88);
+    border: 1px solid #2A6B3F;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    gap: 8px;
+    align-items: center;
+  }
+  .bay-unit-row.locked {
+    border: 2px solid var(--amber);
+    background: rgba(45, 31, 12, 0.72);
+  }
+  .bay-unit-row img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--brass-bright);
+    object-fit: cover;
+  }
+
+  /* Center Auspex Radar + Dual Oscilloscope Ballistic Matrix */
+  .center-cogitator {
+    display: grid;
+    grid-template-rows: 220px 1fr 140px;
+    gap: 10px;
+  }
+  .auspex-top-deck {
+    background: #07140B;
+    border: 3px solid var(--brass-mid);
+    padding: 10px 14px;
+    display: grid;
+    grid-template-columns: 196px 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .auspex-top-deck img {
+    width: 196px;
+    height: 196px;
+    border: 2px solid var(--brass-bright);
+    object-fit: cover;
+  }
+  .switch-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .brass-toggle-card {
+    background: #16120C;
+    border: 1px solid var(--brass-bright);
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+  .brass-toggle-card strong {
+    display: block;
+    color: var(--phosphor);
+    margin-top: 3px;
+  }
+
+  .dual-oscilloscope {
+    display: grid;
+    grid-template-columns: 1fr 165px 1fr;
+    gap: 10px;
+  }
+  .scope-box {
+    background: #040D07;
+    border: 2px solid #2F7545;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .scope-dice {
+    display: flex;
+    gap: 8px;
+    margin: 6px 0;
+  }
+  .scope-die {
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--amber);
+    background: #23190A;
+    color: var(--amber);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .scope-die.green {
+    border-color: var(--phosphor);
+    background: #0A2313;
+    color: var(--phosphor);
+  }
+  .machine-core-verdict {
+    background: linear-gradient(180deg, #282015, #15100A);
+    border: 2px solid var(--brass-bright);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .cog-footer-bar {
+    background: #17130D;
+    border: 2px solid var(--brass-mid);
+    padding: 0 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brass-btn {
+    background: linear-gradient(180deg, #473926, #241C12);
+    border: 1px solid var(--brass-bright);
+    color: var(--parchment);
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+</style>
+</head>
+<body>
+
+<div class="showcase-label">方案二 · 机械教沉思者终端 — 平板横屏大贤者舰桥级双联沉思者控制台 (1280×800)</div>
+
+<div class="tablet-frame">
+  <!-- Top Heavy Armor Header -->
+  <header class="cog-bridge-top">
+    <div class="bridge-cell">
+      <img src="assets/emblem_cog_mechanicum.jpg" alt="" style="width:52px;height:52px;border:1.5px solid var(--brass-bright);">
+      <div>
+        <div style="font-size:14px;font-weight:900;color:var(--amber);">冥工之环 (CANOPTEK CIRCLE)</div>
+        <div style="font-size:10px;color:#A8C6B0;">先手权持有 · 方尖碑矩阵激活</div>
+      </div>
+      <div class="nixie-rack">
+        <span class="nixie-unit">04 CP</span>
+        <span class="nixie-unit">06 VP</span>
+      </div>
+    </div>
+
+    <div class="bridge-center">
+      <div style="font-size:10px;color:var(--phosphor);letter-spacing:0.16em;">++ OMNISSIAH TACTICAL COGITATOR // TP-02 FIREFIGHT ++</div>
+      <div style="font-size:18px;font-weight:900;color:var(--parchment);margin-top:2px;">第二转折点 · 交战序列进行中</div>
+    </div>
+
+    <div class="bridge-cell right">
+      <div class="nixie-rack">
+        <span class="nixie-unit green">05 VP</span>
+        <span class="nixie-unit green">03 CP</span>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:900;color:var(--phosphor);">狼侦察小队 (WOLF SCOUTS)</div>
+        <div style="font-size:10px;color:#A8C6B0;">秘密主要行动已封存 · 击杀等级 1</div>
+      </div>
+      <img src="../shared-portraits/team_mark_imp_aod.png" alt="" style="width:52px;height:52px;border:1.5px solid var(--brass-bright);background:#120F0A;padding:4px;">
+    </div>
+  </header>
+
+  <!-- 3-Bay Cogitator Main Console -->
+  <main class="cog-bays">
+    <!-- Left Bay: Alpha Bio-Monitor -->
+    <section class="crt-bay">
+      <div class="bay-title">
+        <span>++ 通道 ALPHA：冥工之环 (6/6) ++</span>
+        <span>节点: 3</span>
+      </div>
+      <article class="bay-unit-row locked">
+        <img src="../shared-portraits/roster_aod_captain.webp" alt="">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:var(--amber);">● 地相技师 [当前激活]</div>
+          <div style="font-size:10px;color:#8CCCA0;">APL 03 · 6" · SV 3+ · 交战</div>
+        </div>
+        <div style="font-weight:900;color:var(--phosphor);">15/15</div>
+      </article>
+      <article class="bay-unit-row">
+        <img src="../shared-portraits/roster_aod_sniper.webp" alt="">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:var(--phosphor);">◎ 冥工加速巨虫</div>
+          <div style="font-size:10px;color:#8CCCA0;">APL 02 · 6" · SV 4+ · 隐匿</div>
+        </div>
+        <div style="font-weight:900;color:var(--phosphor);">12/12</div>
+      </article>
+      <article class="bay-unit-row">
+        <img src="../shared-portraits/roster_aod_heavy_gunner.webp" alt="">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:var(--crimson);">▲ 冥工巨虫战士 [受创]</div>
+          <div style="font-size:10px;color:#8CCCA0;">APL 02 · 4"▼ · SV 3+</div>
+        </div>
+        <div style="font-weight:900;color:var(--crimson);">04/14</div>
+      </article>
+      <article class="bay-unit-row">
+        <img src="../shared-portraits/roster_aod_sergeant.webp" alt="">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:var(--phosphor);">○ 墓穴爬行者 [已待机]</div>
+          <div style="font-size:10px;color:#8CCCA0;">APL 02 · 6" · SV 4+</div>
+        </div>
+        <div style="font-weight:900;color:var(--phosphor);">10/10</div>
+      </article>
+    </section>
+
+    <!-- Center Bay: Auspex Radar + Dual Oscilloscope Ballistic Matrix -->
+    <section class="center-cogitator">
+      <div class="auspex-top-deck">
+        <img src="assets/auspex_radar_dial.jpg" alt="Auspex Radar">
+        <div>
+          <div style="font-size:11px;color:var(--amber);font-weight:800;">++ 鸟卜仪火控锁定 // AUSPEX TARGETING TELEMETRY ++</div>
+          <div style="font-size:16px;font-weight:900;color:var(--phosphor);margin:4px 0;">地相技师 [高斯震击枪] ⟫ 狼侦察猎手 (SV 3+ · 13/13)</div>
+          <div style="font-size:11px;color:#8CCCA0;">武器参数：4A · 命中 3+ · 伤害 4/5 · 关键词：[穿刺 1] [严重] [节点平衡]</div>
+          <div class="switch-matrix">
+            <div class="brass-toggle-card">掩护拨杆<strong>● 普通预留 1</strong></div>
+            <div class="brass-toggle-card">制高点探针<strong>● ≥2" 精准 1</strong></div>
+            <div class="brass-toggle-card">烟雾/遮挡<strong style="color:#779982;">○ 无修正</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Oscilloscope Dice Matrix -->
+      <div class="dual-oscilloscope">
+        <div class="scope-box">
+          <div style="font-size:11px;color:var(--amber);font-weight:800;">▲ 攻击脉冲示波器 (1 暴击 · 2 普通)</div>
+          <div class="scope-dice">
+            <div class="scope-die"><strong>6</strong><span style="font-size:9px;">★暴击 5</span></div>
+            <div class="scope-die"><strong>5</strong><span style="font-size:9px;">◆精准 4</span></div>
+            <div class="scope-die" style="opacity:0.38;border-style:dashed;"><strong>3</strong><span style="font-size:9px;">已抵消</span></div>
+          </div>
+          <div style="font-size:10px;color:#8CCCA0;">长按任意脉冲块可注入「指挥重掷」或手动改判</div>
+        </div>
+
+        <div class="machine-core-verdict">
+          <div style="font-size:10px;color:var(--amber);">机魂裁决净伤害</div>
+          <div style="font-size:26px;font-weight:900;color:var(--crimson);">−9 HP</div>
+          <button class="brass-btn" style="background:var(--amber);color:#120C04;width:100%;">⚙ 注入伤害</button>
+          <button class="brass-btn" style="width:100%;font-size:10px;">伤害关口微调</button>
+        </div>
+
+        <div class="scope-box">
+          <div style="font-size:11px;color:var(--phosphor);font-weight:800;">▼ 防御护盾示波器 (3−穿刺1 = 2枚)</div>
+          <div class="scope-dice">
+            <div class="scope-die green"><strong>4</strong><span style="font-size:9px;">◆掩护抵挡</span></div>
+            <div class="scope-die green" style="opacity:0.35;"><strong>1</strong><span style="font-size:9px;">失败</span></div>
+          </div>
+          <div style="font-size:10px;color:var(--phosphor);">✓ 已配对抵挡 1 枚普通攻击</div>
+        </div>
+      </div>
+
+      <!-- Bottom Verbatim Log & Rule Terminal -->
+      <div class="crt-bay" style="display:grid;grid-template-columns:1.1fr 1fr;gap:12px;">
+        <div style="font-size:11px;">
+          <div style="color:var(--amber);font-weight:800;margin-bottom:4px;">++ 机魂战局日志 (支持 100 步留痕回溯) ++</div>
+          <div style="color:var(--phosphor);">> [TP2-08] 地相技师 激活「方尖碑节点矩阵」</div>
+          <div style="text-decoration:line-through;opacity:0.5;">> [TP2-07] 狼侦察猎手 指挥重掷 防御骰 2→1 (↶已撤回)</div>
+          <div>> [TP2-06] 冥工加速巨虫 完成「传输情报」(+1 VP)</div>
+        </div>
+        <div style="font-size:11px;border-left:1px solid #2A6B3F;padding-left:10px;">
+          <div style="color:var(--phosphor);font-weight:800;margin-bottom:4px;">ⓘ 核心律法原文 · 严重 (Severe) · PDF P.111</div>
+          <p style="color:var(--parchment);line-height:1.4;">如果你没有保留任何暴击成功，你可以将一枚保留的普通成功改为暴击成功（含精准预留的成功）。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Bay: Omega Bio-Monitor -->
+    <section class="crt-bay">
+      <div class="bay-title">
+        <span>++ 通道 OMEGA：狼侦察 (5/6) ++</span>
+        <span>风暴标记: 1</span>
+      </div>
+      <article class="bay-unit-row locked">
+        <img src="../shared-portraits/roster_pm_champion.webp" alt="">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:var(--amber);">◎ 狼侦察猎手 [被锁定目标]</div>
+          <div style="font-size:10px;color:#8CCCA0;">APL 03 · 6" · SV 3+ · [狼牙项链]</div>
+        </div>
+        <div style="font-weight:900;color:var(--phosphor);">13/13</div>
+      </article>
+      <article class="bay-unit-row">
+        <img src="../shared-portraits/roster_pm_plaguecaster.webp" alt="">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:var(--phosphor);">● 符文祭司侦察兵</div>
+          <div style="font-size:10px;color:#8CCCA0;">APL 03 · 6" · SV 3+ · [召唤风暴]</div>
+        </div>
+        <div style="font-weight:900;color:var(--phosphor);">12/12</div>
+      </article>
+      <article class="bay-unit-row">
+        <img src="../shared-portraits/roster_pm_bombardier.webp" alt="">
+        <div>
+          <div style="font-size:12px;font-weight:800;color:var(--phosphor);">● 芬里斯巨狼</div>
+          <div style="font-size:10px;color:#8CCCA0;">APL 02 · 8" · SV 5+ · 隐匿</div>
+        </div>
+        <div style="font-weight:900;color:var(--phosphor);">09/09</div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Bottom Brass Control Bar -->
+  <footer class="cog-footer-bar">
+    <div style="display:flex;gap:8px;">
+      <span class="brass-btn">🎲 机械振荡投骰仪 (D6/D3)</span>
+      <span class="brass-btn">📜 阵营完整规则卡册</span>
+      <span class="brass-btn">⚙ 规则例外干预 (借用武器 / 替换数据卡 / 双人联动)</span>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <span class="brass-btn" style="color:var(--amber);">↶ 撤回上一指令</span>
+      <span class="brass-btn" style="background:var(--phosphor);color:#061209;">⚙ 结束当前特工激活 ⟫</span>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

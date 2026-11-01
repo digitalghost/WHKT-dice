@@ -1,0 +1,878 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-GOREMONGERS",
+  "team_name_zh": "洒血狂",
+  "team_name_en": "Goremongers",
+  "source_pdf": "最新杀戮小队规则更新/洒血狂杀戮小队 Goremongers 杀戮小队规则.pdf",
+  "source_pdf_sha256": "141fbacb78b4374242ebd342fc3269cd486a986a903466408ee86c350b90875c",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 33,
+    "operative": 7,
+    "operative-ability": 2,
+    "team-selection": 1,
+    "faction-rule": 10,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-goremongers-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "洒血狂鲜血使者-数据卡",
+      "title_en": "GOREMONGER BLOOD HERALD",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-洒血狂鲜血使者-数据卡.png",
+      "is_back": false,
+      "text": "洒血狂鲜血使者 APL 移动豁免耐伤\n2 7\" 5+ 11\n名称攻击命中伤害武器规则\n恐虐符章 4 2+ 4/4 范围 8\"、集中\n链锯刃 4 3+ 4/5 撕裂\n恐虐恩泽：在这名特工的每次激活中限一次，在其\n执行一次行动之前或之后，若其血污储罐为空载，\n您便可以增加其血污储罐内容。\n即将成魔：每场战斗限一次，当一枚攻击骰子对\n这名特工造成普通伤害时，您可以忽视其造成的\n伤害。\n洒血狂、混沌、队长、鲜血使者 32",
+      "weapon_types": {
+        "恐虐符章": "远程",
+        "链锯刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER BLOOD HERALD\n2 7\" 5+ 11\nNAME A HIT D WR\nIcon of Khorne 4 2+ 4/4 Range 8\", Saturate\nChainblade 4 3+ 4/5 Rending\nKhorne’s Favour: Once during each of this operative’s\nactivations, before or after it performs an action, if its GORE\nTANK is empty, you can increase its GORE TANK.\nImpending Apotheosis: Once per battle, when an attack dice\ninflicts Normal Dmg on this operative, you can ignore that\ninflicted damage.\nGOREMONGER , CHAOS, LEADER, BLOOD HERALD 32"
+    },
+    {
+      "id": "kt-goremongers-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "洒血狂新进者-数据卡",
+      "title_en": "GOREMONGER ASPIRANT",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-洒血狂新进者-数据卡.png",
+      "is_back": false,
+      "text": "洒血狂新进者 APL 移动豁免耐伤\n2 7\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n链锯长刀 4 3+ 4/5 撕裂\n沉溺渴血：每个转折点限一次，每当拥有这个规则\n的一名特工在近战行动结束时，若它不再位于敌方\n特工控制范围内，您可以使用本规则，若使用，立\n即执行一次无消耗的冲锋行动（即便其在那次激活\n中已经执行过冲锋行动），但在那次行动中不能移\n动超过 2\"。执行本规则不会影响它在那个行动结束\n后执行冲锋，冲刺或转移行动。\n洒血狂、混沌、新进者 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "链锯长刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER ASPIRANT\n2 7\" 5+ 10\nNAME A HIT D WR\nAutopistol 4 4+ 2/3 Range 8\"\nChainglaive 4 3+ 4/5 Rending\nObsessive Bloodlust: Once per turning point, when an operative\nwith this rule ends the Fight action, if it’s no longer within\ncontrol range of enemy operatives, you can use this rule. If you\ndo, it can immediately perform a free Charge action (even if it’s\nalready performed the Charge action during that activation),\nbut it cannot move more than 2\" during that action. Doing so\ndoesn’t prevent it from performing the Charge, Dash or\nReposition action afterwards during that activation.\nGOREMONGER , CHAOS, ASPIRANT 32"
+    },
+    {
+      "id": "kt-goremongers-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "洒血狂猎血者-数据卡",
+      "title_en": "GOREMONGER BLOODTAKER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-洒血狂猎血者-数据卡.png",
+      "is_back": false,
+      "text": "洒血狂猎血者 APL 移动豁免耐伤\n2 7\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n仪式战刃 4 3+ 3/5 仪式*\n*仪式：当这名特工使用这件武器时，在那个流程中\n对一名位于其控制范围内的特工首次造成伤害时，\n您可以增加其血污储罐内容。请注意，这能够与增\n加血污储罐内容的常规规则累加（即在其控制范围\n内残废一名特工）。\n输血仪式 1AP\n减少其血污储罐内容，但不要使用猩红活剂规\n则。您可以为这名特工 8\" 内的另一名己方洒血\n狂特工增加其血污储罐内容。\n该特工不能在敌方特工的控制范围内或其血污储\n罐内容为空载时执行此行动。\n洒血狂、混沌、猎血者 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "仪式战刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER BLOODTAKER\n2 7\" 5+ 10\nNAME A HIT D WR\nAutopistol 4 4+ 2/3 Range 8\"\nRitual blade 4 3+ 3/5 Ritual*\n*Ritual: Whenever this operative is using this weapon, the\nfirst time you inflict damage on an operative within its control\nrange during that sequence, you can increase this operative’s\nGORE TANK. Note this is cumulative with the normal rules for\nincreasing its GORE TANK (i.e. if it incapacitates an operative\nwithin its control range).\nTRANSFUSION RITUAL 1AP\nDecrease this operative’s GORE TANK. Instead of using a\nSANGUAVITAE rule, you can increase the GORE TANK\nof one other friendly GOREMONGER operative within 8\"\nof this operative.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if its GORE TANK is empty.\nGOREMONGER , CHAOS, BLOODTAKER 32"
+    },
+    {
+      "id": "kt-goremongers-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "洒血狂穿刺者-数据卡",
+      "title_en": "GOREMONGER IMPALER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-洒血狂穿刺者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n洒血狂穿刺者\n2 7\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n血肉穿刺者（远程） 4 3+ 4/5 范围 8\"、眩晕、关键穿刺 1、拖动*\n血肉穿刺者（刺击） 4 3+ 3/4 -\n*拖动：当这名特工使用这个武器由一条或多条直线组合完成，每\n时，在结算攻击骰子步骤的开始条直线的距离都需要向上取整至\n时（造成伤害之前），您可以将最近的英寸。若目标在移动中跳\n目标移动至多 x\"。X 值为您没有落，忽视其垂直距离。随后您可\n被格挡的成功攻击骰子总数乘以以弃置任意己方未被格挡且成功\n2。目标必须被移动至尽可能靠的攻击骰（换言之，您可以选择\n近这名特工的位置，具体位置由不造成任意次数伤害）。\n您使用的 x\" 决定。这种移动必须\n请继续阅读背面规则\n洒血狂、混沌、穿刺者 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "血肉穿刺者（远程）": "远程",
+        "血肉穿刺者（刺击）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER IMPALER\n2 7\" 5+ 10\nNAME A HIT D WR\nAutopistol 4 4+ 2/3 Range 8\"\nFleshskewer (ranged) 4 3+ 4/5 Range 8\", Piercing Crits 1, Stun, Drag*\nFleshskewer (stab) 4 3+ 3/4 -\n*Drag: Whenever this operative is shooting with this weapon, at the start of the Resolve Attack Dice step (before inflicting damage),\nyou can move the target up to x\". X is your total number of successful unblocked attack dice, multiplied by 2. The target must be\nmoved to a location it can be placed as close as possible to this operative, determined by the x\" you choose to use. The move must\nbe done in one or more straight-line increments, and increments are always rounded up to the nearest inch. Whenever the target is\ndropping during that move, ignore the vertical distance. Then you can discard any of your successful unblocked attack dice (in other\nwords, you can choose not to inflict damage with any number of them).\nRULES CONTINUE ON OTHER SIDE\nGOREMONGER , CHAOS, IMPALER 32"
+    },
+    {
+      "id": "kt-goremongers-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "洒血狂穿刺者-能力卡",
+      "title_en": "GOREMONGER IMPALER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-洒血狂穿刺者-能力卡.png",
+      "is_back": false,
+      "text": "洒血狂穿刺者 APL 移动豁免耐伤\n2 7\" 5+ 10\n血污燃料 1AP\n减少该特工血污储罐的内容。在该特工使用其血肉穿刺者的任意数据之前，两个武器数据都拥有“严\n重”武器规则。\n该特工不能在位于敌方特工控制范围内时执行该行动，或在血污储罐为空时执行该行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER IMPALER\n2 7\" 5+ 10\nGORE-FUEL 1AP\nDecrease this operative’s GORE TANK. Until this operative uses any profile of its fleshskewer, all profiles of it have the Severe\nweapon rule.\nThis operative cannot perform this action while within control range of an enemy operative, or if its GORE TANK is empty."
+    },
+    {
+      "id": "kt-goremongers-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "洒血狂鼓动者-数据卡",
+      "title_en": "GOREMONGER INCITER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-洒血狂鼓动者-数据卡.png",
+      "is_back": false,
+      "text": "洒血狂鼓动者 APL 移动豁免耐伤\n2 7\" 5+ 10\n名称攻击命中伤害武器规则\n双持自动手枪（集中） 4 3+ 2/2 范围 8\"、无休、毁灭 1、撕裂\n双持自动手枪（盲射） 4 3+ 3/4 无休、撕裂\n冲刺速射 1AP\n这名特工以任意顺序执行一次无消耗的冲刺行动\n和一次无消耗的射击行动，但在那次射击行动中\n只能选择双持自动手枪（集中）。\n该特工不能在敌方特工的控制范围内或处于隐匿\n命令时执行此行动。\n请继续阅读背面规则\n洒血狂、混沌、鼓动者 32",
+      "weapon_types": {
+        "双持自动手枪（集中）": "远程",
+        "双持自动手枪（盲射）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER INCITER\n2 7\" 5+ 10\nNAME A HIT D WR\nDual autopistols (focused) 4 3+ 2/2 Range 8\", Ceaseless, Devastating 1, Rending\nDual autopistols (point-blank) 4 3+ 3/4 Ceaseless, Rending\nDASH AND SPRAY 1AP\nPerform a free Dash action and a free Shoot action\nwith this operative in any order. You can only select dual\nautopistols (focused) for that Shoot action.\nThis operative cannot perform this action while it has\na Conceal order, or while within control range of an\nenemy operative.\nRULES CONTINUE ON OTHER SIDE\nGOREMONGER , CHAOS, INCITER 32"
+    },
+    {
+      "id": "kt-goremongers-01-07",
+      "sequence": 7,
+      "category": "operative-ability",
+      "title_zh": "洒血狂鼓动者-能力卡",
+      "title_en": "GOREMONGER INCITER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工能力-洒血狂鼓动者-能力卡.png",
+      "is_back": false,
+      "text": "洒血狂鼓动者 APL 移动豁免耐伤\n2 7\" 5+ 10\n煽动猎杀：当这名特工将距离其 2\" 外的一名敌方特\n工残废时，在将那名特工从杀戮区移除前，您可以\n增加那名敌方特工 8\" 内的一名己方洒血狂特工的\n血污储罐内容。\n每当这名特工使用双持自动手枪的任意资料对一名\n敌方特工造成伤害但并没有将其残废时，那名敌方\n特工获得一枚己方流血指示物（如果其尚未拥有一\n个)。当一名己方洒血狂特工在激活或反击中执行\n行动前或执行行动后，若其位于拥有一枚己方流血\n指示物的敌方特工 8\" 内，您便可以移除那枚指示\n物，并增加其血污储罐内容。",
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER INCITER\n2 7\" 5+ 10\nIncite the Hunt: Whenever this operative incapacitates an enemy\noperative from more than 2\" away, before that enemy operative\nis removed from the killzone, you can increase the GORE TANK\nof one friendly GOREMONGER operative within 8\" of that\nenemy operative.\nWhenever this operative inflicts damage on an enemy\noperative with either profile of its dual autopistols but doesn’t\nincapacitate it, that enemy operative gains one of your Bleeding\ntokens (if it doesn’t already have one). During a friendly\nGOREMONGER operative’s activation or counteraction,\nbefore or after it performs an action, if it’s within 8\" of an enemy\noperative that has one of your Bleeding tokens, you can remove\nthat token and increase that friendly operative’s GORE TANK."
+    },
+    {
+      "id": "kt-goremongers-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "洒血狂猎颅者-数据卡",
+      "title_en": "GOREMONGER SKULLCLAIMER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-洒血狂猎颅者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n洒血狂猎颅者\n2 7\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n链锯巨斧 4 3+ 5/6 残暴\n残暴：当一枚攻击骰子会对这名特工造成暴击伤\n害时，您可以选择将那枚攻击骰子替换成造成普\n通伤害。\n猎颅：每个转折点限一次，当这名特工使用其链锯\n巨斧残废一名敌方特工时，您便获得 1 CP。\n洒血狂、混沌、猎颅者 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "链锯巨斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER SKULLCLAIMER\n2 7\" 5+ 10\nNAME A HIT D WR\nAutopistol 4 4+ 2/3 Range 8\"\nGreat chainaxe 4 3+ 5/6 Brutal\nBrutish: Whenever an attack dice would inflict Critical Dmg\non this operative, you can choose for that attack dice to inflict\nNormal Dmg instead.\nClaim Skull: Once per turning point, if this operative\nincapacitates an enemy operative with its great chainaxe, you\ngain 1CP.\nGOREMONGER , CHAOS, SKULLCLAIMER 32"
+    },
+    {
+      "id": "kt-goremongers-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "洒血狂追猎者-数据卡",
+      "title_en": "GOREMONGER STALKER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-洒血狂追猎者-数据卡.png",
+      "is_back": false,
+      "text": "洒血狂追猎者 APL 移动豁免耐伤\n2 7\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n撕裂镐 4 3+ 4/5 撕裂\n攀登镐：每当这名特工攀爬时，将其经过的垂直\n距离视为 2\"（无论这名特工实际垂直移动了多少\n距离）。\n屋顶上的追猎者：每当这名特工在激活中从高于杀\n戮区地面至少 2\" 的制高点地形跳落后近战，或每当\n这名特工与高于杀戮区地面至少 2\" 的制高点地形上\n的敌方特工进行近战时，其近战武器都获得“毫不\n留情”武器规则。\n洒血狂、混沌、追猎者 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "撕裂镐": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nGOREMONGER STALKER\n2 7\" 5+ 10\nNAME A HIT D WR\nAutopistol 4 4+ 2/3 Range 8\"\nPickrippers 4 3+ 4/5 Rending\nClimbing Picks: Whenever this operative is climbing up, you\ncan treat the vertical distance as 2\" (regardless of how far the\noperative actually moves vertically).\nRooftop Stalker: Whenever this operative is fighting during\nan activation in which it dropped from Vantage terrain at least\n2\" higher than the killzone floor, or whenever this operative is\nfighting against an enemy operative that’s on Vantage terrain\nat least 2\" higher than the killzone floor, this operative’s melee\nweapons have the Relentless weapon rule.\nGOREMONGER , CHAOS, STALKER 32"
+    },
+    {
+      "id": "kt-goremongers-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "洒血狂杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-洒血狂杀戮小队.png",
+      "is_back": false,
+      "text": "洒血狂杀戮小队\n原型：侦查、搜索与摧毁\n特工\n↘ 1 名洒血狂鲜血使者特工\n↘ 7 名洒血狂特工，从以下列表进行选择:\n• 新进者\n• 猎血者\n• 穿刺者\n• 鼓动者\n• 猎颅者\n• 追猎者\n除了新进者特工以外，上述的每一名特工只能被\n纳入您的杀戮小队一次。",
+      "text_en": "GOREMONGERS KILL TEAM\nARCHETYPES: RECON, SEEK & DESTROY\nOPERATIVES\n↘ 1 GOREMONGER BLOOD HERALD operative\n↘ 7 GOREMONGER operatives selected from the\nfollowing list:\n• ASPIRANT\n• BLOODTAKER\n• IMPALER\n• INCITER\n• SKULLCLAIMER\n• STALKER\nOther than ASPIRANT operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-goremongers-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "恐虐符文",
+      "title_en": "RUNES OF KHORNE",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-恐虐符文.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n恐虐符文\n洒血狂通过将恐虐符文刻入血肉，获得炼狱般\n的远程攻击抗性。\n每一名己方洒血狂特工在每次射击行动中不会\n失去超过 8 点耐伤。",
+      "text_en": "GOREMONGER\nFACTION RULE\nRUNES OF KHORNE\nKhornate runes carved into the flesh of Goremongers\ngive them an infernal resistance to ranged attacks.\nEach friendly GOREMONGER operative cannot\nlose more than 8 wounds per Shoot action."
+    },
+    {
+      "id": "kt-goremongers-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "血污储罐-1",
+      "title_en": "GORE TANKS",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-血污储罐-1.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n血污储罐\n洒血狂的储罐中装着由兴奋剂，重组蛋白以\n及炼金燃料组成的混剂。这种复合药剂能为\n持有者供给能量，但需要持续不断的血液以\n及其他材料供给，以便炼狱炼金术能够发挥最\n大效力。\n每一名己方洒血狂特工都有一个血污储罐，它\n们有三种状态：满载，半载和空载。血污储罐在\n战斗开始时为半载状态。当血污储罐内容增加\n时，便会上升一级；每当其减少时，便会下降一\n级，血污储罐在已经满载时无法增加内容，在已\n经空载时无法减少内容（见下图）。\n请继续阅读背面规则",
+      "text_en": "GOREMONGER\nFACTION RULE\nGORE TANKS\nGoremongers’ tanks contain a concoction of stimms,\nrecombinant proteins and alchemical fuel. This cocktail\nenergises the carrier, but the tanks require a constant\nsupply of blood and gore for the infernal alchemy to\nfunction at peak efficiency.\nEach friendly GOREMONGER operative has a\nGORE TANK that has three levels: full, half and\nempty. They start the battle at half. Whenever\na GORE TANK increases, it goes up one level;\nwhenever it decreases, it goes down one level.\nA GORE TANK cannot increase when it’s already\nfull, or decrease when it’s already empty (see\ndiagram on other side).\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-goremongers-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "血污储罐-2",
+      "title_en": "GORE TANKS",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-血污储罐-2.png",
+      "is_back": true,
+      "text": "每当一名己方洒血狂特工将在其控制范围内，\n或在其 2\" 内且可见的一名特工残废，您便可以\n增加其血污储罐内容。\n每当一名己方洒血狂特工使用猩红活剂规则时\n（见右侧），您便必须减少其血污储罐内容。\n满载\n减少\n增加\n半载\n减少\n增加\n空载\n（移除指示物）",
+      "text_en": "Whenever a friendly GOREMONGER operative\nincapacitates an operative within its control\nrange, or visible to and within 2\" of it, you can\nincrease its GORE TANK.\nWhenever a friendly GOREMONGER operative\nuses a SANGUAVITAE rule, you must decrease its\nGORE TANK.\nFULL\nDECREASE\nINCREASE\nHALF\nDECREASE\nINCREASE\nEMPTY\n(REMOVE TOKEN)"
+    },
+    {
+      "id": "kt-goremongers-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "猩红活剂-1",
+      "title_en": "SANGUAVITAE",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-猩红活剂-1.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n猩红活剂\n洒血狂储罐中含有血液的混剂名为猩红活剂。\n借助这种液体，他们能够做出各种远超大多数\n人类能力范围的血腥暴行。通过这些供给，他\n们得以效仿放血者并对恐虐表现自己的崇拜。\n每个猩红活剂规则都会描述其使用时机，并且在\n使用时必须使特工的血污储罐内容减少。在每次\n激活或反应中您不能使用同一个猩红活剂规则超\n过一次，并且不能在每次激活或反应中使用猩红\n活剂规则超过两次。此外，您不能在同一次激活\n中同时使用癫狂和狂怒。\n猩红活剂的详细规则请见其他卡片",
+      "text_en": "GOREMONGER\nFACTION RULE\nSANGUAVITAE\nThe blood-infused concoction within the Goremongers’\ntanks is known as sanguavitae. Empowered by this fluid,\nthey can undertake gore-drenched deeds far beyond the\ncapabilities of most Humans. Through these acts they\nemulate Bloodletters and venerate Khorne.\nEach SANGUAVITAE rule specifies when it can\nbe used, and you must decrease the operative’s\nGORE TANK to do so. You cannot use the same\nSANGUAVITAE rule more than once per activation\nor counteraction, and you cannot use more\nthan two SANGUAVITAE rules per activation or\ncounteraction. You cannot use Mania and Fury\nduring the same activation.\nSANGUAVITAE RULES ARE PRESENTED ON\nTHEIR OWN CARDS"
+    },
+    {
+      "id": "kt-goremongers-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "猩红活剂-2",
+      "title_en": "SANGUAVITAE",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-05-阵营规则-猩红活剂-2.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n猩红活剂\n唤活\n时机：在一名己方洒血狂特工激活或反应\n中，执行行动之前或之后。\n效果：这名特工恢复最多 D3+1 点失去的耐\n伤。",
+      "text_en": "GOREMONGER\nFACTION RULE\nSANGUAVITAE\nRejuvenate\nWHEN: During a friendly GOREMONGER\noperative’s activation or counteraction,\nbefore or after it performs an action.\nEFFECT: That operative regains up to D3+1\nlost wounds."
+    },
+    {
+      "id": "kt-goremongers-11-06",
+      "sequence": 6,
+      "category": "faction-rule",
+      "title_zh": "猩红活剂-3",
+      "title_en": "SANGUAVITAE",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-06-阵营规则-猩红活剂-3.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n猩红活剂\n癫狂\n时机：在一名己方洒血狂特工激活或反应\n中，执行行动之前或之后。\n效果：直到这名特工的下一次激活开始前，为\n其 APL 属性增加 1 点。",
+      "text_en": "GOREMONGER\nFACTION RULE\nSANGUAVITAE\nMania\nWHEN: During a friendly GOREMONGER\noperative’s activation, before or after it\nperforms an action.\nEFFECT: Until the start of that operative’s next\nactivation, add 1 to its APL stat."
+    },
+    {
+      "id": "kt-goremongers-11-07",
+      "sequence": 7,
+      "category": "faction-rule",
+      "title_zh": "猩红活剂-4",
+      "title_en": "SANGUAVITAE",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-07-阵营规则-猩红活剂-4.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n猩红活剂\n狂怒\n时机：在一名己方洒血狂特工激活或反应\n中，执行行动之前或之后。\n效果：那名特工可以在那次激活中执行两次近\n战行动，且其中的第二次为无消耗的。",
+      "text_en": "GOREMONGER\nFACTION RULE\nSANGUAVITAE\nFury\nWHEN: During a friendly GOREMONGER\noperative’s activation, before or after it\nperforms an action.\nEFFECT: That operative can perform two Fight\nactions during that activation, and the\nsecond one is free."
+    },
+    {
+      "id": "kt-goremongers-11-08",
+      "sequence": 8,
+      "category": "faction-rule",
+      "title_zh": "猩红活剂-5",
+      "title_en": "SANGUAVITAE",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-08-阵营规则-猩红活剂-5.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n猩红活剂\n扫击\n时机：当一名己方洒血狂特工在其激活期间\n执行冲锋行动。\n效果：当那名特工在那次行动中结束移动时，\n您可以令位于其控制范围内的一名敌方\n特工受到 D3 点伤害。",
+      "text_en": "GOREMONGER\nFACTION RULE\nSANGUAVITAE\nRake\nWHEN: When a friendly GOREMONGER\noperative performs the Charge action\nduring its activation.\nEFFECT: When that operative finishes moving\nduring that action, you can inflict D3\ndamage on one enemy operative within\nits control range."
+    },
+    {
+      "id": "kt-goremongers-11-09",
+      "sequence": 9,
+      "category": "faction-rule",
+      "title_zh": "猩红活剂-6",
+      "title_en": "SANGUAVITAE",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-09-阵营规则-猩红活剂-6.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n猩红活剂\n猛冲\n时机：当一名己方洒血狂特工执行冲锋或转\n移行动。\n效果：直到那次行动结束前，为那名特工的移\n动属性增加 1\"。",
+      "text_en": "GOREMONGER\nFACTION RULE\nSANGUAVITAE\nSurge\nWHEN: When a friendly GOREMONGER\noperative performs the Charge or\nReposition action.\nEFFECT: Until the end of that action, add 1\" to\nthat operative’s Move stat."
+    },
+    {
+      "id": "kt-goremongers-11-10",
+      "sequence": 10,
+      "category": "faction-rule",
+      "title_zh": "猩红活剂-7",
+      "title_en": "SANGUAVITAE",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-10-阵营规则-猩红活剂-7.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营规则\n猩红活剂\n忿怒\n时机：当一名己方洒血狂特工执行近战行\n动。\n效果：直到那次行动结束前，为那名特工近战\n武器的攻击属性增加 1 点。",
+      "text_en": "GOREMONGER\nFACTION RULE\nSANGUAVITAE\nRage\nWHEN: When a friendly GOREMONGER\noperative performs the Fight action.\nEFFECT: Until the end of that action, add 1\nto the Atk stat of that operative’s\nmelee weapons."
+    },
+    {
+      "id": "kt-goremongers-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "GOREMONGER",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "洒血狂\n标识/指示物指南\n血污储罐指示血污储罐指示即将成魔指\n物（满载）物（半载）示物\n流血指示物猎颅指示物血腥尸体标识\n血污图腾标识混沌印记腕缚链条\n指示物指示物",
+      "text_en": "GOREMONGER\nMARKER/TOKEN GUIDE\nGore Tank Gore Tank Impending\ntoken (full) token (half) Apotheosis\ntoken\nBleeding token Claim Skull Bloody\ntoken Cadaver\nmarker\nGory Totem Chaos Sigil Wrist Chains\nmarker token token"
+    },
+    {
+      "id": "kt-goremongers-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "强化残暴",
+      "title_en": "ENHANCED VIOLENCE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-强化残暴.png",
+      "is_back": false,
+      "text": "洒血狂\n战略计谋\n强化残暴\n在猩红活剂赋予的力量下，洒血狂的战斗力比\n起任何未经强化的人类都更为凶猛和干练。\n每当一名己方洒血狂特工的血污储罐处于：\n• 半载，其近战武器获得“平衡”武器规则。\n• 满载，其近战武器获得“毫不留情”武器规\n则。",
+      "text_en": "GOREMONGER\nSTRATEGY PLOY\nENHANCED VIOLENCE\nWhen powered by sanguavitae, Goremongers\nfight with far greater ferocity and skill than any\nunaugmented Human.\nWhenever a friendly GOREMONGER operative’s\nGORE TANK is:\n• Half, its melee weapons have the Balanced\nweapon rule.\n• Full, its melee weapons have the Relentless\nweapon rule."
+    },
+    {
+      "id": "kt-goremongers-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "耐力增强",
+      "title_en": "AUGMENTED ENDURANCE",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-耐力增强.png",
+      "is_back": false,
+      "text": "洒血狂\n战略计谋\n耐力增强\n猩红活剂的注入能使目标的身心甚至灵魂都极\n为坚韧。\n当一名己方洒血狂特工受到一名特工射击时，\n其血污储罐处于：\n• 半载，您可以重掷一枚己方防御骰子。\n• 满载，您可以重掷任意己方防御骰子。",
+      "text_en": "GOREMONGER\nSTRATEGY PLOY\nAUGMENTED ENDURANCE\nAn infusion of sanguavitae serves to harden the\nsubject’s mind, body and soul, rendering them\nsupremely resilient.\nWhenever an operative is shooting a friendly\nGOREMONGER operative, if that friendly\noperative’s GORE TANK is:\n• Half, you can re-roll one of your defence dice.\n• Full, you can re-roll any of your defence dice."
+    },
+    {
+      "id": "kt-goremongers-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "血腥坚毅",
+      "title_en": "GORY TENACITY",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-血腥坚毅.png",
+      "is_back": false,
+      "text": "洒血狂\n战略计谋\n血腥坚毅\n屠杀愿景让洒血狂陷入了狂怒中。在这种怒火\n下，他们甚至不会受到极为严重伤害的影响。\n当一名己方洒血狂特工进行近战或反击时，您\n的对手在那个流程中第一次使用出击时，将其\n伤害减半（向上取整，最低为 2）。",
+      "text_en": "GOREMONGER\nSTRATEGY PLOY\nGORY TENACITY\nThe prospect of carnage drives Goremongers into\na maniacal fury. Enraged thus, they are capable of\nshrugging off terrible wounds.\nWhenever a friendly GOREMONGER operative is\nfighting or retaliating, the first time your opponent\nstrikes it during that sequence, halve the damage\ninflicted (rounding up and to a minimum of 2)."
+    },
+    {
+      "id": "kt-goremongers-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "狩猎鲜血",
+      "title_en": "HUNT FOR BLOOD",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-狩猎鲜血.png",
+      "is_back": false,
+      "text": "洒血狂\n战略计谋\n狩猎鲜血\n随着鲜血飞溅，铜臭味充斥于空气中，导致洒\n血狂陷入狂热饥渴中。\n选择一名己方洒血狂特工，若其拥有隐匿命\n令，则将其转变为交战。随后它可以立即执行\n一次无消耗的冲锋行动，但在那次行动中移动\n不能超过 3\"。",
+      "text_en": "GOREMONGER\nSTRATEGY PLOY\nHUNT FOR BLOOD\nAs blood is spilled, its copper scent fills the air, driving\nthe Goremongers into a thirsting frenzy.\nSelect one friendly GOREMONGER operative. If\nit has a Conceal order, change it to Engage. Then\nit can immediately perform a free Charge action,\nbut cannot move more than 3\" during that action."
+    },
+    {
+      "id": "kt-goremongers-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "无边好斗",
+      "title_en": "UNBRIDLED AGGRESSION",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-无边好斗.png",
+      "is_back": false,
+      "text": "洒血狂\n交战计谋\n无边好斗\n洒血狂一旦接近敌人，便会展现出他崇敬放血\n者的狂野怒火和武艺进行战斗。\n在一名己方洒血狂特工在执行过冲锋行动的激\n活中进行近战的掷攻击骰子步骤结束时使用此交\n战计谋。直到那个流程结束前，那名特工的近战\n武器获得“严重”武器规则。",
+      "text_en": "GOREMONGER\nFIREFIGHT PLOY\nUNBRIDLED AGGRESSION\nWhen they close with the enemy, Goremongers fight\nwith all the savage fury and martial prowess of the\nBloodletters they so idolise.\nUse this firefight ploy when a friendly\nGOREMONGER operative is fighting during\nan activation in which it performed the Charge\naction, at the end of the Roll Attack Dice step.\nUntil the end of that sequence, that operative’s\nmelee weapons have the Severe weapon rule."
+    },
+    {
+      "id": "kt-goremongers-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "渴望血肉",
+      "title_en": "GORETHIRST",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-渴望血肉.png",
+      "is_back": false,
+      "text": "洒血狂\n交战计谋\n渴望血肉\n洒血狂就如同飞蛾扑火般受暴力吸引，难以克\n制自己对泼洒脏器的渴望。\n在将要使用一名己方洒血狂特工进行反应时使\n用此交战计谋。您可以为此选择拥有隐匿命令的\n一名己方洒血狂特工，但在反应前，您必须将\n其命令改为交战，且在那次反应中不能执行任何\n除了冲锋，近战或射击以外的行动。",
+      "text_en": "GOREMONGER\nFIREFIGHT PLOY\nGORETHIRST\nGoremongers are drawn to violence like insects\nto blazing lumen, unable to control their thirst to\nspill viscera.\nUse this firefight ploy when you would counteract.\nYou can do so with one friendly GOREMONGER\noperative that has a Conceal order, but before it\ncounteracts, you must change its order to Engage\nand it cannot perform any actions other than\nCharge, Shoot or Fight during that counteraction."
+    },
+    {
+      "id": "kt-goremongers-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "毁灭性消散",
+      "title_en": "DESTRUCTIVE DEMISE",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-毁灭性消散.png",
+      "is_back": false,
+      "text": "洒血狂\n交战计谋\n毁灭性消散\n在敌人鲜血的力量加持下，身负重伤的洒血狂\n会在倒下前疯狂复仇。\n当一名己方洒血狂特工被残废时，在将其移出\n杀戮区前使用此交战计谋。位于那名己方特工控\n制范围内的一名敌方特工将受到对应于其血污储\n罐状态的伤害：\n• 当其血污储罐状态为空载时，受到 D3 点伤\n害。\n• 当其血污储罐状态为半载时，受到 D3+1 点\n伤害。\n• 当其血污储罐状态为满载时，受到 D3+2 点\n伤害。",
+      "text_en": "GOREMONGER\nFIREFIGHT PLOY\nDESTRUCTIVE DEMISE\nEmpowered by the blood of their foes, mortally wounded\nGoremongers expend the last of their might in a\nvengeful frenzy.\nUse this firefight ploy when a friendly\nGOREMONGER operative is incapacitated,\nbefore it’s removed from the killzone. Inflict\ndamage determined by that friendly operative’s\nGORE TANK on one enemy operative within that\nfriendly operative’s control range. Inflict:\n• D3 if empty.\n• D3+1 if half.\n• D3+2 if full."
+    },
+    {
+      "id": "kt-goremongers-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "撕裂血肉",
+      "title_en": "LACERATE FLESH",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-撕裂血肉.png",
+      "is_back": false,
+      "text": "洒血狂\n交战计谋\n撕裂血肉\n洒血狂甚至会用自己的猩红液体补充其血罐。\n当然，这是只有在绝望疯狂中才会使用的最\n后手段。\n在血污储罐状态为空载的一名己方洒血狂特工\n进行激活或反应时使用此交战计谋。增加那名特\n工的血污储罐内容，并在那次激活或反击结束时\n减少其血污储罐内容（您不能通过这次减少使用\n猩红活剂规则）；若您无法再减少其血污储罐内\n容，它便受到 D3 点伤害。",
+      "text_en": "GOREMONGER\nFIREFIGHT PLOY\nLACERATE FLESH\nGoremongers may resort to topping up their blood tanks\nwith their own crimson fluid. Doing so is a last resort,\nundertaken only in a desperate frenzy.\nUse this firefight ploy when a friendly\nGOREMONGER operative with an empty GORE\nTANK is activated or counteracts. Increase\nthat operative’s GORE TANK. At the end of that\nactivation/counteraction, decrease its GORE\nTANK (you cannot use this decrease to use a\nSANGUAVITAE rule); if you cannot decrease its\nGORE TANK, inflict D3 damage on it."
+    },
+    {
+      "id": "kt-goremongers-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "血污图腾",
+      "title_en": "GORY TOTEM",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-血污图腾.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营装备\n血污图腾\n血污以及剥制的头骨划出了洒血狂的地盘。\n在战斗前，您可以将一枚己方血污图腾标识放置\n在完全位于己方领地内且位于其他标识（己方\n血腥尸体标识除外）的 2\" 外。每当一名敌方特\n工在己方血污图腾 3\" 内进行射击，近战或反击\n时，您的对手便无法为它重掷攻击骰子。",
+      "text_en": "GOREMONGER\nFACTION EQUIPMENT\nGORY TOTEM\nGore and peeled skulls mark the limits of the\nGoremongers’ territory.\nBefore the battle, you can set up one of your Gory\nTotem markers wholly within your territory and\nmore than 2\" from other markers (excluding your\nBloody Cadaver marker). Whenever an enemy\noperative within 3\" of your Gory Totem marker is\nshooting, fighting or retaliating, your opponent\ncannot re-roll their attack dice."
+    },
+    {
+      "id": "kt-goremongers-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "血腥尸体",
+      "title_en": "BLOODY CADAVER",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-血腥尸体.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营装备\n血腥尸体\n洒血狂常常会藏起尸体，以便之后食用和补\n充养料。\n在战斗前，您可以将一枚己方血腥尸体标识放置\n在完全位于己方领地内且位于其他标识（己方血\n污图腾标识除外）的 2\" 外。己方洒血狂特工可\n以对那个标识执行拾取标识行动。在每个战略阶\n段的就绪步骤中，控制那个标识的己方洒血狂\n特工若不位于敌方特工的控制范围内，便可以增\n加其血污储罐内容。",
+      "text_en": "GOREMONGER\nFACTION EQUIPMENT\nBLOODY CADAVER\nGoremongers will often stash corpses for later\nconsumption and refuelling.\nBefore the battle, you can set up one of your\nBloody Cadaver markers wholly within your\nterritory and more than 2\" from other markers\n(excluding your Gory Totem marker). Friendly\nGOREMONGER operatives can perform the Pick\nUp Marker action on that marker. In the Ready\nstep of each Strategy phase, you can increase\nthe GORE TANK of one friendly GOREMONGER\noperative that controls that marker, unless that\nfriendly operative is within control range of an\nenemy operative."
+    },
+    {
+      "id": "kt-goremongers-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "混沌印记",
+      "title_en": "CHAOS SIGIL",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-混沌印记.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营装备\n混沌印记\n刻入肉体，印上盔甲的毁灭之力符文能为持有\n者供上恶毒的力量。\n每个转折点限一次，当一名特工对一名己方洒血\n狂特工进行射击时，您便可以使用本规则。若\n此，在那次流程结束前将“穿刺”武器规则的 X\n值降低 1 点（如果有）。请注意，这意味着穿刺\n1 将被忽视。",
+      "text_en": "GOREMONGER\nFACTION EQUIPMENT\nCHAOS SIGIL\nThe runes of the Ruinous Powers are carved into flesh\nand borne upon armour and clothing, providing their\nbearers with malefic might.\nOnce per turning point, when an operative is\nshooting a friendly GOREMONGER operative,\nat the start of the Roll Defence Dice step, you\ncan use this rule. If you do, worsen the x of the\nPiercing weapon rule by 1 (if any) until the end\nof that sequence. Note that Piercing 1 would\ntherefore be ignored."
+    },
+    {
+      "id": "kt-goremongers-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "腕缚链条",
+      "title_en": "WRIST CHAINS",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-腕缚链条.png",
+      "is_back": false,
+      "text": "洒血狂\n阵营装备\n腕缚链条\n通过使用一定长度的链条拴住武器，洒血狂们\n能够将武器扔向敌人。\n每个转折点限一次，当一名己方洒血狂特工在\n执行射击行动中选择远程武器时，您便可以使用\n本规则。若此，则直到那次行动结束前，下列近\n战武器被视为具有“范围 2\"”武器规则的远程武\n器：链锯刃，链锯长刀，链锯巨斧（忽视其“残\n暴”武器规则）以及撕裂镐。若那个近战武器因\n为强化残暴战略计谋的效果而拥有“平衡”和\n“毫不留情”武器规则，则它在作为一个远程武\n器时也拥有那些武器规则。",
+      "text_en": "GOREMONGER\nFACTION EQUIPMENT\nWRIST CHAINS\nThe Goremongers secure their weapons with lengths of\nchain, enabling them to be hurled towards an opponent.\nOnce per turning point, when a friendly\nGOREMONGER operative performs the Shoot\naction and you’re selecting a ranged weapon, you\ncan use this rule. If you do, until the end of that\naction, the following melee weapons are treated\nas ranged weapons with the Range 2\" weapon\nrule: chainblade, chainglaive, great chainaxe\n(ignore its Brutal weapon rule), pickrippers. If that\nmelee weapon has the Balanced or Relentless\nweapon rules as a result of the Enhanced\nViolence strategy ploy, it has those weapon rules\nwhile it is a ranged weapon."
+    }
+  ]
+}

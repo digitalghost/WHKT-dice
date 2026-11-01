@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案一：KT24 战术竞技场 — 平板版 UI (Widescreen Tabletop Command Center)</title>
+<style>
+  :root {
+    --bg-deep: #07080B;
+    --bg-panel: #10131B;
+    --bg-card: #161B26;
+    --orange: #FF5500;
+    --orange-dim: rgba(255, 85, 0, 0.16);
+    --cyan: #00E0F0;
+    --cyan-dim: rgba(0, 224, 240, 0.15);
+    --gold: #FFB800;
+    --crimson: #FF2E4C;
+    --steel: #8C96A8;
+    --ink: #F2F5FA;
+    --line: #262E40;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #040507;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+    min-height: 100vh;
+  }
+  .showcase-label {
+    font-size: 12px;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    background: var(--orange-dim);
+    padding: 5px 14px;
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  /* Tablet Widescreen Frame (1280 x 800) */
+  .tablet-frame {
+    width: 1280px;
+    height: 800px;
+    background: var(--bg-deep);
+    background-image: linear-gradient(180deg, rgba(10,12,17,0.9), rgba(7,8,11,0.96)), url('assets/texture_carbon_armor.jpg');
+    background-size: cover;
+    border: 2px solid #2F384C;
+    box-shadow: 0 28px 90px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,85,0,0.25);
+    display: grid;
+    grid-template-rows: 62px 1fr 58px;
+    overflow: hidden;
+    clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% calc(100% - 18px), calc(100% - 18px) 100%, 18px 100%, 0 calc(100% - 18px), 0 18px);
+  }
+
+  /* Top Command Bridge Header */
+  .bridge-header {
+    background: linear-gradient(90deg, rgba(255,85,0,0.16) 0%, #0E121A 28%, #0E121A 72%, rgba(0,224,240,0.16) 100%);
+    border-bottom: 2px solid #2A3244;
+    display: grid;
+    grid-template-columns: 340px 1fr 340px;
+    align-items: center;
+    padding: 0 18px;
+  }
+  .faction-wing-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .faction-wing-head.right {
+    justify-content: flex-end;
+    text-align: right;
+  }
+  .wing-crest {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background: #171D29;
+    padding: 4px;
+    border: 1px solid var(--orange);
+  }
+  .right .wing-crest { border-color: var(--cyan); }
+  .wing-score {
+    display: flex;
+    gap: 8px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-weight: 900;
+    font-size: 15px;
+  }
+  .badge-vp-a { background: var(--orange); color: #07080B; padding: 3px 10px; }
+  .badge-vp-b { background: var(--cyan); color: #07080B; padding: 3px 10px; }
+  .badge-cp { background: #1E2536; color: var(--ink); padding: 3px 9px; border: 1px solid #38445E; }
+
+  .center-chronometer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .tp-steps {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .tp-pill {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 900;
+    background: #171C28;
+    color: var(--steel);
+    clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+  }
+  .tp-pill.active {
+    background: var(--orange);
+    color: #07080B;
+  }
+
+  /* 3-Column Tactical Battlefield Workspace */
+  .battle-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr 350px;
+    gap: 12px;
+    padding: 12px 16px;
+    overflow: hidden;
+  }
+  .roster-column {
+    background: rgba(14, 17, 24, 0.86);
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  .col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .op-row-card {
+    background: #151A25;
+    border: 1px solid #283146;
+    border-left: 4px solid var(--orange);
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: 46px 1fr auto;
+    gap: 9px;
+    align-items: center;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+  .op-row-card.side-b { border-left: 1px solid #283146; border-right: 4px solid var(--cyan); }
+  .op-row-card.selected {
+    background: linear-gradient(90deg, rgba(255,85,0,0.22), #181E2B);
+    border-color: var(--orange);
+  }
+  .op-row-card.target {
+    background: linear-gradient(270deg, rgba(0,224,240,0.2), #181E2B);
+    border-color: var(--cyan);
+  }
+  .op-thumb {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border: 1px solid #3C4760;
+  }
+  .mini-hp-bar {
+    display: flex;
+    gap: 2px;
+    margin-top: 4px;
+  }
+  .mini-seg { width: 5px; height: 6px; background: var(--orange); transform: skewX(-15deg); }
+  .mini-seg.b { background: var(--cyan); }
+  .mini-seg.lost { background: #262E40; }
+
+  /* Center Tactical Arena (Simultaneous Live Combat + Dual Dice Tray + Telemetry Log) */
+  .center-arena {
+    display: grid;
+    grid-template-rows: 112px 1fr 148px;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .killzone-banner-strip {
+    background: url('assets/hero_killzone_banner.jpg') center/cover no-repeat;
+    border: 1px solid var(--orange);
+    position: relative;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .killzone-banner-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(7,8,11,0.92) 0%, rgba(7,8,11,0.55) 50%, rgba(7,8,11,0.92) 100%);
+  }
+  .kz-content { position: relative; z-index: 1; display: flex; justify-content: space-between; width: 100%; align-items: center; }
+
+  /* Dual Simultaneous Dice & Resolution Deck */
+  .dual-combat-stage {
+    background: #0E121B;
+    border: 1px solid #2D364B;
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: 1fr 160px 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+  .tray-box {
+    background: #090C12;
+    border: 1px solid #262F42;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .tray-box.atk { border-top: 3px solid var(--orange); }
+  .tray-box.def { border-top: 3px solid var(--cyan); }
+  .tray-dice-grid {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0;
+  }
+  .tab-die {
+    width: 54px;
+    height: 54px;
+    background: #161B26;
+    border: 2px solid var(--orange);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+  }
+  .tab-die.crit { border-color: var(--gold); background: rgba(255,184,0,0.16); }
+  .tab-die.cyan { border-color: var(--cyan); }
+  .tab-die strong { font-size: 20px; }
+  .tab-die span { font-size: 9px; color: var(--steel); }
+
+  .clash-core {
+    background: #141925;
+    border: 1px solid #303B52;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    gap: 8px;
+  }
+  .clash-dmg {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--crimson);
+    font-family: monospace;
+  }
+  .apply-btn {
+    width: 100%;
+    padding: 9px 8px;
+    background: var(--orange);
+    color: #07080B;
+    border: 0;
+    font-weight: 900;
+    font-size: 12px;
+    cursor: pointer;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+
+  /* Bottom Telemetry Log & Quick Rules Drawer */
+  .telemetry-bottom-split {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 10px;
+  }
+  .log-panel, .rule-verbatim-panel {
+    background: #0C0F17;
+    border: 1px solid var(--line);
+    padding: 8px 12px;
+    font-size: 11px;
+    overflow-y: auto;
+  }
+  .log-line { padding: 3px 0; border-bottom: 1px dashed #1D2331; display: flex; justify-content: space-between; }
+  .log-line.undone { text-decoration: line-through; opacity: 0.45; }
+
+  /* Bottom Global Command Bar */
+  .tablet-footer {
+    background: #0D1017;
+    border-top: 2px solid #262E40;
+    padding: 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-pills { display: flex; gap: 8px; }
+  .f-pill {
+    background: #171C28;
+    border: 1px solid #313B52;
+    color: var(--ink);
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+</style>
+</head>
+<body>
+
+<div class="showcase-label">方案一 · KT24 战术竞技场 — 平板横屏桌面全景指挥台 (1280×800 三栏同屏零跳转架构)</div>
+
+<div class="tablet-frame">
+  <!-- Top Bridge Header -->
+  <header class="bridge-header">
+    <div class="faction-wing-head">
+      <img class="wing-crest" src="../shared-portraits/team_mark_imp_aod.png" alt="">
+      <div>
+        <div style="font-size:15px;font-weight:900;color:var(--orange);">死亡天使 (ANGELS OF DEATH) ★先手</div>
+        <div style="font-size:11px;color:var(--steel);">主要行动：关键行动 (+50%) · 击杀等级 2</div>
+      </div>
+      <div class="wing-score">
+        <span class="badge-cp">4 CP</span>
+        <span class="badge-vp-a">5 VP</span>
+      </div>
+    </div>
+
+    <div class="center-chronometer">
+      <div class="tp-steps">
+        <span class="tp-pill">TP 1</span>
+        <span class="tp-pill active">TP 2 · 交战阶段</span>
+        <span class="tp-pill">TP 3</span>
+        <span class="tp-pill">TP 4</span>
+      </div>
+      <div style="font-size:11px;color:var(--steel);">认证行动 2025 · 任务：传输情报 · 撤回栈：18 步可回溯</div>
+    </div>
+
+    <div class="faction-wing-head right">
+      <div class="wing-score">
+        <span class="badge-vp-b">4 VP</span>
+        <span class="badge-cp">2 CP</span>
+      </div>
+      <div>
+        <div style="font-size:15px;font-weight:900;color:var(--cyan);">瘟疫战士 (PLAGUE MARINES)</div>
+        <div style="font-size:11px;color:var(--steel);">主要行动：已加密隐藏 · 击杀等级 1</div>
+      </div>
+      <img class="wing-crest" src="../shared-portraits/team_mark_chaos_fell.png" alt="">
+    </div>
+  </header>
+
+  <!-- 3-Column Tactical Battlefield Workspace -->
+  <main class="battle-grid">
+    <!-- Left Column: Player A Squad -->
+    <section class="roster-column">
+      <div class="col-header">
+        <span style="color:var(--orange);">▲ A方特遣队 · 在场 6/6</span>
+        <span style="color:var(--steel);">信仰点数: 3</span>
+      </div>
+
+      <article class="op-row-card selected">
+        <img class="op-thumb" src="../shared-portraits/roster_aod_sniper.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">淘汰者狙击手 <span style="color:var(--orange);font-size:10px;">●射击中</span></div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">3 APL · 6" · 3+ · [+神射手]</div>
+          <div class="mini-hp-bar">
+            <span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span>
+          </div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;">12/12</div>
+      </article>
+
+      <article class="op-row-card">
+        <img class="op-thumb" src="../shared-portraits/roster_aod_captain.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">星际战士连长</div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">3 APL · 6" · 3+ · [铁光环]</div>
+          <div class="mini-hp-bar">
+            <span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span><span class="mini-seg"></span>
+          </div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;">15/15</div>
+      </article>
+
+      <article class="op-row-card">
+        <img class="op-thumb" src="../shared-portraits/roster_aod_heavy_gunner.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">重装机枪手 <span style="color:var(--crimson);font-size:10px;">▲受创</span></div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">3 APL · 4"▼ · 3+</div>
+          <div class="mini-hp-bar">
+            <span class="mini-seg" style="background:var(--crimson);"></span><span class="mini-seg" style="background:var(--crimson);"></span><span class="mini-seg lost"></span><span class="mini-seg lost"></span><span class="mini-seg lost"></span><span class="mini-seg lost"></span>
+          </div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;color:var(--crimson);">5/18</div>
+      </article>
+
+      <article class="op-row-card" style="opacity:0.55;">
+        <img class="op-thumb" src="../shared-portraits/roster_aod_sergeant.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">仲裁者军士 [待机]</div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">3 APL · 6" · 3+</div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;">13/15</div>
+      </article>
+    </section>
+
+    <!-- Center Column: Live Combat & Dual Dice Matrix -->
+    <section class="center-arena">
+      <div class="killzone-banner-strip">
+        <div class="kz-content">
+          <div>
+            <div style="font-size:10px;color:var(--orange);font-weight:800;letter-spacing:0.14em;">LIVE FIREFIGHT RESOLUTION // 远程交火</div>
+            <div style="font-size:18px;font-weight:900;">淘汰者狙击手 ⟫ 死神狙击步枪 (4A · 2+ · 3/3 · 致命2 / 穿刺1 / 严重)</div>
+            <div style="font-size:11px;color:var(--steel);margin-top:2px;">生效修饰：[制高点 ≥2" → 精准 1] · [普通掩护预留 1] · [神射手 → 严重]</div>
+          </div>
+          <img src="assets/emblem_specops_skull.jpg" alt="" style="width:64px;height:64px;border:1px solid var(--orange);">
+        </div>
+      </div>
+
+      <!-- Simultaneous Dual Dice Tray -->
+      <div class="dual-combat-stage">
+        <div class="tray-box atk">
+          <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:var(--orange);">
+            <span>攻击方骰盘 (ATTACK POOL)</span>
+            <span>1 暴击 · 2 普通</span>
+          </div>
+          <div class="tray-dice-grid">
+            <div class="tab-die crit"><strong>6</strong><span>★致命2</span></div>
+            <div class="tab-die"><strong>4</strong><span>◆精准</span></div>
+            <div class="tab-die" style="opacity:0.4;border-style:dashed;"><strong>3</strong><span>已抵挡</span></div>
+            <div class="tab-die" style="border-color:#323A4E;opacity:0.38;"><strong>1</strong><span>失败</span></div>
+          </div>
+          <div style="font-size:10px;color:var(--steel);">点选单枚骰子可触发武器重投 / 指挥重掷 (-1CP)</div>
+        </div>
+
+        <div class="clash-core">
+          <div style="font-size:10px;color:var(--steel);font-weight:800;">伤害关口结算</div>
+          <div class="clash-dmg">−5 HP</div>
+          <div style="font-size:10px;color:var(--gold);">致命2 (立即) + 3 普通伤</div>
+          <button class="apply-btn">⚡ 应用伤害并继续</button>
+          <button class="apply-btn" style="background:#212838;color:var(--ink);">+ 伤害关口微调</button>
+        </div>
+
+        <div class="tray-box def">
+          <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:var(--cyan);">
+            <span>防御方骰盘 (DEFENCE 3−1=2)</span>
+            <span>1 普通成功</span>
+          </div>
+          <div class="tray-dice-grid">
+            <div class="tab-die cyan"><strong>4</strong><span>◆掩护抵挡</span></div>
+            <div class="tab-die" style="border-color:#323A4E;opacity:0.38;"><strong>2</strong><span>失败</span></div>
+          </div>
+          <div style="font-size:10px;color:var(--cyan);">✓ 已自动推荐最优抵挡：掩护成功抵挡普通3</div>
+        </div>
+      </div>
+
+      <!-- Bottom Split: Structured Log + Verbatim Rule Reference -->
+      <div class="telemetry-bottom-split">
+        <div class="log-panel">
+          <div style="font-weight:800;color:var(--orange);margin-bottom:4px;">战局结构化时间线 (TP2)</div>
+          <div class="log-line"><span>[射击] 淘汰者狙击手 → 瘟疫冠军：触发致命 2</span><span style="color:var(--crimson);">-2 HP</span></div>
+          <div class="log-line undone"><span>[重投] 瘟疫冠军 指挥重掷 防御骰 1 → 2</span><span>↶ 已撤回</span></div>
+          <div class="log-line"><span>[行动] 淘汰者狙击手 执行「隐匿射击」(1 AP)</span><span style="color:var(--steel);">剩余 1AP</span></div>
+          <div class="log-line"><span>[计谋] 死亡天使 使用「神射手」(0 CP · 连长光环)</span><span style="color:var(--gold);">0 CP</span></div>
+        </div>
+        <div class="rule-verbatim-panel">
+          <div style="display:flex;justify-content:space-between;font-weight:800;color:var(--cyan);margin-bottom:4px;">
+            <span>ⓘ 武器规则原文 · 致命 X (Devastating X)</span>
+            <span>PDF 第 111 页</span>
+          </div>
+          <p style="color:var(--ink);line-height:1.45;">每当你保留一个暴击成功时，该武器立即对目标造成 X 点伤害。此伤害不可以在防御步骤被防御骰抵挡。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Player B Squad -->
+    <section class="roster-column">
+      <div class="col-header">
+        <span style="color:var(--cyan);">▼ B方特遣队 · 在场 5/6</span>
+        <span style="color:var(--steel);">腐化计数器: 2</span>
+      </div>
+
+      <article class="op-row-card side-b target">
+        <img class="op-thumb" src="../shared-portraits/roster_pm_champion.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">瘟疫战士冠军 <span style="color:var(--cyan);font-size:10px;">◎受击目标</span></div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">3 APL · 5" · 3+ · [恶心韧性]</div>
+          <div class="mini-hp-bar">
+            <span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg lost"></span>
+          </div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;">10/15</div>
+      </article>
+
+      <article class="op-row-card side-b">
+        <img class="op-thumb" src="../shared-portraits/roster_pm_plaguecaster.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">瘟疫术士</div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">3 APL · 5" · 3+ · [腐烂诅咒]</div>
+          <div class="mini-hp-bar">
+            <span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span>
+          </div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;">14/14</div>
+      </article>
+
+      <article class="op-row-card side-b">
+        <img class="op-thumb" src="../shared-portraits/roster_pm_bombardier.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">瘟疫掷弹兵</div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">3 APL · 5" · 3+ · [枯萎手雷]</div>
+          <div class="mini-hp-bar">
+            <span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span><span class="mini-seg b"></span>
+          </div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;">14/14</div>
+      </article>
+
+      <article class="op-row-card side-b" style="opacity:0.38;">
+        <img class="op-thumb" src="../shared-portraits/roster_pm_fighter.webp" alt="">
+        <div>
+          <div style="font-size:13px;font-weight:800;">瘟疫斗士 <span style="color:var(--crimson);">☠ 已残废</span></div>
+          <div style="font-size:10px;color:var(--steel);font-family:monospace;">已计入 A方 击杀等级 +1</div>
+        </div>
+        <div style="text-align:right;font-family:monospace;font-weight:900;font-size:14px;color:var(--crimson);">0/14</div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Bottom Global Command Bar -->
+  <footer class="tablet-footer">
+    <div class="footer-pills">
+      <span class="f-pill">🎲 通用掷骰 (D6/D3)</span>
+      <span class="f-pill">📋 双方完整数据卡</span>
+      <span class="f-pill">🎯 关键与秘密战术行动</span>
+      <span class="f-pill">⚙ 规则干预 (借用武器 / 额外激活 / 新增特工)</span>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <span class="f-pill" style="border-color:var(--orange);color:var(--orange);">↶ 撤回上一步 (18)</span>
+      <span class="f-pill" style="background:var(--orange);color:#07080B;font-weight:900;">结束当前激活 ⟫ 轮到 B方</span>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

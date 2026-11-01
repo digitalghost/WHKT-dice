@@ -1,0 +1,871 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-KASRKIN",
+  "team_name_zh": "卡舍津",
+  "team_name_en": "Kasrkin",
+  "source_pdf": "最新杀戮小队规则更新/卡舍津 Kasrkin 杀戮小队规则.pdf",
+  "source_pdf_sha256": "d5f09d0a9d228ef3ded1859513f75470ea7b3b43daa7f7e068827fc2038c1b92",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 32,
+    "operative": 8,
+    "operative-ability": 3,
+    "team-selection": 2,
+    "faction-rule": 6,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-kasrkin-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "卡舍津军士-数据卡",
+      "title_en": "KASRKIN SERGEANT",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-卡舍津军士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津军士\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n高能激光枪 4 3+ 3/4 -\n高能激光手枪 4 3+ 3/4 范围 8\"\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n链锯剑 4 3+ 4/5 -\n枪托 3 3+ 2/3 -\n动力武器 4 3+ 4/6 致命 5+\n请继续阅读背面规则\n卡舍津、帝国、星界军、领袖、军士 28",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "高能激光枪": "远程",
+        "高能激光手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "链锯剑": "近战",
+        "枪托": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN SERGEANT\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nHot-shot lasgun 4 3+ 3/4 -\nHot-shot laspistol 4 3+ 3/4 Range 8\"\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nChainsword 4 3+ 4/5 -\nGun butt 3 3+ 2/3 -\nPower weapon 4 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nKASRKIN , IMPERIUM, ASTRA MILITARUM, LEADER, SERGEANT 28"
+    },
+    {
+      "id": "kt-kasrkin-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "卡舍津军士-能力卡",
+      "title_en": "KASRKIN SERGEANT",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-卡舍津军士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津军士\n3 6\" 4+ 9\n战术指挥 0AP\n选择一名位于杀戮区内的己方卡舍津特工，随后为那名特工选择\n一个熟练技巧效果（它将替代特工当前拥有的任何效果)，这个效\n果将持续至下一个战略阶段的就绪步骤。被选择的效果可以与任何\n特工已经拥有的熟练技巧效果叠加，但是不能是同样的效果。\n作为替代，您可以选择不结算上述的效果。如果己方肃清扫荡标识\n位于杀戮区内，那么您可以将其移除并再次部署。\n该特工不能在敌方特工的控制范围内执行本行动。\n精锐领袖：您使用熟练技巧战略计划时若该特工位于杀戮区，您可以\n选择额外一条不同的熟练技巧。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN SERGEANT\n3 6\" 4+ 9\nTACTICAL COMMAND 0AP\nSelect one friendly KASRKIN operative, then select one\nSKILL AT ARMS for that operative to have until the Ready\nstep of the next Strategy phase. This can be in addition to\nany SKILL AT ARMS it already has, but they cannot be\nthe same.\nAlternatively, instead of resolving the above effect, if your\nClearance Sweep marker is in the killzone, you can remove it\nand place it again.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nVeteran Leadership: Whenever this operative is in the killzone\nand you use the SKILL AT ARMS STRATEGIC GAMBIT,\nyou can select one additional SKILL AT ARMS but they\ncannot be the same."
+    },
+    {
+      "id": "kt-kasrkin-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "卡舍津战斗医疗兵-数据卡",
+      "title_en": "KASRKIN COMBAT MEDIC",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-卡舍津战斗医疗兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津战斗医疗兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光枪 4 3+ 3/4 -\n枪托 3 4+ 2/3 -\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方卡舍津特工将被残废时，如果该\n特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方特工不\n会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工可以立\n即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名特工的\n下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，那么那\n次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时使用此\n规则。\n请继续阅读背面规则\n卡舍津、帝国、星界军、医疗、战斗医疗兵 28",
+      "weapon_types": {
+        "高能激光枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN COMBAT MEDIC\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot lasgun 4 3+ 3/4 -\nGun butt 3 4+ 2/3 -\nMedic!: The first time during each turning point that another friendly KASRKIN operative would be incapacitated while visible\nto and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range of an enemy\noperative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the remainder\nof the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that move within\nthis operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations respectively,\nand if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this operative is\nincapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nKASRKIN , IMPERIUM, ASTRA MILITARUM, MEDIC, COMBAT MEDIC 28"
+    },
+    {
+      "id": "kt-kasrkin-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "卡舍津战斗医疗兵-能力卡",
+      "title_en": "KASRKIN COMBAT MEDIC",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-卡舍津战斗医疗兵-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津战斗医疗兵\n2 6\" 4+ 8\n医疗包 0AP\n选择一个位于该特工控制范围的己方卡舍津特\n工，那名特工回复最多 2D3 点失去的耐伤。选\n择的特工不能是在转折点中成为“医疗兵！”技\n能目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN COMBAT MEDIC\n2 6\" 4+ 8\nMEDIKIT 0AP\nSelect one friendly KASRKIN operative within this\noperative’s control range to regain up to 2D3 lost wounds.\nIt cannot be an operative that the Medic! rule was used on\nduring this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-kasrkin-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "卡舍津爆破兵-数据卡",
+      "title_en": "KASRKIN DEMO-TROOPER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-卡舍津爆破兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津爆破兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光手枪 4 3+ 3/4 范围 8“\n枪托 3 4+ 2/3 -\n热熔地雷：该特工携带有己方热熔地雷标识。该特\n工可以对这枚标识执行拾取标识行动，并且每当该\n特工对这枚标识执行放置标识行动时，该特工可以\n在之后立即执行一次无消耗的冲刺行动。这枚标识\n不能被放置在敌方特工的控制范围内（如果该特工\n在携带这枚标识的期间残废，那么不要放置标识，\n而是将其与特工一同移除)。\n感应式地雷：当己方热熔地雷标识首次位于另一名\n特工的控制范围内时，将标识移除，并对那名特工\n造成 2D6+3 处伤害；如果特工没有因此残废，那么\n结束其执行的行动（若有)，就算行动的效果没有被\n满足。如果那名特工因此不能被放置，那么移动最短\n的距离来满足放置条件。请注意，该特工忽略此规则\n的效果（该特工不会触发这枚标识，也不会受到其造\n成的伤害)。\n请继续阅读背面规则\n卡舍津、帝国、星界军、爆破兵 28",
+      "weapon_types": {
+        "高能激光手枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN DEMO-TROOPER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot laspistol 4 3+ 3/4 Range 8\"\nGun butt 3 4+ 2/3 -\nMelta Mine: This operative is carrying your Melta Mine marker. It\ncan perform the Pick Up Marker action on that marker, and\nwhenever it performs the Place Marker action on that marker,\nit can immediately perform a free Dash action. That marker\ncannot be placed within an enemy operative’s control range (if\nthis operative is incapacitated while carrying that marker and\nthat marker cannot be placed, it’s removed with this operative).\nProximity Mine: The first time your Melta Mine marker is within\nanother operative’s control range, remove that marker and inflict\n2D6+3 damage on that operative; if it isn’t incapacitated, end\nits action (if any), even if that action’s effects aren’t fulfilled. If\nit cannot be placed, move it the minimum amount to do so. Note\nthat this operative is ignored for these effects (i.e. it cannot set it\noff or take damage from that marker).\nRULES CONTINUE ON OTHER SIDE\nKASRKIN , IMPERIUM, ASTRA MILITARUM, DEMO-TROOPER 28"
+    },
+    {
+      "id": "kt-kasrkin-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "卡舍津爆破兵-能力卡",
+      "title_en": "KASRKIN DEMO-TROOPER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-卡舍津爆破兵-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津爆破兵\n2 6\" 4+ 8\n防爆内衬：每当一名特工使用带有“爆炸”或“洪\n流”武器规则的武器（带有“扫射”数据的武器除\n外）对该特工进行射击时，您可以重掷一枚自己的\n防御骰。此外，该特工不会受到“x\" 毁灭 x”武器\n规则的影响（也就是拥有范围效果的“毁灭”武器\n规则)，除非该特工是那次流程中的目标。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN DEMO-TROOPER\n2 6\" 4+ 8\nBlast Padding: Whenever an operative is shooting this operative\nwith a weapon that has the Blast or Torrent weapon rule\n(excluding weapons that have a sweeping profile), you can re-roll\none of your defence dice. In addition, this operative isn’t affected\nby the x\" Devastating x weapon rule (i.e. Devastating with a\ndistance) unless they are the target during that sequence."
+    },
+    {
+      "id": "kt-kasrkin-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "卡舍津炮手-数据卡",
+      "title_en": "KASRKIN GUNNER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-卡舍津炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津炮手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n榴弹发射器（破片） 4 3+ 2/4 爆炸 2\"\n榴弹发射器（穿甲） 4 3+ 4/5 穿刺 1\n高能齐射枪（集中） 5 3+ 3/4 关键穿刺 1\n高能齐射枪（扫射） 4 3+ 3/4 关键穿刺 1、洪流 1\"\n热熔枪 4 3+ 6/3 范围 6\"、毁灭 4、穿刺 2\n等离子枪（标准） 4 3+ 4/6 穿刺 1\n等离子枪（过载） 4 3+ 5/6 过热、致命 5+、穿刺 1\n枪托 3 4+ 2/3 -\n卡舍津、帝国、星界军、炮手 28",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "榴弹发射器（破片）": "远程",
+        "榴弹发射器（穿甲）": "远程",
+        "高能齐射枪（集中）": "远程",
+        "高能齐射枪（扫射）": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN GUNNER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGrenade launcher (frag) 4 3+ 2/4 Blast 2\"\nGrenade launcher (krak) 4 3+ 4/5 Piercing 1\nHot-shot volley gun (focused) 5 3+ 3/4 Piercing Crits 1\nHot-shot volley gun (sweeping) 4 3+ 3/4 Piercing Crits 1, Torrent 1\"\nMeltagun 4 3+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 3+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nGun butt 3 4+ 2/3 -\nKASRKIN , IMPERIUM, ASTRA MILITARUM, GUNNER 28"
+    },
+    {
+      "id": "kt-kasrkin-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "卡舍津侦察兵-数据卡",
+      "title_en": "KASRKIN RECON-TROOPER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-卡舍津侦察兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津侦察兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光枪 4 3+ 3/4 -\n枪托 3 4+ 2/3 -\n侦察杀戮区：如果该特工被选择扫描 1AP\n成为了“转移位置”战略计谋所\n直到该特工的下一次激活开始或残废前（以先触发的条件为准)，每\n指定的卡舍津特工，那么该计谋\n当一名敌方特工位于该特工的 8\" 内时，那名敌方特工受到扫描。每\n消耗 0CP。\n当一个己方卡舍津特工对一个受到扫描的敌方特工进行射击时，那\n名敌方特工无法被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。\n卡舍津、帝国、星界军、侦察兵 28",
+      "weapon_types": {
+        "高能激光枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN RECON-TROOPER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot lasgun 4 3+ 3/4 -\nGun butt 3 4+ 2/3 -\nReconnoitre Killzone: The Relocate strategy ploy costs you 0CP if this operative is the selected friendly KASRKIN operative.\nAUSPEX SCAN 1AP\nUntil the start of this operative’s next activation or until it’s incapacitated (whichever comes first), whenever an enemy operative\nis within 8\" of this operative, that enemy operative is being scanned. Whenever a friendly KASRKIN operative is shooting an\nenemy operative that’s being scanned, that enemy operative cannot be obscured\nThis operative cannot perform this action while within control range of an enemy operative.\nKASRKIN , IMPERIUM, ASTRA MILITARUM, RECON-TROOPER 28"
+    },
+    {
+      "id": "kt-kasrkin-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "卡舍津神射手-数据卡",
+      "title_en": "KASRKIN SHARPSHOOTER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-卡舍津神射手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津神射手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能精确射手步枪（隐匿） 4 2+ 3/3 毁灭 3、重型、安静、隐匿位置*\n高能精确射手步枪（移动） 4 3+ 3/4 -\n高能精确射手步枪（静止） 4 2+ 3/3 毁灭 3、重型\n枪托 3 4+ 2/3 -\n迷彩披风：每当一名特工对该特工进行射击时： *隐匿位置：该特工只有在战斗中\n• 忽略“集中”武器规则。第一次执行射击行动时才可以使\n• 如果您保留了任何掩护豁免，您可以保留额外一次掩护豁免，或者用本武器。\n您可以将保留的一次掩护豁免作为关键成功进行保留。本规则不能\n与制高点地形提供的掩护豁免增益效果叠加。\n卡舍津、帝国、星界军、神射手 28",
+      "weapon_types": {
+        "高能精确射手步枪（隐匿）": "远程",
+        "高能精确射手步枪（移动）": "远程",
+        "高能精确射手步枪（静止）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN SHARPSHOOTER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot marksman rifle (concealed) 4 2+ 3/3 Devastating 3, Heavy, Silent,\nConcealed Position*\nHot-shot marksman rifle (mobile) 4 3+ 3/4 -\nHot-shot marksman rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy\nGun butt 3 4+ 2/3 -\nCamo Cloak: Whenever an operative is shooting this operative:\n• Ignore the Saturate weapon rule.\n• If you can retain any cover saves, you can retain one additional cover save, or you can retain one cover save as a critical success\ninstead. This isn’t cumulative with improved cover saves from Vantage terrain.\n*Concealed Position: This operative can only use this weapon the first time it’s performing the Shoot action during the battle.\nKASRKIN , IMPERIUM, ASTRA MILITARUM, SHARPSHOOTER 28"
+    },
+    {
+      "id": "kt-kasrkin-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "卡舍津士兵-数据卡",
+      "title_en": "KASRKIN TROOPER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-卡舍津士兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津士兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光枪 4 3+ 3/4 -\n枪托 3 4+ 2/3 -\n多功能装备：每个转折点中以下每项各限一次：\n• 一名己方卡舍津士兵特工可以执行烟雾手雷行动。\n• 一名己方卡舍津士兵特工可以执行震荡手雷行动。\n这些行动的规则可以在通用装备中找到。使用本规则所执行的上述行动不会算入装备的行动次数限制（也\n就是说，您依旧可以选择这些手雷装备)。\n卡舍津、帝国、星界军、士兵 28",
+      "weapon_types": {
+        "高能激光枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN TROOPER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot lasgun 4 3+ 3/4 -\nGun butt 3 4+ 2/3 -\nAdaptive Equipment: You can do each of the following once per turning point:\n• One friendly KASRKIN TROOPER operative can perform the Smoke Grenade action.\n• One friendly KASRKIN TROOPER operative can perform the Stun Grenade action.\nThe rules for these actions are found in universal equipment. Performing these actions using this rule doesn’t count towards their\naction limits (i.e. if you also select those grenades from equipment).\nKASRKIN , IMPERIUM, ASTRA MILITARUM, TROOPER 28"
+    },
+    {
+      "id": "kt-kasrkin-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "卡舍津通讯兵-数据卡",
+      "title_en": "KASRKIN VOX-TROOPER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-卡舍津通讯兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n卡舍津通讯兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光枪 4 3+ 3/4 -\n枪托 3 4+ 2/3 -\n战斗通讯 1AP\n选择另一名位于杀戮区内的己方卡舍津特工。\n直到那名特工的下一次激活结束前，其 APL 属\n性增加 1 点（在使用所有对 APL 属性的修正后\n最多可以提升至 3)。\n本特工可以在激活期间执行本行动两次，但是不\n能在敌方特工的控制范围内执行此行动。\n卡舍津、帝国、星界军、通讯兵 28",
+      "weapon_types": {
+        "高能激光枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKASRKIN VOX-TROOPER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot lasgun 4 3+ 3/4 -\nGun butt 3 4+ 2/3 -\nBATTLE COMMS 1AP\nSelect one other friendly KASRKIN operative. Until the end of that operative’s next activation, add 1 to its APL stat (to a\nmaximum of 3 after all APL stat changes have been totalled).\nThis operative can perform this action twice during its activation, but cannot perform this action while within control range of an\nenemy operative.\nKASRKIN , IMPERIUM, ASTRA MILITARUM, VOX-TROOPER 28"
+    },
+    {
+      "id": "kt-kasrkin-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "卡舍津杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-卡舍津杀戮小队-1.png",
+      "is_back": false,
+      "text": "卡舍津\n杀戮小队\n原型: 安全保护、搜索与破坏\n特工\n↘ 1 名卡舍津军士特工，装备有以下一种选项：\n• 爆矢手枪；动力武器\n• 高能激光枪; 枪托\n• 高能激光手枪；动力武器\n• 等离子手枪；链锯剑\n↘ 9 名卡舍津特工，从以下列表中进行选择：\n• 战斗医疗兵\n• 爆破兵\n• 炮手，装备有火焰喷射器和枪托\n• 炮手，装备有榴弹发射器和枪托\n• 炮手，装备有高能齐射枪和枪托\n• 炮手，装备有热熔枪和枪托\n• 炮手，装备有等离子枪和枪托\n• 侦察兵\n请继续阅读背面规则",
+      "text_en": "KASRKIN\nKILL TEAM\nARCHETYPES: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 KASRKIN SERGEANT operative with one of\nthe following options:\n• Bolt pistol; power weapon\n• Hot-shot lasgun; gun butt\n• Hot-shot laspistol; power weapon\n• Plasma pistol; chainsword\n↘ 9 KASRKIN operatives selected from the\nfollowing list:\n• COMBAT MEDIC\n• DEMO-TROOPER\n• GUNNER with flamer and gun butt\n• GUNNER with grenade launcher and\ngun butt\n• GUNNER with hot-shot volley gun and\ngun butt\n• GUNNER with meltagun and gun butt\n• GUNNER with plasma gun and gun butt\n• RECON-TROOPER\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-kasrkin-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "卡舍津杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-卡舍津杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 神射手\n• 士兵\n• 通讯兵\n除了士兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。\n选择这些特工的总数不能超过四名。\n一些卡舍津规则会提及“高能武器”。这个\n术语指的是任何名称中带有“高能”一词的远\n程武器，例如高能激光枪和高能精确射手步枪\n的所有武器数据。",
+      "text_en": "• SHARPSHOOTER\n• TROOPER\n• VOX-TROOPER\nOther than TROOPER operatives, your kill team\ncan only include each operative on this list once.\nYou cannot select more than four of these\noperatives combined.\nSome KASRKIN rules refer to a ‘hot-shot\nweapon’. This is a ranged weapon that\nincludes ‘hot-shot’ in its name, e.g. hot-shot\nlasgun, all profiles of a hot-shot marksman\nrifle, etc."
+    },
+    {
+      "id": "kt-kasrkin-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "熟练技巧-1",
+      "title_en": "SKILL AT ARMS",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-熟练技巧-1.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营规则\n熟练技巧\n卡舍津战士们会赶往任何需要他们支援的地\n方。这些精兵们身经百战，意志坚定，并且\n装备精良，是高度专业化的士兵，依靠着长\n期的经验和坚定的意志来完成任务。\n战略计划。为己方卡舍津特工选择一个熟练技\n巧，效果持续到下一个战略阶段的就绪步骤。\n熟练技巧选项将在单独的卡片上分别进行表示",
+      "text_en": "KASRKIN\nFACTION RULE\nSKILL AT ARMS\nThe Kasrkin go where they are needed. Battle-hardened,\nuncompromising and equipped with the best weapons\navailable, these elites pursue their objectives\nwith professionalism, hard-won experience and\nrigid determination.\nSTRATEGIC GAMBIT. Select a SKILL AT ARMS for\nfriendly KASRKIN operatives to have until the\nReady step of the next Strategy phase.\nSKILL AT ARMS OPTIONS ARE PRESENTED ON\nTHEIR OWN CARDS"
+    },
+    {
+      "id": "kt-kasrkin-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "熟练技巧-2",
+      "title_en": "SKILL AT ARMS",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-熟练技巧-2.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营规则\n熟练技巧\n集火目标\n卡舍津战士们在前进的同时建立相互重叠的\n火网，敌人任何行动都将遭到致命弹幕的压\n制攻击。\n己方卡舍津特工的远程武器拥有“严重”武器\n规则。",
+      "text_en": "KASRKIN\nFACTION RULE\nSKILL AT ARMS\nLight ’Em Up\nEstablishing overlapping fields of fire as they advance,\nthe Kasrkin react to any enemy movement with a lethal\nvolley of fire.\nFriendly KASRKIN operatives’ ranged weapons\nhave the Severe weapon rule."
+    },
+    {
+      "id": "kt-kasrkin-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "熟练技巧-3",
+      "title_en": "SKILL AT ARMS",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-熟练技巧-3.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营规则\n熟练技巧\n迅速出击\n卡舍津战士们以自身的强健体魄为傲，就算\n是携带着重型战斗装备也能够在战场上迅速\n穿梭。\n每当一名己方卡舍津特工执行转移行动时，其\n移动属性提升 1\"。",
+      "text_en": "KASRKIN\nFACTION RULE\nSKILL AT ARMS\nStrike Fast\nKasrkin pride themselves upon their physical fitness\nand can cover ground swiftly, even when carrying heavy\ncombat gear.\nWhenever a friendly KASRKIN operative is\nperforming the Reposition action, add 1\" to its\nMove stat."
+    },
+    {
+      "id": "kt-kasrkin-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "熟练技巧-4",
+      "title_en": "SKILL AT ARMS",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-熟练技巧-4.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营规则\n熟练技巧\n沉着冷静\n所有卡迪亚人都将一生致力于战争中。那些\n被选中加入精英卡舍津部队的人则是其中最\n为坚定的战士。\n每当一名己方卡舍津特工进行近战或反击，或\n者当一名特工对其进行射击时，如果在那个流\n程中首次有一枚攻击骰对该特工造成了 3 点或\n更多的普通伤害，那么那枚骰子造成的伤害减\n少 1 点。",
+      "text_en": "KASRKIN\nFACTION RULE\nSKILL AT ARMS\nIce In Your Veins\nAll Cadians are subjected to a lifetime of war. Those\nchosen to join the ranks of the elite Kasrkin are amongst\nthe hardiest.\nWhenever a friendly KASRKIN operative is\nfighting or retaliating, or an operative is shooting\nit, the first time an attack dice inflicts Normal\nDmg of 3 or more on this operative during that\nsequence, that dice inflicts 1 less damage on it."
+    },
+    {
+      "id": "kt-kasrkin-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "熟练技巧-5",
+      "title_en": "SKILL AT ARMS",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-05-阵营规则-熟练技巧-5.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营规则\n熟练技巧\n为了卡迪亚！\n每一位卡舍津战士都奋力维护着破灭家乡的\n荣誉。\n己方卡舍津特工近战武器的攻击属性提升 1 点\n(最高提升至 4)。每当一名己方卡舍津特工进\n行近战时，您在那次流程中进行的首次出击将造\n成额外 1 点伤害。",
+      "text_en": "KASRKIN\nFACTION RULE\nSKILL AT ARMS\nFor Cadia!\nAll Kasrkin strive to uphold the honour of their\ndead homeworld.\nAdd 1 to the Atk stat of friendly KASRKIN\noperatives’ melee weapons (to a maximum of\n4). Whenever a friendly KASRKIN operative\nis fighting, the first time you strike during that\nsequence, inflict 1 additional damage."
+    },
+    {
+      "id": "kt-kasrkin-11-06",
+      "sequence": 6,
+      "category": "faction-rule",
+      "title_zh": "迅速开火",
+      "title_en": "RAPID FIRE",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-06-阵营规则-迅速开火.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营规则\n迅速开火\n卡舍津士兵经过残酷的训练，作战效率极\n高，他们向敌人倾泻着威力强大的火力。\n若己方卡舍津特工在激活中没有执行包含移动\n的行动，则其可以在那次激活中执行两次射击行\n动（戒备除外），不过在这些行动中必须选择激\n光手枪，高能激光枪或高能激光手枪作为武器。",
+      "text_en": "KASRKIN\nFACTION RULE\nRAPID FIRE\nRuthlessly drilled and murderously efficient, Kasrkin lay\ndown hails of high-powered fire against the foe.\nEach friendly KASRKIN operative that doesn’t\nperform an action in which it moves during\nits activation can perform two Shoot actions\n(excluding Guard) during that activation, but a\nbolt pistol, hot-shot lasgun or hot-shot laspistol\nmust be selected for both of those actions."
+    },
+    {
+      "id": "kt-kasrkin-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "KASRKIN",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "卡舍津\n标识/指示物指南\n医疗兵扫描卡迪亚圣物\n指示物指示物指示物\n战术指挥肃清扫荡热熔地雷\n指示物指示物标识",
+      "text_en": "KASRKIN\nMARKER/TOKEN GUIDE\nMedic token Auspex Scan Relics of Cadia\ntoken token\nTactical Clearance\nCommand Sweep marker\ntoken\nMelta Mine marker"
+    },
+    {
+      "id": "kt-kasrkin-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "灭敌弹幕",
+      "title_en": "ELIMINATION PATTERN",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-灭敌弹幕.png",
+      "is_back": false,
+      "text": "卡舍津\n战略计谋\n灭敌弹幕\n在将敌人包围之后，卡舍津战士们尝试通过\n一次致命的齐射将目标歼灭。\n每当一名己方卡舍津特工使用高能武器对无法\n保留任何掩护豁免或者被扫描（参见侦察兵）的\n特工进行射击时，那件武器拥有“关键穿刺 1”\n武器规则，如果那件武器是高能齐射枪，则拥\n有“穿刺 1”武器规则。",
+      "text_en": "KASRKIN\nSTRATEGY PLOY\nELIMINATION PATTERN\nHaving already outmanoeuvred the foe, the Kasrkin\nattempt to fell their target in a single volley.\nWhenever a friendly KASRKIN operative is\nshooting with a hot-shot weapon against an\noperative that cannot retain any cover saves or\nis being scanned (see RECON-TROOPER), that\nweapon has the Piercing Crits 1 weapon rule, or\nPiercing 1 instead if it’s a hot-shot volley gun."
+    },
+    {
+      "id": "kt-kasrkin-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "利用掩体",
+      "title_en": "ENGAGE FROM COVER",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-利用掩体.png",
+      "is_back": false,
+      "text": "卡舍津\n战略计谋\n利用掩体\n卡舍津战士们早已习惯面对拥有数量和火力\n优势的敌人，他们在交火时会利用掩体来躲\n避敌人的攻击。\n每当一名特工对拥有掩护的己方卡舍津特工进\n行射击时，您可以重掷一枚自己的防御骰。",
+      "text_en": "KASRKIN\nSTRATEGY PLOY\nENGAGE FROM COVER\nKasrkin are used to being outnumbered and outgunned,\nusing cover to avoid incoming fire as they engage.\nWhenever an operative is shooting a friendly\nKASRKIN operative that’s in cover, you can\nre-roll one of your defence dice."
+    },
+    {
+      "id": "kt-kasrkin-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "肃清扫荡",
+      "title_en": "CLEARANCE SWEEP",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-肃清扫荡.png",
+      "is_back": false,
+      "text": "卡舍津\n战略计谋\n肃清扫荡\n卡舍津战士们以稳健的步伐向目标位置靠\n近，将战场分割为片区一步一步地消灭其中\n的敌人。\n将己方肃清扫荡标识放置在杀戮区中。每当一名\n位于该标识水平 5\" 内的己方卡舍津特工对位于\n该标识水平 5\" 内的特工进行射击时，那名己方\n特工的武器拥有“无休”武器规则。在下一个战\n略阶段的就绪步骤中，将标识移除。",
+      "text_en": "KASRKIN\nSTRATEGY PLOY\nCLEARANCE SWEEP\nThe Kasrkin advance steadily towards their objectives,\nclearing the battlefield of enemies quadrant\nby quadrant.\nPlace your Clearance Sweep marker in the\nkillzone. Whenever a friendly KASRKIN\noperative within 5\" horizontally of that marker is\nshooting an operative also within 5\" horizontally\nof that marker, that friendly operative’s weapons\nhave the Ceaseless weapon rule. In the Ready\nstep of the next Strategy phase, remove\nthat marker."
+    },
+    {
+      "id": "kt-kasrkin-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "转移位置",
+      "title_en": "RELOCATE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-转移位置.png",
+      "is_back": false,
+      "text": "卡舍津\n战略计谋\n转移位置\n卡舍津战士们时刻都在移动，他们迅速穿梭\n并前往新的射击位置。\n选择一名位于敌方特工 3\" 外的己方卡舍津特\n工。被选择的那名特工，以及其 3\" 内所有位于\n敌方特工 3\" 外的己方卡舍津特工可以立刻执行\n一次无消耗的冲刺行动，具体顺序由您来决定。\n您不能在第一个转折点使用该计谋。",
+      "text_en": "KASRKIN\nSTRATEGY PLOY\nRELOCATE\nThe Kasrkin are always on the move, advancing swiftly\nacross the battlefield to take up new firing positions.\nSelect one friendly KASRKIN operative that’s\nmore than 3\" from enemy operatives. That\noperative, and each other friendly KASRKIN\noperative that’s both within 3\" of that operative\nand more than 3\" from enemy operatives, can\nimmediately perform a free Dash action in an\norder of your choice. You cannot use this ploy\nduring the first turning point."
+    },
+    {
+      "id": "kt-kasrkin-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "把握先机",
+      "title_en": "SEIZE THE INITIATIVE",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-把握先机.png",
+      "is_back": false,
+      "text": "卡舍津\n交战计谋\n把握先机\n卡舍津是勇猛果断的部队，就算是在混乱的\n战场上也能够迅速且准确地展开行动。\n在交战阶段开始时使用本交战计谋。一名己方\n卡舍津特工可以立即无消耗执行一个 1AP 的行\n动，但是不能在那次行动中进行移动。如果您拥\n有先手权，那么不能使用本计谋。",
+      "text_en": "KASRKIN\nFIREFIGHT PLOY\nSEIZE THE INITIATIVE\nKasrkin squads are bold and decisive, acting with speed\nand clarity even in the confusion of battle.\nUse this firefight ploy at the start of the Firefight\nphase. One friendly KASRKIN operative can\nimmediately perform a 1AP action for free, but it\ncannot move during that action. You cannot use\nthis ploy if you’re the player with initiative."
+    },
+    {
+      "id": "kt-kasrkin-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "掩护撤退",
+      "title_en": "COVER RETREAT",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-掩护撤退.png",
+      "is_back": false,
+      "text": "卡舍津\n交战计谋\n掩护撤退\n如果一名卡舍津战士需要进行后撤，他的友\n军们会提供压倒性的火力支援来进行掩护。\n在一名己方卡舍津特工执行后撤行动时，如果\n其 6\" 内存在另一名对其可见且不位于敌方特工\n控制范围内的己方卡舍津特工，那么您可以使\n用本交战计谋。在进行后撤的己方特工完成移动\n后，后撤行动结束之前，那个另一名己方特工可\n以立即执行一次无消耗的射击行动（您可以将其\n改成交战命令）。",
+      "text_en": "KASRKIN\nFIREFIGHT PLOY\nCOVER RETREAT\nShould a Kasrkin soldier need to retreat, their allies may\nlay down a withering barrage of covering fire.\nUse this firefight ploy when a friendly KASRKIN\noperative performs the Fall Back action while\nvisible to and within 6\" of another friendly\nKASRKIN operative that’s not within control\nrange of enemy operatives. After that friendly\noperative has finished moving, but before\nthat Fall Back action ends, that other friendly\noperative can immediately perform a free Shoot\naction (you can change its order to Engage to\ndo so)."
+    },
+    {
+      "id": "kt-kasrkin-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "消灭目标",
+      "title_en": "NEUTRALISE TARGET",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-消灭目标.png",
+      "is_back": false,
+      "text": "卡舍津\n交战计谋\n消灭目标\n一名暴露在外的敌方特工被指定成为了首要\n目标，特工举起了手中的武器并对其进行了\n一番连射。\n当一名己方卡舍津特工进行射击时，在您掷出\n攻击骰后使用本交战计谋。如果目标无法保留任\n何掩护豁免或者受到扫描（参见侦察兵），那么\n您可以重掷自己的任意攻击骰。",
+      "text_en": "KASRKIN\nFIREFIGHT PLOY\nNEUTRALISE TARGET\nDesignating an exposed enemy operative as a priority\ntarget, this operative levels their weapon and fires a\nvolley of rounds.\nUse this firefight ploy after rolling your attack dice\nfor a friendly KASRKIN operative, if it’s shooting\nan operative that either cannot retain any cover\nsaves or is being scanned (see RECON-TROOPER).\nYou can re-roll any of your attack dice."
+    },
+    {
+      "id": "kt-kasrkin-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "寸土不让",
+      "title_en": "GIVE NO GROUND",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-寸土不让.png",
+      "is_back": false,
+      "text": "卡舍津\n交战计谋\n寸土不让\n卡舍津战士们的一生都在保卫着帝国，击退\n来自恐惧之眼的可怕敌人，他们在敌人面前\n展现出不可动摇的纪律性。\n在一名己方卡舍津特工的激活期间，或者在交\n战阶段结束时使用本交战计谋。选择一个己方任\n务标识或者目标标识。直到激活结束或者下一个\n转折点开始前（根据上述情况决定)，如果争夺\n那枚标识的己方卡舍津特工的 APL 总和为 2，\n并且与争夺相同目标的敌方特工的 APL 总和相\n同，那么己方卡舍津特工将控制那枚标识。",
+      "text_en": "KASRKIN\nFIREFIGHT PLOY\nGIVE NO GROUND\nHardened by a lifetime spent defending the Imperium\nfrom the horrific denizens of the Eye of Terror, the\nKasrkin demonstrate unwavering discipline in the face\nof the enemy.\nUse this firefight ploy during a friendly KASRKIN\noperative’s activation, or at the end of the\nFirefight phase. Select one of your mission\nmarkers or an objective marker. Until the end of\nthat activation or until the start of the next turning\npoint respectively, if the total APL of friendly\nKASRKIN operatives that contest that marker\nis 2, and the total APL of enemy operatives\nthat contest it is the same, friendly KASRKIN\noperatives control that marker."
+    },
+    {
+      "id": "kt-kasrkin-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "前握把",
+      "title_en": "FOREGRIP",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-前握把.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营装备\n前握把\n前握把被安装在了枪管下方，能够提供一定\n的稳定性，并且提升了武器在近距离战斗中\n的灵活性。\n每当一名己方卡舍津特工对位于其 3\" 内的特\n工进行射击时，其数据卡上的远程武器拥有“精\n准 1”武器规则（名称中带有“手枪”的武器除\n外，例如高能激光手枪和等离子手枪的所有武器\n资料)。",
+      "text_en": "KASRKIN\nFACTION EQUIPMENT\nFOREGRIP\nFitted under the barrel of the gun, this foregrip helps\nstabilise the bearer’s weapon, improving its handling at\nclose range.\nWhenever a friendly KASRKIN operative is\nshooting an operative within 3\" of it, ranged\nweapons on its datacard (excluding weapons\nthat include ‘pistol’ in their name, e.g. hot-shot\nlaspistol, all profiles of a plasma pistol, etc.) have\nthe Accurate 1 weapon rule."
+    },
+    {
+      "id": "kt-kasrkin-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "长距离瞄具",
+      "title_en": "LONG-RANGE SCOPE",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-长距离瞄具.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营装备\n长距离瞄具\n这件武器安装有用于精确射击的瞄准镜，大\n幅度提升了远距离射击的精准度。\n每当一名己方卡舍津特工对位于其 6\" 外的特工\n进行射击时，那名己方特工的高能武器拥有“集\n中”武器规则。",
+      "text_en": "KASRKIN\nFACTION EQUIPMENT\nLONG-RANGE SCOPE\nThis weapon is fitted with a marksman’s scope, enabling\ngreat accuracy even at long range.\nWhenever a friendly KASRKIN operative is\nshooting an operative more than 6\" from it, that\nfriendly operative’s hot-shot weapons have the\nSaturate weapon rule."
+    },
+    {
+      "id": "kt-kasrkin-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "卡迪亚圣物",
+      "title_en": "RELICS OF CADIA",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-卡迪亚圣物.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营装备\n卡迪亚圣物\n这些个人的小物品能够让卡舍津战士们想起\n自己失落的故乡，以及他们战斗的理由。\n每个转折点限一次，当一名己方卡舍津特工进\n行射击、近战或反击时，如果您掷出了两次或更\n多失败，那么您可以将其中一次失败舍弃，并将\n另一次失败作为普通成功进行保留。",
+      "text_en": "KASRKIN\nFACTION EQUIPMENT\nRELICS OF CADIA\nSmall personal effects remind the Kasrkin of their\nhomeworld, those they have lost, and that which they\nfight for.\nOnce per turning point, when a friendly\nKASRKIN operative is shooting, fighting or\nretaliating, if you roll two or more fails, you can\ndiscard one of them to retain another as a normal\nsuccess instead."
+    },
+    {
+      "id": "kt-kasrkin-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "格斗匕首",
+      "title_en": "COMBAT DAGGERS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-格斗匕首.png",
+      "is_back": false,
+      "text": "卡舍津\n阵营装备\n格斗匕首\n在需要进行肉搏时，卡舍津战士们会使用格\n斗匕首来消灭敌人。\n己方卡舍津特工装备有以下近战武器：\n名称攻击命中伤害\n格斗匕首 3 4+ 3/4",
+      "text_en": "KASRKIN\nFACTION EQUIPMENT\nCOMBAT DAGGERS\nWhen close combat is required, the Kasrkin turn to their\ncombat daggers in order to silence the enemy.\nFriendly KASRKIN operatives have the following\nmelee weapon:\nNAME ATK HIT DMG\nCombat dagger 3 4+ 3/4"
+    }
+  ]
+}

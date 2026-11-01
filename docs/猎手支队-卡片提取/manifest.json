@@ -1,0 +1,977 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-HUNTER_CLADE",
+  "team_name_zh": "猎手支队",
+  "team_name_en": "Hunter Clade",
+  "source_pdf": "最新杀戮小队规则更新/猎手支队 Hunter Clade 杀戮小队规则.pdf",
+  "source_pdf_sha256": "5eba98863d5b89685b5613449c76e0166f2189f0d1498586cee2e3b8f8da82a2",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 35,
+    "operative": 14,
+    "operative-ability": 2,
+    "team-selection": 3,
+    "faction-rule": 3,
+    "strategic-ploy": 4,
+    "firefight-ploy": 5,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-hunter_clade-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "斯卡里安锈色追猎者领袖-数据卡",
+      "title_en": "SICARIAN RUSTSTALKER PRINCEPS",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-斯卡里安锈色追猎者领袖-数据卡.png",
+      "is_back": false,
+      "text": "斯卡里安锈色追猎者领袖 APL 移动豁免耐伤\n2 6\" 4+ 11\n名称攻击命中伤害武器规则\n共鸣爪和超声双刀 5 3+ 4/6 平衡、撕裂\n毁灭颂歌：每当位于这名特工 3\" 内的一名己方猎\n手支队锈色追猎者特工处于近战中，则在那个流\n程中己方第一次使用关键成功进行出击时造成额外\n1 点伤害。\n废土追猎者：每当一名特工对这名特工执行射击\n时，若您可以保留任意掩护豁免，则您可以额外\n保留一枚掩护豁免，或者您可以将一枚掩护豁免\n保留为关键成功作为替代。本效果不与制高点地\n形增加的掩护豁免相累加。\n控制规程：如果指定的己方猎手支队特工对该特\n工可见，则您可以消耗 0CP 使用“指令超驰”\n交战计谋。\n猎手支队、人类帝国、机械修会、队长、斯卡里安、锈色追猎者、领袖 40",
+      "weapon_types": {
+        "共鸣爪和超声双刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSICARIAN RUSTSTALKER PRINCEPS\n2 6\" 4+ 11\nNAME ATK HIT DMG WR\nChordclaw & transonic blades 5 3+ 4/6 Balanced, Rending\nCanticle of Destruction: Whenever a friendly HUNTER\nCLADE RUSTSTALKER operative within 3\" of this operative\nis fighting, the first time you strike with a critical success during\nthat sequence, inflict 1 additional damage.\nWasteland Stalker: Whenever an operative is shooting this\noperative, if you can retain any cover saves, you can retain one\nadditional cover save, or you can retain one cover save as a\ncritical success instead. This isn’t cumulative with improved\ncover saves from Vantage terrain.\nControl Protocol: You can use the Command Override firefight\nploy for 0CP if the specified friendly HUNTER CLADE\noperative is visible to this operative.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, LEADER, SICARIAN, RUSTSTALKER, PRINCEPS 40"
+    },
+    {
+      "id": "kt-hunter_clade-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "斯卡里安渗透者领袖-数据卡",
+      "title_en": "SICARIAN INFILTRATOR PRINCEPS",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-斯卡里安渗透者领袖-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n斯卡里安渗透者领袖\n2 6\" 4+ 11\n名称攻击命中伤害武器规则\n箭弹喷射器 5 3+ 2/2 范围 8\"、集中、安静\n短管卡宾枪 4 3+ 3/4 无休\n动力武器 4 3+ 4/6 致命 5+\n电击刺棒 4 3+ 3/4 致命 5+、震荡\n圣罩颂歌：每当位于这名特工 3\" 内且拥有隐匿命\n令的己方猎手支队渗透者特工位于掩护中，则那\n名己方特工无法被选择为有效目标，本效果的优先\n度高于所有其他规则（例如‘追踪’武器规则和制\n高点地形)，除非攻击者位于特工的 2\" 内。\n控制规程：如果指定的己方猎手支队特工对该特\n工可见，则您可以消耗 0CP 使用“指令超驰”\n交战计谋。\n猎手支队、人类帝国、机械修会、队长、斯卡里安、渗透者、领袖 40",
+      "weapon_types": {
+        "箭弹喷射器": "远程",
+        "短管卡宾枪": "远程",
+        "动力武器": "近战",
+        "电击刺棒": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSICARIAN INFILTRATOR PRINCEPS\n2 6\" 4+ 11\nNAME ATK HIT DMG WR\nFlechette blaster 5 3+ 2/2 Range 8\", Saturate, Silent\nStubcarbine 4 3+ 3/4 Ceaseless\nPower weapon 4 3+ 4/6 Lethal 5+\nTaser goad 4 3+ 3/4 Lethal 5+, Shock\nCanticle of Shroudpsalm: Whenever a friendly HUNTER\nCLADE INFILTRATOR operative is within 3\" of this\noperative, has a Conceal order and is in cover, that friendly\noperative cannot be selected as a valid target, taking precedence\nover all other rules (e.g. Seek, Vantage terrain) except being\nwithin 2\".\nControl Protocol: You can use the Command Override firefight\nploy for 0CP if the specified friendly HUNTER CLADE\noperative is visible to this operative.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, LEADER, SICARIAN, INFILTRATOR, PRINCEPS 40"
+    },
+    {
+      "id": "kt-hunter_clade-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "护教军游骑兵首席-数据卡",
+      "title_en": "SKITARII RANGER ALPHA",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-护教军游骑兵首席-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军游骑兵首席\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n电弧手枪 4 3+ 4/5 范围 8\"、关键穿刺 1、晕眩\n流电步枪 4 3+ 3/4 重型（仅限转移）、关键穿刺 1\n精工辐射手枪 4 3+ 2/4 范围 8\"、平衡、撕裂\n磷光爆破手枪 4 3+ 3/4 范围 8\"、爆炸 1\"、严重\n电弧槌 4 4+ 4/5 震荡\n枪托 3 4+ 2/3 -\n动力武器 4 4+ 4/6 致命 5+\n电击刺棒 4 4+ 3/4 致命 5+、震荡\n请继续阅读背面规则\n猎手支队、人类帝国、机械修会、队长、护教军、游骑兵、首席 25",
+      "weapon_types": {
+        "电弧手枪": "远程",
+        "流电步枪": "远程",
+        "精工辐射手枪": "远程",
+        "磷光爆破手枪": "远程",
+        "电弧槌": "近战",
+        "枪托": "近战",
+        "动力武器": "近战",
+        "电击刺棒": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII RANGER ALPHA\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nArc pistol 4 3+ 4/5 Range 8\", Piercing 1, Stun\nGalvanic rifle 4 3+ 3/4 Heavy (Reposition only), Piercing Crits 1\nMaster-crafted radium pistol 4 3+ 2/4 Range 8\", Balanced, Rending\nPhosphor blast pistol 4 3+ 3/4 Range 8\", Blast 1\", Severe\nArc maul 4 4+ 4/5 Shock\nGun butt 3 4+ 2/3 -\nPower weapon 4 4+ 4/6 Lethal 5+\nTaser goad 4 4+ 3/4 Lethal 5+, Shock\nRULES CONTINUE ON OTHER SIDE\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, LEADER, SKITARII, RANGER, ALPHA 25"
+    },
+    {
+      "id": "kt-hunter_clade-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "护教军游骑兵首席-能力卡",
+      "title_en": "SKITARII RANGER ALPHA",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-护教军游骑兵首席-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军游骑兵首席\n2 6\" 4+ 8\n歼灭颂歌：每当己方猎手支队游骑兵特工位于这\n名特工 3\" 内，那名己方特工的远程武器获得“重\n击”武器规则。\n照准协议：每当这名特工执行射击时，若它在该激\n活中没有进行过移动，或者它正在进行反击时，\n它数据卡上的远程武器获得“致命 5+”武器规\n则。请注意，本规则并不限制这名特工在射击后\n进行移动。\n控制规程：如果指定的己方猎手支队特工对该特\n工可见，则您可以消耗 0CP 使用“指令超驰”\n交战计谋。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII RANGER ALPHA\n2 6\" 4+ 8\nCanticle of Elimination: Whenever a friendly\nHUNTER CLADE RANGER operative is within 3\" of this\noperative, that friendly operative's ranged weapons have the\nPunishing weapon rule.\nTargeting Protocol: Whenever this operative is shooting, if it\nhasn’t moved during the activation, or if it’s a counteraction,\nranged weapons on its datacard have the Lethal 5+ weapon rule.\nNote this operative isn’t restricted from moving after shooting.\nControl Protocol: You can use the Command Override firefight\nploy for 0CP if the specified friendly HUNTER CLADE\noperative is visible to this operative."
+    },
+    {
+      "id": "kt-hunter_clade-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "护教军先锋首席-数据卡",
+      "title_en": "SKITARII VANGUARD ALPHA",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-护教军先锋首席-数据卡.png",
+      "is_back": false,
+      "text": "护教军先锋首席 APL 移动豁免耐伤\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n电弧手枪 4 3+ 4/5 范围 8\"、关键穿刺 1、晕眩\n精工辐射手枪 4 3+ 2/4 范围 8\"、平衡、撕裂\n磷光爆破手枪 4 3+ 3/4 范围 8\"、爆炸 1\"、严重\n辐射卡宾枪 4 3+ 2/4 撕裂\n电弧槌 4 4+ 4/5 震荡\n枪托 3 4+ 2/3 -\n动力武器 4 4+ 4/6 致命 5+\n电击刺棒 4 4+ 3/4 致命 5+、震荡\n请继续阅读背面规则\n猎手支队、人类帝国、机械修会、队长、护教军、先锋、首席 25",
+      "weapon_types": {
+        "电弧手枪": "远程",
+        "精工辐射手枪": "远程",
+        "磷光爆破手枪": "远程",
+        "辐射卡宾枪": "远程",
+        "电弧槌": "近战",
+        "枪托": "近战",
+        "动力武器": "近战",
+        "电击刺棒": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII VANGUARD ALPHA\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nArc pistol 4 3+ 4/5 Range 8\", Piercing 1, Stun\nMaster-crafted radium pistol 4 3+ 2/4 Range 8\", Balanced, Rending\nPhosphor blast pistol 4 3+ 3/4 Range 8\", Blast 1\", Severe\nRadium carbine 4 3+ 2/4 Rending\nArc maul 4 4+ 4/5 Shock\nGun butt 3 4+ 2/3 -\nPower weapon 4 4+ 4/6 Lethal 5+\nTaser goad 4 4+ 3/4 Lethal 5+, Shock\nRULES CONTINUE ON OTHER SIDE\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, LEADER, SKITARII, VANGUARD, ALPHA 25"
+    },
+    {
+      "id": "kt-hunter_clade-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "护教军先锋首席-能力卡",
+      "title_en": "SKITARII VANGUARD ALPHA",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-护教军先锋首席-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军先锋首席\n2 6\" 4+ 8\n辐光颂歌：每当一名敌方特工位于这名特工 3\"\n内，若它正受到辐射饱和规则的影响，则同时将\n那名敌方特工武器的攻击属性降低 1 点。\n辐射饱和：每当一名敌方特工位于己方猎手支队\n先锋特工 2\" 内时，便将那名敌方特工武器的命中属\n性降低 1 点，这并不与受创累加。\n控制规程：如果指定的己方猎手支队特工对该特\n工可见，则您可以消耗 0CP 使用“指令超驰”\n交战计谋。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII VANGUARD ALPHA\n2 6\" 4+ 8\nCanticle of the Glow: Whenever an enemy operative is within\n3\" of this operative, if it's under the effects of the Rad-\nSaturation rule, also subtract 1 from the Atk stat of that enemy\noperative’s weapons.\nRad-Saturation: Whenever an enemy operative is within 2\" of\nfriendly HUNTER CLADE VANGUARD operatives, worsen\nthe Hit stat of that enemy operative’s weapons by 1. This isn’t\ncumulative with being injured.\nControl Protocol: You can use the Command Override firefight\nploy for 0CP if the specified friendly HUNTER CLADE\noperative is visible to this operative."
+    },
+    {
+      "id": "kt-hunter_clade-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "斯卡里安渗透者战士-数据卡",
+      "title_en": "SICARIAN INFILTRATOR WARRIOR",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-斯卡里安渗透者战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n斯卡里安渗透者战士\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n箭弹喷射器 5 3+ 2/2 范围 8\"、集中、安静\n短管卡宾枪 4 3+ 3/4 无休\n动力武器 4 3+ 4/6 致命 5+\n电击刺棒 4 3+ 3/4 致命 5+、震荡\n猎手支队、人类帝国、机械修会、斯卡里安、渗透者、战士 40",
+      "weapon_types": {
+        "箭弹喷射器": "远程",
+        "短管卡宾枪": "远程",
+        "动力武器": "近战",
+        "电击刺棒": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSICARIAN INFILTRATOR WARRIOR\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nFlechette blaster 5 3+ 2/2 Range 8\", Saturate, Silent\nStubcarbine 4 3+ 3/4 Ceaseless\nPower weapon 4 3+ 4/6 Lethal 5+\nTaser goad 4 3+ 3/4 Lethal 5+, Shock\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SICARIAN, INFILTRATOR, WARRIOR 40"
+    },
+    {
+      "id": "kt-hunter_clade-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "斯卡里安锈色追猎者战士-数据卡",
+      "title_en": "SICARIAN RUSTSTALKER WARRIOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-斯卡里安锈色追猎者战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n斯卡里安锈色追猎者战士\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n共鸣爪和超声剃刀 5 3+ 4/5 平衡\n超声双刀 5 3+ 4/6 撕裂\n废土追猎者：每当一名特工对这名特工执行射击\n时，若您可以保留任意掩护豁免，则您可以额外\n保留一枚掩护豁免，或者您可以将一枚掩护豁免\n保留为关键成功作为替代。本效果不与制高点地\n形增加的掩护豁免相累加。\n猎手支队、人类帝国、机械修会、斯卡里安、锈色追猎者、战士 40",
+      "weapon_types": {
+        "共鸣爪和超声剃刀": "近战",
+        "超声双刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSICARIAN RUSTSTALKER WARRIOR\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nChordclaw & transonic razor 5 3+ 4/5 Balanced\nTransonic blades 5 3+ 4/6 Rending\nWasteland Stalker: Whenever an operative is shooting this\noperative, if you can retain any cover saves, you can retain one\nadditional cover save, or you can retain one cover save as a\ncritical success instead. This isn’t cumulative with improved\ncover saves from Vantage terrain.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SICARIAN, RUSTSTALKER, WARRIOR 40"
+    },
+    {
+      "id": "kt-hunter_clade-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "护教军游骑兵传令士-数据卡",
+      "title_en": "SKITARII RANGER DIKTAT",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-护教军游骑兵传令士-数据卡.png",
+      "is_back": false,
+      "text": "护教军游骑兵传令士 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n流电步枪 4 3+ 3/4 重型（仅限转移）、关键穿刺 1\n枪托 3 4+ 2/3 -\n照准协议：每当这名特工执行射击时，若它在该激\n活中没有进行过移动，或者它正在进行反击时，\n它数据卡上的远程武器获得“致命 5+”武器规\n则。请注意，本规则并不限制这名特工在射击后\n进行移动。\n传讯 1AP\n支援。选择位于这名特工 6\" 内且可见的一名己\n方猎手支队特工。直到它下一次激活结束前，\n为那名特工的 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行此行动。\n猎手支队、人类帝国、机械修会、护教军、游骑兵、传令士 25",
+      "weapon_types": {
+        "流电步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII RANGER DIKTAT\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nGalvanic rifle 4 3+ 3/4 Heavy (Reposition only), Piercing Crits 1\nGun butt 3 4+ 2/3 -\nTargeting Protocol: Whenever this operative is shooting, if it\nhasn’t moved during the activation, or if it’s a counteraction,\nranged weapons on its datacard have the Lethal 5+ weapon rule.\nNote this operative isn’t restricted from moving after shooting.\nSIGNAL 1AP\nSUPPORT. Select one other friendly HUNTER CLADE\noperative visible to and within 6\" of this operative. Until the\nend of that operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, RANGER, DIKTAT 25"
+    },
+    {
+      "id": "kt-hunter_clade-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "护教军游骑兵炮手-数据卡",
+      "title_en": "SKITARII RANGER GUNNER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-护教军游骑兵炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军游骑兵炮手\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n电弧步枪1 4 3+ 4/5 穿刺 1、晕眩\n等离子机枪（标准）1 4 3+ 4/6 穿刺 1\n等离子机枪（过载）1 4 3+ 5/6 过热、致命 5+、穿刺 1\n超铀火绳枪（机动）2 4 3+ 4/3 毁灭 2、重型（仅限冲刺）、穿刺 1\n超铀火绳枪 4 2+ 4/3 毁灭 3、重型、穿刺 1、严重\n（静止）2\n枪托 3 4+ 2/3 -\n照准协议：每当这名特工执行射击时，若它在该激活中没有进行过移动，或者它正在进行反击时，它数\n据卡上的远程武器获得“致命 5+”武器规则。请注意，本规则并不限制这名特工在射击后进行移动。\n猎手支队、人类帝国、机械修会、护教军、游骑兵、炮手 1 25 2 60x35",
+      "weapon_types": {
+        "电弧步枪1": "远程",
+        "等离子机枪（标准）1": "远程",
+        "等离子机枪（过载）1": "远程",
+        "超铀火绳枪（机动）2": "远程",
+        "超铀火绳枪（静止）2": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII RANGER GUNNER\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nArc rifle1 4 3+ 4/5 Piercing 1, Stun\nPlasma caliver (standard)1 4 3+ 4/6 Piercing 1\nPlasma caliver (supercharge)1 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nTransuranic arquebus (mobile)2 4 3+ 4/3 Devastating 2, Heavy (Dash only), Piercing 1\nTransuranic arquebus 4 2+ 4/3 Devastating 3, Heavy, Piercing 1, Severe\n(stationary)2\nGun butt 3 4+ 2/3 -\nTargeting Protocol: Whenever this operative is shooting, if it hasn’t moved during the activation, or if it’s a counteraction, ranged\nweapons on its datacard have the Lethal 5+ weapon rule. Note this operative isn’t restricted from moving after shooting.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, RANGER, GUNNER 1 25 2 60x35"
+    },
+    {
+      "id": "kt-hunter_clade-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "护教军游骑兵侦测士-数据卡",
+      "title_en": "SKITARII RANGER SURVEYOR",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-护教军游骑兵侦测士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军游骑兵侦测士\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n流电步枪 4 3+ 3/4 重型（仅限转移）、关键穿刺 1\n枪托 3 4+ 2/3 -\n照准协议：每当这名特工执行射击时，若它在该激活中没有进行过移动，或者它正在进行反击时，它数\n据卡上的远程武器获得“致命 5+”武器规则。请注意，本规则并不限制这名特工在射击后进行移动。\n标注 1AP\n支援。选择对这名特工可见的一名敌方特工。直到转折点结束前，每当一名猎手支队特工在这名特工\n3\" 内射击那名敌方特工，您便可以使用本效果，若此：\n• 那名己方特工的远程武器获得“追踪轻型”武器规则。\n• 那名敌方特工无法被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。\n猎手支队、人类帝国、机械修会、护教军、游骑兵、侦测士 25",
+      "weapon_types": {
+        "流电步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII RANGER SURVEYOR\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nGalvanic rifle 4 3+ 3/4 Heavy (Reposition only), Piercing Crits 1\nGun butt 3 4+ 2/3 -\nTargeting Protocol: Whenever this operative is shooting, if it hasn’t moved during the activation, or if it’s a counteraction, ranged\nweapons on its datacard have the Lethal 5+ weapon rule. Note this operative isn’t restricted from moving after shooting.\nSPOT 1AP\nSUPPORT. Select one enemy operative visible to this operative. Until the end of the turning point, whenever a friendly\nHUNTER CLADE operative within 3\" of this operative is shooting that enemy operative, you can use this effect. If you do:\n• That friendly operative’s ranged weapons have the Seek Light weapon rule.\n• That enemy operative cannot be obscured.\nThis operative cannot perform this action while within control range of an enemy operative.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, RANGER, SURVEYOR 25"
+    },
+    {
+      "id": "kt-hunter_clade-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "护教军游骑兵战士-数据卡",
+      "title_en": "SKITARII RANGER WARRIOR",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-护教军游骑兵战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军游骑兵战士\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n流电步枪 4 3+ 3/4 重型（仅限转移）、关键穿刺 1\n枪托 3 4+ 2/3 -\n照准协议：每当这名特工执行射击时，若它在该激\n活中没有进行过移动，或者它正在进行反击时，\n它数据卡上的远程武器获得“致命 5+”武器规\n则。请注意，本规则并不限制这名特工在射击后\n进行移动。\n猎手支队、人类帝国、机械修会、护教军、游骑兵、战士 25",
+      "weapon_types": {
+        "流电步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII RANGER WARRIOR\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nGalvanic rifle 4 3+ 3/4 Heavy (Reposition only), Piercing Crits 1\nGun butt 3 4+ 2/3 -\nTargeting Protocol: Whenever this operative is shooting, if it\nhasn’t moved during the activation, or if it’s a counteraction,\nranged weapons on its datacard have the Lethal 5+ weapon rule.\nNote this operative isn’t restricted from moving after shooting.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, RANGER, WARRIOR 25"
+    },
+    {
+      "id": "kt-hunter_clade-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "护教军先锋传令士-数据卡",
+      "title_en": "SKITARII VANGUARD DIKTAT",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-护教军先锋传令士-数据卡.png",
+      "is_back": false,
+      "text": "护教军先锋传令士 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n辐射卡宾枪 4 3+ 2/4 撕裂\n枪托 3 4+ 2/3 -\n辐射饱和：每当一名敌方特工位于己方猎手支队\n先锋特工 2\" 内时，便将那名敌方特工武器的命中属\n性降低 1 点，这并不与受创累加。\n传讯 1AP\n支援。选择位于这名特工 6\" 内且可见的一名己\n方猎手支队特工。直到它下一次激活结束前，\n为那名特工的 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行此行动。\n猎手支队、人类帝国、机械修会、护教军、先锋、传令士 25",
+      "weapon_types": {
+        "辐射卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII VANGUARD DIKTAT\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRadium carbine 4 3+ 2/4 Rending\nGun butt 3 4+ 2/3 -\nRad-Saturation: Whenever an enemy operative is within 2\" of\nfriendly HUNTER CLADE VANGUARD operatives, worsen\nthe Hit stat of that enemy operative’s weapons by 1. This isn’t\ncumulative with being injured.\nSIGNAL 1AP\nSUPPORT. Select one other friendly HUNTER CLADE\noperative visible to and within 6\" of this operative. Until the\nend of that operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, VANGUARD, DIKTAT 25"
+    },
+    {
+      "id": "kt-hunter_clade-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "护教军先锋炮手-数据卡",
+      "title_en": "SKITARII VANGUARD GUNNER",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-护教军先锋炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军先锋炮手\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n电弧步枪1 4 3+ 4/5 穿刺 1、晕眩\n等离子机枪（标准）1 4 3+ 4/6 穿刺 1\n等离子机枪（过载）1 4 3+ 5/6 过热、致命 5+、穿刺 1\n超铀火绳枪（机动）2 4 3+ 4/3 毁灭 2、重型（仅限冲刺）、穿刺 1\n超铀火绳枪 4 2+ 4/3 毁灭 3、重型、穿刺 1、严重\n（静止）2\n枪托 3 4+ 2/3 -\n辐射饱和：每当一名敌方特工位于己方猎手支队\n降低 1 点，这并不与受创累加。\n先锋特工 2\" 内时，便将那名敌方特工武器的命中属性\n猎手支队、人类帝国、机械修会、护教军、先锋、炮手 1 25 2 60x35",
+      "weapon_types": {
+        "电弧步枪1": "远程",
+        "等离子机枪（标准）1": "远程",
+        "等离子机枪（过载）1": "远程",
+        "超铀火绳枪（机动）2": "远程",
+        "超铀火绳枪（静止）2": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII VANGUARD GUNNER\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nArc rifle1 4 3+ 4/5 Piercing 1, Stun\nPlasma caliver (standard)1 4 3+ 4/6 Piercing 1\nPlasma caliver (supercharge)1 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nTransuranic arquebus (mobile)2 4 3+ 4/3 Devastating 2, Heavy (Dash only), Piercing 1\nTransuranic arquebus 4 2+ 4/3 Devastating 3, Heavy, Piercing 1, Severe\n(stationary)2\nGun butt 3 4+ 2/3 -\nRad-Saturation: Whenever an enemy operative is within 2\" of friendly HUNTER CLADE VANGUARD operatives, worsen the Hit\nstat of that enemy operative’s weapons by 1. This isn’t cumulative with being injured.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, VANGUARD, GUNNER 1 25 2 60x35"
+    },
+    {
+      "id": "kt-hunter_clade-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "护教军先锋侦测士-数据卡",
+      "title_en": "SKITARII VANGUARD SURVEYOR",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-护教军先锋侦测士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军先锋侦测士\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n辐射卡宾枪 4 3+ 2/4 撕裂\n枪托 3 4+ 2/3 -\n辐射饱和：每当一名敌方特工位于己方猎手支队先锋特工 2\" 内时，便将那名敌方特工武器的命中属性\n降低 1 点，这并不与受创累加。\n标注 1AP\n支援。选择对这名特工可见的一名敌方特工。直到转折点结束前，每当一名猎手支队特工在这名特工\n3\" 内射击那名敌方特工，您便可以使用本效果，若此：\n• 那名己方特工的远程武器获得“追踪轻型”武器规则。\n• 那名敌方特工无法被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。\n猎手支队、人类帝国、机械修会、护教军、先锋、侦测士 25",
+      "weapon_types": {
+        "辐射卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII VANGUARD SURVEYOR\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRadium carbine 4 3+ 2/4 Rending\nGun butt 3 4+ 2/3 -\nRad-Saturation: Whenever an enemy operative is within 2\" of friendly HUNTER CLADE VANGUARD operatives, worsen the Hit\nstat of that enemy operative’s weapons by 1. This isn’t cumulative with being injured.\nSPOT 1AP\nSUPPORT. Select one enemy operative visible to this operative. Until the end of the turning point, whenever a friendly\nHUNTER CLADE operative within 3\" of this operative is shooting that enemy operative, you can use this effect. If you do:\n• That friendly operative’s ranged weapons have the Seek Light weapon rule.\n• That enemy operative cannot be obscured.\nThis operative cannot perform this action while within control range of an enemy operative.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, VANGUARD, SURVEYOR 25"
+    },
+    {
+      "id": "kt-hunter_clade-01-16",
+      "sequence": 16,
+      "category": "operative",
+      "title_zh": "护教军先锋战士-数据卡",
+      "title_en": "SKITARII VANGUARD WARRIOR",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-16-特工-护教军先锋战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n护教军先锋战士\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n辐射卡宾枪 4 3+ 2/4 撕裂\n枪托 3 4+ 2/3 -\n辐射饱和：每当一名敌方特工位于己方猎手支队\n先锋特工 2\" 内时，便将那名敌方特工武器的命中属\n性降低 1 点，这并不与受创累加。\n猎手支队、人类帝国、机械修会、护教军、先锋、战士 25",
+      "weapon_types": {
+        "辐射卡宾枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSKITARII VANGUARD WARRIOR\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRadium carbine 4 3+ 2/4 Rending\nGun butt 3 4+ 2/3 -\nRad-Saturation: Whenever an enemy operative is within 2\" of\nfriendly HUNTER CLADE VANGUARD operatives, worsen\nthe Hit stat of that enemy operative’s weapons by 1. This isn’t\ncumulative with being injured.\nHUNTER CLADE , IMPERIUM, ADEPTUS MECHANICUS, SKITARII, VANGUARD, WARRIOR 25"
+    },
+    {
+      "id": "kt-hunter_clade-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "猎手支队杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-猎手支队杀戮小队-1.png",
+      "is_back": false,
+      "text": "猎手支队杀戮小队\n原型：侦查，搜索与摧毁\n特工\n↘ \u00071\u0007名猎手支队特工，从以下列表选择：t:\n• 斯卡里安渗透者领袖，从以下选项中各选择\n一件装备：\n○ 箭弹喷射器或者短管卡宾枪\n○ 动力武器或者电击刺棒\n• 斯卡里安锈色追猎者领袖\n• 护教军游骑兵首席，装备有以下一种选项：\n○ 流电步枪；枪托\n○ 精工辐射手枪；动力武器\n或以下选项中各选择一件装备：\n○ 电弧手枪或者磷光爆破手枪\n○ 电弧槌或者电击刺棒\n• 护教军先锋首席，装备有以下一种选项：\n○ 辐射卡宾枪；枪托\n○ 精工辐射手枪；动力武器\n或以下选项中各选择一件装备：\n○ 电弧手枪或者磷光爆破手枪\n○ 电弧槌或者电击刺棒\n请继续阅读背面",
+      "text_en": "HUNTER CLADE KILL TEAM\nARCHETYPE: RECON, SEEK & DESTROY\nOPERATIVES\n↘ 1 HUNTER CLADE operative selected from\nthe following list:\n• SICARIAN INFILTRATOR PRINCEPS with one\noption from each of the following:\n○ Flechette blaster or stubcarbine\n○ Power weapon or taser goad\n• SICARIAN RUSTSTALKER PRINCEPS\n• SKITARII RANGER ALPHA with one of the\nfollowing options:\n○ Galvanic rifle; gun butt\n○ Master-crafted radium pistol;\npower weapon\nOr one option from each of the following:\n○ Arc pistol or phosphor blast pistol\n○ Arc maul or taser goad\n• SKITARII VANGUARD ALPHA with one of the\nfollowing options:\n○ Radium carbine; gun butt\n○ Master-crafted radium pistol;\npower weapon\nOr one option from each of the following:\n○ Arc pistol or phosphor blast pistol\n○ Arc maul or taser goad\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hunter_clade-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "猎手支队杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-猎手支队杀戮小队-2.png",
+      "is_back": true,
+      "text": "↘ 9\u0007名猎手支队特工，从以下列表选择：\n• 斯卡里安渗透者战士，从以下选项中各选\n择一件装备：\n○ 箭弹喷射器或者短管卡宾枪\n○ 动力武器或者电击刺棒\n• 斯卡里安锈色追猎者战士，从以下选项中\n各选择一件装备：\n○ 共鸣爪和超声剃刀\n○ 超声双刀\n• 护教军游骑兵传令士\n• 护教军游骑兵炮手，装备有枪托以及以下\n一种选项：\n○ 电弧步枪，等离子机枪或超铀火绳枪\n• 护教军游骑兵侦测士\n• 护教军游骑兵战士\n• 护教军先锋传令士\n• 护教军先锋炮手，装备有枪托以及以下一\n种选项：\n○ 电弧步枪，等离子机枪或超铀火绳枪\n• 护教军先锋侦测士\n• 护教军先锋战士\n请继续阅读背面",
+      "text_en": "↘ 9 HUNTER CLADE operatives selected from\nthe following list:\n• SICARIAN INFILTRATOR WARRIOR with\none option from each of the following:\n○ Flechette blaster or stubcarbine\n○ Power weapon or taser goad\n• SICARIAN RUSTSTALKER WARRIOR with\none of the following options:\n○ Chordclaw & transonic razor\n○ Transonic blades\n• SKITARII RANGER DIKTAT\n• SKITARII RANGER GUNNER with gun butt\nand one of the following options:\n○ Arc rifle, plasma caliver or\ntransuranic arquebus\n• SKITARII RANGER SURVEYOR\n• SKITARII RANGER WARRIOR\n• SKITARII VANGUARD DIKTAT\n• SKITARII VANGUARD GUNNER with gun\nbutt and one of the following options:\n○ Arc rifle, plasma caliver or transuranic\narquebus\n• SKITARII VANGUARD SURVEYOR\n• SKITARII VANGUARD WARRIOR\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hunter_clade-10-03",
+      "sequence": 3,
+      "category": "team-selection",
+      "title_zh": "猎手支队杀戮小队-3",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "10-03-小队选择-猎手支队杀戮小队-3.png",
+      "is_back": true,
+      "text": "这些特工您总计不能选择超过\u00077\u0007名。\n除了炮手和战士特工，每一种特工在您的杀戮小\n队中只能被包含一次。您的杀戮小队只能包含至\n多一名传令士特工，一名侦测士特工以及五名斯\n卡里安特工。您的杀戮小队只能包含至多一把电\n弧步枪，一把等离子机枪以及一把超铀火绳枪。",
+      "text_en": "Other than GUNNER and WARRIOR operatives,\nyour kill team can only include each operative on\nthis list once. Your kill team can only include up\nto one DIKTAT operative, up to one SURVEYOR\noperative and up to five SICARIAN operatives.\nYour kill team can only include up to one arc\nrifle, up to one plasma caliver and up to one\ntransuranic arquebus.\nYou cannot select more than seven of these\noperatives combined."
+    },
+    {
+      "id": "kt-hunter_clade-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "教义条令-1",
+      "title_en": "DOCTRINA IMPERATIVES",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-教义条令-1.png",
+      "is_back": false,
+      "text": "猎手支队\n阵营规则\n教义条令\n技术祭司们为猎手支队制定了在执行任务时需\n要的协议，并以此优化护教军和斯卡里安当下\n的程序，但同时这也会带来一些负面影响。\n在选择特工步骤结束时，选择一个教义条令来作\n为己方杀戮小队的主要模式，持续至战斗结束为\n止（请注意，选择主要模式不会让教义条令自动\n生效；您依旧需要通过战略计划来将其激活，具\n体请见下方）。\n战略计划。为己方猎手支队 \u0007特工选择一个持续\n至下一个战略阶段就绪步骤时的教义条令。每个\n教义条令都各自拥有一个优化规则和劣化规则，\n这两种效果在使用对应教义条令时将同时对己方\n杀戮小队生效。每场战斗限一次，在您选择的教\n义条令是己方杀戮小队的主要模式时，您可以忽\n略其劣化效果。\n请继续阅读背面",
+      "text_en": "HUNTER CLADE\nFACTION RULE\nDOCTRINA IMPERATIVES\nTech-Priests dictate protocols for the Hunter Clade to\nfollow as they move through their mission, straining\nthe programming of the Skitarii and Sicarians in order\nto optimise their current status, to the detriment of\nall else.\nAt the end of the Select Operatives step, select\none DOCTRINA IMPERATIVE to be a Primary\nMode for your kill team until the end of the\nbattle (note that selecting a Primary Mode\ndoesn’t automatically give you the effects of that\nDOCTRINA IMPERATIVE for the battle; you must\nstill select it as a STRATEGIC GAMBIT, as below).\nSTRATEGIC GAMBIT. Select one DOCTRINA\nIMPERATIVE for friendly HUNTER CLADE\noperatives to have until the Ready step of the next\nStrategy phase. Each DOCTRINA IMPERATIVE\nhas both an Optimisation and a Deprecation rule.\nBoth are in effect while your kill team has that\nDOCTRINA IMPERATIVE. Once per battle, when\nyou select the DOCTRINA IMPERATIVE that’s\nyour kill team’s Primary Mode, you can ignore its\nDeprecation rule."
+    },
+    {
+      "id": "kt-hunter_clade-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "教义条令-2",
+      "title_en": "DOCTRINA IMPERATIVES",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-02-阵营规则-教义条令-2.png",
+      "is_back": true,
+      "text": "守护者条令\n优化：己方猎手支队 \u0007特工的远程武器获得“无\n休”武器规则。\n劣化：将己方猎手支队 \u0007特工的近战武器命中属\n性降低\u00071\u0007\u0007点，本规则不与受创叠加。\n征服者条令\n优化：己方猎手支队 \u0007特工的近战武器获得“无\n休”武器规则。\n劣化：将己方猎手支队 \u0007特工的远程武器命中属\n性降低\u00071\u0007\u0007点，本规则不与受创叠加。\n壁垒条令\n优化：数值为\u00073\u0007点或更多的普通伤害对己方猎手\n支队特工造成的伤害减少\u00071\u0007点。\n劣化：将己方猎手支队 \u0007特工的移动属性降低\u00071\"。\n请继续阅读背面",
+      "text_en": "Protector Imperative\nOptimisation: Friendly HUNTER CLADE\noperatives’ ranged weapons have the Ceaseless\nweapon rule.\nDeprecation: Worsen the Hit stat of friendly\nHUNTER CLADE operatives’ melee weapons by\n1. This isn’t cumulative with being injured.\nConqueror Imperative\nOptimisation: Friendly HUNTER CLADE\noperatives’ melee weapons have the Ceaseless\nweapon rule.\nDeprecation: Worsen the Hit stat of friendly\nHUNTER CLADE operatives’ ranged weapons by\n1. This isn’t cumulative with being injured.\nBulwark Imperative\nOptimisation: Normal Dmg of 3 or more\ninflicts 1 less damage on friendly HUNTER\nCLADE operatives.\nDeprecation: Subtract 1\" from the Move stat of\nfriendly HUNTER CLADE operatives."
+    },
+    {
+      "id": "kt-hunter_clade-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "教义条令-3",
+      "title_en": "DOCTRINA IMPERATIVES",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-教义条令-3.png",
+      "is_back": true,
+      "text": "进攻者条令\n优化：将己方猎手支队 \u0007特工的移动属性增加\u00071\"。\n劣化：将己方猎手支队 \u0007特工的豁免属性降低\u00071\u0007\n点。\n平衡条令\n优化：无。\n劣化：无。",
+      "text_en": "Aggressor Imperative\nOptimisation: Add 1\" to the Move stat of friendly\nHUNTER CLADE operatives.\nDeprecation: Worsen the Save stat of friendly\nHUNTER CLADE operatives by 1.\nNeutral Imperative\nOptimisation: None.\nDeprecation: None."
+    },
+    {
+      "id": "kt-hunter_clade-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "致衰辐射",
+      "title_en": "DEBILITATING IRRADIATION",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-致衰辐射.png",
+      "is_back": false,
+      "text": "猎手支队\n战略计谋\n致衰辐射\n随着护教军先锋推进，周围笼罩在一片辐射云\n雾之中。当敌人被这种致命瘴气笼罩时，便会\n发现自己战斗能力大大减弱。\n每当一名敌方特工对一名己方猎手支队 \u0007先锋特\n工执行射击，近战或反击时，如果那名敌方特工\n处于“辐射饱和”规则效果的影响下（见先锋特\n工规则），则它的武器的普通伤害属性降低\u00071\u0007点\n（至多减至\u00073\u0007点）。",
+      "text_en": "HUNTER CLADE\nSTRATEGY PLOY\nDEBILITATING IRRADIATION\nThe Skitarii Vanguard push forward, shrouded in clouds\nof radiation. Those caught in this lethal miasma find\ntheir combat abilities greatly degraded.\nWhenever an enemy operative is shooting\nagainst, fighting against or retaliating against a\nfriendly HUNTER CLADE VANGUARD operative,\nif that enemy operative is under the effects of the\nRad-Saturation rule (see VANGUARD operatives),\nsubtract 1 from the Normal Dmg stat of its\nweapons (to a minimum of 3)."
+    },
+    {
+      "id": "kt-hunter_clade-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "神经干扰",
+      "title_en": "NEUROSTATIC INTERFERENCE",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-神经干扰.png",
+      "is_back": false,
+      "text": "猎手支队\n战略计谋\n神经干扰\n斯卡里安渗透者能够通过释放嘶嘶作响的静电\n和电磁脉冲制造迷惑并干扰通讯网络。\n每当位于一名己方猎手支队 \u0007渗透者特工\u00076\"\u0007内的\n一名敌方特工执行射击，近战或反击时，您的对\n手便无法重掷它们的攻击骰子。",
+      "text_en": "HUNTER CLADE\nSTRATEGY PLOY\nNEUROSTATIC INTERFERENCE\nSicarian Infiltrators confound their foes by emitting\nhissing static and electromagnetic pulses that cloud\nminds and interfere with vox-networks.\nWhenever an enemy operative within 6\" of a\nfriendly HUNTER CLADE INFILTRATOR operative\nis shooting, fighting or retaliating, your opponent\ncannot re-roll their attack dice."
+    },
+    {
+      "id": "kt-hunter_clade-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "侦察协议",
+      "title_en": "SCOUTING PROTOCOL",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-侦察协议.png",
+      "is_back": false,
+      "text": "猎手支队\n战略计谋\n侦察协议\n作为优秀的侦察兵，护教军游骑兵会避开近距\n离战斗，并尝试飞速穿梭于不同掩体以避免敌\n人的瞩目。\n拥有隐匿命令且距离敌方特工超过\u00076\"\u0007的每一名\n己方猎手支队 \u0007游骑兵特工可以立即执行一个无\n消耗的冲刺行动。您不能在第一个转折点使用这\n个战略计谋。",
+      "text_en": "HUNTER CLADE\nSTRATEGY PLOY\nSCOUTING PROTOCOL\nOperating as advanced scouts, Skitarii Rangers avoid\nclose combat, darting from cover to cover to evade the\nattention of their enemies.\nEach friendly HUNTER CLADE RANGER\noperative that has a Conceal order and is more\nthan 6\" from enemy operatives can immediately\nperform a free Dash action in an order of your\nchoice. You cannot use this ploy during the first\nturning point."
+    },
+    {
+      "id": "kt-hunter_clade-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "加速药物",
+      "title_en": "ACCELERANT AGENTS",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-加速药物.png",
+      "is_back": false,
+      "text": "猎手支队\n战略计谋\n加速药物\n斯卡里安锈色追猎者内部充斥着代表攻击性的\n二进制代码。这导致它们产生了对暴力的欲\n求，在突击中展现出闪电般的速度和梦魇般\n的力量。\n在每一名己方猎手支队 \u0007锈色追猎者特工激活\n时，它可以执行两次近战行动，并且其中一次可\n以是无消耗的。",
+      "text_en": "HUNTER CLADE\nSTRATEGY PLOY\nACCELERANT AGENTS\nSicarian Ruststalkers are flooded with aggression-\ninducing binharic code, inciting within them a lust for\nviolence and enabling them to strike with blinding speed\nand nightmarish force.\nDuring each friendly HUNTER CLADE\nRUSTSTALKER operative’s activation, it can\nperform two Fight actions, and one of them can\nbe free."
+    },
+    {
+      "id": "kt-hunter_clade-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "控制律令",
+      "title_en": "CONTROL EDICT",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-控制律令.png",
+      "is_back": false,
+      "text": "猎手支队\n交战计谋\n控制律令\n猎手支队的队长能对杀戮小队中的另一名成员\n进行部分控制，以便与附近特工协同进行精\n准打击。\n当轮到您激活己方特工时使用本交战计谋。选\n择一名己方猎手支队队长特工以及位于那名队\n长\u00073\"\u0007内，可见且就绪的另一名己方猎手支队特\n工；并正常激活这些特工的其中一名。在第一名\n己方特工进入待机后，您可以在您对手进行激活\n前激活另一名己方特工。当那个另一名己方特工\n进入待机后，您的对手便可以正常激活。在使用\n本计谋时，您选择的特工中不能包含超过一名猎\n手支队斯卡里安特工。",
+      "text_en": "HUNTER CLADE\nFIREFIGHT PLOY\nCONTROL EDICT\nThe leader of a Hunter Clade assumes partial control\nof another member of their kill team, coordinating\nprecision strikes with the nearby operative.\nUse this firefight ploy when it’s your turn to\nactivate a friendly operative. Select one friendly\nHUNTER CLADE LEADER operative and one\nother ready friendly HUNTER CLADE operative\nvisible to and within 3\" of that LEADER operative;\nactivate one of them as normal. When that first\nfriendly operative you activate is expended,\nyou can activate the other friendly operative\nbefore your opponent activates. When that\nother operative is expended, your opponent\nthen activates as normal. Whenever you use\nthis ploy, you cannot select more than one\nHUNTER CLADE SICARIAN operative."
+    },
+    {
+      "id": "kt-hunter_clade-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "废码过载",
+      "title_en": "SCRAPCODE OVERLOAD",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-废码过载.png",
+      "is_back": false,
+      "text": "猎手支队\n交战计谋\n废码过载\n猎手支队的渗透者特工释放出巨量静电和废码\n干扰通讯频道，以便杀戮小队在协调不畅的敌\n人眼皮底下达成目标。\n当一名己方猎手支队渗透者特工激活时，或一\n名己方猎手支队渗透者特工及位于那名己方特\n工\u00073\"\u0007内的一名敌方特工执行拾取标识或任务行\n动（操作舱门除外）时使用本交战计谋。直到那\n名己方特工的下一次激活开始前，在确定标识控\n制时，如果进行争夺的敌方特工中至少有一名位\n于那名己方特工\u00073\"\u0007内，则将它们的\u0007APL\u0007总和视作\n减少\u00071\u0007点。请注意这不是对\u0007APL\u0007属性的修正，所以\n任何执行行动前产生的修正都会与本效果相累加。",
+      "text_en": "HUNTER CLADE\nFIREFIGHT PLOY\nSCRAPCODE OVERLOAD\nThe Hunter Clade’s Infiltrator releases an enormous\nbombardment of static and scrapcode that disrupts\ncommunication channels, reduces enemy coordination\nand allows the kill team to seize objectives and materiel\nfrom under their foe's nose.\nUse this firefight ploy when a friendly HUNTER\nCLADE INFILTRATOR operative is activated.\nAlternatively, use this firefight ploy when\na friendly HUNTER CLADE INFILTRATOR\noperative, or an enemy operative within 3\" of that\nfriendly operative, would perform the Pick Up\nMarker or a mission action (excluding Operate\nHatch). Until the start of that friendly operative’s\nnext activation, whenever determining control\nof a marker, treat the total APL stat of enemy\noperatives that contest it as 1 lower if at least\none of those enemy operatives is within 3\" of\nthat friendly operative. Note this isn’t a change\nto the APL stat, so any changes are cumulative\nwith this, and this can change control of a marker\nbefore performing the action."
+    },
+    {
+      "id": "kt-hunter_clade-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "指令超驰",
+      "title_en": "COMMAND OVERRIDE",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-指令超驰.png",
+      "is_back": false,
+      "text": "猎手支队\n交战计谋\n指令超驰\n通过激活指令超驰，指定特工能通过更改条令\n适应多变的任务参数。\n当您激活一名己方猎手支队特工时使用本交战\n计谋。为那名特工选择一个教义条令以替代当下\n的教义条令（如果有）至下一个战略阶段就绪\n步骤。",
+      "text_en": "HUNTER CLADE\nFIREFIGHT PLOY\nCOMMAND OVERRIDE\nBy activating command overrides, the imperatives of\nindividual operatives can be altered in response to ever-\nshifting mission parameters.\nUse this firefight ploy when you activate a friendly\nHUNTER CLADE operative. Select a DOCTRINA\nIMPERATIVE for that operative to have instead of\nits current one (if any) until the Ready step of the\nnext Strategy phase."
+    },
+    {
+      "id": "kt-hunter_clade-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "欧姆尼赛亚条令-1",
+      "title_en": "OMNISSIAH’S IMPERATIVE",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-欧姆尼赛亚条令-1.png",
+      "is_back": false,
+      "text": "猎手支队\n交战计谋\n欧姆尼赛亚条令\n作为最为极端的教义条令，这种协议会将特工\n们推出安全限制，在获得额外的战斗力的同时\n付出回路融毁，肉体焦黑的代价。\n在一名己方猎手支队特工激活时使用本交战计\n谋。或者，在一名敌方特工对一名己方猎手支队\n特工进行射击时，在掷攻击骰步骤结束后使用\n本计谋。直至下一个战略阶段就绪步骤前，那名\n己方特工根据其当前的教义条令获得下列额外\n规则：\n• 守护者：这名特工的远程武器获得“严重”武\n器规则。\n• 征服者：当这名特工处于近战时，在那个流程\n结算第一枚攻击骰子后，您可以立即结算另一\n个骰子（在对手结算之前）。\n• 壁垒：将这名特工的豁免属性增加\u00071\u0007点。此外\n每当一名特工对这名特工执行射击时，您可以\n拿取一枚额外的防御骰子进行掷骰。如果您在\n一次射击行动中使用了本计谋，那么立即更改\n该特工的豁免属性（本规则的优先度高于核心\n规则)。\n请继续阅读背面",
+      "text_en": "HUNTER CLADE\nFIREFIGHT PLOY\nOMNISSIAH’S IMPERATIVE\nThe most extreme form of doctrina imperative, this\nprotocol pushes an operative’s wiring beyond safe\nlimits, providing additional combat power at the cost of\nburned circuitry and charred flesh.\nUse this firefight ploy during a friendly HUNTER\nCLADE operative’s activation. Alternatively, use\nit when an enemy operative is shooting a friendly\nHUNTER CLADE operative, at the end of the\nRoll Attack Dice step. Until the Ready step of\nthe next Strategy phase, that friendly operative\nhas an additional rule determined by its current\nDOCTRINA IMPERATIVE as follows:\n• Protector: This operative’s ranged weapons\nhave the Severe weapon rule.\n• Conqueror: Whenever this operative is fighting,\nafter resolving your first attack dice during\nthat sequence, you can immediately resolve\nanother (before your opponent).\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hunter_clade-30-05",
+      "sequence": 5,
+      "category": "firefight-ploy",
+      "title_zh": "欧姆尼赛亚条令-2",
+      "title_en": "OMNISSIAH’S IMPERATIVE",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-05-交战计谋-欧姆尼赛亚条令-2.png",
+      "is_back": true,
+      "text": "• 进攻者：您可以在这名特工移动中进行向上攀\n爬时无视最初经过的垂直\u00072\"。\n• 平衡：无。\n请注意，您可以在为这名特工掷攻击骰子或防御\n骰子之后以及保留或重掷这些骰子之前或之后使\n用这个计谋。",
+      "text_en": "• Bulwark: Improve this operative’s Save stat\nby 1. In addition, whenever an operative is\nshooting this operative, you can collect and\nroll one additional defence dice. If you use this\nploy during a Shoot action, this operative’s\nSave stat is changed immediately (this takes\nprecedence over the core rules).\n• Aggressor: You can ignore the first vertical\ndistance of 2\" this operative moves during one\nclimb up.\n• Neutral: None.\nNote that you can use this ploy after rolling attack\nor defence dice for this operative, or before or\nafter retaining or re-rolling those dice."
+    },
+    {
+      "id": "kt-hunter_clade-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "辐射轰炸",
+      "title_en": "RAD BOMBARDMENT",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-辐射轰炸.png",
+      "is_back": false,
+      "text": "猎手支队\n阵营装备\n辐射轰炸\n通过一段简短的二进制通讯后，猎手支队呼叫\n了辐射轰炸。随着一阵阵臼炮弹雨，散发的辐\n射能量迫使敌人寻求掩护或被迫从关键目标\n上撤离。\n战略计划。\u0007每场战斗限一次，且仅限第一个之\n后的转折点。选择一个目标标识或您对手的降落\n区，并为那个目标标识控制范围内或为位于您\n对手降落区内的每一名敌方特工各掷一枚\u0007D6，\n如果有敌方特工的底盘任意部分位于制高点地\n形之下，则将它的掷骰结果减去\u00071\u0007点：若掷骰\n结果为\u00074+，则在那名特工下一次激活结束前将\n其\u0007APL\u0007属性减去\u00071\u0007点；若掷骰结果为\u00076，则它\n同时还会受到\u0007D3\u0007点伤害（为每一名特工分别进\n行掷骰）。",
+      "text_en": "HUNTER CLADE\nFACTION EQUIPMENT\nRAD BOMBARDMENT\nWith a short binharic transmission, the Hunter Clade\ncall down a radioactive bombardment. Mortar rounds\nrain down, emitting swathes of irradiating energy that\nflush the enemy from cover or force them to retreat from\ncritical objectives.\nOnce per battle STRATEGIC GAMBIT in any\nturning point after the first. Select one objective\nmarker or your opponent’s drop zone. Roll one\nD6 separately for each enemy operative within\ncontrol range of that selected objective marker or\nwithin that drop zone, and subtract 1 if any part\nof that enemy operative's base is underneath\nVantage terrain: on a 4+, subtract 1 from that\noperative's APL stat until the end of its next\nactivation; on a 6, also inflict D3 damage on it\n(roll separately for each)."
+    },
+    {
+      "id": "kt-hunter_clade-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "冗余系统",
+      "title_en": "REDUNDANCY SYSTEMS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-冗余系统.png",
+      "is_back": false,
+      "text": "猎手支队\n阵营装备\n冗余系统\n需要超长期运作于敌后战场的猎手支队特工们\n往往会接受诸如后备肺叶或者紧急血包的冗余\n升级，能确保他们在遭受了可怕伤害后依然能\n够运作。\n每个转折点限一次，每当一名己方猎手支队特\n工激活时，如果它不位于敌方特工的控制范围\n内，则可以使用这个规则。如此，那名己方特工\n恢复\u0007D3+2\u0007点失去的耐伤。",
+      "text_en": "HUNTER CLADE\nFACTION EQUIPMENT\nREDUNDANCY SYSTEMS\nExpected to operate behind enemy lines for extended\nperiods, Hunter Clade operatives are often upgraded\nwith redundancy augmetics such as backup lungs\nand emergency blood packs, ensuring that they\nremain capable of functioning even after suffering\nterrible damage.\nOnce per turning point, when a friendly HUNTER\nCLADE operative is activated, if it’s not within\ncontrol range of enemy operatives, you can use\nthis rule. If you do, that friendly operative regains\nup to D3+2 lost wounds."
+    },
+    {
+      "id": "kt-hunter_clade-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "反射力场",
+      "title_en": "REFRACTOR FIELD",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-反射力场.png",
+      "is_back": false,
+      "text": "猎手支队\n阵营装备\n反射力场\n机械修会至关重要的战士们被给予了一个微型\n护盾发生器，这种装置能够投射能量形成的屏\n障，通过偏转射击来保护持有者的机械形体。\n每个转折点限一次，每当一名特工射击一名己方\n猎手支队特工的掷防御骰子步骤开始时，您可\n以使用这个规则。若此，在那次流程结束前将\u0007\n“穿刺”武器规则（如果有）的\u0007x\u0007数值降低\u00071\u0007\n点。请注意，这意味着“穿刺 1”将被无视。",
+      "text_en": "HUNTER CLADE\nFACTION EQUIPMENT\nREFRACTOR FIELD\nA miniaturised shield generator given to key warriors of\nthe Adeptus Mechanicus, this device projects a barrier\nof energy that deflects shots and preserves the machine\nform of the bearer.\nOnce per turning point, when an operative is\nshooting a friendly HUNTER CLADE operative,\nat the start of the Roll Defence Dice step, you\ncan use this rule. If you do, worsen the x of the\nPiercing weapon rule by 1 (if any) until the end\nof that sequence. Note that Piercing 1 would\ntherefore be ignored."
+    },
+    {
+      "id": "kt-hunter_clade-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "紧急精神链接",
+      "title_en": "EXTREMIS MIND-LINK",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-紧急精神链接.png",
+      "is_back": false,
+      "text": "猎手支队\n阵营装备\n紧急精神链接\n这一科技能使猎手支队的队长密切控制麾下\n的护教军和斯卡里安士兵。而相对的，对士\n兵而言这种精神链接也是一种备受祝福的事\n物——接受到的条令能使他们进一步确信欧姆\n尼赛亚的意志。\n每场战斗限一次，您可以消耗\u00070\u0007CP\u0007使用“控制\n律令”交战计谋，但不要按序正常激活选中的特\n工们，而是同时激活它们。您需要按照任意顺序\n一个行动接着一个行动完成它们的激活。",
+      "text_en": "HUNTER CLADE\nFACTION EQUIPMENT\nEXTREMIS MIND-LINK\nThis technology allows Hunter Clade leaders to retain\nclose control over their Skitarii and Sicarian soldiers. In\nturn, the soldiery see the mind-link as a blessed thing,\nfor the edicts transmitted to them are surely the will of\nthe Omnissiah.\nOnce per battle, you can use the Control Edict\nfirefight ploy for 0CP, but instead of activating\nthe selected friendly operatives in succession,\nactivate them at the same time. Complete their\nactivations action by action in any order."
+    }
+  ]
+}

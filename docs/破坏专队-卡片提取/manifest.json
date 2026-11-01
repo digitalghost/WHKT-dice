@@ -1,0 +1,629 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-WRECKA_KREW",
+  "team_name_zh": "破坏专队",
+  "team_name_en": "Wrecka Krew",
+  "source_pdf": "最新杀戮小队规则更新/破坏专队 Wrecka Krew 杀戮小队规则.pdf",
+  "source_pdf_sha256": "1dfbbf530cad8aad529e54889c5ff6ba3165f4b92326a5932689879313ae228c",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 23,
+    "operative": 7,
+    "team-selection": 1,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-wrecka_krew-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "破坏头目强蛮人-数据卡",
+      "title_en": "WRECKA BOSS NOB",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-破坏头目强蛮人-数据卡.png",
+      "is_back": false,
+      "text": "破坏头目强蛮人 APL 移动豁免耐伤\n2 6\" 4+ 14\n名称攻击命中伤害武器规则\n火箭手炮 6 5+ 4/5 范围 8\"、爆炸 1\"\n双持火箭手炮（集中） 6 4+ 4/5 范围 8\"、爆炸 1\" 、无休\n双持火箭手炮（乱射） 6 5+ 4/5 范围 8\"、爆炸 1\" 、乱射*\n砍刀 4 3+ 4/5 -\n粉碎锤 4 3+ 5/6 残暴\n破坏头目：当这名特工进行近战或射击行动（戒备\n除外）时，您便获得 1 点破坏点数。\n*乱射：选择最多两个不位于己方特工控制范围内且\n不同的有效目标。并按照您选择的顺序使用该武器\n将两个目标作为主要目标进行射击，您需要对第一\n个目标进行射击结算后以相同的方式对第二个目标\n进行射击结算（两者分开掷骰）。每个目标（第一\n个和第二个）在行动中不能被多次射击。\n破坏专队、欧克蛮人、队长、头目强蛮人 40",
+      "weapon_types": {
+        "火箭手炮": "远程",
+        "双持火箭手炮（集中）": "远程",
+        "双持火箭手炮（乱射）": "远程",
+        "砍刀": "近战",
+        "粉碎锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nWRECKA BOSS NOB\n2 6\" 4+ 14\nNAME ATK HIT DMG WR\nRokkit pistol 6 5+ 4/5 Range 8\", Blast 1\"\nTwo rokkit pistols (focused) 6 4+ 4/5 Range 8\", Blast 1\", Ceaseless\nTwo rokkit pistols (salvo) 6 5+ 4/5 Range 8\", Blast 1\", Salvo*\nChoppa 4 3+ 4/5 -\nSmash hammer 4 3+ 5/6 Brutal\nWrecka Boss: Whenever this operative performs the Shoot or\nFight action (excluding Guard), you gain 1 Wrecka point.\n*Salvo: Select up to two different valid targets that aren’t within\ncontrol range of friendly operatives. Shoot with this weapon\nagainst both primary targets in an order of your choice, then\nagainst all remaining secondary targets in the same manner (roll\neach sequence separately). Each target (primary and secondary)\ncannot be shot more than once during the action.\nWRECKA KREW , ORK, LEADER, BOSS NOB 40"
+    },
+    {
+      "id": "kt-wrecka_krew-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "破坏炸弹跳跳-数据卡",
+      "title_en": "WRECKA BOMB SQUIG",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-破坏炸弹跳跳-数据卡.png",
+      "is_back": false,
+      "text": "破坏炸弹跳跳 APL 移动豁免耐伤\n2 6\" 5+ 5\n名称攻击命中伤害武器规则\n爆炸物 6 4+ 4/5 爆炸 1\" 、有限 1 、爆炸物*\n啃咬 3 4+ 4/5 -\n*爆炸物：这名特工可以在一名敌方特工的控制范围\n内使用这个武器进行射击行动。在射击时无需选择\n有效目标，将这名特工作为主要目标，且它不会处\n于掩护或遮挡中。\n愚笨：在交战阶段确定这个特工命令时，您不能为\n其选择隐匿状态。这名特工无法进行除冲锋，冲\n刺，近战，转移和射击外的任何行动，并无法使用\n任何其数据卡上没有的武器。\n嘭！：若一场战斗中这名特工在并没有使用其爆炸\n物的情况下被残废，则按您的意愿掷一枚或两枚 D6\n。若有任何结果为 4+，则在将其从杀戮区移除前\n用“爆炸物”进行一次无消耗的射击行动。\n消耗品：这名特工在您对手的杀戮/消灭任务中（它\n被残废以及确认您的起始特工数量时）将被忽视。\n在判断需要特工“逃离”、“存活”，或者被敌方\n特工残废的胜利条件和 VP 获取方式时，它也将被\n忽视（它是否逃脱/存活/被击杀，确认多少特工必须\n逃脱/存活/被击杀等情况下）。\n破坏专队、欧克蛮人、炸弹跳跳 25",
+      "weapon_types": {
+        "爆炸物": "远程",
+        "啃咬": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nWRECKA BOMB SQUIG\n2 6\" 5+ 5\nNAME ATK HIT DMG WR\nExplosives 6 4+ 4/5 Blast 1\", Limited 1, Explosive*\nBite 3 4+ 4/5 -\n*Explosive: This operative can perform the Shoot action with\nthis weapon while within control range of an enemy operative.\nDon’t select a valid target. Instead, this operative is always the\nprimary target and cannot be in cover or obscured.\nStoopid: In the Firefight phase, whenever you determine this\noperative’s order, you cannot select Conceal. This operative\ncannot perform any actions other than Charge, Dash, Fight,\nReposition and Shoot. It cannot use any weapons that aren’t\non its datacard.\nBoom!: If this operative is incapacitated during a battle in which\nit hasn’t used its explosives, roll one D6, or two D6 if you wish. If\nany result is a 4+, this operative performs a free Shoot action\nwith its explosives before it’s removed from the killzone.\nExpendable: This operative is ignored for your opponent’s kill/\nelimination op (when it’s incapacitated, and when determining\nyour starting number of operatives). It’s also ignored for victory\nconditions and scoring VPs if either require operatives to\n‘escape’, ‘survive’ or be incapacitated by enemy operatives (if\nit escapes/survives/is incapacitated, determining how many\noperatives must escape/survive/be incapacitated, etc.).\nWRECKA KREW , ORK, BOMB SQUIG 25"
+    },
+    {
+      "id": "kt-wrecka_krew-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "毁灭小子爆破锤手-数据卡",
+      "title_en": "BREAKA BOY DEMOLISHA",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-毁灭小子爆破锤手-数据卡.png",
+      "is_back": false,
+      "text": "毁灭小子爆破锤手 APL 移动豁免耐伤\n2 6\" 4+ 12\n名称攻击命中伤害武器规则\n坦克锤（重击） 4 3+ 4/5 -\n坦克锤（爆破） 4 3+ * 致命 5+ 、有限 1 、爆破*\n气质鲁莽：这名特工受到的 4 点或更多正常伤害将\n减少 1 点伤害，若这名战士拥有交战命令，则这\n名特工受到的 4 点或更多暴击伤害也将减少 1 点\n伤害。\n*爆破：当这名特工在战斗中首次使用这个武器类型\n对一名敌方特工造成伤害时，若为正常成功，则对\n那名特工以及位于那名敌方特工控制范围内的每一\n名其他特工分别造成 D6+6 点伤害。若为关键成功\n则分别造成 2D6+6 点伤害。之后行动结束，且您获\n得 1 点破坏点数，此外若在那个行动中每有一名特\n工被残废，则增加 1 点破坏点数。本武器规则造成\n的伤害无法被忽略或降低。\n破坏专队、毁灭小子、爆破锤手 32",
+      "weapon_types": {
+        "坦克锤（重击）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBREAKA BOY DEMOLISHA\n2 6\" 4+ 12\nNAME ATK HIT DMG WR\nTankhammer (bash) 4 3+ 4/5 -\nTankhammer (detonate) 4 3+ * Lethal 5+, Limited 1, Detonate*\nReckless Temperament: Normal Dmg of 4 or more inflicts 1\nless damage on this operative; if this operative has an Engage\norder, Critical Dmg of 4 or more also inflicts 1 less damage on\nthis operative.\n*Detonate: The first time you would inflict damage on an enemy\noperative with this weapon profile during the battle, inflict D6+6\ndamage on that enemy operative and each other operative within\nits control range if it’s a normal success, or 2D6+6 damage if it’s\na critical success (roll separately for each). Then the action ends\nand you gain 1 Wrecka point, plus 1 for each operative that was\nincapacitated during that action. Damage from this weapon rule\ncannot be ignored or reduced.\nWRECKA KREW , ORK, BREAKA BOY, DEMOLISHA 32"
+    },
+    {
+      "id": "kt-wrecka_krew-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "毁灭小子斗士-数据卡",
+      "title_en": "BREAKA BOY FIGHTER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-毁灭小子斗士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n毁灭小子斗士\n2 6\" 4+ 12\n名称攻击命中伤害武器规则\n粉碎锤 4 3+ 5/6 残暴\n破拆工具 1AP\n选择这名特工控制范围内的一个地形模型。若那\n是一个装备地形，则将其移除。其他情况下，则\n将一枚破拆指示物放置在这名特工控制范围内尽\n可能靠近那个地形的位置。每当一名特工位于那\n个指示物 1\" 内，便能将那个地形模型的那一部\n分中厚度不超过 1\" 的部分视为可穿越地形。\n这名特工无法在位于一名敌方特工控制范围内，\n或对应地形模型没有位于它控制范围内的情况下\n进行这个行动。\n破坏专队、欧克蛮人、毁灭小子、斗士 32",
+      "weapon_types": {
+        "粉碎锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBREAKA BOY FIGHTER\n2 6\" 4+ 12\nNAME ATK HIT DMG WR\nSmash hammer 4 3+ 5/6 Brutal\nBREAK STUFF 1AP\nSelect a terrain feature within this operative’s control range. If it’s an equipment terrain feature, remove it. Otherwise, place one\nof your Breach markers within this operative’s control range as close as possible to that terrain feature. Whenever an operative is\nwithin 1\" of that marker, it treats parts of that terrain feature that are no more than 1\" thick as Accessible terrain.\nThis operative cannot perform this action while within control range of an enemy operative, or if a terrain feature isn’t within its\ncontrol range.\nWRECKA KREW , ORK, BREAKA BOY, FIGHTER 32"
+    },
+    {
+      "id": "kt-wrecka_krew-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "毁灭小子粉碎者-数据卡",
+      "title_en": "BREAKA BOY KRUSHA",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-毁灭小子粉碎者-数据卡.png",
+      "is_back": false,
+      "text": "毁灭小子粉碎者 APL 移动豁免耐伤\n2 6\" 4+ 12\n名称攻击命中伤害武器规则\n粉碎拳套 4 3+ 5/6 残暴、震荡、粉碎*\n*粉碎：每当您出击时，可以将敌方特工沿直线移动\n至多 1\"。若此，则它必须在距离这名特工比起始位\n置更远且能被放置的位置结束移动。之后将这名特\n工沿直线移动至多 1\"，且必须在那名敌方特工控制\n范围内结束移动（若其中有条件无法被执行，则您\n无法移动它们）。\n身着护甲：当一名敌方特工对这名特工进行射击或\n这名特工进行近战或反击时，您的对手无法将数值\n低于 6 的攻击骰保留为关键成功（例如致命，撕裂\n或严重武器规则）。\n破坏专队、欧克蛮人、毁灭小子、粉碎者 32",
+      "weapon_types": {
+        "粉碎拳套": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBREAKA BOY KRUSHA\n2 6\" 4+ 12\nNAME ATK HIT DMG WR\nKnucklebustas 4 3+ 5/6 Brutal, Shock, Smash*\n*Smash: Whenever you strike, you can move the enemy\noperative in a straight line increment of up to 1\". If you do, it\nmust end the move further away from this operative and in a\nlocation it can be placed. Then move this operative in a straight\nline increment of up to 1\", but it must end that move within that\nenemy operative’s control range (if either isn’t possible, you\ncannot move them).\nArmoured Up: Whenever an enemy operative is shooting\nthis operative, or this operative is fighting or retaliating, your\nopponent cannot retain attack dice results of less than 6 as\ncritical successes (e.g. as a result of the Lethal, Rending or\nSevere weapon rules).\nWRECKA KREW , ORK, BREAKA BOY, KRUSHA 32"
+    },
+    {
+      "id": "kt-wrecka_krew-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "坦克破坏者炮手-数据卡",
+      "title_en": "TANKBUSTA GUNNER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-坦克破坏者炮手-数据卡.png",
+      "is_back": false,
+      "text": "坦克破坏者炮手 APL 移动豁免耐伤\n2 6\" 4+ 12\n名称攻击命中伤害武器规则\n重型火箭发射器 6 4+ 4/5 爆炸 1\" 、重型(仅限冲刺)\n火箭发射器 6 5+ 4/5 爆炸 1\"\n双拳 3 3+ 3/4 -\n竞相发射：每次射击行动一次，若这名特工对在这\n个转折点中已被其他己方特工射击过的一名敌方特\n工进行射击，您便获得 1 点破坏点数。您需要在选\n择有效目标时确认是否符合本技能条件，但您也可\n以对任何次要目标使用本技能（例：“爆炸”武器\n技能）。\n破坏专队、欧克蛮人、坦克破坏者、炮手 32",
+      "weapon_types": {
+        "重型火箭发射器": "远程",
+        "火箭发射器": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTANKBUSTA GUNNER\n2 6\" 4+ 12\nNAME ATK HIT DMG WR\n’Eavy rokkit launcha 6 4+ 4/5 Blast 1\", Heavy (Dash only)\nRokkit launcha 6 5+ 4/5 Blast 1\"\nFists 3 3+ 3/4 -\nKompetitive Streak: Once per Shoot action, if this operative\nshoots an enemy operative that another friendly operative has\nalready shot during this turning point, you gain 1 Wrecka point.\nDetermine this when you select a valid target, but you can\ninclude any secondary targets when doing so (e.g. from the Blast\nweapon rule).\nWRECKA KREW , ORK, TANKBUSTA, GUNNER 32"
+    },
+    {
+      "id": "kt-wrecka_krew-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "坦克破坏者火箭手-数据卡",
+      "title_en": "TANKBUSTA ROKKITEER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-坦克破坏者火箭手-数据卡.png",
+      "is_back": false,
+      "text": "坦克破坏者火箭手 APL 移动豁免耐伤\n2 6\" 4+ 12\n名称攻击命中伤害武器规则\n脉冲飞弹 6 5+ - 重型(仅限转移)、有限 1 、脉冲*\n火箭发射器 6 5+ 4/5 爆炸 1\"\n火箭挂架 6 5+ 4/5 爆炸 2\"、重型(仅限转移)、有限 1 、毫不留情\n双拳 3 3+ 3/4 -\n*脉冲：请将您的脉冲标识放置在对这名特工可见\n的位置或对这名特工可见的地形模型的制高点地形\n上来替代选择有效目标。那个标识获得 1 点脉冲点\n数，之后掷攻击骰：掷骰结果每有一次成功便额外\n增加 1 点脉冲点数（至多额外增加 3 点）。完全\n位于那个标识 X \" 内的每一名特工分别受到 D3 伤\n害，X 值为那个脉冲标识的脉冲点数。之后这次行\n动结束。\n冲击波：当一名特工位于您的脉冲标识 X \" 内（见\n左侧）时，它的武器命中属性便会降低 1 点，移动\n属性减去 2\"，且这种修正会与受创叠加。 X 值为那\n个脉冲标识的脉冲点数。在每个战略阶段的就绪步\n骤中，将脉冲标识的点数减去 1 点。若一枚脉冲标\n识的数值为 0 点，则将其移除。\n破坏专队、欧克蛮人、坦克破坏者、火箭手 32",
+      "weapon_types": {
+        "脉冲飞弹": "远程",
+        "火箭发射器": "远程",
+        "火箭挂架": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTANKBUSTA ROKKITEER\n2 6\" 4+ 12\nNAME ATK HIT DMG WR\nPulsa rokkit 6 5+ - Heavy (Reposition only), Limited 1, Pulsa*\nRokkit launcha 6 5+ 4/5 Blast 1\"\nRokkit rack 6 5+ 4/5 Blast 2\", Heavy (Reposition only), Limited 1, Relentless\nFists 3 3+ 3/4 -\n*Pulsa: Don’t select a valid target. Instead, place your Pulsa\nmarker visible to this operative, or on Vantage terrain of a\nterrain feature that’s visible to this operative. That marker gains\n1 Pulsa point, then roll attack dice: it gains 1 additional Pulsa\npoint for each success (to a maximum of 3 additional points).\nSeparately inflict D3 damage on each operative wholly within x\"\nof that marker, where x is that marker’s Pulsa points. Then the\naction ends.\nShokkwave: Whenever an operative is within x\" of your Pulsa\nmarker (see left), subtract 2\" from its Move stat and worsen\nthe Hit stat of its weapons by 1. This is cumulative with being\ninjured. X is that marker’s Pulsa points. In the Ready step of each\nStrategy phase, subtract 1 from your Pulsa marker’s points. If a\nPulsa marker ever has 0 points, remove it.\nWRECKA KREW , ORK, TANKBUSTA, ROKKITEER 32"
+    },
+    {
+      "id": "kt-wrecka_krew-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "破坏专队杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-破坏专队杀戮小队.png",
+      "is_back": false,
+      "text": "破坏专队杀戮小队\n原型：安全保护，搜索与摧毁\n特工\n↘ 1 名破坏专队头目强蛮人特工，装备有以下\n一种选项:\n• 火箭手炮；粉碎锤\n• 双持火箭手炮；砍刀\n↘ 2 名破坏专队炸弹跳跳特工\n↘ 5 名破坏专队特工，从以下列表进行选择:\n• 毁灭小子爆破锤手\n• 毁灭小子斗士\n• 毁灭小子粉碎者\n↘ 坦克破坏者炮手，装备有以下一种选项:\n○ 重型火箭发射器；双拳\n○ 火箭发射器；双拳\n• 坦克破坏者火箭手，装备有以下一种选项:\n○ 火箭发射器；脉冲飞弹；双拳\n○ 火箭发射器；火箭挂架；双拳\n除了炸弹跳跳，毁灭小子斗士和坦克破坏者炮手\n特工以外，上述的每一名特工只能被纳入您的杀\n戮小队一次。",
+      "text_en": "WRECKA KREW KILL TEAM\nARCHETYPES: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 WRECKA KREW BOSS NOB operative with\none of the following options:\n• Rokkit pistol; smash hammer\n• Two rokkit pistols; choppa\n↘ 2 WRECKA KREW BOMB SQUIG operatives\n↘ 5 WRECKA KREW operatives selected from\nthe following list:\n• BREAKA BOY DEMOLISHA\n• BREAKA BOY FIGHTER\n• BREAKA BOY KRUSHA\n• TANKBUSTA GUNNER with one of the\nfollowing options:\n○ ’Eavy rokkit launcha; fists\n○ Rokkit launcha; fists\n• TANKBUSTA ROKKITEER with one of the\nfollowing options:\n○ Rokkit launcha; pulsa rokkit; fists\n○ Rokkit launcha; rokkit rack; fists\nOther than BOMB SQUIG, BREAKA BOY FIGHTER\nand TANKBUSTA GUNNER operatives, your kill\nteam can only include each operative on this\nlist once."
+    },
+    {
+      "id": "kt-wrecka_krew-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "狂暴破坏",
+      "title_en": "WRECKA RAMPAGE",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-狂暴破坏.png",
+      "is_back": false,
+      "text": "破坏专队\n阵营规则\n狂暴破坏\n爆炸声，刺鼻浓雾以及战斗中的尖叫驱使着破坏专\n队做出更具破坏性的行为。\n当一名己方破坏专队特工进行射击，近战或反击\n时，在掷攻击骰步骤中：\n• 每当您保留一枚结果为 6 的攻击骰，您便获得一\n点破坏点数。\n• 您可以花费至多 2 点您的破坏点数（炸弹跳跳除\n外），每当您这样花费一点，便能将您的一枚失\n败的掷骰结果作为一次普通成功保留，而不是将\n其弃置。\n您可以在同一次行动中获得和花费破坏点数，并且\n可以按照自己选择的任何顺序进行，除非您的起始\n点数为 6 点，在这种情况下，您只能选择花费它\n们。",
+      "text_en": "WRECKA KREW\nFACTION RULE\nWRECKA RAMPAGE\nThe sound of explosions, the acrid stench of smoke and\nthe screams of battle drive Wrecka Krews forwards to\never more destructive acts.\nWhenever a friendly WRECKA KREW operative\nis shooting, fighting or retaliating, in the Roll\nAttack Dice step:\n• For each attack dice result of 6 you retain, you\ngain one Wrecka point.\n• You can spend up to 2 of your Wrecka points\n(unless it’s a BOMB SQUIG, then you cannot\nspend any). For each point you spend this way,\nretain one of your fails as a normal success\ninstead of discarding it.\nYou cannot have more than 6 Wrecka points at\nonce. You can gain and spend Wrecka points\nduring the same action and can do so in an order\nof your choice, unless you started the action with\n6, in which case you can only spend them."
+    },
+    {
+      "id": "kt-wrecka_krew-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "泵入活力",
+      "title_en": "TANKED UP",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-泵入活力.png",
+      "is_back": false,
+      "text": "破坏专队\n阵营规则\n泵入活力\n劲爆战斗的快意赋予了破坏专队力量，为他们的莽\n撞和残暴增添了新鲜活力。\n在一名拥有交战命令的己方破坏专队特工（炸弹\n跳跳除外）的每次转折点/反应期间，当其首次进行\n冲锋、射击或近战行动（戒备除外）时，它的 APL\n数值便在它的下一次激活开始前增加 1 点。",
+      "text_en": "WRECKA KREW\nFACTION RULE\nTANKED UP\nWrecka Krews are empowered by the thrill of explosive\ncombat, lending them fresh impetus as they undertake\ntheir murderous rampages.\nThe first time a friendly WRECKA KREW\noperative (excluding BOMB SQUIG) that has an\nEngage order performs either the Charge, Shoot\nor Fight action (excluding Guard) during each of\nits activations/counteractions, add 1 to its APL\nstat until the start of its next activation."
+    },
+    {
+      "id": "kt-wrecka_krew-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "WRECKA KREW",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "破坏专队\n标识/指示物指南\n破坏点数爆破标识破拆标识\n（1 点与 2 点）\n火箭挂架指示物坦克锤指示物爆炸物指示物\n脉冲标识脉冲火箭指示物脉冲点数指示物\n钻头火箭指示物机油指示物",
+      "text_en": "WRECKA KREW\nMARKER/TOKEN GUIDE\nWrecka Points Demolition Breach marker\n(Values 1 & 2) marker\nRokkit Rack Tankhammer Explosives\ntoken token token\nPulsa marker Pulsa Rokkit Pulsa Point\ntoken token\nDrill Rokkits Engine Oil\ntoken token"
+    },
+    {
+      "id": "kt-wrecka_krew-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "WAAAGH!",
+      "title_en": "WAAAGH!",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-WAAAGH!.png",
+      "is_back": false,
+      "text": "破坏专队\n战略计谋\nWAAAGH!\n当破坏专队的暴乱之举上升至高潮时，便会沉\n醉于狂暴之中。在操持铁锤或施展拳脚攻向敌\n人时，他们便会发出那声臭名昭著的战吼。\n己方破坏专队特工的近战武器获得“平衡”武\n器规则。",
+      "text_en": "WRECKA KREW\nSTRATEGY PLOY\nWAAAGH!\nWhen the Wrecka Krew’s violent rampage reaches its\ncrescendo, a rage overcomes them. They bellow the\ninfamous Ork battle cry as they set upon their enemies\nwith hammer and fist.\nFriendly WRECKA KREW operatives’ melee\nweapons have the Balanced weapon rule."
+    },
+    {
+      "id": "kt-wrecka_krew-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "结实小子",
+      "title_en": "TUFF GITZ",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-结实小子.png",
+      "is_back": false,
+      "text": "破坏专队\n战略计谋\n结实小子\n破坏专队没什么时间留给胡思乱想，如果挨揍\n能让自己得到一些需要的东西，那么他们很乐\n意挨上一顿。\n当一名特工对一名拥有交战命令的己方破坏专\n队特工进行射击时，您可以重掷一枚己方的防\n御骰。",
+      "text_en": "WRECKA KREW\nSTRATEGY PLOY\nTUFF GITZ\nWrecka Krews don’t have time for mukkin’ about. They’ll\ngladly take a hit if it means they get to land a few of\ntheir own.\nWhenever an operative is shooting a friendly\nWRECKA KREW operative that has an Engage\norder, you can re-roll one of your defence dice."
+    },
+    {
+      "id": "kt-wrecka_krew-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "毁灭",
+      "title_en": "DESTRUCTION",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-毁灭.png",
+      "is_back": false,
+      "text": "破坏专队\n战略计谋\n毁灭\n一名躲在掩体后的敌人也不过是给破坏专队一\n些炸飞更多东西的机会而已。\n己方破坏专队特工的射击武器获得“集中”武\n器规则。",
+      "text_en": "WRECKA KREW\nSTRATEGY PLOY\nDESTRUCTION\nIf an enemy takes cover, this just provides Wrecka\nKrews with the opportunity to blow more stuff up.\nFriendly WRECKA KREW operatives’ ranged\nweapons have the Saturate weapon rule."
+    },
+    {
+      "id": "kt-wrecka_krew-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "兴奋不止",
+      "title_en": "AMPED UP",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-兴奋不止.png",
+      "is_back": false,
+      "text": "破坏专队\n战略计谋\n兴奋不止\n欧克蛮人会在战斗的混乱和喧嚣中茁壮成长。\n周围的爆炸和毁灭越是壮大，他们便越是兴\n奋。在激发至这种狂怒状态时，他们便能在受\n到平时足以放倒他们的伤害下继续作战。\n每一名拥有交战命令的己方破坏专队特工可以\n立即回复 D3+1 点失去的耐伤（为每一名特工\n分开进行掷骰）。",
+      "text_en": "WRECKA KREW\nSTRATEGY PLOY\nAMPED UP\nOrks thrive in the chaos and cacophony of battle. The\ngreater the explosions and destruction around them, the\nmore their adrenaline kicks in. When whipped up into\nsuch a fury, they can fight on through injuries that would\nordinarily lay them low.\nEach friendly WRECKA KREW operative that has\nan Engage order can immediately regain up to\nD3+1 lost wounds (roll separately for each)."
+    },
+    {
+      "id": "kt-wrecka_krew-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "擦伤罢了",
+      "title_en": "JUST A SCRATCH",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-擦伤罢了.png",
+      "is_back": false,
+      "text": "破坏专队\n交战计谋\n擦伤罢了\n欧克蛮人拥有能在受到足以使大多数生物伤残\n的伤害下依然活跃的惊人能力。\n在一名己方破坏专队特工（炸弹跳跳除外）由\n于攻击骰受到普通伤害时使用此交战计谋。忽视\n造成的伤害。",
+      "text_en": "WRECKA KREW\nFIREFIGHT PLOY\nJUST A SCRATCH\nOrks have a remarkable ability to shrug off grievous\ndamage that would incapacitate most other creatures.\nUse this firefight ploy when an attack dice inflicts\nNormal Dmg on a friendly WRECKA KREW\noperative (excluding BOMB SQUIG). Ignore that\ninflicted damage."
+    },
+    {
+      "id": "kt-wrecka_krew-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "爆破工作",
+      "title_en": "DEMOLITION JOB",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-爆破工作.png",
+      "is_back": false,
+      "text": "破坏专队\n交战计谋\n爆破工作\n若主要目标现身，破坏专队便会集中运用自己\n强大的破坏力摧毁其周围的任何事物。\n在一名己方破坏专队特工在进行近战或射击行\n动，在被残废特工移除（如果有）前使用此交战\n计谋。将一个爆破标识放置在目标的控制范围内\n（如果它使用的是“爆炸”武器，则是主要目\n标）。当一名己方破坏专队特工（炸弹跳跳除\n外）对那个标识 3\" 内的一名特工进行射击，近\n战或反击时，您可以免费使用 1 点破坏点数（同\n样适用于您没有破坏点数的情况）。在下一个战\n略阶段的就绪步骤中，移除那个标识。",
+      "text_en": "WRECKA KREW\nFIREFIGHT PLOY\nDEMOLITION JOB\nShould a prime target present itself, the Wrecka\nKrew will unleash their combined destructive might,\ndemolishing anything in the vicinity.\nUse this firefight ploy after a friendly WRECKA\nKREW operative performs the Shoot or Fight\naction, just before incapacitated operatives are\nremoved (if any). Place one of your Demolition\nmarkers within the target’s control range (if\nit’s using a Blast weapon, the primary target).\nWhenever a friendly WRECKA KREW operative\n(excluding BOMB SQUIG) is shooting against,\nfighting against or retaliating against an operative\nthat’s within 3\" of that marker, you can spend\na Wrecka point for free (even if you have none).\nIn the Ready step of the next Strategy phase,\nremove that marker."
+    },
+    {
+      "id": "kt-wrecka_krew-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "热爱废料",
+      "title_en": "PROPPA SCRAP",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-热爱废料.png",
+      "is_back": false,
+      "text": "破坏专队\n交战计谋\n热爱废料\n欧克蛮人最喜欢好用的废料了，他们往往会为\n了夺得它们而用拳脚和锤子大打出手。\n在一名己方破坏专队毁灭小子或破坏专队头\n目强蛮人特工的激活时使用此交战计谋。在那\n次激活中，那名特工可以进行两次近战行动。",
+      "text_en": "WRECKA KREW\nFIREFIGHT PLOY\nPROPPA SCRAP\nOrks like nothing better than a good scrap. With fist or\nhammer, they seek to demonstrate that might is right.\nUse this firefight ploy during a friendly WRECKA\nKREW BREAKA BOY or WRECKA KREW BOSS\nNOB operative’s activation. During that activation,\nthat operative can perform two Fight actions."
+    },
+    {
+      "id": "kt-wrecka_krew-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "咔嘭！",
+      "title_en": "KABOOM!",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-咔嘭！.png",
+      "is_back": false,
+      "text": "破坏专队\n交战计谋\n咔嘭！\n突突声越多，爆炸声越响，屠杀就越心满意\n足！\n在一名己方破坏专队特工在进行射击攻击并选\n择了一个拥有“爆炸”武器规则的武器时使用\n此交战计谋。直到那个行动结束前，为那个武器\n的爆炸范围增加 1\" ，并在射击主要目标时还拥\n有“严重”武器规则。您不能在同一个行动中同\n时使用这个计谋和钻头火箭规则（见装备页）。\n请注意，那个武器的“严重”武器规则不会产生\n破坏点数（由于其并非结果为 6 ）。",
+      "text_en": "WRECKA KREW\nFIREFIGHT PLOY\nKABOOM!\nThe more intense the dakka and the louder the boom of\nexplosions, the more satisfying the carnage!\nUse this firefight ploy when a friendly WRECKA\nKREW operative performs the Shoot action and\na weapon with the Blast weapon rule is selected.\nUntil the end of that action, add 1\" to that\nweapon’s Blast and it has the Severe weapon rule\nwhen shooting the primary target. You cannot use\nthis ploy and the Drill Rokkits rule (see faction\nequipment) during the same action. Note that\nSevere doesn’t generate a Wrecka point (as it’s\nnot a 6)."
+    },
+    {
+      "id": "kt-wrecka_krew-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "钻头火箭",
+      "title_en": "DRILL ROKKITS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-钻头火箭.png",
+      "is_back": false,
+      "text": "破坏专队\n阵营装备\n钻头火箭\n蛮人技师的创造力没有尽头，这种钻头火箭的\n射击意在穿透厚重装甲后用爆炸打击目标。\n每个转折点限一次，每当一名己方破坏专队特\n工选择火箭发射器或重型火箭发射器进行射击行\n动时，您可以使用这个规则。若此，在那个行动\n结束前，那个武器失去“爆炸”武器规则，并获\n得“穿刺 1”武器规则。",
+      "text_en": "WRECKA KREW\nFACTION EQUIPMENT\nDRILL ROKKITS\nMek ingenuity knows few bounds. Drill rokkits are\ndesigned to strike a target and bore through thick\narmour before exploding.\nOnce per turning point, when a friendly WRECKA\nKREW operative is performing the Shoot action\nand you select a rokkit launcha or ’eavy rokkit\nlauncha, you can use this rule. If you do, until the\nend of that action, that weapon loses the Blast\nweapon rule but has the Piercing 1 weapon rule."
+    },
+    {
+      "id": "kt-wrecka_krew-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "附加装甲",
+      "title_en": "EXTRA ARMOUR",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-附加装甲.png",
+      "is_back": false,
+      "text": "破坏专队\n阵营装备\n附加装甲\n尽管欧克蛮人用破烂金属制成的盔甲看着简\n陋，但这种做工粗糙的制品并不影响功效。\n将除炸弹跳跳外的己方破坏专队特工移动属性\n减去 1\"，并将特工的豁免属性提升 1。本装备的\n效果无法与通用装备中的可移动掩体的“保护地\n形”规则效果叠加。",
+      "text_en": "WRECKA KREW\nFACTION EQUIPMENT\nEXTRA ARMOUR\nScrap metal Ork armour may appear haphazard, but it is\nno less effective for its simple construction.\nSubtract 1\" from the Move stat of friendly\nWRECKA KREW operatives and improve their\nSave stat by 1. This excludes BOMB SQUIG\noperatives and isn’t cumulative with the\nProtective rule of a Portable Barricade from\nuniversal equipment."
+    },
+    {
+      "id": "kt-wrecka_krew-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "机油",
+      "title_en": "ENGINE OIL",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-机油.png",
+      "is_back": false,
+      "text": "破坏专队\n阵营装备\n机油\n众所周知，破坏专队成员们会摄取其摧毁载\n具的油料。这种醉心液体强化了他们的自然\n恢复力。\n每个转折点限一次，当一名己方破坏专队特工\n（炸弹跳跳除外）被激活，您便可以使用这个规\n则。若此，则直到激活结束时，您可以忽视那名\n特工因为受创而受到的任何属性修正（其中包括\n其武器属性）。",
+      "text_en": "WRECKA KREW\nFACTION EQUIPMENT\nENGINE OIL\nWrecka Krews are known to ingest the oils of vehicles\nthey have destroyed. The intoxicating fluid bolsters their\nnatural resilience.\nOnce per turning point, when a friendly WRECKA\nKREW operative (excluding BOMB SQUIG) is\nactivated, you can use this rule. If you do, until\nthe end of that activation, you can ignore any\nchanges to that operative’s stats from being\ninjured (including its weapons’ stats)."
+    },
+    {
+      "id": "kt-wrecka_krew-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "符号",
+      "title_en": "GLYPHS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-符号.png",
+      "is_back": false,
+      "text": "破坏专队\n阵营装备\n符号\n背旗，粗糙标记，或是刻着字符的护甲都骄傲\n展示着破坏专队最钟爱的破坏形式。\n当选择这个装备时，同时需要选择 Waaagh！\n或毁灭战略计谋。当您首次在战斗中使用那个计\n谋时，花费 0 CP；当您在此之后使用那个计谋\n时，若您拥有任何破坏点数，则花费 0 CP。",
+      "text_en": "WRECKA KREW\nFACTION EQUIPMENT\nGLYPHS\nBack-banners, crude markings and glyph-scrawled\narmour proudly display the Wrecka Krew’s favoured\nmethod of destruction.\nWhen this item of equipment is selected, also\nselect the Waaagh! or Destruction strategy ploy.\nThe first time you would use that ploy during the\nbattle, it costs you 0CP; whenever you would\nuse it thereafter, it costs you 0CP if you have any\nWrecka points."
+    }
+  ]
+}

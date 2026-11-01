@@ -46,11 +46,15 @@ data class ShootingWeaponRules(
     val rending: Boolean = false,
     val severe: Boolean = false,
     val devastating: Int = 0,
+    val devastatingRadius: Int = 0,
     val piercing: Int = 0,
     val piercingCrits: Int = 0,
     val saturate: Boolean = false,
     val hot: Boolean = false,
-    val stun: Boolean = false
+    val stun: Boolean = false,
+    val brutal: Boolean = false,
+    val noReroll: Boolean = false,
+    val soulstrike: Boolean = false
 )
 
 data class ShootingAttacker(
@@ -66,7 +70,11 @@ data class ShootingAttacker(
     val normalDamage: Int,
     val criticalDamage: Int,
     val accurateRetained: Int = 0,
-    val rules: ShootingWeaponRules = ShootingWeaponRules()
+    val rules: ShootingWeaponRules = ShootingWeaponRules(),
+    /** Successes retained without rolling (team rules), chosen before the roll. */
+    val presetNormals: Int = 0,
+    val presetCriticals: Int = 0,
+    val presetNote: String = ""
 ) {
     val wounded: Boolean
         get() = currentWounds > 0 && currentWounds * 2 < maxWounds
@@ -75,7 +83,7 @@ data class ShootingAttacker(
         get() = (baseHit + if (wounded) 1 else 0).coerceIn(2, 6)
 
     val rolledDiceCount: Int
-        get() = (attacks - accurateRetained).coerceAtLeast(0)
+        get() = (attacks - accurateRetained - presetNormals - presetCriticals).coerceAtLeast(0)
 }
 
 data class ShootingDefender(
@@ -85,7 +93,10 @@ data class ShootingDefender(
     val operativeName: String,
     val maxWounds: Int,
     val currentWounds: Int,
-    val save: Int
+    val save: Int,
+    val reducePiercingWithoutCrit: Boolean = false,
+    val apl: Int = 2,
+    val frenzied: Boolean = false
 )
 
 data class ShootingDie(
@@ -157,6 +168,8 @@ data class ShootingCombatState(
 )
 
 object ShootingRuleParser {
+    private val splashRegex = Regex("^(\\d+)[\"″“”]毁灭")
+
     fun parse(keywords: List<String>, criticalThreshold: Int = 6): ShootingWeaponRules {
         val normalized = KeywordValues.normalize(keywords)
         val rerollPolicy = when {
@@ -165,6 +178,7 @@ object ShootingRuleParser {
             normalized.any { it.startsWith("平衡") || it.startsWith("均衡") } -> ShootingRerollPolicy.BALANCED
             else -> ShootingRerollPolicy.NONE
         }
+        val devastatingRadius = normalized.mapNotNull { splashRegex.find(it)?.groupValues?.getOrNull(1)?.toIntOrNull() }.maxOrNull() ?: 0
         return ShootingWeaponRules(
             lethalThreshold = KeywordValues.lethal(normalized, criticalThreshold),
             accurate = KeywordValues.accurate(normalized),
@@ -173,11 +187,15 @@ object ShootingRuleParser {
             rending = normalized.any { it.startsWith("撕裂") },
             severe = normalized.any { it.startsWith("严重") },
             devastating = KeywordValues.max(normalized, "毁灭"),
+            devastatingRadius = devastatingRadius,
             piercing = KeywordValues.max(normalized, "穿刺"),
             piercingCrits = KeywordValues.max(normalized, "关键穿刺"),
             saturate = normalized.any { it.startsWith("集中") },
             hot = normalized.any { it.startsWith("过热") },
-            stun = normalized.any { it.startsWith("晕眩") || it.startsWith("眩晕") }
+            stun = normalized.any { it.startsWith("晕眩") || it.startsWith("眩晕") },
+            brutal = normalized.any { it.startsWith("残暴") },
+            noReroll = false,
+            soulstrike = normalized.any { it.startsWith("灵魂打击") }
         )
     }
 }
@@ -258,10 +276,16 @@ object ShootingCombatRules {
         require(state.phase == ShootingPhase.READY)
         require(values.size == state.attacker.rolledDiceCount)
         require(values.all { it in 1..6 })
-        val pool = ShootingDicePool(values.mapIndexed { index, value -> ShootingDie(index, value) })
+        val a = state.attacker
+        val pool = ShootingDicePool(
+            dice = values.mapIndexed { index, value -> ShootingDie(index, value) },
+            retainedNormals = a.presetNormals,
+            retainedCriticals = a.presetCriticals
+        )
         val rolled = state.copy(
             attackPool = pool,
-            log = state.log + "${state.attacker.operativeName}攻击骰：${values.joinToString("、").ifBlank { "无" }}"
+            log = state.log + listOfNotNull(presetLine(a.operativeName, a.presetNormals, a.presetCriticals, a.presetNote)) +
+                "${a.operativeName}攻击骰：${values.joinToString("、").ifBlank { "无" }}"
         )
         return rolled.copy(
             phase = if (pool.dice.isEmpty()) ShootingPhase.ATTACK_RETAIN else ShootingPhase.ATTACK_REROLL
@@ -270,6 +294,7 @@ object ShootingCombatRules {
 
     fun canRerollAttack(state: ShootingCombatState, dieIndex: Int): Boolean {
         if (state.phase != ShootingPhase.ATTACK_REROLL) return false
+        if (state.attacker.rules.noReroll) return false
         val die = state.attackPool.dice.getOrNull(dieIndex) ?: return false
         if (die.rerolled) return false
         return canUseWeaponReroll(state, dieIndex) ||
@@ -279,6 +304,7 @@ object ShootingCombatRules {
     /** Whether any reroll source could apply. Each die can still be rerolled only once. */
     fun canRerollAttackWith(state: ShootingCombatState, dieIndex: Int, source: RerollSource): Boolean {
         if (state.phase != ShootingPhase.ATTACK_REROLL) return false
+        if (state.attacker.rules.noReroll) return false
         val die = state.attackPool.dice.getOrNull(dieIndex) ?: return false
         if (die.rerolled) return false
         return source != RerollSource.WEAPON || canUseWeaponReroll(state, dieIndex)
@@ -286,6 +312,7 @@ object ShootingCombatRules {
 
     fun canUseWeaponReroll(state: ShootingCombatState, dieIndex: Int): Boolean {
         if (state.phase != ShootingPhase.ATTACK_REROLL) return false
+        if (state.attacker.rules.noReroll) return false
         val die = state.attackPool.dice.getOrNull(dieIndex) ?: return false
         if (die.rerolled) return false
         return when (state.attacker.rules.rerollPolicy) {
@@ -367,21 +394,20 @@ object ShootingCombatRules {
         )
     }
 
-    fun addAttackRetained(state: ShootingCombatState, critical: Boolean, note: String = ""): ShootingCombatState {
-        require(state.phase == ShootingPhase.ATTACK_REROLL)
-        val pool = state.attackPool
-        return state.copy(
-            attackPool = if (critical) pool.copy(retainedCriticals = pool.retainedCriticals + 1)
-            else pool.copy(retainedNormals = pool.retainedNormals + 1),
-            log = state.log + "${state.attacker.operativeName}预留 1 个${if (critical) "暴击" else "普通成功"}${noteSuffix(note)}"
-        )
-    }
-
     fun readAttackDie(state: ShootingCombatState, die: ShootingDie): DieReading =
         DieClassifier.read(die.value, die.override, state.attacker.effectiveHit, state.attacker.rules.lethalThreshold)
 
-    fun readDefenceDie(state: ShootingCombatState, die: ShootingDie): DieReading =
-        DieClassifier.read(die.value, die.override, state.defender.save, 6)
+    fun readDefenceDie(state: ShootingCombatState, die: ShootingDie): DieReading {
+        if (die.override != null) return DieClassifier.read(die.value, die.override, state.defender.save, 6)
+        if (state.attacker.rules.soulstrike) {
+            return when {
+                die.value == 1 -> DieReading.CRITICAL
+                die.value < 6 && die.value <= state.defender.apl -> DieReading.NORMAL
+                else -> DieReading.FAIL
+            }
+        }
+        return DieClassifier.read(die.value, die.override, state.defender.save, 6)
+    }
 
     fun finishAttackRerolls(state: ShootingCombatState): ShootingCombatState {
         require(state.phase == ShootingPhase.ATTACK_REROLL)
@@ -406,6 +432,15 @@ object ShootingCombatRules {
         choices: ShootingRetainChoices = ShootingRetainChoices()
     ): ShootingCombatState {
         require(state.phase == ShootingPhase.ATTACK_RETAIN)
+        val (normals, criticals, notes) = convertAttack(state, choices)
+        return applyAttackRetention(state, normals, criticals, notes)
+    }
+
+    /** Normal and critical successes [finishAttackRetention] would keep with [choices]. */
+    fun previewAttackRetention(state: ShootingCombatState, choices: ShootingRetainChoices): Pair<Int, Int> =
+        convertAttack(state, choices).let { it.first to it.second }
+
+    private fun convertAttack(state: ShootingCombatState, choices: ShootingRetainChoices): Triple<Int, Int, List<String>> {
         val preview = retentionPreview(state)
         var criticals = preview.naturalCriticals
         var rolledNormals = preview.rolledNormals
@@ -413,20 +448,22 @@ object ShootingCombatRules {
         var failures = preview.failures
         val notes = mutableListOf<String>()
 
-        if (state.attacker.rules.punishing && choices.punishing && preview.naturalCriticals > 0 && failures > 0) {
-            failures--
-            rolledNormals++
-            notes += "重击将 1 个失败作为普通成功保留"
-        }
-        if (state.attacker.rules.rending && choices.rending && preview.naturalCriticals > 0 && rolledNormals > 0) {
-            rolledNormals--
-            criticals++
-            notes += "撕裂将 1 个普通成功改为暴击"
-        }
-        if (state.attacker.rules.severe && choices.severe && preview.naturalCriticals == 0 && rolledNormals + retainedNormals > 0) {
-            if (rolledNormals > 0) rolledNormals-- else retainedNormals--
-            criticals++
-            notes += "严重将 1 个普通成功改为暴击"
+        if (!state.obscured) {
+            if (state.attacker.rules.punishing && choices.punishing && preview.naturalCriticals > 0 && failures > 0) {
+                failures--
+                rolledNormals++
+                notes += "重击将 1 个失败作为普通成功保留"
+            }
+            if (state.attacker.rules.rending && choices.rending && preview.naturalCriticals > 0 && rolledNormals > 0) {
+                rolledNormals--
+                criticals++
+                notes += "撕裂将 1 个普通成功改为暴击"
+            }
+            if (state.attacker.rules.severe && choices.severe && preview.naturalCriticals == 0 && rolledNormals + retainedNormals > 0) {
+                if (rolledNormals > 0) rolledNormals-- else retainedNormals--
+                criticals++
+                notes += "严重将 1 个普通成功改为暴击"
+            }
         }
 
         var normals = rolledNormals + retainedNormals
@@ -435,6 +472,15 @@ object ShootingCombatRules {
             criticals = 0
             notes += "遮挡舍弃 1 个成功，并将剩余暴击改为普通成功"
         }
+        return Triple(normals, criticals, notes)
+    }
+
+    private fun applyAttackRetention(
+        state: ShootingCombatState,
+        normals: Int,
+        criticals: Int,
+        notes: List<String>
+    ): ShootingCombatState {
 
         val devastatingDamage = criticals * state.attacker.rules.devastating
         val defenderAfterDevastating = state.defender.copy(
@@ -442,10 +488,12 @@ object ShootingCombatRules {
         )
         val defenderStunned = criticals > 0 && state.attacker.rules.stun
         fun smoked(value: Int) = if (state.smoke && value == 2) 1 else value
-        val effectivePiercing = maxOf(
+        val rawPiercing = maxOf(
             smoked(state.attacker.rules.piercing),
             if (criticals > 0) smoked(state.attacker.rules.piercingCrits) else 0
-        ).coerceIn(0, state.baseDefenceDice)
+        )
+        val reducedByPanoply = state.defender.reducePiercingWithoutCrit && criticals == 0 && rawPiercing > 0
+        val effectivePiercing = (if (reducedByPanoply) rawPiercing - 1 else rawPiercing).coerceIn(0, state.baseDefenceDice)
         val defenceDiceTaken = (state.baseDefenceDice - effectivePiercing).coerceAtLeast(0)
         val retained = coverRetention(state.coverChoice, defenceDiceTaken)
         val defenceDiceToRoll = (defenceDiceTaken - retained.first - retained.second).coerceAtLeast(0)
@@ -465,11 +513,15 @@ object ShootingCombatRules {
             defenderStunned = defenderStunned,
             log = state.log + notes + buildList {
                 add("攻击成功：$normals 普通、$criticals 暴击")
+                if (reducedByPanoply) add("盛装丑角/鳞盾：未保留暴击，穿刺削弱 1")
                 if (effectivePiercing > 0) add("穿刺使防御骰减少 $effectivePiercing" + if (state.smoke) "（烟雾）" else "")
                 if (retained.first > 0 || retained.second > 0) {
                     add("掩护预留 ${retained.first} 普通、${retained.second} 暴击")
                 }
-                if (devastatingDamage > 0) add("毁灭造成 $devastatingDamage 点伤害")
+                if (devastatingDamage > 0) {
+                    val splash = state.attacker.rules.devastatingRadius
+                    add("毁灭造成 $devastatingDamage 点伤害" + if (splash > 0) "（请同时对目标 ${splash}″ 内所有可见特工结算此毁灭伤害）" else "")
+                }
                 if (defenderStunned) add("晕眩使目标 APL -1，直到其下一次激活结束")
             }
         )
@@ -479,6 +531,23 @@ object ShootingCombatRules {
             next = finish(next, "没有保留攻击成功，射击结束")
         }
         return next
+    }
+
+    /** Adjust defence dice to roll in DEFENCE_READY (for defence-phase rules like 盛装丑角 / 电弧护盾). */
+    fun adjustDefenceDiceToRoll(state: ShootingCombatState, delta: Int): ShootingCombatState {
+        require(state.phase == ShootingPhase.DEFENCE_READY)
+        val nextTaken = (state.defenceDiceTaken + delta).coerceIn(0, 6)
+        val retained = coverRetention(state.coverChoice, nextTaken)
+        val nextRoll = (nextTaken - retained.first - retained.second).coerceAtLeast(0)
+        return state.copy(
+            defenceDiceTaken = nextTaken,
+            defenceDiceToRoll = nextRoll,
+            defencePool = state.defencePool.copy(
+                retainedNormals = retained.first,
+                retainedCriticals = retained.second
+            ),
+            log = state.log + "调整防御骰数为 $nextTaken（需掷 $nextRoll 枚）"
+        )
     }
 
     fun acceptDefenceRoll(state: ShootingCombatState, values: List<Int>): ShootingCombatState {
@@ -560,13 +629,16 @@ object ShootingCombatRules {
         )
     }
 
+    /** Team rules that retain a defence die without rolling it: taken from the dice still to roll. */
     fun addDefenceRetained(state: ShootingCombatState, critical: Boolean, note: String = ""): ShootingCombatState {
-        require(state.phase == ShootingPhase.DEFENCE_REROLL)
+        require(state.phase == ShootingPhase.DEFENCE_READY)
+        require(state.defenceDiceToRoll > 0) { "已经没有可预留的防御骰" }
         val pool = state.defencePool
         return state.copy(
             defencePool = if (critical) pool.copy(retainedCriticals = pool.retainedCriticals + 1)
             else pool.copy(retainedNormals = pool.retainedNormals + 1),
-            log = state.log + "${state.defender.operativeName}预留 1 个${if (critical) "暴击" else "普通成功"}${noteSuffix(note)}"
+            defenceDiceToRoll = state.defenceDiceToRoll - 1,
+            log = state.log + "${state.defender.operativeName}不掷骰预留 1 个${if (critical) "暴击" else "普通成功"}${noteSuffix(note)}"
         )
     }
 
@@ -584,11 +656,12 @@ object ShootingCombatRules {
 
     fun canAllocate(state: ShootingCombatState, allocation: DefenceAllocation): Boolean {
         if (state.phase != ShootingPhase.ALLOCATE) return false
+        val brutal = state.attacker.rules.brutal
         return when (allocation) {
             DefenceAllocation.NORMAL_TO_NORMAL ->
-                state.defencePool.normals >= 1 && state.attackPool.normals >= 1
+                !brutal && state.defencePool.normals >= 1 && state.attackPool.normals >= 1
             DefenceAllocation.TWO_NORMALS_TO_CRITICAL ->
-                state.defencePool.normals >= 2 && state.attackPool.criticals >= 1
+                !brutal && state.defencePool.normals >= 2 && state.attackPool.criticals >= 1
             DefenceAllocation.CRITICAL_TO_NORMAL ->
                 state.defencePool.criticals >= 1 && state.attackPool.normals >= 1
             DefenceAllocation.CRITICAL_TO_CRITICAL ->
@@ -684,10 +757,19 @@ object ShootingCombatRules {
     fun applyDamage(state: ShootingCombatState): ShootingCombatState {
         require(state.phase == ShootingPhase.DAMAGE)
         val weaponDamage = state.pendingHits.sumOf { it.damage }
+        val critDealt = state.devastatingDamage > 0 || state.pendingHits.any { it.kind == ShootingSuccess.CRITICAL && it.damage > 0 }
+        val normalCount = state.pendingHits.count { it.kind == ShootingSuccess.NORMAL && it.damage > 0 }
+        val frenzySurvives = state.defender.frenzied && !critDealt && normalCount < 2
+        val rawWounds = (state.defender.currentWounds - weaponDamage).coerceAtLeast(0)
+        val finalWounds = if (rawWounds <= 0 && frenzySurvives) 1 else rawWounds
         val defender = state.defender.copy(
-            currentWounds = (state.defender.currentWounds - weaponDamage).coerceAtLeast(0)
+            currentWounds = finalWounds
         )
-        val reason = if (defender.currentWounds <= 0) "未被抵挡的攻击使目标残废" else "射击结算完成"
+        val reason = when {
+            rawWounds <= 0 && frenzySurvives -> "狂暴特工未受暴击伤害且普通伤害骰不足 2 枚，未丧失行动能力（保留 1 伤）"
+            defender.currentWounds <= 0 -> "未被抵挡的攻击使目标残废"
+            else -> "射击结算完成"
+        }
         return finish(
             state.copy(
                 defender = defender,
@@ -725,6 +807,14 @@ object ShootingCombatRules {
         )
     }
 
+    fun skipOverheat(state: ShootingCombatState, reason: String = "多目标射击延后至最后一次结算"): ShootingCombatState {
+        require(state.phase == ShootingPhase.OVERHEAT)
+        return state.copy(
+            phase = ShootingPhase.FINISHED,
+            log = state.log + "跳过本次过热检定（$reason）"
+        )
+    }
+
     private fun coverRetention(choice: CoverChoice, defenceDiceTaken: Int): Pair<Int, Int> = when (choice) {
         CoverChoice.NONE -> 0 to 0
         CoverChoice.STANDARD -> if (defenceDiceTaken >= 1) 1 to 0 else 0 to 0
@@ -740,6 +830,47 @@ object ShootingCombatRules {
             log = state.log + (reason + if (hot) "；等待过热检定" else "")
         )
     }
+}
+
+/** Further targets of one Blast / Torrent shooting action (PDF p92-94). */
+object MultiTargetRules {
+    enum class Kind { BLAST, TORRENT }
+
+    data class Candidate(val sideId: String, val memberId: String, val incapacitated: Boolean)
+
+    fun kind(keywords: List<String>): Kind? {
+        val normalized = KeywordValues.normalize(keywords)
+        return when {
+            normalized.any { it.startsWith("爆炸") && !it.startsWith("爆炸物") } -> Kind.BLAST
+            normalized.any { it.startsWith("洪流") } -> Kind.TORRENT
+            else -> null
+        }
+    }
+
+    /**
+     * Each target is shot once per action. Torrent picks further valid (enemy) targets;
+     * Blast must also resolve every friendly operative near the primary target, so the
+     * shooter's own side is offered too, except the shooter itself.
+     */
+    fun nextTargets(
+        kind: Kind,
+        candidates: List<Candidate>,
+        enemySideId: String,
+        shooterMemberId: String,
+        alreadyShot: Set<String>
+    ): List<Candidate> = candidates.filter { c ->
+        !c.incapacitated && c.memberId != shooterMemberId && c.memberId !in alreadyShot &&
+            (kind == Kind.BLAST || c.sideId == enemySideId)
+    }
+}
+
+internal fun presetLine(name: String, normals: Int, criticals: Int, note: String): String? {
+    if (normals + criticals == 0) return null
+    val parts = listOfNotNull(
+        normals.takeIf { it > 0 }?.let { "$it 个普通成功" },
+        criticals.takeIf { it > 0 }?.let { "$it 个暴击" }
+    )
+    return "${name}不掷骰预留 ${parts.joinToString("、")}${noteSuffix(note)}"
 }
 
 internal fun noteSuffix(note: String): String = if (note.isBlank()) "" else "（$note）"

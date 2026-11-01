@@ -1,0 +1,799 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-FARSTALKER_KINBAND",
+  "team_name_zh": "远猎者族团",
+  "team_name_en": "Farstalker Kinband",
+  "source_pdf": "最新杀戮小队规则更新/远猎者族团 Farstalker Kinband 杀戮小队规则.pdf",
+  "source_pdf_sha256": "54477250134f702e6c8eebcecf0e56a7ca136d788ddd100754bf400cce3c8066",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 29,
+    "operative": 11,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 1,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-farstalker_kinband-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "克鲁特杀手头领-数据卡",
+      "title_en": "KROOT KILL-BROKER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-克鲁特杀手头领-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特杀手头领\n2 6\" 5+ 9\n名称攻击命中伤害武器规则\n克鲁特步枪 4 3+ 3/4 -\n脉冲武器 4 4+ 4/5 -\n仪式匕首 4 3+ 4/5 -\n猎杀信号：战略计划，如果该特工位于战场。选择\n一名敌方特工来成为转折点中的猎物。每当一名己\n方远猎者族团特工对您的猎物进行射击、近战或\n反击时，那名己方特工的武器拥有“平衡”武器技\n能。在您的猎物被残废时，您可以选择一名新的敌\n方特工来作为转折点中的猎物（并且可以在当前转\n折点中一直这么做)。\n胜利咆哮：每当您的猎物被残废时，您可以选择一\n名位于该特工 6\" 内的己方远猎者族团特工。直到\n战斗结束前，那名特工的武器拥有“平衡”武器规\n则。在每场战斗中，每一名己方特工只能被本规则\n选择一次。\n远猎者族团、钛帝国、队长、克鲁特、杀手头领 32",
+      "weapon_types": {
+        "克鲁特步枪": "远程",
+        "脉冲武器": "远程",
+        "仪式匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT KILL-BROKER\n2 6\" 5+ 9\nNAME ATK HIT DMG WR\nKroot rifle 4 3+ 3/4 -\nPulse weapon 4 4+ 4/5 -\nRitual blade 4 3+ 4/5 -\nCall The Kill: STRATEGIC GAMBIT if this operative is\nin the killzone. Select one enemy operative to be your mark\nfor the turning point. Whenever a friendly FARSTALKER\nKINBAND operative is shooting against, fighting against or\nretaliating against your mark, that friendly operative's weapons\nhave the Balanced weapon rule. Whenever your mark is\nincapacitated, you can select a new enemy operative to be your\nmark for the turning point (and can continue to do so during this\nturning point).\nVictory Shriek: Whenever your mark is incapacitated, you can\nselect one friendly FARSTALKER KINBAND operative\nwithin 6\" of this operative. Until the end of the battle, that\noperative’s weapons have the Balanced weapon rule. Each\nfriendly operative can only be selected for this rule once\nper battle.\nFARSTALKER KINBAND , T’AU EMPIRE, LEADER, KROOT, KILL-BROKER 32"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "克鲁特弓猎手-数据卡",
+      "title_en": "KROOT BOW-HUNTER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-克鲁特弓猎手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特弓猎手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n加速曲弓（充能箭） 4 3+ 4/5 穿刺 1\n加速曲弓（滑翔箭） 4 3+ 3/4 安静\n加速曲弓（电击箭） 4 3+ 3/5 爆炸 1\"\n利刃 3 3+ 3/4 -\n充能 1AP\n直到转折点结束前，或者直到该特工使用加速曲\n弓进行射击（以先满足的条件为准)，其加速曲\n弓的所有数据拥有“致命 5+”武器规则。\n该特工不能在敌方特工的控制范围内执行此行动。\n远猎者族团、钛帝国、克鲁特、弓猎手 28",
+      "weapon_types": {
+        "加速曲弓（充能箭）": "远程",
+        "加速曲弓（滑翔箭）": "远程",
+        "加速曲弓（电击箭）": "远程",
+        "利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT BOW-HUNTER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nAccelerator bow (fused arrow) 4 3+ 4/5 Piercing 1\nAccelerator bow (glide arrow) 4 3+ 3/4 Silent\nAccelerator bow (voltaic arrow) 4 3+ 3/5 Blast 1\"\nBlade 3 3+ 3/5 -\nENERGISE 1AP\nUntil the end of the turning point or until this operative\nhas shot with its accelerator bow (whichever comes first),\nall profiles of its accelerator bow have the Lethal 5+\nweapon rule.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, BOW-HUNTER 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "克鲁特冷血佣兵-数据卡",
+      "title_en": "KROOT COLD-BLOOD",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-克鲁特冷血佣兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特冷血佣兵\n2 6\" 5+ 9\n名称攻击命中伤害武器规则\n克鲁特步枪 4 3+ 3/4 -\n利刃 3 3+ 3/4 -\n顽强：每当一枚攻击骰将对该特工造成暴击伤害\n时，您可以选择让那枚攻击骰造成普通伤害作为\n替代。\n冷血杀手：每当该特工对一名受伤的敌方特工进行\n射击、近战或反击时，其武器拥有“致命 5+”武器\n规则；如果那名敌方特工还处于受创状态，那么该\n特工的武器还拥有“撕裂”武器规则。\n远猎者族团、钛帝国、克鲁特、冷血佣兵 28",
+      "weapon_types": {
+        "克鲁特步枪": "远程",
+        "利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT COLD-BLOOD\n2 6\" 5+ 9\nNAME ATK HIT DMG WR\nKroot rifle 4 3+ 3/4 -\nBlade 3 3+ 3/5 -\nHardy: Whenever an attack dice would inflict Critical Dmg on this\noperative, you can choose for that attack dice to inflict Normal\nDmg instead.\nCold-blooded: Whenever this operative is shooting against,\nfighting against or retaliating against a wounded enemy\noperative, this operative’s weapons have the Lethal 5+ weapon\nrule; if that enemy operative is also injured, this operative’s\nweapons also have the Rending weapon rule.\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, COLD-BLOOD 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "克鲁特剥皮者-数据卡",
+      "title_en": "KROOT CUT-SKIN",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-克鲁特剥皮者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特剥皮者\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n剥皮双刃 4 3+ 3/4 无休、致命 5+\n凶险决斗者：每当该特工进行近战或反击时，您的\n对手每将一枚攻击骰作为失败舍弃，便对流程中的\n敌方特工造成 1 点伤害。\n野蛮突袭：该特工在每次激活期间首次执行近战行\n动时，如果该特工和流程中的敌方特工都没有被残\n废，那么该特工可以立刻在之后执行一次无消耗的\n近战行动，但是特工只能将那名敌方特工选择成为\n近战对象（并且只有在那名特工还是有效目标的情\n况下才能进行近战）。本规则的优先度高于行动限\n制规则。\n远猎者族团、钛帝国、克鲁特、剥皮者 28",
+      "weapon_types": {
+        "剥皮双刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT CUT-SKIN\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nCut-skin's blades 4 3+ 3/5 Ceaseless, Lethal 5+\nVicious Duellist: Whenever this operative is fighting or\nretaliating, for each attack dice your opponent discards as a fail,\ninflict 1 damage on the enemy operative in that sequence.\nSavage Assault: The first time this operative performs the Fight\naction during each of its activations, if neither it nor the enemy\noperative in that sequence is incapacitated, this operative can\nimmediately perform a free Fight action afterwards, but you\ncannot select any other enemy operative to fight against during\nthat action (and only if it’s still valid to fight against). This takes\nprecedence over action restrictions.\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, CUT-SKIN 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "克鲁特重炮手-数据卡",
+      "title_en": "KROOT HEAVY GUNNER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-克鲁特重炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特重炮手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n德沃吉特剥皮炮 5 2+ 3/3 范围 6\"、重型（仅限转移）、穿刺 2、洪流 2\"\n隆达希三管炮 5 4+ 4/5 重型（仅限转移）、穿刺 1、撕裂\n利刃 3 3+ 3/4 -\n远猎者族团、钛帝国、克鲁特、重炮手 28",
+      "weapon_types": {
+        "德沃吉特剥皮炮": "远程",
+        "隆达希三管炮": "远程",
+        "利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT HEAVY GUNNER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nDvorgite skinner 5 2+ 3/3 Range 6\", Heavy (Reposition only), Piercing 2,\nTorrent 2\"\nLondaxi tribalest 5 4+ 4/5 Heavy (Reposition only), Piercing 1, Rending\nBlade 3 3+ 3/5 -\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, HEAVY GUNNER 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "克鲁特猎犬-数据卡",
+      "title_en": "KROOT HOUND",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-克鲁特猎犬-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特猎犬\n2 8\" 5+ 7\n名称攻击命中伤害武器规则\n撕裂尖牙 4 3+ 3/4 撕裂\n野兽：该特工不能执行任何除了冲锋、冲刺、后撤、近战、收收集 1AP\n集、戒备、转移、拾取标识和放置标识以外的行动。该特工不\n使用该特工进行一次无消耗的冲刺或\n能使用任何不在其数据卡上的武器。\n转移行动。在那次移动期间，该特工\n脾气暴躁：每当一名敌方特工执行近战行动时，如果该特工是可以执行一次无消耗的拾取标识或放\n一个有效的近战目标，那么您可以强迫对手选择该特工来作为置标识行动（您可以在那次行动时判\n近战对象。每当一名敌方特工在该特工 3\" 内的另一名己方远断控制权)，并且特工在那之后剩余\n猎者族团特工控制范围内结束冲锋行动时，如果该特工不位的任何冲刺或移动的移动距离可以继\n于敌方特工的控制范围内，那么该特工可以立即执行一次无消\n续使用。\n耗的冲锋移动，但必须在那名敌方特工的控制范围内结束那\n次移动。\n远猎者族团、钛帝国、克鲁特、猎犬 28",
+      "weapon_types": {
+        "撕裂尖牙": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT HOUND\n2 8\" 5+ 7\nNAME ATK HIT DMG WR\nRipping fangs 4 3+ 3/4 Rending\nBeast: This operative cannot perform any actions other than Charge, Dash, GATHER 1AP\nFall Back, Fight, Gather, Guard, Reposition, Pick Up Marker and\nPerform a free Dash or Reposition action\nPlace Marker. It cannot use any weapons that aren’t on its datacard.\nwith this operative. During that move, it\nBad-tempered: Whenever an enemy operative performs the Fight action, if can perform a free Pick Up Marker or\nthis operative is a valid operative to fight against, you can force them to select Place Marker action (you can determine\nthis operative to fight against instead. Whenever an enemy operative ends control during that action to do so), and any\nthe Charge action within control range of another friendly FARSTALKER remaining move distance it had from the Dash\nKINBAND operative within 3\" of this operative, if this operative isn’t within or Reposition action can be used after it\ncontrol range of enemy operatives, this operative can immediately perform a does so.\nfree Charge action (you can change its order to Engage to do so), but must\nend that move within control range of that enemy operative.\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, HOUND 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "克鲁特远视者-数据卡",
+      "title_en": "KROOT LONG-SIGHT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-克鲁特远视者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特远视者\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n克鲁特猎枪（隐匿） 4 2+ 3/3 重型、毁灭 3、安静、隐匿位置*\n克鲁特猎枪（移动） 4 3+ 3/4 -\n克鲁特猎枪（静止） 4 2+ 3/3 重型、毁灭 3\n利刃 3 3+ 3/5 -\n*隐匿位置：该特工只有在战斗中第一次执行射击行\n动时才可以使用本武器。\n请继续阅读背面规则\n远猎者族团、钛帝国、克鲁特、远视者 28",
+      "weapon_types": {
+        "克鲁特猎枪（隐匿）": "远程",
+        "克鲁特猎枪（移动）": "远程",
+        "克鲁特猎枪（静止）": "远程",
+        "利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT LONG-SIGHT\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nKroot hunting rifle (concealed) 4 2+ 3/3 Heavy, Devastating 3, Silent,\nConcealed Position*\nKroot hunting rifle (mobile) 4 3+ 3/4 -\nKroot hunting rifle (stationary) 4 2+ 3/3 Heavy, Devastating 3\nBlade 3 3+ 3/5 -\n*Concealed Position: This operative can only use this weapon\nthe first time it’s performing the Shoot action during the battle.\nRULES CONTINUE ON OTHER SIDE\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, LONG-SIGHT 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "克鲁特远视者-能力卡",
+      "title_en": "KROOT LONG-SIGHT",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-克鲁特远视者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特远视者\n2 6\" 5+ 8\n远视 1AP\n直到该特工的下一次激活开始前，\n• 克鲁特猎枪的隐匿和静止数据拥有“致命 5+”武\n器规则。\n• 每当该特工使用克鲁特猎枪进行射击时，敌方特工\n无法被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT LONG-SIGHT\n2 6\" 5+ 8\nLONG-SIGHT 1AP\nUntil the start of this operative’s next activation:\n• The concealed and stationary profiles of its Kroot hunting rifle\nhave the Lethal 5+ weapon rule.\n• Whenever it’s shooting with its Kroot hunting rifle, enemy\noperatives cannot be obscured.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-farstalker_kinband-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "克鲁特枪手-数据卡",
+      "title_en": "KROOT PISTOLIER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-克鲁特枪手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特枪手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n克鲁特双枪（集中） 4 3+ 3/4 范围 8\"、无休、致命 5+\n克鲁特双枪（乱射） 4 3+ 3/4 范围 8\"、乱射*\n利刃 3 3+ 3/4 -\n快枪手：每个转折点限一次，当一名敌方特工执行射击行动并将该特\n*乱射：选择不位于己方特工控制\n工选择成为有效目标时（或者如果该特工将成为“爆炸”武器规则\n范围内的最多两个不同的有效目\n的次要目标时)，如果该特工处于就绪状态，那么您可以使用本规则\n标。按照您选择的顺序使用该武\n来打断那次行动。若这么做，那么该特工可以立即使用克鲁特双枪\n器对这两个目标进行射击（为每\n（集中）对那名敌方特工执行一次无消耗的射击行动（您可以在这\n一个目标分别进行结算)。\n么做时将特工变为拥有交战命令)，但是那名敌方特工必须是一个有\n效目标。\n远猎者族团、钛帝国、克鲁特、枪手 28",
+      "weapon_types": {
+        "克鲁特双枪（集中）": "远程",
+        "克鲁特双枪（乱射）": "远程",
+        "利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT PISTOLIER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nDual Kroot pistols (focused) 4 3+ 3/5 Range 8\", Ceaseless, Lethal 5+\nDual Kroot pistols (salvo) 4 3+ 3/5 Range 8\", Salvo*\nBlade 3 3+ 3/5 -\nQuick Draw: Once per turning point, when an enemy operative is performing the Shoot *Salvo: Select up to two different\naction and this operative is selected as the valid target (or if it will be a secondary target valid targets that aren’t within control\nfrom the Blast weapon rule), if this operative is ready, you can interrupt that action to range of friendly operatives. Shoot\nuse this rule. If you do, this operative can immediately perform a free Shoot action with with this weapon against both of them\nits dual Kroot pistols (focused) against that enemy operative (you can change its order in an order of your choice (roll each\nto Engage to do so), but that enemy operative must be a valid target. sequence separately).\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, PISTOLIER 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "克鲁特潜行者-数据卡",
+      "title_en": "KROOT STALKER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-克鲁特潜行者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特潜行者\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n克鲁特碎片枪 4 3+ 3/3 范围 6\"\n潜行者之刃 4 3+ 3/4 平衡、撕裂\n潜行者：该特工可以在偷袭 2AP\n拥有隐匿命令时执行冲使用该特工执行一次无消耗的冲锋行动，但是不能移动超过其移动属性（不\n锋行动。要添加 2\" 的移动距离)。随后立刻使用该特工执行一次无消耗的近战行动。\n当您在那次行动中首次出击时，您可以在对手之前立刻将另一枚成功作为出\n击进行结算。\n该特工不能在拥有交战命令时或在敌方特工的控制范围内执行本行动，也不\n能在其 1\" 内不存在轻型或重型地形时执行本行动。\n远猎者族团、钛帝国、克鲁特、潜行者 28",
+      "weapon_types": {
+        "克鲁特碎片枪": "远程",
+        "潜行者之刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT STALKER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nKroot scattergun 4 3+ 3/3 Range 6\"\nStalker's blade 4 3+ 3/5 Balanced, Rending\nStalker: This operative can STEALTH ATTACK 2AP\nperform the Charge action\nPerform a free Charge action with this operative, but don’t exceed its Move stat (i.e. don’t add\nwhile it has a Conceal order.\n2\"). Then immediately perform a free Fight action with this operative. The first time you strike\nduring that action, you can immediately resolve another of your successes as a strike (before\nyour opponent).\nThis operative cannot perform this action while it has an Engage order, while within control\nrange of an enemy operative, or if it isn’t within 1\" of Light or Heavy terrain.\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, STALKER 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "克鲁特追踪者-数据卡",
+      "title_en": "KROOT TRACKER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-克鲁特追踪者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特追踪者\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n克鲁特步枪 4 4+ 3/4 -\n利刃 3 3+ 3/5 -\n狩猎标记 1AP\n将己方培克’拉鸟标识移出杀戮区（若有)。随\n后将己方培克’拉鸟标识放置在对该特工可见的\n位置，或者一个对该特工可见的地形模型的制\n高点地形上。每当一名己方远猎者族团特工对\n一名控制范围内拥有该标识的敌方特工进行射击\n时，那名己方特工的远程武器拥有“追踪轻型”\n武器规则。\n在该特工的下一次激活开始时，或者该特工被移\n出杀戮区时（以先满足的条件为准)，将己方培\n克’拉鸟标识移出杀戮区。\n该特工不能在敌方特工的控制范围内执行本\n行动。\n请继续阅读背面规则\n远猎者族团、钛帝国、克鲁特、追踪者 28",
+      "weapon_types": {
+        "克鲁特步枪": "远程",
+        "利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT TRACKER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nKroot rifle 4 4+ 3/4 -\nBlade 3 3+ 3/5 -\nMARKED FOR THE HUNT 1AP\nRemove your Pech’ra marker from the killzone (if any).\nThen place your Pech’ra marker visible to this operative, or\non Vantage terrain of a terrain feature that’s visible to this\noperative. Whenever a friendly FARSTALKER KINBAND\noperative is shooting an enemy operative that has that marker\nwithin its control range, that friendly operative’s ranged\nweapons have the Seek Light weapon rule.\nAt the start of this operative’s next activation or if it’s\nremoved from the killzone (whichever comes first), remove\nyour Pech’ra marker from the killzone.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, TRACKER 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-01-12",
+      "sequence": 12,
+      "category": "operative-ability",
+      "title_zh": "克鲁特追踪者-能力卡",
+      "title_en": "KROOT TRACKER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-克鲁特追踪者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特追踪者\n2 6\" 5+ 8\n空中视野 1AP\n支援。选择一个位于该特工 6\" 内且对其可见的其\n他己方远猎者族团特工。直到那名特工的下一次\n激活结束前，其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT TRACKER\n2 6\" 5+ 8\nFROM THE EYE ABOVE 1AP\nSUPPORT. Select one other friendly FARSTALKER\nKINBAND operative visible to and within 6\" of this\noperative. Until the end of that operative’s next activation,\nadd 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-farstalker_kinband-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "克鲁特战士-数据卡",
+      "title_en": "KROOT WARRIOR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-克鲁特战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n克鲁特战士\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n克鲁特步枪 4 4+ 3/4 -\n克鲁特碎片枪 4 3+ 3/3 范围 6\"\n利刃 3 3+ 3/4 -\n准备完全：每个转折点限一次，在一名己方战士特\n工的激活期间，您可以为那个特工使用生肉、穿甲\n弹或剧毒弹规则（参见阵营装备)。这么做不会算入\n那些规则“每个转折点限一次”的限制。\n远猎者族团、钛帝国、克鲁特、战士 28",
+      "weapon_types": {
+        "克鲁特步枪": "远程",
+        "克鲁特碎片枪": "远程",
+        "利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKROOT WARRIOR\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nKroot rifle 4 4+ 3/4 -\nKroot scattergun 4 3+ 3/3 Range 6\"\nBlade 3 3+ 3/5 -\nReady for Anything: Once per turning point, during a friendly\nWARRIOR operative’s activation, you can use the Meat,\nPiercing Shot or Toxin Shot rule (see faction equipment) for\nthat operative. Doing so doesn’t count for its once per turning\npoint limit.\nFARSTALKER KINBAND , T’AU EMPIRE, KROOT, WARRIOR 28"
+    },
+    {
+      "id": "kt-farstalker_kinband-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "远猎者族团杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-远猎者族团杀戮小队-1.png",
+      "is_back": false,
+      "text": "远猎者族团\n杀戮小队\n原型: 渗透、侦察\n特工\n↘ 1 名远猎者族团杀手头领特工，装备有以下\n一种选项：\n• 克鲁特步枪; 仪式匕首\n• 脉冲武器; 仪式匕首\n↘ 11 名远猎者族团特工，从以下列表中进行\n选择：\n• 弓猎手 • 远视者\n• 冷血佣兵 • 枪手\n• 剥皮者 • 潜行者\n• 猎犬 • 追踪者\n• 重炮手，装备有以下一种选项：\n○ 德沃吉特剥皮炮；利刃\n○ 隆达希三管炮；利刃\n• 战士，装备有以下一种选项：\n○ 克鲁特步枪; 利刃\n○ 克鲁特碎片枪; 利刃\n请继续阅读背面规则",
+      "text_en": "FARSTALKER KINBAND\nKILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 FARSTALKER KINBAND KILL-BROKER\noperative with one of the following options:\n• Kroot rifle; ritual blade\n• Pulse weapon; ritual blade\n↘ 11 FARSTALKER KINBAND operatives\nselected from the following list:\n• BOW-HUNTER • LONG-SIGHT\n• COLD-BLOOD • PISTOLIER\n• CUT-SKIN • STALKER\n• HOUND • TRACKER\n• HEAVY GUNNER with one of the\nfollowing options:\n○ Dvorgite skinner; blade\n○ Londaxi tribalest; blade\n• WARRIOR with one of the following options:\n○ Kroot rifle; blade\n○ Kroot scattergun; blade\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-farstalker_kinband-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "远猎者族团杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-远猎者族团杀戮小队-2.png",
+      "is_back": true,
+      "text": "除了猎犬和战士特工以外，上述的每一名特工只\n能被纳入您的杀戮小队一次。您的杀戮小队最多\n只能包含两名猎犬特工。",
+      "text_en": "Other than HOUND and WARRIOR operatives,\nyour kill team can only include each operative on\nthis list once. Your kill team can only include up to\ntwo HOUND operatives."
+    },
+    {
+      "id": "kt-farstalker_kinband-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "远猎者",
+      "title_en": "FARSTALKER",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-远猎者.png",
+      "is_back": false,
+      "text": "远猎者族团\n阵营规则\n远猎者\n远猎者族团依靠着本能进行移动和战斗，以\n非凡的速度和反应力应对不断变化的战场局\n势。\n在每个战略阶段的就绪步骤中，您可以为最多三\n名不位于敌方特工控制范围内的己方远猎者族团\n特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不\n位于敌方特工控制范围内的己方远猎者族团特\n工的命令。这仍算作您进行了反应（之后换作您\n的对手激活），但不算作那名己方特工在这个转\n折点中的反应。",
+      "text_en": "FARSTALKER KINBAND\nFACTION RULE\nFARSTALKER\nFarstalker Kindbands move and fight instinctively,\nreacting to developing battlefield conditions with an\ninhuman speed of thought.\nIn the Ready step of each Strategy phase, you\ncan change the order of up to three friendly\nFARSTALKER KINBAND operatives that are not\nwithin control range of enemy operatives.\nWhenever it’s your turn to counteract, you can\nchange the order of one friendly FARSTALKER\nKINBAND operative that’s not within control\nrange of enemy operatives instead. This still\ncounts as you counteracting (so activation\nalternates back to your opponent afterwards),\nbut doesn’t count as that friendly operative’s\ncounteraction for this turning point."
+    },
+    {
+      "id": "kt-farstalker_kinband-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "FARSTALKER KINBAND",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "远猎者族团\n标识/指示物指南\n快枪手猎杀信号胜利咆哮\n指示物指示物指示物\n准备完全为族团复仇培克’拉鸟\n指示物指示物标识\n穿甲弹生肉\n指示物指示物\n剧毒弹战利品\n指示物指示物",
+      "text_en": "FARSTALKER KINBAND\nMARKER/TOKEN GUIDE\nQuick Draw Call the Kill Victory Shriek\ntoken token token\nReady for Vengeance for Pech’ra marker\nAnything token the Kinband\ntoken\nPiercing\nMeat\nShot\ntoken\ntoken\nToxin\nTrophy\nShot\ntoken\ntoken"
+    },
+    {
+      "id": "kt-farstalker_kinband-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "割喉",
+      "title_en": "CUT-THROATS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-割喉.png",
+      "is_back": false,
+      "text": "远猎者族团\n战略计谋\n割喉\n克鲁特战士在近距离战斗中极其致命。他们\n手中的刀刃可以轻松切割暴露在外的血肉。\n己方远猎者族团特工近战武器的攻击属性增加 1\n点（最多提升至 5 点)。",
+      "text_en": "FARSTALKER KINBAND\nSTRATEGY PLOY\nCUT-THROATS\nKroot warriors are lethal melee combatants. Their\nbladed weapons are capable of tearing through exposed\nflesh with ease.\nAdd 1 to the Atk stat of friendly FARSTALKER\nKINBAND operatives’ melee weapons (to a\nmaximum of 5)."
+    },
+    {
+      "id": "kt-farstalker_kinband-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "恶徒",
+      "title_en": "ROGUE",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-恶徒.png",
+      "is_back": false,
+      "text": "远猎者族团\n战略计谋\n恶徒\n远猎者们是天生的狩猎专家，他们能够利用\n掩护和暗影来接近自己的猎物。\n在一名特工对己方远猎者族团特工进行射击时：\n• 忽略“集中”武器规则。\n• 如果您可以保留任何掩护豁免，那么您可以保\n留额外一个掩护豁免，或者将一枚掩护豁免作\n为关键成功进行保留。本规则的效果无法与制\n高点地形的掩护豁免增益效果叠加。",
+      "text_en": "FARSTALKER KINBAND\nSTRATEGY PLOY\nROGUE\nKroot Farstalkers are naturally gifted hunters, using\ncover and shadow to their advantage as they close in\nupon their prey.\nWhenever an operative is shooting a friendly\nFARSTALKER KINBAND operative:\n• Ignore the Saturate weapon rule.\n• If you can retain any cover saves, you can\nretain one additional cover save, or you can\nretain one cover save as a critical success\ninstead. This isn’t cumulative with improved\ncover saves from Vantage terrain."
+    },
+    {
+      "id": "kt-farstalker_kinband-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "猎物",
+      "title_en": "PREY",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-猎物.png",
+      "is_back": false,
+      "text": "远猎者族团\n战略计谋\n猎物\n一旦克鲁特远猎者锁定狩猎目标，他们就会\n将注意力全部集中在杀死猎物上。\n每当一名己方远猎者族团特工在激活期间执行\n射击行动时，如果特工在激活期间没有执行过冲\n锋、后撤或转移行动，那么其远程武器拥有“平\n衡”和“严重”武器规则。如果武器已经拥有\n“平衡”武器规则，那么武器则拥有“无休”\n和“严重”武器规则。请注意，这并不会限制特\n工在进行射击之后执行上述的行动。",
+      "text_en": "FARSTALKER KINBAND\nSTRATEGY PLOY\nPREY\nWhen a Kroot Farstalker has selected their target, the\nhunter’s focus is directed fully towards bringing down\ntheir chosen prey.\nWhenever a friendly FARSTALKER KINBAND\noperative is shooting during an activation in which\nit hasn’t performed the Charge, Fall Back or\nReposition action, its ranged weapons have the\nBalanced and Severe weapon rules; if the weapon\nalready has the Balanced weapon rule, it has the\nCeaseless and Severe weapon rules instead. Note\nthat operative isn’t restricted from performing\nthose actions after shooting."
+    },
+    {
+      "id": "kt-farstalker_kinband-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "腾跃",
+      "title_en": "BOUND",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-腾跃.png",
+      "is_back": false,
+      "text": "远猎者族团\n战略计谋\n腾跃\n克鲁特人修长强健的双腿拥有极强的跳跃能\n力，能够跨越极远的距离。\n在每个己方远猎者族团特工的激活期间，您可\n以忽略其在一次向上攀爬期间垂直移动穿过的第\n一段 2\" 距离。",
+      "text_en": "FARSTALKER KINBAND\nSTRATEGY PLOY\nBOUND\nThe long, muscular legs of the Kroot allow them to cover\ngreat distances in a single, bounding leap.\nDuring each friendly FARSTALKER KINBAND\noperative’s activation, you can ignore the first\nvertical distance of 2\" they move during one\nclimb up."
+    },
+    {
+      "id": "kt-farstalker_kinband-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "野蛮伏击",
+      "title_en": "SAVAGE AMBUSH",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-野蛮伏击.png",
+      "is_back": false,
+      "text": "远猎者族团\n交战计谋\n野蛮伏击\n克鲁特远猎者们是伏击式掠食者，他们依靠\n隐匿、速度和瞬间爆发的袭击将敌人消灭。\n在一名控制范围内拥有轻型或重型地形的就绪己\n方远猎者族团特工被选择成为近战行动的近战\n对象时使用本交战计谋。在结算攻击骰步骤中，\n您先结算攻击骰（也就是由防御方先进行结算，\n而不是进攻方)。",
+      "text_en": "FARSTALKER KINBAND\nFIREFIGHT PLOY\nSAVAGE AMBUSH\nKroot Farstalkers are ambush predators, relying upon\nstealth, speed and bursts of savage violence to take\ndown their enemies.\nUse this firefight ploy during the Fight action\nwhen a ready friendly FARSTALKER KINBAND\noperative that has Light or Heavy terrain within its\ncontrol range is selected to fight against. In the\nResolve Attack Dice step of that sequence, you\nresolve the first attack dice (i.e. defender instead\nof attacker)."
+    },
+    {
+      "id": "kt-farstalker_kinband-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "溜走",
+      "title_en": "SLIP AWAY",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-溜走.png",
+      "is_back": false,
+      "text": "远猎者族团\n交战计谋\n溜走\n克鲁特人柔韧且灵活，他们能够以突袭时一\n样的速度从战斗之中撤离。\n在一名己方远猎者族团特工的激活期间，在其\n执行一次行动之前或之后使用本交战计谋。在那\n次激活期间，那名特工在执行后撤行动时可以少\n消耗 1AP。",
+      "text_en": "FARSTALKER KINBAND\nFIREFIGHT PLOY\nSLIP AWAY\nLithe and agile, the Kroot melt away from a fight using\nthe same speed with which they strike.\nUse this firefight ploy during a friendly\nFARSTALKER KINBAND operative's activation,\nbefore or after it performs an action. During that\nactivation, that operative can perform the Fall\nBack action for 1 less AP."
+    },
+    {
+      "id": "kt-farstalker_kinband-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "偷猎",
+      "title_en": "POACH",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-偷猎.png",
+      "is_back": false,
+      "text": "远猎者族团\n交战计谋\n偷猎\n远猎者族团会避免拖延战斗，他们依靠自身\n的速度与敏捷来尽快接近并夺取目标。\n在一名己方远猎者族团特工的激活期间使用本\n交战计谋。直到激活结束前，那名特工可以在不\n需要控制标识的情况下执行拾取标识或任务行\n动，就算这些行动通常需要特工控制标识（本规\n则的优先度高于上述行动的条件，特工只需要争\n夺标识即可)。",
+      "text_en": "FARSTALKER KINBAND\nFIREFIGHT PLOY\nPOACH\nFarstalker Kindbands avoid protracted fights, using their\nspeed and dexterity to advance upon and seize their\nobjectives as swiftly as possible.\nUse this firefight ploy during a friendly\nFARSTALKER KINBAND operative’s activation.\nUntil the end of that activation, that operative\ndoesn’t have to control a marker to perform the\nPick Up Marker or mission actions that usually\nrequire this (this takes precedence over that\naction’s conditions – it only needs to contest\nthe marker)."
+    },
+    {
+      "id": "kt-farstalker_kinband-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "为族团复仇",
+      "title_en": "VENGEANCE FOR THE KINBAND",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-为族团复仇.png",
+      "is_back": false,
+      "text": "远猎者族团\n交战计谋\n为族团复仇\n远猎者族团的成员是血浓于水的亲人。同伴\n的死去将唤醒其他成员心中的复仇怒火。\n在一名己方远猎者族团特工被敌方特工残废时\n使用本交战计谋。直到战斗结束前，当另一名己\n方远猎者族团特工对那名敌方特工进行射击、\n近战或反击时，那名己方特工的武器拥有“毫不\n留情”武器规则。直到那名敌方特工被残废前，\n您不能在战斗中再次使用本计谋。",
+      "text_en": "FARSTALKER KINBAND\nFIREFIGHT PLOY\nVENGEANCE FOR THE KINBAND\nFarstalker Kinbands are bonded by blood. The death of\nan ally awakes within the survivors a vengeful fury.\nUse this firefight ploy when a friendly\nFARSTALKER KINBAND operative is\nincapacitated by an enemy operative. Until the\nend of the battle, whenever another friendly\nFARSTALKER KINBAND operative is shooting\nagainst, fighting against or retaliating against that\nenemy operative, that other friendly operative's\nweapons have the Relentless weapon rule. You\ncannot use this ploy again during the battle until\nthat enemy operative is incapacitated."
+    },
+    {
+      "id": "kt-farstalker_kinband-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "穿甲弹",
+      "title_en": "PIERCING SHOT",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-穿甲弹.png",
+      "is_back": false,
+      "text": "远猎者族团\n阵营装备\n穿甲弹\n克鲁特人会使用各种各样的特制弹药。这种\n由坚固合金制成的弹头能够击穿敌人的掩体\n和护甲。\n每个转折点限一次，在一个己方远猎者族团特\n工执行射击行动并选择使用克鲁特步枪、克鲁特\n碎片枪或克鲁特双枪（集中）时，您可以使用本\n规则。若使用，那么直到那次行动结束前，那件\n武器拥有“穿刺 1”武器规则。您在同一次行动\n中不能同时使用穿甲弹和剧毒弹规则。",
+      "text_en": "FARSTALKER KINBAND\nFACTION EQUIPMENT\nPIERCING SHOT\nThe Kroot make use of many forms of specially crafted\nammunition. Bullets tipped with hardened alloys can\npunch through cover and armour alike.\nOnce per turning point, when a friendly\nFARSTALKER KINBAND operative is performing\nthe Shoot action and you select a Kroot rifle,\nKroot scattergun or dual Kroot pistols (focused),\nyou can use this rule. If you do, until the end\nof that action, that weapon has the Piercing 1\nweapon rule. You cannot use the Piercing Shot\nand Toxin Shot rule during the same action."
+    },
+    {
+      "id": "kt-farstalker_kinband-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "剧毒弹",
+      "title_en": "TOXIN SHOT",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-剧毒弹.png",
+      "is_back": false,
+      "text": "远猎者族团\n阵营装备\n剧毒弹\n克鲁特人的剧毒弹药中储存着从各种外星动\n物身上提取的毒液，每一发都极为致命。\n每个转折点限一次，在一个己方远猎者族团特\n工执行射击行动并选择使用克鲁特步枪、克鲁特\n碎片枪或克鲁特双枪（集中）时，您可以使用本\n规则。若使用，那么直到那次行动结束前，那件\n武器拥有“致命 5+”和“眩晕”武器规则。您\n在同一次行动中不能同时使用穿甲弹和剧毒弹\n规则。",
+      "text_en": "FARSTALKER KINBAND\nFACTION EQUIPMENT\nTOXIN SHOT\nKroot toxin bullets contain reservoirs of venom\nextracted from various alien fauna, all of which is\nincredibly lethal.\nOnce per turning point, when a friendly\nFARSTALKER KINBAND operative is performing\nthe Shoot action and you select a Kroot rifle,\nKroot scattergun or dual Kroot pistols (focused),\nyou can use this rule. If you do, until the end of\nthat action, that weapon has the Lethal 5+ and\nStun weapon rules. You cannot use the Piercing\nShot and Toxin Shot rule during the same action."
+    },
+    {
+      "id": "kt-farstalker_kinband-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "生肉",
+      "title_en": "MEAT",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-生肉.png",
+      "is_back": false,
+      "text": "远猎者族团\n阵营装备\n生肉\n克鲁特人的体质实际上要比他们看上去纤细\n的身体要坚韧许多。光是吃下生肉就能够加\n强他们的恢复能力。\n每个转折点限一次，在一个己方远猎者族团特\n工（猎犬除外）被激活时，如果特工不位于敌方\n特工的控制范围内，那么您可以使用本规则。若\n使用，那名己方特工回复最多 D3+1 处失去的\n耐伤。",
+      "text_en": "FARSTALKER KINBAND\nFACTION EQUIPMENT\nMEAT\nKroot physiologies are far more resilient than their wiry\nframes suggest. The ingestion of raw meat only serves to\nbolster their regenerative abilities.\nOnce per turning point, when a friendly\nFARSTALKER KINBAND operative (excluding\nHOUND) is activated, if it’s not within control\nrange of enemy operatives, you can use this rule.\nIf you do, that friendly operative regains up to\nD3+1 lost wounds."
+    },
+    {
+      "id": "kt-farstalker_kinband-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "战利品",
+      "title_en": "TROPHY",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-战利品.png",
+      "is_back": false,
+      "text": "远猎者族团\n阵营装备\n战利品\n远猎者们会追踪并杀死最为强大的敌人。他们\n会猛烈追击任何被他们认为是值得狩猎的目\n标，并从尸体上收割血腥的战利品。\n每场战斗限一次，在一个己方远猎者族团特工\n（猎犬除外）的激活期间，在其执行一个行动\n之前或者之后，如果特工不位于敌方特工的控\n制范围内，那么您可以使用本规则。若使用，那\n么直到那名特工的激活结束前，其 APL 属性增\n加 1 点。",
+      "text_en": "FARSTALKER KINBAND\nFACTION EQUIPMENT\nTROPHY\nKroot Farstalkers seek to cut down the most powerful\nof foes. They will aggressively pursue any enemy they\njudge worthy and harvest trophies from the corpse.\nOnce per battle, during a friendly FARSTALKER\nKINBAND operative’s activation (excluding\nHOUND), before or after it performs an action, if\nit’s not within control range of enemy operatives,\nyou can use this rule. If you do, add 1 to that\nfriendly operative’s APL stat until the end of\nits activation."
+    }
+  ]
+}

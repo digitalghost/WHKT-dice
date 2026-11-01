@@ -66,8 +66,10 @@ class CombatAdjustmentTest {
         more = ShootingCombatRules.acceptAttackRoll(more, listOf(4))
         more = ShootingCombatRules.finishAttackRetention(ShootingCombatRules.finishAttackRerolls(more))
         assertEquals(4, more.defenceDiceToRoll)
-        s = ShootingCombatRules.acceptDefenceRoll(s, listOf(1, 1, 1))
+        // Retained without rolling: chosen before the roll, so only two dice are rolled.
         s = ShootingCombatRules.addDefenceRetained(s, critical = false, note = "变色孢子迷彩")
+        assertEquals(2, s.defenceDiceToRoll)
+        s = ShootingCombatRules.acceptDefenceRoll(s, listOf(1, 1))
         s = ShootingCombatRules.finishDefenceRerolls(s)
         assertEquals(1, s.defencePool.normals)
     }

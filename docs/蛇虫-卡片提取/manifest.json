@@ -1,447 +1,701 @@
 {
-  "manifest_version": 1,
+  "schema_version": 1,
   "team_id": "TYR-RAV",
-  "faction_id": "TYR",
   "team_name_zh": "蛇虫",
   "team_name_en": "Raveners",
-  "source_pdf": "../蛇虫 Raveners 杀戮小队规则.pdf",
-  "extracted_at": "2026-09-23",
+  "source_pdf": "最新杀戮小队规则更新/蛇虫 Raveners 杀戮小队规则.pdf",
+  "source_pdf_sha256": "1d6e1208e1692928594e1a1268fa59223f0fbd06353a67ec282b258e6b43aaed",
+  "extracted_at": "2026-10-26",
   "render_dpi": 200,
-  "page_size_px": [1654, 2339],
+  "source_data": "官方中文 PDF（唯一信源）",
   "counts": {
-    "cards": 28,
+    "total": 26,
     "operative": 6,
-    "team_selection": 1,
-    "faction_rule": 5,
-    "strategic_ploy": 4,
-    "firefight_ploy": 4,
-    "faction_equipment": 4,
-    "other": 4
+    "operative-ability": 1,
+    "team-selection": 1,
+    "faction-rule": 5,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
   },
   "cards": [
     {
-      "id": "rav-001-ravener-prime",
+      "id": "tyr-rav-01-01",
       "sequence": 1,
       "category": "operative",
-      "title_zh": "蛇虫王虫",
-      "title_en": "Ravener Prime",
+      "title_zh": "蛇虫王虫-数据卡",
+      "title_en": "RAVENER PRIME",
       "source_page": 1,
       "page_order": 1,
-      "bbox_px": [350, 66, 954, 553],
-      "bbox_pt": [126.0, 23.76, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.028217, 0.576784, 0.236426],
-      "image": "01-特工-蛇虫王虫.png",
-      "ktdash_ids": ["TYR-RAV-PRM"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-蛇虫王虫-数据卡.png",
+      "is_back": false,
+      "text": "蛇虫王虫 APL 移动豁免耐伤\n3 7\" 5+ 19\n名称攻击命中伤害武器规则\n尾刃 4 3+ 3/4 范围 3\"、撕裂、安静\n镰爪与撕裂爪 5 3+ 4/5 撕裂\n掠食神经头冠：每次判断对一个标识的控制权时，如果有至少突触链接：如果该特工没有被残废，作\n1 个争夺那个目标的敌方特工位于该特工的 3\" 内，那么将争夺为一个战略计划，掷一枚 D6 并将掷骰结\n那个目标的敌方特工的 APL 总和视作为比原本要低 1 点。请果与当前的转折点数对比，若结果：\n注意，这并非对 APL 属性的修正效果，因此任何修正效果能与\n• 大于等于当前转折点数的两倍：您获\n本规则叠加。每当一名敌方特工位于该特工的 3\" 内时：\n得 1 CP。\n• 您的对手在让那名特工执行拾取标识或任务行动时必须消耗 • 小于当前转折点数：对该特工造成掷\n额外 1AP。骰结果数量的伤害。\n• 您的对手不能重掷那名特工的攻击骰或防御骰。 • 若是其他任何结果，则无事发生。\n蛇虫、大吞噬者、泰伦虫族、队长、王虫 40",
+      "weapon_types": {
+        "尾刃": "远程",
+        "镰爪与撕裂爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRAVENER PRIME\n3 7\" 5+ 19\nNAME ATK HIT DMG WR\nTail blade 4 3+ 3/4 Range 3\", Rending, Silent\nScything talons & rending claws 5 3+ 4/5 Rending\nNeuropredatory Crest: Whenever determining control of a marker, treat the Synaptic Link: STRATEGIC GAMBIT if this\ntotal APL stat of enemy operatives that contest it as 1 lower if at least one of operative isn’t incapacitated. Roll one D6 and\nthose enemy operatives is within 3\" of this operative. Note this isn’t a change compare the result to the number of the current\nto the APL stat, so any changes are cumulative with this. Whenever an enemy turning point; if the result is:\noperative is within 3\" of this operative:\n• Twice as high or higher, you gain 1CP.\n• Your opponent must spend 1 additional AP for that enemy operative to • Less, inflict damage on this operative equal to\nperform the Pick Up Marker and mission actions. the result.\n• Your opponent cannot re-roll their attack or defence dice for that operative. • Any other result, nothing happens.\nRAVENER , GREAT DEVOURER, TYRANID, LEADER, PRIME 40"
     },
     {
-      "id": "rav-002-ravener-felltalon",
+      "id": "tyr-rav-01-02",
       "sequence": 2,
       "category": "operative",
-      "title_zh": "毒爪蛇虫",
-      "title_en": "Ravener Felltalon",
+      "title_zh": "毒爪蛇虫-数据卡",
+      "title_en": "RAVENER FELLTALON",
       "source_page": 1,
       "page_order": 2,
-      "bbox_px": [350, 618, 954, 553],
-      "bbox_pt": [126.0, 222.48, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.264215, 0.576784, 0.236426],
-      "image": "02-特工-毒爪蛇虫.png",
-      "ktdash_ids": ["TYR-RAV-FTL"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-毒爪蛇虫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n毒爪蛇虫\n3 7\" 5+ 18\n名称攻击命中伤害武器规则\n螯尾 4 3+ 3/4 范围 3\"、安静\n毒囊 4 3+ 3/4 范围 6\"、安静、中毒*\n剧毒镰爪 5 3+ 4/5 致命 5+、震荡、中毒*\n*中毒：在结算攻击骰步骤中，如果您的任何关键成功造成伤害，那么作为本武器目标的特工获得一枚己方\n中毒指示物（如果特工还没有获得一枚中毒指示物的话)。每当一名拥有己方中毒指示物的特工被激活时，\n对其造成 D3 点伤害。\n请继续阅读背面规则\n蛇虫、大吞噬者、泰伦虫族、毒爪 40",
+      "weapon_types": {
+        "螯尾": "远程",
+        "毒囊": "远程",
+        "剧毒镰爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRAVENER FELLTALON\n3 7\" 5+ 18\nNAME ATK HIT DMG WR\nPincer tail 4 3+ 3/4 Range 3\", Silent\nToxic glands 4 3+ 3/4 Range 6\", Silent, Poison*\nToxic scythes 5 3+ 4/5 Lethal 5+, Shock, Poison*\n*Poison: In the Resolve Attack Dice step, if you inflict damage with any critical successes, the operative this weapon is being used\nagainst gains one of your Poison tokens (if it doesn’t already have one). Whenever an operative that has one of your Poison tokens is\nactivated, inflict D3 damage on it.\nRULES CONTINUE ON OTHER SIDE\nRAVENER , GREAT DEVOURER, TYRANID, FELLTALON 40"
     },
     {
-      "id": "rav-003-ravener-tremorscythe",
+      "id": "tyr-rav-01-03",
       "sequence": 3,
-      "category": "operative",
-      "title_zh": "颤镰蛇虫",
-      "title_en": "Ravener Tremorscythe",
+      "category": "operative-ability",
+      "title_zh": "毒爪蛇虫-能力卡",
+      "title_en": "RAVENER FELLTALON",
       "source_page": 1,
       "page_order": 3,
-      "bbox_px": [350, 1170, 954, 553],
-      "bbox_pt": [126.0, 421.2, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.500214, 0.576784, 0.236426],
-      "image": "03-特工-颤镰蛇虫.png",
-      "ktdash_ids": ["TYR-RAV-TRS"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工能力-毒爪蛇虫-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n毒爪蛇虫\n3 7\" 5+ 18\n剧毒扑袭 1AP\n选择一个位于该特工 2\" 内且可见的敌方特工。若有敌方特工位于这名特工的控制范围内，则您不能选\n择不处于控制范围内的敌方特工。除此之外，如果该特工位于地下，那么选择一个位于己方隧道上的敌\n方特工。对那名敌方特工造成 D3+2 处伤害，随后那名特工获得一枚己方中毒指示物（如果特工还没有\n获得一枚中毒指示物的话)。\n该特工可以在地下期间执行本行动（本规则的优先度高于常规的“钻地”规则)。",
+      "text_en": "APL MOVE SAVE WOUNDS\nRAVENER FELLTALON\n3 7\" 5+ 18\nTOXIC LUNGE 1AP\nSelect one enemy operative visible to and within 2\" of this operative. If enemy operatives are within control range of this operative,\nyou cannot select an enemy operative that isn’t. Alternatively, if this operative is underground, select one enemy operative on your\nTUNNEL. Inflict D3+2 damage on that enemy operative and it gains one of your Poison tokens (if it doesn’t already have one).\nThis operative can perform this action while underground (this takes precedence over the normal Burrow rules)."
     },
     {
-      "id": "rav-004-ravener-venomspitter",
+      "id": "tyr-rav-01-04",
       "sequence": 4,
       "category": "operative",
-      "title_zh": "喷毒蛇虫",
-      "title_en": "Ravener Venomspitter",
+      "title_zh": "颤镰蛇虫-数据卡",
+      "title_en": "RAVENER TREMORSCYTHE",
       "source_page": 1,
       "page_order": 4,
-      "bbox_px": [350, 1723, 954, 553],
-      "bbox_pt": [126.0, 620.28, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.73664, 0.576784, 0.236426],
-      "image": "04-特工-喷毒蛇虫.png",
-      "ktdash_ids": ["TYR-RAV-VSP"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-颤镰蛇虫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n颤镰蛇虫\n3 7\" 5+ 18\n名称攻击命中伤害武器规则\n螯尾 4 3+ 3/4 范围 3\"、安静\n镰爪与撕裂爪 5 3+ 4/5 -\n地底伏击：每个转折点限一次，在一名敌方特工执行了一次移动超过 2\" 的行超感官猎手：如果该特\n动，并在己方隧道的 2\" 内结束移动时，如果该特工位于地下并且就绪或者还没工在同一次激活/反应\n有在本转折点中进行反应，那么您可以进行打断来使用本规则。期间执行了钻地行动，\n那么该特工可以在拥有\n若选择使用，激活该特工或者使用该特工进行反应（根据情况而定)，但在这次\n隐匿命令时执行冲锋\n激活/反应期间，该特工必须对那名敌方特工进行射击或近战，并且直到这么做\n行动。\n之前不能针对其他敌方特工进行射击或近战（如果不可能这么做，那么该特工\n的激活/反应将被取消，并且该规则没有被使用)。在完成该特工的激活/反应之\n后，继续那名敌方特工的激活/反应（若可能并适用)。\n蛇虫、大吞噬者、泰伦虫族、颤镰 40",
+      "weapon_types": {
+        "螯尾": "远程",
+        "镰爪与撕裂爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRAVENER TREMORSCYTHE\n3 7\" 5+ 18\nNAME ATK HIT DMG WR\nPincer tail 4 3+ 3/4 Range 3\", Silent\nScything talons & rending claws 5 3+ 4/5 Rending\nSubterranean Ambush: Once per turning point in the Firefight phase, after an enemy operative Hypersensory Hunter:\nperforms an action in which it moves more than 2\" and ends within 2\" of your TUNNEL, if this This operative can perform\noperative is underground and is either ready or hasn’t counteracted during this turning point, you the Charge action while\ncan interrupt to use this rule. it has a Conceal order if it\nperformed the Burrow action\nIf you do, activate or counteract with this operative (as appropriate), but during its activation/\nduring the same activation/\ncounteraction it must shoot against or fight against that enemy operative, and cannot do so\ncounteraction.\nagainst any other enemy operatives until it does (if this isn’t possible, this operative’s activation/\ncounteraction is cancelled and this rule hasn’t been used). After completing this operative’s\nactivation/counteraction, continue that enemy operative’s activation/counteraction (if possible\nand relevant).\nRAVENER , GREAT DEVOURER, TYRANID, TREMORSCYTHE 40"
     },
     {
-      "id": "rav-005-ravener-warrior",
+      "id": "tyr-rav-01-05",
       "sequence": 5,
       "category": "operative",
-      "title_zh": "蛇虫武士",
-      "title_en": "Ravener Warrior",
+      "title_zh": "喷毒蛇虫-数据卡",
+      "title_en": "RAVENER VENOMSPITTER",
       "source_page": 2,
       "page_order": 1,
-      "bbox_px": [350, 66, 954, 553],
-      "bbox_pt": [126.0, 23.76, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.028217, 0.576784, 0.236426],
-      "image": "05-特工-蛇虫武士.png",
-      "ktdash_ids": ["TYR-RAV-WAR"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-喷毒蛇虫-数据卡.png",
+      "is_back": false,
+      "text": "喷毒蛇虫 APL 移动豁免耐伤\n3 7\" 5+ 18\n名称攻击命中伤害武器规则\n螯尾 4 3+ 3/4 范围 3\"、安静\n毒镖（爆炸） 4 3+ 3/5 范围 8\"、爆炸 2”、中毒*\n毒镖（集中） 4 3+ 4/5 范围 8\"、穿刺 1、中毒*\n镰爪 5 3+ 4/5 -\n*中毒：在结算攻击骰步骤中，如果您的膨胀背部囊体 1AP\n任何关键成功造成伤害，那么作为本武\n直到该特工使用毒镖进行射击、直到该特工再次执行本行动\n器目标的特工获得一枚己方中毒指示物\n前，或者执行了一次钻地行动前(以先触发的条件为准)，其\n（如果特工还没有获得一枚中毒指示物\n毒镖的所有武器资料都拥有“致命 5+”武器规则，攻击属\n的话)。每当一名拥有己方中毒指示物的\n性增加 1 点，并且将“范围 8\"”武器规则移除。\n特工被激活时，对其造成 D3 点伤害。\n蛇虫、大吞噬者、泰伦虫族、喷毒 40",
+      "weapon_types": {
+        "螯尾": "远程",
+        "毒镖（爆炸）": "远程",
+        "毒镖（集中）": "远程",
+        "镰爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRAVENER VENOMSPITTER\n3 7\" 5+ 18\nNAME ATK HIT DMG WR\nPincer tail 4 3+ 3/4 Range 3\", Silent\nVenom bolt (blast) 4 3+ 3/5 Range 8\", Blast 2\", Poison*\nVenom bolt (focused) 4 3+ 4/5 Range 8\", Piercing 1, Poison*\nScything talons 5 3+ 4/5 -\n*Poison: In the Resolve Attack Dice step, if you DISTEND DORSAL SAC 1AP\ninflict damage with any critical successes, the\nUntil this operative has shot with its venom bolt, until it performs this\noperative this weapon is being used against gains\naction again or until it performs the Burrow action (whichever comes\none of your Poison tokens (if it doesn’t already have\nfirst), all profiles of its venom bolt have the Lethal 5+ weapon rule, have 1\none). Whenever an operative that has one of your\nadded to their Atk stat and the Range 8\" weapon rule removed.\nPoison tokens is activated, inflict D3 damage on it.\nRAVENER , GREAT DEVOURER, TYRANID, VENOMSPITTER 40"
     },
     {
-      "id": "rav-006-ravener-wrecker",
+      "id": "tyr-rav-01-06",
       "sequence": 6,
       "category": "operative",
-      "title_zh": "破袭蛇虫",
-      "title_en": "Ravener Wrecker",
+      "title_zh": "蛇虫武士-数据卡",
+      "title_en": "RAVENER WARRIOR",
       "source_page": 2,
       "page_order": 2,
-      "bbox_px": [350, 618, 954, 553],
-      "bbox_pt": [126.0, 222.48, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.264215, 0.576784, 0.236426],
-      "image": "06-特工-破袭蛇虫.png",
-      "ktdash_ids": ["TYR-RAV-WRK"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-蛇虫武士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n蛇虫武士\n3 7\" 5+ 18\n名称攻击命中伤害武器规则\n螯尾 4 3+ 3/4 范围 3\"、安静\n镰爪 5 3+ 4/5 -\n本能行动：每当该特工针对一名受伤或者在当前转\n折点中执行过后撤行动的敌方特工进行射击、近\n战或反击时，该特工的武器拥有“致命 5+”武器\n规则。\n蛇虫、大吞噬者、泰伦虫族、武士 40",
+      "weapon_types": {
+        "螯尾": "远程",
+        "镰爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRAVENER WARRIOR\n3 7\" 5+ 18\nNAME ATK HIT DMG WR\nPincer tail 4 3+ 3/4 Range 3\", Silent\nScything talons 5 3+ 4/5 -\nInstinctive Behaviour: Whenever this operative is shooting\nagainst, fighting against or retaliating against a wounded enemy\noperative, or an enemy operative that performed the Fall Back\naction during this turning point, this operative’s weapons have\nthe Lethal 5+ weapon rule.\nRAVENER , GREAT DEVOURER, TYRANID, WARRIOR 40"
     },
     {
-      "id": "rav-007-notes-1",
+      "id": "tyr-rav-01-07",
       "sequence": 7,
-      "category": "other",
-      "title_zh": "笔记 1",
-      "title_en": "Notes 1",
+      "category": "operative",
+      "title_zh": "破袭蛇虫-数据卡",
+      "title_en": "RAVENER WRECKER",
       "source_page": 2,
       "page_order": 3,
-      "bbox_px": [350, 1170, 954, 553],
-      "bbox_pt": [126.0, 421.2, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.500214, 0.576784, 0.236426],
-      "image": "07-其他-笔记-1.png",
-      "ktdash_ids": [],
-      "text_status": "not_applicable"
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-破袭蛇虫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n破袭蛇虫\n3 7\" 4+ 18\n名称攻击命中伤害武器规则\n坚骨槌 4 3+ 3/4 范围 3\"、穿刺 1、安静\n镰爪与粉碎爪 5 3+ 4/5 粉碎*\n加固甲壳：当该特工受到数值大于等于 4 点的普通\n或暴击伤害时，受到的伤害减少 1 点。\n*粉碎：每当您进行出击时，与您的对手进行拼骰，\n如果该武器攻击的目标的耐伤属性小于等于 9，那\n么您的掷骰结果增加 1 点。如果您拼骰获胜，那么\n对那名敌方特工造成双方拼骰结果数值差的额外伤\n害（最多造成 3 点伤害)。\n蛇虫、大吞噬者、泰伦虫族、破袭 40",
+      "weapon_types": {
+        "坚骨槌": "远程",
+        "镰爪与粉碎爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRAVENER WRECKER\n3 7\" 4+ 18\nNAME ATK HIT DMG WR\nBone mace 4 3+ 3/4 Range 3\", Piercing 1, Silent\nScything talons & crushing claws 5 3+ 4/5 Crush*\nReinforced Carapace: Normal and Critical Dmg of 4 or more\ninflicts 1 less damage on this operative.\n*Crush: Whenever you strike, you and your opponent roll-off,\nadding 1 to your result if the operative this weapon is being\nused against has a Wounds stat of 9 or less. If you win, inflict\nadditional damage on that operative equal to the difference\nbetween the dice results (to a maximum of 3 additional damage).\nRAVENER , GREAT DEVOURER, TYRANID, WRECKER 40"
     },
     {
-      "id": "rav-008-notes-2",
-      "sequence": 8,
-      "category": "other",
-      "title_zh": "笔记 2",
-      "title_en": "Notes 2",
-      "source_page": 2,
-      "page_order": 4,
-      "bbox_px": [350, 1723, 954, 553],
-      "bbox_pt": [126.0, 620.28, 343.44, 199.08],
-      "bbox_norm": [0.211608, 0.73664, 0.576784, 0.236426],
-      "image": "08-其他-笔记-2.png",
-      "ktdash_ids": [],
-      "text_status": "not_applicable"
-    },
-    {
-      "id": "rav-009-team-selection",
-      "sequence": 9,
+      "id": "tyr-rav-10-01",
+      "sequence": 1,
       "category": "team-selection",
       "title_zh": "蛇虫杀戮小队",
-      "title_en": "Raveners Kill Team",
+      "title_en": "KILL TEAM",
       "source_page": 3,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.09192, 0.336155, 0.410432],
-      "image": "09-小队选择-蛇虫杀戮小队.png",
-      "ktdash_ids": ["TYR-RAV"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-蛇虫杀戮小队.png",
+      "is_back": false,
+      "text": "蛇虫杀戮小队\n原型：渗透，搜索与摧毁\n特工\n↘ 1 蛇虫王虫特工\n↘ 4 蛇虫特工，从以下列表中选择：\n• 毒爪\n• 颤镰\n• 喷毒\n• 武士\n• 破袭\n除了武士特工以外，列表中的每一名特工只能被\n纳入您的杀戮小队一次。",
+      "text_en": "RAVENERS KILL TEAM\nARCHETYPES: INFILTRATION, SEEK & DESTROY\nOPERATIVES\n↘ 1 RAVENER PRIME operative\n↘ 4 RAVENER operatives selected from the\nfollowing list:\n• FELLTALON\n• TREMORSCYTHE\n• VENOMSPITTER\n• WARRIOR\n• WRECKER\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
     },
     {
-      "id": "rav-010-burrow-introduction",
-      "sequence": 10,
+      "id": "tyr-rav-11-01",
+      "sequence": 1,
       "category": "faction-rule",
-      "title_zh": "钻地",
-      "title_en": "Burrow",
-      "part": "说明",
+      "title_zh": "钻地-1",
+      "title_en": "BURROW",
       "source_page": 3,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.09192, 0.336155, 0.410432],
-      "image": "10-阵营规则-钻地-说明.png",
-      "ktdash_ids": ["TYR-RAV-PRM-BUR"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-钻地-1.png",
+      "is_back": false,
+      "text": "蛇虫\n阵营规则\n钻地\n蛇虫会从地下隧道上破土而出，对目标发动\n奇袭，在敌人能够做出反应前又消失不见。\n在战斗开始前部署蛇虫杀戮小队时，您的前两\n个特工必须照常进行部署。在那之后的每一名其\n他己方蛇虫特工可以被部署在地下；将它们放\n在一边而不是在杀戮区中。\n在交战阶段中，被部署在地下的己方蛇虫特工\n可以照常进行激活和反应。当己方蛇虫特工位\n于地下时，那名特工不能执行钻地以外的行动。\n在战斗结束时，每一个位于地下的己方蛇虫都\n将被残废。\n请继续阅读背面规则",
+      "text_en": "RAVENER\nFACTION RULE\nBURROW\nRaveners will emerge from their tunnels to strike at\nunsuspecting victims, then disappear again before their\nfoe can properly react.\nWhen setting up a RAVENER kill team before the\nbattle, your first two operatives must be set up as\nnormal. Each other friendly RAVENER operative\nthereafter can be set up underground: place it to\none side instead of in the killzone.\nIn the Firefight phase, friendly RAVENER\noperatives set up underground are activated and\ncan counteract as normal. Whenever a friendly\nRAVENER operative is underground, it cannot\nperform any actions other than Burrow. At the\nend of the battle, each friendly RAVENER\noperative that’s underground is incapacitated.\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "rav-011-burrow-action",
-      "sequence": 11,
+      "id": "tyr-rav-11-02",
+      "sequence": 2,
       "category": "faction-rule",
-      "title_zh": "钻地",
-      "title_en": "Burrow",
-      "part": "行动",
+      "title_zh": "钻地-2",
+      "title_en": "BURROW",
       "source_page": 3,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.499359, 0.336155, 0.410432],
-      "image": "11-阵营规则-钻地-行动.png",
-      "ktdash_ids": ["TYR-RAV-PRM-BUR"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-钻地-2.png",
+      "is_back": true,
+      "text": "己方蛇虫特工可以执行以下独特行动：\n钻地 1AP\n\u0007如果该特工位于地下，将该特工部署在您的\n隧道上可以被部署的位置（特工不再位于地\n下，并且可以被部署在敌方特工的控制范围\n内)。直到那次激活或反应结束前，该特工\n的移动属性减少\u00072\"。\n除此之外，作为上述效果的替代效果，如果\n该特工位于杀戮区中并且位于您的隧道上，\n那么将其移出杀戮区：特工现在位于地下。\n一名特工不能在携带一个标识期间执行本行\n动，也不能在不位于地下或者己方隧道的情\n况下执行本行动。",
+      "text_en": "Friendly RAVENER operatives can perform the\nfollowing unique action:\nBURROW 1AP\nIf this operative is underground, set it up\non your TUNNEL in a location it can be\nplaced (it’s no longer underground, and\nit can be set up within control range of\nenemy operatives). Until the end of the\nactivation/counteraction, subtract 2\" from\nits Move stat.\nAlternatively, instead of resolving the above\neffect, if this operative is in the killzone\nand on your TUNNEL, remove it from the\nkillzone: it’s now underground.\nAn operative cannot perform this action\nwhile carrying a marker, or if it isn’t either\nunderground or on your TUNNEL."
     },
     {
-      "id": "rav-012-tunnel-1",
-      "sequence": 12,
+      "id": "tyr-rav-11-03",
+      "sequence": 3,
       "category": "faction-rule",
-      "title_zh": "隧道",
-      "title_en": "Tunnel",
-      "part": "1/2",
+      "title_zh": "隧道-1",
+      "title_en": "TUNNEL",
       "source_page": 3,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.499359, 0.336155, 0.410432],
-      "image": "12-阵营规则-隧道-1.png",
-      "ktdash_ids": ["TYR-RAV-PRM-A-TUN"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-隧道-1.png",
+      "is_back": false,
+      "text": "蛇虫\n阵营规则\n隧道\n蛇虫会在猎物脚下的土地和地基中挖掘错综\n复杂的隧道，让这群虫群意志的精英生物体\n能够伏击目标。\n在部署特工步骤结束时，将一个编号为“0”的\n隧道标识放在杀戮区的地面上，完全位于己方杀\n戮区内且与己方杀戮区边缘触碰的位置。在前四\n个转折点中，作为一个战略计划，您可以将您下\n一个标号的隧道标识放置在杀戮区地面上完全位\n于上一个隧道标识\u00075\"\u0007内的位置。这意味着，随着\n战斗的进行，您可能会拥有一系列按照数字顺序\n放置的隧道标识（0，1，2，3\u0007和\u00074)。在您放置了\n五个隧道标识后，不要放置更多的隧道标识（如\n果战斗的时长超过四个转折点的话)。\n请继续阅读背面规则",
+      "text_en": "RAVENER\nFACTION RULE\nTUNNEL\nRaveners dig extensive tunnel networks in the ground\nand foundations beneath their prey’s feet, enabling\nthe Hive Mind’s elite creations to outmanoeuvre and\nambush their prey.\nAt the end of the Set Up Operatives step, place\nyour Tunnel marker numbered ‘0’ on the killzone\nfloor, wholly within your drop zone and touching\nyour killzone edge. As a STRATEGIC GAMBIT in\nthe first four turning points, you can place your\nnext numbered Tunnel marker on the killzone\nfloor wholly within 5\" of your preceding Tunnel\nmarker. This means that, as the battle progresses,\nyou can have a series of sequentially numbered\nTunnel markers (0, 1, 2, 3 and 4). Once you\nhave placed five Tunnel markers, don’t place\nany more (i.e. if your battle lasts more than four\nturning points).\nYour Tunnel markers and the area between your\nsequentially numbered markers (i.e. between 0\nand 1, 1 and 2, etc.), create your TUNNEL.\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "rav-013-tunnel-2",
-      "sequence": 13,
+      "id": "tyr-rav-11-04",
+      "sequence": 4,
       "category": "faction-rule",
-      "title_zh": "隧道",
-      "title_en": "Tunnel",
-      "part": "2/2",
+      "title_zh": "隧道-2",
+      "title_en": "TUNNEL",
       "source_page": 4,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.09192, 0.336155, 0.410432],
-      "image": "13-阵营规则-隧道-2.png",
-      "ktdash_ids": ["TYR-RAV-PRM-A-TUN"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-隧道-2.png",
+      "is_back": true,
+      "text": "按照数字顺序，隧道标识之间的区域（例如\u00070\u0007与\u0007\n1\u0007之间，1\u0007与\u00072\u0007之间，等等）构成您的隧道。\n在使用近距离战斗规则的杀戮区中（例如杀戮\n区：墓穴世界)，您的隧道以及隧道标识之间的距\n离可以穿过墙壁地形进行测量。\u0007在一个使用危险\n区域规则的杀戮区中（例如杀戮区：贝赫塔-狄希\n玛)，在判断受限移动规则时，与危险区域触碰\n的隧道标识被视作为危险区域。\n在上图的例子中，由于特工\u0007A\u0007位于标识\u00070\u0007和\u00071\u0007\n之间的区域上，因此该特工位于您的隧道上。特\n工\u0007B\u0007与您的一枚隧道标识触碰，因此该特工也位\n于您的隧道上。由于标识\u00071\u0007与\u00073\u0007没有按照次序，\n因此它们之间的区域不是您的隧道，特工\u0007C\u0007也不\n位于您的隧道上。",
+      "text_en": "In a killzone that uses the close quarters rules\n(e.g. Killzone: Tomb World), your TUNNEL and\nthe distance between your Tunnel markers can\nbe measured through Wall terrain. In a killzone\nthat uses the hazardous areas rules (e.g. Killzone:\nBheta Decima), for the purposes of the Restricted\nMovement rule, parts of a Tunnel marker that\nare touching a hazardous area are treated as a\nhazardous area.\nIn this example, operative A is on your TUNNEL\nas it’s on the area between markers 0 and 1.\nOperative B is also on your TUNNEL as it’s\ntouching one of your Tunnel markers. Operative C\nis not on your TUNNEL as markers 1 and 3 are not\nsequential, so the area between those markers is\nnot part of your TUNNEL."
     },
     {
-      "id": "rav-014-predatory-instincts",
-      "sequence": 14,
+      "id": "tyr-rav-11-05",
+      "sequence": 5,
       "category": "faction-rule",
       "title_zh": "掠食本能",
-      "title_en": "Predatory Instincts",
+      "title_en": "PREDATORY INSTINCTS",
       "source_page": 4,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.09192, 0.336155, 0.410432],
-      "image": "14-阵营规则-掠食本能.png",
-      "ktdash_ids": ["TYR-RAV-PRM-A-PIN"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-05-阵营规则-掠食本能.png",
+      "is_back": false,
+      "text": "蛇虫\n阵营规则\n掠食本能\n蛇虫似乎时刻都在被一种难以抵御的饥饿驱\n动着，在与超强反应力的结合下，它们是肌\n肉、尖爪和利齿构成的致命残影。\n在每一名己方蛇虫特工的激活期间，特工可以\n执行两次近战行动。\n无论拥有什么命令，每一名己方蛇虫特工都可\n以进行反应。在这么做时：\n• 您可以先更改特工拥有的命令，或者仅更改特\n工拥有的命令并不执行行动（若选择后者，特\n工依旧被视作在转折点中进行了反应)。\n• 在那次反应期间，如果特工没有执行任务行\n动，那么特工可以无消耗执行一次钻地行动。",
+      "text_en": "RAVENER\nFACTION RULE\nPREDATORY INSTINCTS\nSeemingly driven by an all-consuming hunger, and with\nhyper-adapted reflexes, Raveners are deadly blurs of\nmuscle, talons and fangs.\nDuring each friendly RAVENER operative’s\nactivation, it can perform two Fight actions.\nEach friendly RAVENER operative can\ncounteract regardless of its order. Whenever\nit does:\n• You can change its order first, or change its\norder instead of performing an action (for the\nlatter, still treat it as having counteracted this\nturning point).\n• During that counteraction, if it doesn’t\nperform a mission action it can perform a free\nBurrow action."
     },
     {
-      "id": "rav-015-marker-guide",
-      "sequence": 15,
+      "id": "tyr-rav-16-01",
+      "sequence": 1,
       "category": "other",
       "title_zh": "标识/指示物指南",
-      "title_en": "Token/Marker Guide",
+      "title_en": "RAVENER",
       "source_page": 4,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.499359, 0.336155, 0.410432],
-      "image": "15-其他-标识-指示物指南.png",
-      "ktdash_ids": [],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "蛇虫\n标识/指示物指南\n中毒指示物地下伏击指示物\n膨胀背部囊体指示物敏锐感官指示物\n隧道标识",
+      "text_en": "RAVENER\nMARKER/TOKEN GUIDE\nSubterranean Ambush\nPoison token\ntoken\nDistend Dorsal Sac Heightened Senses\ntoken token\nTunnel markers"
     },
     {
-      "id": "rav-016-death-from-below",
-      "sequence": 16,
+      "id": "tyr-rav-20-01",
+      "sequence": 1,
       "category": "strategic-ploy",
       "title_zh": "掘地突袭",
-      "title_en": "Death From Below",
+      "title_en": "DEATH FROM BELOW",
       "source_page": 4,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.499359, 0.336155, 0.410432],
-      "image": "16-战略计谋-掘地突袭.png",
-      "ktdash_ids": ["TYR-RAV-S-DFB"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-掘地突袭.png",
+      "is_back": false,
+      "text": "蛇虫\n战略计谋\n掘地突袭\n在虫巢意志的命令下，蛇虫能够从地下隧道\n网络中同时钻出，将过于接近的猎物撕成碎\n片。\n每当一个己方蛇虫特工进行近战时：\n•\u0007\u0007如果特工在激活或反应期间执行了钻地行动，\n那么其近战武器拥有“平衡”武器规则。\n• 如果特工位于己方隧道上，那么其近战武器拥\n有“无休”武器规则。",
+      "text_en": "RAVENER\nSTRATEGY PLOY\nDEATH FROM BELOW\nSpurred by an imperative from the Hive Mind, Raveners\nwill coordinate lunges from the depths of their tunnel\nnetwork to eviscerate unwary prey that have strayed\ntoo close.\nWhenever a friendly RAVENER operative\nis fighting:\n• If it’s performed the Burrow action during that\nactivation/counteraction, its melee weapons\nhave the Balanced weapon rule.\n• If it’s on your TUNNEL, its melee weapons have\nthe Ceaseless weapon rule."
     },
     {
-      "id": "rav-017-whipcord-emergence",
-      "sequence": 17,
+      "id": "tyr-rav-20-02",
+      "sequence": 2,
       "category": "strategic-ploy",
       "title_zh": "极速现身",
-      "title_en": "Whipcord Emergence",
+      "title_en": "WHIPCORD EMERGENCE",
       "source_page": 5,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.09192, 0.336155, 0.410432],
-      "image": "17-战略计谋-极速现身.png",
-      "ktdash_ids": ["TYR-RAV-S-WCE"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-极速现身.png",
+      "is_back": false,
+      "text": "蛇虫\n战略计谋\n极速现身\n无论是从布满瓦砾的隧道入口中跳出还是突\n然破土而出将猎物捉走，就连最为精英的守\n卫都会为蛇虫的突袭感到惊讶。\n每当一名特工对己方蛇虫特工进行射击时：\n• 如果那名己方特工在转折点期间执行了钻地行\n动，那么您可以重掷一枚自己的防御骰。\n• 如果那名己方特工位于您的隧道上，那么您可\n以重掷自己的防御骰中的任何一枚结果。",
+      "text_en": "RAVENER\nSTRATEGY PLOY\nWHIPCORD EMERGENCE\nWhether lunging from a rubble-strewn entrance to\ntheir network of tunnels or bursting forth in a shower\nof debris to snatch at prey, Raveners can surprise even\nelite sentinels.\nWhenever an operative is shooting a friendly\nRAVENER operative:\n• If that friendly operative has performed the\nBurrow action during that turning point, you\ncan re-roll one of your defence dice.\n• If that friendly operative is on your TUNNEL,\nyou can re-roll any of your defence dice results\nof one result."
     },
     {
-      "id": "rav-018-writhe-out-of-sight",
-      "sequence": 18,
+      "id": "tyr-rav-20-03",
+      "sequence": 3,
       "category": "strategic-ploy",
       "title_zh": "钻出视线",
-      "title_en": "Writhe Out Of Sight",
+      "title_en": "WRITHE OUT OF SIGHT",
       "source_page": 5,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.09192, 0.336155, 0.410432],
-      "image": "18-战略计谋-钻出视线.png",
-      "ktdash_ids": ["TYR-RAV-S-WOOS"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-钻出视线.png",
+      "is_back": false,
+      "text": "蛇虫\n战略计谋\n钻出视线\n很少有生物能像蛇虫一样在瞬间遁入黑暗之\n中。在那之后的问题就是，它们去哪了……\n？\n选择一名位于杀戮区内的己方蛇虫特工。您可\n以使用那名特工立即执行一次无消耗的钻地行\n动。如果那名特工位于己方隧道的\u00072\"\u0007内，那么\n特工可以在这么做前立即执行一次无消耗的后撤\n或转移行动。",
+      "text_en": "RAVENER\nSTRATEGY PLOY\nWRITHE OUT OF SIGHT\nFew organisms are as capable of slithering away\ninto darkness in the blink of an eye as Raveners. The\nquestion then is, where did they go…?\nSelect one friendly RAVENER operative in the\nkillzone. That friendly operative can immediately\nperform a free Burrow action. If it’s within 2\" of\nyour TUNNEL, it can immediately perform a free\nFall Back or Reposition action before it does so."
     },
     {
-      "id": "rav-019-tunnel-lurkers",
-      "sequence": 19,
+      "id": "tyr-rav-20-04",
+      "sequence": 4,
       "category": "strategic-ploy",
       "title_zh": "隧道潜伏",
-      "title_en": "Tunnel Lurkers",
+      "title_en": "TUNNEL LURKERS",
       "source_page": 5,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.499359, 0.336155, 0.410432],
-      "image": "19-战略计谋-隧道潜伏.png",
-      "ktdash_ids": ["TYR-RAV-S-TL"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-隧道潜伏.png",
+      "is_back": false,
+      "text": "蛇虫\n战略计谋\n隧道潜伏\n蛇虫十分擅长保持隐匿，它们将自己半埋\n藏在破碎的地形中，等待时刻到来时扑向猎\n物。\n每当一名己方蛇虫特工位于己方隧道上时，除\n非那名特工位于活跃特工的\u00072\"\u0007内，将那名特工\n视作为拥有轻型地形提供的掩护（因此特工会受\n到针对这个规则的效果影响，例如“追踪轻型”\n和制高点地形)。",
+      "text_en": "RAVENER\nSTRATEGY PLOY\nTUNNEL LURKERS\nRaveners are horrifically adept at remaining all but\ninvisible, partially submerged amidst broken terrain,\nuntil the moment they lunge.\nWhenever a friendly RAVENER operative is\non your TUNNEL it’s in cover, unless it’s within\n2\" of the active operative. Treat this as cover\nprovided by Light terrain (therefore it’s affected\nby rules that prevent this, e.g. Seek Light and\nVantage terrain)."
     },
     {
-      "id": "rav-020-slithering-evasion",
-      "sequence": 20,
+      "id": "tyr-rav-30-01",
+      "sequence": 1,
       "category": "firefight-ploy",
       "title_zh": "蛇身闪避",
-      "title_en": "Slithering Evasion",
+      "title_en": "SLITHERING EVASION",
       "source_page": 5,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.499359, 0.336155, 0.410432],
-      "image": "20-交战计谋-蛇身闪避.png",
-      "ktdash_ids": ["TYR-RAV-T-SE"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-蛇身闪避.png",
+      "is_back": false,
+      "text": "蛇虫\n交战计谋\n蛇身闪避\n被分泌物包裹的甲壳和可怕的速度让蛇虫能\n够避免受到危险猎物的攻击压制。\n在一名己方蛇虫特工的激活或反应期间，在其\n执行一次行动之前或之后使用本交战计谋。在那\n次激活或反应期间，那名特工可以：\n• 在执行后撤行动时少消耗\u00071AP。\n• 在敌方特工的控制范围内执行冲锋行动，并且\n可以在这么做时移动离开那名敌方特工的控制\n范围（但是在之后依旧需要遵守那次移动的\n要求)。",
+      "text_en": "RAVENER\nFIREFIGHT PLOY\nSLITHERING EVASION\nThe secretion-slick carapace and unholy speed of a\nRavener enables them to avoid becoming bogged down\nagainst dangerous prey.\nUse this firefight ploy during a friendly RAVENER\noperative’s activation or counteraction, before or\nafter it performs an action. During that activation/\ncounteraction, that operative can:\n• Perform the Fall Back action for 1 less AP.\n• Perform the Charge action while within control\nrange of an enemy operative, and can leave\nthat operative’s control range to do so (but\nthen normal requirements for that move apply)."
     },
     {
-      "id": "rav-021-subterranean-horror",
-      "sequence": 21,
+      "id": "tyr-rav-30-02",
+      "sequence": 2,
       "category": "firefight-ploy",
       "title_zh": "地下恐惧",
-      "title_en": "Subterranean Horror",
+      "title_en": "SUBTERRANEAN HORROR",
       "source_page": 6,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.09192, 0.336155, 0.410432],
-      "image": "21-交战计谋-地下恐惧.png",
-      "ktdash_ids": ["TYR-RAV-T-STH"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-地下恐惧.png",
+      "is_back": false,
+      "text": "蛇虫\n交战计谋\n地下恐惧\n那些尝试在族群洞口前将蛇虫困住的人只会\n造就自己的灭亡，这些生物体会通过隐藏的\n隧道将猎物包围，并从毫无预测的位置发起\n进攻。\n在一名敌方特工执行近战行动并将一个位于己方\n隧道上的己方蛇虫特工作为近战对象时使用本\n交战计谋。在那次流程的结算攻击骰步骤中，由\n您来结算第一枚攻击骰（也就是说防御方先结\n算，而不是攻击方)。",
+      "text_en": "RAVENER\nFIREFIGHT PLOY\nSUBTERRANEAN HORROR\nThose who think to trap a Ravener by tackling it at\nits brood burrow invite only their own demise, as the\nbioform uses hidden tunnels to encircle its prey before\nstriking from an unexpected angle.\nUse this firefight ploy when an enemy operative is\nperforming the Fight action and selects a friendly\nRAVENER operative on your TUNNEL to fight\nagainst. In the Resolve Attack Dice step of that\nsequence, you resolve the first attack dice (i.e.\ndefender instead of attacker)."
     },
     {
-      "id": "rav-022-burrowing-strike",
-      "sequence": 22,
+      "id": "tyr-rav-30-03",
+      "sequence": 3,
       "category": "firefight-ploy",
       "title_zh": "钻地攻击",
-      "title_en": "Burrowing Strike",
+      "title_en": "BURROWING STRIKE",
       "source_page": 6,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.09192, 0.336155, 0.410432],
-      "image": "22-交战计谋-钻地攻击.png",
-      "ktdash_ids": ["TYR-RAV-T-BS"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-钻地攻击.png",
+      "is_back": false,
+      "text": "蛇虫\n交战计谋\n钻地攻击\n对许多与蛇虫交战的特工来说，他们看见的\n最后一刻通常都是自己落入异形地道中的模\n糊景象。\n在一名己方蛇虫特工执行钻地行动时使用本交\n战计谋。在将那名特工移出杀戮区之前，或者在\n您将其部署到己方隧道上之后，对每一名位于其\n控制范围内的敌方特工造成\u0007D3+1\u0007点伤害（分别\n掷骰）。您不能在战略阶段中使用本计谋，也不\n能在毒爪特工执行了剧毒扑袭行动的激活或反应\n期间使用本计谋（反之亦然)。",
+      "text_en": "RAVENER\nFIREFIGHT PLOY\nBURROWING STRIKE\nThe last sight for many operatives fighting Raveners is\na blur of their own uniform as they disappear into the\ndepths of a xenos burrow.\nUse this firefight ploy when a friendly RAVENER\noperative performs the Burrow action. Before\nthat operative is removed from the killzone,\nor after setting it up on your TUNNEL, inflict\nD3+1 damage on each enemy operative within\nits control range (roll separately for each). You\ncannot use this ploy in the Strategy phase, or\nduring a FELLTALON operative’s activation or\ncounteraction if it performs the Toxic Lunge\naction (and vice versa)."
     },
     {
-      "id": "rav-023-death-frenzy",
-      "sequence": 23,
+      "id": "tyr-rav-30-04",
+      "sequence": 4,
       "category": "firefight-ploy",
       "title_zh": "死亡狂暴",
-      "title_en": "Death Frenzy",
+      "title_en": "DEATH FRENZY",
       "source_page": 6,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.499359, 0.336155, 0.410432],
-      "image": "23-交战计谋-死亡狂暴.png",
-      "ktdash_ids": ["TYR-RAV-T-DF"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-死亡狂暴.png",
+      "is_back": false,
+      "text": "蛇虫\n交战计谋\n死亡狂暴\n在蛇虫死亡时，虫巢意志会给予它们指示并\n分泌出进攻性激素，以便战斗到最后一刻。\n在一名己方蛇虫特工被残废时使用本交战计\n谋。在将那名特工移出杀戮区之前，对其控制\n范围内的每一名敌方特工造成\u0007D3\u0007处伤害（分别\n掷骰）。如果那名己方特工是喷毒特工并受到\n膨胀背部囊体行动效果的影响，则造成\u00072D3\u0007点\n伤害。",
+      "text_en": "RAVENER\nFIREFIGHT PLOY\nDEATH FRENZY\nRaveners can be compelled by the Hive Mind to fight in\na last surge of biostimulated aggression, even as their\nown bodies fail.\nUse this firefight ploy when a friendly RAVENER\noperative is incapacitated. Before that operative\nis removed from the killzone, inflict D3 damage\non each enemy operative within its control range\n(roll separately for each). If that friendly operative\nis a VENOMSPITTER that’s currently benefitting\nfrom the effects of its Distend Dorsal Sac action,\ninflict 2D3 damage instead."
     },
     {
-      "id": "rav-024-chromatospore-camouflage",
-      "sequence": 24,
+      "id": "tyr-rav-40-01",
+      "sequence": 1,
       "category": "faction-equipment",
       "title_zh": "变色孢子迷彩",
-      "title_en": "Chromatospore Camouflage",
+      "title_en": "CHROMATOSPORE CAMOUFLAGE",
       "source_page": 6,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.499359, 0.336155, 0.410432],
-      "image": "24-阵营装备-变色孢子迷彩.png",
-      "ktdash_ids": ["TYR-RAV-CPC"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-变色孢子迷彩.png",
+      "is_back": false,
+      "text": "蛇虫\n阵营装备\n变色孢子迷彩\n这种变色突变能够让这些生物体几乎凭空消\n失。\n每当一名特工对一名己方蛇虫 \u0007特工进行射击\n时，如果您保留了任何掩护豁免，那么您可以保\n留额外一次掩护豁免。本效果不能与制高点地形\n所提供的强化掩护豁免效果叠加。",
+      "text_en": "RAVENER\nFACTION EQUIPMENT\nCHROMATOSPORE CAMOUFLAGE\nChameleonic adaptations enable these bioforms to\nvirtually disappear.\nWhenever an operative is shooting a friendly\nRAVENER operative, if you can retain any cover\nsaves, you can retain one additional cover save.\nThis isn’t cumulative with improved cover saves\nfrom Vantage terrain."
     },
     {
-      "id": "rav-025-acid-blood",
-      "sequence": 25,
+      "id": "tyr-rav-40-02",
+      "sequence": 2,
       "category": "faction-equipment",
       "title_zh": "酸血",
-      "title_en": "Acid Blood",
+      "title_en": "ACID BLOOD",
       "source_page": 7,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.09192, 0.336155, 0.410432],
-      "image": "25-阵营装备-酸血.png",
-      "ktdash_ids": ["TYR-RAV-AB"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-酸血.png",
+      "is_back": false,
+      "text": "蛇虫\n阵营装备\n酸血\n腐蚀性的内脏和酸性体液从这些生物的伤口\n中溅出。\n每当一名己方蛇虫特工进行近战或反击时，每\n当有一枚攻击骰对其造成伤害时便掷一枚\u0007D6：\n若结果为\u00075+，对那次流程中的敌方特工造成\u00071\u0007\n点伤害。",
+      "text_en": "RAVENER\nFACTION EQUIPMENT\nACID BLOOD\nCorrosive viscera and caustic fluids spray from these\ncreatures’ wounds.\nWhenever a friendly RAVENER operative is\nfighting or retaliating, whenever an attack dice\ninflicts damage on it, roll one D6: on a 5+, inflict 1\ndamage on the enemy operative in that sequence."
     },
     {
-      "id": "rav-026-metamorphic-flesh",
-      "sequence": 26,
+      "id": "tyr-rav-40-03",
+      "sequence": 3,
       "category": "faction-equipment",
       "title_zh": "畸变血肉",
-      "title_en": "Metamorphic Flesh",
+      "title_en": "METAMORPHIC FLESH",
       "source_page": 7,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.09192, 0.336155, 0.410432],
-      "image": "26-阵营装备-畸变血肉.png",
-      "ktdash_ids": ["TYR-RAV-MMF"],
-      "text_status": "transcribed_and_visually_verified"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-畸变血肉.png",
+      "is_back": false,
+      "text": "蛇虫\n阵营装备\n畸变血肉\n一些报告中提到有的蛇虫能够在受到了几乎\n致命的攻击后回复伤势，它们的血肉和甲壳\n迅速地进行再生。\n每当一名己方蛇虫特工被激活时，那名特工回\n复最多\u0007D3\u0007点失去的耐伤。",
+      "text_en": "RAVENER\nFACTION EQUIPMENT\nMETAMORPHIC FLESH\nSome Raveners are reported to have recovered from\ninjuries that should have been fatal, their flesh and\nchitin reknitting in rapid regeneration.\nWhenever a friendly RAVENER operative is\nactivated, it regains up to D3 lost wounds."
     },
     {
-      "id": "rav-027-heightened-senses",
-      "sequence": 27,
+      "id": "tyr-rav-40-04",
+      "sequence": 4,
       "category": "faction-equipment",
       "title_zh": "敏锐感官",
-      "title_en": "Heightened Senses",
+      "title_en": "HEIGHTENED SENSES",
       "source_page": 7,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.165054, 0.499359, 0.336155, 0.410432],
-      "image": "27-阵营装备-敏锐感官.png",
-      "ktdash_ids": ["TYR-RAV-HS"],
-      "text_status": "transcribed_and_visually_verified"
-    },
-    {
-      "id": "rav-028-notes-3",
-      "sequence": 28,
-      "category": "other",
-      "title_zh": "笔记 3",
-      "title_en": "Notes 3",
-      "source_page": 7,
-      "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "bbox_norm": [0.499395, 0.499359, 0.336155, 0.410432],
-      "image": "28-其他-笔记-3.png",
-      "ktdash_ids": [],
-      "text_status": "not_applicable"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-敏锐感官.png",
+      "is_back": false,
+      "text": "蛇虫\n阵营装备\n敏锐感官\n就算在钻地的过程中，蛇虫也可以侦测到敌\n人的信息素、神秘的能量以及伺服装置的转\n动声，让它们能够进行突然的伏击。\n每场战斗限一次，在掷骰决定先手权后，如果\n一名己方蛇虫特工位于地下，并且一名敌方特\n工位于己方隧道的\u00075\"\u0007内，您可以重掷自己的骰\n子。",
+      "text_en": "RAVENER\nFACTION EQUIPMENT\nHEIGHTENED SENSES\nEven burrowing, Raveners can detect enemy\npheromones, esoteric energies and the whirr of servos,\nenabling them to land sudden ambushes.\nOnce per battle, after rolling off to decide\ninitiative, if a friendly RAVENER operative is\nunderground and an enemy operative is within 5\"\nof your TUNNEL, you can re-roll your dice."
     }
   ]
 }

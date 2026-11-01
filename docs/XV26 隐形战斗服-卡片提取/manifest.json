@@ -1,0 +1,825 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-XV26_STEALTH_BATTLESUITS",
+  "team_name_zh": "XV26 隐形战斗服",
+  "team_name_en": "XV26 Stealth Battlesuits",
+  "source_pdf": "最新杀戮小队规则更新/XV26 隐形战斗服 杀戮小队 XV26 Stealth Battlesuits 杀戮小队规则.pdf",
+  "source_pdf_sha256": "217701c1b01490bd3e66155346ba6822db5ffcb78acb76d5648f43b916e77687",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 30,
+    "operative": 8,
+    "operative-ability": 6,
+    "team-selection": 1,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "XV26-数据卡",
+      "title_en": "XV26 SHAS’VRE",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-XV26-数据卡.png",
+      "is_back": false,
+      "text": "XV26 火氏英雄 APL 移动豁免耐伤\n3 6\" 3+ 13\n名称攻击命中伤害武器规则\n速射炮（集中） 5 4+ 3/4 无休\n速射炮（扫射） 4 4+ 3/4 无休、洪流 1\"\n融合炮（近距离） 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n融合炮（远距离） 4 4+ 4/5 范围 12\"、穿刺 1\n脉冲手枪（远程） 4 4+ 4/5 范围 8\"\n脉冲手枪（零距离） 3 4+ 4/5 精准 1\nXV26 无人机控制器：战略计划。当该特工位于杀戮区内时。选择一个位于杀戮区内的己方 XV26 隐形战\n斗服无人机特工。直到那名特工的下一次激活结束前，忽略“无人机”规则的前两点（本规则优先度高\n于那个规则)。\n请继续阅读背面规则\nXV26 隐形战斗服、钛帝国、队长、火氏英雄 32",
+      "weapon_types": {
+        "速射炮（集中）": "远程",
+        "速射炮（扫射）": "远程",
+        "融合炮（近距离）": "远程",
+        "融合炮（远距离）": "远程",
+        "脉冲手枪（远程）": "远程",
+        "脉冲手枪（零距离）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 SHAS’VRE\n3 6\" 3+ 13\nNAME ATK HIT DMG WR\nBurst cannon (focused) 5 4+ 3/4 Ceaseless\nBurst cannon (sweeping) 4 4+ 3/4 Ceaseless, Torrent 1\"\nFusion blaster (short range) 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nFusion blaster (long range) 4 4+ 4/5 Range 12\", Piercing 1\nPulse pistol (ranged) 4 4+ 4/5 Range 8\"\nPulse pistol (point-blank) 3 4+ 4/5 Accurate 1\nXV26 Drone Controller: STRATEGIC GAMBIT whenever this operative is in the killzone. Select one friendly XV26 STEALTH\nBATTLESUIT DRONE operative in the killzone. Until the end of that operative’s next activation, ignore the first two bullet points\nof its Drone rule (this takes precedence over that rule).\nRULES CONTINUE ON OTHER SIDE\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, LEADER, SHAS’VRE 32"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "XV26-能力卡1",
+      "title_en": "XV26 NEUTRALISER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-XV26-能力卡1.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nXV26 火氏英雄\n3 6\" 3+ 13\n为了上上善道：每次判断考雍规则的“精准 X”数\n值时，如果该特工位于杀戮区内，如果有 2 名或更\n多己方 XV26 隐形战斗服特工被残废（无人机除\n外），那么 X 的数值增加 1 点（最多提升至 “精\n准 3”)。请注意，您必须至少拥有“精准 1”才能\n够使用本规则。",
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 SHAS’VRE\n3 6\" 3+ 13\nFor the Greater Good: Whenever determining the value of\nAccurate X for the Kauyon faction rule, if this operative is in\nthe killzone, add 1 to the result if 2 or more friendly XV26\nSTEALTH BATTLESUIT operatives (excluding DRONE) are\nincapacitated (to a maximum of Accurate 3). Note that you must\nhave a minimum of Accurate 1 to use this rule."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "XV26-数据卡",
+      "title_en": "XV26 DESIGNATOR",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-XV26-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nXV26 标记者\n3 6\" 3+ 12\n名称攻击命中伤害武器规则\n速射炮（集中） 5 4+ 3/4 无休\n速射炮（扫射） 4 4+ 3/4 无休、洪流 1\"\n融合炮（近距离） 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n融合炮（远距离） 4 4+ 4/5 范围 12\"、穿刺 1\n双拳 3 4+ 3/4 -\n标记光：当一名敌方特工是该特工的有效目标时，或者当一名敌方特工对该特工可见，并且位于己方埋伏\n标识的 2\" 内时（详见准备埋伏战略计谋）那名敌方特工被标记。每当一名己方 XV26 隐形战斗服特工对\n一名被标记的敌方特工进行射击时，那名特工的远程武器拥有“严重”武器规则。请注意，就算该特工不\n是活跃特工，其他特工依旧可以成为该特工的有效目标。\nXV26 隐形战斗服、钛帝国、标记者 32",
+      "weapon_types": {
+        "速射炮（集中）": "远程",
+        "速射炮（扫射）": "远程",
+        "融合炮（近距离）": "远程",
+        "融合炮（远距离）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 DESIGNATOR\n3 6\" 3+ 12\nNAME ATK HIT DMG WR\nBurst cannon (focused) 5 4+ 3/4 Ceaseless\nBurst cannon (sweeping) 4 4+ 3/4 Ceaseless, Torrent 1\"\nFusion blaster (short range) 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nFusion blaster (long range) 4 4+ 4/5 Range 12\", Piercing 1\nFists 3 4+ 3/4 -\nMarkerlight: Whenever an enemy operative is a valid target for this operative, or is visible to this operative and within 2\" of your\nAmbush marker (see Prepare Ambush strategy ploy), it's marked. Whenever a friendly XV26 STEALTH BATTLESUIT operative\nis shooting an operative that's marked, that friendly operative’s ranged weapons have the Severe weapon rule. Note that an operative\ncan be a valid target for this operative even if this operative isn't the active operative.\nRULES CONTINUE ON OTHER SIDE\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, DESIGNATOR 32"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "XV26-能力卡2",
+      "title_en": "XV26 NEUTRALISER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-XV26-能力卡2.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nXV26 标记者\n3 6\" 3+ 12\n标记光聚焦 1AP\n选取一名对该特工可见的敌方特工。在本回合中，当一名己方XV26 隐形战斗服特工向那个敌方特工\n射击时，你可以使用此效果。若你如此做，则在那次行动结束前，那名己方特工数据卡中的远程武器的\n命中属性提升 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。\nXV26 隐形战斗服、钛帝国、标记者 32",
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 DESIGNATOR\n3 6\" 3+ 12\nFOCUSED MARKERLIGHT 1AP\nSelect one enemy operative visible to this operative. Once during this turning point, when a friendly XV26 STEALTH\nBATTLESUIT operative is shooting that enemy operative, you can use this effect. If you do, improve the Hit stat of ranged\nweapons on that friendly operative’s datacard by 1 until the end of that action.\nThis operative cannot perform this action while within control range of an enemy operative.\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, DESIGNATOR 32"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "XV26-数据卡",
+      "title_en": "XV26 INFILTRATOR",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-XV26-数据卡.png",
+      "is_back": false,
+      "text": "XV26 渗透者 APL 移动豁免耐伤\n3 6\" 3+ 12\n名称攻击命中伤害武器规则\n速射炮（集中） 5 4+ 3/4 无休\n速射炮（扫射） 4 4+ 3/4 无休、洪流 1\"\n融合炮（近距离） 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n融合炮（远距离） 4 4+ 4/5 范围 12\"、穿刺 1\n双拳 3 4+ 3/4 -\n隐匿协议：该特工无论拥有什么指令都可以进行反应。但是，如果该特工在进行反应时拥有隐匿命令，那\n么该特工不能执行拾取标识、放置标识或者任务行动以外的任何行动。\nXV26 隐形战斗服、钛帝国、渗透者 32",
+      "weapon_types": {
+        "速射炮（集中）": "远程",
+        "速射炮（扫射）": "远程",
+        "融合炮（近距离）": "远程",
+        "融合炮（远距离）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 INFILTRATOR\n3 6\" 3+ 12\nNAME ATK HIT DMG WR\nBurst cannon (focused) 5 4+ 3/4 Ceaseless\nBurst cannon (sweeping) 4 4+ 3/4 Ceaseless, Torrent 1\"\nFusion blaster (short range) 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nFusion blaster (long range) 4 4+ 4/5 Range 12\", Piercing 1\nFists 3 4+ 3/4 -\nCovert Protocols: This operative can counteract regardless of its order, but if it has a Conceal order during that counteraction, it\ncannot perform any actions other than Pick Up Marker, Place Marker or mission actions.\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, INFILTRATOR 32"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "XV26-数据卡",
+      "title_en": "XV26 LIBERATOR",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-XV26-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nXV26 解放者\n3 6\" 3+ 12\n名称攻击命中伤害武器规则\n速射炮（集中） 5 4+ 3/4 无休\n速射炮（扫射） 4 4+ 3/4 无休、洪流 1\"\nEMP 炸弹 5 3+ 2/2 范围 4\"、爆炸 2\"、毁灭 1、重型（仅限转移)、致命\n4+、有限 1、集中\n融合炮（近距离） 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n融合炮（远距离） 4 4+ 4/5 范围 12\"、穿刺 1\n双拳 3 4+ 3/4 -\n掷弹兵: 该特工可以使用破片、穿甲、烟雾和震荡手雷（参见通用装备)。该特工使用这些装备时不算入您\n拥有的使用限制（如果您还为其他特工选择了手雷类的装备)。每当该特工使用破片或穿甲手雷时，将那件\n武器的命中属性提升 1。\nXV26 隐形战斗服、钛帝国、解放者 32",
+      "weapon_types": {
+        "速射炮（集中）": "远程",
+        "速射炮（扫射）": "远程",
+        "EMP 炸弹": "远程",
+        "融合炮（近距离）": "远程",
+        "融合炮（远距离）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 LIBERATOR\n3 6\" 3+ 12\nNAME ATK HIT DMG WR\nBurst cannon (focused) 5 4+ 3/4 Ceaseless\nBurst cannon (sweeping) 4 4+ 3/4 Ceaseless, Torrent 1\"\nEMP bomb 5 3+ 2/2 Range 4\", Blast 2\", Devastating 1, Heavy\n(Reposition only), Lethal 4+, Limited 1, Saturate\nFusion blaster (short range) 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nFusion blaster (long range) 4 4+ 4/5 Range 12\", Piercing 1\nFists 3 4+ 3/4 -\nGrenadier: This operative can use frag, krak, smoke and stun grenades (see universal equipment). Doing so doesn’t count towards any\nlimited uses you have (i.e. if you also select those grenades from equipment for other operatives). Whenever this operative is using a\nfrag or krak grenade, improve the Hit stat of that weapon by 1.\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, LIBERATOR 32"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "XV26-数据卡",
+      "title_en": "XV26 LODESTAR",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-XV26-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nXV26 指引者\n3 6\" 3+ 12\n名称攻击命中伤害武器规则\n速射炮（集中） 5 4+ 3/4 无休\n速射炮（扫射） 4 4+ 3/4 无休、洪流 1\"\n融合炮（近距离） 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n融合炮（远距离） 4 4+ 4/5 范围 12\"、穿刺 1\n双拳 3 4+ 3/4 -\n请继续阅读背面规则\nXV26 隐形战斗服、钛帝国、指引者 32",
+      "weapon_types": {
+        "速射炮（集中）": "远程",
+        "速射炮（扫射）": "远程",
+        "融合炮（近距离）": "远程",
+        "融合炮（远距离）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 LODESTAR\n3 6\" 3+ 12\nNAME ATK HIT DMG WR\nBurst cannon (focused) 5 4+ 3/4 Ceaseless\nBurst cannon (sweeping) 4 4+ 3/4 Ceaseless, Torrent 1\"\nFusion blaster (short range) 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nFusion blaster (long range) 4 4+ 4/5 Range 12\", Piercing 1\nFists 3 4+ 3/4 -\nRULES CONTINUE ON OTHER SIDE\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, LODESTAR 32"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "XV26-能力卡3",
+      "title_en": "XV26 NEUTRALISER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-XV26-能力卡3.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nXV26 指引者\n3 6\" 3+ 12\n电子干扰发射器：每个转折点限制一次，在一名敌\n方特工执行射击行动，并在对手选择了有效目标时\n（无人机除外)，如果该特工不位于敌方特工的控制\n范围内，那么您可以使用本规则。若使用，那么直\n到那次行动结束前，每当一名敌方特工对位于其 2\"\n外，并且位于该特工 3\" 内且对其可见的己方 XV26\n隐形战斗服特工进行射击时：\n• 忽略“穿刺”武器规则。\n• 那名己方特工被遮挡。\n定位信标: 在每个战略阶段的就绪步骤中，当您获得\nCP 时，如果己方定位信标标识被放置于杀戮区内，\n掷一枚 D6，己方定位信标每位于一个目标标识 6\"\n内，便为掷骰结果增加 1 点。若结果为 5+，您获得\n额外一点 CP。",
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 LODESTAR\n3 6\" 3+ 12\nElectrochaff Launcher: Once per turning point, when an enemy\noperative is performing the Shoot action and your opponent\nselects a valid target (excluding DRONE), you can use this\nrule, providing this operative isn’t within control range of enemy\noperatives. If you do, until the end of that action, whenever\nan enemy operative is shooting a friendly XV26 STEALTH\nBATTLESUIT operative that’s both visible to and within 3\" of\nthis operative and more than 2\" from that enemy operative:\n• Ignore the Piercing weapon rule.\n• That friendly operative is obscured.\nHoming Beacon: This operative is carrying your Homing Beacon\nmarker. Operatives (excluding DRONE) can perform the Pick\nUp Marker action on that marker. The first time an enemy\noperative performs the Pick Up Marker action on your\nHoming Beacon marker, discard that marker (remove it from\nthe battle).\nIn the Ready step of each Strategy phase, when you gain CP, if\nyour Homing Beacon marker is placed in the killzone, roll one\nD6, adding 1 to the result for each objective marker your Homing\nBeacon marker is within 6\" of. If the result is 5+, you gain 1CP."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "XV26-数据卡",
+      "title_en": "XV26 NEUTRALISER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-XV26-数据卡.png",
+      "is_back": false,
+      "text": "XV26 消除者 APL 移动豁免耐伤\n3 6\" 3+ 12\n名称攻击命中伤害武器规则\n速射炮（集中） 5 4+ 3/4 无休\n速射炮（扫射） 4 4+ 3/4 无休、洪流 1\"\n融合炮（近距离） 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n融合炮（远距离） 4 4+ 4/5 范围 12\"、穿刺 1\n双拳 3 4+ 3/4 -\n请继续阅读背面规则\nXV26 隐形战斗服、钛帝国、消除者 32",
+      "weapon_types": {
+        "速射炮（集中）": "远程",
+        "速射炮（扫射）": "远程",
+        "融合炮（近距离）": "远程",
+        "融合炮（远距离）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 NEUTRALISER\n3 6\" 3+ 12\nNAME ATK HIT DMG WR\nBurst cannon (focused) 5 4+ 3/4 Ceaseless\nBurst cannon (sweeping) 4 4+ 3/4 Ceaseless, Torrent 1\"\nFusion blaster (short range) 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nFusion blaster (long range) 4 4+ 4/5 Range 12\", Piercing 1\nFists 3 4+ 3/4 -\nRULES CONTINUE ON OTHER SIDE\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, NEUTRALISER 32"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-10",
+      "sequence": 10,
+      "category": "operative-ability",
+      "title_zh": "XV26-能力卡4",
+      "title_en": "XV26 NEUTRALISER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工能力-XV26-能力卡4.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nXV26 消除者\n3 6\" 3+ 12\n多光谱传感器系统：支援。每个转折点限一次，在\n一名位于该特工 8\" 内的敌方特工被激活时，您可以\n使用本规则。每一名位于该特工 3\" 内的己方 XV26\n隐形战斗服特工可以立即执行以下一种行动：\n• 执行一次无消耗的冲刺行动（按照您选择顺序进\n行)。\n• 更改命令。\n每一名执行冲刺行动的己方特工不能移动进入敌方\n特工的 3\" 内。请注意，通讯装置通用装备只会影响\n本规则的第二个距离限制。\n系统干扰 1/2AP\n选择一名对该特工可见的敌方特工。直到那名特\n工的下一次激活结束前，那名特工的 APL 属性\n减少 1 点。每当该特工拥有隐匿命令时，您必须\n消耗额外 1 AP 来执行本行动。\n该特工不能在敌方特工的控制范围内执行本行\n动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nXV26 NEUTRALISER\n3 6\" 3+ 12\nMultispectrum Sensor Package: SUPPORT. Once per turning\npoint, when an enemy operative within 8\" of this operative\nis activated, you can use this rule. If you do, each friendly\nXV26 STEALTH BATTLESUIT operative within 3\" of this\noperative can immediately do one of the following:\n• Perform a free Dash action (in an order of your choice).\n• Change its order.\nEach friendly operative that performs the Dash action cannot\nend that move within 3\" of an enemy operative. Note that a\nComms Device from universal equipment only affects the second\ndistance of this rule.\nSYSTEM JAM 1/2AP\nSelect one enemy operative visible to this operative. Until the\nend of that operative’s next activation, subtract 1 from its\nAPL stat. Whenever this operative has a Conceal order, you\nmust spend 1 additional AP to perform this action.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "MV15-数据卡",
+      "title_en": "MV15 GUN DRONE",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-MV15-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nMV15 火炮无人机\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n双联脉冲卡宾枪 4 4+ 4/5 无休\n撞击 3 5+ 2/3 -\n无人机:\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n光子榴弹发射器、转移和射击以外的行动。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意，这不是对\nAPL 属性的修正，因此任何修正会与本规则的效\n果叠加。\n• 该特工不能使用任何其数据卡上不存在的武器。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n• 在该特工被残废和判断己方起始特工数量时，该\n特工在对手的击杀/灭敌行动中被忽略。在判断需\n要特工“逃离”、“存活”，或者被敌方特工残\n废的胜利条件和 VP 获取方式时，这名特工将被\n忽视（它是否逃脱/存活/被击杀，确认多少特工必\n须逃脱/存活/被击杀等情况下)。\n请继续阅读背面规则\nXV26 隐形战斗服、钛帝国、MV15 火炮、无人机 28",
+      "weapon_types": {
+        "双联脉冲卡宾枪": "远程",
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMV15 GUN DRONE\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nTwin pulse carbine 4 4+ 4/5 Ceaseless\nRam 3 5+ 2/3 -\nDrone:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight, Photon Grenade\nLauncher, Reposition and Shoot.\n• Whenever determining control of an objective marker, treat\nthis operative’s APL stat as 1 lower. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\n• This operative cannot use any weapons that aren’t on\nits datacard.\n• Whenever determining what’s visible to this operative, the\nround disc at the top of the miniature is its head.\n• This operative is ignored for your opponent’s kill/elimination\nop (when it’s incapacitated, and when determining your\nstarting number of operatives). It’s also ignored for victory\nconditions and scoring VPs if either require operatives to\n‘escape’, ‘survive’ or be incapacitated by enemy operatives (if\nit escapes/survives/is incapacitated, determining how many\noperatives must escape/survive/be incapacitated, etc.).\nRULES CONTINUE ON OTHER SIDE\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, MV15 GUN, DRONE 28"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-12",
+      "sequence": 12,
+      "category": "operative-ability",
+      "title_zh": "MV15-能力卡",
+      "title_en": "MV15 GUN DRONE",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-MV15-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nMV15 火炮无人机\n2 6\" 4+ 7\n光子榴弹发射器 1AP\n选择一名对该特工可见的敌方特工，并掷一枚\nD6：若结果为 3+，那么直到那名特工的下一次\n激活结束前，其移动属性减少 2\"。\n该特工不能在敌方特工的控制范围内执行本行\n动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMV15 GUN DRONE\n2 6\" 4+ 7\nPHOTON GRENADE LAUNCHER 1AP\nSelect one enemy operative visible to this operative and\nroll one D6: on a 3+, until the end of that operative’s next\nactivation, subtract 2\" from its Move stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "MV75-数据卡",
+      "title_en": "MV75 MARKER DRONE",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-MV75-数据卡.png",
+      "is_back": false,
+      "text": "MV75 标记无人机 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n撞击 3 5+ 2/3 -\n无人机:\n• 该特工不能执行除了冲锋、冲刺、后撤、近战、\n转移和射击以外的行动。\n• 在判断对目标标识的控制权时，将该特工的 APL\n属性视作为比原本要低 1 点。请注意，这不是对\nAPL 属性的修正，因此任何修正会与本规则的效\n果叠加。\n• 该特工不能使用任何其数据卡上不存在的武器。\n• 在判断该特工是否可见时，将模型顶部的圆盘视\n作为模型的头部。\n• 在该特工被残废和判断己方起始特工数量时，该\n特工在对手的击杀/灭敌行动中被忽略。在判断需\n要特工“逃离”、“存活”，或者被敌方特工残\n废的胜利条件和 VP 获取方式时，这名特工将被\n忽视（它是否逃脱/存活/被击杀，确认多少特工必\n须逃脱/存活/被击杀等情况下)。\n请继续阅读背面规则\nXV26 隐形战斗服、钛帝国、MV75 标记、无人机 28",
+      "weapon_types": {
+        "撞击": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMV75 MARKER DRONE\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nRam 3 5+ 2/3 -\nDrone:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight, Reposition\nand Shoot.\n• Whenever determining control of an objective marker, treat\nthis operative’s APL stat as 1 lower. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\n• This operative cannot use any weapons that aren’t on\nits datacard.\n• Whenever determining what’s visible to this operative, the\nround disc at the top of the miniature is its head.\n• This operative is ignored for your opponent’s kill/elimination\nop (when it’s incapacitated, and when determining your\nstarting number of operatives). It’s also ignored for victory\nconditions and scoring VPs if either require operatives to\n‘escape’, ‘survive’ or be incapacitated by enemy operatives (if\nit escapes/survives/is incapacitated, determining how many\noperatives must escape/survive/be incapacitated, etc.).\nRULES CONTINUE ON OTHER SIDE\nXV26 STEALTH BATTLESUIT , T'AU EMPIRE, MV75 MARKER, DRONE 28"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-01-14",
+      "sequence": 14,
+      "category": "operative-ability",
+      "title_zh": "MV75-能力卡",
+      "title_en": "MV75 MARKER DRONE",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工能力-MV75-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nMV75 标记无人机\n2 6\" 4+ 7\n标记光：当一名敌方特工是该特工的有效目标时，\n或者当一名敌方特工对该特工可见，并且位于己方\n埋伏标识的 2\" 内时（详见准备埋伏战略计谋）那名\n敌方特工被标记。每当一名己方 XV26 隐形战斗服\n特工对一名被标记的敌方特工进行射击时，那名\n特工的远程武器拥有“严重”武器规则。请注意，\n就算该特工不是活跃特工，其他特工依旧可以成为\n该特工的有效目标。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMV75 MARKER DRONE\n2 6\" 4+ 7\nMarkerlight: Whenever an enemy operative is a valid target for\nthis operative, or is visible to this operative and within 2\" of your\nAmbush marker (see Prepare Ambush strategy ploy), it’s marked.\nWhenever a friendly XV26 STEALTH BATTLESUIT\noperative is shooting an operative that’s marked, that friendly\noperative’s ranged weapons have the Severe weapon rule. Note\nthat an operative can be a valid target for this operative even if\nthis operative isn’t the active operative."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "XV26 隐形战斗服杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-XV26 隐形战斗服杀戮小队.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n杀戮小队\n原型：渗透，侦察\n特工\n↘ 1 名 XV26 隐形战斗服火氏英雄特工，装备\n有脉冲手枪和以下一个选项：\n○ 速射炮或者融合炮\n↘ 1 个 XV26 隐形战斗服 MV75 标记无人机\n↘ 1 个 XV26 隐形战斗服 MV15 火炮无人机\n↘ 4 名 XV26 隐形战斗服特工，从以下列表\n中选择：\n• 标记者\n• 渗透者\n• 解放者\n• 指引者\n• 消除者\n除了渗透者特工以外，上述的每一名特工只能被\n纳入您的杀戮小队一次。您的杀戮小队中只能包\n含最多两个融合炮。\n装备有以下一种选项：\n• 速射炮；双拳\n• 融合炮；双拳",
+      "text_en": "XV26 STEALTH BATTLESUITS\nKILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 XV26 STEALTH BATTLESUIT\nSHAS’VRE with pulse pistol and one of the\nfollowing options:\n• Burst cannon or fusion blaster\n↘ 1 XV26 STEALTH BATTLESUIT\nMV75 MARKER DRONE\n↘ 1 XV26 STEALTH BATTLESUIT\nMV15 GUN DRONE\n↘ 4 XV26 STEALTH BATTLESUIT operatives\nselected from the following list:\n• DESIGNATOR • LODESTAR\n• INFILTRATOR • NEUTRALISER\n• LIBERATOR\nOther than INFILTRATOR operatives, your kill\nteam can only include each operative on this list\nonce. Your kill team can only include up to two\nfusion blasters.\nWith one of the following options:\n• Burst cannon; fists • Fusion blaster; fists"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "考雍",
+      "title_en": "KAUYON",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-考雍.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n阵营规则\n考雍\n在火氏所崇敬的军事哲学中，考雍是最为古老\n的兵法，也备受 XV26 隐形战斗服小队的青\n睐。考雍大致可以被翻译为“耐心猎手”，强\n调将敌人引诱到陷阱之中，随后发起同步攻击\n进行斩杀。擅长这种战略的火氏英雄能够同时\n运用多个高机动资产，设计诸多应对手段和拖\n延战术，将敌人引诱到埋伏之中，或者将他们\n驱赶进入预先准备好的火力网络。\n每当一名己方 XV26 隐形战斗服特工对一名敌\n方特工进行射击时，其远程武器拥有“精准 X”\n武器规则。X 的数值将取决于敌方特工所在的位\n置。\n敌方特工位置精准 X\n位于己方领地 3\" 内精准 1\n位于己方领地内精准 2\n位于己方降落区的 3\" 内精准 3",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFACTION RULE\nKAUYON\nOf all the principal martial philosophies revered by\nthe Fire caste, Kauyon is the oldest, and is greatly\nfavoured by kill teams of XV26 Stealth Battlesuits.\nRoughly translated as the patient hunter, Kauyon's\ntenets emphasise luring the enemy into overreaching\nbefore striking at them with coordinated fury. Shas'vres\nwho are expert in this strategy employ multiple mobile\nassets, layers of contingencies and delaying tactics\nto draw foes into ambushes or corral them into pre-\nprepared fire boxes.\nWhenever a friendly XV26 STEALTH\nBATTLESUIT operative is shooting an enemy\noperative, its ranged weapons have the Accurate\nX weapon rule. X is determined by that enemy\noperative’s location.\nENEMY OPERATIVE LOCATION ACCURATE X\nWithin 3\" of your territory Accurate 1\nWithin your territory Accurate 2\nWithin 3\" of your drop zone Accurate 3"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "隐匿力场",
+      "title_en": "STEALTH FIELDS",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-隐匿力场.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n阵营规则\n隐匿力场\n每一个 XV26 战斗服和随行的特种无人机中都\n安装有内置隐匿力场生成器。这种迷彩力场能\n够将特工隐藏起来，让他们可以在穿越危险区\n域时回避敌人的侦测。\n每当一名己方 XV26 隐形战斗服特工拥有隐匿\n命令时，那名特工对于其 3\" 外的敌方特工不可\n见（本规则的优先度高于其他所有规则)。\n每当一名己方 XV26 隐形战斗服特工拥有隐匿\n命令时，那名特工在执行后撤行动时可以少消\n耗 1AP。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFACTION RULE\nSTEALTH FIELDS\nIntegral stealth field generators are built into each\nveteran's XV26 battlesuit and the specialised drones\nthat accompany them. The camouflaging fields\nthey project mask a team's operatives, allowing\nthem to move through hazardous territory while\nevading detection.\nWhenever a friendly XV26 STEALTH\nBATTLESUIT operative has a Conceal order,\nit cannot be visible to enemy operatives more\nthan 3\" from it (this takes precedence over all\nother rules).\nWhenever a friendly XV26 STEALTH\nBATTLESUIT operative has a Conceal order, it\ncan perform the Fall Back action for 1 less AP."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "XV26 STEALTH BATTLESUIT",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n标识/指示物指南\n光子榴弹发射器电子干扰发射器\n指示物指示物\nEMP 炸弹多目标追踪器埋伏标识\n指示物指示物\n多光谱传感器系定位信标\n统指示物标识",
+      "text_en": "XV26 STEALTH BATTLESUIT\nMARKER/TOKEN GUIDE\nPhoton Grenade Electrochaff\nLauncher token Launcher token\nEMP Bomb Multitracker Ambush\ntoken token marker\nMultispectrum Homing Beacon\nSensor Package marker\ntoken"
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "耐心猎手",
+      "title_en": "PATIENT HUNTERS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-耐心猎手.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n战略计谋\n耐心猎手\n在允许敌人鲁莽地展现全力或者耗尽资源\n后，智慧的猎人们能够趁虚而入。\n每当一名己方 XV26 隐形战斗服特工对一名处\n于待机的敌方特工进行射击或近战时，那名己方\n特工的武器拥有“平衡”武器规则，并且那名特\n工的远程武器拥有“集中”武器规则。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nSTRATEGY PLOY\nPATIENT HUNTERS\nBy allowing the enemy to recklessly show their hand or\nexhaust themselves, the wise can exploit the foolhardy\naggression of the foe.\nWhenever a friendly XV26 STEALTH\nBATTLESUIT operative is shooting against or\nfighting against an expended enemy operative,\nthat friendly operative’s weapons have the\nBalanced weapon rule and its ranged weapons\nhave the Saturate weapon rule."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "团结一致",
+      "title_en": "BONDS OF UNITY",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-团结一致.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n战略计谋\n团结一致\n隐形战斗服的驾驶员们能够从盟友的身上获\n取力量和决心。\n每当一名己方 XV26 隐形战斗服特工（无人机\n除外）被激活时，如果那名特工位于另一名对\n其可见的己方 XV26 隐形战斗服特工（无人机\n除外）的 6\" 内，您可以忽略任意或所有对第一\n名特工 APL 属性的修正，并且选择以下一个效\n果：\n• 直到第一名己方特工的激活结束前，忽视受创\n状态对其移动属性的任意修正。\n• 直到第一名己方特工的激活结束前，忽视受创\n状态对其武器命中属性的任意修正。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nSTRATEGY PLOY\nBONDS OF UNITY\nStealth battlesuit pilots can draw strength and resolve\nfrom comrades.\nWhenever a friendly XV26 STEALTH\nBATTLESUIT operative is activated (excluding\nDRONE), if it's visible to and within 6\" of another\nfriendly XV26 STEALTH BATTLESUIT operative\n(excluding DRONE), you can ignore any changes\nto that first friendly operative's APL stat and\nselect one of the following:\n• Ignore any changes to that first friendly\noperative’s Move stat from being injured until\nthe end of that activation.\n• Ignore any changes to the Hit stat of that first\nfriendly operative’s weapons from being injured\nuntil the end of that activation."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "准备埋伏",
+      "title_en": "PREPARE AMBUSH",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-准备埋伏.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n战略计谋\n准备埋伏\n钛星人预先计算好了射击方案并建立击杀\n区域，等待着不知情的敌人走入完美的埋伏\n空间。\n将一枚埋伏标识放在完全位于己方领地内，并且\n位于敌方特工 2\" 外的位置。每当一名己方 XV26\n隐形战斗服特工对位于标识 2\" 内的敌方特工进\n行射击时，您可以使用本规则。若这么做，直到\n那次行动结束前，那名特工的远程武器拥有\n“追踪”武器规则。在那次行动结束时，或在下\n一个战略阶段的就绪步骤中（以先到者为准），\n移除那枚标识。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nSTRATEGY PLOY\nPREPARE AMBUSH\nThe T'au precalculate firing solutions and establish kill\nfield parameters, awaiting their unknowing opponents to\nenter perfect strike range.\nPlace one of your Ambush markers wholly within\nyour territory and more than 2\" from enemy\noperatives. Whenever a friendly XV26 STEALTH\nBATTLESUIT operative is shooting an enemy\noperative that’s within 2\" of that marker, you can\nuse this rule. If you do, that friendly operative's\nranged weapons have the Seek weapon rule\nuntil the end of the action. Remove that Ambush\nmarker at the end of that action or in the Ready\nstep of the next turning point (whichever\ncomes first)."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "立体影像防御系统",
+      "title_en": "HOLOWAVE COUNTERMEASURES",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-立体影像防御系统.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n战略计谋\n立体影像防御系统\n试验型图像投射科技的频繁闪烁能够迷惑\n先进的瞄准系统，甚至老兵神枪手的精确\n狙击。\n每当一名特工对位于其 6\" 外的己方 XV26 隐形战\n斗服特工进行射击时，在掷攻击骰步骤中，攻\n击者必须舍弃一枚尚未结算的普通成功（如果没\n有普通成功，则舍弃一枚未结算的关键成功)。\n本计谋的效果不能与遮挡规则的效果叠加。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nSTRATEGY PLOY\nHOLOWAVE COUNTERMEASURES\nTemporary bursts of experimental image-projection\ntechnology can throw off advanced targeters and even\nthe aim of experienced snipers.\nWhenever an operative is shooting a friendly\nXV26 STEALTH BATTLESUIT operative more\nthan 6\" from it, in the Roll Attack Dice step, the\nattacker must discard one of their unresolved\nnormal successes (or one of their critical\nsuccesses if there are none). This isn’t cumulative\nwith being obscured."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "反向矢量推进器",
+      "title_en": "VECTORED RETRO-THRUSTERS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-反向矢量推进器.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n交战计谋\n反向矢量推进器\nXV26 战斗服的驾驶员们十分擅长利用多方\n位推进器来进行迅速的后退飞行，这种非\n常规的移动手段能够使他们远离激进的敌\n人，并令敌人暴露在其他小队成员的射击范\n围内。\n当一名敌方特工在一名己方 XV26 隐形战斗服\n特工（无人机除外）的控制范围内结束一次冲锋\n行动时使用本交战计谋。打断那次行动并使用本\n规则。若使用，那名己方特工可以立即进行一次\n无消耗的后撤行动，但是不能在那次行动中移动\n超过 3\"。这个行动不会被您对手的规则阻止（即\n优先于所有此类规则）。随后，那名敌方特工可\n以使用第一次冲锋行动剩下的任何距离立即执行\n一次无消耗的转移行动，并且就算在执行了一次\n防止其执行转移行动的行动后也可以这么做。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFIREFIGHT PLOY\nVECTORED RETRO-THRUSTERS\nXV26 battlesuit pilots are expert at firing unconventional\nbursts from their multidirectional thrusters to rapidly\ndisengage from aggressive enemies, leaving their foe\nvulnerable to the rest of the team.\nUse this firefight ploy when an enemy operative\nends the Charge action within control range of a\nfriendly XV26 STEALTH BATTLESUIT operative\n(excluding DRONE). Interrupt that action to use\nthis rule. If you do, that friendly operative can\nimmediately perform a free Fall Back action,\nbut it cannot move more than 3\" during that\naction. This action cannot be prevented by your\nopponent’s rules (taking precedence over all\nsuch rules). Then, that enemy operative can\nimmediately perform a free Reposition action\nusing any remaining move distance it had from\nthat first Charge action, and can do so even if\nit’s performed an action that prevents it from\nperforming the Reposition action."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "隐形幽灵",
+      "title_en": "GHOSTSHROUD",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-隐形幽灵.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n交战计谋\n隐形幽灵\n特工们时刻准备好将武器的动力转移给隐匿\n力场，使他们在播下死亡之种后立刻消失。\n在一名己方 XV26 隐形战斗服特工的激活结束\n时使用本交战计谋。如果那名特工拥有交战命\n令，将它修改为隐匿命令。您在每场战斗中对每\n一名己方特工使用本计谋的次数不能超过一次。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFIREFIGHT PLOY\nGHOSTSHROUD\nReadily rerouting power from their weapons to their\nstealth fields, these operatives appear to vanish after\nsowing sudden death.\nUse this firefight ploy at the end of a friendly\nXV26 STEALTH BATTLESUIT operative’s\nactivation. If that operative has an Engage order,\nchange it to Conceal. You cannot use this ploy for\neach friendly operative more than once per battle."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "喷气背包",
+      "title_en": "ENGAGE JET PACK",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-喷气背包.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n交战计谋\n喷气背包\nXV26 战斗服的强力推进背包提供了出色的\n机动性，让老兵驾驶员们能够快速占领有利\n位置。\n在一名己方 XV26 隐形战斗服特工（无人机除\n外）被激活或者进行反应时使用本交战计谋。直\n到那次激活/反应结束前，您可以忽略特工在一次\n攀爬和一次跳落期间穿越的垂直距离。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFIREFIGHT PLOY\nENGAGE JET PACK\nThe potent jet packs built into each XV26 battlesuit\nprovide exceptional mobility, allowing their veteran\npilots to secure advantageous positions.\nUse this firefight ploy when a friendly XV26\nSTEALTH BATTLESUIT operative (excluding\nDRONE) is activated or counteracts. Until the end\nof that activation/counteraction, you can ignore\nthe vertical distance it moves during one climb\nand one drop."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "救世主协议",
+      "title_en": "SAVIOUR PROTOCOLS",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-救世主协议.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n交战计谋\n救世主协议\n编辑在无人机中的硬代码将杀戮小队盟友\n的安全放在了第一位，哪怕这么做会牺牲\n自我。\n在一名己方 XV26 隐形战斗服特工（无人机除\n外）被选择成为一次射击行动的有效目标时使用\n本交战计谋。选择位于那名己方特工 3\" 内且对\n其可见的一名己方 XV26 隐形战斗服无人机特\n工，这名特工将代替成为有效目标（就算它在通\n常情况下不能)。那名己方无人机特工只有在原\n本的目标拥有掩护或者遮挡的情况下才能拥有对\n应的增益效果。本计谋对拥有“爆炸”或“洪\n流”武器规则的远程武器无效。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFIREFIGHT PLOY\nSAVIOUR PROTOCOLS\nThe drones of this kill team are hard-coded to prioritise\nthe safety of their comrades, even at the cost of their\nown existence.\nUse this firefight ploy when a friendly XV26\nSTEALTH BATTLESUIT operative (excluding\nDRONE) is selected as the valid target of a\nShoot action. Select one friendly XV26 STEALTH\nBATTLESUIT DRONE operative visible to\nand within 3\" of that first friendly operative\nto become the valid target instead (even if it\nwouldn’t normally be valid for this). That friendly\nDRONE operative is only in cover or obscured if\nthe original target was. This ploy has no effect\nif the ranged weapon has the Blast or Torrent\nweapon rule."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "XV26多目标追踪器",
+      "title_en": "XV26 MULTITRACKERS",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-XV26多目标追踪器.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n阵营装备\nXV26 多目标追踪器\n这类辅助系统能够迅速生成射击方案，让战士\n们能够使用速射炮向多个目标进行同时射击。\n每个转折点限一次，在一名己方 XV26 隐形战\n斗服特工执行射击行动，并且选择速射炮\n（扫射）时，您可以使用本规则。若这么做，\n选择下列之一：\n• 直到那次行动结束前，那件武器拥有“洪流\n2\"”武器规则。\n• 直到那次行动结束前，那件武器拥有“洪流\n3\"”武器规则，但您选择的次要目标不能超\n过一个。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFACTION EQUIPMENT\nXV26 MULTITRACKERS\nThese support systems rapidly generate targeting\nsolutions, enabling warriors to engage multiple targets\nwith their rapid-firing burst cannons.\nOnce per turning point, when a friendly XV26\nSTEALTH BATTLESUIT operative is performing\nthe Shoot action and you select a burst cannon\n(sweeping), you can use this rule. If you do, select\none of the following:\n• Until the end of that action, that weapon has\nthe Torrent 2\" weapon rule.\n• Until the end of that action, that weapon has\nthe Torrent 3\" weapon rule, but you cannot\nselect more than one secondary target."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "网络反制干扰器",
+      "title_en": "COUNTER-NETWORK JAMMERS",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-网络反制干扰器.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n阵营装备\n网络反制干扰器\n这些装置所发射的次声波能够让群聚在一起的\n敌人陷入混乱。在干扰了敌人的感官和通讯设\n备后，战斗服的驾驶员们可以趁机制造破坏。\n战略计划。选择一个目标标记或任务标记。直到\n转折点结束时，每当确认那个标记的控制时，\n若进行争夺的敌方特工中至少有一名位于己方\nXV26 隐形战斗服特工 3\" 内，则将进行争夺\n的敌方特工 APL 总和视作降低 1 点。请注意，\n这不是对 APL 属性的修正，所以任何修正均会\n累加。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFACTION EQUIPMENT\nCOUNTER-NETWORK JAMMERS\nClosely packed enemies can be thrown into disarray\nwith a burst of multiwave infrasound from these devices.\nWith the foe's senses and communications equipment\ndisrupted, even outnumbered battlesuit pilots can\nexploit the resultant confusion to devastating effect.\nSTRATEGIC GAMBIT. Select one objective\nmarker or mission marker. Until the end of the\nturning point, whenever determining control of\nthat marker, treat the total APL stat of enemy\noperatives that contest it as 1 lower if at least\none of those enemy operatives is within 3\" of\nfriendly XV26 STEALTH BATTLESUIT operatives.\nNote this isn’t a change to the APL stat, so any\nchanges are cumulative with this."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "先进黑日目镜",
+      "title_en": "ADVANCED BLACKSUN FILTERS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-先进黑日目镜.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n阵营装备\n先进黑日目镜\n就算是在最为异常的遮挡环境中，安装有这类\n先进观察系统的战斗服和无人机能够十分清晰\n地辨别目标。\n每当一名己方 XV26 隐形战斗服特工对一名被\n遮挡的特工进行射击时，您不需要因为遮挡规则\n舍弃一次成功。遮挡规则的其他所有效果将照常\n生效。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFACTION EQUIPMENT\nADVANCED BLACKSUN FILTERS\nBattlesuit and drone bodies augmented with these\nadvanced optical systems are granted incredible target\nidentification clarity, even if confronted by the most\nunnatural and blinding of conditions.\nWhenever a friendly XV26 STEALTH\nBATTLESUIT operative is shooting an operative\nthat's obscured, you don't have to discard one\nsuccess as a result of that rule. All other effects of\nobscured apply as normal."
+    },
+    {
+      "id": "kt-xv26_stealth_battlesuits-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "内置目标锁定系统",
+      "title_en": "HARDWIRED TARGET LOCKS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-内置目标锁定系统.png",
+      "is_back": false,
+      "text": "XV26 隐形战斗服\n阵营装备\n内置目标锁定系统\n这些瞄准系统会自动分析敌人的威胁等级并为\n使用者自动进行锁定。它们可以被植入神经连\n接或者驾驶员的体内。\n每当您进行反应时，您可以使用一名拥有隐匿命\n令并位于敌方特工 3\" 外的己方 XV26 隐形战斗服\n特工进行反应，但是在进行反应前，您必须将\n特工的命令更改为交战命令，并且特工在那次反\n应期间不能执行射击以外的行动。",
+      "text_en": "XV26 STEALTH BATTLESUIT\nFACTION EQUIPMENT\nHARDWIRED TARGET LOCKS\nThese target-acquisition systems prioritise the\nparameters of enemy threats and provide their user with\nautomatic locks. They may be embedded into neural\ninterfaces or implanted into pilots' bodies.\nWhenever you would counteract, you can\ndo so with one friendly XV26 STEALTH\nBATTLESUIT operative that has a Conceal order\nand is more than 3\" from enemy operatives, but\nbefore it counteracts, you must change its order\nto Engage and it cannot perform any actions\nother than Shoot during that counteraction."
+    }
+  ]
+}

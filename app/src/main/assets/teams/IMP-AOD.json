@@ -1,0 +1,695 @@
+{
+  "teamId": "IMP-AOD",
+  "name": "死亡天使",
+  "nameEn": "Angels Of Death",
+  "subtitle": "帝国 · 阿斯塔特修会 · 9 种成员",
+  "archetypes": [
+    "安全保护",
+    "搜索与摧毁"
+  ],
+  "compositionHint": "选择 1 名领袖（突击仲裁者军士、仲裁者军士或星际战士连长），再选择 5 名特工；除战士外，同一种特工最多 1 名。",
+  "source": "官方中文 PDF 26/08/2026（死亡天使 Angels of Death 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "aod_captain",
+      "name": "星际战士连长",
+      "role": "领袖",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 15,
+      "baseSizeMm": 40,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "领袖",
+        "星际战士连长"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-01-特工-星际战士连长-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_captain_plasma_standard",
+          "name": "等离子手枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、穿刺 1"
+        },
+        {
+          "id": "aod_captain_plasma_super",
+          "name": "等离子手枪（过载）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 8\"、过热、致命 5+、穿刺 1"
+        },
+        {
+          "id": "aod_captain_power_fist",
+          "name": "动力拳套",
+          "kind": "melee",
+          "profile": "5A · 3+ · 5/7 · 残暴"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_captain_plasma_standard",
+        "aod_captain_plasma_super",
+        "aod_captain_power_fist"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "aod_heroic",
+          "name": "英雄领袖",
+          "ap": null,
+          "text": "每个转折点一次：可为该特工免费使用一项交战计谋（指挥重投除外），或在满足位置条件时使用战斗条令/调整条令；同一计谋本转折点已用过则不能再次使用。"
+        },
+        {
+          "id": "aod_halo",
+          "name": "钢铁光环",
+          "ap": null,
+          "text": "每场战斗一次，一枚攻击骰对该特工造成普通伤害时，可忽略那次伤害。"
+        }
+      ]
+    },
+    {
+      "id": "aod_assault_sergeant",
+      "name": "突击仲裁者军士",
+      "role": "领袖",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 15,
+      "baseSizeMm": 32,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "领袖",
+        "突击仲裁者",
+        "军士"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-02-特工-突击仲裁者军士-数据卡.png",
+        "IMP-AOD--01-03-特工能力-突击仲裁者军士-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_assault_sergeant_hand_flamer",
+          "name": "喷火手枪",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 范围 6\"、集中、洪流 1\""
+        },
+        {
+          "id": "aod_assault_sergeant_heavy_pistol",
+          "name": "重型爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、关键穿刺 1"
+        },
+        {
+          "id": "aod_assault_sergeant_plasma_pistol",
+          "name": "等离子手枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、穿刺 1"
+        },
+        {
+          "id": "aod_assault_sergeant_plasma_super",
+          "name": "等离子手枪（过载）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 8\"、过热、致命 5+、穿刺 1"
+        },
+        {
+          "id": "aod_assault_sergeant_chainsword",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5"
+        },
+        {
+          "id": "aod_assault_sergeant_power_fist",
+          "name": "动力拳套",
+          "kind": "melee",
+          "profile": "5A · 4+ · 5/7 · 残暴"
+        },
+        {
+          "id": "aod_assault_sergeant_power_weapon",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 致命 5+"
+        },
+        {
+          "id": "aod_assault_sergeant_thunder_hammer",
+          "name": "雷霆锤",
+          "kind": "melee",
+          "profile": "5A · 4+ · 5/6 · 震荡、眩晕"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_assault_sergeant_heavy_pistol",
+        "aod_assault_sergeant_chainsword"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "aod_chapter_veteran",
+          "name": "战团老兵",
+          "ap": null,
+          "text": "选择部署特工步骤结束时，为该特工额外选择一项本场战斗有效的战团战术。"
+        },
+        {
+          "id": "aod_assault_doctrine",
+          "name": "条令战争",
+          "ap": null,
+          "text": "每场战斗各一次：该特工在杀戮区时，选择毁灭条令或战术条令的战斗条令计谋可花费 0CP。"
+        }
+      ]
+    },
+    {
+      "id": "aod_sergeant",
+      "name": "仲裁者军士",
+      "role": "领袖",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 15,
+      "baseSizeMm": 32,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "领袖",
+        "仲裁者",
+        "军士"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-04-特工-仲裁者军士-数据卡.png",
+        "IMP-AOD--01-05-特工能力-仲裁者军士-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_sergeant_auto_bolt",
+          "name": "自动爆矢步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 洪流 1\""
+        },
+        {
+          "id": "aod_sergeant_bolt_rifle",
+          "name": "爆矢步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "aod_sergeant_stalker",
+          "name": "追猎者爆矢步枪（重型）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 重型（仅限冲刺）、致命 5+、关键穿刺 1"
+        },
+        {
+          "id": "aod_sergeant_stalker_mobile",
+          "name": "追猎者爆矢步枪（机动）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "aod_sergeant_chainsword",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5"
+        },
+        {
+          "id": "aod_sergeant_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "aod_sergeant_power_fist",
+          "name": "动力拳套",
+          "kind": "melee",
+          "profile": "4A · 4+ · 5/7 · 残暴"
+        },
+        {
+          "id": "aod_sergeant_power_weapon",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        },
+        {
+          "id": "aod_sergeant_thunder_hammer",
+          "name": "雷霆锤",
+          "kind": "melee",
+          "profile": "4A · 4+ · 5/6 · 震荡、眩晕"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_sergeant_bolt_rifle",
+        "aod_sergeant_chainsword"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "aod_chapter_veteran",
+          "name": "战团老兵",
+          "ap": null,
+          "text": "选择部署特工步骤结束时，为该特工额外选择一项本场战斗有效的战团战术。"
+        },
+        {
+          "id": "aod_tactical_doctrine",
+          "name": "条令战争",
+          "ap": null,
+          "text": "每场战斗各一次：该特工在杀戮区时，选择毁灭条令或战术条令的战斗条令计谋可花费 0CP。"
+        }
+      ]
+    },
+    {
+      "id": "aod_grenadier",
+      "name": "突击仲裁者掷弹兵",
+      "role": "专家",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "突击仲裁者",
+        "掷弹兵"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-06-特工-突击仲裁者掷弹兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_grenadier_heavy_pistol",
+          "name": "重型爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、关键穿刺 1"
+        },
+        {
+          "id": "aod_grenadier_chainsword",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5"
+        },
+        {
+          "id": "aod_grenadier_frag",
+          "name": "破片手雷",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 范围 6\"、爆炸 2\"、集中"
+        },
+        {
+          "id": "aod_grenadier_krak",
+          "name": "穿甲手雷",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 6\"、穿刺 1、集中"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_grenadier_heavy_pistol",
+        "aod_grenadier_chainsword",
+        "aod_grenadier_frag",
+        "aod_grenadier_krak"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "aod_grenadier",
+          "name": "掷弹兵",
+          "ap": null,
+          "text": "可使用破片和穿甲手雷，不占用队伍装备的有限次数；使用这些手雷时命中属性改善 1。"
+        }
+      ]
+    },
+    {
+      "id": "aod_assault_warrior",
+      "name": "突击仲裁者战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "突击仲裁者",
+        "战士"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-07-特工-突击仲裁者战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_assault_warrior_heavy_pistol",
+          "name": "重型爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、关键穿刺 1"
+        },
+        {
+          "id": "aod_assault_warrior_chainsword",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_assault_warrior_heavy_pistol",
+        "aod_assault_warrior_chainsword"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "aod_sniper",
+      "name": "歼灭者狙击手",
+      "role": "狙击手",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 40,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "歼灭者",
+        "狙击手"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-11-特工-歼灭者狙击手-数据卡.png",
+        "IMP-AOD--01-12-特工能力-歼灭者狙击手-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_sniper_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "aod_sniper_sniper_mobile",
+          "name": "爆矢狙击步枪（处刑者）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/4 · 重型（仅限冲刺）、集中、追踪轻型、安静"
+        },
+        {
+          "id": "aod_sniper_sniper_suppressed",
+          "name": "爆矢狙击步枪（超级破片）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 2/4 · 爆炸 1\"、重型（仅限冲刺）、安静"
+        },
+        {
+          "id": "aod_sniper_sniper_mw",
+          "name": "爆矢狙击步枪（致死）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 毁灭 3、重型（仅限冲刺）、穿刺 1、安静"
+        },
+        {
+          "id": "aod_sniper_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_sniper_bolt_pistol",
+        "aod_sniper_sniper_mobile",
+        "aod_sniper_sniper_suppressed",
+        "aod_sniper_sniper_mw",
+        "aod_sniper_fists"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "aod_camo",
+          "name": "迷彩斗篷",
+          "ap": null,
+          "text": "敌人射击该特工时忽略“集中”。该特工拥有隐匿战团战术；若队伍也选择了该战术，可同时使用其两个选项。"
+        },
+        {
+          "id": "aod_optics",
+          "name": "瞄准",
+          "ap": 1,
+          "text": "直到该特工下次激活开始，其射击目标不能处于遮蔽状态。处于敌方控制范围内时不能执行。"
+        },
+        {
+          "id": "aod_stealth",
+          "name": "隐匿",
+          "ap": null,
+          "text": "敌人射击该特工时，若能保留掩护豁免，可额外保留一枚，或将一枚保留为暴击。不能与制高地带来的强化掩护叠加。"
+        }
+      ]
+    },
+    {
+      "id": "aod_heavy_gunner",
+      "name": "重装仲裁者炮手",
+      "role": "重炮手",
+      "apl": 3,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 18,
+      "baseSizeMm": 40,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "重装仲裁者",
+        "重炮手"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-08-特工-重装仲裁者炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_heavy_gunner_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "aod_heavy_gunner_heavy_focused",
+          "name": "重型爆矢枪（集中）",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 4/5 · 关键穿刺 1"
+        },
+        {
+          "id": "aod_heavy_gunner_heavy_sweeping",
+          "name": "重型爆矢枪（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 关键穿刺 1、洪流 1\""
+        },
+        {
+          "id": "aod_heavy_gunner_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_heavy_gunner_bolt_pistol",
+        "aod_heavy_gunner_heavy_focused",
+        "aod_heavy_gunner_heavy_sweeping",
+        "aod_heavy_gunner_fists"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "aod_gunner",
+      "name": "仲裁者炮手",
+      "role": "炮手",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "仲裁者",
+        "炮手"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-09-特工-仲裁者炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_gunner_auto_bolt",
+          "name": "自动爆矢步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 洪流 1\""
+        },
+        {
+          "id": "aod_gunner_bolt_rifle",
+          "name": "爆矢步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "aod_gunner_stalker",
+          "name": "追猎者爆矢步枪（重型）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 重型（仅限冲刺）、致命 5+、关键穿刺 1"
+        },
+        {
+          "id": "aod_gunner_stalker_mobile",
+          "name": "追猎者爆矢步枪（机动）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "aod_gunner_launcher_frag",
+          "name": "附加榴弹发射器（破片）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 爆炸 2\""
+        },
+        {
+          "id": "aod_gunner_launcher_krak",
+          "name": "附加榴弹发射器（穿甲）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 穿刺 1"
+        },
+        {
+          "id": "aod_gunner_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_gunner_bolt_rifle",
+        "aod_gunner_launcher_frag",
+        "aod_gunner_launcher_krak",
+        "aod_gunner_fists"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "aod_warrior",
+      "name": "仲裁者战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "死亡天使",
+        "帝国",
+        "阿斯塔特",
+        "仲裁者",
+        "战士"
+      ],
+      "verifiedAgainstImage": true,
+      "cards": [
+        "IMP-AOD--01-10-特工-仲裁者战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "aod_warrior_auto_bolt",
+          "name": "自动爆矢步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 洪流 1\""
+        },
+        {
+          "id": "aod_warrior_bolt_rifle",
+          "name": "爆矢步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "aod_warrior_stalker",
+          "name": "追猎者爆矢步枪（重型）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 重型（仅限冲刺）、致命 5+、关键穿刺 1"
+        },
+        {
+          "id": "aod_warrior_stalker_mobile",
+          "name": "追猎者爆矢步枪（机动）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "aod_warrior_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "aod_warrior_bolt_rifle",
+        "aod_warrior_fists"
+      ],
+      "abilities": [
+        {
+          "id": "aod_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方死亡天使特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢武器进行攻击，并且如果两次行动都使用了爆矢狙击步枪或重型爆矢枪进行攻击，那么第二次行动必须消耗额外 1AP。\n\n每一名己方死亡天使特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        }
+      ]
+    }
+  ]
+}

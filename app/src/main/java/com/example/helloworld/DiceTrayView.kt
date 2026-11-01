@@ -228,11 +228,18 @@ class DiceTrayView @JvmOverloads constructor(
         }
         val tray = resultArea()
         renderedDieSize = fixedDieSize(tray)
-        val columns = ceil(sqrt(results.size.toDouble())).toInt().coerceAtLeast(1)
+        val isWideStrip = width > height * 1.35f
+        val columns = if (isWideStrip) {
+            if (results.size <= 6) results.size.coerceAtLeast(1) else ceil(results.size / 2.0).toInt()
+        } else {
+            ceil(sqrt(results.size.toDouble())).toInt().coerceAtLeast(1)
+        }
         val rows = ceil(results.size / columns.toFloat()).toInt()
-        val cell = renderedDieSize * 1.45f
+        val maxCellX = if (columns > 1) (tray.width() - renderedDieSize * 1.4f) / (columns - 1) else renderedDieSize * 1.55f
+        val cell = min(renderedDieSize * 1.55f, maxCellX.coerceAtLeast(renderedDieSize * 1.15f))
+        val cellY = min(renderedDieSize * 1.45f, (tray.height() / rows.coerceAtLeast(1)).coerceAtLeast(renderedDieSize * 1.1f))
         val startX = tray.centerX() - (columns - 1) * cell / 2f
-        val startY = tray.centerY() - (rows - 1) * cell / 2f
+        val startY = tray.centerY() - (rows - 1) * cellY / 2f
         results.forEachIndexed { index, value ->
             val row = index / columns
             val column = index % columns
@@ -240,7 +247,7 @@ class DiceTrayView @JvmOverloads constructor(
                 index = index,
                 value = value,
                 x = startX + column * cell,
-                y = startY + row * cell,
+                y = startY + row * cellY,
                 velocityX = 0f,
                 velocityY = 0f,
                 orientationX = canonicalOrientation(value).first,
@@ -272,12 +279,13 @@ class DiceTrayView @JvmOverloads constructor(
         }
 
         val tray = resultArea()
-        renderedDieSize = fixedDieSize(tray)
+        renderedDieSize = fixedDieSize(tray, count)
         val random = Random(System.nanoTime())
+        val baseSpan = min(tray.width(), tray.height())
         repeat(count) { index ->
             val angle = Math.PI * 2.0 * index / count + random.nextDouble(-0.45, 0.45)
-            val startRadius = tray.width() * random.nextDouble(0.08, 0.22).toFloat()
-            val speed = tray.width() * random.nextDouble(0.9, 1.25).toFloat()
+            val startRadius = baseSpan * random.nextDouble(0.08, 0.22).toFloat()
+            val speed = baseSpan * random.nextDouble(0.9, 1.25).toFloat()
             bodies += DieBody(
                 index = index,
                 value = 1,
@@ -507,7 +515,8 @@ class DiceTrayView @JvmOverloads constructor(
     private fun simulate(dt: Float, tray: RectF, progress: Float) {
         val centerX = tray.centerX()
         val centerY = tray.centerY()
-        val boundaryRadius = tray.width() / 2f - renderedDieSize * 0.72f
+        val boundaryX = (tray.width() / 2f - renderedDieSize * 0.72f).coerceAtLeast(1f)
+        val boundaryY = (tray.height() / 2f - renderedDieSize * 0.72f).coerceAtLeast(1f)
 
         bodies.forEach { body ->
             if (!body.settled) {
@@ -564,14 +573,14 @@ class DiceTrayView @JvmOverloads constructor(
 
             body.x += body.velocityX * dt
             body.y += body.velocityY * dt
-            val dx = body.x - centerX
-            val dy = body.y - centerY
+            val dx = (body.x - centerX) / boundaryX
+            val dy = (body.y - centerY) / boundaryY
             val distance = sqrt(dx * dx + dy * dy).coerceAtLeast(0.001f)
-            if (distance > boundaryRadius) {
+            if (distance > 1f) {
                 val nx = dx / distance
                 val ny = dy / distance
-                body.x = centerX + nx * boundaryRadius
-                body.y = centerY + ny * boundaryRadius
+                body.x = centerX + nx * boundaryX
+                body.y = centerY + ny * boundaryY
                 val outwardSpeed = body.velocityX * nx + body.velocityY * ny
                 if (outwardSpeed > 0f) {
                     val wallRestitution = lerp(0.68f, 0.04f, landingProgress(progress))
@@ -583,13 +592,14 @@ class DiceTrayView @JvmOverloads constructor(
                 }
             }
         }
-        resolvePairCollisions(centerX, centerY, boundaryRadius, progress)
+        resolvePairCollisions(centerX, centerY, boundaryX, boundaryY, progress)
     }
 
     private fun resolvePairCollisions(
         centerX: Float,
         centerY: Float,
-        boundaryRadius: Float,
+        boundaryX: Float,
+        boundaryY: Float,
         progress: Float
     ) {
         val minimumDistance = renderedDieSize * 1.16f
@@ -629,12 +639,12 @@ class DiceTrayView @JvmOverloads constructor(
         }
 
         bodies.forEach { body ->
-            val dx = body.x - centerX
-            val dy = body.y - centerY
+            val dx = (body.x - centerX) / boundaryX
+            val dy = (body.y - centerY) / boundaryY
             val distance = sqrt(dx * dx + dy * dy).coerceAtLeast(0.001f)
-            if (distance > boundaryRadius) {
-                body.x = centerX + dx / distance * boundaryRadius
-                body.y = centerY + dy / distance * boundaryRadius
+            if (distance > 1f) {
+                body.x = centerX + dx / distance * boundaryX
+                body.y = centerY + dy / distance * boundaryY
             }
 
             if (body.finalizing) {
@@ -713,16 +723,34 @@ class DiceTrayView @JvmOverloads constructor(
     private fun resultArea(): RectF = resultArea(width, height)
 
     private fun resultArea(areaWidth: Int, areaHeight: Int): RectF {
-        val diameter = min(areaWidth.toFloat(), areaHeight.toFloat()) * 0.68f
+        val w = areaWidth.toFloat()
+        val h = areaHeight.toFloat()
+        if (w > h * 1.35f) {
+            val padX = w * 0.08f
+            val padY = h * 0.12f
+            return RectF(padX, padY, w - padX, h - padY)
+        }
+        val diameter = min(w, h) * 0.68f
         return RectF(
-            areaWidth / 2f - diameter / 2f,
-            areaHeight / 2f - diameter / 2f,
-            areaWidth / 2f + diameter / 2f,
-            areaHeight / 2f + diameter / 2f
+            w / 2f - diameter / 2f,
+            h / 2f - diameter / 2f,
+            w / 2f + diameter / 2f,
+            h / 2f + diameter / 2f
         )
     }
 
-    private fun fixedDieSize(tray: RectF): Float = min(tray.width(), tray.height()) * 0.11f
+    private fun fixedDieSize(tray: RectF, dieCount: Int = bodies.size): Float {
+        val minDim = min(width.toFloat(), height.toFloat())
+        val compactCutoff = resources.displayMetrics.density * 220f
+        return if (minDim in 1f..compactCutoff) {
+            val count = dieCount.coerceAtLeast(4)
+            val byHeight = minDim * 0.21f
+            val byWidth = tray.width() / (count * 1.85f)
+            min(byHeight, byWidth).coerceAtLeast(minDim * 0.14f)
+        } else {
+            min(tray.width(), tray.height()) * 0.11f
+        }
+    }
 
     private fun palette(): DicePalette = when (diceTheme) {
         DiceTheme.ANGELS_OF_DEATH -> DicePalette(

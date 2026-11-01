@@ -1,450 +1,861 @@
 {
-  "manifest_version": 1,
+  "schema_version": 1,
   "team_id": "IMP-AOD",
   "team_name_zh": "死亡天使",
   "team_name_en": "Angels of Death",
-  "source_pdf": "../死亡天使 Angels of Death 杀戮小队规则.pdf",
-  "extracted_at": "2026-09-22",
+  "source_pdf": "最新杀戮小队规则更新/死亡天使 Angels of Death 杀戮小队规则.pdf",
+  "source_pdf_sha256": "d508651ab03b0fb0378a44302b9c46132b899bf7fdbf2e9acfe3f63c2ab6ccad",
+  "extracted_at": "2026-10-26",
   "render_dpi": 200,
-  "page_size_px": [1654, 2339],
+  "source_data": "官方中文 PDF（唯一信源）",
   "counts": {
-    "cards": 32,
-    "operative": 12,
-    "team_selection": 2,
-    "faction_rule": 5,
-    "strategic_ploy": 4,
-    "firefight_ploy": 4,
-    "faction_equipment": 4,
-    "other": 1
+    "total": 31,
+    "operative": 9,
+    "operative-ability": 3,
+    "team-selection": 2,
+    "faction-rule": 5,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
   },
   "cards": [
     {
-      "id": "aod-001-space-marine-captain",
+      "id": "imp-aod-01-01",
       "sequence": 1,
       "category": "operative",
-      "title_zh": "星际战士连长",
+      "title_zh": "星际战士连长-数据卡",
+      "title_en": "SPACE MARINE CAPTAIN",
       "source_page": 1,
       "page_order": 1,
-      "bbox_px": [350, 66, 954, 553],
-      "bbox_pt": [126.0, 23.76, 343.44, 199.08],
-      "image": "01-特工-星际战士连长.png",
-      "ktdash_ids": ["IMP-AOD-CPT"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-星际战士连长-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n星际战士连长\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n动力拳套 5 3+ 5/7 残暴\n英勇领袖：每个转折点限一次，您可以使用以下一\n个效果：\n• 在使用一个交战计谋时（指挥重掷除外），如果\n该特工是计谋指定的死亡天使特工，那么那次\n计谋消耗 0CP。\n• 如果该特工位于杀戮区并且不位于敌方特工的\n控制范围内，那么在您激活一个死亡天使特工\n时，您可以使用“战斗条令”战略计谋（照常花\n费 CP)。请注意，如果您已经在转折点中使用了\n这个计谋，那么您不能选择本选项。\n• 如果该特工位于杀戮区并且不位于敌方特工的控\n制范围内，那么您可以消耗 0CP 使用“调整条\n令”交战计谋。\n钢铁光环：每场战斗限一次，在一枚攻击骰对该特\n工造成普通伤害时，您可以忽略那次造成的伤害。\n死亡天使、帝国、阿斯塔特修会、队长、星际战士连长 40",
+      "weapon_types": {
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "动力拳套": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPACE MARINE CAPTAIN\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nPower fist 5 3+ 5/7 Brutal\nHeroic Leader: Once per turning point, you can do one of the following:\n• Use a firefight ploy for 0CP if this is the specified ANGEL OF DEATH operative (excluding Command Re-roll).\n• Use the Combat Doctrine strategy ploy when you activate a friendly ANGEL OF DEATH operative if this operative is in the\nkillzone and isn’t within control range of enemy operatives (pay its CP cost as normal). Note that you cannot do so if you’ve already\nused that ploy during this turning point.\n• Use the Adjust Doctrine firefight ploy for 0CP if this operative is in the killzone and isn’t within control range of enemy operatives.\nIron Halo: Once per battle, when an attack dice inflicts Normal Dmg on this operative, you can ignore that inflicted damage.\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, LEADER, SPACE MARINE CAPTAIN 40"
     },
     {
-      "id": "aod-002-assault-intercessor-sergeant-data",
+      "id": "imp-aod-01-02",
       "sequence": 2,
       "category": "operative",
-      "title_zh": "突击仲裁者军士",
-      "part": "data",
+      "title_zh": "突击仲裁者军士-数据卡",
+      "title_en": "ASSAULT INTERCESSOR SERGEANT",
       "source_page": 1,
       "page_order": 2,
-      "bbox_px": [350, 618, 954, 553],
-      "bbox_pt": [126.0, 222.48, 343.44, 199.08],
-      "image": "02-特工-突击仲裁者军士-数据卡.png",
-      "ktdash_ids": ["IMP-AOD-ASGT"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-突击仲裁者军士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n突击仲裁者军士\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n喷火手枪 4 2+ 3/3 范围 6\"、集中、洪流 1\"\n重型爆矢手枪 4 3+ 3/4 范围 8\"、关键穿刺 1\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n链锯剑 5 3+ 4/5 -\n动力拳套 5 4+ 5/7 残暴\n动力武器 5 3+ 4/6 致命 5+\n雷霆锤 5 4+ 5/6 震荡、眩晕\n请继续阅读背面规则\n死亡天使、帝国、阿斯塔特修会、队长、突击仲裁者、军士 32",
+      "weapon_types": {
+        "喷火手枪": "远程",
+        "重型爆矢手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "链锯剑": "近战",
+        "动力拳套": "近战",
+        "动力武器": "近战",
+        "雷霆锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nASSAULT INTERCESSOR SERGEANT\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nHand flamer 4 2+ 3/3 Range 6\", Saturate, Torrent 1\"\nHeavy bolt pistol 4 3+ 3/4 Range 8\", Piercing Crits 1\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nChainsword 5 3+ 4/5 -\nPower fist 5 4+ 5/7 Brutal\nPower weapon 5 3+ 4/6 Lethal 5+\nThunder hammer 5 4+ 5/6 Shock, Stun\nRULES CONTINUE ON OTHER SIDE\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, LEADER, ASSAULT INTERCESSOR, SERGEANT 32"
     },
     {
-      "id": "aod-003-assault-intercessor-sergeant-ability",
+      "id": "imp-aod-01-03",
       "sequence": 3,
       "category": "operative-ability",
-      "title_zh": "突击仲裁者军士",
-      "part": "ability",
+      "title_zh": "突击仲裁者军士-能力卡",
+      "title_en": "ASSAULT INTERCESSOR SERGEANT",
       "source_page": 1,
       "page_order": 3,
-      "bbox_px": [350, 1170, 954, 553],
-      "bbox_pt": [126.0, 421.2, 343.44, 199.08],
-      "image": "03-特工-突击仲裁者军士-能力卡.png",
-      "ktdash_ids": ["IMP-AOD-ASGT"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工能力-突击仲裁者军士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n突击仲裁者军士\n3 6\" 3+ 15\n条令战争：您在每场战斗中可以使用以下效果各\n一次：\n• 每当您使用战斗条令战略计谋并选择毁灭条令\n时，如果该特工位于杀戮区内，那么这次计谋的\n消耗为 0CP。\n• 每当您使用战斗条令战略计谋并选择战术条令\n时，如果该特工位于杀戮区内，那么这次计谋的\n消耗为 0CP。\n战团老兵：在选择特工步骤结束时，如果该特工被\n选择部署，那么为其选择额外一个在战斗中生效的\n战团战术。与主要和次要战团战术不同的是，您\n不需要在战役或比赛的每一场战斗中选择相同的\n规则。",
+      "text_en": "APL MOVE SAVE WOUNDS\nASSAULT INTERCESSOR SERGEANT\n3 6\" 3+ 15\nDoctrine Warfare: You can do each of the following once\nper battle:\n• Whenever you would use the Combat Doctrine strategy ploy\nand then select Assault, if this operative is in the killzone, it\ncosts you 0CP.\n• Whenever you would use the Combat Doctrine strategy ploy\nand then select Tactical, if this operative is in the killzone, it\ncosts you 0CP.\nChapter Veteran: At the end of the Select Operatives step, if\nthis operative is selected for deployment, select one additional\nCHAPTER TACTIC for it to have for the battle. Unlike primary\nand secondary CHAPTER TACTICS, you don’t have to select\nthe same one for each battle in a campaign or tournament."
     },
     {
-      "id": "aod-004-intercessor-sergeant-data",
+      "id": "imp-aod-01-04",
       "sequence": 4,
       "category": "operative",
-      "title_zh": "仲裁者军士",
-      "part": "data",
+      "title_zh": "仲裁者军士-数据卡",
+      "title_en": "INTERCESSOR SERGEANT",
       "source_page": 1,
       "page_order": 4,
-      "bbox_px": [350, 1723, 954, 553],
-      "bbox_pt": [126.0, 620.28, 343.44, 199.08],
-      "image": "04-特工-仲裁者军士-数据卡.png",
-      "ktdash_ids": ["IMP-AOD-ISGT"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-仲裁者军士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n仲裁者军士\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n自动爆矢步枪 4 3+ 3/4 洪流 1\"\n爆矢步枪 4 3+ 3/4 关键穿刺 1\n追猎者爆矢步枪（重型） 4 3+ 3/5 重型（仅限冲刺）、致命 5+、关键穿刺 1\n追猎者爆矢步枪（机动） 4 3+ 3/4 -\n链锯剑 4 3+ 4/5 -\n双拳 4 3+ 3/4 -\n动力拳套 4 4+ 5/7 残暴\n动力武器 4 3+ 4/6 致命 5+\n雷霆锤 4 4+ 5/6 震荡、眩晕\n请继续阅读背面规则\n死亡天使、帝国、阿斯塔特修会、队长、仲裁者、军士 32",
+      "weapon_types": {
+        "自动爆矢步枪": "远程",
+        "爆矢步枪": "远程",
+        "追猎者爆矢步枪（重型）": "远程",
+        "追猎者爆矢步枪（机动）": "远程",
+        "链锯剑": "近战",
+        "双拳": "近战",
+        "动力拳套": "近战",
+        "动力武器": "近战",
+        "雷霆锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINTERCESSOR SERGEANT\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nAuto bolt rifle 4 3+ 3/4 Torrent 1\"\nBolt rifle 4 3+ 3/4 Piercing Crits 1\nStalker bolt rifle (heavy) 4 3+ 3/5 Heavy (Dash only), Lethal 5+, Piercing Crits 1\nStalker bolt rifle (mobile) 4 3+ 3/4 -\nChainsword 4 3+ 4/5 -\nFists 4 3+ 3/4 -\nPower fist 4 4+ 5/7 Brutal\nPower weapon 4 3+ 4/6 Lethal 5+\nThunder hammer 4 4+ 5/6 Shock, Stun\nRULES CONTINUE ON OTHER SIDE\nANGEL OF DEATH , IMPERIUM, APEPTUS ASTARTES, LEADER, INTERCESSOR, SERGEANT 32"
     },
     {
-      "id": "aod-005-intercessor-sergeant-ability",
+      "id": "imp-aod-01-05",
       "sequence": 5,
       "category": "operative-ability",
-      "title_zh": "仲裁者军士",
-      "part": "ability",
+      "title_zh": "仲裁者军士-能力卡",
+      "title_en": "INTERCESSOR SERGEANT",
       "source_page": 2,
       "page_order": 1,
-      "bbox_px": [350, 66, 954, 553],
-      "bbox_pt": [126.0, 23.76, 343.44, 199.08],
-      "image": "05-特工-仲裁者军士-能力卡.png",
-      "ktdash_ids": ["IMP-AOD-ISGT"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-仲裁者军士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n仲裁者军士\n3 6\" 3+ 15\n条令战争：您在每场战斗中可以使用以下效果各\n一次：\n• 每当您使用战斗条令战略计谋并选择毁灭条令\n时，如果该特工位于杀戮区内，那么这次计谋的\n消耗为 0CP。\n• 每当您使用战斗条令战略计谋并选择战术条令\n时，如果该特工位于杀戮区内，那么这次计谋的\n消耗为 0CP。\n战团老兵：在选择特工步骤结束时，如果该特工被\n选择部署，那么为其选择额外一个在战斗中生效的\n战团战术。与主要和次要战团战术不同的是，您\n不需要在战役或比赛的每一场战斗中选择相同的\n规则。",
+      "text_en": "APL MOVE SAVE WOUNDS\nINTERCESSOR SERGEANT\n3 6\" 3+ 15\nDoctrine Warfare: You can do each of the following once\nper battle:\n• Whenever you would use the Combat Doctrine strategy ploy\nand then select Devastator, if this operative is in the killzone,\nit costs you 0CP.\n• Whenever you would use the Combat Doctrine strategy ploy\nand then select Tactical, if this operative is in the killzone, it\ncosts you 0CP.\nChapter Veteran: At the end of the Select Operatives step, if\nthis operative is selected for deployment, select one additional\nCHAPTER TACTIC for it to have for the battle. Unlike primary\nand secondary CHAPTER TACTICS, you don’t have to select\nthe same one for each battle in a campaign or tournament."
     },
     {
-      "id": "aod-006-assault-intercessor-grenadier",
+      "id": "imp-aod-01-06",
       "sequence": 6,
       "category": "operative",
-      "title_zh": "突击仲裁者掷弹兵",
+      "title_zh": "突击仲裁者掷弹兵-数据卡",
+      "title_en": "ASSAULT INTERCESSOR GRENADIER",
       "source_page": 2,
       "page_order": 2,
-      "bbox_px": [350, 618, 954, 553],
-      "bbox_pt": [126.0, 222.48, 343.44, 199.08],
-      "image": "06-特工-突击仲裁者掷弹兵.png",
-      "ktdash_ids": ["IMP-AOD-GRN"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-突击仲裁者掷弹兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n突击仲裁者掷弹兵\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n重型爆矢手枪 4 3+ 3/4 范围 8\"、关键穿刺 1\n链锯剑 5 3+ 4/5 -\n掷弹兵：该特工可以使用破片和穿甲手雷（参见通\n用装备)。该特工使用这些装备时不算入您拥有的\n使用限制（如果您还为其他特工选择了手雷类的\n装备)。每当该特工使用破片或穿甲手雷时，那件\n武器的命中属性提升 1。\n死亡天使、帝国、阿斯塔特修会、突击仲裁者、掷弹兵 32",
+      "weapon_types": {
+        "重型爆矢手枪": "远程",
+        "链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nASSAULT INTERCESSOR GRENADIER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nHeavy bolt pistol 4 3+ 3/4 Range 8\", Piercing Crits 1\nChainsword 5 3+ 4/5 -\nGrenadier: This operative can use frag and krak grenades (see\nuniversal equipment). Doing so doesn’t count towards any\nlimited uses you have (i.e. if you also select those grenades from\nequipment for other operatives). Whenever it’s doing so, improve\nthe Hit stat of that weapon by 1.\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, ASSAULT INTERCESSOR, GRENADIER 32"
     },
     {
-      "id": "aod-007-assault-intercessor-warrior",
+      "id": "imp-aod-01-07",
       "sequence": 7,
       "category": "operative",
-      "title_zh": "突击仲裁者战士",
+      "title_zh": "突击仲裁者战士-数据卡",
+      "title_en": "ASSAULT INTERCESSOR WARRIOR",
       "source_page": 2,
       "page_order": 3,
-      "bbox_px": [350, 1170, 954, 553],
-      "bbox_pt": [126.0, 421.2, 343.44, 199.08],
-      "image": "07-特工-突击仲裁者战士.png",
-      "ktdash_ids": ["IMP-AOD-AWAR"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-突击仲裁者战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n突击仲裁者战士\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n重型爆矢手枪 4 3+ 3/4 范围 8\"、关键穿刺 1\n链锯剑 5 3+ 4/5 -\n死亡天使、帝国、阿斯塔特修会、突击仲裁者、战士 32",
+      "weapon_types": {
+        "重型爆矢手枪": "远程",
+        "链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nASSAULT INTERCESSOR WARRIOR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nHeavy bolt pistol 4 3+ 3/4 Range 8\", Piercing Crits 1\nChainsword 5 3+ 4/5 -\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, ASSAULT INTERCESSOR, WARRIOR 32"
     },
     {
-      "id": "aod-008-heavy-intercessor-gunner",
+      "id": "imp-aod-01-08",
       "sequence": 8,
       "category": "operative",
-      "title_zh": "重装仲裁者炮手",
+      "title_zh": "重装仲裁者炮手-数据卡",
+      "title_en": "HEAVY INTERCESSOR GUNNER",
       "source_page": 2,
       "page_order": 4,
-      "bbox_px": [350, 1723, 954, 553],
-      "bbox_pt": [126.0, 620.28, 343.44, 199.08],
-      "image": "08-特工-重装仲裁者炮手.png",
-      "ktdash_ids": ["IMP-AOD-HGNR"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-重装仲裁者炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n重装仲裁者炮手\n3 5\" 3+ 18\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n重型爆矢枪（集中） 5 3+ 4/5 关键穿刺 1\n重型爆矢枪（扫射） 4 3+ 4/5 关键穿刺 1、洪流 1\"\n双拳 4 3+ 3/4 -\n死亡天使、帝国、阿斯塔特修会、重装仲裁者、炮手 40",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "重型爆矢枪（集中）": "远程",
+        "重型爆矢枪（扫射）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEAVY INTERCESSOR GUNNER\n3 5\" 3+ 18\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nHeavy bolter (focused) 5 3+ 4/5 Piercing Crits 1\nHeavy bolter (sweeping) 4 3+ 4/5 Piercing Crits 1, Torrent 1\"\nFists 4 3+ 3/4 -\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, HEAVY INTERCESSOR, GUNNER 40"
     },
     {
-      "id": "aod-009-intercessor-gunner",
+      "id": "imp-aod-01-09",
       "sequence": 9,
       "category": "operative",
-      "title_zh": "仲裁者炮手",
+      "title_zh": "仲裁者炮手-数据卡",
+      "title_en": "INTERCESSOR GUNNER",
       "source_page": 3,
       "page_order": 1,
-      "bbox_px": [350, 66, 954, 553],
-      "bbox_pt": [126.0, 23.76, 343.44, 199.08],
-      "image": "09-特工-仲裁者炮手.png",
-      "ktdash_ids": ["IMP-AOD-GNR"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-仲裁者炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n仲裁者炮手\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n自动爆矢步枪 4 3+ 3/4 洪流 1\"\n附加榴弹发射器（破片） 4 3+ 2/4 爆炸 2\"\n附加榴弹发射器（穿甲） 4 3+ 4/5 穿刺 1\n爆矢步枪 4 3+ 3/4 关键穿刺 1\n追猎者爆矢步枪（重型） 4 3+ 3/5 重型（仅限冲刺）、致命 5+、关键穿刺 1\n追猎者爆矢步枪（机动） 4 3+ 3/4 -\n双拳 4 3+ 3/4 -\n死亡天使、帝国、阿斯塔特修会、仲裁者、炮手 32",
+      "weapon_types": {
+        "自动爆矢步枪": "远程",
+        "附加榴弹发射器（破片）": "远程",
+        "附加榴弹发射器（穿甲）": "远程",
+        "爆矢步枪": "远程",
+        "追猎者爆矢步枪（重型）": "远程",
+        "追猎者爆矢步枪（机动）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINTERCESSOR GUNNER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nAuto bolt rifle 4 3+ 3/4 Torrent 1\"\nAuxiliary grenade launcher (frag) 4 3+ 2/4 Blast 2\"\nAuxiliary grenade launcher (krak) 4 3+ 4/5 Piercing 1\nBolt rifle 4 3+ 3/4 Piercing Crits 1\nStalker bolt rifle (heavy) 4 3+ 3/5 Heavy (Dash only), Lethal 5+,\nPiercing Crits 1\nStalker bolt rifle (mobile) 4 3+ 3/4 -\nFists 4 3+ 3/4 -\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, INTERCESSOR, GUNNER 32"
     },
     {
-      "id": "aod-010-intercessor-warrior",
+      "id": "imp-aod-01-10",
       "sequence": 10,
       "category": "operative",
-      "title_zh": "仲裁者战士",
+      "title_zh": "仲裁者战士-数据卡",
+      "title_en": "INTERCESSOR WARRIOR",
       "source_page": 3,
       "page_order": 2,
-      "bbox_px": [350, 618, 954, 553],
-      "bbox_pt": [126.0, 222.48, 343.44, 199.08],
-      "image": "10-特工-仲裁者战士.png",
-      "ktdash_ids": ["IMP-AOD-WAR"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-仲裁者战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n仲裁者战士\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n自动爆矢步枪 4 3+ 3/4 洪流 1\"\n爆矢步枪 4 3+ 3/4 关键穿刺 1\n追猎者爆矢步枪（重型） 4 3+ 3/5 重型（仅限冲刺）、致命 5+、关键穿刺 1\n追猎者爆矢步枪（机动） 4 3+ 3/4 -\n双拳 4 3+ 3/4 -\n死亡天使、帝国、阿斯塔特修会、仲裁者、战士 32",
+      "weapon_types": {
+        "自动爆矢步枪": "远程",
+        "爆矢步枪": "远程",
+        "追猎者爆矢步枪（重型）": "远程",
+        "追猎者爆矢步枪（机动）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINTERCESSOR WARRIOR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nAuto bolt rifle 4 3+ 3/4 Torrent 1\"\nBolt rifle 4 3+ 3/4 Piercing Crits 1\nStalker bolt rifle (heavy) 4 3+ 3/5 Heavy (Dash only), Lethal 5+, Piercing Crits 1\nStalker bolt rifle (mobile) 4 3+ 3/4 -\nFists 4 3+ 3/4 -\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, INTERCESSOR, WARRIOR 32"
     },
     {
-      "id": "aod-011-eliminator-sniper-data",
+      "id": "imp-aod-01-11",
       "sequence": 11,
       "category": "operative",
-      "title_zh": "歼灭者狙击手",
-      "part": "data",
+      "title_zh": "歼灭者狙击手-数据卡",
+      "title_en": "ELIMINATOR SNIPER",
       "source_page": 3,
       "page_order": 3,
-      "bbox_px": [350, 1170, 954, 553],
-      "bbox_pt": [126.0, 421.2, 343.44, 199.08],
-      "image": "11-特工-歼灭者狙击手-数据卡.png",
-      "ktdash_ids": ["IMP-AOD-SNP"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-歼灭者狙击手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n歼灭者狙击手\n3 7\" 3+ 12\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢狙击步枪（处刑者） 4 2+ 3/4 重型（仅限冲刺）、集中、追踪轻型、安静\n爆矢狙击步枪（超级破片） 4 2+ 2/4 爆炸 1\"、重型（仅限冲刺）、安静\n爆矢狙击步枪（致死） 4 2+ 3/3 毁灭 3、重型（仅限冲刺）、穿刺 1、安静\n双拳 4 3+ 3/4 -\n请继续阅读背面规则\n死亡天使、帝国、阿斯塔特修会、歼灭者、狙击手 40",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "爆矢狙击步枪（处刑者）": "远程",
+        "爆矢狙击步枪（超级破片）": "远程",
+        "爆矢狙击步枪（致死）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nELIMINATOR SNIPER\n3 7\" 3+ 12\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nBolt sniper rifle (executioner) 4 2+ 3/4 Heavy (Dash only), Saturate, Seek Light, Silent\nBolt sniper rifle (hyperfrag) 4 2+ 2/4 Blast 1\", Heavy (Dash only), Silent\nBolt sniper rifle (mortis) 4 2+ 3/3 Devastating 3, Heavy (Dash only), Piercing 1,\nSilent\nFists 4 3+ 3/4 -\nRULES CONTINUE ON OTHER SIDE\nANGEL OF DEATH , IMPERIUM, ADEPTUS ASTARTES, ELIMINATOR, SNIPER 40"
     },
     {
-      "id": "aod-012-eliminator-sniper-ability",
+      "id": "imp-aod-01-12",
       "sequence": 12,
       "category": "operative-ability",
-      "title_zh": "歼灭者狙击手",
-      "part": "ability",
+      "title_zh": "歼灭者狙击手-能力卡",
+      "title_en": "ELIMINATOR SNIPER",
       "source_page": 3,
       "page_order": 4,
-      "bbox_px": [350, 1723, 954, 553],
-      "bbox_pt": [126.0, 620.28, 343.44, 199.08],
-      "image": "12-特工-歼灭者狙击手-能力卡.png",
-      "ktdash_ids": ["IMP-AOD-SNP"],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-歼灭者狙击手-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n歼灭者狙击手\n3 7\" 3+ 12\n迷彩斗篷：每当一名特工对该特工进行射击时，忽\n略“集中”武器规则。该特工拥有隐匿战团战术。\n如果您选择了这个战团战术，那么您可以一同使用\n规则的两个选项（也就是说，保留两个掩护豁免，\n一次为普通成功，另一次为关键成功)。\n瞄准 1AP\n直到该特工的下一次激活开始前，每当其进行射\n击时，敌方特工不能被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nELIMINATOR SNIPER\n3 7\" 3+ 12\nCamo Cloak: Whenever an operative is shooting this operative,\nignore the Saturate weapon rule. This operative has the Stealthy\nCHAPTER TACTIC. If you selected that CHAPTER TACTIC,\nyou can do both of its options (i.e. retain two cover saves – one\nnormal and one critical success).\nOPTICS 1AP\nUntil the start of this operative’s next activation, whenever\nit’s shooting, enemy operatives cannot be obscured.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
     },
     {
-      "id": "aod-013-team-selection-front",
-      "sequence": 13,
+      "id": "imp-aod-10-01",
+      "sequence": 1,
       "category": "team-selection",
-      "title_zh": "死亡天使杀戮小队",
-      "part": "1/2",
+      "title_zh": "死亡天使杀戮小队-1",
+      "title_en": "KILL TEAM",
       "source_page": 4,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "image": "13-小队选择-死亡天使杀戮小队-1.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-死亡天使杀戮小队-1.png",
+      "is_back": false,
+      "text": "死亡天使\n杀戮小队\n原型：安全保护，搜索与摧毁\n特工\n↘ 1 名死亡天使特工，从以下列表选择：\n• 突击仲裁者军士，从以下选项中各选择一\n件装备：\n○ 喷火手枪或者重型爆矢手枪\n○ 链锯剑，动力拳套，动力武器或者雷\n霆锤\n或者装备有以下选项：\n○ 等离子手枪；链锯剑\n• 仲裁者军士，从以下选项中各选择一件\n装备：\n○ 自动爆矢步枪、爆矢步枪或追猎者爆矢\n步枪\n○ 链锯剑，动力拳套，动力武器或者雷\n霆锤\n• 星际战士连长\n请继续阅读背面规则",
+      "text_en": "ANGELS OF DEATH\nKILL TEAM\nARCHETYPE: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 ANGEL OF DEATH operative selected from\nthe following list:\n• ASSAULT INTERCESSOR SERGEANT with\none option from each of the following:\n○ Hand flamer or heavy bolt pistol\n○ Chainsword, power fist, power weapon or\nthunder hammer\nOr the following option:\n○ Plasma pistol; chainsword\n• INTERCESSOR SERGEANT with one option\nfrom each of the following:\n○ Auto bolt rifle, bolt rifle or stalker\nbolt rifle\n○ Chainsword, fists, power fist, power\nweapon or thunder hammer\n• SPACE MARINE CAPTAIN\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "aod-014-team-selection-back",
-      "sequence": 14,
+      "id": "imp-aod-10-02",
+      "sequence": 2,
       "category": "team-selection",
-      "title_zh": "死亡天使杀戮小队",
-      "part": "2/2",
+      "title_zh": "死亡天使杀戮小队-2",
+      "title_en": "KILL TEAM",
       "source_page": 4,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "image": "14-小队选择-死亡天使杀戮小队-2.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-死亡天使杀戮小队-2.png",
+      "is_back": true,
+      "text": "↘ 5 名死亡天使特工，从以下列表选择：\n• 突击仲裁者掷弹兵\n• 突击仲裁者战士\n• 歼灭者狙击手\n• 重装仲裁者炮手\n• 仲裁者炮手，装备有附加榴弹发射器以及以\n下一种选项：\n○ 自动爆矢步枪；双拳\n○ 爆矢步枪；双拳\n○ 追猎者爆矢步枪；双拳\n• 仲裁者战士，装备有以下一种选项：\n○ 自动爆矢步枪；双拳\n○ 爆矢步枪；双拳\n○ 追猎者爆矢步枪；双拳\n除了战士特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。\n一些死亡天使规则会提及“爆矢武器”。这\n里指的是名称中带有“爆矢”一词的远程武\n器，例如追猎者爆矢步枪，重型爆矢手枪等。",
+      "text_en": "↘ 5 ANGEL OF DEATH operatives selected from\nthe following list:\n• ASSAULT INTERCESSOR GRENADIER\n• ASSAULT INTERCESSOR WARRIOR\n• ELIMINATOR SNIPER\n• HEAVY INTERCESSOR GUNNER\n• INTERCESSOR GUNNER with auxiliary\ngrenade launcher and one of the\nfollowing options:\n○ Auto bolt rifle; fists\n○ Bolt rifle; fists\n○ Stalker bolt rifle; fists\n• INTERCESSOR WARRIOR with one of the\nfollowing options:\n○ Auto bolt rifle; fists\n○ Bolt rifle; fists\n○ Stalker bolt rifle; fists\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once.\nSome ANGEL OF DEATH rules refer to a\n‘bolt weapon’. This is a ranged weapon that\nincludes ‘bolt’ in its name, e.g. stalker bolt\nrifle, heavy bolt pistol, etc."
     },
     {
-      "id": "aod-015-chapter-tactics-introduction",
-      "sequence": 15,
+      "id": "imp-aod-11-01",
+      "sequence": 1,
       "category": "faction-rule",
-      "title_zh": "战团战术",
-      "part": "说明",
+      "title_zh": "战团战术-1",
+      "title_en": "CHAPTER TACTICS",
       "source_page": 4,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "image": "15-阵营规则-战团战术-说明.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-战团战术-1.png",
+      "is_back": false,
+      "text": "死亡天使\n阵营规则\n战团战术\n每一个星际战士战团都是拥有独特战斗思维\n的武装兄弟会，其中的每一位战斗修士都拥\n有独特的技能和性格。这些战争手段可能会\n遭到千年神秘仪式的包装，但是依旧和创立\n时一样残暴有效。\n在选择您的杀戮小队时，为己方死亡天使特工\n选择一个首要和次要战团战术在战斗中生效。多\n次选择同样的战团战术不会叠加效果。\n设计师注解：如果您正在进行一系列游戏，\n例如一场战役或者比赛，那么您必须在每一场\n战斗中选择同样的首要和次要战团战术（您依\n旧可以通过“灵活战术”战略计谋来更换次\n要战术)。\n战团战术选项将在单独的卡片上表示",
+      "text_en": "ANGEL OF DEATH\nFACTION RULE\nCHAPTER TACTICS\nEach Space Marine Chapter is a martial brotherhood\nwith its own combat philosophies, suited to the unique\nskills and temperaments of its battle-brothers. These\ntenets of war may be clothed in esoteric rituals built up\nover thousands of years, but remain as brutally effective\nas when they were first laid down.\nWhen selecting your kill team, select a primary\nand secondary CHAPTER TACTIC for friendly\nANGEL OF DEATH operatives to gain for the\nbattle. Multiple instances of the same CHAPTER\nTACTIC aren’t cumulative.\nDesigner’s Note: If you’re playing a series of\ngames, i.e. a campaign or tournament, you\nmust select the same primary and secondary\nCHAPTER TACTIC for every battle (you can\nstill change the secondary with the Adaptive\nTactics strategy ploy).\nCHAPTER TACTIC OPTIONS ARE PRESENTED ON\nTHEIR OWN CARD"
     },
     {
-      "id": "aod-016-chapter-tactics-1-3",
-      "sequence": 16,
+      "id": "imp-aod-11-02",
+      "sequence": 2,
       "category": "faction-rule",
-      "title_zh": "战团战术",
-      "part": "1-3",
+      "title_zh": "战团战术-2",
+      "title_en": "CHAPTER TACTICS",
       "source_page": 4,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "image": "16-阵营规则-战团战术-1至3.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-战团战术-2.png",
+      "is_back": false,
+      "text": "死亡天使\n阵营规则\n战团战术\n1. 猛攻\n该特工的近战武器拥有“撕裂”武器规则。\n2. 决斗家\n每当该特工进行近战或反击时，您的每一次普通\n成功可以格挡一次未结算的关键成功（除非敌方\n特工的武器拥有“残暴”武器规则)。\n3. 坚决\n您可以忽略任意对该特工 APL 属性的修正，\n并且该特工不受敌方特工 “震荡”武器规则的\n影响。\n请继续阅读背面规则",
+      "text_en": "ANGEL OF DEATH\nFACTION RULE\nCHAPTER TACTICS\n1. AGGRESSIVE\nThis operative’s melee weapons have the\nRending weapon rule.\n2. DUELLER\nWhenever this operative is fighting or retaliating,\neach of your normal successes can block one\nunresolved critical success (unless the enemy\noperative’s weapon has the Brutal weapon rule).\n3. RESOLUTE\nYou can ignore any changes to this operative’s\nAPL stat and it isn’t affected by enemy\noperatives’ Shock weapon rule.\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "aod-017-chapter-tactics-4-6",
-      "sequence": 17,
+      "id": "imp-aod-11-03",
+      "sequence": 3,
       "category": "faction-rule",
-      "title_zh": "战团战术",
-      "part": "4-6",
+      "title_zh": "战团战术-3",
+      "title_en": "CHAPTER TACTICS",
       "source_page": 5,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "image": "17-阵营规则-战团战术-4至6.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-战团战术-3.png",
+      "is_back": true,
+      "text": "4. 隐匿\n每当一名特工对该特工进行射击时，如果您可以\n保留任何掩护豁免，那么您可以保留额外一次掩\n护豁免，或者将一次掩护豁免作为关键成功进行\n保留。本规则的效果不能与制高点地形提供的增\n益效果叠加。\n5. 机动\n• 该特工在执行后撤行动时可以少消耗 1AP。\n• 该特工可以在敌方特工的控制范围内执行冲\n锋行动，并且可以在这么做时离开那名特工\n的控制范围（随后照常需要满足那次移动的\n要求)。\n6. 强健\n每当一名敌方特工对该特工进行射击时，结果为\n5+ 的防御骰为关键成功。\n请继续阅读背面规则",
+      "text_en": "4. STEALTHY\nWhenever an operative is shooting this operative,\nif you can retain any cover saves, you can retain\none additional cover save, or you can retain one\ncover save as a critical success instead. This\nisn’t cumulative with improved cover saves from\nVantage terrain.\n5. MOBILE\n• This operative can perform the Fall Back action\nfor 1 less AP.\n• This operative can perform the Charge\naction while within control range of an enemy\noperative, and can leave that operative’s\ncontrol range to do so (but then normal\nrequirements for that move apply).\n6. HARDY\nWhenever an operative is shooting this operative,\ndefence dice results of 5+ are critical successes.\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "aod-018-chapter-tactics-7-8",
-      "sequence": 18,
+      "id": "imp-aod-11-04",
+      "sequence": 4,
       "category": "faction-rule",
-      "title_zh": "战团战术",
-      "part": "7-8",
+      "title_zh": "战团战术-4",
+      "title_en": "CHAPTER TACTICS",
       "source_page": 5,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "image": "18-阵营规则-战团战术-7至8.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-战团战术-4.png",
+      "is_back": true,
+      "text": "7. 神射手\n每当该特工在没有执行冲锋、后撤或转移行动的\n激活中进行射击时，其爆矢武器拥有“精准 1”\n和“严重”武器规则。\n8. 攻城战专家\n该特工的远程武器拥有“集中”武器规则。每当\n该特工进行近战或反击时，敌方特工不能进行\n协助。",
+      "text_en": "7. SHARPSHOOTER\nWhenever this operative is shooting during\nan activation in which it hasn’t performed the\nCharge, Fall Back or Reposition action, its\nbolt weapons have the Accurate 1 and Severe\nweapon rules.\n8. SIEGE SPECIALIST\nThis operative’s ranged weapons have the\nSaturate weapon rule. Whenever this operative\nis fighting or retaliating, enemy operatives\ncannot assist."
     },
     {
-      "id": "aod-019-astartes",
-      "sequence": 19,
+      "id": "imp-aod-11-05",
+      "sequence": 5,
       "category": "faction-rule",
       "title_zh": "阿斯塔特",
+      "title_en": "ASTARTES",
       "source_page": 5,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "image": "19-阵营规则-阿斯塔特.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-05-阵营规则-阿斯塔特.png",
+      "is_back": false,
+      "text": "死亡天使\n阵营规则\n阿斯塔特\n这些经受了基因强化的超人们的存在意义只\n有一个：战争。\n在每一名己方死亡天使特工的激活期间，特工\n可以执行两次近战行动或者两次射击行动。如果\n选择执行两次射击行动，那么其中至少有一次必\n须选择使用一件爆矢武器进行攻击，并且如果两\n次行动都使用了爆矢狙击步枪或重型爆矢枪进行\n攻击，那么第二次行动必须消耗额外 1AP。\n每一名己方死亡天使特工可以进行反应，无论\n其拥有的命令。",
+      "text_en": "ANGEL OF DEATH\nFACTION RULE\nASTARTES\nThese genetically modified superhumans are made for\none purpose: war.\nDuring each friendly ANGEL OF DEATH\noperative’s activation, it can perform either two\nShoot actions or two Fight actions. If it’s two\nShoot actions, a bolt weapon must be selected\nfor at least one of them, and if it’s a bolt sniper\nrifle or heavy bolter, 1 additional AP must be\nspent for the second action if both actions are\nusing that weapon.\nEach friendly ANGEL OF DEATH operative can\ncounteract regardless of its order."
     },
     {
-      "id": "aod-020-combat-doctrines",
-      "sequence": 20,
+      "id": "imp-aod-20-01",
+      "sequence": 1,
       "category": "strategic-ploy",
       "title_zh": "战斗条令",
+      "title_en": "COMBAT DOCTRINE",
       "source_page": 5,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "image": "20-战略计谋-战斗条令.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-战斗条令.png",
+      "is_back": false,
+      "text": "死亡天使\n战略计谋\n战斗条令\n星际战士十分崇敬《阿斯塔特圣典》的教\n导，利用其灵活的战术条令来歼灭敌人。\n从下方选择一个战斗条令。每当一名己方死亡天\n使特工执行选择条令描述的行动时，其武器拥\n有“平衡”武器规则。\n• 毁灭条令：对一名位于其 6\" 外的敌方特工进\n行射击。\n• 战术条令：对一名位于其 6\" 内的敌方特工进\n行射击。\n• 突击条令：近战或反击。",
+      "text_en": "ANGEL OF DEATH\nSTRATEGY PLOY\nCOMBAT DOCTRINE\nSpace Marines hold the teachings of the Codex Astartes\nin highest esteem, employing its flexible combat\ndoctrines to annihilate their enemies.\nSelect one COMBAT DOCTRINE from those\npresented below. Whenever a friendly ANGEL\nOF DEATH operative is x, its weapons have\nthe Balanced weapon rule. X is the COMBAT\nDOCTRINE you selected.\n• Devastator Doctrine: Shooting an operative\nmore than 6\" from it.\n• Tactical Doctrine: Shooting an operative within\n6\" of it.\n• Assault Doctrine: Fighting or retaliating."
     },
     {
-      "id": "aod-021-they-shall-know-no-fear",
-      "sequence": 21,
+      "id": "imp-aod-20-02",
+      "sequence": 2,
       "category": "strategic-ploy",
       "title_zh": "他们无所畏惧",
+      "title_en": "AND THEY SHALL KNOW NO FEAR",
       "source_page": 6,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "image": "21-战略计谋-他们无所畏惧.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-他们无所畏惧.png",
+      "is_back": false,
+      "text": "死亡天使\n战略计谋\n他们无所畏惧\n星际战士拥有超凡的勇气和坚定的意志，就\n算是面对究极的恐惧之物或者看似不可能的\n绝境也绝不会动摇。\n您可以忽略任何己方死亡天使特工因受创而导\n致的属性变化（包括武器数据）。",
+      "text_en": "ANGEL OF DEATH\nSTRATEGY PLOY\nAND THEY SHALL KNOW NO FEAR\nSpace Marines possess extraordinary courage and are\nutterly unflinching in the face of terrifying horrors and\noverwhelming odds.\nYou can ignore any changes to the stats of\nfriendly ANGEL OF DEATH operatives from being\ninjured (including their weapons’ stats)."
     },
     {
-      "id": "aod-022-flexible-tactics",
-      "sequence": 22,
+      "id": "imp-aod-20-03",
+      "sequence": 3,
       "category": "strategic-ploy",
       "title_zh": "灵活战术",
+      "title_en": "ADAPTIVE TACTICS",
       "source_page": 6,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "image": "22-战略计谋-灵活战术.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-灵活战术.png",
+      "is_back": false,
+      "text": "死亡天使\n战略计谋\n灵活战术\n很少由战士能够像星际战士一样灵活变通。\n他们会通过自身的经验来替代《阿斯塔特圣\n典》中的教导，及时调整自己的战略。\n更改您的次要战团战术。请注意，这个计谋的效\n果将持续至转折点结束，因此在转折点结束时会\n重新使用原本的次要战团战术。",
+      "text_en": "ANGEL OF DEATH\nSTRATEGY PLOY\nADAPTIVE TACTICS\nThere are few more tactically flexible warriors than\nthe Adeptus Astartes. Supplementing the teachings\nof the Codex Astartes with their own experience,\nSpace Marines may adjust their strategies at a\nmoment’s notice.\nChange your secondary CHAPTER TACTIC. Note\nthis ploy only lasts until the end of the turning\npoint, at which point your original secondary\nCHAPTER TACTIC returns."
     },
     {
-      "id": "aod-023-indomitable",
-      "sequence": 23,
+      "id": "imp-aod-20-04",
+      "sequence": 4,
       "category": "strategic-ploy",
       "title_zh": "不屈不挠",
+      "title_en": "INDOMITUS",
       "source_page": 6,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "image": "23-战略计谋-不屈不挠.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-不屈不挠.png",
+      "is_back": false,
+      "text": "死亡天使\n战略计谋\n不屈不挠\n现在是不屈纪元。人类帝国展开了一场驱逐\n恐惧之物的浩大远征，而阿斯塔特修会的战\n士们也因这一正义的使命而受到激励。\n每当一名特工对一名己方死亡天使特工进行射\n击时，如果您掷出了两次或更多失败，那么您可\n以将其中一次舍弃，并将另一次失败作为一次普\n通成功进行保留。",
+      "text_en": "ANGEL OF DEATH\nSTRATEGY PLOY\nINDOMITUS\nThis is the Era Indomitus. The Imperium wages\ngalaxy-spanning crusades to drive back the horrors\nthat plague it, and the battle-brothers of the Adeptus\nAstartes are spurred on by this righteous purpose.\nWhenever an operative is shooting a friendly\nANGEL OF DEATH operative, if you roll two or\nmore fails, you can discard one of them to retain\nanother as a normal success instead."
     },
     {
-      "id": "aod-024-adjust-doctrine",
-      "sequence": 24,
+      "id": "imp-aod-30-01",
+      "sequence": 1,
       "category": "firefight-ploy",
       "title_zh": "调整条令",
+      "title_en": "ADJUST DOCTRINE",
       "source_page": 6,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "image": "24-交战计谋-调整条令.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-调整条令.png",
+      "is_back": false,
+      "text": "死亡天使\n交战计谋\n调整条令\n星际战士杀戮小队为了击败敌人能够迅速调\n整自己的战略。迅速的手势信号和突然的通\n讯示意着战斗手段的切换。\n当一名己方死亡天使特工在激活期间执行一次\n行动之前或之后使用本交战计谋。如果您在当前\n转折点期间使用了“战斗条令”战略计谋，那么\n您可以更改之前选择的战斗条令。",
+      "text_en": "ANGEL OF DEATH\nFIREFIGHT PLOY\nADJUST DOCTRINE\nAdeptus Astartes kill teams adapt their strategies on the\nfly to overcome the foe. Swiftly traded hand signals and\nabrupt vox exchanges herald a shift in doctrine.\nUse this firefight ploy during a friendly ANGEL OF\nDEATH operative’s activation, before or after it\nperforms an action. If you’ve used the Combat\nDoctrine strategy ploy during this turning point,\nchange the COMBAT DOCTRINE you selected."
     },
     {
-      "id": "aod-025-transhuman-physiology",
-      "sequence": 25,
+      "id": "imp-aod-30-02",
+      "sequence": 2,
       "category": "firefight-ploy",
       "title_zh": "超人体格",
+      "title_en": "TRANSHUMAN PHYSIOLOGY",
       "source_page": 7,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "image": "25-交战计谋-超人体格.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-超人体格.png",
+      "is_back": false,
+      "text": "死亡天使\n交战计谋\n超人体格\n受到基因改造的星际战士能够承受那些足够\n将凡人杀死的伤势。\n在一名特工对一名己方死亡天使特工进行射击\n时，您可以在掷防御骰步骤中使用本交战计谋。\n您可以将一次普通成功作为关键成功进行保留。",
+      "text_en": "ANGEL OF DEATH\nFIREFIGHT PLOY\nTRANSHUMAN PHYSIOLOGY\nThe genetically modified physiology of a Space\nMarine is capable of resisting wounds that would kill a\nlesser being.\nUse this firefight ploy when an operative is\nshooting a friendly ANGEL OF DEATH operative,\nin the Roll Defence Dice step. You can retain\none of your normal successes as a critical\nsuccess instead."
     },
     {
-      "id": "aod-026-shock-assault",
-      "sequence": 26,
+      "id": "imp-aod-30-03",
+      "sequence": 3,
       "category": "firefight-ploy",
       "title_zh": "震慑突袭",
+      "title_en": "SHOCK ASSAULT",
       "source_page": 7,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "image": "26-交战计谋-震慑突袭.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-震慑突袭.png",
+      "is_back": false,
+      "text": "死亡天使\n交战计谋\n震慑突袭\n阿斯塔特修会能够以惊人的速度和力量进行\n攻击，链锯剑的响声与残暴的突袭意味着死\n亡的到来。\n当一名死亡天使特工在执行了冲锋行动的转折\n点中执行近战行动时，在结算攻击骰步骤开始时\n使用本交战计谋。直到那次行动结束前：\n• 其近战武器拥有“震荡”武器规则。\n• 您在那次流程中首次进行出击时，造成额外 1\n点伤害（最多 7 点)。",
+      "text_en": "ANGEL OF DEATH\nFIREFIGHT PLOY\nSHOCK ASSAULT\nThe Adeptus Astartes strike with exceptional speed and\nstrength, the roar of chainswords and brutal assaults\nspelling death for their foes.\nUse this firefight ploy when a friendly ANGEL OF\nDEATH operative is performing the Fight action\nduring an activation in which it performed the\nCharge action, at the start of the Resolve Attack\nDice step. Until the end of that action:\n• Its melee weapon has the Shock weapon rule.\n• The first time you strike during that sequence,\ninflict 1 additional damage (to a maximum\nof 7)."
     },
     {
-      "id": "aod-027-wrathful-vengeance",
-      "sequence": 27,
+      "id": "imp-aod-30-04",
+      "sequence": 4,
       "category": "firefight-ploy",
       "title_zh": "复仇之怒",
+      "title_en": "WRATH OF VENGEANCE",
       "source_page": 7,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "image": "27-交战计谋-复仇之怒.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-复仇之怒.png",
+      "is_back": false,
+      "text": "死亡天使\n交战计谋\n复仇之怒\n在被激怒后，一名星际战士可能会展现出惊\n人的力量和体能。\n在一名己方死亡天使特工进行反应时使用本交\n战计谋。那名特工可以在那次反应期间无消耗额\n外执行一次 1 AP 的行动，但是这两次行动必须\n不同。",
+      "text_en": "ANGEL OF DEATH\nFIREFIGHT PLOY\nWRATH OF VENGEANCE\nWhen roused to anger, a battle-brother of the Adeptus\nAstartes may be spurred to acts of extraordinary\nstrength and athleticism.\nUse this firefight ploy when a friendly ANGEL\nOF DEATH operative is counteracting. It can\nperform an additional 1AP action for free during\nthat counteraction, but both actions must\nbe different."
     },
     {
-      "id": "aod-028-purity-seal",
-      "sequence": 28,
+      "id": "imp-aod-40-01",
+      "sequence": 1,
       "category": "faction-equipment",
       "title_zh": "纯洁印章",
+      "title_en": "PURITY SEALS",
       "source_page": 7,
       "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "image": "28-阵营装备-纯洁印章.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-纯洁印章.png",
+      "is_back": false,
+      "text": "死亡天使\n阵营装备\n纯洁印章\n战团牧师会将纯洁印章授予星际战士，它们上\n面写有的祝福能够让持有者更加奋勇地作战。\n每个转折点限一次，在一名己方死亡天使特工\n进行射击、近战或反击时，如果您掷出了两次失\n败，那么您可以将其中一次舍弃，并将另一次失\n败作为普通成功进行保留。",
+      "text_en": "ANGEL OF DEATH\nFACTION EQUIPMENT\nPURITY SEALS\nAwarded by the Chapter’s Chaplains, purity seals are\ninscribed with blessings and inspire the bearer to fight\nwith increased vigour.\nOnce per turning point, when a friendly ANGEL\nOF DEATH operative is shooting, fighting or\nretaliating, if you roll two or more fails, you can\ndiscard one of them to retain another as a normal\nsuccess instead."
     },
     {
-      "id": "aod-029-blessed-blades-relic",
-      "sequence": 29,
+      "id": "imp-aod-40-02",
+      "sequence": 2,
       "category": "faction-equipment",
-      "title_zh": "凶刃圣物",
+      "title_zh": "战团圣物",
+      "title_en": "CHAPTER RELIQUARIES",
       "source_page": 8,
       "page_order": 1,
-      "bbox_px": [273, 215, 556, 960],
-      "bbox_pt": [98.28, 77.4, 200.16, 345.6],
-      "image": "29-阵营装备-凶刃圣物.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-战团圣物.png",
+      "is_back": false,
+      "text": "死亡天使\n阵营装备\n战团圣物\n许多星际战士都携带着各种由死去同伴制成的\n骇人圣物。携带着这些物品的战士为了致敬光\n荣牺牲的兄弟们会更加努力地战斗。\n在您使用“复仇之怒”交战计谋时，如果被指\n定的己方特工拥有交战命令，那么那次计谋消\n耗 0CP。",
+      "text_en": "ANGEL OF DEATH\nFACTION EQUIPMENT\nCHAPTER RELIQUARIES\nMany Space Marines bear macabre relics taken from the\nbodies of their fallen. Those who bear these inspirational\nitems fight all the harder to honour the sacrifice of\ntheir battle-brothers.\nYou can use the Wrath of Vengeance firefight ploy\nfor 0CP if the specified friendly operative has an\nEngage order."
     },
     {
-      "id": "aod-030-tilting-shield",
-      "sequence": 30,
+      "id": "imp-aod-40-03",
+      "sequence": 3,
       "category": "faction-equipment",
-      "title_zh": "偏移盾",
+      "title_zh": "偏移肩盾",
+      "title_en": "TILTING SHIELDS",
       "source_page": 8,
       "page_order": 2,
-      "bbox_px": [826, 215, 556, 960],
-      "bbox_pt": [297.36, 77.4, 200.16, 345.6],
-      "image": "30-阵营装备-偏移盾.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-偏移肩盾.png",
+      "is_back": false,
+      "text": "死亡天使\n阵营装备\n偏移肩盾\n除了展示连队和个人徽记以外，一位星际战士\n的偏移肩盾能够在近战格斗中提供保护。\n每个转折点限一次，在一名己方死亡天使特工\n进行近战或反击时，您可以在对手掷攻击骰后，\n进行重掷前使用本规则。若使用，您的对手不能\n在那次流程中将任何结果低于 6 的攻击骰作为关\n键成功进行保留（例如“致命”、“撕裂”和\n“严重”武器规则)。",
+      "text_en": "ANGEL OF DEATH\nFACTION EQUIPMENT\nTILTING SHIELDS\nAs well as displaying company colours and personal\nheraldry, a Space Marine’s tilting plate serves to protect\nthe bearer in the press of melee combat.\nOnce per turning point, when a friendly ANGEL OF\nDEATH operative is fighting or retaliating, after\nyour opponent rolls their attack dice, but before\nre-rolls, you can use this rule. If you do, your\nopponent cannot retain attack dice results of less\nthan 6 as critical successes during that sequence\n(e.g. as a result of the Lethal, Rending or Severe\nweapon rules)."
     },
     {
-      "id": "aod-031-auspex",
-      "sequence": 31,
+      "id": "imp-aod-40-04",
+      "sequence": 4,
       "category": "faction-equipment",
       "title_zh": "占卜仪",
+      "title_en": "AUSPEX",
       "source_page": 8,
       "page_order": 3,
-      "bbox_px": [273, 1168, 556, 960],
-      "bbox_pt": [98.28, 420.48, 200.16, 345.6],
-      "image": "31-阵营装备-占卜仪.png",
-      "ktdash_ids": [],
-      "text_status": "image_only_by_request"
-    },
-    {
-      "id": "aod-032-notes",
-      "sequence": 32,
-      "category": "other",
-      "title_zh": "笔记",
-      "source_page": 8,
-      "page_order": 4,
-      "bbox_px": [826, 1168, 556, 960],
-      "bbox_pt": [297.36, 420.48, 200.16, 345.6],
-      "image": "32-其他-笔记.png",
-      "ktdash_ids": [],
-      "text_status": "not_applicable"
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-占卜仪.png",
+      "is_back": false,
+      "text": "死亡天使\n阵营装备\n占卜仪\n占卜仪的种类诸多。这些扫描装置能够侦测到\n动态、分析大气情况并揭示热源反应。\n每个转折点限一次，在一名己方死亡天使特工\n执行射击行动并选择有效目标时，您可以使用本\n规则。若使用，那么直到那次激活（或反应）结\n束前，位于那名己方特工 8\" 内的敌方特工不能\n被遮挡。",
+      "text_en": "ANGEL OF DEATH\nFACTION EQUIPMENT\nAUSPEX\nAuspexes come in many forms. These scanning devices\ncan detect motion, analyse atmospheric conditions and\nreveal heat signatures.\nOnce per turning point, when a friendly ANGEL\nOF DEATH operative performs the Shoot action\nand you’re selecting a valid target, you can use\nthis rule. If you do, until the end of the activation/\ncounteraction, enemy operatives within 8\" of that\nfriendly operative cannot be obscured."
     }
   ]
 }

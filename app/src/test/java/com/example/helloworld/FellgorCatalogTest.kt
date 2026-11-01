@@ -21,4 +21,15 @@ class FellgorCatalogTest {
         assertTrue(WeaponActions.isMelee("chaos_fell_mng_vc_0"))
         assertTrue(!WeaponActions.isMelee("chaos_fell_sha_tc_0"))
     }
+
+    @Test fun everyFellgorOperativeExposesPersonalAbilitiesAlongsideFrenzy() {
+        FellgorCatalog.team.operatives.forEach { op ->
+            val personal = RuleOrganization.personalAbilities(op.id)
+            assertTrue("Expected personal abilities for ${op.name}", personal.isNotEmpty())
+            assertTrue(personal.none { it.factionRule })
+            assertEquals("恶角兽掠夺者", op.keywords.firstOrNull())
+        }
+        val shamanPersonal = RuleOrganization.personalAbilities("chaos_fell_sha").map { it.name }
+        assertEquals(listOf("暴怒再生", "黑暗之衣"), shamanPersonal)
+    }
 }

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《战锤 40K：杀戮小队》战术控制台 — 三套全新 UI 设计方案总览</title>
+<style>
+  :root {
+    --bg: #08090C;
+    --card: #12151E;
+    --line: #283042;
+    --ink: #F2F4F8;
+    --muted: #949EB2;
+    --orange: #FF5500;
+    --green: #42E66C;
+    --gold: #E6C165;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+    padding: 32px 24px 64px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  header {
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  h1 { font-size: 26px; font-weight: 900; letter-spacing: 0.03em; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .scheme-block {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 24px;
+    margin-bottom: 36px;
+  }
+  .scheme-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 20px;
+  }
+  .scheme-links { display: flex; gap: 10px; }
+  .btn-link {
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #08090C;
+    background: var(--orange);
+  }
+  .btn-link.s2 { background: var(--green); }
+  .btn-link.s3 { background: var(--gold); }
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 280px 280px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .preview-item {
+    background: #0B0D13;
+    border: 1px solid var(--line);
+    padding: 10px;
+  }
+  .preview-item h4 {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .preview-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #1E2433;
+  }
+  .assets-strip {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .assets-strip img {
+    height: 68px;
+    border: 1px solid var(--line);
+    background: #090B10;
+    padding: 3px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div style="color:var(--orange);font-size:12px;font-weight:800;letter-spacing:0.14em;">WARHAMMER 40,000: KILL TEAM // UI DESIGN PROPOSALS</div>
+    <h1>《杀戮小队》战术控制台 · 三套全新 UI 备选方案（手机版 + 平板版）</h1>
+    <p class="subtitle">突破原有表单布局，专为战棋桌面单手搓屏与平板全景指挥打造 · 内含专门生成的战锤 40K 装饰图素包</p>
+  </div>
+</header>
+
+<!-- SCHEME 1 -->
+<section class="scheme-block" style="border-top: 3px solid var(--orange);">
+  <div class="scheme-head">
+    <div>
+      <h2 style="color:var(--orange);">方案一：KT24 战术竞技场（Spec-Ops Tactical HUD · 官方三版现代军工风）</h2>
+      <p class="subtitle">45° 斜切八边形几何 · 高对比信号橙 vs 战术冰青 · 分段式装甲耐伤格 · 手机底部单手拇指战术甲板 + 平板三栏同屏指挥台</p>
+    </div>
+    <div class="scheme-links">
+      <a class="btn-link" href="方案一_KT24战术竞技场/phone.html" target="_blank">📱 打开手机版交互原型</a>
+      <a class="btn-link" href="方案一_KT24战术竞技场/tablet.html" target="_blank">💻 打开平板版交互原型</a>
+    </div>
+  </div>
+  <div class="preview-grid">
+    <div class="preview-item">
+      <h4><span>手机版：对局主控台</span><span>412×892</span></h4>
+      <img src="方案一_KT24战术竞技场/previews/phone_battle.png" alt="方案一手机对局">
+    </div>
+    <div class="preview-item">
+      <h4><span>手机版：激光配对攻防台</span><span>412×892</span></h4>
+      <img src="方案一_KT24战术竞技场/previews/phone_combat.png" alt="方案一手机攻防">
+    </div>
+    <div class="preview-item">
+      <h4><span>平板版：1280×800 横屏三栏同屏全景指挥台</span><span>零跳转同屏结算</span></h4>
+      <img src="方案一_KT24战术竞技场/previews/tablet_command.png" alt="方案一平板指挥台">
+    </div>
+  </div>
+  <div class="assets-strip">
+    <span style="font-size:12px;color:var(--muted);font-weight:700;">专属生成装饰图素：</span>
+    <img src="方案一_KT24战术竞技场/assets/hero_killzone_banner.jpg" alt="">
+    <img src="方案一_KT24战术竞技场/assets/emblem_specops_skull.jpg" alt="">
+    <img src="方案一_KT24战术竞技场/assets/texture_carbon_armor.jpg" alt="">
+    <img src="方案一_KT24战术竞技场/assets/token_engage.svg" alt="">
+    <img src="方案一_KT24战术竞技场/assets/token_conceal.svg" alt="">
+  </div>
+</section>
+
+<!-- SCHEME 2 -->
+<section class="scheme-block" style="border-top: 3px solid var(--green);">
+  <div class="scheme-head">
+    <div>
+      <h2 style="color:var(--green);">方案二：机械教沉思者终端（Adeptus Mechanicus Auspex & Cogitator · 鸟卜仪与重装甲风）</h2>
+      <p class="subtitle">做旧铆钉黄铜装甲框 · 真空辉光数码管（Nixie）计分 · CRT 荧光绿雷达舷窗 + 生命体征 VITAL% · 双通道弹道示波器</p>
+    </div>
+    <div class="scheme-links">
+      <a class="btn-link s2" href="方案二_机械教沉思者终端/phone.html" target="_blank">📱 打开手机版交互原型</a>
+      <a class="btn-link s2" href="方案二_机械教沉思者终端/tablet.html" target="_blank">💻 打开平板版交互原型</a>
+    </div>
+  </div>
+  <div class="preview-grid">
+    <div class="preview-item">
+      <h4><span>手机版：掌上鸟卜仪生命监测</span><span>412×892</span></h4>
+      <img src="方案二_机械教沉思者终端/previews/phone_battle.png" alt="方案二手机对局">
+    </div>
+    <div class="preview-item">
+      <h4><span>手机版：弹道沉思者结算</span><span>412×892</span></h4>
+      <img src="方案二_机械教沉思者终端/previews/phone_combat.png" alt="方案二手机攻防">
+    </div>
+    <div class="preview-item">
+      <h4><span>平板版：1280×800 大贤者舰桥级双联沉思者控制台</span><span>内嵌雷达与双示波器</span></h4>
+      <img src="方案二_机械教沉思者终端/previews/tablet_command.png" alt="方案二平板指挥台">
+    </div>
+  </div>
+  <div class="assets-strip">
+    <span style="font-size:12px;color:var(--muted);font-weight:700;">专属生成装饰图素：</span>
+    <img src="方案二_机械教沉思者终端/assets/auspex_radar_dial.jpg" alt="">
+    <img src="方案二_机械教沉思者终端/assets/emblem_cog_mechanicum.jpg" alt="">
+    <img src="方案二_机械教沉思者终端/assets/header_cogitator_plate.jpg" alt="">
+    <img src="方案二_机械教沉思者终端/assets/crt_reticle_overlay.svg" alt="">
+  </div>
+</section>
+
+<!-- SCHEME 3 -->
+<section class="scheme-block" style="border-top: 3px solid var(--gold);">
+  <div class="scheme-head">
+    <div>
+      <h2 style="color:var(--gold);">方案三：帝国审判庭圣契（Inquisitorial Dataslate & Codex · 哥特圣物与羊皮纸卡册风）</h2>
+      <p class="subtitle">黑曜石镶金双头鹰拱门 · 做旧羊皮纸实体数据卡四格属性窗 · 猩红火漆纯度印章（Purity Seals）状态挂载 · 对开本《战区圣典》</p>
+    </div>
+    <div class="scheme-links">
+      <a class="btn-link s3" href="方案三_帝国审判庭圣契/phone.html" target="_blank">📱 打开手机版交互原型</a>
+      <a class="btn-link s3" href="方案三_帝国审判庭圣契/tablet.html" target="_blank">💻 打开平板版交互原型</a>
+    </div>
+  </div>
+  <div class="preview-grid">
+    <div class="preview-item">
+      <h4><span>手机版：圣契羊皮纸数据卡册</span><span>412×892</span></h4>
+      <img src="方案三_帝国审判庭圣契/previews/phone_battle.png" alt="方案三手机对局">
+    </div>
+    <div class="preview-item">
+      <h4><span>手机版：白刃与远程圣裁祭坛</span><span>412×892</span></h4>
+      <img src="方案三_帝国审判庭圣契/previews/phone_combat.png" alt="方案三手机攻防">
+    </div>
+    <div class="preview-item">
+      <h4><span>平板版：1280×800 对开本《战区圣典》与哥特圣裁祭坛</span><span>左右双卷 + 中央黑曜石祭坛</span></h4>
+      <img src="方案三_帝国审判庭圣契/previews/tablet_command.png" alt="方案三平板指挥台">
+    </div>
+  </div>
+  <div class="assets-strip">
+    <span style="font-size:12px;color:var(--muted);font-weight:700;">专属生成装饰图素：</span>
+    <img src="方案三_帝国审判庭圣契/assets/header_imperial_aquila.jpg" alt="">
+    <img src="方案三_帝国审判庭圣契/assets/badge_purity_seal.jpg" alt="">
+    <img src="方案三_帝国审判庭圣契/assets/texture_aged_parchment.jpg" alt="">
+    <img src="方案三_帝国审判庭圣契/assets/aquila_crest_gold.svg" alt="">
+    <img src="方案三_帝国审判庭圣契/assets/seal_wax_ribbon.svg" alt="">
+  </div>
+</section>
+
+</body>
+</html>

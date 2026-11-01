@@ -136,10 +136,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_tray_clean"
                     android:contentDescription="@null"
-                    android:importantForAccessibility="no"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/bg_tray_clean" />
+                    android:importantForAccessibility="no" />
 
                 <com.example.helloworld.DiceTrayView
                     android:id="@+id/attackDiceTray"
@@ -158,10 +157,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@drawable/bg_tray_clean"
                     android:contentDescription="@null"
-                    android:importantForAccessibility="no"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/bg_tray_clean" />
+                    android:importantForAccessibility="no" />
 
                 <com.example.helloworld.DiceTrayView
                     android:id="@+id/defenceDiceTray"

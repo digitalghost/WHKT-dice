@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案三：帝国审判庭圣契 — 平板版 UI (Illuminated Grand Codex & Altar of Judgment)</title>
+<style>
+  :root {
+    --obsidian: #0E0B08;
+    --gold-bright: #F5D77F;
+    --gold-mid: #C99E42;
+    --gold-dark: #6E531E;
+    --crimson: #8E1616;
+    --parchment: #E8DEC8;
+    --ink-dark: #1A140E;
+    --ink-muted: #5A4934;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #060504;
+    color: var(--parchment);
+    font-family: "Georgia", "Songti SC", "STSong", "PingFang SC", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+  }
+  .showcase-label {
+    font-size: 12px;
+    color: var(--gold-bright);
+    border: 1px solid var(--gold-mid);
+    background: #1C150D;
+    padding: 5px 14px;
+    margin-bottom: 12px;
+    font-weight: 800;
+  }
+
+  /* Tablet Frame (1280 x 800) - Open Illuminated Grand Codex */
+  .tablet-frame {
+    width: 1280px;
+    height: 800px;
+    background: var(--obsidian);
+    border: 4px solid var(--gold-mid);
+    box-shadow: inset 0 0 0 3px #2D2111, 0 28px 90px rgba(0,0,0,0.95);
+    display: grid;
+    grid-template-rows: 92px 1fr 56px;
+    overflow: hidden;
+  }
+
+  /* Grand Aquila Cathedral Header */
+  .grand-aquila-top {
+    background: url('assets/header_imperial_aquila.jpg') center/cover no-repeat;
+    border-bottom: 3px solid var(--gold-mid);
+    position: relative;
+    display: grid;
+    grid-template-columns: 380px 1fr 380px;
+    align-items: center;
+    padding: 0 20px;
+  }
+  .grand-aquila-top::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(14,11,8,0.92) 0%, rgba(14,11,8,0.55) 50%, rgba(14,11,8,0.92) 100%);
+  }
+  .aquila-wing { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; }
+  .aquila-wing.right { justify-content: flex-end; text-align: right; }
+  .aquila-center { position: relative; z-index: 1; text-align: center; }
+
+  .wax-score-pill {
+    background: var(--crimson);
+    border: 1.5px solid var(--gold-bright);
+    color: var(--gold-bright);
+    padding: 4px 10px;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+  }
+  .gold-cp-pill {
+    background: #261D12;
+    border: 1.5px solid var(--gold-mid);
+    color: var(--parchment);
+    padding: 4px 10px;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+  }
+
+  /* Open Two-Page Illuminated Tome + Center Altar Layout */
+  .codex-spread {
+    display: grid;
+    grid-template-columns: 330px minmax(0, 1fr) 330px;
+    gap: 12px;
+    padding: 12px 14px;
+    background: radial-gradient(circle at 50% 50%, #241B12, #0E0B08);
+    overflow: hidden;
+  }
+
+  /* Left & Right Parchment Folio Pages */
+  .folio-page {
+    background: url('assets/texture_aged_parchment.jpg') center/cover;
+    color: var(--ink-dark);
+    border: 3px solid var(--gold-mid);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.85), inset 0 0 18px rgba(90,65,30,0.35);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    overflow-y: auto;
+  }
+  .folio-heading {
+    background: linear-gradient(90deg, var(--crimson) 0%, #4E0C0C 100%);
+    color: var(--gold-bright);
+    border: 1px solid var(--gold-mid);
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+    font-size: 12px;
+  }
+  .folio-card {
+    background: rgba(255, 250, 240, 0.86);
+    border: 1.5px solid #7C6032;
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+  }
+  .folio-card.active-decree {
+    border: 2px solid var(--crimson);
+    background: rgba(255, 238, 215, 0.92);
+    box-shadow: 0 3px 10px rgba(142,22,22,0.25);
+  }
+  .folio-card img {
+    width: 48px;
+    height: 52px;
+    object-fit: cover;
+    border: 1.5px solid #4A3718;
+  }
+  .folio-mini-stats {
+    display: flex;
+    gap: 6px;
+    font-family: sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--ink-muted);
+    margin-top: 3px;
+  }
+  .seal-tag-inline {
+    display: inline-block;
+    margin-top: 4px;
+    background: var(--crimson);
+    color: var(--gold-bright);
+    font-family: sans-serif;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 1px 6px;
+  }
+
+  /* Center Obsidian Altar of Judgment */
+  .obsidian-altar {
+    background: #14100C;
+    border: 2px solid var(--gold-mid);
+    padding: 12px 14px;
+    display: grid;
+    grid-template-rows: auto 1fr 145px;
+    gap: 10px;
+  }
+  .altar-banner {
+    background: linear-gradient(90deg, #4E0E0E, #1F1710 50%, #162E42);
+    border: 1.5px solid var(--gold-mid);
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .scales-of-judgment {
+    display: grid;
+    grid-template-columns: 1fr 150px 1fr;
+    gap: 10px;
+  }
+  .reliquary-tray {
+    background: #0B0907;
+    border: 1.5px solid var(--gold-dark);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .reliquary-dice {
+    display: flex;
+    gap: 8px;
+    margin: 6px 0;
+    font-family: sans-serif;
+  }
+  .gothic-die {
+    width: 52px;
+    height: 52px;
+    background: #231B12;
+    border: 2px solid var(--gold-mid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--parchment);
+  }
+  .gothic-die.crit {
+    background: var(--crimson);
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+  }
+  .wax-verdict-column {
+    background: url('assets/texture_aged_parchment.jpg') center/cover;
+    color: var(--ink-dark);
+    border: 2px solid var(--gold-mid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    text-align: center;
+    gap: 5px;
+  }
+
+  /* Illuminated Chronicle & Rubric Scripture */
+  .scripture-split {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 10px;
+  }
+  .chronicle-box, .rubric-box {
+    background: linear-gradient(rgba(244, 235, 215, 0.92), rgba(232, 218, 190, 0.92)), url('assets/texture_aged_parchment.jpg') center/cover;
+    color: var(--ink-dark);
+    border: 1.5px solid var(--gold-mid);
+    padding: 8px 10px;
+    font-size: 11px;
+    font-family: sans-serif;
+  }
+
+  .codex-footer {
+    background: #140F0A;
+    border-top: 2px solid var(--gold-mid);
+    padding: 0 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  .relic-pill {
+    background: #241B12;
+    border: 1px solid var(--gold-mid);
+    color: var(--gold-bright);
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+</style>
+</head>
+<body>
+
+<div class="showcase-label">方案三 · 帝国审判庭圣契 — 平板横屏对开本《战区圣典》与哥特圣裁祭坛 (1280×800)</div>
+
+<div class="tablet-frame">
+  <!-- Grand Aquila Cathedral Header -->
+  <header class="grand-aquila-top">
+    <div class="aquila-wing">
+      <img src="assets/badge_purity_seal.jpg" alt="" style="width:52px;height:52px;border:1.5px solid var(--gold-mid);">
+      <div>
+        <div style="font-size:15px;font-weight:900;color:var(--gold-bright);">洁天使隐伏者 (CELESTIAN INSIDIANTS)</div>
+        <div style="font-size:11px;color:var(--parchment);">★ 先手权圣令持有 · 信仰护盾激活</div>
+      </div>
+      <span class="gold-cp-pill">4 CP</span>
+      <span class="wax-score-pill">6 VP</span>
+    </div>
+
+    <div class="aquila-center">
+      <div style="font-size:10px;letter-spacing:0.18em;color:var(--gold-bright);">++ LIBER TACTICA // TURNING POINT II ++</div>
+      <div style="font-size:19px;font-weight:900;color:#FFF7E4;">第二转折点 · 交战圣裁进行中</div>
+    </div>
+
+    <div class="aquila-wing right">
+      <span class="wax-score-pill" style="background:#1E3F5A;">4 VP</span>
+      <span class="gold-cp-pill">3 CP</span>
+      <div>
+        <div style="font-size:15px;font-weight:900;color:#9CC4E4;">次元密会 (WARPCOVEN)</div>
+        <div style="font-size:11px;color:var(--parchment);">秘密主要行动已封印 · 击杀等级 1</div>
+      </div>
+      <img src="../shared-portraits/team_mark_chaos_fell.png" alt="" style="width:52px;height:52px;border:1.5px solid var(--gold-mid);background:#140F0A;padding:4px;">
+    </div>
+  </header>
+
+  <!-- Open Two-Page Illuminated Tome + Center Obsidian Altar -->
+  <main class="codex-spread">
+    <!-- Left Folio: Order of Battle Alpha -->
+    <section class="folio-page">
+      <div class="folio-heading">
+        <span>⚜ 左卷：洁天使隐伏者编成录 (6/6)</span>
+        <span>圣勉标记: 3</span>
+      </div>
+
+      <article class="folio-card active-decree">
+        <img src="../shared-portraits/roster_aod_captain.webp" alt="">
+        <div>
+          <div style="font-weight:900;font-size:13px;">洁天使高阶修女 [激活中]</div>
+          <div class="folio-mini-stats"><span>APL 3</span>·<span>移动 6"</span>·<span>豁免 3+</span></div>
+          <span class="seal-tag-inline">🏵️ 纯度印章：圣勉光环 + 殉道荣光</span>
+        </div>
+        <div style="font-family:sans-serif;font-weight:900;color:var(--crimson);font-size:15px;">10/10</div>
+      </article>
+
+      <article class="folio-card">
+        <img src="../shared-portraits/roster_aod_sniper.webp" alt="">
+        <div>
+          <div style="font-weight:900;font-size:13px;">圣物执旗修女</div>
+          <div class="folio-mini-stats"><span>APL 2</span>·<span>移动 6"</span>·<span>豁免 3+</span></div>
+          <span class="seal-tag-inline">🏵️ 纯度印章：神圣圣髑匣 (忽略1伤)</span>
+        </div>
+        <div style="font-family:sans-serif;font-weight:900;color:var(--ink-dark);font-size:15px;">09/09</div>
+      </article>
+
+      <article class="folio-card">
+        <img src="../shared-portraits/roster_aod_heavy_gunner.webp" alt="">
+        <div>
+          <div style="font-weight:900;font-size:13px;color:var(--crimson);">焚罪修女喷火手 [▲受创]</div>
+          <div class="folio-mini-stats"><span>APL 2</span>·<span>移动 4"▼</span>·<span>豁免 3+</span></div>
+        </div>
+        <div style="font-family:sans-serif;font-weight:900;color:var(--crimson);font-size:15px;">03/09</div>
+      </article>
+
+      <article class="folio-card" style="opacity:0.6;">
+        <img src="../shared-portraits/roster_aod_sergeant.webp" alt="">
+        <div>
+          <div style="font-weight:900;font-size:13px;">暗影审讯修女 [已待机]</div>
+          <div class="folio-mini-stats"><span>APL 2</span>·<span>移动 6"</span>·<span>豁免 3+</span></div>
+        </div>
+        <div style="font-family:sans-serif;font-weight:900;color:var(--ink-dark);font-size:15px;">08/09</div>
+      </article>
+    </section>
+
+    <!-- Center Obsidian Altar of Judgment -->
+    <section class="obsidian-altar">
+      <div class="altar-banner">
+        <div>
+          <div style="font-size:10px;color:var(--gold-bright);letter-spacing:0.12em;">ALTAR OF COMBAT JUDGMENT // 白刃格斗圣裁</div>
+          <div style="font-size:16px;font-weight:900;">洁天使高阶修女 [圣物动力剑] ⚔ 亚空间炽焰巫师 [星界法杖]</div>
+          <div style="font-size:11px;color:#C8BCA6;font-family:sans-serif;">高阶修女：4A 2+ 4/6 (致命5+ · 严重) ｜ 炽焰巫师：4A 3+ 3/5 (震荡)</div>
+        </div>
+        <img src="assets/seal_wax_ribbon.svg" alt="" style="width:42px;height:52px;">
+      </div>
+
+      <div class="scales-of-judgment">
+        <div class="reliquary-tray">
+          <div style="font-size:11px;color:var(--gold-bright);font-weight:800;">⚜ 主动方圣匣 (2 暴击 · 1 普通)</div>
+          <div class="reliquary-dice">
+            <div class="gothic-die crit"><strong>6</strong><span style="font-size:9px;">★出击 6伤</span></div>
+            <div class="gothic-die crit"><strong>5</strong><span style="font-size:9px;">★致命 5+</span></div>
+            <div class="gothic-die"><strong>4</strong><span style="font-size:9px;">普通 4伤</span></div>
+          </div>
+          <div style="font-size:10px;color:#A89A82;font-family:sans-serif;">点选一枚成功骰：直接「出击扣血」或「格挡敌方成功」</div>
+        </div>
+
+        <div class="wax-verdict-column">
+          <img src="assets/badge_purity_seal.jpg" alt="" style="width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold-mid);">
+          <div style="font-size:11px;font-weight:900;color:var(--crimson);">当前轮到高阶修女</div>
+          <button style="background:var(--crimson);color:var(--gold-bright);border:1px solid var(--gold-mid);padding:6px 10px;font-weight:900;font-size:11px;width:100%;cursor:pointer;">⚔ 出击 (-6 HP)</button>
+          <button style="background:#2A2016;color:var(--parchment);border:1px solid var(--gold-mid);padding:5px 10px;font-weight:800;font-size:11px;width:100%;cursor:pointer;">🛡 格挡敌方暴击</button>
+        </div>
+
+        <div class="reliquary-tray">
+          <div style="font-size:11px;color:#9CC4E4;font-weight:800;">◈ 防御方圣匣 (1 暴击 · 1 普通)</div>
+          <div class="reliquary-dice">
+            <div class="gothic-die" style="border-color:#5A8EB8;"><strong>6</strong><span style="font-size:9px;">★暴击 5伤</span></div>
+            <div class="gothic-die" style="border-color:#5A8EB8;"><strong>4</strong><span style="font-size:9px;">普通 3伤</span></div>
+          </div>
+          <div style="font-size:10px;color:#A89A82;font-family:sans-serif;">支持「切换先手结算方」与「殉道荣光残废后反击」</div>
+        </div>
+      </div>
+
+      <div class="scripture-split">
+        <div class="chronicle-box">
+          <div style="font-weight:900;color:var(--crimson);margin-bottom:3px;">📜 圣战编年史（撤回留痕卷宗）</div>
+          <div>· [近战] 高阶修女 触发「圣勉光环」，普通 4 升格为暴击 5+</div>
+          <div style="text-decoration:line-through;opacity:0.55;">· [重投] 炽焰巫师 指挥重掷 1 → 3（↶ 已加盖赦免撤回印）</div>
+          <div>· [冲锋] 高阶修女 发起冲锋抵近亚空间炽焰巫师 (1 AP)</div>
+        </div>
+        <div class="rubric-box">
+          <div style="display:flex;justify-content:space-between;font-weight:900;color:var(--crimson);margin-bottom:3px;">
+            <span>ⓘ 圣典律法原文 · 震荡 (Shock)</span>
+            <span>PDF P.111</span>
+          </div>
+          <p style="line-height:1.4;">你在一次近战中第一次用暴击成功出击时，同时弃掉对手一枚未结算的普通成功（若无普通成功则弃掉一枚暴击成功）。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Folio: Order of Battle Omega -->
+    <section class="folio-page">
+      <div class="folio-heading" style="background:linear-gradient(90deg, #1E3F5A 0%, #0F2233 100%);color:var(--gold-bright);">
+        <span>◈ 右卷：次元密会编成录 (5/6)</span>
+        <span>诡道恩赐: 激活</span>
+      </div>
+
+      <article class="folio-card active-decree" style="border-color:#1E3F5A;">
+        <img src="../shared-portraits/roster_pm_plaguecaster.webp" alt="">
+        <div>
+          <div style="font-weight:900;font-size:13px;">亚空间炽焰巫师 [格斗中]</div>
+          <div class="folio-mini-stats"><span>APL 3</span>·<span>移动 6"</span>·<span>豁免 3+</span></div>
+          <span class="seal-tag-inline" style="background:#1E3F5A;">🏵️ 巫师兄弟会 · 灵能护盾</span>
+        </div>
+        <div style="font-family:sans-serif;font-weight:900;color:var(--crimson);font-size:15px;">09/15</div>
+      </article>
+
+      <article class="folio-card">
+        <img src="../shared-portraits/roster_pm_champion.webp" alt="">
+        <div>
+          <div style="font-weight:900;font-size:13px;">命运巫师</div>
+          <div class="folio-mini-stats"><span>APL 3</span>·<span>移动 6"</span>·<span>豁免 3+</span></div>
+          <span class="seal-tag-inline" style="background:#1E3F5A;">🏵️ 命运织网 · 改判预留</span>
+        </div>
+        <div style="font-family:sans-serif;font-weight:900;color:var(--ink-dark);font-size:15px;">15/15</div>
+      </article>
+
+      <article class="folio-card">
+        <img src="../shared-portraits/roster_pm_bombardier.webp" alt="">
+        <div>
+          <div style="font-weight:900;font-size:13px;">红字战士灵魂收割炮手</div>
+          <div class="folio-mini-stats"><span>APL 2</span>·<span>移动 5"</span>·<span>豁免 2+</span></div>
+        </div>
+        <div style="font-family:sans-serif;font-weight:900;color:var(--ink-dark);font-size:15px;">14/14</div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Bottom Reliquary Footer -->
+  <footer class="codex-footer">
+    <div style="display:flex;gap:10px;">
+      <span class="relic-pill">🎲 圣物骰盘 (D6/D3)</span>
+      <span class="relic-pill">📖 48 支小队完整羊皮纸卡册</span>
+      <span class="relic-pill">🏵️ 加盖规则例外纯度印章 (借用武器 / 替换数据卡 / 插入激活)</span>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <span class="relic-pill" style="background:var(--crimson);">⚜ 完成圣裁并轮转激活 ⟫</span>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,964 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-HIEROTEK_CIRCLE",
+  "team_name_zh": "神圣技师之环",
+  "team_name_en": "Hierotek Circle",
+  "source_pdf": "最新杀戮小队规则更新/神圣技师之环 Hierotek Circle 杀戮小队规则.pdf",
+  "source_pdf_sha256": "112fad036b966d36b637d7ae3eed4d555f4128aa7c45c2a285640a41dc409678",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 36,
+    "operative": 9,
+    "operative-ability": 8,
+    "team-selection": 2,
+    "faction-rule": 4,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-hierotek_circle-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "时间技师-数据卡",
+      "title_en": "CHRONOMANCER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-时间技师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n时间技师\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n时光法杖（远程） 5 3+ 3/3 爆炸 2\"、致命 5+、眩晕、增幅*\n朽灭之矛（远程） 4 3+ 5/3 毁灭 3、穿刺 1、增幅*\n时光法杖（近战） 4 4+ 3/4 致命 5+、震荡\n朽灭之矛（近战） 4 4+ 3/6 -\n时间技师行动将在单独的卡片上进行说明\n神圣技师之环、太空死灵、队长、冥工技师、时间技师 40",
+      "weapon_types": {
+        "时光法杖（远程）": "远程",
+        "朽灭之矛（远程）": "远程",
+        "时光法杖（近战）": "近战",
+        "朽灭之矛（近战）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCHRONOMANCER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nAeonstave (ranged) 5 3+ 3/3 Blast 2\", Lethal 5+, Stun, Magnify*\nEntropic lance (ranged) 4 3+ 5/3 Devastating 3, Piercing 1, Magnify*\nAeonstave (melee) 4 4+ 3/4 Lethal 5+, Shock\nEntropic lance (melee) 4 4+ 3/6 -\nCHRONOMANCER ACTIONS ARE PRESENTED ON THEIR OWN CARDS\nHIEROTEK CIRCLE , NECRON, LEADER, CRYPTEK, CHRONOMANCER 40"
+    },
+    {
+      "id": "kt-hierotek_circle-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "时间技师-能力卡1",
+      "title_en": "CHRONOMANCER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-时间技师-能力卡1.png",
+      "is_back": false,
+      "text": "时间技师行动\n植入命令 1AP\n支援。选择位于该特工 6\" 内且对其可见，或者\n位于对该特工可见的己方君主特工 6\" 内且对该\n特工可见的另一名己方神圣技师之环特工（仆\n从技师和冥工技师除外)。被选择的特工可以立\n即无消耗执行一次 1AP 的行动；特工在那次行\n动中不能移动超过 2\"，在移除并再次部署时也必\n须完全位于原先位置的 2\" 内，也不能执行在转\n折点中已经执行过的行动，或者在转折点中再次\n执行那个行动。\n该特工不能在敌方特工的控制范围内执行本行动，\n也不能在进行反应时执行本行动。\n时间分裂 1AP\n选择一名位于该特工 5\" 内且对其可见的另一名\n己方待机神圣技师之环特工。将那名特工移出\n杀戮区，并将其再次部署在位于该特工 5\" 内（\n只测量水平距离）且可见的一个可部署的位置\n上。在每个转折点中，每个己方特工只能被本规\n则选中一次。请注意，通讯设备通用装备只会影\n响本规则的第一个距离。\n该特工不能在敌方特工的控制范围内执行本行动，\n也不能在第一转折点中，或者在己方特工已经在当\n前转折点中执行了本行动的情况下执行本行动。",
+      "text_en": "CHRONOMANCER ACTIONS\nINTERSTITIAL COMMAND 1AP\nSUPPORT. Select one other friendly HIEROTEK\nCIRCLE operative (excluding APPRENTEK and\nCRYPTEK) visible to and within 6\" of this operative, or\nvisible to and within 6\" of a friendly DESPOTEK operative\nthat’s visible to this operative. That selected operative can\nimmediately perform a 1AP action for free; it cannot move\nmore than or be removed and set up more than 2\" during\nthat action, perform an action it’s already performed during\nthis turning point, or perform that action again during this\nturning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or while counteracting.\nTIMESPLINTER 1AP\nSelect one other expended friendly HIEROTEK CIRCLE\noperative visible to and within 5\" of this operative. Remove\nit from the killzone and set it back up visible to and within 5\"\nhorizontally of this operative, in a location it can be placed.\nNote that a Comms Device from universal equipment only\naffects the first distance of this rule.\nThis operative cannot perform this action while within control\nrange of an enemy operative, during the first turning point,\nor if a friendly operative has already performed this action\nduring this turning point."
+    },
+    {
+      "id": "kt-hierotek_circle-01-03",
+      "sequence": 3,
+      "category": "operative-ability",
+      "title_zh": "时间技师-能力卡2",
+      "title_en": "CHRONOMANCER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工能力-时间技师-能力卡2.png",
+      "is_back": false,
+      "text": "时间技师行动\n时反纳米地雷 1AP\n将己方时反纳米地雷标识放置在对该特工可见且\n位于这名特工 8\" 内的位置，或者对该特工可见\n且位于这名特工 8\" 内的地形模型的制高点地形\n上。当敌方特工位于己方时反纳米地雷标识的\n4\" 内时，其移动属性减少 2\"。在该特工下一次\n被激活、被残废或者有己方特工再次执行本行动\n时（以先满足的条件为准)，将标识移除。\n该特工不能在敌方特工的控制范围内执行本行动。\n精密时计 1AP\n支援。选择位于该特工 6\" 内且对其可见的一名\n己方神圣技师之环特工。直到该特工的下一次\n激活开始前，直到该特工被残废或者有己方特工\n再次执行本行动时（以先满足的条件为准)，对\n被选择的特工进行射击的特工的武器攻击属性\n减少 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "CHRONOMANCER ACTIONS\nCOUNTERTEMPORAL NANOMINE 1AP\nPlace your Countertemporal Nanomine marker visible to\nand within 8\" of this operative, or within 8\" of this operative\nand on Vantage terrain of a terrain feature that’s visible to\nthis operative. Whenever an enemy operative is within 4\"\nof your Countertemporal Nanomine marker, subtract 2\"\nfrom its Move stat. When this operative is next activated, is\nincapacitated or this action is performed again by a friendly\noperative (whichever comes first), remove that marker.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nCHRONOMETRON 1AP\nSUPPORT. Select one friendly HIEROTEK CIRCLE\noperative visible to and within 6\" of this operative. Until the\nstart of this operative’s next activation, until this operative\nis incapacitated or until this action is performed again by a\nfriendly operative (whichever comes first), subtract 1 from\nthe Atk stat of an operative’s weapons whenever it’s shooting\nthat selected operative.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hierotek_circle-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "精神技师-数据卡",
+      "title_en": "PSYCHOMANCER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-精神技师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n精神技师\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n深渊长枪（远程） 5 3+ 2/2 爆炸 2\"、毁灭 1、穿刺 2、增幅*\n深渊长枪（近战） 4 4+ 4/4 2\" 毁灭 1\n精神技师行动将在单独的卡片上进行说明\n神圣技师之环、太空死灵、队长、冥工技师、精神技师 40",
+      "weapon_types": {
+        "深渊长枪（远程）": "远程",
+        "深渊长枪（近战）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPSYCHOMANCER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nAbyssal lance (ranged) 5 3+ 2/2 Blast 2\", 2\" Devastating 1, Piercing 2, Magnify*\nAbyssal lance (melee) 4 4+ 4/4 Devastating 1\nPSYCHOMANCER ACTIONS ARE PRESENTED ON THEIR OWN CARDS\nHIEROTEK CIRCLE , NECRON, LEADER, CRYPTEK, PSYCHOMANCER 40"
+    },
+    {
+      "id": "kt-hierotek_circle-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "精神技师-能力卡1",
+      "title_en": "PSYCHOMANCER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-精神技师-能力卡1.png",
+      "is_back": false,
+      "text": "精神技师行动\n植入命令 1AP 绝望预兆 1AP\n支援。选择位于该特工 6\" 内且对其\n可见，或者位于对该特工可见的己方\n君主特工 6\" 内且对该特工可见的另\n一名己方神圣技师之环特工（仆从\n技师和冥工技师除外)。被选择的特\n工可以立即无消耗执行一次 1AP 的行\n动；特工在那次行动中不能移动超过\n2\"，在移除并再次部署时也必须完全\n位于原先位置的 2\" 内，也不能执行在\n转折点中已经执行过的行动，或者在\n转折点中再次执行那个行动。\n该特工不能在敌方特工的控制范围内\n执行本行动，也不能在进行反应时执\n行本行动。\n将己方绝望标识放置在对该特工可见的位置，或者对该特\n工可见的地形模型的制高点地形上。在该特工下一次被激\n活、被残废或者有己方特工再次执行本行动时（以先满足\n的条件为准)，将标识移除。\n当敌方特工位于己方绝望标识的 2\" 内时，您的对手必须消\n耗额外 1AP 才能够让那名特工执行拾取标识或任务行动。\n在判断对标识的控制权时，如果有至少一名争夺标识的敌\n方特工位于己方绝望标识的 2\" 内，那么将争夺标识的敌方\n特工的 APL 属性总和视作为比原本要低 1 点。请注意，这\n不是对 APL 属性的修正，因此任何修正效果会与本规则的\n效果叠加。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "PSYCHOMANCER ACTIONS\nINTERSTITIAL COMMAND 1AP HARBINGER OF DESPAIR 1AP\nSUPPORT. Select one other friendly Place your Despair marker visible to this operative, or on Vantage terrain of\nHIEROTEK CIRCLE operative (excluding a terrain feature that’s visible to this operative. When this operative is next\nAPPRENTEK and CRYPTEK) visible to and activated, is incapacitated or this action is performed again by a friendly\nwithin 6\" of this operative, or visible to and operative (whichever comes first), remove that marker.\nwithin 6\" of a friendly DESPOTEK operative\nthat’s visible to this operative. That selected Whenever an enemy operative is within 2\" of your Despair marker, your\noperative can immediately perform a 1AP opponent must spend 1 additional AP for that enemy operative to perform\naction for free; it cannot move more than or the Pick Up Marker and mission actions. Whenever determining control\nbe removed and set up more than 2\" during of a marker, treat the total APL stat of enemy operatives that contest it\nthat action, perform an action it’s already as 1 lower if at least one of those enemy operatives is within 2\" of your\nperformed during this turning point, or perform Despair marker. Note this isn’t a change to the APL stat, so any changes\nthat action again during this turning point. are cumulative with this.\nThis operative cannot perform this action while This operative cannot perform this action while within control range of an\nwithin control range of an enemy operative, or enemy operative.\nwhile counteracting."
+    },
+    {
+      "id": "kt-hierotek_circle-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "精神技师-能力卡2",
+      "title_en": "PSYCHOMANCER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-精神技师-能力卡2.png",
+      "is_back": false,
+      "text": "精神技师行动\n梦魇笼罩 1AP 疯狂幻觉 1AP\n直到该特工下一次被激活、被残废或\n者有己方特工再次执行本行动前（以\n先满足的条件为准)，每当一名位于\n其 4\" 内的敌方特工进行射击、近战\n和反击时，您的对手不能重掷自己的\n攻击骰，或将结果低于 6 的掷骰结\n果作为关键成功进行保留（例如‘致\n命’、‘撕裂’和‘严重’武器规则\n的效果)。\n该特工不能在敌方特工的控制范围内\n执行此行动。\n选择一个对该特工可见的敌方特工。直到该特工的下一次\n激活开始前、直到该特工被残废或者直到有己方特工再次\n执行本行动前（以先满足的条件为准)，被选择的特工获得\n一枚己方疯狂指示物。\n当您的对手准备将一名拥有己方疯狂指示物的敌方特工激\n活时，您可以掷一枚 D6：若结果大于等于那名敌方特工的\nAPL 属性，那么特工不能在那次激活中被激活。如果那名\n敌方特工被成功激活，或者没有任何其他可以被激活的敌\n方特工，将疯狂指示物移除。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "PSYCHOMANCER ACTIONS\nNIGHTMARE SHROUD 1AP VISION OF MADNESS 1AP\nUntil the start of this operative’s next Select one enemy operative visible to this operative. Until the start of\nactivation, until it’s incapacitated or until this operative’s next activation, until it’s incapacitated or until this action\nthis action is performed again by a friendly is performed again by a friendly operative (whichever comes first), that\noperative (whichever comes first), whenever an selected operative gains one of your Madness tokens.\nenemy operative within 4\" of this operative is\nshooting, fighting or retaliating, your opponent Whenever your opponent would activate an enemy operative that has one\ncannot re-roll their attack dice and cannot of your Madness tokens, you can roll one D6: if the result is equal to or\nretain attack dice results of less than 6 as higher than that enemy operative’s APL, they cannot activate it during this\ncritical successes (e.g. as a result of the Lethal, activation. If that operative is successfully activated, or there are no other\nRending or Severe weapon rules). enemy operatives eligible to be activated, remove its Madness token.\nThis operative cannot perform this action while This operative cannot perform this action while within control range of an\nwithin control range of an enemy operative. enemy operative."
+    },
+    {
+      "id": "kt-hierotek_circle-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "机械技师-数据卡",
+      "title_en": "TECHNOMANCER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-机械技师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n机械技师\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n光之杖（远程） 6 3+ 3/4 撕裂、增幅*\n光之杖（近战） 4 4+ 3/5 撕裂\n机械技师行动将在单独的卡片上进行说明\n神圣技师之环、太空死灵、队长、冥工技师、机械技师 50",
+      "weapon_types": {
+        "光之杖（远程）": "远程",
+        "光之杖（近战）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTECHNOMANCER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nStaff of light (ranged) 6 3+ 3/4 Rending, Magnify*\nStaff of light (melee) 4 4+ 3/5 Rending\nTECHNOMANCER ACTIONS ARE PRESENTED ON THEIR OWN CARDS\nHIEROTEK CIRCLE , NECRON, LEADER, CRYPTEK, TECHNOMANCER 50"
+    },
+    {
+      "id": "kt-hierotek_circle-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "机械技师-能力卡1",
+      "title_en": "TECHNOMANCER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-机械技师-能力卡1.png",
+      "is_back": false,
+      "text": "机械技师行动\n植入命令 1AP\n支援。选择位于该特工 6\" 内且对其可见，或者\n位于对该特工可见的己方君主特工 6\" 内且对该\n特工可见的另一名己方神圣技师之环特工（仆\n从技师和冥工技师除外)。被选择的特工可以立\n即无消耗执行一次 1AP 的行动；特工在那次行\n动中不能移动超过 2\"，在移除并再次部署时也必\n须完全位于原先位置的 2\" 内，也不能执行在转\n折点中已经执行过的行动，或者在转折点中再次\n执行那个行动。\n该特工不能在敌方特工的控制范围内执行本行动，\n也不能在进行反应时执行本行动。\n冥工维修 1AP\n支援。选择位于该特工 6\" 内且对其可见的一名\n己方神圣技师之环特工，那名特工回复最多\n2D3 点失去的耐伤。\n该特工不能在敌方特工的控制范围内执行本行\n动，也不能在转折点中已经有己方特工执行过本\n行动的前提下执行本行动。",
+      "text_en": "TECHNOMANCER ACTIONS\nINTERSTITIAL COMMAND 1AP\nSUPPORT. Select one other friendly HIEROTEK\nCIRCLE operative (excluding APPRENTEK and\nCRYPTEK) visible to and within 6\" of this operative, or\nvisible to and within 6\" of a friendly DESPOTEK operative\nthat’s visible to this operative. That selected operative can\nimmediately perform a 1AP action for free; it cannot move\nmore than or be removed and set up more than 2\" during\nthat action, perform an action it’s already performed during\nthis turning point, or perform that action again during this\nturning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or while counteracting.\nCANOPTEK REPAIR 1AP\nSUPPORT. Select one friendly HIEROTEK CIRCLE\noperative visible to and within 6\" of this operative to regain\nup to 2D3 lost wounds.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if a friendly operative has\nalready performed this action during this turning point."
+    },
+    {
+      "id": "kt-hierotek_circle-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "机械技师-能力卡2",
+      "title_en": "TECHNOMANCER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-机械技师-能力卡2.png",
+      "is_back": false,
+      "text": "机械技师行动\n强化武器 1AP\n支援。选择位于该特工 6\" 内且对其可见的一名\n己方神圣技师之环特工。直到该特工的下一次\n激活开始前、直到该特工被残废或者有己方特工\n再次执行本行动前（以先满足的条件为准)，从\n以下列表中选择两项武器规则，那名特工数据卡\n上的一件武器获得选择的武器规则：致命 5+、\n撕裂、集中、严重。请注意，如果您选择了光之\n杖或者奥术导杖，那么只为那件武器的远程或近\n战数据选择额外的武器规则。\n该特工不能在敌方特工的控制范围内执行本行动。\n加固金属 1AP\n支援。选择位于该特工 6\" 内且对其可见的一名\n己方神圣技师之环特工。到该特工的下一次激\n活开始前、直到该特工被残废或者有己方特工再\n次执行本行动前（以先满足的条件为准)，每当\n一枚攻击骰对那名特工造成了大于等于 3 的伤害\n时，那次造成的伤害减少 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "TECHNOMANCER ACTIONS\nAUGMENT WEAPON 1AP\nSUPPORT. Select one friendly HIEROTEK CIRCLE\noperative visible to and within 6\" of this operative. Until\nthe start of this operative’s next activation, until it’s\nincapacitated or until this action is performed again by a\nfriendly operative (whichever comes first), select two of the\nfollowing weapon rules for one weapon from that selected\noperative’s datacard to have: Lethal 5+, Rending, Saturate,\nSevere. Note that if you select a staff of light or arcane\nconduit, you only select the additional weapon rules for\neither the ranged or melee profile of that weapon.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nREINFORCE METAL 1AP\nSUPPORT. Select one friendly HIEROTEK CIRCLE\noperative visible to and within 6\" of this operative. Until\nthe start of this operative’s next activation, until it’s\nincapacitated or until this action is performed again by a\nfriendly operative (whichever comes first), whenever an\nattack dice inflicts damage of 3 or more on that operative,\nsubtract 1 from that inflicted damage.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hierotek_circle-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "加速等离子虫-数据卡",
+      "title_en": "PLASMACYTE ACCELERATOR",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-加速等离子虫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n加速等离子虫\n2 7\" 5+ 5\n名称攻击命中伤害武器规则\n电击 4 4+ 2/3 范围 4\"、穿刺 1\n利爪 3 5+ 1/2 -\n爬行者：\n• 在该特工拥有隐匿命令和掩护时，该特工不能被\n选择成为有效目标，本规则的优先度高于所有其\n他规则（例如‘追踪’武器规则和制高点地形)，\n除非攻击者位于特工的 2\" 内。\n• 该特工在执行后撤行动时可以少消耗 1AP。\n• 该特工不能使用不在其数据卡上的武器，也不能\n执行除了加速以外的独特行动。\n加速 1AP\n选择一名位于该特工 6\" 内且对其可见的己方死\n印战士或不朽者特工。直到那名特工的下一次激\n活结束前，其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行此\n行动。\n神圣技师之环、太空死灵、等离子虫、加速 25",
+      "weapon_types": {
+        "电击": "远程",
+        "利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLASMACYTE ACCELERATOR\n2 7\" 5+ 5\nNAME ATK HIT DMG WR\nSpark 4 4+ 2/3 Range 4\", Piercing 1\nClaws 3 5+ 1/2 -\nScuttler:\n• Whenever this operative has a Conceal order and is in cover, it\ncannot be selected as a valid target, taking precedence over all\nother rules (e.g. Seek, Vantage terrain) except being within 2\".\n• This operative can perform the Fall Back action for 1 less AP.\n• This operative cannot use any weapons that aren’t on its\ndatacard, or perform unique actions other than Accelerate.\nACCELERATE 1AP\nSelect one friendly DEATHMARK or IMMORTAL\noperative visible to and within 6\" of this operative. Until the\nend of that operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nHIEROTEK CIRCLE , NECRON, PLASMACYTE, ACCELERATOR 25"
+    },
+    {
+      "id": "kt-hierotek_circle-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "重生等离子虫-数据卡",
+      "title_en": "PLASMACYTE REANIMATOR",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-重生等离子虫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n重生等离子虫\n2 7\" 5+ 5\n名称攻击命中伤害武器规则\n解离光束 4 4+ 3/4 范围 6\"、致命 5+\n利爪 3 5+ 1/2 -\n爬行者：\n• 在该特工拥有隐匿命令和掩护时，该特工不能被选择成为有效目标，本规则的优先度高于所有其他规则\n（例如‘追踪’武器规则和制高点地形)，除非攻击者位于特工的 2\" 内。\n• 该特工在执行后撤行动时可以少消耗 1AP。\n• 该特工不能使用不在其数据卡上的武器，也不能执行除了重生以外的独特行动。\n请继续阅读背面规则\n神圣技师之环、太空死灵、医疗、等离子虫、重生 25",
+      "weapon_types": {
+        "解离光束": "远程",
+        "利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLASMACYTE REANIMATOR\n2 7\" 5+ 5\nNAME ATK HIT DMG WR\nAtomiser beam 4 4+ 3/4 Range 6\", Lethal 5+\nClaws 3 5+ 1/2 -\nScuttler:\n• Whenever this operative has a Conceal order and is in cover, it\ncannot be selected as a valid target, taking precedence over all\nother rules (e.g. Seek, Vantage terrain) except being within 2\".\n• This operative can perform the Fall Back action for 1 less AP.\n• This operative cannot use any weapons that aren’t on its\ndatacard, or perform unique actions other than Reanimate.\nRULES CONTINUE ON OTHER SIDE\nHIEROTEK CIRCLE , NECRON, MEDIC, PLASMACYTE, REANIMATOR 25"
+    },
+    {
+      "id": "kt-hierotek_circle-01-12",
+      "sequence": 12,
+      "category": "operative-ability",
+      "title_zh": "重生等离子虫-能力卡",
+      "title_en": "PLASMACYTE REANIMATOR",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-重生等离子虫-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n重生等离子虫\n2 7\" 5+ 5\n重生 1/2AP\n选择一枚位于该特工 6\" 内且可见的己方重生标\n识。掷一枚 D6：若结果为 3+，一名己方特工得到\n重生；如果您选择消耗额外 1AP，那么己方特工\n将自动重生（您不需要进行掷骰)。如果通过本行\n动得到重生的特工在转折点中已经处于待机状态，\n那么它将以待机状态进行部署。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nPLASMACYTE REANIMATOR\n2 7\" 5+ 5\nREANIMATE 1/2AP\nSelect one of your Reanimation markers visible to and within\n6\" of this operative. Roll one D6: on a 3+, a friendly operative\nis REANIMATED; if you spent 1 additional AP, a friendly\noperative is automatically REANIMATED (you don’t need\nto roll one D6). An operative that’s REANIMATED from this\nunique action is set up expended if it was already expended\nduring this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hierotek_circle-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "仆从技师-数据卡",
+      "title_en": "APPRENTEK",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-仆从技师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n仆从技师\n3 6\" 3+ 11\n名称攻击命中伤害武器规则\n奥术导杖（远程） 4 3+ 4/5 穿刺 1、增幅*\n奥术导杖（近战） 3 4+ 3/5 -\n仆从技师协助：该特工拥有与己方冥工技师特工在\n战斗中选择的相同的独特行动，但是在每个转折点\n中只能执行一个冥工技师独特行动。\n神圣技师之环、太空死灵、仆从技师 32",
+      "weapon_types": {
+        "奥术导杖（远程）": "远程",
+        "奥术导杖（近战）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAPPRENTEK\n3 6\" 3+ 11\nNAME ATK HIT DMG WR\nArcane conduit (ranged) 4 3+ 4/5 Piercing 1, Magnify*\nArcane conduit (melee) 3 4+ 3/5 -\nApprentek Assistance: This operative has the same unique\nactions as your CRYPTEK operative selected for the battle,\nbut can only perform one CRYPTEK unique action per\nturning point.\nHIEROTEK CIRCLE , NECRON, APPRENTEK 32"
+    },
+    {
+      "id": "kt-hierotek_circle-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "死印战士-数据卡",
+      "title_en": "DEATHMARK",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-死印战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死印战士\n2 5\" 3+ 10\n名称攻击命中伤害武器规则\n突触粉碎枪 4 2+ 4/3 毁灭 2、重型（仅限冲刺）、穿刺 1、严重\n双拳 3 3+ 3/4 -\n死亡印记：每当该特工结束射击行动时，如果目标\n没有被残废，那么目标获得一枚己方死亡印记指示\n物（这里指的是主要目标)。在一名己方神圣技师之\n环死印战士特工对一名拥有死亡印记指示物的敌\n方特工进行射击时，那名己方特工的远程武器拥有\n“追踪”武器规则。\n多次元视觉 1AP\n直到该特工的下一次激活开始前，每当该特工进\n行射击时，敌方特工不能被遮挡。\n该特工不能在敌方特工的控制范围内执行此\n行动。\n神圣技师之环、太空死灵、死印战士 32",
+      "weapon_types": {
+        "突触粉碎枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATHMARK\n2 5\" 3+ 10\nNAME ATK HIT DMG WR\nSynaptic disintegrator 4 2+ 4/3 Devastating 2, Heavy (Dash only),\nPiercing 1, Severe\nFists 3 3+ 3/4 -\nDeathmarked: Whenever this operative ends the Shoot action,\nthe target gains one of your Deathmarked tokens if it wasn’t\nincapacitated (the primary target, if relevant). Whenever a\nfriendly HIEROTEK CIRCLE DEATHMARK operative is\nshooting an enemy operative that has one of your Deathmarked\ntokens, that friendly operative’s ranged weapons have the Seek\nweapon rule.\nMULTI-DIMENSIONAL VISION 1AP\nUntil the start of this operative’s next activation, whenever\nit’s shooting, enemy operatives cannot be obscured.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nHIEROTEK CIRCLE , NECRON, DEATHMARK 32"
+    },
+    {
+      "id": "kt-hierotek_circle-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "不朽者君主-数据卡",
+      "title_en": "IMMORTAL DESPOTEK",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-不朽者君主-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n不朽者君主\n2 5\" 3+ 11\n名称攻击命中伤害武器规则\n高斯爆能枪 4 3+ 4/5 穿刺 1\n特斯拉卡宾枪 5 3+ 3/3 2\" 毁灭 1\n刺刀 4 3+ 3/4 -\n坚定守卫：在判断一枚标识的控制权时，您可以将\n该特工的 APL 属性视作为 3。若这么做，那么本规\n则的优先度高于所有其他规则，意味着任何对该特\n工 APL 属性的修正都将在这种情况下被无视。\n请继续阅读背面规则\n神圣技师之环、太空死灵、不朽者、君主 32",
+      "weapon_types": {
+        "高斯爆能枪": "远程",
+        "特斯拉卡宾枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nIMMORTAL DESPOTEK\n2 5\" 3+ 11\nNAME ATK HIT DMG WR\nGauss blaster 4 3+ 4/5 Piercing 1\nTesla carbine 5 3+ 3/3 2\" Devastating 1\nBayonet 4 3+ 3/4 -\nSteadfast: Whenever determining control of a marker, you\ncan treat this operative’s APL stat as 3. If you do, this takes\nprecedence over all other rules, meaning any changes to its APL\nstat are ignored for this.\nRULES CONTINUE ON OTHER SIDE\nHIEROTEK CIRCLE , NECRON, IMMORTAL, DESPOTEK 32"
+    },
+    {
+      "id": "kt-hierotek_circle-01-16",
+      "sequence": 16,
+      "category": "operative-ability",
+      "title_zh": "不朽者君主-能力卡",
+      "title_en": "IMMORTAL DESPOTEK",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-16-特工能力-不朽者君主-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n不朽者君主\n2 5\" 3+ 11\n植入命令 1AP\n支援。选择位于该特工 6\" 内且对其可见的另一名\n己方神圣技师之环特工（仆从技师和冥工技师除\n外)。被选择的特工可以立即无消耗执行一次 1AP\n的行动（加速除外)；特工在那次行动中不能移动\n超过 2\"，在移除并再次部署时也必须完全位于原\n先位置的 2\" 内，也不能执行在转折点中已经执行\n过的行动，或者在转折点中再次执行那个行动。\n该特工不能在敌方特工的控制范围内执行本行动，\n也不能在进行反应时执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nIMMORTAL DESPOTEK\n2 5\" 3+ 11\nINTERSTITIAL COMMAND 1AP\nSUPPORT. Select one other friendly HIEROTEK\nCIRCLE operative (excluding APPRENTEK and\nCRYPTEK) visible to and within 6\" of this operative. That\nselected operative can immediately perform a 1AP action\nfor free (excluding Accelerate); it cannot move more than\nor be removed and set up more than 2\" during that action,\nperform an action it’s already performed during this turning\npoint, or perform that action again during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or while counteracting."
+    },
+    {
+      "id": "kt-hierotek_circle-01-17",
+      "sequence": 17,
+      "category": "operative",
+      "title_zh": "不朽者守卫-数据卡",
+      "title_en": "IMMORTAL GUARDIAN",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-17-特工-不朽者守卫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n不朽者守卫\n2 5\" 3+ 10\n名称攻击命中伤害武器规则\n高斯爆能枪 4 3+ 4/5 穿刺 1\n特斯拉卡宾枪 5 3+ 3/3 2\" 毁灭 1\n刺刀 4 3+ 3/4 -\n坚定守卫：在判断一枚标识的控制权时，您可以将\n该特工的 APL 属性视作为 3。若这么做，那么本规\n则的优先度高于所有其他规则，意味着任何对该特\n工 APL 属性的修正都将在这种情况下被无视。\n神圣技师之环、太空死灵、不朽者、守卫 32",
+      "weapon_types": {
+        "高斯爆能枪": "远程",
+        "特斯拉卡宾枪": "远程",
+        "刺刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nIMMORTAL GUARDIAN\n2 5\" 3+ 10\nNAME ATK HIT DMG WR\nGauss blaster 4 3+ 4/5 Piercing 1\nTesla carbine 5 3+ 3/3 2\" Devastating 1\nBayonet 4 3+ 3/4 -\nSteadfast: Whenever determining control of a marker, you\ncan treat this operative’s APL stat as 3. If you do, this takes\nprecedence over all other rules, meaning any changes to its APL\nstat are ignored for this.\nHIEROTEK CIRCLE , NECRON, IMMORTAL, GUARDIAN 32"
+    },
+    {
+      "id": "kt-hierotek_circle-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "神圣技师之环杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-神圣技师之环杀戮小队-1.png",
+      "is_back": false,
+      "text": "神圣技师之环\n杀戮小队\n原型：侦察、安全保护\n特工\n↘ 1 名神圣技师之环特工，从以下列表中进行\n选择：\n• 时间技师特工，装备有以下一种选项：\n○ 时光法杖\n○ 朽灭之矛\n• 精神技师\n• 机械技师\n↘ 1 名加速等离子虫特工\n↘ 1 名重生等离子虫特工\n↘ 5 名神圣技师之环特工，从以下列表中选择：\n• 仆从技师\n• 死印战士\n请继续阅读背面规则",
+      "text_en": "HIEROTEK CIRCLE\nKILL TEAM\nARCHETYPES: RECON, SECURITY\nOPERATIVES\n↘ 1 HIEROTEK CIRCLE operative selected from\nthe following list:\n• CHRONOMANCER operative with one of the\nfollowing options:\n○ Aeonstave\n○ Entropic lance\n• PSYCHOMANCER\n• TECHNOMANCER\n↘ 1 PLASMACYTE ACCELERATOR operative\n↘ 1 PLASMACYTE REANIMATOR operative\n↘ 5 HIEROTEK CIRCLE operatives selected from\nthe following list:\n• APPRENTEK\n• DEATHMARK\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hierotek_circle-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "神圣技师之环杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-神圣技师之环杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 君王特工，装备有以下一种选项：\n○ 高斯爆能枪；刺刀\n○ 特斯拉卡宾枪；刺刀\n• 守卫特工，装备有以下一种选项：\n○ 高斯爆能枪；刺刀\n○ 特斯拉卡宾枪；刺刀\n除了守卫和死印战士特工以外，上述的每一名特\n工只能被纳入您的杀戮小队一次。",
+      "text_en": "• DESPOTEK with one of the following options:\n○ Gauss blaster; bayonet\n○ Tesla carbine; bayonet\n• GUARDIAN with one of the following options:\n○ Gauss blaster; bayonet\n○ Tesla carbine; bayonet\nOther than DEATHMARK and GUARDIAN\noperatives, your kill team can only include each\noperative on this list once."
+    },
+    {
+      "id": "kt-hierotek_circle-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "重生规程-1",
+      "title_en": "REANIMATION PROTOCOLS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-重生规程-1.png",
+      "is_back": false,
+      "text": "神圣技师之环\n阵营规则\n重生规程\n异常的光芒将被击败的太空死灵包裹。被切断的肢\n体被接回原处，破碎的身躯在绿色的电光之下得到\n修复。太空死灵的眼中闪动着微光，再次起身加入\n到战斗之中。\n当每一名己方神圣技师之环特工首次被残废\n时，在将其移出杀戮区前，将一枚己方重生标识\n放置在那名特工的控制范围内。随后，按照残废\n的规则将其移除，并移除任何其拥有的指示物和\n规则效果（例如时间技师特工的精密时计行动、\n剧毒指示物、APL 属性修正，等等)。\n在每一个战略阶段的就绪步骤中，选择一个己方\n的重生标识并掷一枚骰子：若结果为 1-2，将那\n枚重生标识留在杀戮区中并选择另一个重生标识\n来重复这个过程（若有)；若结果为 3+，那么一\n名特工得到重生。\n请继续阅读背面规则",
+      "text_en": "HIEROTEK CIRCLE\nFACTION RULE\nREANIMATION PROTOCOLS\nThe body of a slain Necron becomes wreathed in an\neerie glow. Severed limbs reattach and broken bodies\nreform in a shower of emerald sparks. Eye-lenses flicker\nonce more and the Necron rises again to rejoin the fight.\nThe first time each friendly HIEROTEK CIRCLE\noperative is incapacitated, before it's removed\nfrom the killzone, place one of your Reanimation\nmarkers within its control range. Then remove\nit as incapacitated, also removing any tokens\nand rules effects it had (e.g. CHRONOMANCER\noperative’s Chronometron action, Poison tokens,\nAPL stat changes, being implanted, etc.).\nIn the Ready step of each Strategy phase, select\none of your Reanimation markers and roll one D6:\non a 1-2, leave that Reanimation marker in the\nkillzone and repeat this process with a different\none of your Reanimation markers (if any); on a\n3+, an operative is REANIMATED.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hierotek_circle-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "重生规程-2",
+      "title_en": "REANIMATION PROTOCOLS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-重生规程-2.png",
+      "is_back": true,
+      "text": "在每个转折点中，您只能选择每个重生标识一\n次，并且在您掷出 3+ 后，您在转折点中不能选\n择更多的重生标识。在一名特工得到重生时：\n• 将那枚重生标识对应的特工部署（特工不再被\n残废)。特工必须被部署在重生标识 3\" 内，且\n位于敌方特工控制范围外的位置（若不能这么\n做，则将掷骰结果视作为 1-2)。\n• 特工剩余 1 点耐伤。\n• 特工拥有您选择的指令并且就绪。\n• 将那枚重生标识移除。\n在结算击杀行动时，您的对手将己方神圣技师之\n环特工的起始数量视作为 5（也就是说，对手\n的击杀等级会在一名己方神圣技师之环特工残\n废时提升，最多提升至 5)，并且会在一名己方神\n圣技师之环特工重生时降低)。作为不再残废的\n重生特工，意味着在击杀行动中的击杀等级可能\n会在战斗中降低（并依此失去相应的 VP），然\n而这不会改变对手获得的其他类型的 VP，例如\n通过战术行动获得的 VP。",
+      "text_en": "You can only select each of your Reanimation\nmarkers once per turning point, and once you roll\na 3+, you don’t select any more for that turning\npoint. Whenever an operative is REANIMATED:\n• Set up the operative that Reanimation marker\nwas placed for (it’s no longer incapacitated). It\nmust be placed within 3\" of that Reanimation\nmarker and not within control range of enemy\noperatives (if you cannot do so, treat the roll as\n1-2 instead).\n• It has 1 wound remaining.\n• It has an order of your choice and is ready.\n• Remove that Reanimation marker.\nAs REANIMATED operatives are no longer\nincapacitated, for the purposes of the kill op, this\nmeans your opponent’s kill grade can go down\nduring the battle (they lose VP accordingly).\nHowever, it won’t retroactively change any other\nVPs your opponent has scored, e.g. from tac ops."
+    },
+    {
+      "id": "kt-hierotek_circle-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "增幅",
+      "title_en": "MAGNIFY",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-增幅.png",
+      "is_back": false,
+      "text": "神圣技师之环\n阵营规则\n增幅\n太空死灵的冥工技师能够将自己的意志强加\n于仆从身上，将自己的认知投射至下级的意\n识中来增强他们的战斗能力，确保敌人能够\n被完全摧毁。\n神圣技师之环仆从技师和神圣技师之环冥工\n技师特工所装备的一些武器拥有以下的“增幅”\n武器规则。\n*增幅：每当该特工使用本武器执行射击行动\n时，如果目标对该特工可见，并且有另一名拥有\n交战命令且不位于敌方特工控制范围内的己方神\n圣技师之环仆从技师或神圣技师之环冥工技\n师特工对其可见，那么您可以使用本规则，若使\n用，在判断有效目标、掩护和遮挡时将那名特工\n视作为是活跃特工。若这么做，那么直到那次行\n动结束前，这件武器拥有“无休”武器规则。",
+      "text_en": "HIEROTEK CIRCLE\nFACTION RULE\nMAGNIFY\nNecron Crypteks may impose their will over their thralls\nand underlings, projecting their consciousness into\nthese lesser beings in order to enhance their combat\nability and ensure the obliteration of the enemy.\nSome HIEROTEK CIRCLE APPRENTEK and\nHIEROTEK CIRCLE CRYPTEK weapons in this\nteam’s rules have the Magnify weapon rule below.\n*Magnify: Whenever this operative is performing\nthe Shoot action with this weapon, if the target\nis visible to this operative, and another friendly\nHIEROTEK CIRCLE APPRENTEK or HIEROTEK\nCIRCLE CRYPTEK operative that has an Engage\norder and isn’t within control range of enemy\noperatives is visible to this operative, you can\nuse this rule. If you do, treat that operative as the\nactive operative for the purposes of determining\na valid target, cover and obscured. If you do, this\nweapon has the Ceaseless weapon rule until the\nend of that action."
+    },
+    {
+      "id": "kt-hierotek_circle-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "活体金属",
+      "title_en": "LIVING METAL",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-活体金属.png",
+      "is_back": false,
+      "text": "神圣技师之环\n阵营规则\n活体金属\n太空死灵的半智能金属外皮使他们能够在战\n斗期间修复身上严重的伤害。\n在每个战略阶段的就绪步骤中，在结算了所有步\n骤中的阵营规则前（例如“重生规程”），每一\n名己方神圣技师之环特工会恢复最多 D3+1 处\n失去的耐伤（为每一名特工分别进行掷骰)。",
+      "text_en": "HIEROTEK CIRCLE\nFACTION RULE\nLIVING METAL\nThe Necrons’ semi-sentient metal skin enables them to\nheal devastating damage in the midst of battle.\nIn the Ready step of each Strategy phase, before\nresolving all other faction rules in this step (e.g.\nReanimation Protocols), each friendly HIEROTEK\nCIRCLE operative regains up to D3+1 lost\nwounds (roll separately for each)."
+    },
+    {
+      "id": "kt-hierotek_circle-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "HIEROTEK CIRCLE",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "神圣技师之环\n标识/指示物指南\n时间分裂梦魇笼罩\n指示物指示物\n精密时计强化武器\n指示物指示物\n多次元视觉绝望\n指示物标识\n死亡印记重生\n指示物标识\n强化金属增幅导体\n指示物指示物\n疯狂相位转移器\n指示物指示物\n时反纳米地雷标识",
+      "text_en": "HIEROTEK CIRCLE\nMARKER/TOKEN GUIDE\nTimesplinter Nightmare\ntoken Shroud token\nChronometron Augment\ntoken Weapon token\nMulti-\nDespair\ndimensional\nmarker\nVision token\nDeathmarked Reanimation\ntoken marker\nMagnification\nReinforce\nConduits\nMetal token\ntoken\nMadness Phase Shifter\ntoken token\nCountertemporal Nanomine marker"
+    },
+    {
+      "id": "kt-hierotek_circle-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "无情攻势",
+      "title_en": "RELENTLESS ONSLAUGHT",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-无情攻势.png",
+      "is_back": false,
+      "text": "神圣技师之环\n战略计谋\n无情攻势\n太空死灵是不知疲倦且不会停息的存在，它们\n以绝对服从的坚定意志来弥补自身在精准上\n的缺陷。\n每当一名己方神圣技师之环特工对其 8\" 内的\n特工进行射击时，那名己方特工的远程武器拥\n有“平衡”武器规则。请注意，当您使用“增\n幅”武器规则时，该特工仍必须位于目标 8\" 内\n才能使用本规则（而不是用于决定有效目标的其\n他己方特工）。",
+      "text_en": "HIEROTEK CIRCLE\nSTRATEGY PLOY\nRELENTLESS ONSLAUGHT\nNecrons are relentless and implacable, making up for\ntheir lack of accuracy with unthinking determination.\nWhenever a friendly HIEROTEK CIRCLE\noperative is shooting an operative within 8\" of it,\nthat friendly operative’s ranged weapons have\nthe Balanced weapon rule. Note that when you’re\nusing the Magnify weapon rule, this operative\nmust still be within 8\" of the target to use this\nrule (not the other friendly operative from which\nyou’re determining a valid target)."
+    },
+    {
+      "id": "kt-hierotek_circle-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "不死机械",
+      "title_en": "UNDYING ANDROIDS",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-不死机械.png",
+      "is_back": false,
+      "text": "神圣技师之环\n战略计谋\n不死机械\n太空死灵的活体金属身躯能够抵御银河中原始\n生物们大部分兵器的攻击。\n每当一名特工对一名己方神圣技师之环特工进\n行射击时，如果您不能保留任何掩护豁免，那么\n您可以在不掷骰的情况下将一枚己方防御骰作为\n一次普通成功进行保留。",
+      "text_en": "HIEROTEK CIRCLE\nSTRATEGY PLOY\nUNDYING ANDROIDS\nThe living metal forms of Necrons are resistant to the\nmajority of weapons wielded by the galaxy’s primitive\nbiological species.\nWhenever an operative is shooting a friendly\nHIEROTEK CIRCLE operative, if you cannot\nretain any cover saves, you can retain one of\nyour defence dice as a normal success without\nrolling it."
+    },
+    {
+      "id": "kt-hierotek_circle-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "有序歼敌",
+      "title_en": "METHODICAL ELIMINATION",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-有序歼敌.png",
+      "is_back": false,
+      "text": "神圣技师之环\n战略计谋\n有序歼敌\n太空死灵通常会牺牲速度来换取坚韧的防御力\n和无休的重火力。\n己方神圣技师之环特工的近战武器拥有“精准\n1”武器规则。每当一名己方神圣技师之环特\n工在一次移动没有超过自身移动属性的激活中进\n行近战，或每当它进行反击时，其近战武器则拥\n有“精准 2”武器规则。",
+      "text_en": "HIEROTEK CIRCLE\nSTRATEGY PLOY\nMETHODICAL ELIMINATION\nNecrons often trade speed of movement for steadfast\nresilience and unrelenting firepower.\nFriendly HIEROTEK CIRCLE operatives’\nmelee weapons have the Accurate 1 weapon\nrule. Whenever a friendly HIEROTEK CIRCLE\noperative is fighting during an activation in which\nit hasn’t moved more than its Move stat, or\nwhenever it’s retaliating, its melee weapons have\nthe Accurate 2 weapon rule instead."
+    },
+    {
+      "id": "kt-hierotek_circle-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "命令手下",
+      "title_en": "COMMAND UNDERLINGS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-命令手下.png",
+      "is_back": false,
+      "text": "神圣技师之环\n战略计谋\n命令手下\n冥工技师和仆从技师将手下如傀儡一般进行操\n控，指挥他们的一举一动来战胜敌人。\n选择以下一个选项：\n• 支援。每一名位于己方冥工技师特工 6\" 内的\n其他己方神圣技师之环特工可以按照您选择\n的顺序立刻执行一次无消耗的冲刺行动。\n• 支援。每一名位于己方仆从技师特工 3\" 内的\n其他己方神圣技师之环特工（冥工技师除\n外）可以按照您选择的顺序立刻执行一次无消\n耗的冲刺行动。",
+      "text_en": "HIEROTEK CIRCLE\nSTRATEGY PLOY\nCOMMAND UNDERLINGS\nNecron Crypteks and Apprenteks wield their underlings\nlike puppets, directing their every movement and action\nin order to confound the enemy.\nSelect one of the following:\n• SUPPORT. Each other friendly HIEROTEK\nCIRCLE operative visible to and within 6\" of a\nfriendly CRYPTEK operative can immediately\nperform a free Dash action in an order of\nyour choice.\n• SUPPORT. Each other friendly HIEROTEK\nCIRCLE operative (excluding CRYPTEK) visible\nto and within 3\" of a friendly APPRENTEK\noperative can immediately perform a free Dash\naction in an order of your choice."
+    },
+    {
+      "id": "kt-hierotek_circle-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "控制脑部",
+      "title_en": "CORTICAL CONTROL",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-控制脑部.png",
+      "is_back": false,
+      "text": "神圣技师之环\n交战计谋\n控制脑部\n冥工技师和手下的仆从技师能够将自己的意志\n直接导入冥工构造体的意识中，就算距离遥远\n也同样如此。\n在一个己方神圣技师之环仆从技师或神圣技师\n之环冥工技师特工执行一次支援独特行动时使\n用本交战计谋。直到那次行动结束前，在选择另\n一名己方特工时，忽略距离的要求（特工只需要\n可见即可)。",
+      "text_en": "HIEROTEK CIRCLE\nFIREFIGHT PLOY\nCORTICAL CONTROL\nCrypteks and their Apprentek servants may project their\nwill directly into the minds of their Canoptek constructs,\neven across vast distances.\nUse this firefight ploy when a friendly HIEROTEK\nCIRCLE APPRENTEK or HIEROTEK CIRCLE\nCRYPTEK operative performs a SUPPORT unique\naction. Until the end of that action, for the\npurposes of selecting another friendly operative,\nignore the distance requirement (only visibility is\na requirement)."
+    },
+    {
+      "id": "kt-hierotek_circle-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "功能重生",
+      "title_en": "REANIMATED FUNCTION",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-功能重生.png",
+      "is_back": false,
+      "text": "神圣技师之环\n交战计谋\n功能重生\n倒下的太空死灵一次又一次重生，这让神圣技\n师之环能够逐渐巩固自己对目标的控制。\n在判断一个标识的控制权时使用本交战计谋。选\n择一个己方的重生标识。直到下一个转折点开始\n前，在判断对一个标识的控制权时，将那枚重生\n标识视作为是一个 APL 属性为 1 的己方神圣技\n师之环特工。在结算殉道者战术行动时（认证\n行动 2025)，本计谋没有效果。",
+      "text_en": "HIEROTEK CIRCLE\nFIREFIGHT PLOY\nREANIMATED FUNCTION\nThe continual reanimation of fallen Necrons enables\nthe Hierotek Circle to steadily tighten its grip on\nits objectives.\nUse this firefight ploy when determining control\nof a marker. Select one of your Reanimation\nmarkers. Until the start of the next turning point,\nwhenever determining control of a marker, treat\nthat Reanimation marker as a friendly HIEROTEK\nCIRCLE operative that has an APL stat of 1. For\nthe purposes of the Martyrs tac op (Approved Ops\n2025), this ploy has no effect."
+    },
+    {
+      "id": "kt-hierotek_circle-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "活闪电",
+      "title_en": "LIVING LIGHTNING",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-活闪电.png",
+      "is_back": false,
+      "text": "神圣技师之环\n交战计谋\n活闪电\n特斯拉武器所投射的活闪电会不断增强，在目\n标之间跳动的同时吸取活物的生命力。\n当一个己方神圣技师之环不朽者特工执行射击\n行动时，在您选择使用特斯拉卡宾枪后使用本交\n战计谋。在那次行动结束前，那件武器失去“毁\n灭”武器规则的 2\" 范围，但是获得“爆炸 2\"”\n武器规则。",
+      "text_en": "HIEROTEK CIRCLE\nFIREFIGHT PLOY\nLIVING LIGHTNING\nTesla weapons project living lightning that grows in\npower, leaping between targets as it drains life from\nthe living.\nUse this firefight ploy when a friendly HIEROTEK\nCIRCLE IMMORTAL operative is performing the\nShoot action and you select a tesla carbine. Until\nthe end of that action, that weapon doesn’t have\nthe 2\" from its Devastating weapon rule but has\nthe Blast 2\" weapon rule."
+    },
+    {
+      "id": "kt-hierotek_circle-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "次元伏击",
+      "title_en": "DIMENSIONAL AMBUSH",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-次元伏击.png",
+      "is_back": false,
+      "text": "神圣技师之环\n交战计谋\n次元伏击\n死印战士能够在次元之间穿梭，他们只有在能\n赐予敌人致命一击的机会到来时才会现身。\n在一名己方神圣技师之环死印战士特工的激活\n期间，如果其拥有隐匿命令，那么您可以使用本\n交战计谋。那名特工可以执行一次戒备行动（参\n见《杀戮小队》核心规则书的近距离战斗规则)，\n无论其所处的杀戮区或者拥有的命令，但是在您\n执行无消耗近战或射击行动来进行打断时，您必\n须将该特工的命令切换为交战命令。",
+      "text_en": "HIEROTEK CIRCLE\nFIREFIGHT PLOY\nDIMENSIONAL AMBUSH\nShifting between dimensions, a Deathmark reveals its\nposition only when a kill shot presents itself.\nUse this firefight ploy during a friendly HIEROTEK\nCIRCLE DEATHMARK operative’s activation,\nif it has a Conceal order. During that activation,\nthat operative can perform the Guard action\nregardless of the killzone and while it has a\nConceal order (see close quarters rules, Kill Team\nCore Book), but when you perform the free Shoot\nor Fight action during the interruption, you must\nchange its order to Engage."
+    },
+    {
+      "id": "kt-hierotek_circle-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "增幅导体",
+      "title_en": "MAGNIFICATION CONDUITS",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-增幅导体.png",
+      "is_back": false,
+      "text": "神圣技师之环\n阵营装备\n增幅导体\n这个装置能够让任何熟知奥术超科技的太空\n死灵透过身边仆从的视觉镜头来查看周边并\n利用他们的身体来引导远程攻击。\n每个转折点限一次，在一名己方神圣技师之环\n仆从技师或神圣技师之环冥工技师特工执行射\n击行动时，您可以使用本规则。若使用，那么选\n择另一名拥有交战命令，不位于敌方特工控制范\n围内且可见的己方神圣技师之环特工（等离子\n虫除外)。直到那次行动结束前，那另一名己方\n特工被视作为是“增幅”武器规则的活跃特工。",
+      "text_en": "HIEROTEK CIRCLE\nFACTION EQUIPMENT\nMAGNIFICATION CONDUITS\nThis device allows any Necron well-versed in arcane\nhypertechnology to peer through the occular lenses of\na nearby thrall and channel ranged attacks through the\nbody of their dominated underling.\nOnce per turning point, when a friendly\nHIEROTEK CIRCLE APPRENTEK or HIEROTEK\nCIRCLE CRYPTEK operative is performing the\nShoot action, you can use this rule. If you do,\nselect one other friendly HIEROTEK CIRCLE\noperative (excluding PLASMACYTE) that has an\nEngage order, isn’t within control range of enemy\noperatives and is visible to that friendly operative.\nUntil the end of that action, that other friendly\noperative can be treated as the active operative\nfor the Magnify weapon rule."
+    },
+    {
+      "id": "kt-hierotek_circle-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "相位转移器",
+      "title_en": "PHASE SHIFTER",
+      "source_page": 10,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-相位转移器.png",
+      "is_back": false,
+      "text": "神圣技师之环\n阵营装备\n相位转移器\n这个装置能够让持有者在次元之间闪烁，因\n此敌人难以击中他们。\n每个转折点限一次，在一名特工对己方冥工技师\n特工进行射击时，在掷防御骰步骤开始时，您可\n以使用本规则。若使用，在那次流程结束前“穿\n刺 x”武器规则中的 x 降低 1（如果有），这意\n味着“穿刺 1”武器规则将被无视。",
+      "text_en": "HIEROTEK CIRCLE\nFACTION EQUIPMENT\nPHASE SHIFTER\nAt a moment’s notice, a Cryptek can use this device to\nflit between dimensions to avoid incoming fire.\nOnce per turning point, when an operative is\nshooting a friendly CRYPTEK operative, at the\nstart of the Roll Defence Dice step, you can use\nthis rule. If you do, worsen the x of the Piercing\nweapon rule by 1 (if any) until the end of that\nsequence. Note that Piercing 1 would therefore\nbe ignored."
+    },
+    {
+      "id": "kt-hierotek_circle-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "超立方体",
+      "title_en": "TESSERACT CUBE",
+      "source_page": 10,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-超立方体.png",
+      "is_back": false,
+      "text": "神圣技师之环\n阵营装备\n超立方体\n这个装置使用了次元科技，其中存放的东西\n远远超过了它外观上的尺寸，神圣技师之环\n会利用它来存放各种回收来的资源、知识和\n器物。\n在每个战略阶段的就绪步骤中，当您获得 CP\n时，如果一名己方冥工技师特工没有残废、不位\n于敌方特工控制范围内，并且没有在转折点中被\n重生，那么您可以使用本规则。若这么做，掷一\n枚 D6：如果结果为 1，您在战斗中不能再次使\n用这条规则。如果结果为 4+，您获得 1CP。在\n您通过本规则获得了 2CP 后，您在战斗中不能\n再次使用本规则。",
+      "text_en": "HIEROTEK CIRCLE\nFACTION EQUIPMENT\nTESSERACT CUBE\nThis device uses dimensional technology to hold\nconsiderably more than its size suggests, becoming\na vault for all manner of resources, knowledge and\nartefacts recovered by the Hierotek Circle.\nIn the Ready step of each Strategy phase, when\nyou gain CP, if a friendly CRYPTEK operative isn’t\nincapacitated, isn’t within control range of enemy\noperatives and hasn’t been REANIMATED this\nturning point, you can use this rule. If you do, roll\none D6: on a 1, you cannot use this rule for the\nrest of the battle; on a 4+, you gain 1CP. Once\nyou’ve gained 2CP from this rule, you cannot use\nit for the rest of the battle."
+    },
+    {
+      "id": "kt-hierotek_circle-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "特斯拉织网",
+      "title_en": "TESLA WEAVE",
+      "source_page": 10,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-特斯拉织网.png",
+      "is_back": false,
+      "text": "神圣技师之环\n阵营装备\n特斯拉织网\n在冥工技师的指令下，一层无形的电磁网络\n在太空死灵与冥工技师之间展开，电击任何\n触碰到的敌人。\n每个转折点限一次，当一名敌方特工在己方神圣\n技师之环特工的控制范围内结束一次冲锋行动\n时，您可以使用本规则。若使用，对那名敌方特\n工造成 D3+1 点伤害。",
+      "text_en": "HIEROTEK CIRCLE\nFACTION EQUIPMENT\nTESLA WEAVE\nUpon the Cryptek’s command, an insubstantial web\nof tesla energy flickers from Necron to Canoptek\nconstruct, searing any enemy caught within its\nleaping arcs.\nOnce per turning point, when an enemy operative\nends the Charge action with friendly HIEROTEK\nCIRCLE operatives within its control range, you\ncan use this rule. If you do, inflict D3+1 damage\non that enemy operative."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "03d508bdd927": {
+    "kind": "远程",
+    "count": 811,
+    "dims": [
+      55,
+      34
+    ],
+    "ratio": 1.618,
+    "bitmap": "0000ff0000000000000000000000000000ffff00000000ffff00000000ffff00ffffffff0000ffffff000000ffffff00ffffffff0000ffffffff0000ffffffffffffffff00ffffffffff00ffffffffffffffffff00ffffffffff00ffffffffffffffffff00ffffffffff00ffffffffffffffffff00ffffffffff00ffffffffffffffffff00ffffffffff00ffffffffffffffffff00ffffffffff00ffffffffffffffffff00ffffffffff00ffffffffffffffffff0000ffffffff00ffffffffff00000000000000000000000000000000ffffffff0000ffffffff00ffffffffffffffffff00ffffffffff00ffffffffffffffffff00ffffffffff00ffffffffff",
+    "samples": [
+      "死亡天使/imp-aod-01-01/等离子手枪（标准）",
+      "死亡天使/imp-aod-01-01/等离子手枪（过载）",
+      "死亡天使/imp-aod-01-02/喷火手枪",
+      "死亡天使/imp-aod-01-02/重型爆矢手枪",
+      "死亡天使/imp-aod-01-02/等离子手枪（标准）",
+      "死亡天使/imp-aod-01-02/等离子手枪（过载）"
+    ]
+  },
+  "384273cc21e5": {
+    "kind": "近战",
+    "count": 551,
+    "dims": [
+      72,
+      34
+    ],
+    "ratio": 2.118,
+    "bitmap": "00000000000000000000ff000000000000000000000000000000ff000000000000000000000000000000ff000000000000000000000000000000ff000000000000ffffffffffffffffffff000000000000ffffffffffffffffffff0000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00ffffffffffffffffffff000000000000ffffffffffffffffffff000000000000000000000000000000ff000000000000000000000000000000ff000000000000000000000000000000ff000000000000000000000000000000ff0000000000",
+    "samples": [
+      "死亡天使/imp-aod-01-01/动力拳套",
+      "死亡天使/imp-aod-01-02/链锯剑",
+      "死亡天使/imp-aod-01-02/动力拳套",
+      "死亡天使/imp-aod-01-02/动力武器",
+      "死亡天使/imp-aod-01-02/雷霆锤",
+      "死亡天使/imp-aod-01-04/链锯剑"
+    ]
+  },
+  "66e798b5fb95": {
+    "kind": "远程",
+    "count": 1,
+    "dims": [
+      55,
+      34
+    ],
+    "ratio": 1.618,
+    "bitmap": "0000ff0000000000ff00000000ff000000ffff00000000ffff00000000ffff00ffffffff0000ffffffff0000ffffffffffffffffff00ffffffff0000ffffffffffffffffff00ffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffff00ffffffffffffffffffffffffffffff00ffffffff0000ffffffff00000000000000000000000000000000ffffffffff00ffffffff0000ffffffffffffffffff00ffffffff0000ffffffffffffffffff00ffffffff0000ffffffff",
+    "samples": [
+      "恶角兽掠夺者/chaos-fell-01-06/裂刺鞭（远程）"
+    ]
+  }
+}

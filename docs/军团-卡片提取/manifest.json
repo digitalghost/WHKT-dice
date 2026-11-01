@@ -1,0 +1,912 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-LEGIONARIES",
+  "team_name_zh": "军团",
+  "team_name_en": "Legionaries",
+  "source_pdf": "最新杀戮小队规则更新/军团 Legionaries 杀戮小队规则.pdf",
+  "source_pdf_sha256": "906fb1bce064c9ef61e7777479e46963edc9bc445b4de876074c28d8000edc04",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 33,
+    "operative": 10,
+    "operative-ability": 1,
+    "team-selection": 2,
+    "faction-rule": 7,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-legionaries-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "军团野心勇士-数据卡",
+      "title_en": "LEGIONARY ASPIRING CHAMPION",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-军团野心勇士-数据卡.png",
+      "is_back": false,
+      "text": "军团野心勇士 APL 移动豁免耐伤\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n腐化爆矢手枪 4 3+ 3/5 范围 8\"、撕裂\n动力拳套 5 4+ 5/7 残暴\n动力槌 5 3+ 4/6 震荡\n动力武器 5 3+ 4/6 致命 5+\n腐化链锯剑 5 3+ 4/5 撕裂\n诸神的注视：该特工的每次激活限一次，如果该特工将一名敌方特工残废，那么直到那次激活结束前，该\n特工的 APL 属性增加 1 点。\n军团、混沌、阿斯塔特叛军、领袖、野心勇士 32",
+      "weapon_types": {
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "腐化爆矢手枪": "远程",
+        "动力拳套": "近战",
+        "动力槌": "近战",
+        "动力武器": "近战",
+        "腐化链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY ASPIRING CHAMPION\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nTainted bolt pistol 4 3+ 3/5 Range 8\", Rending\nPower fist 5 4+ 5/7 Brutal\nPower maul 5 3+ 4/6 Shock\nPower weapon 5 3+ 4/6 Lethal 5+\nTainted chainsword 5 3+ 4/5 Rending\nIn the Eyes of the Gods: Once during each of this operative’s activations, if it incapacitates an enemy operative, add 1 to its APL stat\nuntil the end of that activation.\nLEGIONARY , CHAOS, HERETIC ASTARTES, LEADER, ASPIRING CHAMPION 32"
+    },
+    {
+      "id": "kt-legionaries-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "军团神选者-数据卡",
+      "title_en": "LEGIONARY CHOSEN",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-军团神选者-数据卡.png",
+      "is_back": false,
+      "text": "军团神选者 APL 移动豁免耐伤\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n等离子手枪（标准） 4 3+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n腐化爆矢手枪 4 3+ 3/5 范围 8\"、撕裂\n恶魔之刃 5 3+ 4/7 致命 5+\n恶魔光环：每当一名位于该特工控制范围内的敌方\n特工执行后撤行动时，您可以使用本规则。若使\n用，掷一枚 D6：若结果为 3+，那名敌方特工不能\n执行那次行动（返还被消耗的 AP)。\n灵魂盛宴：在该特工进行近战或者反击后，如果该\n特工没有被残废，但是在流程中将敌方特工残废，\n那么该特工回复最多 D3+1 点失去的耐伤。\n军团、混沌、阿斯塔特叛军、领袖、神选者 32",
+      "weapon_types": {
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "腐化爆矢手枪": "远程",
+        "恶魔之刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY CHOSEN\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nTainted bolt pistol 4 3+ 3/5 Range 8\", Rending\nDaemon blade 5 3+ 4/7 Lethal 5+\nDaemonic Aura: Whenever an enemy operative performs the\nFall Back action while within control range of this operative,\nyou can use this rule. If you do, roll one D6: on a 3+, that enemy\noperative cannot perform that action during that activation/\ncounteraction (the AP spent on it is refunded).\nSoul Gorge: After this operative fights or retaliates, if it isn’t\nincapacitated, but it incapacitated an enemy operative during\nthat sequence, it regains up to D3+1 lost wounds.\nLEGIONARY , CHAOS, HERETIC ASTARTES, LEADER, CHOSEN 32"
+    },
+    {
+      "id": "kt-legionaries-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "军团受选者-数据卡",
+      "title_en": "LEGIONARY ANOINTED",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-军团受选者-数据卡.png",
+      "is_back": false,
+      "text": "军团受选者 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n恶魔之爪 5 3+ 4/5 撕裂\n释放恶魔：每场战斗限一次，在该特工被激活时，您可以使用本规则。若使用，那么直到战斗结束前：\n• 该特工不能执行拾取标识或者任务行动（操作舱 • 大于等于 4 的普通和暴击伤害对该特工造成的伤\n门除外)。如果该特工携带一枚标识，那么必须立害减少 1 点。如果该特工拥有纳垢关键词，那么\n刻消耗 0AP 执行放置标识行动（本规则的优先度您对一枚攻击骰造成的伤害进行降低的数量不能\n高于其他所有规则)。超过 1 点。也就是说，您不能同时使用两个规则\n将数值为 4 的普通伤害降低至 2。\n• 该特工的恶魔之爪拥有“无休”和“致命 5+”\n武器规则。\n军团、混沌、阿斯塔特叛军、受选者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "恶魔之爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY ANOINTED\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nDaemonic claw 5 3+ 4/5 Rending\nUnleash Daemon: Once per battle, when this operative is activated, you can use this rule. If you do, until the end of the battle:\n• This operative cannot perform the Pick Up Marker or mission actions (excluding Operate Hatch). If it’s carrying a marker, it\nmust immediately perform the Place Marker action for 0AP (this takes precedence over all other rules).\n• Normal and Critical Dmg of 4 or more inflicts 1 less damage on this operative. If this operative has the NURGLE keyword, you\ncannot reduce the damage of an attack dice by more than 1. In other words, you cannot use both rules to reduce Normal Dmg of 4\nor more by 2.\n• Its daemonic claw has the Ceaseless and Lethal 5+ weapon rules.\nLEGIONARY , CHAOS, HERETIC ASTARTES, ANOINTED 32"
+    },
+    {
+      "id": "kt-legionaries-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "军团邪火使徒-数据卡",
+      "title_en": "LEGIONARY BALEFIRE ACOLYTE",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-军团邪火使徒-数据卡.png",
+      "is_back": false,
+      "text": "军团邪火使徒 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n火焰冲击 4 3+ 3/4 爆炸 2\"、1\" 毁灭 1、集中、灵能\n灵魂虹吸 5 3+ 3/3 集中、灵能、吸魂*\n邪恶匕首 5 3+ 3/4 撕裂、灵能、吸魂*\n*吸魂：在您选择本武器时，您可以使用本规则。若使用，在结算攻击骰步骤开始时，选择一名位于该特工\n6\" 内且可见的己方军团特工。在那个阶段中，您每结算一枚造成伤害的攻击骰，那名己方特工便回复 1\n点失去的耐伤，如果结算的是一次关键成功，则回复 D3 点失去的耐伤。您在每个转折点中使用本武器规\n则的次数不能超过一次。\n军团、混沌、阿斯塔特叛军、灵能者、邪火使徒 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "火焰冲击": "远程",
+        "灵魂虹吸": "远程",
+        "邪恶匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY BALEFIRE ACOLYTE\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nFireblast 4 3+ 3/4 PSYCHIC , Blast 2\", 1\" Devastating 1, Saturate\nLife siphon 5 3+ 3/3 PSYCHIC , Saturate, Siphon Life*\nFell dagger 5 3+ 3/4 PSYCHIC , Rending, Siphon Life*\n*Siphon Life: When you select this weapon, you can use this rule. If you do, at the start of the Resolve Attack Dice step, select one\nfriendly LEGIONARY operative visible to and within 6\" of this operative. For each attack dice you resolve during that step that\ninflicts damage, that friendly operative regains 1 lost wound, or D3 lost wounds if it was a critical success. You cannot use this weapon\nrule more than once per turning point.\nLEGIONARY , CHAOS, HERETIC ASTARTES, PSYKER, BALEFIRE ACOLYTE 32"
+    },
+    {
+      "id": "kt-legionaries-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "军团屠夫-数据卡",
+      "title_en": "LEGIONARY BUTCHER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-军团屠夫-数据卡.png",
+      "is_back": false,
+      "text": "军团屠夫 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n双手链锯斧 5 4+ 5/7 残暴\n毁灭性猛攻：\n• 每当该特工进行近战或者反击时，敌方特工不能\n协助。\n• 在每名敌方特工的激活或反应结束时，您可以选\n择一名位于该特工 2\" 内的敌方特工。该特工可以\n执行一次无消耗的冲锋行动（您可以将其命令改\n为交战），但移动距离不能超过 2\"，且结束移动\n时必须位于被选择特工的控制范围内。\n军团、混沌、阿斯塔特叛军、屠夫 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "双手链锯斧": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY BUTCHER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nDouble-handed chainaxe 5 4+ 5/7 Brutal\nDevastating Onslaught:\n• Whenever this operative is fighting or retaliating, enemy\noperatives cannot assist.\n• At the end of each enemy operative’s activation or\ncounteraction, you can select one enemy operative within 2\"\nof this operative. This operative can perform a free Charge\naction (you can change its order to Engage to do so), but it\ncannot move more than 2\" and must end that move within\ncontrol range of that selected operative.\nLEGIONARY , CHAOS, HERETIC ASTARTES, BUTCHER 32"
+    },
+    {
+      "id": "kt-legionaries-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "军团炮手-数据卡",
+      "title_en": "LEGIONARY GUNNER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-军团炮手-数据卡.png",
+      "is_back": false,
+      "text": "军团炮手 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n热熔枪 4 3+ 6/3 范围 6\"、毁灭 4、穿刺 2\n等离子枪（标准） 4 3+ 4/6 穿刺 1\n等离子枪（过载） 4 3+ 5/6 过热、致命 5+、穿刺 1\n双拳 4 3+ 3/4 -\n军团、混沌、阿斯塔特叛军、炮手 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "火焰喷射器": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY GUNNER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nMeltagun 4 3+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 3+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nFists 4 3+ 3/4 -\nLEGIONARY , CHAOS, HERETIC ASTARTES, GUNNER 32"
+    },
+    {
+      "id": "kt-legionaries-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "军团重炮手-数据卡",
+      "title_en": "LEGIONARY HEAVY GUNNER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-军团重炮手-数据卡.png",
+      "is_back": false,
+      "text": "军团重炮手 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n重型爆矢枪（集中） 5 3+ 4/5 重型(仅限转移)、关键穿刺 1\n重型爆矢枪（扫射） 4 3+ 4/5 重型(仅限转移)、关键穿刺 1、洪流 1\"\n导弹发射器（破片） 4 3+ 3/5 爆炸 2\"、重型(仅限转移)\n导弹发射器（穿甲） 4 3+ 5/7 重型(仅限转移)、穿刺 1\n收割者机炮（集中） 5 3+ 3/4 无休、重型（仅限转移)、重击\n收割者机炮（扫射） 4 3+ 3/4 无休、重型（仅限转移)、重击、洪流 2\"\n双拳 4 3+ 3/4 -\n军团、混沌、阿斯塔特叛军、重炮手 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "重型爆矢枪（集中）": "远程",
+        "重型爆矢枪（扫射）": "远程",
+        "导弹发射器（破片）": "远程",
+        "导弹发射器（穿甲）": "远程",
+        "收割者机炮（集中）": "远程",
+        "收割者机炮（扫射）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY HEAVY GUNNER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nHeavy bolter (focused) 5 3+ 4/5 Heavy (Reposition only), Piercing Crits 1\nHeavy bolter (sweeping) 4 3+ 4/5 Heavy (Reposition only), Piercing Crits 1,\nTorrent 1\"\nMissile launcher (frag) 4 3+ 3/5 Blast 2\", Heavy (Reposition only)\nMissile launcher (krak) 4 3+ 5/7 Heavy (Reposition only), Piercing 1\nReaper chaincannon (focused) 5 3+ 3/4 Ceaseless, Heavy (Reposition only), Punishing\nReaper chaincannon (sweeping) 4 3+ 3/4 Ceaseless, Heavy (Reposition only), Punishing,\nTorrent 2\"\nFists 4 3+ 3/4 -\nLEGIONARY , CHAOS, HERETIC ASTARTES, HEAVY GUNNER 32"
+    },
+    {
+      "id": "kt-legionaries-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "军团持徽手-数据卡",
+      "title_en": "LEGIONARY ICON BEARER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-军团持徽手-数据卡.png",
+      "is_back": false,
+      "text": "军团持徽手 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢枪 4 3+ 3/4 -\n链锯剑 5 3+ 4/5 -\n双拳 4 3+ 3/4 -\n持徽手：在判断一个标识的控制权时，将该特工的\nAPL 属性视为比原本要高 1 点。请注意，这并非对\nAPL 属性的修正，因此任何额外的修正效果会与本\n规则叠加。\n黑暗诸神的青睐：在每个战略阶段的就绪步骤中，\n如果该特工控制了一个没有被腐化的目标标识，那\n么那个目标标识在战斗中被腐化，您获得 1CP。请\n注意，如果任何特工已经腐化了一个目标标识（包\n括敌方特工），那么那个目标标识不能被您腐化。\n军团、混沌、阿斯塔特叛军、持徽手 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "链锯剑": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY ICON BEARER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nBoltgun 4 3+ 3/4 -\nChainsword 5 3+ 4/5 -\nFists 4 3+ 3/4 -\nIcon Bearer: Whenever determining control of a marker, treat\nthis operative’s APL stat as 1 higher. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\nFavoured of the Dark Gods: In the Ready step of each Strategy\nphase, if this operative controls an objective marker that isn’t\ntainted, that objective marker is tainted for the battle and\nyou gain 1CP. Note that if any operative (including enemy\noperatives) has tainted an objective marker, you cannot taint that\nobjective marker.\nLEGIONARY , CHAOS, HERETIC ASTARTES, ICON BEARER 32"
+    },
+    {
+      "id": "kt-legionaries-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "军团赦罪之爪-数据卡",
+      "title_en": "LEGIONARY SHRIVETALON",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-军团赦罪之爪-数据卡.png",
+      "is_back": false,
+      "text": "军团赦罪之爪 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n剥皮刀 5 3+ 3/5 致命 5+\n险恶反应力：每当该特工进行反击时，您将结算第\n一枚攻击骰（也就是说，由防守方先进行结算，而\n不是进攻方)。\n可怕肢解：每当该特工通过近战或者反击将一名敌\n方特工残废时，选择一名位于该特工或那名被残\n废敌方特工 3\" 内且可见的其他敌方特工。直到那\n名敌方特工的下一次激活结束前，其 APL 属性减\n少 1 点。\n请继续阅读背面规则\n军团、混沌、阿斯塔特叛军、赦罪之爪 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "剥皮刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY SHRIVETALON\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nFlensing blades 5 3+ 3/5 Lethal 5+\nVicious Reflexes: Whenever this operative is retaliating, you\nresolve the first attack dice (i.e. defender instead of attacker).\nHorrifying Dismemberment: Whenever this operative\nincapacitates an enemy operative while fighting or retaliating,\nselect one other enemy operative visible to and within 3\" of\neither this operative or the incapacitated enemy operative.\nSubtract 1 from that enemy operative’s APL stat until the end of\nits next activation.\nRULES CONTINUE ON OTHER SIDE\nLEGIONARY , CHAOS, HERETIC ASTARTES, SHRIVETALON 32"
+    },
+    {
+      "id": "kt-legionaries-01-10",
+      "sequence": 10,
+      "category": "operative-ability",
+      "title_zh": "军团赦罪之爪-能力卡",
+      "title_en": "LEGIONARY SHRIVETALON",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工能力-军团赦罪之爪-能力卡.png",
+      "is_back": false,
+      "text": "军团赦罪之爪 APL 移动豁免耐伤\n3 6\" 3+ 14\n血腥标记 2AP\n将一枚己方血腥标识放置在该特工的控制范围内。该特工在每场战斗中只能执\n• 位于己方血腥标识 3\" 内的敌方特工在执行拾取标识或者任务行动时行本行动一次，并且不能在\n必须额外消耗 1AP。敌方特工的控制范围内执行\n• 在判断对一枚标识的控制权时，如果有至少一名争夺标识的敌方特此行动。\n工位于己方血腥标识的 3\" 内，那么将争夺标识的敌方特工的 APL 属\n性总和视作为比原本低 1 点。请注意，这不是对 APL 属性的修改，\n因此任何修改效果会与本规则的效果叠加。",
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY SHRIVETALON\n3 6\" 3+ 14\nGRISLY MARK 2AP\nPlace your Grisly marker within this operative’s control range.\n• Whenever an enemy operative is within 3\" of your Grisly marker, your opponent must spend 1 additional AP for that enemy\noperative to perform the Pick Up Marker and mission actions.\n• Whenever determining control of a marker, treat the total APL stat of enemy operatives that contest it as 1 lower if at least one of\nthose enemy operatives is within 3\" of your Grisly marker. Note this isn’t a change to the APL stat, so any changes are cumulative\nwith this.\nThis operative cannot perform this action more than once per battle, and cannot perform it while within control range of an\nenemy operative."
+    },
+    {
+      "id": "kt-legionaries-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "军团战士-数据卡",
+      "title_en": "LEGIONARY WARRIOR",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-军团战士-数据卡.png",
+      "is_back": false,
+      "text": "军团战士 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢枪 4 3+ 3/4 -\n链锯剑 5 3+ 4/5 -\n双拳 4 3+ 3/4 -\n炼狱契约：每场战斗限一次，在一名己方军团特\n工被激活后，您可以使用本规则。若使用，更改那\n名特工的混沌印记关键词。\n军团、混沌、阿斯塔特叛军、战士 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "链锯剑": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEGIONARY WARRIOR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nBoltgun 4 3+ 3/4 -\nChainsword 5 3+ 4/5 -\nFists 4 3+ 3/4 -\nInfernal Pact: Once per battle, when a friendly LEGIONARY\nWARRIOR operative is activated, you can use this rule. If you\ndo, change that operative’s Marks of Chaos keyword.\nLEGIONARY , CHAOS, HERETIC ASTARTES, WARRIOR 32"
+    },
+    {
+      "id": "kt-legionaries-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "军团杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-军团杀戮小队-1.png",
+      "is_back": false,
+      "text": "军团\n杀戮小队\n原型: 安全保护、搜索与破坏\n特工\n↘ 1 名军团特工，从以下列表中选择:\n• 野心勇士，从以下选项各选择一个装备：\n○ 等离子手枪，或腐化爆矢手枪\n○ 动力拳套，动力槌，动力武器，或\n腐化链锯剑\n• 神选者，装备有以下一种选项：\n○ 等离子手枪；恶魔之刃\n○ 腐化爆矢手枪；恶魔之刃\n↘ 5名军团特工，从以下列表中选择:\n• 受选者\n• 邪火信徒\n• 屠夫\n请继续阅读背面规则",
+      "text_en": "LEGIONARIES\nKILL TEAM\nARCHETYPES: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 LEGIONARY operative selected from the\nfollowing list:\n• ASPIRING CHAMPION with one option from\neach of the following:\n○ Plasma pistol or tainted bolt pistol\n○ Power fist, power maul, power weapon or\ntainted chainsword\n• CHOSEN with one of the following options:\n○ Plasma pistol; daemon blade\n○ Tainted bolt pistol; daemon blade\n↘ 5 LEGIONARY operatives selected from the\nfollowing list:\n• ANOINTED\n• BALEFIRE ACOLYTE\n• BUTCHER\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-legionaries-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "军团杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-军团杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 炮手，装备有以下一种选项：\n○ 爆矢手枪；火焰喷射器；双拳\n○ 爆矢手枪；热熔枪；双拳\n○ 爆矢手枪；等离子枪；双拳\n• 重炮手，装备有以下一种选项：\n○ 爆矢手枪；重型爆矢枪；双拳\n○ 爆矢手枪；导弹发射器；双拳\n○ 爆矢手枪；收割者机炮；双拳\n• 持徽手，装备有以下一种选项：\n○ 爆矢枪；双拳\n○ 爆矢手枪；链锯剑\n• 赦罪之爪\n• 战士，装备有以下一种选项：\n○ 爆矢枪；双拳\n○ 爆矢手枪；链锯剑\n除了战士特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。",
+      "text_en": "• GUNNER with one of the following options:\n○ Bolt pistol; flamer; fists\n○ Bolt pistol; meltagun; fists\n○ Bolt pistol; plasma gun; fists\n• HEAVY GUNNER with one of the\nfollowing options:\n○ Bolt pistol; heavy bolter; fists\n○ Bolt pistol; missile launcher; fists\n○ Bolt pistol; reaper chaincannon; fists\n• ICON BEARER with one of the\nfollowing options:\n○ Boltgun; fists\n○ Bolt pistol; chainsword\n• SHRIVETALON\n• WARRIOR with one of the following options:\n○ Boltgun; fists\n○ Bolt pistol; chainsword\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-legionaries-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "混沌印记",
+      "title_en": "MARKS OF CHAOS",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-混沌印记.png",
+      "is_back": false,
+      "text": "军团\n阵营规则\n混沌印记\n通过与湮灭之力定下黑暗的契约，军团战士\n们能够提升自己的力量。然而这种交易通常\n也会伴随着代价。\n在选择一名进行战斗的军团特工时，您必须选\n择以下一个关键词：恐虐、纳垢、色孽、奸奇、\n无分。特工将在战斗中拥有被选择的关键词。每\n一名特工的关键词可以不同，但是邪火使徒特工\n不能拥有恐虐关键词。\n己方军团特工将根据上述的关键词获得额外的\n规则。此外，军团计谋会对拥有对应关键词的\n特工产生额外的效果。\n混沌标识的选项将在单独的卡片上分别进行表示",
+      "text_en": "LEGIONARY\nFACTION RULE\nMARKS OF CHAOS\nBy making dark pacts with the Ruinous Powers,\nLegionaries may increase their own might. Yet such\nbargains rarely come without a cost.\nWhenever you select a LEGIONARY operative for\nthe battle, you must select one of the following\nkeywords for it to have for that battle: KHORNE,\nNURGLE, SLAANESH, TZEENTCH, UNDIVIDED.\nEach operative’s keyword can be different, but\na BALEFIRE ACOLYTE operative cannot have the\nKHORNE keyword.\nFriendly LEGIONARY operatives have an\nadditional rule determined by this keyword. In\naddition, LEGIONARY ploys have additional\nbenefits for operatives with the relevant keyword.\nMARK OF CHAOS OPTIONS ARE PRESENTED ON\nTHEIR OWN CARDS"
+    },
+    {
+      "id": "kt-legionaries-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "恐虐",
+      "title_en": "MARKS OF CHAOS",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-恐虐.png",
+      "is_back": false,
+      "text": "军团\n阵营规则\n混沌印记\n恐虐\n狂怒攻势\n该特工的近战武器拥有“严重”武器规则。",
+      "text_en": "LEGIONARY\nFACTION RULE\nMARKS OF CHAOS\nKHORNE\nWrathful Onslaught\nThis operative’s melee weapons have the Severe\nweapon rule."
+    },
+    {
+      "id": "kt-legionaries-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "纳垢",
+      "title_en": "MARKS OF CHAOS",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-纳垢.png",
+      "is_back": false,
+      "text": "军团\n阵营规则\n混沌印记\n纳垢\n恼人生命力\n每当该特工受到一次大于等于 3 的普通伤害时，\n掷一枚 D6：若结果为 5+，特工受到的伤害减\n少 1 点。",
+      "text_en": "LEGIONARY\nFACTION RULE\nMARKS OF CHAOS\nNURGLE\nDisgusting Vigour\nWhenever Normal Dmg of 3 or more is inflicted\non this operative, roll one D6: on a 5+, subtract 1\nfrom that inflicted damage."
+    },
+    {
+      "id": "kt-legionaries-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "色孽",
+      "title_en": "MARKS OF CHAOS",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-色孽.png",
+      "is_back": false,
+      "text": "军团\n阵营规则\n混沌印记\n色孽\n超凡敏捷\n该特工的移动属性增加 1\"。",
+      "text_en": "LEGIONARY\nFACTION RULE\nMARKS OF CHAOS\nSLAANESH\nUnnatural Agility\nAdd 1\" to this operative’s Move stat."
+    },
+    {
+      "id": "kt-legionaries-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "奸奇",
+      "title_en": "MARKS OF CHAOS",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-05-阵营规则-奸奇.png",
+      "is_back": false,
+      "text": "军团\n阵营规则\n混沌印记\n奸奇\n亚空间指引\n该特工的远程武器拥有“严重”武器规则。",
+      "text_en": "LEGIONARY\nFACTION RULE\nMARKS OF CHAOS\nTZEENTCH\nEmpyreal Guidance\nThis operative’s ranged weapons have the Severe\nweapon rule."
+    },
+    {
+      "id": "kt-legionaries-11-06",
+      "sequence": 6,
+      "category": "faction-rule",
+      "title_zh": "无分",
+      "title_en": "MARKS OF CHAOS",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-06-阵营规则-无分.png",
+      "is_back": false,
+      "text": "军团\n阵营规则\n混沌印记\n无分\n凶恶劫掠者\n每当该特工对一名位于其 6\" 内的敌方特工进行\n射击、近战或者反击时，该特工的武器拥有“无\n休”武器规则。",
+      "text_en": "LEGIONARY\nFACTION RULE\nMARKS OF CHAOS\nUNDIVIDED\nVicious Reavers\nWhenever this operative is shooting against,\nfighting against or retaliating against an enemy\noperative within 6\" of it, this operative’s weapons\nhave the Ceaseless weapon rule."
+    },
+    {
+      "id": "kt-legionaries-11-07",
+      "sequence": 7,
+      "category": "faction-rule",
+      "title_zh": "阿斯塔特",
+      "title_en": "ASTARTES",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-07-阵营规则-阿斯塔特.png",
+      "is_back": false,
+      "text": "军团\n阵营规则\n阿斯塔特\n这些经受了基因强化的超人们的存在意义只\n有一个：战争。\n在每一名己方军团特工的激活期间，特工可以\n执行两次近战行动或者两次射击行动。如果选择\n执行两次射击行动，那么其中至少有一次必须\n选择使用爆矢手枪、爆矢枪，或者腐化爆矢手\n枪进行。\n每一名己方军团特工可以进行反应，无论其拥\n有何种命令。",
+      "text_en": "LEGIONARY\nFACTION RULE\nASTARTES\nThese genetically modified superhumans are made for\none purpose: war.\nDuring each friendly LEGIONARY operative’s\nactivation, it can perform either two Shoot\nactions or two Fight actions. If it’s two Shoot\nactions, a bolt pistol, boltgun or tainted bolt pistol\nmust be selected for at least one of them.\nEach friendly LEGIONARY operative can\ncounteract regardless of its order."
+    },
+    {
+      "id": "kt-legionaries-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "LEGIONARY",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "军团\n标识/指示物指南\n混沌印记混沌印记混沌印记\n恐虐指示物纳垢指示物奸奇指示物\n混沌印记混沌印记释放恶魔\n色孽指示物无分指示物指示物\n腐化弹药守护护甲血腥标识\n指示物指示物",
+      "text_en": "LEGIONARY\nMARKER/TOKEN GUIDE\nMark of Chaos Mark of Chaos Mark of Chaos\nKhorne token Nurgle token Tzeentch token\nMark of Chaos Mark of Chaos Unleash\nSlaanesh token Undivided Daemon token\ntoken\nTainted Rounds Warded Grisly marker\ntoken Armour token"
+    },
+    {
+      "id": "kt-legionaries-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "血祭血神",
+      "title_en": "BLOOD FOR THE BLOOD GOD",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-血祭血神.png",
+      "is_back": false,
+      "text": "军团\n战略计谋\n血祭血神\n嗜血好战，怒气冲冲，军团战士们发起了狂\n暴的突袭。\n每当一名己方军团特工（恐虐除外）进行近战\n时，您在流程中首次的出击将造成额外 1 点伤害\n（最多 7 点）。\n己方军团恐虐特工的近战武器的两个伤害属性\n都提升 1 点（最多 7 点）。",
+      "text_en": "LEGIONARY\nSTRATEGY PLOY\nBLOOD FOR THE BLOOD GOD\nBloodthirsty, battle-hungry and filled with unbridled\nfury, Legionaries strike with rage-fuelled might.\nWhenever a friendly LEGIONARY operative\n(excluding KHORNE) is fighting, the first time you\nstrike during that sequence, inflict 1 additional\ndamage (to a maximum of 7).\nAdd 1 to both Dmg stats of friendly\nLEGIONARY KHORNE operatives’ melee\nweapons (to a maximum of 7)."
+    },
+    {
+      "id": "kt-legionaries-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "坚不可摧",
+      "title_en": "IMPLACABLE",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-坚不可摧.png",
+      "is_back": false,
+      "text": "军团\n战略计谋\n坚不可摧\n在超人体格和黑暗神明的祝福之下，军团战\n士们极度坚韧。\n您可以忽略己方军团纳垢特工因受创而导致的\n对任何属性的修改（包括武器数据）。\n每当一名特工对己方军团特工进行射击时，拥\n有“穿刺 1”武器规则的武器将变为拥有“关键\n穿刺 1”武器规则。",
+      "text_en": "LEGIONARY\nSTRATEGY PLOY\nIMPLACABLE\nEmpowered by their transhuman might and the\ngifts of their daemonic patrons, Legionaries are\nmonstrously resilient.\nWhenever an operative is shooting a friendly\nLEGIONARY operative, weapons with the\nPiercing 1 weapon rule have the Piercing Crits 1\nweapon rule instead.\nYou can ignore any changes to the stats of\nfriendly LEGIONARY NURGLE operatives from\nbeing injured (including their weapons’ stats)."
+    },
+    {
+      "id": "kt-legionaries-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "迅捷速度",
+      "title_en": "QUICKSILVER SPEED",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-迅捷速度.png",
+      "is_back": false,
+      "text": "军团\n战略计谋\n迅捷速度\n一些混沌星际战士拥有超凡的敏捷和速度，\n让敌人措手不及。\n当一名在转折点中执行了进行移动的行动的己方\n军团特工进行近战时，敌方特工近战武器的命\n中属性弱化 1。\n当一名特工对位于其 6\" 外的一名己方军团色孽\n特工进行射击时，而这名己方特工在转折点中执\n行过进行移动的行动，那么敌方特工武器的命中\n属性弱化 1。\n无论是上述哪种情况，本计谋的效果不能与受创\n导致的效果叠加。",
+      "text_en": "LEGIONARY\nSTRATEGY PLOY\nQUICKSILVER SPEED\nSome amongst the Heretic Astartes are possessed of\na fleetness of foot and inhuman agility with which they\nbeguile and confound the foe.\nWhenever a friendly LEGIONARY operative that\nperformed an action in which it moved during this\nturning point is fighting, worsen the Hit stat of the\nenemy operative’s melee weapons by 1.\nWhenever an operative is shooting a friendly\nLEGIONARY SLAANESH operative more than\n6\" from it that performed an action in which it\nmoved during this turning point, worsen the Hit\nstat of the enemy operative’s weapons by 1.\nIn all cases for this ploy, this isn’t cumulative with\nbeing injured."
+    },
+    {
+      "id": "kt-legionaries-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "无常命运",
+      "title_en": "FICKLE FATES",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-无常命运.png",
+      "is_back": false,
+      "text": "军团\n战略计谋\n无常命运\n一名叛军阿斯塔特战士只需窥视片刻未来就\n能造成毁灭性的后果。\n在一名己方军团特工对一名就绪的敌方特工进\n行射击时，那名己方特工的远程武器拥有“平\n衡”武器规则。\n每当一名特工对就绪的己方军团奸奇特工进行\n射击时，在掷防御骰步骤中，如果您保留了任何\n关键成功，那么您可以将一次失败作为普通成功\n进行保留，而不是将其舍弃。",
+      "text_en": "LEGIONARY\nSTRATEGY PLOY\nFICKLE FATES\nWith superhuman reactions, a Heretic Astartes warrior\ncan use even fractional glimpses of future events to\ndevastating effect.\nWhenever a friendly LEGIONARY operative is\nshooting a ready enemy operative, that friendly\noperative’s ranged weapons have the Balanced\nweapon rule.\nWhenever an operative is shooting a ready\nfriendly LEGIONARY TZEENTCH operative, in the\nRoll Defence Dice step, if you retain any critical\nsuccesses, you can retain one of your fails as a\nnormal success instead of discarding it."
+    },
+    {
+      "id": "kt-legionaries-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "无尽杀戮",
+      "title_en": "UNENDING BLOODSHED",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-无尽杀戮.png",
+      "is_back": false,
+      "text": "军团\n交战计谋\n无尽杀戮\n就算是在濒死之际，恐虐的信徒们也会以血\n神之名将最后一口气用在杀戮之上。\n当一名己方军团恐虐特工在近战或反击期间被\n残废时使用本交战计谋。在将特工移出杀戮区之\n前，您可以使用一次未结算的成功对流程中的敌\n方特工进行出击。",
+      "text_en": "LEGIONARY\nFIREFIGHT PLOY\nUNENDING BLOODSHED\nEven when on the verge of death, the devotees of\nKhorne spend their last vestiges of energy to kill in the\nBlood God’s name.\nUse this firefight ploy when a friendly\nLEGIONARY KHORNE operative is incapacitated\nwhile fighting or retaliating. You can strike the\nenemy operative in that sequence with one of\nyour unresolved successes before it’s removed\nfrom the killzone."
+    },
+    {
+      "id": "kt-legionaries-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "变异与扭转",
+      "title_en": "MUTABILITY AND CHANGE",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-变异与扭转.png",
+      "is_back": false,
+      "text": "军团\n交战计谋\n变异与扭转\n奸奇会向他最为虔诚的信徒赋予各种各样的\n奇特变异，其中一些甚至能够带来益处。\n当一名己方军团奸奇特工被激活时使用本交战\n计谋。直到特工的激活结束前，其 APL 属性增\n加 1 点，但是在那次激活中不能多次执行同样的\n行动。如果使用本计谋的是一名战士特工，那么\n那名战士的混沌印记关键词不能在当前转折点中\n改变（参见炼狱契约额外规则）。",
+      "text_en": "LEGIONARY\nFIREFIGHT PLOY\nMUTABILITY AND CHANGE\nTzeentch bestows upon his most devoted followers all\nmanner of bizarre mutations, some of which may even\nprove beneficial.\nUse this firefight ploy when a friendly\nLEGIONARY TZEENTCH operative is activated.\nUntil the end of that operative’s activation, add\n1 to its APL stat, but it cannot perform the same\naction more than once during that activation. If\nit’s a WARRIOR operative, that operative’s Marks\nof Chaos keyword cannot be changed during this\nturning point (see Infernal Pact additional rule)."
+    },
+    {
+      "id": "kt-legionaries-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "邪恶光环",
+      "title_en": "MALIGNANT AURA",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-邪恶光环.png",
+      "is_back": false,
+      "text": "军团\n交战计谋\n邪恶光环\n那些向纳垢宣誓忠诚的信徒能够获得他的馈\n赠。其中一些战士能够向四周释放一种腐化瘴\n气的光环。\n当一名己方军团纳垢特工执行射击行动并选择\n有效目标时使用本交战计谋。直到那次行动结\n束前，每当那名特工对其 3\" 内的敌方特工进行\n射击时（包括次要目标，若有)，其远程武器拥\n有“穿刺 1”武器规则。",
+      "text_en": "LEGIONARY\nFIREFIGHT PLOY\nMALIGNANT AURA\nThose who swear themselves to Nurgle may be granted\nhis favour. Some are even able to project an miasmic\naura of decay.\nUse this firefight ploy when a friendly\nLEGIONARY NURGLE operative is performing the\nShoot action, when you select a valid target. Until\nthe end of that action, whenever that friendly\noperative is shooting an enemy operative within\n3\" of it (i.e. including secondary targets, if any),\nthat friendly operative’s ranged weapons have the\nPiercing 1 weapon rule."
+    },
+    {
+      "id": "kt-legionaries-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "不祥迷惑",
+      "title_en": "SICKENING CAPTIVATION",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-不祥迷惑.png",
+      "is_back": false,
+      "text": "军团\n交战计谋\n不祥迷惑\n色孽会赐予忠诚的信徒迷惑敌人的力量，依\n靠眩眼的速度、令人反胃的香气和恐怖的噪\n音让敌人难以行动。\n在一名己方军团色孽特工的激活期间，在其执\n行一次行动之前或者之后使用本交战计谋。选择\n一个位于其 4\" 内且可见的敌方特工。直到那名\n敌方特工的下一次激活结束前，其 APL 属性减\n少 1 点。",
+      "text_en": "LEGIONARY\nFIREFIGHT PLOY\nSICKENING CAPTIVATION\nSlaanesh bestows upon the loyal the power to nauseate\ntheir foes, using dazzling speed, sickening perfumed\nauras and horrific sonic projections.\nUse this firefight ploy during a friendly\nLEGIONARY SLAANESH operative’s activation,\nbefore or after it performs an action. Select one\nenemy operative visible to and within 4\" of that\nfriendly operative. Until the end of that enemy\noperative’s next activation, subtract 1 from its\nAPL stat."
+    },
+    {
+      "id": "kt-legionaries-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "守护护甲",
+      "title_en": "WARDED ARMOUR",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-守护护甲.png",
+      "is_back": false,
+      "text": "军团\n阵营装备\n守护护甲\n这件动力护甲被画上了亵渎的徽记，用邪恶\n的法典进行修饰并受到了湮灭之力的祝福，\n拥有不洁的防御能力。\n战略计划。选择一名己方军团特工。将那名特\n工的豁免属性变为 2+，持续至下一个战略阶段\n的就绪步骤。",
+      "text_en": "LEGIONARY\nFACTION EQUIPMENT\nWARDED ARMOUR\nDaubed with profane icons, emblazoned with infernal\nscripture and blessed by the Ruinous Powers, this power\narmour possesses unholy resilience.\nSTRATEGIC GAMBIT. Select one friendly\nLEGIONARY operative. Until the Ready step of\nthe next Strategy phase, change that operative’s\nSave stat to 2+."
+    },
+    {
+      "id": "kt-legionaries-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "腐化弹药",
+      "title_en": "TAINTED ROUNDS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-腐化弹药.png",
+      "is_back": false,
+      "text": "军团\n阵营装备\n腐化弹药\n在邪恶的仪式之下，这些爆矢被注入了腐败\n之力。\n每个转折点限一次，在一名己方军团特工执行\n射击行动时，如果您选择使用爆矢手枪或者爆矢\n枪，那么可以使用本规则。若使用，直到那次行\n动结束前，那件武器拥有“撕裂”武器规则。",
+      "text_en": "LEGIONARY\nFACTION EQUIPMENT\nTAINTED ROUNDS\nSubjected to fell rituals, these bolt rounds are infused\nwith corruption.\nOnce per turning point, when a friendly\nLEGIONARY operative is performing the Shoot\naction and you select a bolt pistol or boltgun,\nyou can use this rule. If you do, until the end\nof that action, that weapon has the Rending\nweapon rule."
+    },
+    {
+      "id": "kt-legionaries-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "混沌护身符",
+      "title_en": "CHAOS TALISMANS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-混沌护身符.png",
+      "is_back": false,
+      "text": "军团\n阵营装备\n混沌护身符\n那些将湮灭之力的印记刻在皮肤上的人能获\n得大量的馈赠，但也始终需要付出代价。\n战略计划。选择一个混沌印记关键词。每次激活\n限一次，当拥有对应关键词的己方军团特工进\n行射击，近战或反击时，如果您掷出了两次或更\n多失败，那么您可以对这名己方特工造成 D3 处\n伤害，舍弃其中一次失败并将另一次失败作为普\n通成功进行保留。请注意，如果这是一次射击行\n动，并且那次伤害足够将己方特工残废，那次行\n动也不会结束（用您成功的攻击骰继续流程）。",
+      "text_en": "LEGIONARY\nFACTION EQUIPMENT\nCHAOS TALISMANS\nThose who carry the talismans of the Ruinous Powers\nmay be granted great gifts, though they invariably come\nat a price.\nSTRATEGIC GAMBIT. Select one Marks of Chaos\nkeyword. Once during each of their activations,\nwhen a friendly LEGIONARY operative that has\nthat keyword is shooting, fighting or retaliating,\nif you roll two or more fails, you can inflict D3\ndamage on that friendly operative to discard one\nof them and retain the other as a normal success\ninstead. Note that if it’s the Shoot action and that\ndamage incapacitates that friendly operative, the\naction doesn’t end (continue the sequence with\nyour successful attack dice)."
+    },
+    {
+      "id": "kt-legionaries-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "名称攻击命中伤害",
+      "title_en": "MALEFIC BLADES",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-名称攻击命中伤害.png",
+      "is_back": false,
+      "text": "军团\n阵营装备\n凶恶利刃\n这把武器上充斥着恶魔的能量，渴望着品尝\n鲜血。\n己方军团特工装备有以下近战武器：\n名称攻击命中伤害\n凶恶利刃 5 3+ 3/4",
+      "text_en": "LEGIONARY\nFACTION EQUIPMENT\nMALEFIC BLADES\nRedolent with daemonic energies, this blade hungers\nfor blood.\nFriendly LEGIONARY operatives have the\nfollowing melee weapon:\nNAME ATK HIT DMG\nMalefic blade 5 3+ 3/4"
+    }
+  ]
+}

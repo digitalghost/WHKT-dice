@@ -1,0 +1,424 @@
+{
+  "teamId": "KT-BLADES_OF_KHAINE",
+  "name": "凯恩之刃",
+  "nameEn": "Blades of Khaine",
+  "subtitle": "艾达灵族 · 方舟灵族 · 6 种特工",
+  "archetypes": [
+    "搜索与摧毁",
+    "安全保护",
+    "侦察",
+    "渗透"
+  ],
+  "source": "官方中文 PDF 29/04/2026（凯恩之刃 Blades of Khaine 杀戮小队规则.pdf），已并入 2026 年 4 月勘误",
+  "operatives": [
+    {
+      "id": "kt_bok_da_exarch",
+      "name": "凶暴复仇者神官",
+      "role": "神官",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 9,
+      "baseSizeMm": 28,
+      "keywords": [
+        "凯恩之刃",
+        "艾达灵族",
+        "方舟灵族",
+        "队长",
+        "凶暴复仇者",
+        "神官"
+      ],
+      "cards": [
+        "KT-BLADES_OF_KHAINE--01-01-特工-凶暴复仇者神官-数据卡.png",
+        "KT-BLADES_OF_KHAINE--01-02-特工能力-凶暴复仇者神官-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_bok_da_exarch_shuriken_catapult",
+          "name": "星镖枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 撕裂"
+        },
+        {
+          "id": "kt_bok_da_exarch_shuriken_pistol",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "kt_bok_da_exarch_twin_catapult",
+          "name": "双联星镖枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 无休、撕裂"
+        },
+        {
+          "id": "kt_bok_da_exarch_diresword",
+          "name": "凶暴之剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 致命 5+、撕裂"
+        },
+        {
+          "id": "kt_bok_da_exarch_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 2/4"
+        },
+        {
+          "id": "kt_bok_da_exarch_gun_butt",
+          "name": "枪托",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        },
+        {
+          "id": "kt_bok_da_exarch_power_weapon",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_bok_da_exarch_shuriken_catapult",
+        "kt_bok_da_exarch_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-blades_of_khaine_faction_rule",
+          "name": "支派技艺",
+          "ap": null,
+          "text": "支派武士们经受了各种杀戮技巧、格挡攻击以及灵活移动的训练。对他们的对手而言，这些战士们的身手不仅令人惊叹也十分致命。\n\n每一个支派技艺都属于一种类型：凶暴复仇者、狂嚎女妖，以及突击战蝎。每一个支派技艺都只能被拥有对应支派关键词的己方特工使用，并且每一个技艺都会明确规定使用的时机和效果。此外：\n• 您在每一次激活或反应期间不能使用超过一个支派技艺。\n• 您在每个转折点中使用每个支派技艺的次数不能超过一次。\n• 如果每一名被选择部署的己方凯恩之刃特工都拥有相同的支派关键词（例如突击战蝎），那么您在每个转折点中使用每个支派技艺的次数不能超过两次（而不是一次）。\n\n支派技艺选项将在单独的卡片上分别进行表示。",
+          "factionRule": true
+        },
+        {
+          "name": "防御战术",
+          "ap": null,
+          "text": "每当该特工争夺一个目标标识或者己方任务标识时，或者每当该特工对一名争夺目标标识或己方任务标识的敌方特工进行射击时，该特工的武器拥有“平衡”武器规则。"
+        },
+        {
+          "name": "神官",
+          "ap": null,
+          "text": "该特工可以在激活期间执行两次近战行动或者两次射击行动。"
+        },
+        {
+          "name": "微光护盾",
+          "ap": null,
+          "text": "当一名特工对位于该特工 2\" 内且对其可见的一名己方凯恩之刃特工进行射击时，忽略“穿刺”武器规则。该特工只有在您选择了微光护盾武器选项之后才会拥有本技能。"
+        }
+      ]
+    },
+    {
+      "id": "kt_bok_da_warrior",
+      "name": "凶暴复仇者战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "凯恩之刃",
+        "艾达灵族",
+        "方舟灵族",
+        "凶暴复仇者",
+        "战士"
+      ],
+      "cards": [
+        "KT-BLADES_OF_KHAINE--01-03-特工-凶暴复仇者战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_bok_da_warrior_shuriken_catapult",
+          "name": "星镖枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 撕裂"
+        },
+        {
+          "id": "kt_bok_da_warrior_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 2/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_bok_da_warrior_shuriken_catapult",
+        "kt_bok_da_warrior_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-blades_of_khaine_faction_rule",
+          "name": "支派技艺",
+          "ap": null,
+          "text": "支派武士们经受了各种杀戮技巧、格挡攻击以及灵活移动的训练。对他们的对手而言，这些战士们的身手不仅令人惊叹也十分致命。\n\n每一个支派技艺都属于一种类型：凶暴复仇者、狂嚎女妖，以及突击战蝎。每一个支派技艺都只能被拥有对应支派关键词的己方特工使用，并且每一个技艺都会明确规定使用的时机和效果。此外：\n• 您在每一次激活或反应期间不能使用超过一个支派技艺。\n• 您在每个转折点中使用每个支派技艺的次数不能超过一次。\n• 如果每一名被选择部署的己方凯恩之刃特工都拥有相同的支派关键词（例如突击战蝎），那么您在每个转折点中使用每个支派技艺的次数不能超过两次（而不是一次）。\n\n支派技艺选项将在单独的卡片上分别进行表示。",
+          "factionRule": true
+        },
+        {
+          "name": "防御战术",
+          "ap": null,
+          "text": "每当该特工争夺一个目标标识或者己方任务标识时，或者每当该特工对一名争夺目标标识或己方任务标识的敌方特工进行射击时，该特工的武器拥有“平衡”武器规则。"
+        }
+      ]
+    },
+    {
+      "id": "kt_bok_hb_exarch",
+      "name": "狂嚎女妖神官",
+      "role": "神官",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 9,
+      "baseSizeMm": 28,
+      "keywords": [
+        "凯恩之刃",
+        "艾达灵族",
+        "方舟灵族",
+        "队长",
+        "狂嚎女妖",
+        "神官"
+      ],
+      "cards": [
+        "KT-BLADES_OF_KHAINE--01-04-特工-狂嚎女妖神官-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_bok_hb_exarch_shuriken_pistol",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "kt_bok_hb_exarch_triskele_thrown",
+          "name": "三刃飞镖（投掷）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/3 · 范围 8\"、撕裂、洪流 2\""
+        },
+        {
+          "id": "kt_bok_hb_exarch_executioner",
+          "name": "处刑长戟",
+          "kind": "melee",
+          "profile": "5A · 3+ · 3/7 · 致命 5+"
+        },
+        {
+          "id": "kt_bok_hb_exarch_mirrorswords",
+          "name": "镜像双剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 致命 5+、无休"
+        },
+        {
+          "id": "kt_bok_hb_exarch_power_weapon",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 致命 5+"
+        },
+        {
+          "id": "kt_bok_hb_exarch_triskele_melee",
+          "name": "三刃飞镖（切割）",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_bok_hb_exarch_mirrorswords"
+      ],
+      "abilities": [
+        {
+          "id": "kt-blades_of_khaine_faction_rule",
+          "name": "支派技艺",
+          "ap": null,
+          "text": "支派武士们经受了各种杀戮技巧、格挡攻击以及灵活移动的训练。对他们的对手而言，这些战士们的身手不仅令人惊叹也十分致命。\n\n每一个支派技艺都属于一种类型：凶暴复仇者、狂嚎女妖，以及突击战蝎。每一个支派技艺都只能被拥有对应支派关键词的己方特工使用，并且每一个技艺都会明确规定使用的时机和效果。此外：\n• 您在每一次激活或反应期间不能使用超过一个支派技艺。\n• 您在每个转折点中使用每个支派技艺的次数不能超过一次。\n• 如果每一名被选择部署的己方凯恩之刃特工都拥有相同的支派关键词（例如突击战蝎），那么您在每个转折点中使用每个支派技艺的次数不能超过两次（而不是一次）。\n\n支派技艺选项将在单独的卡片上分别进行表示。",
+          "factionRule": true
+        },
+        {
+          "name": "女妖面具",
+          "ap": null,
+          "text": "当该特工进行近战时，敌方特工近战武器的命中属性弱化 1。这个规则的效果不能与受创效果叠加。"
+        },
+        {
+          "name": "神官",
+          "ap": null,
+          "text": "该特工可以在激活期间执行两次近战行动或者两次射击行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_bok_hb_warrior",
+      "name": "狂嚎女妖战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "凯恩之刃",
+        "艾达灵族",
+        "方舟灵族",
+        "狂嚎女妖",
+        "战士"
+      ],
+      "cards": [
+        "KT-BLADES_OF_KHAINE--01-05-特工-狂嚎女妖战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_bok_hb_warrior_shuriken_pistol",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "kt_bok_hb_warrior_power_weapon",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_bok_hb_warrior_shuriken_pistol",
+        "kt_bok_hb_warrior_power_weapon"
+      ],
+      "abilities": [
+        {
+          "id": "kt-blades_of_khaine_faction_rule",
+          "name": "支派技艺",
+          "ap": null,
+          "text": "支派武士们经受了各种杀戮技巧、格挡攻击以及灵活移动的训练。对他们的对手而言，这些战士们的身手不仅令人惊叹也十分致命。\n\n每一个支派技艺都属于一种类型：凶暴复仇者、狂嚎女妖，以及突击战蝎。每一个支派技艺都只能被拥有对应支派关键词的己方特工使用，并且每一个技艺都会明确规定使用的时机和效果。此外：\n• 您在每一次激活或反应期间不能使用超过一个支派技艺。\n• 您在每个转折点中使用每个支派技艺的次数不能超过一次。\n• 如果每一名被选择部署的己方凯恩之刃特工都拥有相同的支派关键词（例如突击战蝎），那么您在每个转折点中使用每个支派技艺的次数不能超过两次（而不是一次）。\n\n支派技艺选项将在单独的卡片上分别进行表示。",
+          "factionRule": true
+        },
+        {
+          "name": "女妖面具",
+          "ap": null,
+          "text": "当该特工进行近战时，敌方特工近战武器的命中属性弱化 1。这个规则的效果不能与受创效果叠加。"
+        }
+      ]
+    },
+    {
+      "id": "kt_bok_ss_exarch",
+      "name": "突击战蝎神官",
+      "role": "神官",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 9,
+      "baseSizeMm": 28,
+      "keywords": [
+        "凯恩之刃",
+        "艾达灵族",
+        "方舟灵族",
+        "队长",
+        "突击战蝎",
+        "神官"
+      ],
+      "cards": [
+        "KT-BLADES_OF_KHAINE--01-06-特工-突击战蝎神官-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_bok_ss_exarch_shuriken_pistol",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "kt_bok_ss_exarch_twin_pistol",
+          "name": "双联星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\"、无休、撕裂"
+        },
+        {
+          "id": "kt_bok_ss_exarch_biting_blade",
+          "name": "撕咬之刃",
+          "kind": "melee",
+          "profile": "5A · 3+ · 5/6 · 撕裂"
+        },
+        {
+          "id": "kt_bok_ss_exarch_claw_chainsword",
+          "name": "战蝎之爪和链锯剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 残暴、致命 5+"
+        },
+        {
+          "id": "kt_bok_ss_exarch_dual_chainswords",
+          "name": "双持链锯剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 无休、撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_bok_ss_exarch_shuriken_pistol",
+        "kt_bok_ss_exarch_biting_blade"
+      ],
+      "abilities": [
+        {
+          "id": "kt-blades_of_khaine_faction_rule",
+          "name": "支派技艺",
+          "ap": null,
+          "text": "支派武士们经受了各种杀戮技巧、格挡攻击以及灵活移动的训练。对他们的对手而言，这些战士们的身手不仅令人惊叹也十分致命。\n\n每一个支派技艺都属于一种类型：凶暴复仇者、狂嚎女妖，以及突击战蝎。每一个支派技艺都只能被拥有对应支派关键词的己方特工使用，并且每一个技艺都会明确规定使用的时机和效果。此外：\n• 您在每一次激活或反应期间不能使用超过一个支派技艺。\n• 您在每个转折点中使用每个支派技艺的次数不能超过一次。\n• 如果每一名被选择部署的己方凯恩之刃特工都拥有相同的支派关键词（例如突击战蝎），那么您在每个转折点中使用每个支派技艺的次数不能超过两次（而不是一次）。\n\n支派技艺选项将在单独的卡片上分别进行表示。",
+          "factionRule": true
+        },
+        {
+          "name": "战蝎激光",
+          "ap": null,
+          "text": "当该特工执行近战行动时，在掷进攻骰步骤开始时，您可以使用该规则，若此，对流程中的敌方特工造成 2 点伤害。"
+        },
+        {
+          "name": "神官",
+          "ap": null,
+          "text": "该特工可以在激活期间执行两次近战行动或者两次射击行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_bok_ss_warrior",
+      "name": "突击战蝎战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "凯恩之刃",
+        "艾达灵族",
+        "方舟灵族",
+        "突击战蝎",
+        "战士"
+      ],
+      "cards": [
+        "KT-BLADES_OF_KHAINE--01-07-特工-突击战蝎战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_bok_ss_warrior_shuriken_pistol",
+          "name": "星镖手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、撕裂"
+        },
+        {
+          "id": "kt_bok_ss_warrior_chainsword",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5 · 撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_bok_ss_warrior_shuriken_pistol",
+        "kt_bok_ss_warrior_chainsword"
+      ],
+      "abilities": [
+        {
+          "id": "kt-blades_of_khaine_faction_rule",
+          "name": "支派技艺",
+          "ap": null,
+          "text": "支派武士们经受了各种杀戮技巧、格挡攻击以及灵活移动的训练。对他们的对手而言，这些战士们的身手不仅令人惊叹也十分致命。\n\n每一个支派技艺都属于一种类型：凶暴复仇者、狂嚎女妖，以及突击战蝎。每一个支派技艺都只能被拥有对应支派关键词的己方特工使用，并且每一个技艺都会明确规定使用的时机和效果。此外：\n• 您在每一次激活或反应期间不能使用超过一个支派技艺。\n• 您在每个转折点中使用每个支派技艺的次数不能超过一次。\n• 如果每一名被选择部署的己方凯恩之刃特工都拥有相同的支派关键词（例如突击战蝎），那么您在每个转折点中使用每个支派技艺的次数不能超过两次（而不是一次）。\n\n支派技艺选项将在单独的卡片上分别进行表示。",
+          "factionRule": true
+        },
+        {
+          "name": "战蝎激光",
+          "ap": null,
+          "text": "当该特工执行近战行动时，在掷进攻骰步骤开始时，您可以使用该规则，若此，对流程中的敌方特工造成 2 点伤害。"
+        }
+      ]
+    }
+  ],
+  "weaponRules": [],
+  "compositionHint": "选择 1 名神官（凶暴复仇者神官、狂嚎女妖神官或突击战蝎神官），再从凶暴复仇者战士、狂嚎女妖战士和突击战蝎战士中选择 7 名。"
+}

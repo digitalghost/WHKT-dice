@@ -53,6 +53,17 @@ class BattleRulesTest {
         assertEquals(3, KillScoreCalculator.killLevel(11, 7))
         assertEquals(5, KillScoreCalculator.killLevel(11, 11))
         assertEquals(6, KillScoreCalculator.finalScore(5, 4))
+        assertEquals(5, KillScoreCalculator.killLevel(4, 4))
+        assertEquals(2, KillScoreCalculator.killLevel(4, 2))
+    }
+
+    @Test
+    fun injuredMoveFloorCannotWorsenBelowFourInches() {
+        assertEquals(4, OperativeStats.injuredMoveInches(5, true))
+        assertEquals(4, OperativeStats.injuredMoveInches(6, true))
+        assertEquals(4, OperativeStats.injuredMoveInches(4, true))
+        assertEquals(3, OperativeStats.injuredMoveInches(3, true))
+        assertEquals(5, OperativeStats.injuredMoveInches(5, false))
     }
 
     private fun sampleBattle(turningPoint: Int): BattleRecord {

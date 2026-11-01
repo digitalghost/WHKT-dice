@@ -60,7 +60,20 @@ class DiceSheet(private val ui: RecordUi, private val onRecord: ((String) -> Uni
                     content.addView(ui.text(headline, 30f, ui.accent, true).apply { gravity = Gravity.CENTER }, ui.wrap(2))
                     content.addView(ui.text(current.describe() + "\n点骰子可重掷一次（不能保留原结果）", 12f, ui.muted).apply {
                         gravity = Gravity.CENTER
-                    }, ui.wrap(12))
+                    }, ui.wrap(8))
+                    if (onRecord != null) {
+                        val purposeInput = ui.input(purpose, "用途（选填）：例如 D3 伤害、震撼弹检定")
+                        purposeInput.addTextChangedListener(object : android.text.TextWatcher {
+                            override fun beforeTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
+                            override fun onTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) {}
+                            override fun afterTextChanged(s: android.text.Editable?) { purpose = s?.toString().orEmpty() }
+                        })
+                        content.addView(purposeInput, ui.wrap(6))
+                        content.addView(kit.secondaryButton("记入对局日志") {
+                            onRecord.invoke(current.logLine(purpose))
+                            sheet.dismiss()
+                        }, ui.wrap(8))
+                    }
                 }
                 content.addView(kit.primaryButton(if (current == null) "掷 ${expression.label}" else "再掷一次") {
                     if (!rolling) {

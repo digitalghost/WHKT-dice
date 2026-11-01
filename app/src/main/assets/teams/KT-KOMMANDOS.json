@@ -1,0 +1,620 @@
+{
+  "teamId": "KT-KOMMANDOS",
+  "name": "特种兵",
+  "nameEn": "Kommandos",
+  "subtitle": "欧克蛮人 · 11 种特工",
+  "archetypes": [
+    "渗透",
+    "搜索与摧毁"
+  ],
+  "source": "官方中文 PDF 17/06/2026（特种兵 Kommandos 杀戮小队规则.pdf），已并入勘误与 2026 年 6 月规则注解",
+  "operatives": [
+    {
+      "id": "kt_kom_boss_nob",
+      "name": "特种兵头目强蛮人",
+      "role": "头目强蛮人",
+      "apl": 3,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "队长",
+        "头目强蛮人"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-01-特工-特种兵头目强蛮人-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_nob_slugga",
+          "name": "短铳",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "kt_kom_nob_big_choppa",
+          "name": "大砍刀",
+          "kind": "melee",
+          "profile": "5A · 3+ · 5/6"
+        },
+        {
+          "id": "kt_kom_nob_power_klaw",
+          "name": "动力爪",
+          "kind": "melee",
+          "profile": "4A · 3+ · 5/7 · 残暴、震荡"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_nob_slugga",
+        "kt_kom_nob_big_choppa"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "搞定它！",
+          "ap": 1,
+          "text": "支援。选择位于这名特工 6\" 内且可见的另一名己方特种兵特工（炸弹跳跳除外）。在那名特工下一次激活结束前，为其 APL 属性增加 1 点。\n这名特工不能在敌方特工的控制范围内或执行反击时执行此行动。"
+        },
+        {
+          "name": "碾压时间",
+          "ap": null,
+          "text": "该特工在激活期间可以执行两次近战行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_bomb_squig",
+      "name": "特种兵炸弹跳跳",
+      "role": "炸弹跳跳",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 5,
+      "baseSizeMm": 25,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "炸弹跳跳"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-02-特工-特种兵炸弹跳跳-数据卡.png",
+        "KT-KOMMANDOS--01-03-特工能力-特种兵炸弹跳跳-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_squig_explosives",
+          "name": "爆炸物",
+          "kind": "ranged",
+          "profile": "6A · 4+ · 4/5 · 爆炸 1\"、有限 1、爆炸物"
+        },
+        {
+          "id": "kt_kom_squig_bite",
+          "name": "啃咬",
+          "kind": "melee",
+          "profile": "3A · 4+ · 4/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_squig_explosives",
+        "kt_kom_squig_bite"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "嘭！",
+          "ap": null,
+          "text": "当一场战斗中这名特工在并没有使用其爆炸物的情况下被残废，则按照您的意愿掷一枚或两枚 D6。若有任何结果为 4+，则在将其从杀戮区移除前用“爆炸物”执行一次无消耗射击行动。"
+        },
+        {
+          "name": "愚笨",
+          "ap": null,
+          "text": "在交战阶段确定这个特工命令时，您不能为其选择隐匿命令。这名特工无法执行除冲锋，冲刺，近战，转移和射击外的任何行动，并无法使用任何其数据卡上没有的武器。"
+        },
+        {
+          "name": "消耗品",
+          "ap": null,
+          "text": "这名特工在您对手的杀戮/消灭任务中（它被残废以及确认您起始特工数量时）将被忽略。在判断需要特工“逃离”、“存活”，或者被敌方特工残废的胜利条件和 VP 获取方式时，将该特工忽略（它是否逃脱/存活/被击杀，确认多少特工必须逃脱/存活/被击杀等情况下）。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_boy",
+      "name": "特种兵小子",
+      "role": "小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-04-特工-特种兵小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_boy_slugga",
+          "name": "短铳",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "kt_kom_boy_choppa",
+          "name": "砍刀",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_boy_slugga",
+        "kt_kom_boy_choppa"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "战术抛掷",
+          "ap": null,
+          "text": "以下每项您都可以在每个转折点中执行一次：\n• 一名己方特种兵小子特工可以执行烟雾手雷行动。\n• 一名己方特种兵小子特工可以执行震荡手雷行动。\n这些行动的规则在通用装备相应装备中。但使用本规则执行的行动并不计入其可执行的次数限制（在您同时在装备中选择了这些手雷的情况下）。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_breacha_boy",
+      "name": "特种兵破防小子",
+      "role": "破防小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "破防小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-05-特工-特种兵破防小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_breacha_slugga",
+          "name": "短铳",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "kt_kom_breacha_ram",
+          "name": "突破撞锤",
+          "kind": "melee",
+          "profile": "4A · 4+ · 5/5 · 残暴、严重、震荡"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_breacha_slugga",
+        "kt_kom_breacha_ram"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "突破",
+          "ap": 1,
+          "text": "将一枚己方突破标识放置在这名特工控制范围内，且尽可能靠近其控制范围内一个地形模型的位置。当一名特工位于这个标记 1\" 内时，将那个地形模型厚度不超过 1\" 的部分视为可穿越地形。\n这名特工可以在冲锋或转移行动中执行此行动。并可以在那个行动中减少 1 点行动点数消耗。并且在如此使用本行动后，任何余下的移动距离依然可以继续正常使用。\n这名特工不能在敌方特工的控制范围内或地形模型不处于其控制范围内时执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_burna_boy",
+      "name": "特种兵喷火小子",
+      "role": "喷火小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "喷火小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-06-特工-特种兵喷火小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_burna_burna_torrent",
+          "name": "喷火枪（汹流）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 范围 4\"、集中、追踪、洪流 0\""
+        },
+        {
+          "id": "kt_kom_burna_burna_std",
+          "name": "喷火枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 范围 8\"、集中、洪流 2\""
+        },
+        {
+          "id": "kt_kom_burna_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_burna_burna_torrent",
+        "kt_kom_burna_burna_std",
+        "kt_kom_burna_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_comms_boy",
+      "name": "特种兵通讯小子",
+      "role": "通讯小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "通讯小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-07-特工-特种兵通讯小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_comms_shokka",
+          "name": "震荡手枪",
+          "kind": "ranged",
+          "profile": "6A · 4+ · 1/0 · 范围 8\"、毁灭 2、严重、晕眩"
+        },
+        {
+          "id": "kt_kom_comms_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_comms_shokka",
+        "kt_kom_comms_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "小子们，我有个计划",
+          "ap": null,
+          "text": "在这名特工的每次激活中，这名特工有一次机会将执行的放置标识，拾取标识或一个任务行动消耗的行动点数减去 1 点。"
+        },
+        {
+          "name": "监听",
+          "ap": 1,
+          "text": "支援。选择位于这名特工 6\" 内且可见的另一名己方特种兵特工（炸弹跳跳除外）。直到它下一次激活结束前，为那名特工的 APL 属性增加 1 点。\n这名特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_dakka_boy",
+      "name": "特种兵突突小子",
+      "role": "突突小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "突突小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-08-特工-特种兵突突小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_dakka_long",
+          "name": "突突射枪（远距离）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4"
+        },
+        {
+          "id": "kt_kom_dakka_short",
+          "name": "突突射枪（近距离）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 3/4 · 范围 9\"、无休"
+        },
+        {
+          "id": "kt_kom_dakka_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_dakka_long",
+        "kt_kom_dakka_short",
+        "kt_kom_dakka_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "突突猛冲",
+          "ap": 1,
+          "text": "以任意顺序执行一次无消耗的冲刺行动和一次无消耗的射击行动，您在那次射击行动中只能选择突突射枪。\n这名特工不能在敌方特工的控制范围内或拥有隐匿命令时执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_grot",
+      "name": "特种兵地精",
+      "role": "地精",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 5,
+      "baseSizeMm": 25,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "地精"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-09-特工-特种兵地精-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_grot_choppa",
+          "name": "地精砍刀",
+          "kind": "melee",
+          "profile": "3A · 5+ · 1/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_grot_choppa"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "鬼祟小玩意",
+          "ap": null,
+          "text": "这名特工无法获得交战命令。当这名特工处于掩护时，便无法被选为有效目标，本规则的优先度高于所有其他规则（例如‘追踪’武器规则和制高点地形），除非攻击者位于特工的 2\" 内。"
+        },
+        {
+          "name": "抓钩",
+          "ap": 1,
+          "text": "选择一个地形模型上对这名特工可见的一个点。将这名特工从杀戮区移除，并将其重新部署在那个点水平 1\" 内且可以被部署，不位于敌方特工控制范围内且对那个点可见的位置。这名特工在行动中不能执行“操作舱门”行动。\n这个行动被视为转移行动。这名特工不能在敌方特工的控制范围内或在执行了冲锋或后撤的同一个激活中执行此行动（反之亦然）。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_rokkit_boy",
+      "name": "特种兵火箭小子",
+      "role": "火箭小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "火箭小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-10-特工-特种兵火箭小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_rokkit_aimed",
+          "name": "火箭发射器（瞄准）",
+          "kind": "ranged",
+          "profile": "6A · 4+ · 4/5 · 爆炸 1\"、无休、重型（仅限冲刺）"
+        },
+        {
+          "id": "kt_kom_rokkit_mobile",
+          "name": "火箭发射器（机动）",
+          "kind": "ranged",
+          "profile": "6A · 4+ · 4/5 · 爆炸 1\""
+        },
+        {
+          "id": "kt_kom_rokkit_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_rokkit_aimed",
+        "kt_kom_rokkit_mobile",
+        "kt_kom_rokkit_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_slasha_boy",
+      "name": "特种兵劈砍小子",
+      "role": "劈砍小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "劈砍小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-11-特工-特种兵劈砍小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_slasha_knives",
+          "name": "投掷匕首",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/5 · 范围 6\"、安静"
+        },
+        {
+          "id": "kt_kom_slasha_choppas",
+          "name": "双持砍刀",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5 · 无休、致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_slasha_knives",
+        "kt_kom_slasha_choppas"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        },
+        {
+          "name": "就这点能耐？",
+          "ap": null,
+          "text": "在这名特工执行近战或反击后，若其没有残废，则在那个流程中对敌方特工造成 D3 点伤害。"
+        }
+      ]
+    },
+    {
+      "id": "kt_kom_snipa_boy",
+      "name": "特种兵狙击小子",
+      "role": "狙击小子",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 10,
+      "baseSizeMm": 32,
+      "keywords": [
+        "特种兵",
+        "欧克蛮人",
+        "狙击小子"
+      ],
+      "cards": [
+        "KT-KOMMANDOS--01-12-特工-特种兵狙击小子-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "kt_kom_snipa_concealed",
+          "name": "精准大射枪（隐蔽）",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 3/3 · 毁灭 2、重型、安静、隐蔽位置"
+        },
+        {
+          "id": "kt_kom_snipa_stationary",
+          "name": "精准大射枪（静止）",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 3/3 · 毁灭 2、重型"
+        },
+        {
+          "id": "kt_kom_snipa_sweep",
+          "name": "精准大射枪（扫射）",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 3/4 · 重型（仅限冲刺）、洪流 1\""
+        },
+        {
+          "id": "kt_kom_snipa_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "kt_kom_snipa_concealed",
+        "kt_kom_snipa_stationary",
+        "kt_kom_snipa_sweep",
+        "kt_kom_snipa_fists"
+      ],
+      "abilities": [
+        {
+          "id": "kt-kommandos_faction_rule",
+          "name": "割喉者",
+          "ap": null,
+          "text": "和其他欧克蛮人不同，特种兵们更倾向于用隐匿和误导接近敌人，以便使用带齿利刃攻向敌人。\n\n每一名己方特种兵特工（炸弹跳跳除外）都可以在拥有隐匿命令时执行冲锋行动。",
+          "factionRule": true
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "爆炸物",
+      "text": "这名特工可以在一名敌方特工的控制范围内使用这个武器执行射击行动。在射击时无需选择有效目标，将这名特工永远作为主要目标，且不会处于掩护或遮挡中。"
+    },
+    {
+      "name": "隐蔽位置",
+      "text": "这名特工只能在战斗中的第一次射击行动中使用这个武器。"
+    }
+  ],
+  "compositionHint": "选择 1 名头目强蛮人，再从炸弹跳跳、地精（炸弹跳跳与地精各占半个名额）、破防小子、喷火小子、通讯小子、突突小子、火箭小子、劈砍小子、狙击小子和小子中选择 9 个名额；除小子外，同一种特工最多 1 名。"
+}

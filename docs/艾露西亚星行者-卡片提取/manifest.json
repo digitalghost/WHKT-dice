@@ -1,0 +1,754 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-ELUCIDIAN_STARSTRIDERS",
+  "team_name_zh": "艾露西亚星行者",
+  "team_name_en": "Elucidian Starstriders",
+  "source_pdf": "最新杀戮小队规则更新/艾露西亚星行者 Elucidian Starstriders 杀戮小队规则.pdf",
+  "source_pdf_sha256": "3a6700f33129f5da4457370642b4535f33e2d0885f39e95aa5d497e0f1e03005",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 28,
+    "operative": 7,
+    "operative-ability": 3,
+    "team-selection": 1,
+    "faction-rule": 5,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-elucidian_starstriders-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "艾露西亚·范雯-数据卡",
+      "title_en": "ELUCIA VHANE",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-艾露西亚·范雯-数据卡.png",
+      "is_back": false,
+      "text": "艾露西亚·范雯 APL 移动豁免耐伤\n3 6\" 4+ 8\n名称攻击命中伤害武器规则\n家传圣物手枪 4 3+ 4/5 范围 8\"、关键穿刺 1、集中、追踪轻型\n单分子杖剑 4 3+ 3/6 致命 5+\n干扰立场：每当一名特工向这名特工执行射击时，\n忽视它的“穿刺”武器规则。\n微型激光：每当这名特工执行近战行动时，在掷攻\n击骰子步骤开始时，您可以使用这个规则。若此，\n在那次流程中敌方特工受到 1 点伤害。\n冷酷：每当这名特工对行动开始时已经受伤的一名\n敌方特工执行射击，近战或反击时，这名特工的武\n器获得“平衡”武器规则；若其武器已经有了那个\n武器规则，则会获得“无休”武器规则而不是“平\n衡”武器规则。\n维护声誉：当这名特工在战斗中首次残废一名敌方\n特工时，您可以获得额外 1 点 CP 或者额外使用一\n次贸易许可规则（将至多使用三次替换为至多使用\n四次）。请注意，您依然在每场战斗中不能使用同\n一个贸易许可规则超过一次。\n艾露西亚星行者、帝国、队长、艾露西亚·范雯 25",
+      "weapon_types": {
+        "家传圣物手枪": "远程",
+        "单分子杖剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nELUCIA VHANE\n3 6\" 4+ 8\nNAME ATK HIT DMG WR\nHeirloom relic pistol 4 3+ 4/5 Range 8\", Piercing Crits 1, Seek Light\nMonomolecular cane-rapier 4 3+ 3/6 Lethal 5+\nDigital Lasers: Whenever this operative performs the Fight\naction, at the start of the Roll Attack Dice step, you can use\nthis rule. If you do, inflict 1 damage on the enemy operative in\nthat sequence.\nMerciless: Whenever this operative is shooting against, fighting\nagainst or retaliating against an enemy operative that was\nalready wounded when the action started, this operative's\nweapons have the Balanced weapon rule; if the weapon already\nhas that weapon rule, it has the Ceaseless weapon rule instead\nof Balanced.\nDisruption Field: Whenever an operative is shooting this\noperative, ignore the Piercing weapon rule.\nReputation to Maintain: The first time this operative\nincapacitates an enemy operative during the battle, you can\neither gain 1 additional CP or use an additional WARRANT OF\nTRADE rule (up to four uses per battle, instead of three). Note\nthat you still cannot use the same WARRANT OF TRADE rule\nmore than once per battle.\nELUCIDIAN STARSTRIDER , IMPERIUM, LEADER, ELUCIA VHANE 25"
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "猎犬-数据卡",
+      "title_en": "CANID",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-猎犬-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n猎犬\n2 8\" 5+ 7\n名称攻击命中伤害武器规则\n恶毒撕咬 4 3+ 3/4 撕裂\n猛兽：这名特工无法执行除冲锋，冲刺，后撤，近\n战，捡回，戒备，转移，拾取标识和放置标识外\n的任何行动，并无法使用任何其数据卡上没有的\n武器。\n忠诚伙伴：每当一名敌方特工执行近战行动时，若\n这名特工为执行近战的有效目标，您便可以迫使它\n们选择这名特工执行近战作为替代。每当一名敌方\n特工在这名特工 3\" 内的另一名艾露西亚星行者特\n工控制范围内结束冲锋行动，如果这名特工不位于\n敌方特工的控制范围内，这名特工便可以立即执行\n一个无消耗的冲锋行动，但那次移动必须在那名敌\n方特工控制范围内结束。\n捡回 1AP\n使用这名特工执行一次无消耗的冲刺或转移行\n动。在那次移动中，这名特工可以执行一次无消\n耗的拾取标识或放置标识行动（你可以为此在那\n个行动中进行控制目标），并在之后继续使用冲\n刺或转移行动的移动距离。\n艾露西亚星行者、帝国、猎犬 25",
+      "weapon_types": {
+        "恶毒撕咬": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCANID\n2 8\" 5+ 7\nNAME ATK HIT DMG WR\nVicious bite 4 3+ 3/4 Rending\nBeast: This operative cannot perform any actions other than\nCharge, Dash, Fall Back, Fight, Gather, Guard,\nReposition, Pick Up Marker and Place Marker. It\ncannot use any weapons that aren’t on its datacard.\nLoyal Companion: Whenever an enemy operative performs\nthe Fight action, if this operative is a valid operative to fight\nagainst, you can force them to select this operative to fight\nagainst instead. Whenever an enemy operative ends the Charge\naction within control range of another friendly ELUCIDIAN\nSTARSTRIDER operative within 3\" of this operative, if this\noperative isn’t within control range of enemy operatives, this\noperative can immediately perform a free Charge action, but\nmust end that move within control range of that enemy operative.\nGATHER 1AP\nPerform a free Dash or Reposition action with this\noperative. During that move, it can perform a free Pick\nUp Marker or Place Marker action (you can determine\ncontrol during that action to do so), and any remaining move\ndistance it had from the Dash or Reposition action can be\nused after it does so.\nELUCIDIAN STARSTRIDER , IMPERIUM, CANID 25"
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "死亡教派处刑者-数据卡",
+      "title_en": "DEATH CULT EXECUTIONER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-死亡教派处刑者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡教派处刑者\n3 6\" 5+ 8\n名称攻击命中伤害武器规则\n毒镖面具 4 3+ 1/1 范围 6\"、致命 5+、安静、晕眩\n动力武器 5 3+ 4/6 致命 5+\n快速反应：每当一名特工对这名特工执行射击时，\n忽视它的“穿刺”武器规则。\n横刀招架：每当这名特工进行近战或反击时，您可\n以在正常顺序前先结算一枚成功。若此，那次成功\n必须为格挡。\n狂信徒：如果这名特工在近战行动中残废，您可以\n在将这名特工从杀戮区移除前，使用那次流程中一\n枚己方未结算成功进行出击。\n历练刺客 1AP\n改变这名特工的命令。\n该特工不能在敌方特工的控制范围内执行此行动。\n艾露西亚星行者、帝国、死亡教派处刑者 25",
+      "weapon_types": {
+        "毒镖面具": "远程",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH CULT EXECUTIONER\n3 6\" 5+ 8\nNAME ATK HIT DMG WR\nDartmask 4 3+ 1/1 Range 6\", Lethal 5+, Silent, Stun\nPower weapon 5 3+ 4/6 Lethal 5+\nRapid Reflexes: Whenever an operative is shooting this\noperative, ignore the Piercing weapon rule.\nBladed Stance: Whenever this operative is fighting or retaliating,\nyou can resolve one of your successes before the normal order. If\nyou do, that success must be used to block.\nZealot: If this operative is incapacitated during the Fight action,\nyou can strike the enemy operative in that sequence with one of\nyour unresolved successes before this operative is removed from\nthe killzone.\nTRAINED ASSASSIN 1AP\nChange this operative’s order.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nELUCIDIAN STARSTRIDER , IMPERIUM, DEATH CULT EXECUTIONER 25"
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "驭电大师-数据卡",
+      "title_en": "LECTRO-MAESTER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-驭电大师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n驭电大师\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n伏打手枪 4 3+ 4/4 范围 6\"、毁灭 1、撕裂\n枪托 3 4+ 2/3 -\n火星教条的传教士：这名特工每次激活时限一次，\n它可以在执行拾取标识,放置标识或任务行动时消耗\n的 AP 减少 1 点。\n电光幽魂阵列：每当一名特工对位于这名特工 4\" 内\n的一名艾露西亚星行者特工执行射击时，您便可\n以重掷一枚己方防御骰子。\n请继续阅读背面规则\n艾露西亚星行者、帝国、驭电大师 25",
+      "weapon_types": {
+        "伏打手枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLECTRO-MAESTER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nVoltaic pistol 4 3+ 4/4 Range 8\", 1\" Devastating 1, Rending\nGun butt 3 4+ 2/3 -\nMissionary of the Martian Creed: Once during each of this\noperative’s activations, it can perform the Pick Up Marker,\nPlace Marker or a mission action for 1 less AP.\nVoltaghiest Array: Whenever an operative is shooting a friendly\nELUCIDIAN STARSTRIDER operative that’s within 4\" of\nthis operative, you can re-roll one of your defence dice.\nRULES CONTINUE ON OTHER SIDE\nELUCIDIAN STARSTRIDER , IMPERIUM, LECTRO-MAESTER 25"
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "驭电大师-能力卡",
+      "title_en": "LECTRO-MAESTER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-驭电大师-能力卡.png",
+      "is_back": false,
+      "text": "驭电大师 APL 移动豁免耐伤\n2 6\" 4+ 8\n校准电光幽魂 0AP\n选择下列效果之一，直至这名特工的下一次激\n活，这名特工残废或它再次执行了这个技能（以\n首先发生的为准）：\n• 充能：这名特工的伏打手枪获得“致命 4+”武\n器规则。\n• 立场：每当一名敌方特工在冲锋，冲刺，后撤或\n转移行动后对这名特工可见且位于这名特工 4”\n内，那名敌方敌方特工便受到 D6 点伤害。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nLECTRO-MAESTER\n2 6\" 4+ 8\nCALIBRATE VOLTAGHEIST 0AP\nSelect one of the following effects to last until the start of\nthis operative’s next activation, until it’s incapacitated or\nuntil it performs this action again (whichever comes first):\n• Charge: This operative’s voltaic pistol has the Lethal 4+\nweapon rule.\n• Field: Whenever an enemy operative ends the Charge,\nDash, Fall Back or Reposition action visible to and\nwithin 4\" of this operative, inflict D6 damage on that\nenemy operative.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "医疗专家-数据卡",
+      "title_en": "REJUVENAT ADEPT",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-医疗专家-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n医疗专家\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n激光手枪 4 4+ 2/3 范围 8\"\n手术刀爪 3 4+ 3/4 撕裂\n医务兵！：在每个转折点中，首次出现位于这名特\n工 3” 内且可见的另一名艾露西亚星行者特工将\n被残废时，如果该特工或者那名特工不位于敌方特\n工的控制范围内，那么您可以使用此规则。若使\n用，那么那名己方特工不会被残废，并且剩余 1 点\n耐伤并且直到行动结束前不能被残废。在那次行动\n结束后，那名己方特工可以立即执行一次无消耗的\n冲刺行动，但是必须在该特工的控制范围内结束这\n次移动。直到该特工和那名特工的下一次激活结束\n前，他们的 APL 属性各减少 1 点。如果您在那名特\n工的激活期间使用了本规则，那么那次激活结束。\n您不能在该特工残废时，或者在该特工被选择成为\n一次射击行动的主要或次要目标时使用此规则。\n医护头盔：每当一名艾露西亚星行者特工位于这\n名特工 6\" 内时，您可以忽视由于伤损而对那名特工\n属性造成的任何修正（包括武器属性）。\n请继续阅读背面规则\n艾露西亚星行者、帝国、医务、医疗专家 25",
+      "weapon_types": {
+        "激光手枪": "远程",
+        "手术刀爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nREJUVENAT ADEPT\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nLaspistol 4 4+ 2/3 Range 8\"\nScalpel claw 3 4+ 3/4 Rending\nMedic!: The first time during each turning point that another\nfriendly ELUCIDIAN STARSTRIDER operative would be\nincapacitated while visible to and within 3\" of this operative,\nyou can use this rule, providing neither this nor that operative\nis within control range of an enemy operative. If you do, that\nfriendly operative isn’t incapacitated, has 3 wounds remaining\nand cannot be incapacitated for the remainder of the action.\nAfter that action, that friendly operative can immediately\nperform a free Dash action, but must end that move within\nthis operative’s control range. If this rule was used during that\nfriendly operative’s activation, that activation ends. You cannot\nuse this rule if this operative is incapacitated, or if it’s a Shoot\naction and this operative would be a primary or secondary target.\nNormaliser Helm: Whenever a friendly ELUCIDIAN\nSTARSTRIDER operative is within 6\" of this operative, you\ncan ignore any changes to that operative’s stats from being\ninjured (including its weapons’ stats).\nRULES CONTINUE ON OTHER SIDE\nELUCIDIAN STARSTRIDER , IMPERIUM, MEDIC, REJUVENAT ADEPT 25"
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-07",
+      "sequence": 7,
+      "category": "operative-ability",
+      "title_zh": "医疗专家-能力卡",
+      "title_en": "REJUVENAT ADEPT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工能力-医疗专家-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n医疗专家\n2 6\" 4+ 8\n治疗血清 1AP\n选择这名特工控制范围内的一名己方艾露西亚\n星行者特工恢复失去的最多 D3+3 点耐伤。使\n用对象不能是在同一个转折点中使用了“医务\n兵！”规则的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nREJUVENAT ADEPT\n2 6\" 4+ 8\nHEALING SERUM 1AP\nSelect one friendly ELUCIDIAN STARSTRIDER\noperative within this operative’s control range to regain up to\nD3+3 lost wounds. It cannot be an operative that the Medic!\nrule was used on during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "船兵队长-数据卡",
+      "title_en": "VOIDMASTER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-船兵队长-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n船兵队长\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n精工霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n精工霰弹枪（远距离） 4 5+ 2/2 -\n圣物激光手枪 4 3+ 2/4 范围 8\"、致命 5+\n枪托 3 4+ 2/3 -\n纪律严明：支援。每当另一名己方艾露西亚星行者\n海军特工位于这名特工 3\" 内，这名特工的远程\n武器（私掠者支援资产除外）获得“平衡”武器规\n则；若其武器已经有了那个武器规则，则会获得“\n无休”武器规则而不是“平衡”武器规则。\n硬汉：每场战斗限一次，当一枚攻击骰子对这名特\n工造成了普通伤害，您可以忽视那次造成的伤害。\n请继续阅读背面规则\n艾露西亚星行者、帝国、海军、船兵队长 25",
+      "weapon_types": {
+        "精工霰弹枪（近距离）": "远程",
+        "精工霰弹枪（远距离）": "远程",
+        "圣物激光手枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDMASTER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nArtificer shotgun (close range) 4 3+ 4/4 Range 6\"\nArtificer shotgun (long range) 4 5+ 2/2 -\nRelic laspistol 4 3+ 2/4 Range 8\", Lethal 5+\nGun butt 3 4+ 2/3 -\nDisciplinarian: SUPPORT. Whenever another friendly\nELUCIDIAN STARSTRIDER NAVIS operative is within\n3\" of this operative, that friendly operative’s ranged weapons\n(excluding PRIVATEER SUPPORT ASSET weapons)\nhave the Balanced weapon rule; if the weapon already has\nthat weapon rule, it has the Ceaseless weapon rule instead\nof Balanced.\nHardy: Once per battle, when an attack dice inflicts Normal Dmg\non this operative, you can ignore that inflicted damage.\nRULES CONTINUE ON OTHER SIDE\nELUCIDIAN STARSTRIDER , IMPERIUM, NAVIS, VOIDMASTER 25"
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "船兵队长-能力卡",
+      "title_en": "VOIDMASTER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-船兵队长-能力卡.png",
+      "is_back": false,
+      "text": "船兵队长 APL 移动豁免耐伤\n2 6\" 5+ 8\n无息枪火 1AP\n使用这名特工执行两次无消耗的射击行动（本规\n则优先于行动限制）。您必须在其中一次行动中\n选择圣物激光手枪，并在另一次行动中选择精工\n霰弹枪（近距离）（顺序不限）。\n该特工不能在处于隐匿命令时执行本行动，也不\n能在执行了射击行动的激活期间执行本行动（反\n之亦然)。",
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDMASTER\n2 6\" 5+ 8\nUNCOMPROMISING FIRE 1AP\nPerform two free Shoot actions with this operative (this\ntakes precedence over action restrictions). You must select\nits relic laspistol for one action and its artificer shotgun\n(close range) for the other (in any order).\nThis operative cannot perform this action while it has a\nConceal order, or during an activation in which it performed\nthe Shoot action (or vice versa)."
+    },
+    {
+      "id": "kt-elucidian_starstriders-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "武装船兵-数据卡",
+      "title_en": "VOIDSMAN",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-武装船兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n武装船兵\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n激光枪 4 4+ 2/3 -\n转轮炮（集中） 5 4+ 4/5 重型（仅限冲刺）、撕裂\n转轮炮（扫射） 4 4+ 4/5 重型（仅限冲刺）、撕裂、洪流 1\"\n枪托 3 4+ 2/3 -\n船员：每个转折点限一次，若您在这个转折点中尚\n未使用过私掠者支援资产，则您可以使用处于隐匿\n命令的一名己方艾露西亚星行者武装船兵进行反\n应，但您在那个反应中只能执行射击行动，且必须\n使用私掠者支援资产。\n艾露西亚星行者、帝国、海军、武装船兵 25",
+      "weapon_types": {
+        "激光枪": "远程",
+        "转轮炮（集中）": "远程",
+        "转轮炮（扫射）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nVOIDSMAN\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nLasgun 4 4+ 2/3 -\nRotor cannon (focused) 5 4+ 4/5 Heavy (Dash only), Rending\nRotor cannon (sweeping) 4 4+ 4/5 Heavy (Dash only), Rending, Torrent 1\"\nGun butt 3 4+ 2/3 -\nCrewmen: Once per turning point, whenever you would counteract, if you haven't used a PRIVATEER SUPPORT ASSET\nduring this turning point, you can use this rule. If you do, you can counteract with one friendly ELUCIDIAN STARSTRIDER\nVOIDSMAN operative that has a Conceal order, but during that counteraction you cannot perform any actions other than Shoot,\nand you must use a PRIVATEER SUPPORT ASSET to do so.\nELUCIDIAN STARSTRIDER , IMPERIUM, NAVIS, VOIDSMAN 25"
+    },
+    {
+      "id": "kt-elucidian_starstriders-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "艾露西亚星行者杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-艾露西亚星行者杀戮小队.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n杀戮小队\n原型：侦查，安全保护\n特工\n↘ 以下为所有艾露西亚星行者特工的列表：\n• 1 名艾露西亚·范雯\n• 1 名猎犬\n• 1 名死亡教派处刑者\n• 1 名驭电大师\n• 1 名医疗专家\n• 1 名船兵队长\n• 3 名装备激光枪和枪托的武装船兵\n• 1 名装备旋转炮和枪托的武装船兵",
+      "text_en": "ELUCIDIAN STARSTRIDERS\nKILL TEAM\nARCHETYPE: RECON, SECURITY\nOPERATIVES\n↘ Every ELUCIDIAN STARSTRIDER operative in\nthe following list:\n• 1 ELUCIA VHANE\n• 1 CANID\n• 1 DEATH CULT EXECUTIONER\n• 1 LECTRO-MAESTER\n• 1 REJUVENAT ADEPT\n• 1 VOIDMASTER\n• 3 VOIDSMAN with lasgun and gun butt\n• 1 VOIDSMAN with rotor cannon and\ngun butt"
+    },
+    {
+      "id": "kt-elucidian_starstriders-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "贸易许可-1",
+      "title_en": "WARRANT OF TRADE",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-贸易许可-1.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n阵营规则\n贸易许可\n行商的许可证能使他们在帝国中获得难以想\n象的通行权。他们比起其他帝国特工更为圆\n滑——交易，恐吓或是“借用”是他们在获\n取宝贵资源或是进行任意其他交易时占据上\n风的惯用手段。\n在每场战斗中，您可以使用贸易许可规则至多四\n次（见下文）。每个规则都各自描述了其使用的\n时机，并且您无法在每场战斗中多次使用同一个\n技能。\n斟酌\n时机：在选择特工阶段，揭示己方装备选项后。\n效果：选择一个额外的装备选项，但不能选择先\n前已经选择过的选项。\n请继续阅读背面",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFACTION RULE\nWARRANT OF TRADE\nThe writ of a Rogue Trader allows them incredible\naccess across the Imperium. With more flexibility than\nalmost any other agents of the Imperium, they barter,\nintimidate and 'borrow' to gain valuable resources\nthat allow them to enter any engagement with the\nupper hand.\nUp to four times per battle, you can use a\nWARRANT OF TRADE rule (below). Each one\nspecifies when it can be used, and you cannot\nuse the same WARRANT OF TRADE rule more\nthan once per battle.\nConsideration\nWhen: In the Select Operatives step, after\nrevealing your equipment options.\nEffect: Select one additional equipment option. It\ncannot be an option you have previously selected.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-elucidian_starstriders-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "贸易许可-2",
+      "title_en": "WARRANT OF TRADE",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-贸易许可-2.png",
+      "is_back": true,
+      "text": "协调\n时机：在选择特工步骤结束时。\n效果：您获得额外 1 点 CP。\n胁迫\n时机：在部署特工步骤开始时。\n效果：您的对手必须在己方部署任何特工前部署\n自己的所有特工。此外，选择下列选项之一：\n• 您的对手必须在己方部署任何装备前先部署自\n己的所有装备。\n• 己方可以在您的对手部署任何装备前先部署自\n己的所有装备。\n探索\n时机：在第一个转折点中使用战略计划时。\n效果：完全位于己方降落区的 D3 名己方艾露\n西亚星行者特工可以执行一次无消耗的转移行\n动，每一名这样的特工必须在移动结束时完全位\n于己方降落区 4\" 内。\n请继续阅读背面",
+      "text_en": "Coordinate\nWhen: At the end of the Select Operatives step.\nEffect: You gain 1 additional CP.\nCoerce\nWhen: At the start of the Set Up Operatives step.\nEffect: Your opponent must set up all of their\noperatives before you set up any. Additionally,\nselect one of the following options:\n• Your opponent must set up all of their\nequipment before you set up any.\n• You can set up all of your equipment before\nyour opponent sets up any.\nExplore\nWhen: STRATEGIC GAMBIT in the first\nturning point.\nEffect: Perform a free Reposition action with D3\nfriendly ELUCIDIAN STARSTRIDER operatives\nthat are wholly within your drop zone. Each that\ndoes so must end that move wholly within 4\" of\nyour drop zone.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-elucidian_starstriders-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "贸易许可-3",
+      "title_en": "WARRANT OF TRADE",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-贸易许可-3.png",
+      "is_back": true,
+      "text": "收买\n时机：在您应当激活一名特工时。\n效果：您可以跳过那次激活。\n争取\n时机：在战略阶段，为决定先手权进行掷骰后。\n效果：您可以重掷您的骰子。\n灵活条款（仅限认证行动）\n时机：第二个转折点结束时。\n效果：选择一个新的战术行动或一个新的主要行\n动。如果您选择了一个新的战术行动，任何先前\n从战术行动中获得的点数将被弃置。",
+      "text_en": "Bribe\nWhen: It’s your turn to activate an operative.\nEffect: You can skip that activation.\nSeize\nWhen: In the Strategy phase, after rolling off to\ndecide initiative.\nEffect: You can re-roll your dice.\nAdaptable Terms (Approved Ops only)\nWhen: At the end of the second turning point.\nEffect: Select a new tac op or a new primary op.\nIf you select a new tac op, any points scored from\nthe previous tac op are discarded."
+    },
+    {
+      "id": "kt-elucidian_starstriders-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "私掠者支援资产-1",
+      "title_en": "PRIVATEER SUPPORT ASSETS",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-私掠者支援资产-1.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n阵营规则\n私掠者支援资产\n星行者们从不远离“新黎明号”。通过头顶\n的宏伟舰载炮阵，这些宝贵的空中支援如雨\n点般倾泻在敌人之上，吓退了无数海盗，异\n形以及调查过深的官员，并能在交涉中实施\n炮舰外交这一手段的字面含义。\n每个交战阶段限一次，当一名己方艾露西亚星行\n者海军或艾露西亚星行者艾露西亚·范雯特\n工执行射击行动时，您可以选择使用下列私掠者\n支援资产之一的远程武器。每种私掠者支援资产\n在每场战斗中不能使用超过一次。\n每当一名己方艾露西亚星行者特工使用私掠者\n支援资产时，确定掩护豁免的方法与常规情况不\n同。作为替代，当目标底盘的任意部分位于制高\n点地形下时，它便获得掩护豁免。请注意尽管这\n会影响目标的掩护豁免，但您依然需要按照正常\n方式选择有效目标。换言之，这种射击是由一名\n杀戮区内的特工进行引导后自上方而来。\n请继续阅读背面",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFACTION RULE\nPRIVATEER SUPPORT ASSETS\nThe Starstriders never stray too far from the New Dawn.\nOverhead, its massive batteries of ship-based artillery\nrain down on enemies, providing invaluable air support.\nOnce per Firefight phase, when a friendly\nELUCIDIAN STARSTRIDER NAVIS or ELUCIDIAN\nSTARSTRIDER ELUCIA VHANE operative\nperforms the Shoot action, you can select one\nof the following PRIVATEER SUPPORT ASSET\nranged weapons for it to use. You cannot use\neach PRIVATEER SUPPORT ASSET more than\nonce per battle.\nWhenever a friendly ELUCIDIAN STARSTRIDER\noperative is using a PRIVATEER SUPPORT ASSET,\ndetermine cover saves differently. Instead, the\ntarget has a cover save if any part of its base is\nunderneath Vantage terrain. Note that while this\ncan affect the target’s cover save, you must still\nselect a valid target as normal. In other words, the\nshot is guided by an operative in the killzone, but\nit comes from above.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-elucidian_starstriders-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "私掠者支援资产-2",
+      "title_en": "PRIVATEER SUPPORT ASSETS",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-05-阵营规则-私掠者支援资产-2.png",
+      "is_back": true,
+      "text": "名称攻击命中伤害\n远古科技光束 4 3+ 6/7\n武器规则\n重型（仅限转移）、穿刺 2 、安静\n名称攻击命中伤害\n等离子阵列 5 4+ 5/6\n武器规则\n重型（仅限转移）、致命 5+、穿刺 1 、安静\n名称攻击命中伤害\n宏炮 5 4+ 4/5\n武器规则\n重型（仅限转移）、关键穿刺 1 、集中、安\n静、洪流 2\"\n名称攻击命中伤害\n制导飞弹 5 4+ 3/4\n武器规则\n爆炸 2\"、重型（仅限转移）、安静\n名称攻击命中伤害\n集束炸弹 5 4+ 2/3\n武器规则\n爆炸 3\"、重型（仅限转移）、安静",
+      "text_en": "NAME ATK HIT DMG\nArcheotech beam 4 3+ 6/7\nWR\nHeavy (Reposition only), Piercing 2, Silent\nNAME ATK HIT DMG\nPlasma battery 5 4+ 5/6\nWR\nHeavy (Reposition only), Lethal 5+, Piercing 1,\nSilent\nNAME ATK HIT DMG\nMacrocannon 5 4+ 4/5\nWR\nHeavy (Reposition only), Piercing Crits 1,\nSaturate, Silent, Torrent 2\"\nNAME ATK HIT DMG\nGuided shell 5 4+ 3/4\nWR\nBlast 2\", Heavy (Reposition only), Silent\nNAME ATK HIT DMG\nCluster bomb 5 4+ 2/3\nWR\nBlast 3\", Heavy (Reposition only), Silent"
+    },
+    {
+      "id": "kt-elucidian_starstriders-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "致命距离",
+      "title_en": "LETHAL PROXIMITY",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-致命距离.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n战略计谋\n致命距离\n这些饱经跳帮战斗和狭窄空间战斗训练的星行\n者们在近距离交火中极为老练。\n每当一名己方艾露西亚星行者特工对位于它 6\"\n内的一名特工射击时，那名己方特工的远程武\n器（私掠者支援资产除外）获得“平衡”武器\n规则。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nSTRATEGY PLOY\nLETHAL PROXIMITY\nWell-drilled in boarding actions and combat in cramped\nconditions, the Starstriders truly excel in close-\nquarters firefights.\nWhenever a friendly ELUCIDIAN STARSTRIDER\noperative is shooting an operative within 6\" of\nit, that friendly operative's ranged weapons\n(excluding PRIVATEER SUPPORT ASSET\nweapons) have the Balanced weapon rule."
+    },
+    {
+      "id": "kt-elucidian_starstriders-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "权益声明",
+      "title_en": "STAKE CLAIM",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-权益声明.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n战略计谋\n权益声明\n当艾露西亚·范雯对某个战利品宣称权利时，\n星行者们会奋力确保将其送至她手。\n将一枚己方声明标识放置在杀戮区中。当一名己\n方艾露西亚星行者特工对位于那枚标识 3\" 内的\n敌方特工执行射击，近战或进行反击时，在掷攻\n击骰步骤中，您可以将一枚己方失败的骰子保留\n为普通成功而非将其弃置，或者将一枚己方普通\n成功保留为一枚关键成功。在转折点结束时，将\n己方声明标识从杀戮区移除。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nSTRATEGY PLOY\nSTAKE CLAIM\nWhen Elucia Vhane stakes her claim upon a prize, the\nStarstriders will strive to ensure it is delivered into\nher hands.\nPlace your Claim marker in the killzone.\nWhenever a friendly ELUCIDIAN STARSTRIDER\noperative is shooting against, fighting against\nor retaliating against an enemy operative that’s\nwithin 3\" of that marker, in the Roll Attack Dice\nstep, you can retain one of your fails as a normal\nsuccess instead of discarding it, or retain one\nof your normal successes as a critical success\ninstead. At the end of the turning point, remove\nyour Claim marker from the killzone."
+    },
+    {
+      "id": "kt-elucidian_starstriders-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "无畏探险家",
+      "title_en": "UNDAUNTED EXPLORERS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-无畏探险家.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n战略计谋\n无畏探险家\n星行者们在穿越虚空的旅途中饱经无数风雨，\n能够忍受那些足以使一般士兵却步的伤势。\n在本转折点中，每一名特工在结算攻击骰子步骤\n中首次因为一枚攻击骰子受到伤害时，您可以\n将受到的伤害减半（向上取整，且至多降低至 2\n点）。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nSTRATEGY PLOY\nUNDAUNTED EXPLORERS\nThe Starstriders have weathered many terrible storms\nin their journeys through the void, and are capable of\nshrugging off wounds that would fell lesser soldiers.\nThe first time an attack dice inflicts damage\non each friendly ELUCIDIAN STARSTRIDER\noperative during the turning point in the Resolve\nAttack Dice step, you can halve that inflicted\ndamage (rounding up, to a minimum of 2)."
+    },
+    {
+      "id": "kt-elucidian_starstriders-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "迅捷行军",
+      "title_en": "QUICK MARCH",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-迅捷行军.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n战略计谋\n迅捷行军\n艾露西亚星行者就如同那些精锐星界军一般\n无所畏惧，能以极快的推进速度包抄甚至包\n围敌人。\n每当一名己方艾露西亚星行者特工在它的激活\n中执行了转移行动，您便可以使用这个规则。若\n此，直到那次激活结束前，为它的移动属性增\n加 1\"，但它在那次移动结束时必须更为靠近您对\n手的降落区，且不能在那次激活中使用私掠者支\n援资产。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nSTRATEGY PLOY\nQUICK MARCH\nAs fearless as any elite Astra Militarum regiment, the\nElucidian Starstriders advance swiftly to outflank and\nisolate their enemies.\nWhenever a friendly ELUCIDIAN STARSTRIDER\noperative performs the Reposition action\nduring its activation, you can use this rule. If\nyou do, add 1\" to its Move stat until the end\nof that activation, but it must end that move\ncloser to your opponent’s drop zone and cannot\nuse a PRIVATEER SUPPORT ASSET during\nthat activation."
+    },
+    {
+      "id": "kt-elucidian_starstriders-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "联合攻击",
+      "title_en": "COMBINED ARMS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-联合攻击.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n交战计谋\n联合攻击\n帝国海军的标准训练使得星行者们能通过迅猛\n的齐射向敌人倾泻怒火。只要数量足够，即便\n是普通的激光枪也足以击溃坚固的防御。\n当一名己方艾露西亚星行者特工在执行射击的\n掷攻击骰子后使用本交战计谋。如果目标在这个\n转折点中被其他己方艾露西亚星行者特工射击\n过，您便可以重掷任意己方攻击骰子。您不能在\n使用私掠者支援资产执行射击时使用这个计谋。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFIREFIGHT PLOY\nCOMBINED ARMS\nThe standard training of the Navis Imperialis allows the\nStarstriders to rain fury down upon the enemy with rapid\nvolleys. In great enough volume, even the humble lasgun\ncan shatter formidable defences.\nUse this firefight ploy after rolling your attack\ndice for a friendly ELUCIDIAN STARSTRIDER\noperative, if it’s shooting an enemy operative\nthat’s been shot by another friendly ELUCIDIAN\nSTARSTRIDER operative during this turning\npoint. You can re-roll any of your attack dice.\nYou cannot use this ploy while shooting with a\nPRIVATEER SUPPORT ASSET."
+    },
+    {
+      "id": "kt-elucidian_starstriders-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "求生专家",
+      "title_en": "SURVIVALIST",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-求生专家.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n交战计谋\n求生专家\n在躲入掩体的短暂空隙中，星行者们会包扎伤\n口，并使用兴奋药剂，做好再次交战的准备。\n当一名己方艾露西亚星行者特工激活时使用本\n交战计谋。那名己方特工恢复 D3+2 点失去的耐\n伤，并且在那次激活中可以忽视对它 APL 属性\n的任何修正。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFIREFIGHT PLOY\nSURVIVALIST\nDucking into cover for a brief moment, the Starstrider\nbandages their wounds, applies stimms and prepares to\nrejoin the fight.\nUse this firefight ploy when a friendly ELUCIDIAN\nSTARSTRIDER operative is activated. That\nfriendly operative regains up to D3+2 lost wounds\nand during that activation you can ignore any\nchanges to its APL stat."
+    },
+    {
+      "id": "kt-elucidian_starstriders-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "饱经考验",
+      "title_en": "GREAT ENDURANCE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-饱经考验.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n交战计谋\n饱经考验\n每一位派遣至行商的帝国海军船兵都是精挑细\n选的精英，已经准备好面对甚至超越自己的职\n责所在。\n当一名己方艾露西亚星行者海军特工激活时使\n用本交战计谋。在那次激活结束前，为它的 APL\n属性增加 1 点。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFIREFIGHT PLOY\nGREAT ENDURANCE\nEach member of the Navis Imperialis assigned to a\nRogue Trader is elite and prepared to endure the most\ntesting of circumstances to perform their duties.\nUse this firefight ploy during a friendly ELUCIDIAN\nSTARSTRIDER NAVIS operative’s activation.\nUntil the end of the activation, add 1 to its\nAPL stat."
+    },
+    {
+      "id": "kt-elucidian_starstriders-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "训练有素",
+      "title_en": "WELL-DRILLED",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-训练有素.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n交战计谋\n训练有素\n通过频繁且激烈的磨练跳帮技艺，帝国海军的\n成员们精于协同突袭，共同完成任务目标。\n当一名己方艾露西亚星行者海军特工激活时使\n用本交战计谋。选择位于那名特工 3\" 内其且可\n见且就绪的另一名己方艾露西亚星行者海军特\n工。当那个第一名特工进入待机，您便可以在您\n对手进行激活前激活那个另一名己方特工。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFIREFIGHT PLOY\nWELL-DRILLED\nTrained regularly and vigorously in the art of boarding\nactions, members of the Navis Imperialis are expected\nto precisely coordinate their strikes, working in tandem\nto complete the goals of the mission at hand.\nUse this firefight ploy when a friendly ELUCIDIAN\nSTARSTRIDER NAVIS operative is activated.\nSelect one other ready friendly ELUCIDIAN\nSTARSTRIDER NAVIS operative visible to and\nwithin 3\" of that operative. When that first friendly\noperative is expended, you can activate that other\nfriendly operative before your opponent activates.\nWhen that other operative is expended, your\nopponent then activates as normal."
+    },
+    {
+      "id": "kt-elucidian_starstriders-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "装甲内衬",
+      "title_en": "ARMOURED UNDERSUIT",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-装甲内衬.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n阵营装备\n装甲内衬\n通过向海军制服内织入烧蚀护甲甲片和钢质加\n强筋，他们获得了额外的防护。\n每当一名特工向豁免属性为 5+ 的一名己方艾露\n西亚星行者特工（猎犬除外）执行射击时，您\n可以将己方防御骰子中一枚结果为 4 的骰子保留\n为普通成功。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFACTION EQUIPMENT\nARMOURED UNDERSUIT\nAblative plates and steel reinforcements are woven\ninto naval fatigues, providing an additional layer\nof protection.\nWhenever an operative is shooting a friendly\nELUCIDIAN STARSTRIDER operative (excluding\nCANID) that has a 5+ Save stat, you can retain\none of your defence dice results of 4 as a\nnormal success."
+    },
+    {
+      "id": "kt-elucidian_starstriders-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "高能电容包",
+      "title_en": "HOT SHOT CAPACITOR PACKS",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-高能电容包.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n阵营装备\n高能电容包\n通过对激光枪和激光手枪进行危险但致命的改\n装，星行者们的杀伤力得到了进一步提升——\n尽管这要冒上负伤的风险。\n每个转折点至多两次，每当一名己方艾露西亚星\n行者特工执行射击行动并选择了激光手枪、激\n光枪或圣物激光手枪时，您便可以使用本规则。\n若此，直到那个转折点结束前，为那个武器的两\n个伤害属性各自增加 1 点，并获得“过热”和“\n关键穿刺 1 ”武器规则。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFACTION EQUIPMENT\nHOT SHOT CAPACITOR PACKS\nDangerous but lethal modification of lasguns and\nlaspistols provide the Starstriders with additional killing\npower, albeit with the risk of injury.\nUp to twice per turning point, whenever a\nfriendly ELUCIDIAN STARSTRIDER operative\nis performing the Shoot action and you select a\nlaspistol, lasgun or relic laspistol, you can use this\nrule. If you do, until the end of the turning point,\nadd 1 to both Dmg stats of that weapon and it has\nthe Hot and Piercing Crits 1 weapon rules."
+    },
+    {
+      "id": "kt-elucidian_starstriders-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "改良型坐标链路",
+      "title_en": "IMPROVED COORDINATES UPLINK",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-改良型坐标链路.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n阵营装备\n改良型坐标链路\n帝国海军特工们使用的三角定位装置能使“新\n黎明号”的武器阵列更为精准地瞄准敌人。\n每当一名己方艾露西亚星行者特工使用私掠者\n支援资产执行射击行动时，若目标位于一名己方\n艾露西亚星行者海军特工 6\" 内时，目标无法被\n遮挡且那个武器获得“集中”武器规则。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFACTION EQUIPMENT\nIMPROVED COORDINATES UPLINK\nCoordinated triangulation undertaken by Navis\nImperialis operatives allows the New Dawn’s weapon\nbatteries to more accurately target the foe.\nWhenever a friendly ELUCIDIAN STARSTRIDER\noperative is using a PRIVATEER SUPPORT ASSET,\nif the target is within 6\" of a friendly ELUCIDIAN\nSTARSTRIDER NAVIS operative, the target\ncannot be obscured and that weapon has the\nSaturate weapon rule."
+    },
+    {
+      "id": "kt-elucidian_starstriders-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "速射炮阵",
+      "title_en": "RAPID GUNNERY",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-速射炮阵.png",
+      "is_back": false,
+      "text": "艾露西亚星行者\n阵营装备\n速射炮阵\n“新黎明号”宏伟的武器阵列充能和装填都较\n为缓慢。只有那些精英炮兵班组拥有快速齐射\n的技艺和协调能力。\n每场战斗限一次，在选择私掠者支援资产时，您\n可以选择一个在这场战斗中已经使用过的选项。\n这个规则优先于普通私掠者支援资产规则。",
+      "text_en": "ELUCIDIAN STARSTRIDER\nFACTION EQUIPMENT\nRAPID GUNNERY\nThe New Dawn’s colossal batteries are slow to reload\nand recharge. Only veteran gun crews possess the\nexpertise and coordination to fire a rapid salvo.\nOnce per battle, when selecting a PRIVATEER\nSUPPORT ASSET, you can select one that's\nalready been used during the battle. This\ntakes precedence over the normal PRIVATEER\nSUPPORT ASSET rules."
+    }
+  ]
+}

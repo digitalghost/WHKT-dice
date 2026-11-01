@@ -1,52 +1,771 @@
 {
-  "manifest_version": 1,
+  "schema_version": 1,
   "team_id": "CHAOS-FELL",
-  "faction_id": "CHAOS",
   "team_name_zh": "恶角兽掠夺者",
   "team_name_en": "Fellgor Ravagers",
-  "source_pdf": "../恶角兽掠夺者 Fellgor Ravagers 杀戮小队规则.pdf",
-  "extracted_at": "2026-09-23",
+  "source_pdf": "最新杀戮小队规则更新/恶角兽掠夺者 Fellgor Ravagers 杀戮小队规则.pdf",
+  "source_pdf_sha256": "15eda8ce02fd10310e75f0d10fa8e49f4b0fa65ab2ae2412458114b43a393223",
+  "extracted_at": "2026-10-26",
   "render_dpi": 200,
-  "page_size_px": [1654, 2339],
+  "source_data": "官方中文 PDF（唯一信源）",
   "counts": {
-    "cards": 28,
+    "total": 28,
     "operative": 11,
-    "operative_ability": 1,
-    "team_selection": 1,
-    "faction_rule": 2,
-    "strategic_ploy": 4,
-    "firefight_ploy": 4,
-    "faction_equipment": 4,
-    "other": 1
+    "operative-ability": 1,
+    "team-selection": 1,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
   },
   "cards": [
-    {"id":"fell-001-ironhorn","sequence":1,"category":"operative","title_zh":"恶角兽铁角头领","title_en":"Fellgor Ironhorn","source_page":1,"page_order":1,"bbox_px":[350,66,954,553],"bbox_pt":[126.0,23.76,343.44,199.08],"bbox_norm":[0.211608,0.028217,0.576784,0.236426],"image":"01-特工-恶角兽铁角头领.png","ktdash_ids":["CHAOS-FELL-IH"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-002-deathknell","sequence":2,"category":"operative","title_zh":"恶角兽死亡丧钟","title_en":"Fellgor Deathknell","source_page":1,"page_order":2,"bbox_px":[350,618,954,553],"bbox_pt":[126.0,222.48,343.44,199.08],"bbox_norm":[0.211608,0.264215,0.576784,0.236426],"image":"02-特工-恶角兽死亡丧钟.png","ktdash_ids":["CHAOS-FELL-DK"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-003-fluxbray","sequence":3,"category":"operative","title_zh":"恶角兽诡变者","title_en":"Fellgor Fluxbray","source_page":1,"page_order":3,"bbox_px":[350,1170,954,553],"bbox_pt":[126.0,421.2,343.44,199.08],"bbox_norm":[0.211608,0.500214,0.576784,0.236426],"image":"03-特工-恶角兽诡变者.png","ktdash_ids":["CHAOS-FELL-FB"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-004-gnarlscar","sequence":4,"category":"operative","title_zh":"恶角兽疤面","title_en":"Fellgor Gnarlscar","source_page":1,"page_order":4,"bbox_px":[350,1723,954,553],"bbox_pt":[126.0,620.28,343.44,199.08],"bbox_norm":[0.211608,0.73664,0.576784,0.236426],"image":"04-特工-恶角兽疤面.png","ktdash_ids":["CHAOS-FELL-GS"],"text_status":"transcribed_and_visually_verified","errata_status":"pdf_errata_applied"},
-    {"id":"fell-005-gorehorn","sequence":5,"category":"operative","title_zh":"恶角兽血角","title_en":"Fellgor Gorehorn","source_page":2,"page_order":1,"bbox_px":[350,66,954,553],"bbox_pt":[126.0,23.76,343.44,199.08],"bbox_norm":[0.211608,0.028217,0.576784,0.236426],"image":"05-特工-恶角兽血角.png","ktdash_ids":["CHAOS-FELL-GH"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-006-herd-goad","sequence":6,"category":"operative","title_zh":"恶角兽激兽师","title_en":"Fellgor Herd-Goad","source_page":2,"page_order":2,"bbox_px":[350,618,954,553],"bbox_pt":[126.0,222.48,343.44,199.08],"bbox_norm":[0.211608,0.264215,0.576784,0.236426],"image":"06-特工-恶角兽激兽师.png","ktdash_ids":["CHAOS-FELL-HG"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-007-mangler","sequence":7,"category":"operative","title_zh":"恶角兽撕裂者","title_en":"Fellgor Mangler","source_page":2,"page_order":3,"bbox_px":[350,1170,954,553],"bbox_pt":[126.0,421.2,343.44,199.08],"bbox_norm":[0.211608,0.500214,0.576784,0.236426],"image":"07-特工-恶角兽撕裂者.png","ktdash_ids":["CHAOS-FELL-MNG"],"text_status":"transcribed_and_visually_verified","errata_status":"api_value_overrides_pdf_hit_3_to_4"},
-    {"id":"fell-008-shaman-data","sequence":8,"category":"operative","title_zh":"恶角兽萨满","title_en":"Fellgor Shaman","part":"数据卡","source_page":2,"page_order":4,"bbox_px":[350,1723,954,553],"bbox_pt":[126.0,620.28,343.44,199.08],"bbox_norm":[0.211608,0.73664,0.576784,0.236426],"image":"08-特工-恶角兽萨满-数据卡.png","ktdash_ids":["CHAOS-FELL-SHA"],"text_status":"transcribed_and_visually_verified","errata_status":"pdf_errata_applied"},
-    {"id":"fell-009-shaman-ability","sequence":9,"category":"operative-ability","title_zh":"恶角兽萨满","title_en":"Fellgor Shaman","part":"能力卡","source_page":3,"page_order":1,"bbox_px":[350,66,954,553],"bbox_pt":[126.0,23.76,343.44,199.08],"bbox_norm":[0.211608,0.028217,0.576784,0.236426],"image":"09-特工-恶角兽萨满-能力卡.png","ktdash_ids":["CHAOS-FELL-SHA","CHAOS-FELL-SHA-MOD"],"text_status":"transcribed_and_visually_verified","errata_status":"pdf_errata_applied"},
-    {"id":"fell-010-toxhorn","sequence":10,"category":"operative","title_zh":"恶角兽毒角","title_en":"Fellgor Toxhorn","source_page":3,"page_order":2,"bbox_px":[350,618,954,553],"bbox_pt":[126.0,222.48,343.44,199.08],"bbox_norm":[0.211608,0.264215,0.576784,0.236426],"image":"10-特工-恶角兽毒角.png","ktdash_ids":["CHAOS-FELL-TOX"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-011-vandal","sequence":11,"category":"operative","title_zh":"恶角兽破坏者","title_en":"Fellgor Vandal","source_page":3,"page_order":3,"bbox_px":[350,1170,954,553],"bbox_pt":[126.0,421.2,343.44,199.08],"bbox_norm":[0.211608,0.500214,0.576784,0.236426],"image":"11-特工-恶角兽破坏者.png","ktdash_ids":["CHAOS-FELL-VND"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-012-warrior","sequence":12,"category":"operative","title_zh":"恶角兽战士","title_en":"Fellgor Warrior","source_page":3,"page_order":4,"bbox_px":[350,1723,954,553],"bbox_pt":[126.0,620.28,343.44,199.08],"bbox_norm":[0.211608,0.73664,0.576784,0.236426],"image":"12-特工-恶角兽战士.png","ktdash_ids":["CHAOS-FELL-WAR"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-013-team-selection","sequence":13,"category":"team-selection","title_zh":"恶角兽掠夺者杀戮小队","title_en":"Fellgor Ravagers Kill Team","source_page":4,"page_order":1,"bbox_px":[273,215,556,960],"bbox_pt":[98.28,77.4,200.16,345.6],"bbox_norm":[0.165054,0.09192,0.336155,0.410432],"image":"13-小队选择-恶角兽掠夺者杀戮小队.png","ktdash_ids":["CHAOS-FELL"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-014-frenzy-1","sequence":14,"category":"faction-rule","title_zh":"狂暴","title_en":"Frenzy","part":"1/2","source_page":4,"page_order":2,"bbox_px":[826,215,556,960],"bbox_pt":[297.36,77.4,200.16,345.6],"bbox_norm":[0.499395,0.09192,0.336155,0.410432],"image":"14-阵营规则-狂暴-1.png","ktdash_ids":["CHAOS-FELL-IH-A-FRZ","CHAOS-FELL-DK-A-FRZ","CHAOS-FELL-FB-A-FRZ","CHAOS-FELL-GS-A-FRZ","CHAOS-FELL-GH-A-FRZ","CHAOS-FELL-HG-A-FRZ","CHAOS-FELL-MNG-A-FRZ","CHAOS-FELL-SHA-A-FRZ","CHAOS-FELL-TOX-A-FRZ","CHAOS-FELL-VND-A-FRZ","CHAOS-FELL-WAR-A-FRZ"],"text_status":"transcribed_and_visually_verified","errata_status":"2025-11_errata_applied"},
-    {"id":"fell-015-frenzy-2","sequence":15,"category":"faction-rule","title_zh":"狂暴","title_en":"Frenzy","part":"2/2","source_page":4,"page_order":3,"bbox_px":[273,1168,556,960],"bbox_pt":[98.28,420.48,200.16,345.6],"bbox_norm":[0.165054,0.499359,0.336155,0.410432],"image":"15-阵营规则-狂暴-2.png","ktdash_ids":["CHAOS-FELL-IH-A-FRZ","CHAOS-FELL-DK-A-FRZ","CHAOS-FELL-FB-A-FRZ","CHAOS-FELL-GS-A-FRZ","CHAOS-FELL-GH-A-FRZ","CHAOS-FELL-HG-A-FRZ","CHAOS-FELL-MNG-A-FRZ","CHAOS-FELL-SHA-A-FRZ","CHAOS-FELL-TOX-A-FRZ","CHAOS-FELL-VND-A-FRZ","CHAOS-FELL-WAR-A-FRZ"],"text_status":"transcribed_and_visually_verified","errata_status":"2025-11_errata_applied"},
-    {"id":"fell-016-marker-guide","sequence":16,"category":"other","title_zh":"标识/指示物指南","title_en":"Marker/Token Guide","source_page":4,"page_order":4,"bbox_px":[826,1168,556,960],"bbox_pt":[297.36,420.48,200.16,345.6],"bbox_norm":[0.499395,0.499359,0.336155,0.410432],"image":"16-其他-标识指示物指南.png","ktdash_ids":[],"text_status":"transcribed_and_visually_verified","errata_status":"not_applicable"},
-    {"id":"fell-017-violent-temperament","sequence":17,"category":"strategic-ploy","title_zh":"暴躁脾气","title_en":"Violent Temperament","source_page":5,"page_order":1,"bbox_px":[273,215,556,960],"bbox_pt":[98.28,77.4,200.16,345.6],"bbox_norm":[0.165054,0.09192,0.336155,0.410432],"image":"17-战略计谋-暴躁脾气.png","ktdash_ids":["CHAOS-FELL-S-VT"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-018-ambush","sequence":18,"category":"strategic-ploy","title_zh":"埋伏","title_en":"Ambush","source_page":5,"page_order":2,"bbox_px":[826,215,556,960],"bbox_pt":[297.36,77.4,200.16,345.6],"bbox_norm":[0.499395,0.09192,0.336155,0.410432],"image":"18-战略计谋-埋伏.png","ktdash_ids":["CHAOS-FELL-S-AMB"],"text_status":"transcribed_and_visually_verified","errata_status":"pdf_errata_applied"},
-    {"id":"fell-019-pelting-firepower","sequence":19,"category":"strategic-ploy","title_zh":"叠加火力","title_en":"Pelting Firepower","source_page":5,"page_order":3,"bbox_px":[273,1168,556,960],"bbox_pt":[98.28,420.48,200.16,345.6],"bbox_norm":[0.165054,0.499359,0.336155,0.410432],"image":"19-战略计谋-叠加火力.png","ktdash_ids":["CHAOS-FELL-S-PFP"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-020-reckless-determination","sequence":20,"category":"strategic-ploy","title_zh":"冲动决心","title_en":"Reckless Determination","source_page":5,"page_order":4,"bbox_px":[826,1168,556,960],"bbox_pt":[297.36,420.48,200.16,345.6],"bbox_norm":[0.499395,0.499359,0.336155,0.410432],"image":"20-战略计谋-冲动决心.png","ktdash_ids":["CHAOS-FELL-S-RD"],"text_status":"transcribed_and_visually_verified","errata_status":"pdf_errata_applied"},
-    {"id":"fell-021-ruthless-rampage","sequence":21,"category":"firefight-ploy","title_zh":"无息毁灭","title_en":"Ruthless Rampage","source_page":6,"page_order":1,"bbox_px":[273,215,556,960],"bbox_pt":[98.28,77.4,200.16,345.6],"bbox_norm":[0.165054,0.09192,0.336155,0.410432],"image":"21-交战计谋-无息毁灭.png","ktdash_ids":["CHAOS-FELL-T-RR"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-022-wild-rage","sequence":22,"category":"firefight-ploy","title_zh":"狂乱暴怒","title_en":"Wild Rage","source_page":6,"page_order":2,"bbox_px":[826,215,556,960],"bbox_pt":[297.36,77.4,200.16,345.6],"bbox_norm":[0.499395,0.09192,0.336155,0.410432],"image":"22-交战计谋-狂乱暴怒.png","ktdash_ids":["CHAOS-FELL-T-WR"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-023-animalistic-fury","sequence":23,"category":"firefight-ploy","title_zh":"野性狂怒","title_en":"Animalistic Fury","source_page":6,"page_order":3,"bbox_px":[273,1168,556,960],"bbox_pt":[98.28,420.48,200.16,345.6],"bbox_norm":[0.165054,0.499359,0.336155,0.410432],"image":"23-交战计谋-野性狂怒.png","ktdash_ids":["CHAOS-FELL-T-AF"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-024-bloodsense","sequence":24,"category":"firefight-ploy","title_zh":"鲜血感知","title_en":"Bloodsense","source_page":6,"page_order":4,"bbox_px":[826,1168,556,960],"bbox_pt":[297.36,420.48,200.16,345.6],"bbox_norm":[0.499395,0.499359,0.336155,0.410432],"image":"24-交战计谋-鲜血感知.png","ktdash_ids":["CHAOS-FELL-T-BS"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-025-brass-adornments","sequence":25,"category":"faction-equipment","title_zh":"黄铜饰品","title_en":"Brass Adornments","source_page":7,"page_order":1,"bbox_px":[273,215,556,960],"bbox_pt":[98.28,77.4,200.16,345.6],"bbox_norm":[0.165054,0.09192,0.336155,0.410432],"image":"25-阵营装备-黄铜饰品.png","ktdash_ids":["CHAOS-FELL-BA"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-026-gore-marks","sequence":26,"category":"faction-equipment","title_zh":"血腥印记","title_en":"Gore Marks","source_page":7,"page_order":2,"bbox_px":[826,215,556,960],"bbox_pt":[297.36,77.4,200.16,345.6],"bbox_norm":[0.499395,0.09192,0.336155,0.410432],"image":"26-阵营装备-血腥印记.png","ktdash_ids":["CHAOS-FELL-GM"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-027-chaos-sigil","sequence":27,"category":"faction-equipment","title_zh":"混沌魔符","title_en":"Chaos Sigil","source_page":7,"page_order":3,"bbox_px":[273,1168,556,960],"bbox_pt":[98.28,420.48,200.16,345.6],"bbox_norm":[0.165054,0.499359,0.336155,0.410432],"image":"27-阵营装备-混沌魔符.png","ktdash_ids":["CHAOS-FELL-CS"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"},
-    {"id":"fell-028-war-paint","sequence":28,"category":"faction-equipment","title_zh":"战争涂纹","title_en":"War Paint","source_page":7,"page_order":4,"bbox_px":[826,1168,556,960],"bbox_pt":[297.36,420.48,200.16,345.6],"bbox_norm":[0.499395,0.499359,0.336155,0.410432],"image":"28-阵营装备-战争涂纹.png","ktdash_ids":["CHAOS-FELL-WP"],"text_status":"transcribed_and_visually_verified","errata_status":"current_api_verified"}
+    {
+      "id": "chaos-fell-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "恶角兽铁角头领-数据卡",
+      "title_en": "FELLGOR IRONHORN",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-恶角兽铁角头领-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽铁角头领\n2 6\" 5+ 11\n名称攻击命中伤害武器规则\n腐化手枪 4 4+ 3/5 范围 8\"、撕裂\n等离子手枪（标准） 4 4+ 3/5 范围 8\"、穿刺 1\n等离子手枪（过载） 4 4+ 4/5 范围 8\"、过热、致命 5+、穿刺 1\n钝器 4 3+ 4/4 残暴\n腐化链锯剑 4 3+ 4/5 撕裂\n发令进攻：如果该特工没有一枚己方狂暴标识，那么作为一个战略计划，选择一名位于该特工 6\" 内且可\n见的己方恶角兽掠夺者特工。被选择的特工，以及其 2\" 内的每一名对其可见的其他己方恶角兽掠夺者\n特工可以立即执行一次无消耗的冲刺行动，具体顺序由您来决定。\n恶角兽掠夺者、混沌、队长、铁角头领 32",
+      "weapon_types": {
+        "腐化手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "钝器": "近战",
+        "腐化链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR IRONHORN\n2 6\" 5+ 11\nNAME ATK HIT DMG WR\nCorrupted pistol 4 4+ 3/5 Range 8\", Rending\nPlasma pistol (standard) 4 4+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 4+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nBludgeon 4 3+ 4/4 Brutal\nCorrupted chainsword 4 3+ 4/5 Rending\nCall the Attack: STRATEGIC GAMBIT if this operative doesn’t have one of your Frenzy tokens. Select one friendly FELLGOR\nRAVAGER operative visible to and within 6\" of this operative. That selected operative, and each other friendly FELLGOR\nRAVAGER operative visible to and within 2\" of it, can immediately perform a free Dash action in an order of your choice.\nFELLGOR RAVAGER , CHAOS, LEADER, IRONHORN 32"
+    },
+    {
+      "id": "chaos-fell-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "恶角兽死亡丧钟-数据卡",
+      "title_en": "FELLGOR DEATHKNELL",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-恶角兽死亡丧钟-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽死亡丧钟\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n钝器 4 3+ 4/4 残暴\n持徽手：该特工不会受到“狂暴”阵营规则中关于\n标识控制权要点的影响。在判断对标识的控制权\n时，将该特工的 APL 属性视作为比原本要高 1 点。\n请注意，这不是对 APL 属性的修正，因此任何修正\n效果能与本规则的效果叠加。\n战锣：每当一枚攻击骰对位于该特工 3\" 内的己方恶\n角兽掠夺者特工造成暴击伤害时，如果该特工不\n拥有己方狂暴指示物，您可以选择让那枚攻击骰造\n成普通伤害来替代。\n战锣震耳 1AP\n直到该特工的下一次激活开始前，或者直到该\n特工被残废前（以先满足的条件为准)，每当一\n名特工对该特工进行射击时，该特工的豁免属\n性提升 1。\n恶角兽掠夺者、混沌、死亡丧钟 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "钝器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR DEATHKNELL\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nBludgeon 4 3+ 4/4 Brutal\nIcon Bearer: This operative isn’t affected by the marker control\nbullet point of the Frenzy faction rule. Whenever determining\ncontrol of a marker, treat this operative’s APL stat as 1 higher.\nNote this isn’t a change to its APL stat, so any changes are\ncumulative with this.\nWar Gong: Whenever an attack dice would inflict Critical Dmg on\na friendly FELLGOR RAVAGER operative within 3\" of this\noperative, if this operative doesn’t have one of your Frenzy tokens,\nyou can choose for that attack dice to inflict Normal Dmg instead.\nGONG KNELL 1AP\nUntil the start of this operative’s next activation or until\nthis operative is incapacitated (whichever comes first),\nwhenever an operative is shooting this operative, improve\nthis operative’s Save stat by 1.\nFELLGOR RAVAGER , CHAOS, DEATHKNELL 32"
+    },
+    {
+      "id": "chaos-fell-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "恶角兽诡变者-数据卡",
+      "title_en": "FELLGOR FLUXBRAY",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-恶角兽诡变者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽诡变者\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n三连砍刀 4 3+ 4/5 无休\n刀刃偏转：当该特工进行近战或砍刀连击 2AP\n反击时，如果该特工不拥有己方\n使用该特工执行一次无消耗的转移行动。在那次行动期间，特工可\n狂暴指示物，您可以在常规顺序\n以移动额外 2\"，并且可以移动进入敌方特工的控制范围内（但是不\n之前结算一次成功。若这么做，\n能在控制范围内开始或结束移动)。对每一名该特工移动进入过控\n那么那次成功必须被用于格挡。\n制范围的敌方特工造成 D3+1 点伤害（在完成移动后为每一名特工\n分别进行掷骰，并按照先后顺序进行)。\n该特工不能在拥有隐匿命令时执行本行动。\n恶角兽掠夺者、混沌、诡变者 32",
+      "weapon_types": {
+        "三连砍刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR FLUXBRAY\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nTriple cleavers 4 3+ 4/5 Ceaseless\nBlade Whirl: Whenever this operative is CLEAVER FLURRY 2AP\nfighting or retaliating, if it doesn’t have\nPerform a free Reposition action with this operative. During that action, it can\none of your Frenzy tokens, you can resolve\nmove an additional 2\", and can move within control range of enemy operatives (it\none of your successes before the normal\ncannot begin or end the move there). Inflict D3+1 damage on each enemy operative\norder. If you do, that success must be\nit moved within control range of (roll separately for each after it’s moved, in the\nused to block.\norder it moved within control range of them).\nThis operative cannot perform this action while it has a Conceal order.\nFELLGOR RAVAGER , CHAOS, FLUXBRAY 32"
+    },
+    {
+      "id": "chaos-fell-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "恶角兽疤面-数据卡",
+      "title_en": "FELLGOR GNARLSCAR",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-恶角兽疤面-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽疤面\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n义肢拳 4 3+ 4/5 残暴\n睿智：在该特工的激活结束时，无息攻势 1AP\n您可以更改该特工拥有的命令。使用该特工执行一次无消耗的近战行动，随后执行一次无消耗的射\n击行动（或更改先后顺序)。该特工可以在敌方特工的控制范围内\n执行那次射击行动，但在这么做时，该特工必须将其控制范围内\n的一名敌方特工作为目标（就算有其他己方特工位于那名敌方特\n工的控制范围内也是如此)。您在这次射击行动中只能选择自动手\n枪作为武器。\n恶角兽掠夺者、混沌、疤面 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "义肢拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR GNARLSCAR\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nBionic fist 4 3+ 4/5 Brutal\nSagacious: At the end of this operative’s UNCOMPROMISING ATTACK 1AP\nactivation, you can change its order.\nPerform a free Fight action with this operative, then perform a free Shoot action\nwith this operative (or vice versa). This operative can perform that Shoot action\nwhile within control range of an enemy operative, but if it does, it can and must\ntarget an enemy operative within its control range (even if other friendly operatives\nare within that enemy operative’s control range). You can only select an autopistol\nfor that Shoot action.\nFELLGOR RAVAGER , CHAOS, GNARLSCAR 32"
+    },
+    {
+      "id": "chaos-fell-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "恶角兽血角-数据卡",
+      "title_en": "FELLGOR GOREHORN",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-恶角兽血角-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽血角\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n劈颅刀 4 3+ 4/5 致命 5+、夺颅者*\n勇士：该特工可以在激活期间执行两次近战行动。\n*\u0007夺颅者：每当该特工使用本武器将一名特工残废\n时，掷一枚 D3：\n• 该特工回复相当于掷骰结果数量的失去耐伤（除\n非该特工拥有狂暴指示物)。\n• 直到战斗结束前，该特工劈颅刀的暴击伤害提升\n掷骰结果的数量（最高提升至 8)。\n恶角兽掠夺者、混沌、血角 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "劈颅刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR GOREHORN\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nSkullcleaver 4 3+ 4/5 Lethal 5+, Headtaker*\nChampion: This operative can perform two Fight actions during\nits activation.\n*Headtaker: Whenever this operative incapacitates an operative\nwith this weapon, roll one D3:\n• This operative regains a number of lost wounds equal to the\nresult (unless it has a Frenzy token).\n• Until the end of the battle, add the result to the Critical Dmg\nstat of this operative’s skullcleaver (to a maximum of 8).\nFELLGOR RAVAGER , CHAOS, GOREHORN 32"
+    },
+    {
+      "id": "chaos-fell-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "恶角兽激兽师-数据卡",
+      "title_en": "FELLGOR HERD-GOAD",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-恶角兽激兽师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽激兽师\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n裂刺鞭（远程） 4 2+ 2/3 范围 3\"、致命 4+、眩晕\n裂刺鞭（近战） 4 3+ 2/3 致命 4+、震荡\n长鞭控制：当一名对该特工可见的敌方特工位于其\n3\" 内时，如果该特工不位于任何其他敌方特工的控\n制范围内：\n• 那名敌方特工近战武器的攻击属性减少 1 点（最\n低降至 1)。\n• 那名敌方特工执行后撤行动时，您的对手必须消\n耗额外 1 AP。\n点燃怒火 1AP\n选择另一名位于该特工 3\" 内且对其可见的恶角\n兽掠夺者特工（萨满和铁角头领除外）。直到\n那名特工的下一次激活结束前，其 APL 属性增\n加 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。\n恶角兽掠夺者、混沌、激兽师 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "裂刺鞭（远程）": "远程",
+        "裂刺鞭（近战）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR HERD-GOAD\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nCrackthorn whip (ranged) 4 2+ 2/3 Range 3\", Lethal 4+, Stun\nCrackthorn whip (melee) 4 3+ 2/3 Lethal 4+, Shock\nWhip Control: Whenever an enemy operative is visible to and\nwithin 3\" of this operative, if this operative isn’t within control\nrange of any other enemy operatives:\n• Subtract 1 from the Atk stat of that enemy operative’s melee\nweapons (to a minimum of 1).\n• Your opponent must spend 1 additional AP for that enemy\noperative to perform the Fall Back action.\nINCITE FURY 1AP\nSelect one other friendly FELLGOR RAVAGER operative\n(excluding SHAMAN or IRONHORN) visible to and within\n3\" of this operative. Until the end of that operative’s next\nactivation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nFELLGOR RAVAGER , CHAOS, HERD-GOAD 32"
+    },
+    {
+      "id": "chaos-fell-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "恶角兽撕裂者-数据卡",
+      "title_en": "FELLGOR MANGLER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-恶角兽撕裂者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽撕裂者\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n恶毒利爪 4 4+ 4/6 无休、触觉猎手*\n*触觉猎手：每当该特工使用本武器对一名处于待机\n的特工进行近战时，您在那次流程中首次使用一次\n关键成功进行出击后，您可以在对手之前立即使用\n另一次成功进行出击。\n狂战士：该特工不能执行射击行动（戒备除外，但\n是不能在打断期间执行无消耗的射击行动)。在执行\n拾取标识和任务行动时（操作舱门除外)，您必须消\n耗额外 1AP。\n野蛮：该特工在激活期间首次执行近战行动时，如\n果特工没有被残废，那么该特工可以立即在之后执\n行一次无消耗的近战行动（您不需要选择相同的敌\n方特工来作为近战对象）。本规则的优先度高于行\n动限制，并且您不能在这两次近战行动间使用“无\n息毁灭”交战计谋。\n恶角兽掠夺者、混沌、撕裂者 32",
+      "weapon_types": {
+        "恶毒利爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR MANGLER\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nVicious claws 4 4+ 4/6 Ceaseless, Tactual Hunter*\n*Tactual Hunter: Whenever this operative is fighting with this\nweapon against an expended operative, the first time you\nstrike with a critical success during that sequence, you can\nimmediately resolve another of your successes as a strike (before\nyour opponent).\nBerserker: This operative cannot perform the Shoot action\n(other than Guard, but cannot then perform a free Shoot\naction during the interruption). You must spend 1 additional AP\nfor this operative to perform the Pick Up Marker and mission\nactions (excluding Operate Hatch).\nSavage: The first time this operative performs the Fight action\nduring each of its activations, if it isn’t incapacitated, it can\nimmediately perform a free Fight action afterwards (you don't\nhave to select the same enemy operative to fight against). This\ntakes precedence over action restrictions, and you cannot\nuse the Ruthless Rampage firefight ploy between those two\nFight actions.\nFELLGOR RAVAGER , CHAOS, MANGLER 32"
+    },
+    {
+      "id": "chaos-fell-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "恶角兽萨满-数据卡",
+      "title_en": "FELLGOR SHAMAN",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-恶角兽萨满-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽萨满\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n科技诅咒 4 3+ 1/3 撕裂、集中、追踪轻型、灵能\n兽群法杖 4 3+ 3/5 震荡\n暴怒再生 1AP\n选择一名位于该特工 6\" 内且没有己方狂暴指示物的可见己方恶角兽掠夺者特工。那名己方特工回复\n最多 2D3 点失去的耐伤；如果那名特工在战斗中曾通过近战或反击将一名敌方特工残废，则改为回复\n最多 6 点失去的耐伤。\n该特工不能在敌方特工的控制范围内执行本行动。\n请继续阅读背面规则\n恶角兽掠夺者、混沌、灵能者、萨满 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "科技诅咒": "远程",
+        "兽群法杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR SHAMAN\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nTech-curse 4 3+ 1/3 PSYCHIC, Rending, Saturate, Seek Light\nBraystave 4 3+ 3/5 Shock\nAPOPLECTIC REJUVENATION 1AP\nSelect one friendly FELLGOR RAVAGER operative that doesn’t have one of your Frenzy tokens and is visible to and within 6\"\nof this operative. That friendly operative regains up to 2D3 lost wounds; if that operative has incapacitated an enemy operative\nwhile fighting or retaliating during the battle, it regains up to 6 lost wounds instead.\nThis operative cannot perform this action while within control range of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nFELLGOR RAVAGER , CHAOS, PSYKER, SHAMAN 32"
+    },
+    {
+      "id": "chaos-fell-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "恶角兽萨满-能力卡",
+      "title_en": "FELLGOR SHAMAN",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-恶角兽萨满-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽萨满\n2 6\" 5+ 10\n黑暗之衣 1AP\n灵能。直到该特工的下一次激活开始前，或者直到\n该特工被残废前（以先满足的条件为准)，每当一\n名拥有隐匿命令和掩护的己方恶角兽掠夺者特工\n位于该特工的 3\" 内且对其可见时，那名己方特工\n不能被选择成为有效目标，本规则的优先度高于其\n他规则（例如‘追踪’武器规则和制高点地形）除\n非攻击者位于特工的 2\" 内。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR SHAMAN\n2 6\" 5+ 10\nMANTLE OF DARKNESS 1AP\nPSYCHIC. Until the start of this operative’s next activation\nor until it’s incapacitated (whichever comes first), whenever\na friendly FELLGOR RAVAGER operative is visible to\nand within 3\" of this operative, has a Conceal order and is in\ncover, that friendly operative cannot be selected as a valid\ntarget, taking precedence over all other rules (e.g. Seek,\nVantage terrain) except being within 2\".\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "chaos-fell-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "恶角兽毒角-数据卡",
+      "title_en": "FELLGOR TOXHORN",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-恶角兽毒角-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽毒角\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n砍刀 4 3+ 4/5 -\n剧毒馈赠：您可以忽略任何对该特工 APL 属性的修\n正，并且该特工不会受到敌方特工的“震荡”武器\n规则的影响。每当一枚攻击骰对该特工造成 3 点或\n更多的普通伤害时，掷一枚 D6：若结果为 5+，则\n造成的伤害减少 1 点。\n瘟疫炸弹：该特工可以使用震荡手雷（通用装备)。\n该特工使用这些装备时不算入您拥有的使用限制\n(如果您还为其他特工选择了手雷类的装备)。每当\n一名敌方特工因为该特工执行的震荡手雷行动而进\n行震荡测试时，如果结果为 3+，那么还对那名敌\n方特工造成相当于 D6 掷骰结果一半的伤害（向上\n取整)。\n恶角兽掠夺者、混沌、毒角 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "砍刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR TOXHORN\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nCleaver 4 3+ 4/5 -\nToxic Blessings: You can ignore any changes to this operative’s\nAPL stat and it’s not affected by enemy operatives’ Shock\nweapon rule. Whenever an attack dice inflicts Normal Dmg of 3\nor more on this operative, roll one D6: on a 5+, subtract 1 from\nthat inflicted damage.\nPox Bomb: This operative can use stun grenades (see universal\nequipment). Doing so doesn’t count towards any limited uses\nyou have (i.e. if you also select that grenade from equipment for\nother operatives). Whenever an enemy operative takes a stun\ntest as a result of this operative performing the Stun Grenade\naction, if the result is a 3+, also inflict damage on that enemy\noperative equal to the dice result halved (rounding up).\nFELLGOR RAVAGER , CHAOS, TOXHORN 32"
+    },
+    {
+      "id": "chaos-fell-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "恶角兽破坏者-数据卡",
+      "title_en": "FELLGOR VANDAL",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-恶角兽破坏者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽破坏者\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n碎人锤 4 4+ 5/5 残暴、恶毒打击*\n*恶毒打击：每当该特工进行近战时，本武器拥有\n“无休”武器规则。\n横扫攻击 1AP\n对该特工 2\" 内且可见的每一名其他特工根据\n你选择的顺序依次造成 D3+1 点伤害（分别掷\n骰）。\n该特工不能在拥有隐匿命令时执行本行动。\n恶角兽掠夺者、混沌、破坏者 32",
+      "weapon_types": {
+        "碎人锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR VANDAL\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nMancrusher 4 4+ 5/5 Brutal, Vicious Blows*\n*Vicious Blows: Whenever this operative is fighting, this weapon\nhas the Ceaseless weapon rule.\nSWEEPING BLOW 1AP\nInflict D3+1 damage on each other operative visible to and\nwithin 2\" of this operative in an order of your choice (roll\nseparately for each).\nThis operative cannot perform this action while it has a\nConceal order.\nFELLGOR RAVAGER , CHAOS, VANDAL 32"
+    },
+    {
+      "id": "chaos-fell-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "恶角兽战士-数据卡",
+      "title_en": "FELLGOR WARRIOR",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-恶角兽战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n恶角兽战士\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n钝器 4 3+ 4/4 残暴\n砍刀 4 3+ 4/5 -\n战士狂暴：当该特工拥有一枚己方狂暴指示物时，\n该特工不会受创。本规则的优先度高于常规的“狂\n暴”规则。\n恶角兽掠夺者、混沌、战士 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "钝器": "近战",
+        "砍刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nFELLGOR WARRIOR\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nBludgeon 4 3+ 4/4 Brutal\nCleaver 4 3+ 4/5 -\nWarrior Frenzy: Whenever this operative has one of your Frenzy\ntokens, it cannot be injured. This takes precedence over the\nnormal Frenzy rules.\nFELLGOR RAVAGER , CHAOS, WARRIOR 32"
+    },
+    {
+      "id": "chaos-fell-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "恶角兽掠夺者杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-恶角兽掠夺者杀戮小队.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n杀戮小队\n原型：侦察，搜索与摧毁\n特工\n↘ 1 名恶角兽掠夺者铁角头领特工，装备有以\n下一种选项：\n• 腐化手枪；腐化链锯剑\n• 等离子手枪；钝器\n↘ 9 名恶角兽掠夺者特工，从以下列表中选择：\n• 死亡丧钟\n• 诡变者\n• 疤面\n• 血角\n• 激兽师\n• 撕裂者\n• 萨满\n• 毒角\n• 破坏者\n• 战士，装备有以下一种选项：\n○ 自动手枪; 钝器\n○ 自动手枪; 砍刀\n除了战士特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。",
+      "text_en": "FELLGOR RAVAGERS\nKILL TEAM\nARCHETYPES: RECON, SEEK & DESTROY\nOPERATIVES\n↘ 1 FELLGOR RAVAGER IRONHORN operative\nwith one of the following options:\n• Corrupted pistol; corrupted chainsword\n• Plasma pistol; bludgeon\n↘ 9 FELLGOR RAVAGER operatives selected\nfrom the following list:\n• DEATHKNELL\n• FLUXBRAY\n• GNARLSCAR\n• GOREHORN\n• HERD-GOAD\n• MANGLER\n• SHAMAN\n• TOXHORN\n• VANDAL\n• WARRIOR with one of the following options:\n○ Autopistol; bludgeon\n○ Autopistol; cleaver\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "chaos-fell-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "狂暴-1",
+      "title_en": "FRENZY",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-狂暴-1.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n阵营规则\n狂暴\n恶角兽掠夺者能够将自己的痛苦转变为野蛮\n的怒火，忽视自己受到的伤害并以野兽般的\n凶性向敌人发起暴力突袭。\n每当一名没有己方狂暴指示物的己方恶角兽掠夺\n者特工将要在战斗中被残废时，不要将其残废，\n并给予该特工一枚己方狂暴指示物。所有剩余的\n攻击骰都将被舍弃（如果该特工正在进行近战或\n者反击，那么您的攻击骰也会被舍弃)。如果特工\n拥有隐匿命令，那么将其转变为拥有交战命令。\n当一名己方恶角兽掠夺者特工拥有己方狂暴指\n示物时：\n• 特工只有在满足对页列有的条件时才会被残\n废。\n• 特工不能拥有隐匿命令。\n• 特工处于受创状态。\n• 特工不能执行拾取标识、独特行动（例如破坏\n者的横扫攻击行动）或任务行动（操作舱门\n除外)。\n• 在判断对目标标识和杀戮区中特定区域的控制\n权时，将特工的 APL 属性视为 1。本规则的\n效果优先于任何属性修正。\n请继续阅读背面规则",
+      "text_en": "FELLGOR RAVAGER\nFACTION RULE\nFRENZY\nFellgor Ravagers channel their pain into an animalistic\nfrenzy, dismissing wounds and bursting with aggression.\nWhenever a friendly FELLGOR RAVAGER\noperative that doesn’t have one of your Frenzy tokens\nwould be incapacitated during the battle, it’s not\nincapacitated and it gains one of your Frenzy tokens.\nAll remaining attack dice are discarded (including\nyours if this operative is fighting or retaliating). If it has\na Conceal order, change it to Engage.\nWhenever a friendly FELLGOR RAVAGER\noperative has one of your Frenzy tokens:\n• It’s only incapacitated as detailed overleaf.\n• It cannot have a Conceal order.\n• It’s injured.\n• It cannot perform the Pick Up Marker, unique\n(excluding Sweeping Blow, see VANDAL) or\nmission actions (excluding Operate Hatch).\n• For the purpose of determining control of\nmarkers and areas of the killzone, treat its\nAPL stat as 1. This takes precedence over any\nstat changes.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "chaos-fell-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "狂暴-2",
+      "title_en": "FRENZY",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-狂暴-2.png",
+      "is_back": true,
+      "text": "一名拥有己方狂暴指示物的己方恶角兽掠夺者\n特工在满足以下一个条件后被残废：\n• 特工的激活或者反应结束。\n• 在敌方特工对该特工进行近战或反击时，您的\n对手使用一次关键成功出击。\n• 在敌方特工对该特工进行近战或反击时，您的\n对手第二次使用普通成功进行出击。请注意，\n这可以是两次不同近战行动中进行的出击。\n• 敌方特工对该特工进行射击并对其造成暴击\n伤害。\n• 一名敌方特工对它射击，并且有两枚或更多攻\n击骰造成了普通伤害。\n• 战斗结束（在任意于战斗结束时结算的胜利规\n则前结算)。\n在处理获得 VP 的情况时（如击杀行动）和牵涉\n到特工残废的阵营规则时（如执政官之手的\n“痛苦之力”、混沌教派的“变异”等），您\n的对手将获得己方狂暴指示物的恶角兽掠夺者\n特工视为已被残废（而不是残废的通常规则）。",
+      "text_en": "A friendly FELLGOR RAVAGER operative that has\none of your Frenzy tokens is incapacitated when\none of the following is met:\n• Its activation or counteraction ends.\n• An enemy operative is fighting against or\nretaliating against it and your opponent strikes\nwith a critical success.\n• An enemy operative is fighting against or\nretaliating against it and your opponent strikes\nit for a second time with a normal success.\nNote this can be strikes from two different\nFight actions.\n• An enemy operative is shooting it and Critical\nDmg is inflicted on it.\n• An enemy operative is shooting it and Normal\nDmg from two or more attack dice is inflicted\non it.\n• The battle ends (resolve this before any victory\nconditions that resolve at the end of the battle).\nYour opponent treats a FELLGOR RAVAGER\noperative as being incapacitated (instead of when\nit would be incapacitated normally) when it gains\none of your Frenzy tokens for the purposes of\nscoring VPs (e.g. kill op) and faction rules that\nrequire it to be incapacitated (e.g. HAND OF\nTHE ARCHON Power From Pain, CHAOS CULT\nMutation, etc.)."
+    },
+    {
+      "id": "chaos-fell-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "FELLGOR RAVAGER",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n标识/指示物指南\n狂暴战锣震耳黑暗之衣\n指示物指示物指示物\n混沌魔符黄铜饰品血腥印记\n指示物指示物指示物\n叠加火力\n指示物",
+      "text_en": "FELLGOR RAVAGER\nMARKER/TOKEN GUIDE\nFrenzy token Gong Knell Mantle of\ntoken Darkness token\nChaos Sigil Brass Gore Marks\ntoken Adornments token\ntoken\nPelting\nFirepower\ntoken"
+    },
+    {
+      "id": "chaos-fell-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "暴躁脾气",
+      "title_en": "VIOLENT TEMPERAMENT",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-暴躁脾气.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n战略计谋\n暴躁脾气\n野兽人被一种原始的野蛮本能所驱使，持续\n不停地向敌人发起狂乱的攻击。\n每当一名己方恶角兽掠夺者特工进行近战或反\n击时，在您掷攻击骰后，您可以使用本规则。若\n使用，您必须重掷自己的所有攻击骰（您不能选\n择只重掷其中一些骰子)。",
+      "text_en": "FELLGOR RAVAGER\nSTRATEGY PLOY\nVIOLENT TEMPERAMENT\nFellgor Beastmen are driven by primal savagery, striking\nat their foes with frenzied blow after frenzied blow.\nWhenever a friendly FELLGOR RAVAGER\noperative is fighting or retaliating, after rolling\nyour attack dice, you can use this rule. If you\ndo, you must re-roll all of your attack dice (you\ncannot only re-roll some)."
+    },
+    {
+      "id": "chaos-fell-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "埋伏",
+      "title_en": "AMBUSH",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-埋伏.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n战略计谋\n埋伏\n恶角兽掠夺者们会利用黑暗所提供的掩护来\n对敌人发起奇袭并展开屠杀。\n每当一名己方恶角兽掠夺者特工被激活时，如\n果它的命令从隐匿转为交战，那么特工在那次激\n活中进行埋伏。每当一名进行埋伏的己方恶角兽\n掠夺者特工进行近战时，您可以将自己的一次\n普通成功作为关键成功进行保留。请注意，拥有\n己方狂暴指示物的特工不能进行埋伏。",
+      "text_en": "FELLGOR RAVAGER\nSTRATEGY PLOY\nAMBUSH\nFellgor Ravagers utilise cover and darkness to strike\nfrom the shadows and butcher the enemy.\nWhenever a friendly FELLGOR RAVAGER\noperative is activated, if its order is changed\nfrom Conceal to Engage, it’s ambushing for\nthat activation. Whenever a friendly FELLGOR\nRAVAGER operative that’s ambushing is fighting,\nyou can retain one of your normal successes\nas a critical success instead. Note that an\noperative that has one of your Frenzy tokens\ncannot ambush."
+    },
+    {
+      "id": "chaos-fell-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "叠加火力",
+      "title_en": "PELTING FIREPOWER",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-叠加火力.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n战略计谋\n叠加火力\n虽然缺乏精度，但恶角兽掠夺者一同倾泻的\n火力依靠着纯粹的数量也将变得极为致命。\n每当一名己方恶角兽掠夺者特工对一名在转折\n点中被另一名己方恶角兽掠夺者特工射击过的\n敌方特工进行射击时，进行射击的己方特工的\n远程武器拥有“无休”武器规则；如果那名敌\n方特工在转折点中被超过一名其他己方恶角兽\n掠夺者特工射击，则进行射击的己方特工的远\n程武器拥有“毫不留情”武器规则。",
+      "text_en": "FELLGOR RAVAGER\nSTRATEGY PLOY\nPELTING FIREPOWER\nThough it may lack accuracy, the combined firepower\nof a group of Fellgor Ravagers is rendered lethal by\nits volume.\nWhenever a friendly FELLGOR RAVAGER\noperative is shooting an enemy operative that’s\nbeen shot by another friendly FELLGOR\nRAVAGER operative during this turning point,\nthat first friendly operative’s ranged weapons\nhave the Ceaseless weapon rule; if the enemy\noperative has been shot by more than one other\nfriendly FELLGOR RAVAGER operative during\nthis turning point, that first friendly operative’s\nranged weapons have the Relentless weapon\nrule instead."
+    },
+    {
+      "id": "chaos-fell-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "冲动决心",
+      "title_en": "RECKLESS DETERMINATION",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-冲动决心.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n战略计谋\n冲动决心\n恶角兽掠夺者想要杀死敌人的坚定决心使他\n们能够抵御敌人的射击。\n每当一名敌方特工对一名处于待机的己方恶角兽\n掠夺者特工进行射击时，如果您不能保留任何\n掩护豁免，那么您可以在不掷骰的情况下将一枚\n防御骰作为普通成功进行保留。",
+      "text_en": "FELLGOR RAVAGER\nSTRATEGY PLOY\nRECKLESS DETERMINATION\nSuch is their determination to slaughter the enemy\nthat the Fellgor Ravagers will shrug off volleys of\nincoming fire.\nWhenever an enemy operative is shooting\nan expended friendly FELLGOR RAVAGER\noperative, if you cannot retain any cover saves,\nyou can retain one of your defence dice as a\nnormal success without rolling it."
+    },
+    {
+      "id": "chaos-fell-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "无息毁灭",
+      "title_en": "RUTHLESS RAMPAGE",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-无息毁灭.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n交战计谋\n无息毁灭\n随着每一次击杀，恶角兽掠夺者们的怒火就会\n提升至新的高度并进一步向敌人发起追击。\n在一名己方恶角兽掠夺者特工执行了近战行动\n后，如果其控制范围内不存在任何敌方特工，那\n么您可以使用本交战计谋。那名己方特工可以立\n即执行一次无消耗的冲锋行动（就算特工在激活\n期间已经执行过了冲锋行动)，但是在那次行动\n期间不能移动超过 3\"。",
+      "text_en": "FELLGOR RAVAGER\nFIREFIGHT PLOY\nRUTHLESS RAMPAGE\nWith each kill they make, so are the Fellgor Ravagers\ndriven to new heights of fury with which to chase down\ntheir foes.\nUse this firefight ploy after a friendly FELLGOR\nRAVAGER operative performs the Fight\naction, if it's no longer within control range of\nenemy operatives. That friendly operative can\nimmediately perform a free Charge action (even\nif it’s already performed the Charge action during\nthat activation), but cannot move more than 3\"\nduring that action."
+    },
+    {
+      "id": "chaos-fell-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "狂乱暴怒",
+      "title_en": "WILD RAGE",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-狂乱暴怒.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n交战计谋\n狂乱暴怒\n在恶角兽掠夺者被野性怒火吞噬的时候，他\n们能够以惊人的速度进行移动。\n在一名己方恶角兽掠夺者特工被激活时使用本\n交战计谋。直到那名特工的激活结束前，其移动\n属性增加 1\"。",
+      "text_en": "FELLGOR RAVAGER\nFIREFIGHT PLOY\nWILD RAGE\nWhen Fellgor Ravagers find themselves overcome by\nbestial rage, they are able to move with terrifying speed.\nUse this firefight ploy when a friendly FELLGOR\nRAVAGER operative is activated. Until the\nend of that operative’s activation, add 1\" to its\nMove stat."
+    },
+    {
+      "id": "chaos-fell-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "野性狂怒",
+      "title_en": "ANIMALISTIC FURY",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-野性狂怒.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n交战计谋\n野性狂怒\n在被激怒之后，恶角兽掠夺者会以可怕的力\n量与残暴的手段进行攻击。\n在一名己方恶角兽掠夺者特工进行近战或反击\n时，如果您使用了一次关键成功进行出击，那么\n您可以使用本交战计谋。那次出击将造成额外 1\n点伤害。",
+      "text_en": "FELLGOR RAVAGER\nFIREFIGHT PLOY\nANIMALISTIC FURY\nWhen whipped into a frenzy, Fellgor Ravagers strike with\nterrifying strength and brutality.\nUse this firefight ploy when a friendly FELLGOR\nRAVAGER operative is fighting or retaliating\nand you strike with a critical success. Inflict 1\nadditional damage with that strike."
+    },
+    {
+      "id": "chaos-fell-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "鲜血感知",
+      "title_en": "BLOODSENSE",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-鲜血感知.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n交战计谋\n鲜血感知\n鲜血的流淌会使恶角兽掠夺者陷入到一种传\n染性的战斗狂怒中。\n在一名己方恶角兽掠夺者特工的激活中，当它\n将其控制范围内的敌方特工残废时使用本交战计\n谋。选择另一名位于被残废敌方特工 3\" 内且对\n该特工可见的己方恶角兽掠夺者特工。在第一\n名特工进入待机后，您可以在对手之前将那另一\n名己方特工激活。在另一名己方特工激活后，您\n的对手可以照常激活特工。",
+      "text_en": "FELLGOR RAVAGER\nFIREFIGHT PLOY\nBLOODSENSE\nAs the blood flows, a contagious battle-frenzy\novercomes the Fellgor Ravagers.\nUse this firefight ploy during a friendly FELLGOR\nRAVAGER operative’s activation, when it\nincapacitates an enemy operative within its\ncontrol range. Select one other ready friendly\nFELLGOR RAVAGER operative that’s visible\nto and within 3\" of the incapacitated enemy\noperative. When that first friendly operative is\nexpended, you can activate that other friendly\noperative before your opponent activates. When\nthat other operative is expended, your opponent\nthen activates as normal."
+    },
+    {
+      "id": "chaos-fell-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "黄铜饰品",
+      "title_en": "BRASS ADORNMENTS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-黄铜饰品.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n阵营装备\n黄铜饰品\n黄铜蹄铁、角尖和焊接上的尖刺能够使恶角\n兽掠夺者变得更加渴望暴力，同时也为他们\n提供了额外的武器。\n每场战斗限一次，您可以消耗 0CP 来使用“野\n性狂怒”和“狂乱暴怒”交战计谋各一次。",
+      "text_en": "FELLGOR RAVAGER\nFACTION EQUIPMENT\nBRASS ADORNMENTS\nBrass-plated hooves, horn caps or welded spikes incite\nwithin the Fellgor Ravagers an even greater lust for\nviolence, and provide them with additional weapons\nwith which to mete it out.\nOnce per battle, you can use the Animalistic Fury\nand Wild Rage firefight ploys for 0CP each."
+    },
+    {
+      "id": "chaos-fell-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "血腥印记",
+      "title_en": "GORE MARKS",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-血腥印记.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n阵营装备\n血腥印记\n这些由萨满所造成的伤口会在战斗期间持续\n不停地流血，鲜血的味道能够强化野兽人的\n战斗能力。\n每个转折点限一次，在一名己方恶角兽掠夺者\n特工进行近战或反击时，您可以使用本规则。若\n使用，对那名己方特工造成 1 点伤害，并重掷一\n枚自己的攻击骰。如果掷骰结果为失败，那么对\n那个己方特工造成额外 1 点伤害。",
+      "text_en": "FELLGOR RAVAGER\nFACTION EQUIPMENT\nGORE MARKS\nInflicted upon a Fellgor Ravager by their Shamans, these\nwounds continue to bleed as the battle unfolds, the\nstench of fresh blood empowering the Beastmen.\nOnce per turning point, when a friendly FELLGOR\nRAVAGER operative is fighting or retaliating,\nyou can use this rule. If you do, inflict 1 damage\non that friendly operative and re-roll one of\nyour attack dice. If the result is a fail, inflict 1\nadditional damage on that friendly operative."
+    },
+    {
+      "id": "chaos-fell-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "混沌魔符",
+      "title_en": "CHAOS SIGIL",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-混沌魔符.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n阵营装备\n混沌魔符\n这些徽记蕴藏着亚空间的能量，并且受到萨\n满的祝福，它们能够为黑暗诸神的虔诚信徒\n提供庇护。\n每个转折点限一次，在一名特工对己方恶角兽掠\n夺者特工进行射击时，您可以在掷防御骰步骤\n开始时使用本规则。若使用，那么直到那次流程\n结束前，“穿刺”武器规则的 x 数值被减弱 1 点\n（若有)。请注意，这意味着“穿刺 1”武器规则\n将被无视。",
+      "text_en": "FELLGOR RAVAGER\nFACTION EQUIPMENT\nCHAOS SIGIL\nImbued with warp energies and blessed by a Shaman,\nthis icon offers protection to a dedicated worshipper of\nthe Dark Gods.\nOnce per turning point, when an operative is\nshooting a friendly FELLGOR RAVAGER\noperative, at the start of the Roll Defence Dice\nstep, you can use this rule. If you do, worsen the x\nof the Piercing weapon rule by 1 (if any) until the\nend of that sequence. Note that Piercing 1 would\ntherefore be ignored."
+    },
+    {
+      "id": "chaos-fell-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "战争涂纹",
+      "title_en": "WAR PAINT",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-战争涂纹.png",
+      "is_back": false,
+      "text": "恶角兽掠夺者\n阵营装备\n战争涂纹\n仪式性的战争涂纹在战斗之前被画在了恶角\n兽掠夺者的身上，使他们能够无视自己的伤\n势并不顾一切地冲入战斗之中。\n您可以忽略任何己方恶角兽掠夺者特工因受创\n而导致的对移动属性的修正。",
+      "text_en": "FELLGOR RAVAGER\nFACTION EQUIPMENT\nWAR PAINT\nApplied in ritual fashion prior to battle, war paint\nemboldens the Fellgor Ravagers to shrug off their\nwounds and hurl themselves into the fight.\nYou can ignore any changes to the Move stat of\nfriendly FELLGOR RAVAGER operatives from\nbeing injured."
+    }
   ]
 }

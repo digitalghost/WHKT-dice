@@ -1,0 +1,766 @@
+{
+  "teamId": "KT-PHOBOS_STRIKE_TEAM",
+  "name": "恐惧突袭小队",
+  "nameEn": "Phobos Strike Team",
+  "subtitle": "帝国 · 阿斯塔特修会 · 13 种特工",
+  "archetypes": [
+    "渗透",
+    "侦察"
+  ],
+  "source": "官方中文 PDF 17/12/2025（恐惧突袭小队 Phobos Strike Team 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "phobos_strike_team_01",
+      "name": "渗透者军士",
+      "role": "军士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 13,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "领袖",
+        "渗透者",
+        "军士"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-01-特工-渗透者军士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_01_w01",
+          "name": "神射手爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 致命 5+"
+        },
+        {
+          "id": "phobos_strike_team_01_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_01_w01",
+        "phobos_strike_team_01_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_faction_rule",
+          "name": "全方位扰频器",
+          "ap": null,
+          "text": "安装在背包上的全方位扰频器能够干扰敌军的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区内）。选择对一名己方渗透者特工可见的一名敌方特工，如果是一名破讯兵特工，则选择一名位于其 6\" 内的敌方特工。在该转折点的交战阶段中，那个敌方特工不能被激活或者执行行动，直到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用时位于杀戮区中的己方渗透者特工数量的敌方特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+          "factionRule": true
+        },
+        {
+          "name": "战术优势",
+          "ap": null,
+          "text": "在每场战斗中，您可以各进行一次以下行动。\n• 在进行拼骰来判断先手权时，如果该特工位于杀戮区内，那么您可以重掷您的 D6。\n• 在使用一个交战计谋时，如果该特工是计谋指定的恐惧突袭小队特工（如果该特工通过“指挥重掷”计谋重掷攻击或防御骰）；或者在使用“耐心埋伏”交战计谋时，该特工就绪且不位于敌方特工控制范围内，那么这次计谋消耗 0CP。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_02",
+      "name": "渗透者通讯兵",
+      "role": "通讯兵",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "渗透者",
+        "通讯兵"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-02-特工-渗透者通讯兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_02_w01",
+          "name": "神射手爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 致命 5+"
+        },
+        {
+          "id": "phobos_strike_team_02_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_02_w01",
+        "phobos_strike_team_02_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_faction_rule",
+          "name": "全方位扰频器",
+          "ap": null,
+          "text": "安装在背包上的全方位扰频器能够干扰敌军的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区内）。选择对一名己方渗透者特工可见的一名敌方特工，如果是一名破讯兵特工，则选择一名位于其 6\" 内的敌方特工。在该转折点的交战阶段中，那个敌方特工不能被激活或者执行行动，直到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用时位于杀戮区中的己方渗透者特工数量的敌方特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+          "factionRule": true
+        },
+        {
+          "name": "战略监视",
+          "ap": null,
+          "text": "在每个战略阶段的就绪步骤中，在您获得 CP 时，如果该特工处于杀戮区内，且不位于敌方特工的控制范围内，那么您可以使用本规则。\n若这么做，掷一枚 D6：若结果为 4+，您获得额外 1CP。"
+        },
+        {
+          "name": "通讯阵列",
+          "ap": null,
+          "text": "每个转折点限一次，在一名己方恐惧突袭小队特工的激活或反应期间，在那名特工执行行动之前或之后，如果该特工位于杀戮区内，那么您可以更换一个在当前转折点中使用的战略计谋（这么做不会消耗任何 CP)。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_03",
+      "name": "渗透者基因医生",
+      "role": "基因医生",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "医疗",
+        "渗透者",
+        "基因医生"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-03-特工-渗透者基因医生-数据卡.png",
+        "KT-PHOBOS_STRIKE_TEAM--01-04-特工能力-渗透者基因医师-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_03_w01",
+          "name": "神射手爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 致命 5+"
+        },
+        {
+          "id": "phobos_strike_team_03_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_03_w01",
+        "phobos_strike_team_03_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_faction_rule",
+          "name": "全方位扰频器",
+          "ap": null,
+          "text": "安装在背包上的全方位扰频器能够干扰敌军的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区内）。选择对一名己方渗透者特工可见的一名敌方特工，如果是一名破讯兵特工，则选择一名位于其 6\" 内的敌方特工。在该转折点的交战阶段中，那个敌方特工不能被激活或者执行行动，直到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用时位于杀戮区中的己方渗透者特工数量的敌方特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+          "factionRule": true
+        },
+        {
+          "name": "医疗兵！",
+          "ap": null,
+          "text": "在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方恐惧突袭小队特工将被残废时，如果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方特工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工可以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名特工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，那么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时使用此规则。"
+        },
+        {
+          "name": "螺旋臂铠",
+          "ap": 1,
+          "text": "选择一个位于该特工控制范围的己方恐惧突袭小队特工，那名特工回复最多 D3+3 点失去的耐伤。选择的特工不能是在转折点中成为“医疗兵！”技能目标的特工。\n该特工不能在敌方特工的交战范围内执行此行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "phobos_strike_team_04",
+      "name": "渗透者破坏兵",
+      "role": "破坏兵",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "渗透者",
+        "破坏兵"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-05-特工-渗透者破坏兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_04_w01",
+          "name": "神射手爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 致命 5+"
+        },
+        {
+          "id": "phobos_strike_team_04_w02",
+          "name": "远程引爆器",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 5/6 · 重型（仅限冲刺）、有限 1、穿刺 1、安静、引爆"
+        },
+        {
+          "id": "phobos_strike_team_04_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_04_w01",
+        "phobos_strike_team_04_w02",
+        "phobos_strike_team_04_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_faction_rule",
+          "name": "全方位扰频器",
+          "ap": null,
+          "text": "安装在背包上的全方位扰频器能够干扰敌军的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区内）。选择对一名己方渗透者特工可见的一名敌方特工，如果是一名破讯兵特工，则选择一名位于其 6\" 内的敌方特工。在该转折点的交战阶段中，那个敌方特工不能被激活或者执行行动，直到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用时位于杀戮区中的己方渗透者特工数量的敌方特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+          "factionRule": true
+        },
+        {
+          "name": "设置炸弹",
+          "ap": null,
+          "text": "该特工携带一枚己方的炸弹标识。特工可以对这个标识执行拾取标识行动，并且在该特工对该标识使用放置标识行动时，该特工可以立即在之后执行一次无消耗的冲刺行动。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_05",
+      "name": "渗透者老兵",
+      "role": "老兵",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "渗透者",
+        "老兵"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-06-特工-渗透者老兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_05_w01",
+          "name": "特制爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 特制"
+        },
+        {
+          "id": "phobos_strike_team_05_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_05_w01",
+        "phobos_strike_team_05_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_faction_rule",
+          "name": "全方位扰频器",
+          "ap": null,
+          "text": "安装在背包上的全方位扰频器能够干扰敌军的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区内）。选择对一名己方渗透者特工可见的一名敌方特工，如果是一名破讯兵特工，则选择一名位于其 6\" 内的敌方特工。在该转折点的交战阶段中，那个敌方特工不能被激活或者执行行动，直到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用时位于杀戮区中的己方渗透者特工数量的敌方特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_06",
+      "name": "渗透者破讯兵",
+      "role": "破讯兵",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "渗透者",
+        "破讯兵"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-07-特工-渗透者破讯兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_06_w01",
+          "name": "神射手爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 致命 5+"
+        },
+        {
+          "id": "phobos_strike_team_06_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_06_w01",
+        "phobos_strike_team_06_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_faction_rule",
+          "name": "全方位扰频器",
+          "ap": null,
+          "text": "安装在背包上的全方位扰频器能够干扰敌军的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区内）。选择对一名己方渗透者特工可见的一名敌方特工，如果是一名破讯兵特工，则选择一名位于其 6\" 内的敌方特工。在该转折点的交战阶段中，那个敌方特工不能被激活或者执行行动，直到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用时位于杀戮区中的己方渗透者特工数量的敌方特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+          "factionRule": true
+        },
+        {
+          "name": "破讯",
+          "ap": null,
+          "text": "当敌方特工位于该特工的 6\"内时，您的对手不能重掷那名特工的攻击或防御骰。"
+        },
+        {
+          "name": "扫描",
+          "ap": 1,
+          "text": "直到该特工的下一次激活开始或残废前（以先触发的条件为准），每当一名己方恐惧突袭小队特工对位于该特工 8\" 内的敌方特工进行射击时，那名敌方特工无法被遮挡；如果射击的己方特工是一名入侵者，那么特工的远程武器拥有“追踪轻型”武器规则。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_07",
+      "name": "渗透者战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "渗透者",
+        "战士"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-08-特工-渗透者战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_07_w01",
+          "name": "神射手爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 致命 5+"
+        },
+        {
+          "id": "phobos_strike_team_07_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_07_w01",
+        "phobos_strike_team_07_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_faction_rule",
+          "name": "全方位扰频器",
+          "ap": null,
+          "text": "安装在背包上的全方位扰频器能够干扰敌军的通讯。\n战略计划（如果一名己方渗透者特工位于杀戮区内）。选择对一名己方渗透者特工可见的一名敌方特工，如果是一名破讯兵特工，则选择一名位于其 6\" 内的敌方特工。在该转折点的交战阶段中，那个敌方特工不能被激活或者执行行动，直到满足以下一个条件为止：\n• 您的对手激活了相当于在这个战略计划被使用时位于杀戮区中的己方渗透者特工数量的敌方特工。\n• 被选择的特工是最后一个被激活的敌方特工。",
+          "factionRule": true
+        },
+        {
+          "name": "先锋",
+          "ap": null,
+          "text": "每个转折点限一次，一名拥有本规则的己方恐惧突袭小队特工在执行拾取标识或任务行动时可以少消耗 1AP。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_08",
+      "name": "入侵者军士",
+      "role": "军士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 13,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "领袖",
+        "入侵者",
+        "军士"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-09-特工-入侵者军士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_08_w01",
+          "name": "全知者爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 集中"
+        },
+        {
+          "id": "phobos_strike_team_08_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_08_w01",
+        "phobos_strike_team_08_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_incursor_rule",
+          "name": "多光谱阵列",
+          "ap": null,
+          "text": "多光谱阵列能够将信息传入持有者护甲的自动感知器中，帮助揭示隐藏的敌人。\n每当己方入侵者特工进行射击时，敌方特工不能被遮挡。",
+          "factionRule": true
+        },
+        {
+          "name": "战术优势",
+          "ap": null,
+          "text": "在每场战斗中，您可以各进行一次以下行动。\n• 在进行拼骰来判断先手权时，如果该特工位于杀戮区内，那么您可以重掷您的 D6。\n• 在使用一个交战计谋时，如果该特工是计谋指定的恐惧突袭小队特工（如果该特工通过“指挥重掷”计谋重掷攻击或防御骰）；或者在使用“耐心埋伏”交战计谋时，该特工就绪且不位于敌方特工控制范围内，那么这次计谋消耗 0CP。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_09",
+      "name": "入侵者神射手",
+      "role": "神射手",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "入侵者",
+        "神射手"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-10-特工-入侵者神射手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_09_w01",
+          "name": "追猎者型神射手爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/4 · 致命 5+、穿刺 1"
+        },
+        {
+          "id": "phobos_strike_team_09_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_09_w01",
+        "phobos_strike_team_09_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_incursor_rule",
+          "name": "多光谱阵列",
+          "ap": null,
+          "text": "多光谱阵列能够将信息传入持有者护甲的自动感知器中，帮助揭示隐藏的敌人。\n每当己方入侵者特工进行射击时，敌方特工不能被遮挡。",
+          "factionRule": true
+        },
+        {
+          "name": "监视目标",
+          "ap": null,
+          "text": "无论身处哪个杀戮区，该特工都可以在其激活中执行戒备行动（参见《杀戮小队》核心规则书中的近距离战斗规则）。该特工可以在拥有隐匿命令时执行戒备行动，但是在您通过打断来执行无消耗的近战或射击行动时，您必须将该特工的命令变为交战命令。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_10",
+      "name": "入侵者布雷兵",
+      "role": "布雷兵",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "入侵者",
+        "布雷兵"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-11-特工-入侵者布雷兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_10_w01",
+          "name": "全知者爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 集中"
+        },
+        {
+          "id": "phobos_strike_team_10_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_10_w01",
+        "phobos_strike_team_10_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_incursor_rule",
+          "name": "多光谱阵列",
+          "ap": null,
+          "text": "多光谱阵列能够将信息传入持有者护甲的自动感知器中，帮助揭示隐藏的敌人。\n每当己方入侵者特工进行射击时，敌方特工不能被遮挡。",
+          "factionRule": true
+        },
+        {
+          "name": "干扰地雷",
+          "ap": null,
+          "text": "该特工携带有一枚己方的干扰地雷标识。\n该特工可以对这枚标识执行拾取标识行动，但是这枚标识不能被放置在敌方特工的控制范围内（如果该特工在携带该标识的期间被残废，那么该标识不能被放置，将其与特工一同移除)。"
+        },
+        {
+          "name": "感应式地雷",
+          "ap": null,
+          "text": "当己方的干扰地雷标识首次位于另一名特工的控制范围内时，将该标识移除，直到那名特工的下一次激活结束前，其 APL 属性减少 1 点，并对其造成 2D3+3 点伤害；如果特工没有因此残废，那么结束其执行的行动（若有)，就算行动的效果没有被满足。\n如果那名特工因此不能被放置，那么移动最短的距离来满足放置条件。请注意，该特工忽略此规则的效果（该特工不会触发该标识，也不会受到其造成的伤害)。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_11",
+      "name": "入侵者战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "入侵者",
+        "战士"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-12-特工-入侵者战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_11_w01",
+          "name": "全知者爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 集中"
+        },
+        {
+          "id": "phobos_strike_team_11_w02",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_11_w01",
+        "phobos_strike_team_11_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_incursor_rule",
+          "name": "多光谱阵列",
+          "ap": null,
+          "text": "多光谱阵列能够将信息传入持有者护甲的自动感知器中，帮助揭示隐藏的敌人。\n每当己方入侵者特工进行射击时，敌方特工不能被遮挡。",
+          "factionRule": true
+        },
+        {
+          "name": "先锋",
+          "ap": null,
+          "text": "每个转折点限一次，一名拥有本规则的己方恐惧突袭小队特工在执行拾取标识或任务行动时可以少消耗 1AP。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_12",
+      "name": "掠夺者军士",
+      "role": "军士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 13,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "领袖",
+        "掠夺者",
+        "军士"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-13-特工-掠夺者军士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_12_w01",
+          "name": "爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "phobos_strike_team_12_w02",
+          "name": "特种爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 距离 8\"、穿刺 1"
+        },
+        {
+          "id": "phobos_strike_team_12_w03",
+          "name": "格斗刀",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5"
+        },
+        {
+          "id": "phobos_strike_team_12_w04",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_12_w01",
+        "phobos_strike_team_12_w02",
+        "phobos_strike_team_12_w03",
+        "phobos_strike_team_12_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_reiver_rule",
+          "name": "恐惧",
+          "ap": null,
+          "text": "星际战士掠夺者是专门的恐惧部队，他们使用骷髅面具、震荡手雷和受通讯强化的怒吼来惊吓敌人。\n在一名敌方特工位于任何己方掠夺者特工的 3\"内时，您的对手必须消耗额外 1AP 才能让那名敌方特工执行拾取标识或者任务行动。\n在判断对一枚标识的控制权时，如果有至少一名争夺标识的敌方特工位于己方掠夺者特工的 3\"内，那么将争夺标识的敌方特工的 APL 属性总和视作为比原本低 1 点。请注意，这不是对 APL属性的修改，因此任何修改效果会与本规则的效果叠加。",
+          "factionRule": true
+        },
+        {
+          "name": "重力伞与爪钩发射器",
+          "ap": null,
+          "text": "在该特工向上进行攀爬时，您可以将其移动的垂直距离视作为 2\"（无论特工实际移动的垂直距离是多少)。每当该特工进行跳落时，无视垂直距离。"
+        },
+        {
+          "name": "战术优势",
+          "ap": null,
+          "text": "在每场战斗中，您可以各进行一次以下行动。\n• 在进行拼骰来判断先手权时，如果该特工位于杀戮区内，那么您可以重掷您的 D6。\n• 在使用一个交战计谋时，如果该特工是计谋指定的恐惧突袭小队特工（如果该特工通过“指挥重掷”计谋重掷攻击或防御骰）；或者在使用“耐心埋伏”交战计谋时，该特工就绪且不位于敌方特工控制范围内，那么这次计谋消耗 0CP。"
+        }
+      ]
+    },
+    {
+      "id": "phobos_strike_team_13",
+      "name": "掠夺者战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "7\"",
+      "save": "3+",
+      "wounds": 12,
+      "baseSizeMm": 32,
+      "keywords": [
+        "恐惧突袭小队",
+        "帝国",
+        "阿斯塔特修会",
+        "掠夺者",
+        "战士"
+      ],
+      "cards": [
+        "KT-PHOBOS_STRIKE_TEAM--01-14-特工-掠夺者战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "phobos_strike_team_13_w01",
+          "name": "爆矢卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "phobos_strike_team_13_w02",
+          "name": "特种爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 距离 8\"、穿刺 1"
+        },
+        {
+          "id": "phobos_strike_team_13_w03",
+          "name": "格斗刀",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5"
+        },
+        {
+          "id": "phobos_strike_team_13_w04",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "phobos_strike_team_13_w01",
+        "phobos_strike_team_13_w02",
+        "phobos_strike_team_13_w03",
+        "phobos_strike_team_13_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-phobos_strike_team_reiver_rule",
+          "name": "恐惧",
+          "ap": null,
+          "text": "星际战士掠夺者是专门的恐惧部队，他们使用骷髅面具、震荡手雷和受通讯强化的怒吼来惊吓敌人。\n在一名敌方特工位于任何己方掠夺者特工的 3\"内时，您的对手必须消耗额外 1AP 才能让那名敌方特工执行拾取标识或者任务行动。\n在判断对一枚标识的控制权时，如果有至少一名争夺标识的敌方特工位于己方掠夺者特工的 3\"内，那么将争夺标识的敌方特工的 APL 属性总和视作为比原本低 1 点。请注意，这不是对 APL属性的修改，因此任何修改效果会与本规则的效果叠加。",
+          "factionRule": true
+        },
+        {
+          "name": "重力伞与爪钩发射器",
+          "ap": null,
+          "text": "在该特工向上进行攀爬时，您可以将其移动的垂直距离视作为 2\"（无论特工实际移动的垂直距离是多少)。每当该特工进行跳落时，无视垂直距离。"
+        },
+        {
+          "name": "先锋",
+          "ap": null,
+          "text": "每个转折点限一次，一名拥有本规则的己方恐惧突袭小队特工在执行拾取标识或任务行动时可以少消耗 1AP。"
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "特制",
+      "text": "在选择特工步骤结束时，如果该特工被选择部署，那么选择最多以下两种武器规则，该武器在战斗中拥有被选择的规则：平衡、致命 5+、关键穿刺 1、撕裂、集中。"
+    },
+    {
+      "name": "引爆",
+      "text": "不要选择一个有效目标。作为替代，对己方炸弹标识 2\" 内的每一名特工进行射击，除非特工与标识之间存在一个造成阻碍的重型地形。每一名被射击的特工不能拥有掩护或被遮挡。按照您选择的顺序为每一次流程进行掷骰。如果己方炸弹标识不位于杀戮区，则您不能选择该武器。在行动结束时，将己方炸弹标识移出杀戮区。在一个使用近距离战斗规则的杀戮区中（如杀戮区：墓穴世界），本武器拥有“致命 5+”武器规则。"
+    }
+  ],
+  "compositionHint": "选择 1 名军士（渗透者军士、入侵者军士或掠夺者军士），再从渗透者、入侵者和掠夺者特工中选择 5 名；除战士外，同一种特工最多 1 名。"
+}

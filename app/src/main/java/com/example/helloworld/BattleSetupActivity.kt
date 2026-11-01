@@ -192,14 +192,15 @@ class BattleSetupActivity : AppCompatActivity() {
     private fun renderEquipment(body: LinearLayout) {
         listOf(true, false).forEach { a ->
             val roster = (if (a) rosterA else rosterB) ?: return@forEach
-            val equipment = (if (a) equipmentA else equipmentB).lines().filter { it.isNotBlank() }
+            val savedEquipment = if (a) equipmentA else equipmentB
+            val equipment = savedEquipment.lines().filter { it.isNotBlank() && !it.startsWith("【额外装备】") }
             body.addView(ui.column().apply {
                 setPadding(ui.dp(12), ui.dp(12), ui.dp(12), ui.dp(12))
                 background = ui.bg(kit.sideFill(sideId(a)), kit.sideStroke(sideId(a)))
                 addView(ui.row().apply {
                     addView(kit.emblem(roster.teamId, 32))
                     addView(ui.text(if (a) playerA else playerB, 16f, kit.sideColor(sideId(a)), true), LinearLayout.LayoutParams(0, -2, 1f))
-                    addView(ui.text("${equipment.size} / ${EquipmentCards.MAX_SELECTIONS}", 16f, ui.ink, true))
+                    addView(ui.text("${equipment.size} / ${EquipmentCards.MAX_SELECTIONS + EquipmentCards.extraSlots(savedEquipment).first}", 16f, ui.ink, true))
                 }, ui.wrap(8))
                 if (equipment.isEmpty()) addView(ui.text("未选择装备", 13f, ui.muted, true), ui.wrap(8))
                 else addView(ui.column().apply {

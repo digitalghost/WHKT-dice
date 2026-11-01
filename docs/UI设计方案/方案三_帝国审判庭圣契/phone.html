@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案三：帝国审判庭圣契 — 手机版 UI (Inquisitorial Dataslate & Codex Folio)</title>
+<style>
+  :root {
+    --obsidian: #110E0B;
+    --obsidian-card: #1C1712;
+    --gold-bright: #F2D27A;
+    --gold-mid: #C99E42;
+    --gold-dark: #6E531E;
+    --crimson: #8E1616;
+    --crimson-bright: #C92A2A;
+    --parchment: #E8DEC8;
+    --parchment-dark: #D2C3A3;
+    --ink-dark: #1C1510;
+    --ink-muted: #5C4C38;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #090705;
+    color: var(--parchment);
+    font-family: "Georgia", "Songti SC", "STSong", "PingFang SC", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 12px 40px;
+    min-height: 100vh;
+  }
+  .showcase-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .showcase-tag {
+    font-size: 12px;
+    color: var(--gold-bright);
+    border: 1px solid var(--gold-mid);
+    background: #1E170E;
+    padding: 5px 12px;
+    font-weight: 700;
+  }
+  .screen-switch {
+    display: flex;
+    gap: 6px;
+    background: #17120C;
+    padding: 4px;
+    border: 1px solid var(--gold-dark);
+  }
+  .screen-btn {
+    background: transparent;
+    color: var(--parchment-dark);
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .screen-btn.active {
+    background: var(--crimson);
+    color: var(--gold-bright);
+    border-color: var(--gold-mid);
+  }
+
+  /* Gothic Reliquary Phone Chassis (412 x 892) */
+  .phone-frame {
+    width: 412px;
+    height: 892px;
+    background: var(--obsidian);
+    border: 3px solid var(--gold-mid);
+    box-shadow:
+      inset 0 0 0 3px #2A1F10,
+      0 26px 80px rgba(0,0,0,0.95);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Imperial Aquila Cathedral Header */
+  .aquila-header {
+    height: 102px;
+    background: url('assets/header_imperial_aquila.jpg') center/cover no-repeat;
+    border-bottom: 2px solid var(--gold-mid);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px 14px;
+  }
+  .aquila-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17,14,11,0.15) 0%, rgba(17,14,11,0.92) 90%);
+  }
+  .aquila-bar {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .latin-rubric {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    color: var(--gold-bright);
+    text-transform: uppercase;
+  }
+  .codex-title {
+    font-size: 17px;
+    font-weight: 900;
+    color: #FFF7E4;
+    text-shadow: 0 2px 6px #000;
+  }
+  .wax-undo-btn {
+    background: var(--crimson);
+    border: 1.5px solid var(--gold-mid);
+    color: var(--gold-bright);
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  }
+
+  /* Illuminated Scroll Banner (Scores & Turning Point) */
+  .scroll-score-banner {
+    background: linear-gradient(90deg, #241911, #17110C 50%, #141B22);
+    border-bottom: 2px solid var(--gold-dark);
+    padding: 9px 14px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+  }
+  .house-ledger {
+    font-size: 12px;
+  }
+  .house-ledger.right { text-align: right; }
+  .house-name {
+    font-weight: 900;
+    color: var(--gold-bright);
+    font-size: 13px;
+  }
+  .seal-counters {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+  }
+  .right .seal-counters { justify-content: flex-end; }
+  .cp-ribbon {
+    background: #2C2218;
+    border: 1px solid var(--gold-mid);
+    color: var(--parchment);
+    padding: 2px 7px;
+  }
+  .vp-ribbon {
+    background: var(--crimson);
+    border: 1px solid var(--gold-bright);
+    color: var(--gold-bright);
+    padding: 2px 8px;
+  }
+
+  /* Viewport */
+  .codex-viewport {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 14px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .codex-viewport.active { display: flex; }
+
+  /* Parchment Physical Datacard Component */
+  .parchment-card {
+    background: url('assets/texture_aged_parchment.jpg') center/cover;
+    color: var(--ink-dark);
+    border: 2px solid var(--gold-mid);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.75), inset 0 0 0 1px #7A5E2B;
+    position: relative;
+  }
+  .parchment-card-header {
+    background: linear-gradient(90deg, var(--crimson) 0%, #520C0C 100%);
+    color: #FFF6E0;
+    padding: 6px 10px;
+    border-bottom: 1.5px solid var(--gold-mid);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .parchment-card.conceal-order .parchment-card-header {
+    background: linear-gradient(90deg, #1E3B52 0%, #10202E 100%);
+  }
+  .parchment-card-body {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 10px;
+    align-items: center;
+  }
+  .relic-portrait {
+    width: 58px;
+    height: 64px;
+    object-fit: cover;
+    border: 2px solid #4A3718;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+  .stat-quad-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-top: 4px;
+    font-family: -apple-system, sans-serif;
+  }
+  .stat-cell {
+    background: rgba(255, 250, 238, 0.72);
+    border: 1.5px solid #6E5326;
+    text-align: center;
+    padding: 3px 2px;
+  }
+  .stat-cell small {
+    display: block;
+    font-size: 9px;
+    color: var(--ink-muted);
+    font-weight: 700;
+  }
+  .stat-cell strong {
+    font-size: 14px;
+    font-weight: 900;
+    color: var(--ink-dark);
+  }
+  .stat-cell.wound-cell {
+    background: rgba(142, 22, 22, 0.14);
+    border-color: var(--crimson);
+  }
+  .stat-cell.wound-cell strong { color: var(--crimson); }
+
+  /* Purity Seal Buff Ribbon Pinned on Card */
+  .purity-seal-strip {
+    padding: 5px 10px 8px;
+    border-top: 1px dashed #9C8458;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: sans-serif;
+    font-size: 11px;
+  }
+  .seal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #F5EBD6;
+    border: 1px solid var(--crimson);
+    padding: 2px 8px 2px 4px;
+    color: var(--crimson);
+    font-weight: 800;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .seal-wax-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--crimson);
+    border: 1px solid var(--gold-bright);
+    display: inline-block;
+  }
+  .wound-adjust-btns {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .parch-btn {
+    padding: 3px 9px;
+    background: #2C2117;
+    color: var(--gold-bright);
+    border: 1px solid var(--gold-mid);
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  /* Screen 2: Gothic Altar of Judgment (Combat Resolution) */
+  .altar-duel-box {
+    background: url('assets/texture_aged_parchment.jpg') center/cover;
+    color: var(--ink-dark);
+    border: 2px solid var(--gold-mid);
+    padding: 10px 12px;
+  }
+  .reliquary-dice-box {
+    background: #17120D;
+    border: 2px solid var(--gold-mid);
+    padding: 12px;
+  }
+  .relic-die-row {
+    display: flex;
+    gap: 10px;
+    margin: 8px 0;
+  }
+  .relic-die {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2A2016, #140F0A);
+    border: 2px solid var(--gold-mid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--parchment);
+    font-family: sans-serif;
+  }
+  .relic-die.crit {
+    background: linear-gradient(135deg, #6E1212, #2E0606);
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+    box-shadow: 0 0 12px rgba(242,210,122,0.35);
+  }
+  .relic-die strong { font-size: 20px; }
+  .relic-die span { font-size: 9px; }
+
+  /* Bottom Reliquary Action Bar */
+  .relic-footer {
+    background: #16110C;
+    border-top: 2px solid var(--gold-mid);
+    padding: 10px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .decree-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    font-family: sans-serif;
+  }
+  .decree-btn {
+    background: #241C14;
+    border: 1px solid var(--gold-dark);
+    color: var(--parchment);
+    padding: 6px 4px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .decree-btn small { display: block; color: var(--gold-bright); font-size: 9px; }
+  .imperial-seal-cta {
+    background: linear-gradient(90deg, #6E1010, #9E1B1B, #6E1010);
+    border: 2px solid var(--gold-bright);
+    color: var(--gold-bright);
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="showcase-bar">
+  <span class="showcase-tag">方案三 · 帝国审判庭圣契 (手机版 412×892 羊皮纸数据卡与火漆印章风)</span>
+  <div class="screen-switch">
+    <button class="screen-btn active" onclick="showCodex('cards', this)">1. 圣契数据卡册</button>
+    <button class="screen-btn" onclick="showCodex('altar', this)">2. 审判裁决祭坛</button>
+    <button class="screen-btn" onclick="showCodex('tome', this)">3. 战区圣典总目</button>
+  </div>
+</div>
+
+<div class="phone-frame">
+  <!-- Imperial Aquila Cathedral Header -->
+  <header class="aquila-header">
+    <div class="aquila-bar">
+      <div>
+        <div class="latin-rubric">IMPERIUM MINISTORUM // CODEX KILLZONE</div>
+        <div class="codex-title" id="codex-top-title">第二转折点 · 圣战交锋</div>
+      </div>
+      <button class="wax-undo-btn">↶ 赦免撤回 (18)</button>
+    </div>
+  </header>
+
+  <!-- Illuminated Scroll Banner -->
+  <section class="scroll-score-banner">
+    <div class="house-ledger">
+      <div class="house-name">洁天使隐伏者 ★先手</div>
+      <div class="seal-counters">
+        <span class="cp-ribbon">4 CP</span>
+        <span class="vp-ribbon">6 VP</span>
+      </div>
+    </div>
+    <img src="assets/seal_wax_ribbon.svg" alt="" style="width:30px;height:38px;">
+    <div class="house-ledger right">
+      <div class="house-name" style="color:#9CC4E4;">次元密会</div>
+      <div class="seal-counters">
+        <span class="cp-ribbon">3 CP</span>
+        <span class="vp-ribbon" style="background:#1F3F5B;">4 VP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 1: PARCHMENT DATACARD FOLIO -->
+  <main class="codex-viewport active" id="codex-cards">
+    <img src="assets/divider_gothic_skull.svg" alt="" style="width:100%;height:20px;">
+
+    <!-- Datacard 1 -->
+    <article class="parchment-card">
+      <div class="parchment-card-header">
+        <span style="font-weight:900;font-size:14px;">⚜ 洁天使高阶修女 (SUPERIOR)</span>
+        <span style="font-size:11px;font-family:sans-serif;background:rgba(0,0,0,0.35);padding:2px 7px;">▲ 交战圣令 · 激活中</span>
+      </div>
+      <div class="parchment-card-body">
+        <img class="relic-portrait" src="../shared-portraits/roster_aod_captain.webp" alt="">
+        <div>
+          <div style="font-size:11px;color:var(--ink-muted);font-weight:700;">武装：谴责爆矢手枪 · 圣物动力剑</div>
+          <div class="stat-quad-grid">
+            <div class="stat-cell"><small>APL</small><strong>3</strong></div>
+            <div class="stat-cell"><small>移动</small><strong>6"</strong></div>
+            <div class="stat-cell"><small>豁免</small><strong>3+</strong></div>
+            <div class="stat-cell wound-cell"><small>耐伤</small><strong>10/10</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="purity-seal-strip">
+        <div>
+          <span class="seal-badge"><span class="seal-wax-dot"></span>圣勉光环 · 严重</span>
+          <span class="seal-badge"><span class="seal-wax-dot"></span>殉道荣光</span>
+        </div>
+        <div class="wound-adjust-btns">
+          <button class="parch-btn">−</button>
+          <button class="parch-btn">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Datacard 2 -->
+    <article class="parchment-card conceal-order">
+      <div class="parchment-card-header">
+        <span style="font-weight:900;font-size:14px;">⚜ 圣物执旗修女 (RELIQUARIUS)</span>
+        <span style="font-size:11px;font-family:sans-serif;background:rgba(0,0,0,0.35);padding:2px 7px;">◈ 隐匿圣令 · 就绪</span>
+      </div>
+      <div class="parchment-card-body">
+        <img class="relic-portrait" src="../shared-portraits/roster_aod_sniper.webp" alt="">
+        <div>
+          <div style="font-size:11px;color:var(--ink-muted);font-weight:700;">武装：大师爆矢枪 · 神圣圣髑匣</div>
+          <div class="stat-quad-grid">
+            <div class="stat-cell"><small>APL</small><strong>2</strong></div>
+            <div class="stat-cell"><small>移动</small><strong>6"</strong></div>
+            <div class="stat-cell"><small>豁免</small><strong>3+</strong></div>
+            <div class="stat-cell wound-cell"><small>耐伤</small><strong>09/09</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="purity-seal-strip">
+        <div>
+          <span class="seal-badge"><span class="seal-wax-dot"></span>信仰护盾 · 忽略1伤</span>
+        </div>
+        <div class="wound-adjust-btns">
+          <button class="parch-btn">−</button>
+          <button class="parch-btn">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Datacard 3 (Injured) -->
+    <article class="parchment-card" style="border-color:var(--crimson-bright);">
+      <div class="parchment-card-header">
+        <span style="font-weight:900;font-size:14px;">🩸 焚罪修女喷火手 (CREMATOR)</span>
+        <span style="font-size:11px;font-family:sans-serif;background:#300;padding:2px 7px;color:#FF9E9E;">▲ 受创流血</span>
+      </div>
+      <div class="parchment-card-body">
+        <img class="relic-portrait" src="../shared-portraits/roster_aod_heavy_gunner.webp" alt="">
+        <div>
+          <div style="font-size:11px;color:var(--crimson);font-weight:800;">武装：洁净重型喷火器 (洪流 2")</div>
+          <div class="stat-quad-grid">
+            <div class="stat-cell"><small>APL</small><strong>2</strong></div>
+            <div class="stat-cell"><small>移动</small><strong style="color:var(--crimson);">4"▼</strong></div>
+            <div class="stat-cell"><small>豁免</small><strong>3+</strong></div>
+            <div class="stat-cell wound-cell"><small>耐伤</small><strong>03/09</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="purity-seal-strip">
+        <span class="seal-badge"><span class="seal-wax-dot"></span>受创：武器命中恶化 1</span>
+        <div class="wound-adjust-btns">
+          <button class="parch-btn">−</button>
+          <button class="parch-btn">+</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- SCREEN 2: ALTAR OF JUDGMENT (COMBAT) -->
+  <main class="codex-viewport" id="codex-altar">
+    <section class="altar-duel-box">
+      <div style="display:flex;justify-content:space-between;font-weight:900;font-size:14px;border-bottom:1px solid #8C7348;padding-bottom:5px;">
+        <span>⚔ 洁天使高阶修女</span>
+        <span style="color:var(--crimson);">VS</span>
+        <span>亚空间炽焰巫师 🛡</span>
+      </div>
+      <div style="font-size:11px;margin-top:6px;font-family:sans-serif;display:flex;justify-content:space-between;">
+        <span>圣物动力剑 (4A · 2+ · 4/6 · 致命 5+)</span>
+        <span style="color:var(--crimson);font-weight:800;">近战对峙 · 主动方先结算</span>
+      </div>
+    </section>
+
+    <section class="reliquary-dice-box">
+      <div style="font-size:11px;color:var(--gold-bright);display:flex;justify-content:space-between;">
+        <span>⚜ 高阶修女圣剑骰池 (2 暴击 · 1 普通)</span>
+        <span>点选一枚成功：出击 或 格挡</span>
+      </div>
+      <div class="relic-die-row">
+        <div class="relic-die crit"><strong>6</strong><span>★暴击 6伤</span></div>
+        <div class="relic-die crit"><strong>5</strong><span>★致命5+</span></div>
+        <div class="relic-die"><strong>4</strong><span>普通 4伤</span></div>
+      </div>
+
+      <img src="assets/divider_gothic_skull.svg" alt="" style="width:100%;height:18px;margin:4px 0;">
+
+      <div style="font-size:11px;color:#9CC4E4;display:flex;justify-content:space-between;">
+        <span>◈ 炽焰巫师权杖骰池 (1 暴击 · 1 普通)</span>
+        <span>可切换结算顺序（地下恐惧/偏转）</span>
+      </div>
+      <div class="relic-die-row">
+        <div class="relic-die" style="border-color:#5A8EB8;"><strong>6</strong><span>★暴击 5伤</span></div>
+        <div class="relic-die" style="border-color:#5A8EB8;"><strong>4</strong><span>普通 3伤</span></div>
+      </div>
+    </section>
+
+    <section class="parchment-card" style="padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-weight:900;font-size:13px;">🔥 圣裁出击动作：消耗 [★暴击 6]</div>
+        <div style="font-size:11px;color:var(--ink-muted);font-family:sans-serif;">立即对「亚空间炽焰巫师」造成 6 点近战伤害</div>
+      </div>
+      <img src="assets/badge_purity_seal.jpg" alt="" style="width:48px;height:48px;border:1px solid var(--gold-mid);">
+    </section>
+  </main>
+
+  <!-- SCREEN 3: CODEX TOME -->
+  <main class="codex-viewport" id="codex-tome">
+    <div class="parchment-card" style="padding:14px;text-align:center;">
+      <img src="assets/aquila_crest_gold.svg" alt="" style="width:200px;height:54px;">
+      <h3 style="font-size:18px;margin-top:4px;color:var(--crimson);">《杀戮小队：审判庭战区圣典》</h3>
+      <p style="font-size:11px;color:var(--ink-muted);margin-top:4px;font-family:sans-serif;">收录三版 v11.5 官方律法全文与 48 支认证小队羊皮纸圣契卡</p>
+    </div>
+    <div class="parchment-card" style="padding:10px 12px;">
+      <div style="font-weight:900;color:var(--crimson);">Ⅰ. 开启神圣远征（4步向导新建对局）</div>
+      <div style="font-size:11px;color:var(--ink-muted);font-family:sans-serif;margin-top:2px;">钦定双方特遣队 → 圣物装备配给 → 关键行动 → 密封战术圣令</div>
+    </div>
+    <div class="parchment-card" style="padding:10px 12px;">
+      <div style="font-weight:900;color:var(--ink-dark);">Ⅱ. 审判庭修会名录（小队编成与棋子圣像拍摄）</div>
+      <div style="font-size:11px;color:var(--ink-muted);font-family:sans-serif;margin-top:2px;">自动保存编成校验，一键调阅原始高清 PDF 实体卡</div>
+    </div>
+  </main>
+
+  <!-- Bottom Reliquary Action Bar -->
+  <footer class="relic-footer">
+    <div class="decree-buttons">
+      <div class="decree-btn">圣行推进<small>1 AP · 6"</small></div>
+      <div class="decree-btn" style="border-color:var(--gold-bright);">神圣惩戒<small>1 AP · 射击</small></div>
+      <div class="decree-btn">白刃圣裁<small>1 AP · 近战</small></div>
+      <div class="decree-btn">加盖火漆<small>挂载状态印章</small></div>
+    </div>
+    <button class="imperial-seal-cta">⚜ 钦定结算 // SEAL IMPERIAL DECREE</button>
+  </footer>
+</div>
+
+<script>
+function showCodex(id, btn) {
+  document.querySelectorAll('.codex-viewport').forEach(el => el.classList.remove('active'));
+  document.getElementById('codex-' + id).classList.add('active');
+  document.querySelectorAll('.screen-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+const p = new URLSearchParams(location.search).get('screen');
+if (p) {
+  const btns = document.querySelectorAll('.screen-btn');
+  const idx = {cards:0, altar:1, tome:2}[p] || 0;
+  showCodex(p, btns[idx]);
+}
+</script>
+</body>
+</html>

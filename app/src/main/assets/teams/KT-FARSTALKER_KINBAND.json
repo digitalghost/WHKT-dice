@@ -1,0 +1,671 @@
+{
+  "teamId": "KT-FARSTALKER_KINBAND",
+  "name": "远猎者族团",
+  "nameEn": "Farstalker Kinband",
+  "subtitle": "钛帝国 · 11 种特工",
+  "archetypes": [
+    "渗透",
+    "侦察"
+  ],
+  "source": "官方中文 PDF 22/07/2026（远猎者族团 Farstalker Kinband 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "farstalker_kinband_01",
+      "name": "克鲁特杀手头领",
+      "role": "杀手头领",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 9,
+      "baseSizeMm": 32,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "队长",
+        "克鲁特",
+        "杀手头领"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-01-特工-克鲁特杀手头领-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_01_w01",
+          "name": "克鲁特步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "farstalker_kinband_01_w02",
+          "name": "脉冲武器",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5"
+        },
+        {
+          "id": "farstalker_kinband_01_w03",
+          "name": "仪式匕首",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_01_w01",
+        "farstalker_kinband_01_w02",
+        "farstalker_kinband_01_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "猎杀信号",
+          "ap": null,
+          "text": "战略计划，如果该特工位于战场。选择一名敌方特工来成为转折点中的猎物。每当一名己方远猎者族团特工对您的猎物进行射击、近战或反击时，那名己方特工的武器拥有“平衡”武器技能。在您的猎物被残废时，您可以选择一名新的敌方特工来作为转折点中的猎物（并且可以在当前转折点中一直这么做)。"
+        },
+        {
+          "name": "胜利咆哮",
+          "ap": null,
+          "text": "每当您的猎物被残废时，您可以选择一名位于该特工 6\" 内的己方远猎者族团特工。直到战斗结束前，那名特工的武器拥有“平衡”武器规则。在每场战斗中，每一名己方特工只能被本规则选择一次。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_02",
+      "name": "克鲁特弓猎手",
+      "role": "弓猎手",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "弓猎手"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-02-特工-克鲁特弓猎手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_02_w01",
+          "name": "加速曲弓（充能箭）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 穿刺 1"
+        },
+        {
+          "id": "farstalker_kinband_02_w02",
+          "name": "加速曲弓（滑翔箭）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 安静"
+        },
+        {
+          "id": "farstalker_kinband_02_w03",
+          "name": "加速曲弓（电击箭）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 爆炸 1\""
+        },
+        {
+          "id": "farstalker_kinband_02_w04",
+          "name": "利刃",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_02_w01",
+        "farstalker_kinband_02_w02",
+        "farstalker_kinband_02_w03",
+        "farstalker_kinband_02_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "充能",
+          "ap": 1,
+          "text": "直到转折点结束前，或者直到该特工使用加速曲弓进行射击（以先满足的条件为准)，其加速曲弓的所有数据拥有“致命 5+”武器规则。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_03",
+      "name": "克鲁特冷血佣兵",
+      "role": "冷血佣兵",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 9,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "冷血佣兵"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-03-特工-克鲁特冷血佣兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_03_w01",
+          "name": "克鲁特步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "farstalker_kinband_03_w02",
+          "name": "利刃",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_03_w01",
+        "farstalker_kinband_03_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "顽强",
+          "ap": null,
+          "text": "每当一枚攻击骰将对该特工造成暴击伤害时，您可以选择让那枚攻击骰造成普通伤害作为替代。"
+        },
+        {
+          "name": "冷血杀手",
+          "ap": null,
+          "text": "每当该特工对一名受伤的敌方特工进行射击、近战或反击时，其武器拥有“致命 5+”武器规则；如果那名敌方特工还处于受创状态，那么该特工的武器还拥有“撕裂”武器规则。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_04",
+      "name": "克鲁特剥皮者",
+      "role": "剥皮者",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "剥皮者"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-04-特工-克鲁特剥皮者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_04_w01",
+          "name": "剥皮双刃",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/5 · 无休、致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_04_w01"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "凶险决斗者",
+          "ap": null,
+          "text": "每当该特工进行近战或反击时，您的对手每将一枚攻击骰作为失败舍弃，便对流程中的敌方特工造成 1 点伤害。"
+        },
+        {
+          "name": "野蛮突袭",
+          "ap": null,
+          "text": "该特工在每次激活期间首次执行近战行动时，如果该特工和流程中的敌方特工都没有被残废，那么该特工可以立刻在之后执行一次无消耗的近战行动，但是特工只能将那名敌方特工选择成为近战对象（并且只有在那名特工还是有效目标的情况下才能进行近战）。本规则的优先度高于行动限制规则。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_05",
+      "name": "克鲁特重炮手",
+      "role": "重炮手",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "重炮手"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-05-特工-克鲁特重炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_05_w01",
+          "name": "德沃吉特剥皮炮",
+          "kind": "ranged",
+          "profile": "5A · 2+ · 3/3 · 范围 6\"、重型（仅限转移）、穿刺 2、洪流 2\""
+        },
+        {
+          "id": "farstalker_kinband_05_w02",
+          "name": "隆达希三管炮",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 4/5 · 重型（仅限转移）、穿刺 1、撕裂"
+        },
+        {
+          "id": "farstalker_kinband_05_w03",
+          "name": "利刃",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_05_w01",
+        "farstalker_kinband_05_w02",
+        "farstalker_kinband_05_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_06",
+      "name": "克鲁特猎犬",
+      "role": "猎犬",
+      "apl": 2,
+      "move": "8\"",
+      "save": "5+",
+      "wounds": 7,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "猎犬"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-06-特工-克鲁特猎犬-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_06_w01",
+          "name": "撕裂尖牙",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4 · 撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_06_w01"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "野兽",
+          "ap": null,
+          "text": "该特工不能执行任何除了冲锋、冲刺、后撤、近战、收集、戒备、转移、拾取标识和放置标识以外的行动。该特工不能使用任何不在其数据卡上的武器。"
+        },
+        {
+          "name": "脾气暴躁",
+          "ap": null,
+          "text": "每当一名敌方特工执行近战行动时，如果该特工是一个有效的近战目标，那么您可以强迫对手选择该特工来作为近战对象。每当一名敌方特工在该特工 3\" 内的另一名己方远猎者族团特工控制范围内结束冲锋行动时，如果该特工不位于敌方特工的控制范围内，那么该特工可以立即执行一次无消耗的冲锋移动，但必须在那名敌方特工的控制范围内结束那次移动。"
+        },
+        {
+          "name": "收集",
+          "ap": 1,
+          "text": "使用该特工进行一次无消耗的冲刺或转移行动。在那次移动期间，该特工可以执行一次无消耗的拾取标识或放置标识行动（您可以在那次行动时判断控制权)，并且特工在那之后剩余的任何冲刺或移动的移动距离可以继续使用。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_07",
+      "name": "克鲁特远视者",
+      "role": "远视者",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "远视者"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-07-特工-克鲁特远视者-数据卡.png",
+        "KT-FARSTALKER_KINBAND--01-08-特工能力-克鲁特远视者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_07_w01",
+          "name": "克鲁特猎枪（隐匿）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 重型、毁灭 3、安静、隐匿位置"
+        },
+        {
+          "id": "farstalker_kinband_07_w02",
+          "name": "克鲁特猎枪（移动）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "farstalker_kinband_07_w03",
+          "name": "克鲁特猎枪（静止）",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 重型、毁灭 3"
+        },
+        {
+          "id": "farstalker_kinband_07_w04",
+          "name": "利刃",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_07_w01",
+        "farstalker_kinband_07_w02",
+        "farstalker_kinband_07_w03",
+        "farstalker_kinband_07_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "远视",
+          "ap": 1,
+          "text": "直到该特工的下一次激活开始前，\n• 克鲁特猎枪的隐匿和静止数据拥有“致命 5+”武器规则。\n• 每当该特工使用克鲁特猎枪进行射击时，敌方特工无法被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_08",
+      "name": "克鲁特枪手",
+      "role": "枪手",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "枪手"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-09-特工-克鲁特枪手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_08_w01",
+          "name": "克鲁特双枪（集中）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、无休、致命 5+"
+        },
+        {
+          "id": "farstalker_kinband_08_w02",
+          "name": "克鲁特双枪（乱射）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、乱射"
+        },
+        {
+          "id": "farstalker_kinband_08_w03",
+          "name": "利刃",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_08_w01",
+        "farstalker_kinband_08_w02",
+        "farstalker_kinband_08_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "快枪手",
+          "ap": null,
+          "text": "每个转折点限一次，当一名敌方特工执行射击行动并将该特工选择成为有效目标时（或者如果该特工将成为“爆炸”武器规则的次要目标时)，如果该特工处于就绪状态，那么您可以使用本规则来打断那次行动。若这么做，那么该特工可以立即使用克鲁特双枪（集中）对那名敌方特工执行一次无消耗的射击行动（您可以在这么做时将特工变为拥有交战命令)，但是那名敌方特工必须是一个有效目标。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_09",
+      "name": "克鲁特潜行者",
+      "role": "潜行者",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "潜行者"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-10-特工-克鲁特潜行者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_09_w01",
+          "name": "克鲁特碎片枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\""
+        },
+        {
+          "id": "farstalker_kinband_09_w02",
+          "name": "潜行者之刃",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/5 · 平衡、撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_09_w01",
+        "farstalker_kinband_09_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "潜行者",
+          "ap": null,
+          "text": "该特工可以在拥有隐匿命令时执行冲锋行动。"
+        },
+        {
+          "name": "偷袭",
+          "ap": 2,
+          "text": "使用该特工执行一次无消耗的冲锋行动，但是不能移动超过其移动属性（不要添加 2\" 的移动距离)。随后立刻使用该特工执行一次无消耗的近战行动。\n当您在那次行动中首次出击时，您可以在对手之前立刻将另一枚成功作为出击进行结算。\n该特工不能在拥有交战命令时或在敌方特工的控制范围内执行本行动，也不能在其 1\" 内不存在轻型或重型地形时执行本行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_10",
+      "name": "克鲁特追踪者",
+      "role": "追踪者",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "追踪者"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-11-特工-克鲁特追踪者-数据卡.png",
+        "KT-FARSTALKER_KINBAND--01-12-特工能力-克鲁特追踪者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_10_w01",
+          "name": "克鲁特步枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4"
+        },
+        {
+          "id": "farstalker_kinband_10_w02",
+          "name": "利刃",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_10_w01",
+        "farstalker_kinband_10_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "狩猎标记",
+          "ap": 1,
+          "text": "将己方培克’拉鸟标识移出杀戮区（若有)。随后将己方培克’拉鸟标识放置在对该特工可见的位置，或者一个对该特工可见的地形模型的制高点地形上。每当一名己方远猎者族团特工对一名控制范围内拥有该标识的敌方特工进行射击时，那名己方特工的远程武器拥有“追踪轻型”武器规则。\n在该特工的下一次激活开始时，或者该特工被移出杀戮区时（以先满足的条件为准)，将己方培克’拉鸟标识移出杀戮区。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        },
+        {
+          "name": "空中视野",
+          "ap": 1,
+          "text": "支援。选择一个位于该特工 6\" 内且对其可见的其他己方远猎者族团特工。直到那名特工的下一次激活结束前，其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "farstalker_kinband_11",
+      "name": "克鲁特战士",
+      "role": "战士",
+      "apl": 2,
+      "move": "6\"",
+      "save": "5+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "远猎者族团",
+        "钛帝国",
+        "克鲁特",
+        "战士"
+      ],
+      "cards": [
+        "KT-FARSTALKER_KINBAND--01-13-特工-克鲁特战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "farstalker_kinband_11_w01",
+          "name": "克鲁特步枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4"
+        },
+        {
+          "id": "farstalker_kinband_11_w02",
+          "name": "克鲁特碎片枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/3 · 范围 6\""
+        },
+        {
+          "id": "farstalker_kinband_11_w03",
+          "name": "利刃",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "farstalker_kinband_11_w01",
+        "farstalker_kinband_11_w02",
+        "farstalker_kinband_11_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-farstalker_kinband_faction_rule",
+          "name": "远猎者",
+          "ap": null,
+          "text": "远猎者族团依靠着本能进行移动和战斗，以非凡的速度和反应力应对不断变化的战场局势。\n在每个战略阶段的就绪步骤中，您可以为最多三名不位于敌方特工控制范围内的己方远猎者族团特工更改命令。\n每当您进行反应时，作为替代您可以更改一名不位于敌方特工控制范围内的己方远猎者族团特工的命令。这仍算作您进行了反应（之后换作您的对手激活），但不算作那名己方特工在这个转折点中的反应。",
+          "factionRule": true
+        },
+        {
+          "name": "准备完全",
+          "ap": null,
+          "text": "每个转折点限一次，在一名己方战士特工的激活期间，您可以为那个特工使用生肉、穿甲弹或剧毒弹规则（参见阵营装备)。这么做不会算入那些规则“每个转折点限一次”的限制。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "隐匿位置",
+      "text": "该特工只有在战斗中第一次执行射击行动时才可以使用本武器。"
+    },
+    {
+      "name": "乱射",
+      "text": "选择不位于己方特工控制范围内的最多两个不同的有效目标。按照您选择的顺序使用该武器对这两个目标进行射击（为每一个目标分别进行结算)。"
+    }
+  ],
+  "compositionHint": "选择 1 名杀手头领，再从弓猎手、冷血佣兵、剥皮者、猎犬、重炮手、远视者、枪手、潜行者、追踪者和战士中选择 11 名；猎犬最多 2 名，除猎犬和战士外同一种特工最多 1 名。"
+}

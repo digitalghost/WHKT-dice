@@ -1,0 +1,733 @@
+{
+  "teamId": "KT-HEARTHKYN_SALVAGERS",
+  "name": "炉心打捞者",
+  "nameEn": "Hearthkyn Salvagers",
+  "subtitle": "沃坦联盟 · 11 种特工",
+  "archetypes": [
+    "侦察",
+    "安全保护"
+  ],
+  "source": "官方中文 PDF 29/04/2026（炉心打捞者 Hearthkyn Salvagers 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "hearthkyn_salvagers_01",
+      "name": "炉心头领",
+      "role": "头领",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 9,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "队长",
+        "头领"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-01-特工-炉心头领-数据卡.png",
+        "KT-HEARTHKYN_SALVAGERS--01-02-特工能力-炉心头领-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_01_w01",
+          "name": "基岩型爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_01_w02",
+          "name": "基岩型爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_01_w03",
+          "name": "爆矢左轮手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\""
+        },
+        {
+          "id": "hearthkyn_salvagers_01_w04",
+          "name": "艾塔-卡恩等离子手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/5 · 范围 8\"、穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_01_w05",
+          "name": "离子爆裂枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_01_w06",
+          "name": "离子手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、关键穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_01_w07",
+          "name": "震荡拳套",
+          "kind": "melee",
+          "profile": "4A · 4+ · 5/7 · 残暴、震荡"
+        },
+        {
+          "id": "hearthkyn_salvagers_01_w08",
+          "name": "等离子武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_01_w01",
+        "hearthkyn_salvagers_01_w02",
+        "hearthkyn_salvagers_01_w03",
+        "hearthkyn_salvagers_01_w04",
+        "hearthkyn_salvagers_01_w05",
+        "hearthkyn_salvagers_01_w06",
+        "hearthkyn_salvagers_01_w07",
+        "hearthkyn_salvagers_01_w08"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "先祖之眼",
+          "ap": null,
+          "text": "战略计划，如果该特工位于杀戮区内。\n选择一名敌方特工。如果有三名或更多己方炉心打捞者特工被残废，则选择最多两名敌方特工。每一名被选择的敌方特工获得一枚己方仇恨指示物。"
+        },
+        {
+          "name": "织盾符冠",
+          "ap": null,
+          "text": "在战斗中首次有一枚攻击骰对该特工造成 4 点或更多的伤害时，忽略那次造成的伤害。"
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_02",
+      "name": "炉心重拳士",
+      "role": "重拳士",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "重拳士"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-03-特工-炉心重拳士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_02_w01",
+          "name": "基岩型爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\"、精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_02_w02",
+          "name": "震荡拳环",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/4 · 无休、致命 5+、震荡"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_02_w01",
+        "hearthkyn_salvagers_02_w02"
+      ],
+      "abilities": [
+        {
+          "name": "格斗家",
+          "text": "每当该特工使用等离子刃或震荡拳套进行近战或反击时：\n• 对方的近战武器失去平衡和震荡武器规则。\n• 首次使用一个关键成功进行出击时，将立即对目标造成额外 1 点伤害。",
+          "ap": null
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_03",
+      "name": "炉心战地医疗兵",
+      "role": "战地医疗兵",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "医疗",
+        "战地医疗兵"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-04-特工-炉心战地医疗兵-数据卡.png",
+        "KT-HEARTHKYN_SALVAGERS--01-05-特工能力-炉心战地医疗兵-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_03_w01",
+          "name": "爆矢左轮手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/5 · 范围 8\""
+        },
+        {
+          "id": "hearthkyn_salvagers_03_w02",
+          "name": "等离子匕首",
+          "kind": "melee",
+          "profile": "4A · 4+ · 3/5 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_03_w01",
+        "hearthkyn_salvagers_03_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "医疗兵！",
+          "ap": null,
+          "text": "在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方炉心拾荒者特工将被残废时，如果该特工不位于敌方特工的控制范围内，且那名己方特工也不位于敌方特工的控制范围内，该特工可以复活他。那名特工不会被残废，而是恢复 1 点耐伤并可以执行一次免费冲刺行动，但必须移动至位于该特工控制范围内。随后这两名特工的命令变为隐匿。"
+        },
+        {
+          "name": "医疗包",
+          "ap": 1,
+          "text": "选择一个位于该特工控制范围的己方炉心打捞者特工，那名特工回复最多 2D3 点失去的耐伤。选择的特工不能是在转折点中成为“医疗兵！”技能目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ],
+      "verifiedAgainstImage": true
+    },
+    {
+      "id": "hearthkyn_salvagers_04",
+      "name": "炉心掷弹兵",
+      "role": "掷弹兵",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "掷弹兵"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-06-特工-炉心掷弹兵-数据卡.png",
+        "KT-HEARTHKYN_SALVAGERS--01-07-特工能力-炉心掷弹兵-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_04_w01",
+          "name": "基岩型爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\"、精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_04_w02",
+          "name": "C8HX炸药",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/6 · 范围 4\"、爆炸 1\"、重型（仅限转移)"
+        },
+        {
+          "id": "hearthkyn_salvagers_04_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_04_w01",
+        "hearthkyn_salvagers_04_w02",
+        "hearthkyn_salvagers_04_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "掷弹兵",
+          "ap": null,
+          "text": "该特工可以使用破片、穿甲、烟雾和震荡手雷（参见通用装备)。该特工使用这些装备时不算入您拥有的使用限制（如果您还为其他特工选择了手雷类的装备)。每当该特工使用破片或穿甲手雷时，那件武器的命中属性提升 1。"
+        },
+        {
+          "name": "瓦尔-3 万用手雷",
+          "ap": 1,
+          "text": "将一枚己方万用手雷标识放置在该特工的 6\" 内。这个标识必须在该特工可见的位置，或者位于该特工可见的一个地形模型的制高点地形上。在一名特工位于那个万用手雷标识的 3\" 内时，那名特工的控制玩家在让特工执行拾取标识或任务行动时必须消耗额外1AP。\n在下一个战略阶段的就绪步骤中，掷一枚 D3。在相当于掷骰结果数量的激活被完成后，或者在转折点结束时（以先满足的条件为准)，将那枚万用手雷标识移除。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_05",
+      "name": "炉心炮手",
+      "role": "炮手",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "炮手"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-08-特工-炉心炮手-数据卡.png",
+        "KT-HEARTHKYN_SALVAGERS--01-09-特工能力-炉心炮手-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_05_w01",
+          "name": "艾塔-卡恩等离子射线炮",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 5/6 · 穿刺 1、射线"
+        },
+        {
+          "id": "hearthkyn_salvagers_05_w02",
+          "name": "高能激光自动步枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 无休、撕裂"
+        },
+        {
+          "id": "hearthkyn_salvagers_05_w03",
+          "name": "高能激光转轮炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 4+ · 4/5 · 无休、重型（仅限转移)、集中"
+        },
+        {
+          "id": "hearthkyn_salvagers_05_w04",
+          "name": "高能激光转轮炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/5 · 无休、重型（仅限转移)、集中、洪流 1\""
+        },
+        {
+          "id": "hearthkyn_salvagers_05_w05",
+          "name": "L7导弹发射器（爆炸）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/5 · 爆炸 2\""
+        },
+        {
+          "id": "hearthkyn_salvagers_05_w06",
+          "name": "L7导弹发射器（集束）",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 5/6 · 穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_05_w07",
+          "name": "磁轨步枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 4/2 · 毁灭 3、重型（仅限冲刺)、穿刺 2"
+        },
+        {
+          "id": "hearthkyn_salvagers_05_w08",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_05_w01",
+        "hearthkyn_salvagers_05_w02",
+        "hearthkyn_salvagers_05_w03",
+        "hearthkyn_salvagers_05_w04",
+        "hearthkyn_salvagers_05_w05",
+        "hearthkyn_salvagers_05_w06",
+        "hearthkyn_salvagers_05_w07",
+        "hearthkyn_salvagers_05_w08"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_06",
+      "name": "炉心跳跃背包战士",
+      "role": "跳跃背包战士",
+      "apl": 2,
+      "move": "8\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "跳跃背包战士"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-10-特工-炉心跳跃背包战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_06_w01",
+          "name": "基岩型爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 范围 8\"、精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_06_w02",
+          "name": "等离子武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+、强力冲撞"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_06_w01",
+        "hearthkyn_salvagers_06_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "跳跃背包",
+          "ap": null,
+          "text": "每当该特工执行一次需要进行移动的行动时，该特工可以飞行。若选择飞行，不要移动特工。作为替代，将特工移出杀戮区，随后将其部署至完全位于原本位置一定距离内的地方，这个距离相当于特工的移动属性（如果特工执行的是冲刺行动，则是 3\")。在测量这个距离时，仅测量水平距离（如果杀戮区使用近距离战斗规则，例如杀戮区：墓穴世界，那么测量距离时不能穿越墙壁地形，特工也不能被部署至一个访问点的另一侧——也就是说，特工不能飞行穿过舱门过道）。请注意，通过这种方式执行冲锋行动的特工不会获得额外的移动距离。特工必须被部署至可以将其容纳的位置，并且除了执行冲锋行动外，特工不能被部署至敌方特工的交战范围内。"
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_07",
+      "name": "炉心氏族通讯兵",
+      "role": "氏族通讯兵",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "氏族通讯兵"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-11-特工-炉心氏族通讯兵-数据卡.png",
+        "KT-HEARTHKYN_SALVAGERS--01-12-特工能力-炉心氏族通讯兵-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_07_w01",
+          "name": "基岩型爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_07_w02",
+          "name": "离子爆裂枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_07_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_07_w01",
+        "hearthkyn_salvagers_07_w02",
+        "hearthkyn_salvagers_07_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "传讯",
+          "ap": 1,
+          "text": "支援。选择位于该特工 6\" 内且可见的另一名己方炉心打捞者特工。直到那名特工的下一次激活结束前，其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        },
+        {
+          "name": "系统干扰",
+          "ap": 1,
+          "text": "选择一名属于该特工的有效目标，并且没有己方系统干扰指示物的敌方特工。那名特工获得一枚己方系统干扰指示物。直到战斗结束前，拥有一枚己方系统干扰指示物的敌方特工不能在没有指示物的敌方特工都进入待机前被激活。当一名拥有己方系统干扰指示物的敌方特工被激活时，移除那枚标识。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_08",
+      "name": "炉心思考士",
+      "role": "思考士",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "思考士"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-13-特工-炉心思考士-数据卡.png",
+        "KT-HEARTHKYN_SALVAGERS--01-14-特工能力-炉心思考士-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_08_w01",
+          "name": "基岩型爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_08_w02",
+          "name": "离子爆裂枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_08_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_08_w01",
+        "hearthkyn_salvagers_08_w02",
+        "hearthkyn_salvagers_08_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "战术家",
+          "ap": null,
+          "text": "战略计划，如果该特工位于杀戮区内。将己方进攻或防御标识放在杀戮区中。每当一名己方炉心打捞者特工对位于己方进攻标识 3\" 内的敌方特工进行射击、近战或反击时，您可以重掷一枚自己的攻击骰。每当一名敌方特工对位于己方防御标识 3\" 内的己方炉心打捞者特工进行射击时，您可以重掷一枚自己的防御骰。在下一个战略阶段的就绪步骤中，移除那枚标识。"
+        },
+        {
+          "name": "加速分析",
+          "ap": 1,
+          "text": "如果己方进攻或防御标识位于杀戮区内，将其移除。\n将己方进攻或防御标识放置在杀戮区内。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_09",
+      "name": "炉心锁定士",
+      "role": "锁定士",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "锁定士"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-15-特工-炉心锁定士-数据卡.png",
+        "KT-HEARTHKYN_SALVAGERS--01-16-特工能力-炉心锁定士-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_09_w01",
+          "name": "基岩型爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_09_w02",
+          "name": "离子爆裂枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_09_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_09_w01",
+        "hearthkyn_salvagers_09_w02",
+        "hearthkyn_salvagers_09_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "侦测",
+          "ap": 1,
+          "text": "支援。选择一名对该特工可见的敌方特工。直到转折点结束前，每当一名位于该特工 3\" 的己方炉心打捞者特工对那名敌方特工进行射击时，您可以使用这个效果。若使用：\n• 那名己方特工的远程武器拥有“追踪轻型”武器规则。\n• 那名敌方特工不能被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        },
+        {
+          "name": "多光谱扫描",
+          "ap": 1,
+          "text": "将一枚己方多光谱扫描标识放置在杀戮区内。每当一名己方炉心打捞者特工对这枚标识 3\" 内的敌方特工进行射击时，那名己方特工的远程武器拥有“精准 1”和“集中”武器规则。在该特工下次激活时，被残废时或再次执行该行动时（先到为准），移除那枚标识。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_10",
+      "name": "炉心搬运士",
+      "role": "搬运士",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "搬运士"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-17-特工-炉心搬运士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_10_w01",
+          "name": "基岩型爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_10_w02",
+          "name": "离子爆裂枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_10_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_10_w01",
+        "hearthkyn_salvagers_10_w02",
+        "hearthkyn_salvagers_10_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "装备齐全",
+          "ap": null,
+          "text": "您可以选择额外一个装备选项，并且在第一个战略阶段的就绪步骤中，您额外获得 1 CP。"
+        },
+        {
+          "name": "我来搞定",
+          "ap": null,
+          "text": "该特工的每次激活限一次，该特工在执行一个任务行动时可以少消耗 1AP。"
+        }
+      ]
+    },
+    {
+      "id": "hearthkyn_salvagers_11",
+      "name": "炉心战士",
+      "role": "战士",
+      "apl": 2,
+      "move": "5\"",
+      "save": "3+",
+      "wounds": 8,
+      "baseSizeMm": 28,
+      "keywords": [
+        "炉心打捞者",
+        "沃坦联盟",
+        "战士"
+      ],
+      "cards": [
+        "KT-HEARTHKYN_SALVAGERS--01-18-特工-炉心战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hearthkyn_salvagers_11_w01",
+          "name": "基岩型爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 精准 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_11_w02",
+          "name": "离子爆裂枪",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 3/4 · 关键穿刺 1"
+        },
+        {
+          "id": "hearthkyn_salvagers_11_w03",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "3A · 4+ · 2/3"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hearthkyn_salvagers_11_w01",
+        "hearthkyn_salvagers_11_w02",
+        "hearthkyn_salvagers_11_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hearthkyn_salvagers_faction_rule",
+          "name": "仇恨",
+          "ap": null,
+          "text": "在一个敌人对炉裔造成足够严重的侮辱或冒犯时，他们将成为仇恨的目标。为了摧毁这些最为可恨的敌人，炉裔会不惜一切代价，就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工残废时，那名敌方特工在战斗中获得一枚己方仇恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工进行射击、近战或反击时，那名敌方特工每拥有一枚己方仇恨指示物，您便可以将一枚普通成功作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+          "factionRule": true
+        },
+        {
+          "name": "保护打捞物",
+          "ap": null,
+          "text": "每当一名敌方特工对该特工进行射击、近战或反击时，如果该特工正在争夺一个目标标识或己方任务标识，那么在结算攻击骰步骤中，您可以让一次成功对该特工造成的伤害减少 1 点。"
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "射线",
+      "text": "每当该特工使用本武器进行射击时，每一次关键成功将立即对位于一根（且仅限一根）直线上的每一名其他特工造成 D3 点伤害（为每一名特工单独进行掷骰），但射击目标不会受到本效果的影响。从该特工的底座上画一条瞄准直线，如果这条直线穿过原本目标的底座，并且没有穿过重型地形，那么位于这条直线上的其他特工位于射线直线上。\n在右图的示例中，特工 A 是射击目标。特工 B 与特工 C 位于射线直线上，但特工 D 不是。"
+    },
+    {
+      "name": "强力冲撞",
+      "text": "每当该特工使用本武器进行近战时，如果特工在激活期间执行了冲锋行动，那么这件武器拥有“残暴”武器规则。"
+    }
+  ],
+  "compositionHint": "选择 1 名头领，再从重拳士、战地医疗兵、掷弹兵、炮手、跳跃背包战士、氏族通讯兵、思考士、锁定士、搬运士和战士中选择 9 名；炮手最多 3 名（武器须不同），除炮手和战士外同一种特工最多 1 名。"
+}

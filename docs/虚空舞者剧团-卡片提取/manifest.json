@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-VOID_DANCER_TROUPE",
+  "team_name_zh": "虚空舞者剧团",
+  "team_name_en": "Void-Dancer Troupe",
+  "source_pdf": "最新杀戮小队规则更新/虚空舞者剧团 Void-Dancer Troupe 杀戮小队规则.pdf",
+  "source_pdf_sha256": "856b89b9a0d3be650aa0828d545e5930794c8157ed369f96adcba33746b35d05",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 23,
+    "operative": 4,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 3,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-void_dancer_troupe-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "主演-数据卡",
+      "title_en": "LEAD PLAYER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-主演-数据卡.png",
+      "is_back": false,
+      "text": "主演 APL 移动豁免耐伤\n3 7\" 4+ 9\n名称攻击命中伤害武器规则\n熔融手枪 4 3+ 5/3 范围 3\"、毁灭 3 、穿刺 2\n神经干扰枪 4 3+ 4/5 范围 8\"、穿刺 1、晕眩\n星镖手枪 4 3+ 3/4 范围 8\"、撕裂\n丑角之刃 5 3+ 4/6 -\n丑角之抚 5 3+ 4/5 撕裂\n丑角之拥 5 3+ 4/5 残暴\n丑角之吻 5 3+ 3/7 -\n动力武器 5 3+ 4/6 致命 5+\n请继续阅读背面规则\n虚空舞者剧团、艾达灵族、丑角、队长、主演 25",
+      "weapon_types": {
+        "熔融手枪": "远程",
+        "神经干扰枪": "远程",
+        "星镖手枪": "远程",
+        "丑角之刃": "近战",
+        "丑角之抚": "近战",
+        "丑角之拥": "近战",
+        "丑角之吻": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLEAD PLAYER\n3 7\" 4+ 9\nNAME ATK HIT DMG WR\nFusion pistol 4 3+ 5/3 Range 3\", Devastating 3, Piercing 2\nNeuro disruptor 4 3+ 4/5 Range 8\", Piercing 1, Stun\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nBlade 5 3+ 4/6 -\nCaress 5 3+ 4/5 Rending\nEmbrace 5 3+ 4/5 Brutal\nKiss 5 3+ 3/7 -\nPower weapon 5 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nVOID-DANCER TROUPE , AELDARI, HARLEQUIN, LEADER, LEAD PLAYER 25"
+    },
+    {
+      "id": "kt-void_dancer_troupe-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "主演-能力卡",
+      "title_en": "LEAD PLAYER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-主演-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n主演\n3 7\" 4+ 9\n领衔主演：每场战斗限一次，战略计划。如果这名\n特工位于杀戮区，则改变您杀戮小队选择的寓言。\n请注意，使用关键角色规则的己方特工同样会进行\n相应改变。",
+      "text_en": "APL MOVE SAVE WOUNDS\nLEAD PLAYER\n3 7\" 4+ 9\nLead the Performance: Once per battle STRATEGIC\nGAMBIT. If this operative is in the killzone, change the\nALLEGORY you selected for your kill team. Note that the\nACCOLADE rule friendly operatives have will also change."
+    },
+    {
+      "id": "kt-void_dancer_troupe-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "死亡小丑-数据卡",
+      "title_en": "DEATH JESTER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-死亡小丑-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡小丑\n3 7\" 4+ 9\n名称攻击命中伤害武器规则\n尖啸者加农炮（集中） 5 3+ 4/5 撕裂、重型（仅限转移）、残忍贬低*\n尖啸者加农炮（扫射） 4 3+ 4/5 撕裂、重型（仅限转移）、洪流 2\"、残忍贬低*\n尖啸者刀刃 4 3+ 3/4 撕裂\n*残忍贬低：在这个武器的目标没有残废，但是您的\n攻击骰子造成了任意伤害的情况下，目标获得一枚\n己方残忍贬低指示物（如果它原先没有）。如果一\n名敌方特工拥有己方残忍贬低指示物，其武器的命\n中属性降低 1 点，移动属性降低 2\"。这个效果并不\n与受创累加。在那名敌方特工下一次激活结束时，\n移除它的残忍贬低指示物。\n虚空舞者剧团、艾达灵族、丑角、死亡小丑 25",
+      "weapon_types": {
+        "尖啸者加农炮（集中）": "远程",
+        "尖啸者加农炮（扫射）": "远程",
+        "尖啸者刀刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH JESTER\n3 7\" 4+ 9\nNAME ATK HIT DMG WR\nShrieker cannon (focused) 5 3+ 4/5 Rending, Heavy (Reposition only),\nHumbling Cruelty*\nShrieker cannon (sweeping) 4 3+ 4/5 Rending, Heavy (Dash only), Torrent 2\",\nHumbling Cruelty*\nShrieker blade 4 3+ 3/4 Rending\n*Humbling Cruelty: If the target of this weapon isn’t incapacitated but any of your attack dice inflict damage, the target gains one of\nyour Humbling Cruelty tokens (if it doesn’t already have one). Whenever an enemy operative has one of your Humbling Cruelty tokens,\nsubtract 2\" from its Move stat and worsen the Hit stat of its weapons by 1. This isn’t cumulative with being injured. At the end of that\nenemy operative’s next activation, remove its Humbling Cruelty token.\nVOID-DANCER TROUPE , AELDARI, HARLEQUIN, DEATH JESTER 25"
+    },
+    {
+      "id": "kt-void_dancer_troupe-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "演员-数据卡",
+      "title_en": "PLAYER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-演员-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n演员\n3 7\" 4+ 8\n名称攻击命中伤害武器规则\n熔融手枪 4 3+ 5/3 范围 3”、毁灭 3 、穿刺 2\n神经干扰枪 4 3+ 4/5 范围 8”、穿刺 1、晕眩\n星镖手枪 4 3+ 3/4 范围 8”、撕裂\n丑角之刃 5 3+ 4/6 -\n丑角之抚 5 3+ 4/5 撕裂\n丑角之拥 5 3+ 4/5 残暴\n丑角之吻 5 3+ 3/7 -\n笑神好运：每个转折点限一次，您可以使用这条规则。若此，在使用一个交战计谋时，如果该特工是计谋\n指定的虚空舞者剧团特工（如果为这名特工的攻击骰子或防御骰子进行指挥重掷也包含在内)，那次计谋\n消耗 0CP。在每场战斗中，您不能使用这个规则选择相同的交战计谋超过一次。\n虚空舞者剧团、艾达灵族、丑角、演员 25",
+      "weapon_types": {
+        "熔融手枪": "远程",
+        "神经干扰枪": "远程",
+        "星镖手枪": "远程",
+        "丑角之刃": "近战",
+        "丑角之抚": "近战",
+        "丑角之拥": "近战",
+        "丑角之吻": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPLAYER\n3 7\" 4+ 8\nNAME ATK HIT DMG WR\nFusion pistol 4 3+ 5/3 Range 3\", Devastating 3, Piercing 2\nNeuro disruptor 4 3+ 4/5 Range 8\", Piercing 1, Stun\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nBlade 5 3+ 4/6 -\nCaress 5 3+ 4/5 Rending\nEmbrace 5 3+ 4/5 Brutal\nKiss 5 3+ 3/7 -\nLuck of the Laughing God: Once per turning point, you can use this rule. If you do, you can use a firefight ploy for 0CP if this is\nthe specified VOID-DANCER TROUPE operative (including Command Re-roll if the attack or defence dice was rolled for this\noperative). You cannot select the same firefight ploy for this rule more than once per battle.\nVOID-DANCER TROUPE , AELDARI, HARLEQUIN, PLAYER 25"
+    },
+    {
+      "id": "kt-void_dancer_troupe-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "暗影先知-数据卡",
+      "title_en": "SHADOWSEER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-暗影先知-数据卡.png",
+      "is_back": false,
+      "text": "暗影先知 APL 移动豁免耐伤\n3 7\" 4+ 9\n名称攻击命中伤害武器规则\n迷幻毒气榴弹 4 3+ 1/1 范围 6\"、爆炸 2\"、追踪轻型、安静、晕眩、致命 5+\n神经干扰枪 4 3+ 4/5 范围 8\"、穿刺 1、晕眩\n星镖手枪 4 3+ 3/4 范围 8\"、撕裂\n迷雾法杖 4 3+ 4/4 震荡\n梦境之雾 1AP\n灵能。选择对这名特工可见的一名就绪敌方特工，并掷一枚 D6。直到该转折点结束，除非那名敌方特\n工成为最后一名敌方特工或直至您的对手激活了等同于 D6 掷骰结果数量的敌方特工前，它无法被激活\n或执行行动（以先达成的条件为准）。\n该特工不能在敌方特工的控制范围内执行此行动。\n请继续阅读背面规则\n虚空舞者剧团、艾达灵族、丑角、灵能者、暗影先知 25",
+      "weapon_types": {
+        "迷幻毒气榴弹": "远程",
+        "神经干扰枪": "远程",
+        "星镖手枪": "远程",
+        "迷雾法杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSHADOWSEER\n3 7\" 4+ 9\nNAME ATK HIT DMG WR\nHallucinogen grenade 4 3+ 1/1 Range 6\", Blast 2\", Lethal 5+, Seek Light,\nSilent, Stun\nNeuro disruptor 4 3+ 4/5 Range 8\", Piercing 1, Stun\nShuriken pistol 4 3+ 3/4 Range 8\", Rending\nMiststave 4 3+ 4/4 Shock\nRULES CONTINUE ON OTHER SIDE\nVOID-DANCER TROUPE , AELDARI, HARLEQUIN, PSYKER, SHADOWSEER 25"
+    },
+    {
+      "id": "kt-void_dancer_troupe-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "暗影先知-能力卡",
+      "title_en": "SHADOWSEER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-暗影先知-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n暗影先知\n3 7\" 4+ 9\n思维之镜 1AP\n\u0007灵能。选择一名对这名特工为有效目标，并且位\n于其 8\" 内的的敌方特工。双方玩家各掷五枚 D6\n。选出您的掷骰结果与您对手掷骰结果中相同的\n结果。每有一对相同，那名敌方特工便受到 D3\n点伤害（至多产生 8 点伤害）。例如，若您的\n掷骰结果为 6，5，5，2，1，而您的对手掷骰结\n果为 6，5，4，3，1，则您对那名敌方特工造成\n4D3 点伤害。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSHADOWSEER\n3 7\" 4+ 9\nMIRROR OF MINDS 1AP\nPSYCHIC. Select one enemy operative that’s a valid target\nfor and within 8\" of this operative. Both players roll five D6.\nPair your dice with your opponent’s dice based on matching\nresults. For each matching pair, inflict D3 damage on that\nenemy operative (to a maximum of 8). For example, if you\nrolled 6, 5, 5, 2, 1 and your opponent rolled 6, 5, 4, 3, 1,\nyou would inflict 3D3 damage on that enemy operative.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nFOG OF DREAMS 1AP\nPSYCHIC. Select one ready enemy operative visible to this\noperative and roll one D6. Until the end of the turning point,\nthat enemy operative cannot be activated or perform actions\nuntil it’s the last enemy operative to be activated, or until\nyour opponent has activated a number of enemy operatives\nafter this action equal to the result of the D6 (whichever\ncomes first).\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-void_dancer_troupe-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "虚空舞者剧团杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-虚空舞者剧团杀戮小队-1.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n杀戮小队\n原型：渗透，侦查\n特工\n↘ 1 名虚空舞者剧团主演特工，从以下选项中\n各选择一件装备：\n○ 熔融手枪、神经干扰枪或者星镖手枪\n○ 丑角之刃、丑角之抚、丑角之拥、丑角\n之吻或者动力武器\n↘ 7 名虚空舞者剧团特工，从以下列表选择：\n• 死亡小丑\n• 演员，从以下选项中各选择一件装备：\n○ 熔融手枪、神经干扰枪或者星镖手枪\n○ 丑角之刃、丑角之抚、丑角之拥或者丑\n角之吻\n• 暗影先知，装备有迷幻毒气榴弹以及以下\n一种选项：:\n○ 神经干扰枪；迷雾法杖\n○ 星镖手枪；迷雾法杖\n请继续阅读背面",
+      "text_en": "VOID-DANCER TROUPE\nKILL TEAM\nARCHETYPE: INFILTRATION, RECON\nOPERATIVES\n↘ 1 VOID-DANCER TROUPE LEAD PLAYER\noperative with one option from each of\nthe following:\n○ Fusion pistol, neuro disruptor or\nshuriken pistol\n○ Blade, caress, embrace, kiss or\npower weapon\n↘ 7 VOID-DANCER TROUPE operatives selected\nfrom the following list:\n• DEATH JESTER\n• PLAYER with one option from each of\nthe following:\n○ Fusion pistol, neuro disruptor or\nshuriken pistol\n○ Blade, caress, embrace or kiss\n• SHADOWSEER with hallucinogen grenade\nand one of the following options:\n○ Neuro disruptor; miststave\n○ Shuriken pistol; miststave\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-void_dancer_troupe-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "虚空舞者剧团杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-虚空舞者剧团杀戮小队-2.png",
+      "is_back": true,
+      "text": "除了演员特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。您的杀戮小队至多只能包\n含一把熔融手枪以及一把神经干扰枪。",
+      "text_en": "Other than PLAYER operatives, your kill team can\nonly include each operative on this list once. Your\nkill team can only include up to one fusion pistol\nand up to one neuro disruptor."
+    },
+    {
+      "id": "kt-void_dancer_troupe-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "剧目-1",
+      "title_en": "SAEDATH",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-剧目-1.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n阵营规则\n剧目\n虚空舞者剧团从网道中出击时会进行演出。首\n先，是一名独角扮演的关键角色出场，并在随\n后的战斗中逐渐加入剧团的其他成员。\n作为第一个转折点中的一个战略计划，您必须为\n您的杀戮小队选择战斗中的一个寓言，并且一名\n己方虚空舞者剧团特工会在战斗中成为关键角\n色，当一名己方特工成为关键角色，它便会获得\n您战斗中寓言对应的嘉奖规则。\n作为每个后续转折点中的一个战略计划，您可以\n选择一名己方虚空舞者剧团特工获得您战斗中\n寓言对应的嘉奖规则。\n每个转折点限一次，当成为关键角色的一名己方\n特工完成了您寓言中的表演，则您可以选择一名\n己方虚空舞者剧团特工获得您战斗中寓言对应\n的嘉奖规则。\n请继续阅读背面",
+      "text_en": "VOID-DANCER TROUPE\nFACTION RULE\nSAEDATH\nVoid-dancer Troupes put on a performance as they attack\nfrom the Webway. A single player begins in the pivotal\nrole, then the rest of the troupe progressively join in.\nAs a STRATEGIC GAMBIT in the first turning point,\nyou must select an ALLEGORY (Epic or Melodrama\nbelow) for your kill team for the battle, and one\nfriendly VOID-DANCER TROUPE operative to\nhave the PIVOTAL ROLE for the battle. Whenever a\nfriendly operative has the PIVOTAL ROLE, it has the\nACCOLADE rule of your ALLEGORY for the battle.\nAs a STRATEGIC GAMBIT in each subsequent\nturning point, you can select one friendly\nVOID-DANCER TROUPE operative to gain the\nACCOLADE rule of your ALLEGORY for the battle.\nOnce per turning point, when a friendly operative\nthat has the PIVOTAL ROLE completes the\nperformance of your ALLEGORY, you can select\none friendly VOID-DANCER TROUPE operative\nto gain the ACCOLADE rule of your ALLEGORY for\nthe battle.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-void_dancer_troupe-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "剧目-2",
+      "title_en": "SAEDATH",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-剧目-2.png",
+      "is_back": true,
+      "text": "史诗\n表演：特工在近战中使一名敌方特工残废。\n嘉奖：每当该特工进行近战时，其近战武器获\n得“平衡”武器规则。\n情节剧\n表演：特工在通过进行射击使一名敌方特工残\n废。\n嘉奖：特工的远程武器获得“平衡”武器规则。",
+      "text_en": "Epic\nPerformance: The operative incapacitates an\nenemy operative while fighting.\nAccolade: Whenever this operative is fighting, its\nmelee weapons have the Balanced weapon rule.\nMelodrama\nPerformance: The operative incapacitates an\nenemy operative while shooting.\nAccolade: The operative’s ranged weapons have\nthe Balanced weapon rule."
+    },
+    {
+      "id": "kt-void_dancer_troupe-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "盛装丑角",
+      "title_en": "HARLEQUIN’S PANOPLY",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-盛装丑角.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n阵营规则\n盛装丑角\n丑角舞动的装备能给予他们额外的机动力，使\n他们极难被瞄准，轻松躲开等离子和热熔武器\n的精准射击。\n每当一名特工对一名己方虚空舞者剧团特工执\n行射击时，如果没有攻击骰被作为关键成功保\n留，那么将“穿刺”武器规则的数值弱化 1 点\n（若有)。请注意，这意味着“穿刺 1”武器规则\n将被无视。\n每当一名己方虚空舞者剧团特工向上进行攀爬\n时，您可以将垂直距离视为 2\"（无论实际垂直移\n动距离为多少）。\n己方虚空舞者剧团特工可以在移动中进入敌方\n特工的控制范围内（但依然需要在那次移动的开\n始与结束时符合所有条件）。",
+      "text_en": "VOID-DANCER TROUPE\nFACTION RULE\nHARLEQUIN’S PANOPLY\nThe tools of the Harlequins' trade afford them additional\nmobility and make them highly difficult to target,\nenabling them to dodge away from piercing shots of\nplasma and melta fire.\nWhenever an operative is shooting a friendly\nVOID-DANCER TROUPE operative, and no attack\ndice are retained as critical successes, worsen\nthe x of the Piercing weapon rule by 1 (if any).\nNote that Piercing 1 would therefore be ignored.\nWhenever a friendly VOID-DANCER\nTROUPE operative is climbing up, you can treat\nthe vertical distance as 2\" (regardless of how far\nthe operative actually moves vertically).\nFriendly VOID-DANCER TROUPE operatives can\nmove within control range of enemy operatives\n(they must still start and end the move following\nall requirements for that move)."
+    },
+    {
+      "id": "kt-void_dancer_troupe-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "疾速突袭",
+      "title_en": "DARTING SALVO",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-疾速突袭.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n战略计谋\n疾速突袭\n随着丑角在行进中开火后跃身躲开还击，他们\n展现出一道道耀眼的多彩幻影。\n每当一名己方虚空舞者剧团特工在它的激活中\n执行转移行动时，它可以在那次行动中执行射击\n行动（它必须被放置在一个可以被放置的位置，\n并且可以随后继续使用那次转移行动中剩余的移\n动距离）。",
+      "text_en": "VOID-DANCER TROUPE\nSTRATEGY PLOY\nDARTING SALVO\nAdvancing in a dazzling blurr of vibrant colour,\nHarlequins fire on the move, leaping away before their\nopponents can return fire.\nWhenever a friendly VOID-DANCER TROUPE\noperative performs the Reposition action during\nits activation, it can perform the Shoot action\nduring that action (it must do so in a location it\ncan be placed, and any remaining move distance\nit had from that Reposition action can be used\nafter it does so)."
+    },
+    {
+      "id": "kt-void_dancer_troupe-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "渐入佳境",
+      "title_en": "RISING CRESCENDO",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-渐入佳境.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n战略计谋\n渐入佳境\n随着一次次跃进与致命舞步，剧团的演出节奏\n不断加快，直冲暴力顶峰。\n一名己方虚空舞者剧团特工可以在执行了冲锋\n行动的同一个激活中执行冲刺行动，但反之不可\n（即不能在冲刺后执行冲锋）。",
+      "text_en": "VOID-DANCER TROUPE\nSTRATEGY PLOY\nRISING CRESCENDO\nWith each darting advance and lethal flourish, the\ntempo of the troupe’s performance increases, building\ntowards a violent crescendo.\nFriendly VOID-DANCER TROUPE operatives\ncan perform the Dash action during the\nsame activation in which they performed the\nCharge action, but not vice versa (i.e. not Dash\nthen Charge)."
+    },
+    {
+      "id": "kt-void_dancer_troupe-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "棱镜模糊",
+      "title_en": "PRISMATIC BLUR",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-棱镜模糊.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n战略计谋\n棱镜模糊\n丑角们是如此的敏捷且耀眼，即便是最老练的\n射手也难以瞄准这些轻盈的身躯。\n每当一名特工对在这个转折点进行过移动的一名\n己方虚空舞者剧团特工执行射击时，您可以重\n掷一枚己方防御骰子。",
+      "text_en": "VOID-DANCER TROUPE\nSTRATEGY PLOY\nPRISMATIC BLUR\nSo swift and dazzling are the Harlequins that even\nveteran marksmen struggle to draw a bead upon their\nlithe forms.\nWhenever an operative is shooting a friendly\nVOID-DANCER TROUPE operative that\nperformed an action in which it moved during\nthis turning point, you can re-roll one of your\ndefence dice."
+    },
+    {
+      "id": "kt-void_dancer_troupe-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "乔高奇的玩笑",
+      "title_en": "CEGORACH’S JEST",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-乔高奇的玩笑.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n战略计谋\n乔高奇的玩笑\n通过近身与舞者肉搏的尝试鲜少成功。那些\n不幸的刺客们会发现那些精准打击面对的只\n有空气。\n当一名己方虚空舞者剧团特工处于近战或反击\n中，并且您的对手使用普通成功出击时，您可以\n掷一枚 D6：若掷骰结果低于您对手选择武器的\n命中属性，则那个出击被格挡（忽视“残暴”武\n器规则，如果有），并且您在这个流程中无法再\n次使用本规则。",
+      "text_en": "VOID-DANCER TROUPE\nSTRATEGY PLOY\nCEGORACH’S JEST\nAttempts to engage the troupe in melee combat meet\nwith little success. Luckless assailants find their well-\naimed strikes meeting only thin air.\nWhenever a friendly VOID-DANCER\nTROUPE operative is fighting or retaliating and\nyour opponent strikes with a normal success,\nyou can roll one D6: if the result is less than the\nHit stat of your opponent’s selected weapon,\nthat strike is allocated to block one of your\ndice instead (ignore the Brutal weapon rule, if\nrelevant) and you cannot use this rule for the rest\nof the sequence."
+    },
+    {
+      "id": "kt-void_dancer_troupe-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "致命登场",
+      "title_en": "MURDEROUS ENTRANCE",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-致命登场.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n交战计谋\n致命登场\n丑角的突袭以惊人的速度浮现——往往在对方\n举刀反击之前，一连串劈砍早已落下。\n在一名己方虚空舞者剧团特工在执行了冲锋行\n动的激活中执行近战行动时，您进行出击后使用\n本交战计谋。您可以立即将另一枚普通成功，若\n没有普通成功则选择另一枚关键成功结算为出击\n（在您的对手之前）。",
+      "text_en": "VOID-DANCER TROUPE\nFIREFIGHT PLOY\nMURDEROUS ENTRANCE\nThe Harlequin assault materialises with terrifying speed,\na flurry of deadly blows landing before the foe can raise\na blade in response.\nUse this firefight ploy when a friendly\nVOID-DANCER TROUPE operative is fighting\nduring an activation in which it performed\nthe Charge action, after you strike. You can\nimmediately resolve another of your normal\nsuccesses as a strike (before your opponent),\nor one of your critical successes if there are none."
+    },
+    {
+      "id": "kt-void_dancer_troupe-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "闭幕",
+      "title_en": "THE CURTAIN FALLS",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-闭幕.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n交战计谋\n闭幕\n在造成致命打击后，丑角们迅速脱离，留下重\n伤的对手在绝望中徒劳挣扎。\n在一名己方虚空舞者剧团特工执行近战，并在\n您使用关键成功进行出击后，如果敌方特工没有\n被残废，那么可以使用本交战计谋。结束那个流\n程（任何残余的攻击骰子将被弃置），并立即\n执行一个距离至多为 3\" 的无消耗后撤行动（近\n战行动随之结束）。那名特工即便先前执行了会\n阻止它执行后撤行动的行动也不会影响本规则\n效果。",
+      "text_en": "VOID-DANCER TROUPE\nFIREFIGHT PLOY\nTHE CURTAIN FALLS\nUpon landing a devastating blow, the Harlequin\ndisengages, leaving their wounded opponent flailing\ndesperately in response.\nUse this firefight ploy when a friendly\nVOID-DANCER TROUPE operative is fighting,\nafter you strike with a critical success, if the\nenemy operative isn’t incapacitated. End\nthat sequence (any remaining attack dice are\ndiscarded) and immediately perform a free Fall\nBack action up to 3\" with that operative (then the\nFight action ends). That operative can do so even\nif it’s performed an action that prevents it from\nperforming the Fall Back action."
+    },
+    {
+      "id": "kt-void_dancer_troupe-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "灵活目标",
+      "title_en": "ELUSIVE TARGET",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-灵活目标.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n交战计谋\n灵活目标\n迅捷而优雅的丑角穿梭于掩体之间，轻易躲\n开敌人。\n在一名己方虚空舞者剧团特工激活时使用本交\n战计谋。直到它的下一次激活前，如果这名特工\n拥有隐匿命令且处于掩护中，便无法被选为有效\n目标，本规则的优先度高于所有其他规则（例\n如‘追踪’武器规则和制高点地形)，除非攻击者\n位于特工的 2\" 内。",
+      "text_en": "VOID-DANCER TROUPE\nFIREFIGHT PLOY\nELUSIVE TARGET\nSwift, agile and graceful, Harlequins dart from cover to\ncover, evading their opponents with contemptuous ease.\nUse this firefight ploy during a friendly\nVOID-DANCER TROUPE operative’s activation.\nUntil the start of its next activation, while that\noperative has a Conceal order and is in cover,\nit cannot be selected as a valid target, taking\nprecedence over all other rules (e.g. Seek,\nVantage terrain) except being within 2\"."
+    },
+    {
+      "id": "kt-void_dancer_troupe-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "多米诺力场",
+      "title_en": "DOMINO FIELD",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-多米诺力场.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n交战计谋\n多米诺力场\n丑角们携带着各种各样的神秘装备，而多米诺\n力场是其中最为常见的，这种装置能使他们轮\n廓破碎，难以瞄准。\n在一名特工对一名己方虚空舞者剧团特工执行\n射击的结算防御骰子步骤中使用本交战计谋。您\n可以使用一枚己方成功的骰子格挡所有您对手与\n其数字相同的结果（例：您成功的一枚防御骰子\n结果为 5，则它可以格挡所有结果为 5 的成功攻\n击骰子）。",
+      "text_en": "VOID-DANCER TROUPE\nFIREFIGHT PLOY\nDOMINO FIELD\nHarlequins bear a variety of esoteric equipment,\nincluding the ubiquitous Domino Field, which breaks up\ntheir outline and renders them difficult to target.\nUse this firefight ploy when an operative is\nshooting a friendly VOID-DANCER TROUPE\noperative, during the Resolve Defence Dice step.\nYou can allocate one of your rolled successful\ndice to block all of your opponent's attack dice\nwith matching results (e.g. one of your successful\ndefence dice results of 5 can be used to block all\nsuccessful attack dice results of 5)."
+    },
+    {
+      "id": "kt-void_dancer_troupe-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "灵骨护符",
+      "title_en": "WRAITHBONE TALISMAN",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-灵骨护符.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n阵营装备\n灵骨护符\n这个蕴含灵能的物品能为持有者提供敏锐的洞\n察力，使它们能用无比精准的方式打击对手。\n每个转折点限一次，在一名己方虚空舞者剧团\n特工进行射击、近战或反击时，如果您掷出了两\n枚或更多失败，您便可以弃置其中的一枚并将其\n保留为普通成功作为替代。",
+      "text_en": "VOID-DANCER TROUPE\nFACTION EQUIPMENT\nWRAITHBONE TALISMAN\nCharged with psychic power, this item provides fleeting\ninsight to the bearer, enabling them to strike their\nopponents with unerring accuracy.\nOnce per turning point, when a friendly\nVOID-DANCER TROUPE operative is shooting,\nfighting or retaliating, if you roll two or more fails,\nyou can discard one of them to retain another as\na normal success instead."
+    },
+    {
+      "id": "kt-void_dancer_troupe-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "尖啸者毒素弹",
+      "title_en": "SHRIEKER TOXIN ROUNDS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-尖啸者毒素弹.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n阵营装备\n尖啸者毒素弹\n这种覆上了基因剧毒的弹药能导致目标血肉扭\n曲撕裂的毁灭效果。\n每个转折点限一次，当一名己方虚空舞者剧团\n特工执行射击时选择了星镖手枪或尖啸者加农\n炮（集中）时，您可以使用本规则。若此，直\n到那个行动结束，那个武器获得“毁灭 1”武器\n规则。",
+      "text_en": "VOID-DANCER TROUPE\nFACTION EQUIPMENT\nSHRIEKER TOXIN ROUNDS\nCoated with virulent genetic toxins, these rounds cause\nthe flesh of the target to twist, distort and rupture to\ndevastating effect.\nOnce per turning point, when a friendly\nVOID-DANCER TROUPE operative is performing\nthe Shoot action and you select a shuriken pistol\nor shrieker cannon (focused), you can use this\nrule. If you do, until the end of that action, that\nweapon has the Devastating 1 weapon rule."
+    },
+    {
+      "id": "kt-void_dancer_troupe-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "死亡面具",
+      "title_en": "DEATH MASK",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-死亡面具.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n阵营装备\n死亡面具\n在少数情况下，一名丑角会为了完成剧目中的\n角色而必须牺牲自己。这种献身精神会激励剧\n团中幸存的伙伴。\n请进行悲剧计数。每当拥有嘉奖规则的一名己方\n虚空舞者剧团特工残废时，为悲剧计数增加 1\n点。当您的悲剧计数到达 3 点时，您会获得 1 点\nCP，并停止那个计数。",
+      "text_en": "VOID-DANCER TROUPE\nFACTION EQUIPMENT\nDEATH MASK\nOn occasion, a Harlequin must perish in order to fulfil\ntheir role in the saedath. Such dedication emboldens\nthose in their troupe that survive.\nKeep a Tragedy tally. Whenever a friendly\nVOID-DANCER TROUPE operative that has an\nACCOLADE rule is incapacitated, add 1 to your\nTragedy tally. When your Tragedy tally reaches 3,\nyou gain 1CP and stop that tally."
+    },
+    {
+      "id": "kt-void_dancer_troupe-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "候补面具",
+      "title_en": "UNDERSTUDY’S MASK",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-候补面具.png",
+      "is_back": false,
+      "text": "虚空舞者剧团\n阵营装备\n候补面具\n这个物件能使丑角们在剧目中改变角色。如果\n有关键角色死去，那么另一名丑角会很快接替\n其位置。\n每场战斗限一次，当一名成为关键角色的己方特\n工残废，则在激活一名己方虚空舞者剧团特工\n时，您可以使用本规则。若此，那个激活特工在\n本场战斗中成为关键角色。",
+      "text_en": "VOID-DANCER TROUPE\nFACTION EQUIPMENT\nUNDERSTUDY’S MASK\nThis item allows Harlequins to change roles during the\nsaedath. Should one who holds a pivotal role be slain,\nanother will swiftly take their place.\nOnce per battle, when you activate a friendly\nVOID-DANCER TROUPE operative, if the friendly\noperative that has the PIVOTAL ROLE has been\nincapacitated, you can use this rule. If you do,\nthat activated operative has the PIVOTAL ROLE\nfor the battle."
+    }
+  ]
+}

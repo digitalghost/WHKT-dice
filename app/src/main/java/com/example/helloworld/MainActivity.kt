@@ -395,6 +395,7 @@ class MainActivity : AppCompatActivity() {
                 return@setOnHorizontalSwipeListener
             }
             val target = if (direction > 0) RollMode.DEFENCE else RollMode.ATTACK
+            currentMode = target
             showTrayPage(visibleTrayMode, target)
             renderConfig()
             renderCurrentRollState()
@@ -628,9 +629,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun selectMode(mode: RollMode) {
-        if (rollInProgress || currentMode == mode) return
+        if (rollInProgress) return
+        val previous = visibleTrayMode
         currentMode = mode
-        showTrayPage(visibleTrayMode, mode)
+        showTrayPage(previous, mode)
         renderConfig()
         renderCurrentRollState()
     }

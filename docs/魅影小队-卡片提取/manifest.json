@@ -1,0 +1,956 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-SPECTRE_SQUAD",
+  "team_name_zh": "魅影小队",
+  "team_name_en": "Spectre Squad",
+  "source_pdf": "最新杀戮小队规则更新/魅影小队 Spectre Squad 杀戮小队规则.pdf",
+  "source_pdf_sha256": "96595e15b4d2a75e5201a9ba735edc1d34e161ef8af0465a5a2c2ca80c5b19b2",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 35,
+    "operative": 11,
+    "operative-ability": 4,
+    "team-selection": 2,
+    "faction-rule": 5,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-spectre_squad-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "魅影老兵军士-数据卡",
+      "title_en": "SPECTRE VETERAN SERGEANT",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-魅影老兵军士-数据卡.png",
+      "is_back": false,
+      "text": "魅影老兵军士 APL 移动豁免致伤\n2 6\" 5+ 9\n名称攻击命中伤害武器规则\n带瞄准镜的激光卡宾枪 4 3+ 2/3 致命 5+，撕裂\n仿生手臂 3 3+ 3/4 -\n下达任务 0AP\n\u0007选择对这名特工可见，没有在这个转折点通过野战精锐阵营规则打断敌方特工激活且进入待机的一名己\n方魅影小队特工（通讯中继信标除外）。直到转折点结束前，那名己方特工可以在其进入待机的状态\n使用野战精锐阵营规则（本规则优先于一般规则）。不过，若它使用了野战精锐阵营规则，则在转折点\n中无法进行反应，并且如果那名特工在这个转折点中执行了转移行动，则无法再次执行此行动。\n\u0007特工不能在敌方特工的控制范围内执行此行动。\u0007\n魅影小队，人类帝国，星界军，队长，老兵军士 28",
+      "weapon_types": {
+        "带瞄准镜的激光卡宾枪": "远程",
+        "仿生手臂": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE VETERAN SERGEANT\n2 6\" 5+ 9\nNAME ATK HIT DMG WR\nScoped lascarbine 4 3+ 2/3 Lethal 5+, Rending\nBionic arm 3 3+ 3/4 -\nISSUE MISSION 0AP\nSelect one expended friendly SPECTRE SQUAD operative (excluding VOX-RELAY BEACON) visible to this operative that\nhasn’t interrupted an enemy operative’s activation with the Elite Fieldcraft faction rule this turning point. Until the end of the\nturning point, that friendly operative can do so even though it’s expended (taking precedence over the normal rules). However, if it\ndoes, it cannot counteract during the turning point, or perform the Reposition action if it’s already done so this turning point.\nThis operative cannot perform this action while within control range of an enemy operative.\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, LEADER, VETERAN SERGEANT 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "魅影战地医师-数据卡",
+      "title_en": "SPECTRE FIELD MEDICAE",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-魅影战地医师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影战地医师\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n激光卡宾枪 4 3+ 2/3 撕裂\n激光步枪 4 3+ 2/3 重型（仅限转移），致命 5+\n枪托 3 4+ 2/3 -\n医疗兵！：在每个转折点中，首次有另一名位于该特工\u00073\"\u0007内且可见的其他己方魅影小队特工（通讯中\n继信标除外）将被残废时，如果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规\n则。若使用，那么那名己方特工不会被残废，并且剩余\u00071\u0007点耐伤，并且直到行动结束前不能被残废。在那\n次行动结束后，\u0007那名己方特工可以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束\n这次移动。直到该特工和那名特工的下一次激活结束前，他们的\u0007APL\u0007属性各减少\u00071\u0007点。如果您在那名特工\n的激活期间使用了本规则，那么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射\n击行动的主要或次要目标时使用此规则。\n魅影小队，人类帝国，星界军，战地医师 28\n请继续阅读背面规则",
+      "weapon_types": {
+        "激光卡宾枪": "远程",
+        "激光步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE FIELD MEDICAE\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLascarbine 4 3+ 2/3 Rending\nLasrifle 4 3+ 2/3 Heavy (Reposition only), Lethal 5+\nGun butt 3 4+ 2/3 -\nMedic!: The first time during each turning point that another friendly SPECTRE SQUAD operative (excluding VOX-RELAY\nBEACON) would be incapacitated while visible to and within 3\" of this operative, you can use this rule, providing neither this nor that\noperative is within control range of an enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining\nand cannot be incapacitated for the remainder of the action. After that action, that friendly operative can immediately perform a\nfree Dash action, but must end that move within this operative’s control range. Subtract 1 from this and that operative’s APL stats\nuntil the end of their next activations respectively, and if this rule was used during that friendly operative’s activation, that activation\nends. You cannot use this rule if this operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or\nsecondary target.\nRULES CONTINUE ON OTHER SIDE\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, FIELD MEDICAE 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-03",
+      "sequence": 3,
+      "category": "operative-ability",
+      "title_zh": "魅影战地医师-能力卡",
+      "title_en": "SPECTRE FIELD MEDICAE",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工能力-魅影战地医师-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影战地医师\n2 6\" 5+ 8\n医疗包 0AP\n\u0007选择位于这名特工控制范围内的一名己方魅影小队特工（通讯中继信标除外）恢复最多\u00072D3\u0007点失去的\n耐伤。但在这个转折点中使用了“医疗兵！”规则的特工不能作为本技能的对象。\n\u0007特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE FIELD MEDICAE\n2 6\" 5+ 8\nMEDIKIT 0AP\nSelect one friendly SPECTRE SQUAD operative (excluding VOX-RELAY BEACON) within this operative’s control range to\nregain up to 2D3 lost wounds. It cannot be an operative that the Medic! rule was used on during this turning point.\nThis operative cannot perform this action while within control range of an enemy operative."
+    },
+    {
+      "id": "kt-spectre_squad-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "魅影掷弹手-数据卡",
+      "title_en": "SPECTRE GRENADIER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-魅影掷弹手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影掷弹手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n激光卡宾枪 4 3+ 2/3 撕裂\n激光步枪 4 3+ 2/3 重型（仅限转移），致命 5+\n枪托 3 4+ 2/3 -\n掷弹兵：这名特工可以使用破片手雷，穿甲手雷和\n烟雾手雷（见通用装备）。不过这并不计入数量限\n制（这意味着您依然可以为其他特工选择这些手\n雷）。当这名特工使用一枚破片或穿甲手雷时，将\n那个武器的命中属性增加\u00071\u0007点。\n魅影小队，人类帝国，星界军，掷弹手\n热熔地雷：这名特工携带着己方热熔地雷标识。它\n可以对那个标识执行拾取标识行动，每当他对那个\n标识执行了放置标识行动，它便可以立即执行一次\n无消耗的冲刺行动。这个标识不能被放置在敌方特\n工的控制范围内（若这名特工在携带那个标识时残\n废并且那个标识无法被放置，则它和这名特工一同\n被移除）。\n28\n请继续阅读背面规则",
+      "weapon_types": {
+        "激光卡宾枪": "远程",
+        "激光步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE GRENADIER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLascarbine 4 3+ 2/3 Rending\nLasrifle 4 3+ 2/3 Heavy (Reposition only), Lethal 5+\nGun butt 3 4+ 2/3 -\nGrenadier: This operative can use frag, krak, and smoke\ngrenades (see universal equipment). Doing so doesn’t count\ntowards any limited uses you have (i.e. if you also select those\ngrenades from equipment for other operatives). Whenever this\noperative is using a frag or krak grenade, improve the Hit stat of\nthat weapon by 1.\nMelta Mine: This operative is carrying your Melta Mine marker. It\ncan perform the Pick Up Marker action on that marker, and\nwhenever it performs the Place Marker action on that marker,\nit can immediately perform a free Dash action. That marker\ncannot be placed within an enemy operative’s control range (if\nthis operative is incapacitated while carrying that marker and\nthat marker cannot be placed, it’s removed with this operative).\nRULES CONTINUE ON OTHER SIDE\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, GRENADIER 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "魅影掷弹手-能力卡",
+      "title_en": "SPECTRE GRENADIER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-魅影掷弹手-能力卡.png",
+      "is_back": false,
+      "text": "魅影掷弹手 APL 移动豁免致伤\n2 6\" 5+ 8\n接触式地雷：当己方热熔地雷标识首次位于另一名\n特工的控制范围内时，将那枚标识移除，那名特工\n受到\u00072D6+3\u0007点伤害，若它没有残废，则结束其行动\n（如果有），即便那次行动的效果尚未完成。若它\n无法被放置，则将其移动最小距离以进行放置。请\n注意，本特工忽视这些效果（即：它不会触发这个\n标识，也不会由此受到伤害）。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE GRENADIER\n2 6\" 5+ 8\nProximity Mine: The first time your Melta Mine marker is within\nanother operative’s control range, remove that marker and inflict\n2D6+3 damage on that operative; if it isn’t incapacitated, end\nits action (if any), even if that action’s effects aren’t fulfilled. If\nit cannot be placed, move it the minimum amount to do so. Note\nthat this operative is ignored for these effects (i.e. it cannot set it\noff or take damage from that marker)."
+    },
+    {
+      "id": "kt-spectre_squad-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "魅影引导手-数据卡",
+      "title_en": "SPECTRE GUIDE",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-魅影引导手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影引导手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n激光卡宾枪 4 3+ 2/3 撕裂\n激光步枪 4 3+ 2/3 重型（仅限转移），致命 5+\n枪托 3 4+ 2/3 -\n有所准备的杀戮区：您可以额外选择一个装备选项，但必须为弹药储备或装备地形模型（见通用装备）。\n侦察地形：位于己方领地或位于这名特工\u00073\"\u0007内的地形模型被己方魅影小队特工侦察。在每一名己方魅影\n小队特工的激活期间限一次，特工可以选择以下一个效果：\n• 若地形模型被己方魅影小队特工侦察，则忽视攀爬这些地形模型时的首个垂直\u00072\"\u0007距离。\n• 若地形模型被己方魅影小队特工侦察，则在对这些地形执行操作舱门行动时消耗的\u0007AP\u0007减少\u00071\u0007点。\n魅影小队，人类帝国，星界军，引导手 28",
+      "weapon_types": {
+        "激光卡宾枪": "远程",
+        "激光步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE GUIDE\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLascarbine 4 3+ 2/3 Rending\nLasrifle 4 3+ 2/3 Heavy (Reposition only), Lethal 5+\nGun butt 3 4+ 2/3 -\nPrepared Killzone: You can select one additional equipment option, but it must be an Ammo Cache or an equipment terrain feature\n(see universal equipment).\nScout Terrain: Terrain features within your territory or within 3\" of this operative are scouted for friendly SPECTRE SQUAD\noperatives. Once in each of their activations, friendly SPECTRE SQUAD operatives can do one of the following:\n• Ignore the first vertical distance of 2\" it moves during one climb up if the terrain feature is scouted for friendly SPECTRE\nSQUAD operatives.\n• Perform the Operate Hatch action for 1 less AP if the access point is scouted for friendly SPECTRE SQUAD operatives.\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, GUIDE 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "魅影炮手-数据卡",
+      "title_en": "SPECTRE GUNNER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-魅影炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影炮手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n热熔枪 4 3+ 6/3 范围 6\"，毁灭 4，穿刺 2\n等离子枪（标准） 4 3+ 4/6 穿刺 1\n等离子枪（过载） 4 3+ 5/6 过热，致命 5+，穿刺 1\n枪托 3 4+ 2/3 -\n魅影小队，人类帝国，星界军，炮手 28",
+      "weapon_types": {
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE GUNNER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nMeltagun 4 3+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 3+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nGun butt 3 4+ 2/3 -\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, GUNNER 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "魅影重炮手-数据卡",
+      "title_en": "SPECTRE HEAVY GUNNER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-魅影重炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影重炮手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n激光手枪 4 3+ 2/3 范围 8\"\n导弹发射器（破片） 4 3+ 3/5 爆炸 2\"，重型\n导弹发射器（穿甲） 4 3+ 5/7 重型，穿刺 1\n双拳 3 4+ 2/3 -\n武器小组：每当这名特工激活时，若一名己方装填\n手特工位于它的控制范围内，则在那次激活结束\n前，将它导弹发射器所有数据中的“重型”武器规\n则替换为“重型（仅限冲刺）”武器规则。\n魅影小队，人类帝国，星界军，重炮手\n28",
+      "weapon_types": {
+        "激光手枪": "远程",
+        "导弹发射器（破片）": "远程",
+        "导弹发射器（穿甲）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE HEAVY GUNNER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLaspistol 4 3+ 2/3 Range 8\"\nMissile launcher (frag) 4 3+ 3/5 Blast 2\", Heavy\nMissile launcher (krak) 4 3+ 5/7 Heavy, Piercing 1\nFists 3 4+ 2/3 -\nWeapons Team: Whenever this operative is activated, if a friendly\nLOADER operative is within its control range, all profiles of\nits missile launcher have the Heavy (Dash only) weapon rule\ninstead of the Heavy weapon rule until the end of that activation.\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, HEAVY GUNNER 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "魅影装填手-数据卡",
+      "title_en": "SPECTRE LOADER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-魅影装填手-数据卡.png",
+      "is_back": false,
+      "text": "魅影装填手 APL 移动豁免致伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n激光手枪 4 3+ 2/3 范围 8\"\n双拳 3 4+ 2/3 -\n武器助手：每当这名特工控制范围内有另一名己方魅影小队特工射击时，您便可以重掷一枚己方攻击\n骰。\n装填武器 1AP\n\u0007选择位于这名特工控制范围内且不位于敌方特工\u00073\"\u0007内的一名己方魅影小队特工，那名己方特工可以立\n即执行一次无消耗的射击行动（戒备除外），并且您可以为此改变它的命令。\n\u0007\u0007该特工不能在敌方特工的控制范围内执行本行动，或者在进行了反击、执行了冲锋、冲刺或射击行动的\n激活期间执行本行动（反之亦然)。\n魅影小队，人类帝国，星界军，装填手 28",
+      "weapon_types": {
+        "激光手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE LOADER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLaspistol 4 3+ 2/3 Range 8\"\nFists 3 4+ 2/3 -\nWeapon Assist: Whenever another friendly SPECTRE SQUAD operative within control range of this operative is shooting, you can\nre-roll one of your attack dice.\nLOAD WEAPON 1AP\nSelect one friendly SPECTRE SQUAD operative within this operative’s control range and not within 3\" of enemy operatives.\nThat friendly operative can immediately perform a free Shoot action (excluding Guard), and you can change its order to do so.\nThis operative cannot perform this action while within control range of an enemy operative, while counteracting, or during an\nactivation in which it performed the Charge, Dash or Shoot action (or vice versa).\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, LOADER 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "魅影神射手-数据卡",
+      "title_en": "SPECTRE SHARPSHOOTER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-魅影神射手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影神射手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n长距激光枪(隐匿) 4 2+ 3/3 毁灭 3，重型，安静，隐匿位置*\n长距激光枪(机动) 4 3+ 3/4 -\n长距激光枪(静止) 4 2+ 3/3 毁灭 3，重型\n枪托 3 4+ 2/3 -\n*隐匿位置：这名特工只能在战斗中首次执行射击行\n动时使用这个武器。\n魅影小队，人类帝国，星界军，神射手\n28",
+      "weapon_types": {
+        "长距激光枪(隐匿)": "远程",
+        "长距激光枪(机动)": "远程",
+        "长距激光枪(静止)": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE SHARPSHOOTER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLong-las (concealed) 4 2+ 3/3 Devastating 3, Heavy, Silent,\nConcealed Position*\nLong-las (mobile) 4 3+ 3/4 -\nLong-las (stationary) 4 2+ 3/3 Devastating 3, Heavy\nGun butt 3 4+ 2/3 -\n*Concealed Position: This operative can only use this weapon\nthe first time it’s performing the Shoot action during the battle.\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, SHARPSHOOTER 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "魅影机枪手-数据卡",
+      "title_en": "SPECTRE STUB-GUNNER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-魅影机枪手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影机枪手\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n自动机枪（集中） 5 3+ 3/4 重型（仅限冲刺）\n自动机枪（压制） 5 5+ 0/0 重型，致命 5+，追踪轻型，晕眩，洪流 1\"\n自动机枪（扫射） 4 3+ 3/4 重型（仅限冲刺），洪流 1\"\n双拳 3 4+ 2/3 -\n压制火力：每当一名敌方特工对这名特工可见且位\n于其\u00073\"\u0007内，若这名特工拥有交战命令且不位于任\n何其他敌方特工控制范围内，则将那名敌方特工武\n器的攻击属性减去\u00071\u0007点（至多减少至\u00071\u0007点）。若这\n名特工在这个转折点执行了冲锋行动，则本规则没\n有效果。\n魅影小队，人类帝国，星界军，机枪手\n28",
+      "weapon_types": {
+        "自动机枪（集中）": "远程",
+        "自动机枪（压制）": "远程",
+        "自动机枪（扫射）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE STUB-GUNNER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nAutostubber (focused) 5 3+ 3/4 Heavy (Dash only)\nAutostubber (suppressive) 5 5+ 0/0 Heavy, Lethal 5+, Seek Light, Stun, Torrent 1\"\nAutostubber (sweeping) 4 3+ 3/4 Heavy (Dash only), Torrent 1\"\nFists 3 4+ 2/3 -\nSuppressive Fire: Whenever an enemy operative is visible to and\nwithin 3\" of this operative, if this operative has an Engage order\nand isn’t within control range of any other enemy operatives,\nsubtract 1 from the Atk stat of that enemy operative’s weapons\n(to a minimum of 1). This rule has no effect if this operative\nperformed the Charge action during this turning point.\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, STUB-GUNNER 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "魅影士兵-数据卡",
+      "title_en": "SPECTRE TROOPER",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-魅影士兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n魅影士兵\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n激光卡宾枪 4 3+ 2/3 撕裂\n激光步枪 4 3+ 2/3 重型（仅限转移），致命 5+\n枪托 3 4+ 2/3 -\n头脑冷静：每个转折点限一次，拥有这个规则的一\n名己方魅影小队特工可以花费\u00070\u0007点野战点数使用\n野战精锐阵营规则打断一名敌方特工的激活（本规\n则优先于普通规则）。\n魅影小队，人类帝国，星界军，士兵\n28",
+      "weapon_types": {
+        "激光卡宾枪": "远程",
+        "激光步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE TROOPER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLascarbine 4 3+ 2/3 Rending\nLasrifle 4 3+ 2/3 Heavy (Reposition only), Lethal 5+\nGun butt 3 4+ 2/3 -\nCool-Headed: Once per turning point, one friendly SPECTRE\nSQUAD operative with this rule can interrupt an enemy\noperative’s activation with the Elite Fieldcraft faction rule for 0\nFieldcraft points (taking precedence over the normal rules).\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, TROOPER 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "魅影通讯手-数据卡",
+      "title_en": "SPECTRE VOX-OPERATOR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-魅影通讯手-数据卡.png",
+      "is_back": false,
+      "text": "魅影通讯手 APL 移动豁免致伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n激光卡宾枪 4 3+ 2/3 撕裂\n激光步枪 4 3+ 2/3 重型（仅限转移），致命 5+\n枪托 3 4+ 2/3 -\n传讯 1AP\n\u0007支援。选择对这名特工可见的另一名己方魅影小队\n次激活结束前，它的\u0007APL\u0007属性增加\u00071\u0007点。\n\u0007特工不能在敌方特工的控制范围内执行此行动。\n魅影小队，人类帝国，星界军，通讯手\n特工（通讯中继信标除外）。直至那名特工的下一\n28",
+      "weapon_types": {
+        "激光卡宾枪": "远程",
+        "激光步枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE VOX-OPERATOR\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nLascarbine 4 3+ 2/3 Rending\nLasrifle 4 3+ 2/3 Heavy (Reposition only), Lethal 5+\nGun butt 3 4+ 2/3 -\nSIGNAL 1AP\nSUPPORT. Select one other friendly SPECTRE SQUAD operative (excluding VOX-RELAY BEACON) visible to this\noperative. Until the end of that operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control range of an enemy operative.\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, VOX-OPERATOR 28"
+    },
+    {
+      "id": "kt-spectre_squad-01-14",
+      "sequence": 14,
+      "category": "operative-ability",
+      "title_zh": "通讯中继信标-能力卡1",
+      "title_en": "SPECTRE VOX-RELAY BEACON",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工能力-通讯中继信标-能力卡1.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n通讯中继信标\n1 0\" 5+ 3\n预部署：在部署特工步骤中，这名特工可以被部署在己方降落区之外。它必须被部署在完全位于己方领地\n内，距离所有标识和装备地形模型\u00072\"\u0007外且可以被放置的位置。\n消耗品：这名特工无法执行传讯以外的任何行动。它无法进行反应，反击或协助近战。\n这名特工无法争夺标识或杀戮区中的区域，并且在您对手的杀戮/消灭任务中（它被残废以及确认您起始特\n工数量时）将被忽视。对于胜利条件中要求特工“逃脱”，“存活”或被敌方特工残废的情况下，它也将\n被忽视（它是否逃脱/存活/被击杀，确认多少特工必须逃脱/存活/被击杀等情况下）。\n特工可以移动穿过这名特工。您的对手可以在任何时候忽视这名特工的控制范围。每当一名己方魅影小队\n特工在执行射击行动中选择有效目标时，您可以忽视这名特工的控制范围。请注意，控制范围在被忽视\n时不是相互的。\n魅影小队，人类帝国，星界军，通讯中继信标 25\n请继续阅读背面规则",
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE VOX-RELAY BEACON\n1 0\" 5+ 3\nPre-Deploy: In the Set Up Operatives step, this operative can be set up outside of your drop zone. It must be set up in a location it can\nbe placed, wholly within your territory and more than 2\" from markers and equipment terrain features.\nExpendable: This operative cannot perform any actions other than Signal. It cannot counteract, retaliate or assist in a fight.\nThis operative cannot contest markers or areas of the killzone, and is ignored for your opponent’s kill/elimination op (when it’s\nincapacitated, and when determining your starting number of operatives). It’s also ignored for victory conditions and scoring VPs\nif either require operatives to ‘escape’, ‘survive’ or be incapacitated by enemy operatives (if it escapes/survives/is incapacitated,\ndetermining how many operatives must escape/survive/be incapacitated, etc.).\nOperatives can move through this operative. Your opponent can ignore this operative’s control range at any time. Whenever a friendly\nSPECTRE SQUAD operative is performing the Shoot action and you’re selecting a valid target, you can ignore this operative’s\ncontrol range. Note that control range wouldn’t be mutual when ignored.\nRULES CONTINUE ON OTHER SIDE\nSPECTRE SQUAD , IMPERIUM, ASTRA MILITARUM, VOX-RELAY BEACON 25"
+    },
+    {
+      "id": "kt-spectre_squad-01-15",
+      "sequence": 15,
+      "category": "operative-ability",
+      "title_zh": "通讯中继信标-能力卡2",
+      "title_en": "SPECTRE VOX-RELAY BEACON",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工能力-通讯中继信标-能力卡2.png",
+      "is_back": false,
+      "text": "APL 移动豁免致伤\n通讯中继信标\n1 0\" 5+ 3\n传讯 1AP\n\u0007选择对这名特工可见且位于\u00076\"\u0007内的另一名己方魅影小队\n的\u0007APL\u0007属性增加\u00071\u0007点。\n\u0007\u0007这名特工不能在敌方特工的控制范围内执行此行动。\n特工。直至那名特工的下一次激活结束前，它",
+      "text_en": "APL MOVE SAVE WOUNDS\nSPECTRE VOX-RELAY BEACON\n1 0\" 5+ 3\nSIGNAL 1AP\nSelect one other friendly SPECTRE SQUAD operative within 6\" of this operative. Until the end of that operative’s next\nactivation, add 1 to its APL stat.\nThis operative cannot perform this action while within control range of an enemy operative."
+    },
+    {
+      "id": "kt-spectre_squad-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "魅影小队杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-魅影小队杀戮小队-1.png",
+      "is_back": false,
+      "text": "魅影小队\n杀戮小队\n原型：渗透，侦查\n特工\n↘ 1 魅影小队老兵军士\n↘ 1 魅影小队通讯中继信标\n↘ 9 魅影小队特工，从以下列表进行选择:\n• 战地医师\n• 掷弹手\n• 引导手\n• 炮手装备有以下一种选项:\n○ 热熔枪；双拳\n○ 等离子枪；双拳\n• 重炮手\n• 装填手\n• 神射手\n• 机枪手\n• 士兵\n• 通讯手\n请继续阅读背面规则",
+      "text_en": "SPECTRE SQUAD\nKILL TEAM\nARCHETYPE: INFILTRATION, RECON\nOPERATIVES\n↘ 1 SPECTRE SQUAD VETERAN SERGEANT\n↘ 1 SPECTRE SQUAD VOX-RELAY BEACON\n↘ 9 SPECTRE SQUAD operatives selected from\nthe following list:\n• FIELD MEDICAE\n• GRENADIER\n• GUIDE\n• GUNNER with one of the following options:\n○ Meltagun; fists\n○ Plasma gun; fists\n• HEAVY GUNNER\n• LOADER\n• SHARPSHOOTER\n• STUB-GUNNER\n• TROOPER\n• VOX-OPERATOR\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-spectre_squad-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "魅影小队杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-魅影小队杀戮小队-2.png",
+      "is_back": true,
+      "text": "除了士兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。\n装备有以下一种选项:\n• 激光步枪；枪托\n• 激光卡宾枪；枪托",
+      "text_en": "Other than TROOPER operatives, your kill team\ncan only include each operative on this list once.\nWith one of the following options:\n• Lasrifle; gun butt\n• Lascarbine; gun butt"
+    },
+    {
+      "id": "kt-spectre_squad-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "野战精锐（卡片1/3）-1",
+      "title_en": "ELITE FIELDCRAFT (CARD 1/3)",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-野战精锐（卡片1-3）-1.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营规则\n野战精锐（卡片 1/3）\n魅影小队成员皆为久经沙场的老兵与侦察专\n家，擅长在作战中随机应变，洞察敌人动向，\n并巧用地形实施迂回与伏击。\n在每个战略阶段的就绪步骤中，您获得 1 点野战\n点数，若一名己方魅影小队通讯手特工位于杀\n戮区内且不位于敌方特工控制范围内，则获得 2\n点。在每个转折点结束时，弃置己方野战点数。\n在一名拥有交战命令的敌方特工在其激活中执行\n一次行动后，您可以消耗 1 点己方野战点数打断\n那次激活。若这么做，一名就绪且不位于其他敌\n方特工控制范围内的己方魅影小队特工可以执\n行一次无消耗的射击（进行戒备除外），冲刺或\n转移行动。\n请继续阅读背面规则",
+      "text_en": "SPECTRE SQUAD\nFACTION RULE\nELITE FIELDCRAFT (CARD 1/3)\nVeteran combatants and expert scouts, Spectre Squad\noperatives are highly skilled in reactive warfare, reading\ntheir enemies’ movements and using the terrain to\noutmanoeuvre and ambush them.\nIn the Ready step of each Strategy phase, you\ngain 1 Fieldcraft point, or 2 if a friendly SPECTRE\nSQUAD VOX-OPERATOR operative is in the\nkillzone and isn’t within control range of enemy\noperatives. At the end of each turning point,\ndiscard your Fieldcraft points.\nAfter an enemy operative that has an Engage\norder performs an action during its activation, you\ncan spend 1 of your Fieldcraft points to interrupt\nthat activation. If you do, a ready friendly\nSPECTRE SQUAD operative that isn’t within\ncontrol range of any other enemy operatives can\nperform a free Shoot (excluding Guard), Dash or\nReposition action.\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-spectre_squad-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "野战精锐（卡片1/3）-2",
+      "title_en": "ELITE FIELDCRAFT (CARD 1/3)",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-野战精锐（卡片1-3）-2.png",
+      "is_back": true,
+      "text": "每一名敌方特工在每次激活中不能被打断超过一\n次（包括戒备），并且在每个转折点中，每一名\n己方特工使用这个规则执行的无消耗行动不能超\n过一个。",
+      "text_en": "You cannot interrupt each enemy operative’s\nactivation more than once per activation\n(including Guard), and each friendly operative\ncannot perform more than one free action per\nturning point as a result of this rule."
+    },
+    {
+      "id": "kt-spectre_squad-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "野战精锐（卡片2/3）",
+      "title_en": "ELITE FIELDCRAFT (CARD 2/3)",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-野战精锐（卡片2-3）.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营规则\n野战精锐（卡片 2/3）\n若使用射击行动，您可以为了执行这个行动而改\n变那名己方特工的命令。并且在那次行动中您不\n能选择任何其他敌方特工作为有效目标。位于那\n名敌方特工控制范围内（但没有其他特工）的情\n况不会阻止那名己方特工执行那次行动，并在这\n种情况下遵循戒备行动的零距离射击规则。（见\n《杀戮小队核心规则书》）。",
+      "text_en": "SPECTRE SQUAD\nFACTION RULE\nELITE FIELDCRAFT (CARD 2/3)\nIf it’s the Shoot action, you can change that\nfriendly operative’s order to perform this action.\nYou cannot select any other enemy operative as\na valid target during that action. Being within that\nenemy operative’s control range (but no others)\ndoesn’t prevent that friendly operative from\nperforming that action, in which case follow the\nrules for a point-blank shot from the Guard action\n(see Kill Team Core Book)."
+    },
+    {
+      "id": "kt-spectre_squad-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "野战精锐（卡片3/3）",
+      "title_en": "ELITE FIELDCRAFT (CARD 3/3)",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-野战精锐（卡片3-3）.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营规则\n野战精锐（卡片 3/3）\n若执行转移行动，那名己方特工便无法在转折点\n中再次执行那个行动。若执行的是冲刺或转移行\n动，则那名己方特工不能在这次移动结束时更接\n近那名敌方特工或您对手的降落区（除非它在那\n次移动结束时完全位于己方降落区）。在使用近\n距离战斗规则的杀戮区（例如杀戮区：墓穴世\n界）中，在判断距离时，请忽视墙壁地形，并且\n您无法使用传送。",
+      "text_en": "SPECTRE SQUAD\nFACTION RULE\nELITE FIELDCRAFT (CARD 3/3)\nIf it’s the Reposition action, that friendly\noperative cannot perform that action again during\nthe turning point. If it’s the Dash or Reposition\naction, that friendly operative cannot end this\nmove closer to that enemy operative or your\nopponent’s drop zone (unless it ends that move\nwholly within your drop zone). In a killzone that\nuses the close quarters rules (e.g. Killzone: Tomb\nWorld), ignore Wall terrain when determining\ncloser and you cannot teleport."
+    },
+    {
+      "id": "kt-spectre_squad-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "迷彩斗篷",
+      "title_en": "CAMO CLOAKS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-05-阵营规则-迷彩斗篷.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营规则\n迷彩斗篷\n尽管不如光学迷彩先进，但魅影小队的迷彩\n斗篷能让他们在密集地形中掩护行踪，而这\n点在特工们老练的反侦察技能加持下更显宝\n贵。\n每当一名特工向一名己方魅影小队特工（通讯\n中继信标除外）射击时，若您可以保留任何掩护\n豁免，则您可以额外保留一枚掩护豁免，或者将\n保留的一枚掩护豁免作为关键成功作为替代。这\n不能与制高点地形提供的掩护豁免叠加。",
+      "text_en": "SPECTRE SQUAD\nFACTION RULE\nCAMO CLOAKS\nThough not as advanced as camelioline, the camouflage\ncloaks issued to Spectre Squads help to conceal them\nin dense terrain, especially when coupled with the\noperatives’ veteran skills in evading detection.\nWhenever an operative is shooting a friendly\nSPECTRE SQUAD operative (excluding\nVOX-RELAY BEACON), if you can retain any cover\nsaves, you can retain one additional cover save,\nor you can retain one cover save as a critical\nsuccess instead. This isn’t cumulative with\nimproved cover saves from Vantage terrain."
+    },
+    {
+      "id": "kt-spectre_squad-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "SPECTRE SQUAD",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "魅影小队\n标识/指示物指南\n先进伪装医疗兵头脑冷静\n指示物指示物指示物\n下达任务热熔地雷\n指示物标识\n野战耐心照明弹\n点数指示物指示物\n视讯反馈型守望狙击\n定位仪指示物指示物",
+      "text_en": "SPECTRE SQUAD\nMARKER/TOKEN GUIDE\nAdvanced Medic Cool-\nCamouflage token headed\ntoken token\nIssue Mission Melta Mine\ntoken marker\nFieldcraft Patience Starshell\nPoints token Flare token\nTvid-feed Sniper\nTriangulation Overwatch\ntoken token"
+    },
+    {
+      "id": "kt-spectre_squad-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "消失",
+      "title_en": "DISAPPEAR",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-消失.png",
+      "is_back": false,
+      "text": "魅影小队\n战略计谋\n消失\n魅影小队知道许多种匿出视野并迅速转移的\n方法。\n一名己方魅影小队特工可以立即执行一次无消\n耗的转移行动。它不能在那次移动结束时更为靠\n近敌方特工或您对手的降落区（除非它在结束移\n动时完全位于己方降落区），并且在转折点中不\n能再次执行那个行动。在使用近距离战斗规则的\n杀戮区（例如杀戮区：墓穴世界）中，在判断距\n离时，请忽视墙壁地形。",
+      "text_en": "SPECTRE SQUAD\nSTRATEGY PLOY\nDISAPPEAR\nSpectres know many ways to fade out of sight and\nrapidly reposition.\nOne friendly SPECTRE SQUAD operative can\nimmediately perform a free Reposition action. It\ncannot end that move closer to enemy operatives\nor your opponent’s drop zone (unless it ends that\nmove wholly within your drop zone) and it cannot\nperform that action again during the turning\npoint. In a killzone that uses the close quarters\nrules (e.g. Killzone: Tomb World), ignore Wall\nterrain when determining closer."
+    },
+    {
+      "id": "kt-spectre_squad-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "隐秘交战",
+      "title_en": "HIDDEN ENGAGEMENT",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-隐秘交战.png",
+      "is_back": false,
+      "text": "魅影小队\n战略计谋\n隐秘交战\n漫长的实战经验与高强度的训练使这些特工\n能从隐蔽位置精准猎杀目标。\n每当一名己方魅影小队特工执行射击时，若它\n从目标视野看来处于掩护，则那名己方特工的武\n器获得“平衡”武器规则。请注意，这意味着需\n要由您的对手决定瞄准线（即：由他们决定从自\n己特工底盘的哪一个点划出直线）。",
+      "text_en": "SPECTRE SQUAD\nSTRATEGY PLOY\nHIDDEN ENGAGEMENT\nLong experience and intensive training aid\nthese operatives in picking off their targets from\nconcealed positions.\nWhenever a friendly SPECTRE SQUAD operative\nis shooting, if it’s in cover from the target’s\nperspective, that friendly operative’s weapons\nhave the Balanced weapon rule. Note that your\nopponent still determines the targeting lines\nfor this (i.e. they decide which point of their\noperative’s base targeting lines are drawn from)."
+    },
+    {
+      "id": "kt-spectre_squad-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "齐射伏击",
+      "title_en": "AMBUSHING VOLLEY",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-齐射伏击.png",
+      "is_back": false,
+      "text": "魅影小队\n战略计谋\n齐射伏击\n在锁定目标弱点后，魅影小队会在伏击中枪\n火齐鸣，将敌人一举歼灭。\n每当一名己方魅影小队特工激活时，若它位于\n敌方特工 3\" 外且在确定命令前不是任何敌方特\n工的有效目标，那么这名特工的远程武器（自动\n机枪的压制属性除外）在那次行动结束前获得\n“毁灭 1”武器规则。若那个武器已经拥有“毁\n灭 X”武器规则，则将那个“毁灭 X”武器规则\n的 X 值增加 1。",
+      "text_en": "SPECTRE SQUAD\nSTRATEGY PLOY\nAMBUSHING VOLLEY\nHaving identified their target’s weak points, Spectres\nburst from ambush with their guns blazing to finish off\nthe foe.\nWhenever a friendly SPECTRE SQUAD operative\nis activated, if it’s more than 3\" from enemy\noperatives and isn’t a valid target for enemy\noperatives before determining its order, its\nranged weapons (excluding the suppressive\nprofile of an autostubber) have the Devastating 1\nweapon rule until the end of that activation. If that\nweapon already had the Devastating x weapon\nrule, add 1 to the x of its Devastating x weapon\nrule instead."
+    },
+    {
+      "id": "kt-spectre_squad-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "耐心",
+      "title_en": "PATIENCE",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-耐心.png",
+      "is_back": false,
+      "text": "魅影小队\n战略计谋\n耐心\n沾染鲜血的经验教导着这群特工耐心的价\n值。\n在这个转折点的交战阶段中，您可以进行下列\n之一：\n• 每当轮到您激活一名己方特工时，您可以跳过\n那次激活。但在您对手的首次激活前不能这\n么做。\n• 每当一名己方魅影小队特工在其激活中执行\n射击或近战行动时，若它为这个转折点中最后\n激活的一名己方特工，则其武器在那次行动中\n获得“毫不留情”武器规则。",
+      "text_en": "SPECTRE SQUAD\nSTRATEGY PLOY\nPATIENCE\nBloody experience has taught these operatives the\nmerits of patience.\nIn the Firefight phase of this turning point, you\ncan do one of the following:\n• Once, when it’s your turn to activate a friendly\noperative, you can skip that activation. You\ncannot do this until after your opponent’s\nfirst activation.\n• When a friendly SPECTRE SQUAD operative\nperforms the Shoot or Fight action during its\nactivation, if it’s the last friendly operative to be\nactivated during this turning point, its weapons\nhave the Relentless weapon rule for that action."
+    },
+    {
+      "id": "kt-spectre_squad-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "闪避",
+      "title_en": "DODGE",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-闪避.png",
+      "is_back": false,
+      "text": "魅影小队\n交战计谋\n闪避\n若没有极致的生存本能，便无法成为魅影。\n在一名己方魅影小队特工激活中执行一次行动\n的之前或之后使用此交战计谋。在那次激活中，\n那名特工在执行后撤行动时消耗的 AP 减少 1\n点。",
+      "text_en": "SPECTRE SQUAD\nFIREFIGHT PLOY\nDODGE\nNo soldier lives to become a Spectre without supreme\nsurvival instincts.\nUse this firefight ploy during a friendly SPECTRE\nSQUAD operative’s activation, before or after it\nperforms an action. During that activation, that\noperative can perform the Fall Back action for 1\nless AP."
+    },
+    {
+      "id": "kt-spectre_squad-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "寂静杀手",
+      "title_en": "SILENT KILLERS",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-寂静杀手.png",
+      "is_back": false,
+      "text": "魅影小队\n交战计谋\n寂静杀手\n这些特工能悄无声息地消灭敌人，不引起任\n何惊扰。\n在一名己方魅影小队特工激活中执行一次行动\n的之前或之后，若它拥有隐匿命令并且不是任何\n敌方特工的有效目标，那么可以使用此交战计\n谋。在那次激活结束时前，那名特工可以在拥有\n隐匿命令的情况下执行冲锋行动，并且在首次出\n击中额外造成 3 点伤害，但在那次流程中无法结\n算任何其他成功。",
+      "text_en": "SPECTRE SQUAD\nFIREFIGHT PLOY\nSILENT KILLERS\nThese operatives can quietly eliminate foes without\nraising the alarm.\nUse this firefight ploy during a friendly SPECTRE\nSQUAD operative’s activation before or after it\nperforms an action, if it has a Conceal order and\nisn’t a valid target for enemy operatives. Until the\nend of that activation, it can perform the Charge\naction while it has a Conceal order, and the first\ntime it strikes you can inflict 3 additional damage,\nbut cannot resolve any other successes during\nthat sequence."
+    },
+    {
+      "id": "kt-spectre_squad-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "敏锐反应",
+      "title_en": "SHARP REACTIONS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-敏锐反应.png",
+      "is_back": false,
+      "text": "魅影小队\n交战计谋\n敏锐反应\n这些老练的特工反应迅捷、应变如风。\n在拥有隐匿命令的一名敌方特工的激活中执行一\n次行动后，若它位于一名己方魅影小队特工 8\"\n内，您便可以使用此交战计谋。您可以使用那名\n己方魅影小队特工通过野战精锐阵营规则打断\n那名敌方特工的激活，无论其拥有哪种命令（本\n规则优先于普通规则）。",
+      "text_en": "SPECTRE SQUAD\nFIREFIGHT PLOY\nSHARP REACTIONS\nThese veteran operatives fight in a swift and\nresponsive fashion.\nUse this firefight ploy after an enemy operative\nthat has a Conceal order performs an action\nduring its activation, if it’s within 8\" of a friendly\nSPECTRE SQUAD operative. You can use the\nElite Fieldcraft faction rule to interrupt that\nactivation with that friendly SPECTRE SQUAD\noperative regardless of that enemy operative’s\norder (taking precedence over the normal rules)."
+    },
+    {
+      "id": "kt-spectre_squad-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "预设防务",
+      "title_en": "PREPARED DEFENCE",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-预设防务.png",
+      "is_back": false,
+      "text": "魅影小队\n交战计谋\n预设防务\n魅影小队总会在撤退路线和防御要地上做好\n功课。\n当一名拥有隐匿命令或就绪的己方魅影小队特\n工进行反击时使用此交战计谋。您可以进行下列\n之一：\n• 在结算攻击骰步骤中，您可以在正常顺序前结\n算一枚己方成功，但那次成功必须为格挡。\n• 当您格挡时，那次格挡可以挡下两枚未结算的\n成功（而不是一枚）。\n您不能在使用过野战精锐阵营规则进行打断的激\n活中使用这个计谋。",
+      "text_en": "SPECTRE SQUAD\nFIREFIGHT PLOY\nPREPARED DEFENCE\nSpectres always have an escape route and defensive\nmeasures in place.\nUse this firefight ploy when a friendly SPECTRE\nSQUAD operative that has a Conceal order\nor is ready is retaliating. You can do one of\nthe following:\n• At the start of the Resolve Attack Dice step,\nyou can resolve one of your successes before\nthe normal order. If you do, that success must\nbe used to block.\n• When you block, that block can be allocated\nto block two unresolved successes (instead\nof one).\nYou cannot use this ploy during an activation in\nwhich you’ve interrupted with the Elite Fieldcraft\nfaction rule."
+    },
+    {
+      "id": "kt-spectre_squad-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "守望狙击",
+      "title_en": "SNIPER OVERWATCH",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-守望狙击.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营装备\n守望狙击\n魅影小队与已前去包抄战区的狙击手协同作\n战，从侧翼呼叫并引导精准射击。\n每个转折点限一次，一名己方魅影小队特工可\n以使用下列远程武器：\n名称攻击命中伤害\n守望狙击 4 3+ 3/3\n武器规则\n毁灭 2，重型（仅限冲刺），集中，安静",
+      "text_en": "SPECTRE SQUAD\nFACTION EQUIPMENT\nSNIPER OVERWATCH\nThe Spectres coordinate with snipers that have moved\nup to encircle the battlefield, calling in and spotting\nshots from flanking positions.\nOnce per turning point, a friendly SPECTRE\nSQUAD operative can use the following\nranged weapon:\nNAME ATK HIT DMG\nSniper overwatch 4 3+ 3/3\nWR\nDevastating 2, Heavy (Dash only),\nSaturate, Silent"
+    },
+    {
+      "id": "kt-spectre_squad-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "视讯反馈型定位仪",
+      "title_en": "TVID-FEED TRIANGULATION",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-视讯反馈型定位仪.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营装备\n视讯反馈型定位仪\n通过头盔相机的视频信息，魅影小队能够迅\n速通过三角定位锁定敌方位置，确定最佳射\n击方案。\n每个转折点限一次，每当一名己方魅影小队特\n工执行射击行动并为此选择有效目标时，您可以\n使用这个规则。如此，若达成下列任何一个条\n件，则目标无法被遮挡：\n• 它同时是另一名己方魅影小队特工的有效目\n标。\n• 它位于一名己方通讯中继信标特工 6\" 内。",
+      "text_en": "SPECTRE SQUAD\nFACTION EQUIPMENT\nTVID-FEED TRIANGULATION\nBy sharing the vid-feed data from their helm cameras,\nthe Spectres are able to triangulate optimal firing\nsolutions on their foes.\nOnce per turning point, when a friendly SPECTRE\nSQUAD operative is performing the Shoot action\nand you’re selecting a valid target, you can use\nthis rule. If you do, that target cannot be obscured\nif either of the following are true:\n• It’s also a valid target for another friendly\nSPECTRE SQUAD operative.\n• It’s within 6\" of a friendly VOX-RELAY\nBEACON operative."
+    },
+    {
+      "id": "kt-spectre_squad-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "照明弹",
+      "title_en": "STARSHELL FLARE",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-照明弹.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营装备\n照明弹\n帝国卫队通常将照明弹用于照亮战场，但\n这些聪慧的老兵则将其用作震慑与干扰的手\n段。\n战略计划。一名己方魅影小队特工可以立即执\n行一次无消耗的震荡手雷行动（见通用装备）。\n通过这个规则执行的这类行动不被计入行动的数\n量限制（若您在装备中同时选择了那个手雷）。\n当一名敌方特工的 APL 属性因为这个战略计划\n而被改变，在本场战斗中您便无法再次使用这个\n装备。",
+      "text_en": "SPECTRE SQUAD\nFACTION EQUIPMENT\nSTARSHELL FLARE\nWhile starshells are commonly used by the Imperial\nGuard for battlefield illumination, these wily veterans\nemploy them to stun and distract.\nSTRATEGIC GAMBIT. One friendly SPECTRE\nSQUAD operative can immediately perform\na free Stun Grenade action (see universal\nequipment). Performing this action using this rule\ndoesn’t count towards its action limits (i.e. if you\nalso select that grenade from equipment). When\nan enemy operative’s APL stat is changed as a\nresult of this STRATEGIC GAMBIT, you cannot use\nthis equipment for the rest of the battle."
+    },
+    {
+      "id": "kt-spectre_squad-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "先进伪装",
+      "title_en": "ADVANCED CAMOUFLAGE",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-先进伪装.png",
+      "is_back": false,
+      "text": "魅影小队\n阵营装备\n先进伪装\n这些魅影战士狡猾而巧妙地隐藏自身行踪。\n己方魅影小队特工（通讯中继信标除外）可以\n执行下列独特行动：\n先进伪装 1AP\n直到这名特工的下一次激活开始前，若特\n工拥有隐蔽命令和掩护，便无法被选为有效目\n标，本规则的优先度高于所有其他规则（例\n如“追踪”武器规则和制高点地形)，除非攻击\n者位于特工的 2\" 内。\n当这名特工对一名敌方特工可见且位于其\n3\" 内时，它便无法执行这个行动。",
+      "text_en": "SPECTRE SQUAD\nFACTION EQUIPMENT\nADVANCED CAMOUFLAGE\nThese Spectres employ cunning means of\nconcealing themselves.\nFriendly SPECTRE SQUAD operatives (excluding\nVOX-RELAY BEACON) can perform the following\nunique action:\nADVANCED CAMOUFLAGE 1AP\nUntil the start of this operative’s next\nactivation, while it has a Conceal order and\nis in cover, it cannot be selected as a valid\ntarget, taking precedence over all other\nrules (e.g. Seek, Vantage terrain) except\nbeing within 2\".\nThis operative cannot perform this\naction while visible to and within 3\" of an\nenemy operative."
+    }
+  ]
+}

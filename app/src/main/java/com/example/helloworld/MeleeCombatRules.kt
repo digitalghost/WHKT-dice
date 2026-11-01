@@ -62,7 +62,12 @@ data class MeleeFighter(
     val canFight: Boolean = true,
     val accurateRetained: Int = 0,
     val extraRerolls: Int = 0,
-    val rules: MeleeWeaponRules = MeleeWeaponRules()
+    val rules: MeleeWeaponRules = MeleeWeaponRules(),
+    /** Successes retained without rolling (team rules), chosen before the roll. */
+    val presetNormals: Int = 0,
+    val presetCriticals: Int = 0,
+    val presetNote: String = "",
+    val frenzied: Boolean = false
 ) {
     val wounded: Boolean
         get() = currentWounds > 0 && currentWounds * 2 < maxWounds
@@ -71,7 +76,7 @@ data class MeleeFighter(
         get() = (baseHit + (if (wounded) 1 else 0) - assists).coerceIn(2, 6)
 
     val rolledDiceCount: Int
-        get() = if (canFight) (attacks - accurateRetained).coerceAtLeast(0) else 0
+        get() = if (canFight) (attacks - accurateRetained - presetNormals - presetCriticals).coerceAtLeast(0) else 0
 }
 
 data class MeleeDie(
@@ -114,6 +119,10 @@ data class MeleeCombatState(
     val defenderShockUsed: Boolean = false,
     val attackerStunned: Boolean = false,
     val defenderStunned: Boolean = false,
+    val attackerNormalStrikesTaken: Int = 0,
+    val defenderNormalStrikesTaken: Int = 0,
+    val attackerCritStrikesTaken: Int = 0,
+    val defenderCritStrikesTaken: Int = 0,
     val attackerCpSpent: Int = 0,
     val defenderCpSpent: Int = 0,
     val finishReason: String? = null,
@@ -193,12 +202,17 @@ object MeleeCombatRules {
         require(defenderValues.size == state.defender.rolledDiceCount)
         require((attackerValues + defenderValues).all { it in 1..6 })
 
-        val attackerPool = MeleeDicePool(attackerValues.mapIndexed { index, value -> MeleeDie(index, value) })
-        val defenderPool = MeleeDicePool(defenderValues.mapIndexed { index, value -> MeleeDie(index, value) })
+        fun poolOf(f: MeleeFighter, values: List<Int>) = MeleeDicePool(
+            dice = values.mapIndexed { index, value -> MeleeDie(index, value) },
+            retainedNormals = f.presetNormals,
+            retainedCriticals = f.presetCriticals
+        )
+        val attackerPool = poolOf(state.attacker, attackerValues)
+        val defenderPool = poolOf(state.defender, defenderValues)
         val rolled = state.copy(
             attackerPool = attackerPool,
             defenderPool = defenderPool,
-            log = state.log + listOf(
+            log = state.log + listOf(state.attacker, state.defender).mapNotNull { presetLine(it.operativeName, it.presetNormals, it.presetCriticals, it.presetNote) } + listOf(
                 "${state.attacker.operativeName}掷骰：${attackerValues.joinToString("、").ifBlank { "无" }}",
                 "${state.defender.operativeName}掷骰：${defenderValues.joinToString("、").ifBlank { "无" }}"
             )
@@ -350,16 +364,6 @@ object MeleeCombatRules {
             .copy(log = state.log + dieEditLine(state.fighter(side).operativeName, die.value, updated.value, override, note))
     }
 
-    fun addRetained(state: MeleeCombatState, side: MeleeSide, critical: Boolean, note: String = ""): MeleeCombatState {
-        require(state.phase == MeleePhase.REROLL)
-        val pool = state.pool(side)
-        val next = if (critical) pool.copy(retainedCriticals = pool.retainedCriticals + 1)
-        else pool.copy(retainedNormals = pool.retainedNormals + 1)
-        return state.withPool(side, next).copy(
-            log = state.log + "${state.fighter(side).operativeName}预留 1 个${if (critical) "暴击" else "普通成功"}${noteSuffix(note)}"
-        )
-    }
-
     fun readDie(state: MeleeCombatState, side: MeleeSide, die: MeleeDie): DieReading {
         val fighter = state.fighter(side)
         return DieClassifier.read(die.value, die.override, fighter.effectiveHit, fighter.rules.lethalThreshold)
@@ -387,6 +391,10 @@ object MeleeCombatRules {
             retainedNormals = fighter.accurateRetained + pool.retainedNormals
         )
     }
+
+    /** The pool [finishRetention] would produce for [side] with [choices], for a live preview. */
+    fun previewRetention(state: MeleeCombatState, side: MeleeSide, choices: MeleeRetainChoices): MeleeDicePool =
+        classify(state.fighter(side), state.pool(side), choices).first
 
     fun finishRetention(
         state: MeleeCombatState,
@@ -451,10 +459,11 @@ object MeleeCombatRules {
     fun canParryWith(state: MeleeCombatState, side: MeleeSide, success: MeleeSuccess): Boolean {
         if (state.phase != MeleePhase.RESOLVE || state.resolveTurn != side) return false
         if (state.pool(side).count(success) <= 0) return false
-        if (state.fighter(side.opponent()).rules.brutal && success != MeleeSuccess.CRITICAL) return false
         val opponentPool = state.pool(side.opponent())
+        if (opponentPool.successes == 0) return true
+        if (state.fighter(side.opponent()).rules.brutal && success != MeleeSuccess.CRITICAL) return false
         return when (success) {
-            MeleeSuccess.NORMAL -> opponentPool.normals > 0 || opponentPool.successes == 0
+            MeleeSuccess.NORMAL -> opponentPool.normals > 0
             MeleeSuccess.CRITICAL -> true
         }
     }
@@ -464,7 +473,9 @@ object MeleeCombatRules {
         side: MeleeSide,
         success: MeleeSuccess,
         use: MeleeUse,
-        parryTarget: MeleeSuccess? = null
+        parryTarget: MeleeSuccess? = null,
+        damageDelta: Int = 0,
+        extraNote: String = ""
     ): MeleeCombatState {
         require(state.phase == MeleePhase.RESOLVE && state.resolveTurn == side)
         require(state.pool(side).count(success) > 0) { "没有可结算的成功骰" }
@@ -474,19 +485,45 @@ object MeleeCombatRules {
         var defender = state.defender
         var attackerShockUsed = state.attackerShockUsed
         var defenderShockUsed = state.defenderShockUsed
+        var attackerNormalStrikesTaken = state.attackerNormalStrikesTaken
+        var defenderNormalStrikesTaken = state.defenderNormalStrikesTaken
+        var attackerCritStrikesTaken = state.attackerCritStrikesTaken
+        var defenderCritStrikesTaken = state.defenderCritStrikesTaken
         val notes = mutableListOf<String>()
         val fighter = state.fighter(side)
         val opponent = state.fighter(side.opponent())
 
         when (use) {
             MeleeUse.STRIKE -> {
-                val damage = if (success == MeleeSuccess.CRITICAL) fighter.criticalDamage else fighter.normalDamage
-                if (side == MeleeSide.ATTACKER) {
-                    defender = defender.copy(currentWounds = (defender.currentWounds - damage).coerceAtLeast(0))
+                val baseDamage = if (success == MeleeSuccess.CRITICAL) fighter.criticalDamage else fighter.normalDamage
+                val damage = if (damageDelta < 0 && baseDamage > 0) {
+                    (baseDamage + damageDelta).coerceAtLeast(1)
                 } else {
-                    attacker = attacker.copy(currentWounds = (attacker.currentWounds - damage).coerceAtLeast(0))
+                    (baseDamage + damageDelta).coerceAtLeast(0)
                 }
-                notes += "${fighter.operativeName}以${success.label()}出击，${opponent.operativeName}受到 $damage 点伤害"
+                if (side == MeleeSide.ATTACKER) {
+                    if (damage > 0) {
+                        if (success == MeleeSuccess.CRITICAL) defenderCritStrikesTaken++ else defenderNormalStrikesTaken++
+                    }
+                    val rawWounds = (defender.currentWounds - damage).coerceAtLeast(0)
+                    val frenzySurvives = defender.frenzied && defenderCritStrikesTaken == 0 && defenderNormalStrikesTaken < 2
+                    defender = defender.copy(currentWounds = if (rawWounds <= 0 && frenzySurvives) 1 else rawWounds)
+                    notes += "${fighter.operativeName}以${success.label()}出击，${opponent.operativeName}受到 $damage 点伤害${noteSuffix(extraNote)}"
+                    if (rawWounds <= 0 && frenzySurvives) {
+                        notes += "${opponent.operativeName}处于狂暴状态，首次受普通出击未丧失行动能力（保留 1 伤）"
+                    }
+                } else {
+                    if (damage > 0) {
+                        if (success == MeleeSuccess.CRITICAL) attackerCritStrikesTaken++ else attackerNormalStrikesTaken++
+                    }
+                    val rawWounds = (attacker.currentWounds - damage).coerceAtLeast(0)
+                    val frenzySurvives = attacker.frenzied && attackerCritStrikesTaken == 0 && attackerNormalStrikesTaken < 2
+                    attacker = attacker.copy(currentWounds = if (rawWounds <= 0 && frenzySurvives) 1 else rawWounds)
+                    notes += "${fighter.operativeName}以${success.label()}出击，${opponent.operativeName}受到 $damage 点伤害${noteSuffix(extraNote)}"
+                    if (rawWounds <= 0 && frenzySurvives) {
+                        notes += "${opponent.operativeName}处于狂暴状态，首次受普通出击未丧失行动能力（保留 1 伤）"
+                    }
+                }
 
                 val shockUnused = if (side == MeleeSide.ATTACKER) !attackerShockUsed else !defenderShockUsed
                 if (success == MeleeSuccess.CRITICAL && fighter.rules.shock && shockUnused) {
@@ -525,6 +562,10 @@ object MeleeCombatRules {
             defender = defender,
             attackerShockUsed = attackerShockUsed,
             defenderShockUsed = defenderShockUsed,
+            attackerNormalStrikesTaken = attackerNormalStrikesTaken,
+            defenderNormalStrikesTaken = defenderNormalStrikesTaken,
+            attackerCritStrikesTaken = attackerCritStrikesTaken,
+            defenderCritStrikesTaken = defenderCritStrikesTaken,
             log = state.log + notes
         ).withPool(side, ownPool).withPool(side.opponent(), opponentPool)
 
@@ -553,6 +594,24 @@ object MeleeCombatRules {
         require(state.pool(owner).count(success) > 0) { "没有这种未结算成功" }
         val next = state.withPool(owner, state.pool(owner).remove(success)).copy(
             log = state.log + "舍弃${state.fighter(owner).operativeName}的 1 个${success.label()}${noteSuffix(note)}"
+        )
+        return normalizeResolution(next)
+    }
+
+    /** Parry an opponent's CRITICAL success using a NORMAL success (e.g. 生存本能 / 决斗家). */
+    fun parryCriticalWithNormal(state: MeleeCombatState, side: MeleeSide, note: String = "生存本能/决斗家"): MeleeCombatState {
+        require(state.phase == MeleePhase.RESOLVE && state.resolveTurn == side)
+        require(state.pool(side).normals > 0) { "没有可用的普通成功" }
+        require(!state.fighter(side.opponent()).rules.brutal) { "对方武器残暴，不能用普通成功格挡" }
+        val opponentPool = state.pool(side.opponent())
+        require(opponentPool.criticals > 0) { "对手没有暴击成功" }
+        val ownPool = state.pool(side).remove(MeleeSuccess.NORMAL)
+        val nextOppPool = opponentPool.remove(MeleeSuccess.CRITICAL)
+        val fighter = state.fighter(side)
+        val opponent = state.fighter(side.opponent())
+        val next = state.withPool(side, ownPool).withPool(side.opponent(), nextOppPool).copy(
+            resolveTurn = side.opponent(),
+            log = state.log + "${fighter.operativeName}以普通成功格挡${opponent.operativeName}的暴击成功${noteSuffix(note)}"
         )
         return normalizeResolution(next)
     }

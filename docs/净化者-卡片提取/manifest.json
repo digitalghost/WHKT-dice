@@ -1,0 +1,922 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-SANCTIFIERS",
+  "team_name_zh": "净化者",
+  "team_name_en": "Sanctifiers",
+  "source_pdf": "最新杀戮小队规则更新/净化者杀戮小队 Sanctifiers 杀戮小队规则.pdf",
+  "source_pdf_sha256": "ff70c2662324a93c78831b2497a5080fa9e78de7a74e886a063b88e30f16989e",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 34,
+    "operative": 11,
+    "operative-ability": 4,
+    "team-selection": 2,
+    "faction-rule": 3,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 5
+  },
+  "cards": [
+    {
+      "id": "kt-sanctifiers-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "净化者忏悔士-数据卡",
+      "title_en": "SANCTIFIER CONFESSOR",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-净化者忏悔士-数据卡.png",
+      "is_back": false,
+      "text": "净化者忏悔士 APL 移动豁免耐伤\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n责罪之槌 4 3+ 5/5 残暴、震荡\n队列之首：在第一个转折点后的每个转折点中，每当这名特工为一名演说家并在激活中执行了冲锋，后撤\n或转移行动，您便可以在其进行移动前使用本规则。若此，请确定受到布道增益的且对该特工可见的（反\n之亦然)每一名其他己方净化者特工。在这名特工结束那个行动后，这些己方净化者特工的每一名都可\n以按您希望的顺序立即执行一次无消耗的冲锋，后撤或转移行动（为每一名特工分别进行选择），但这些\n特工不能移动超过 3\" 或者被移除后再次部署到距离原先 3\" 外的位置，并且在结束那个移动时必须依然位\n于受到布道增益的范围内。如果这名特工在这个规则完整结算前被残废，如被戒备行动打断（见核心规则\n书，近距离战斗），则在这个规则被结算前不要将其从杀戮区移除。\n请继续阅读背面规则\n净化者、帝国、国教教会、忏悔士 32",
+      "weapon_types": {
+        "责罪之槌": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER CONFESSOR\n2 6\" 5+ 10\nNAME A HIT D WR\nMace of Censure 4 3+ 5/5 Brutal, Shock\nLead the Procession: In each turning point after the first, whenever this operative is an ORATOR and performs the Charge, Fall\nBack or Reposition action during its activation, you can use this rule before it moves. If you do, determine each other friendly\nSANCTIFIER operative that’s benefitting from the SERMON and is visible to this operative (or vice versa). After this operative\nends that action, each of those friendly SANCTIFIER operatives can immediately perform a free Charge, Fall Back or\nReposition action in an order of your choice (choose separately for each), but each cannot move more than or be removed and\nset up more than 3\" and must end that move in a location where they are still benefitting from the SERMON. If this operative is\nincapacitated before this rule is fully resolved, e.g. from the Guard action’s interruption (see close quarters rules, Kill Team Core\nBook), don’t remove it from the killzone until this rule has been resolved.\nRULES CONTINUE ON OTHER SIDE\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, LEADER, CONFESSOR 32"
+    },
+    {
+      "id": "kt-sanctifiers-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "净化者忏悔士-能力卡",
+      "title_en": "SANCTIFIER CONFESSOR",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-净化者忏悔士-能力卡.png",
+      "is_back": false,
+      "text": "净化者忏悔士 APL 移动豁免耐伤\n2 6\" 5+ 10\n激昂宣令：每当位于这名特工 6\" 内且可见的一名敌\n方特工在激活或反击中执行一个行动时，您可以使\n用本规则。若此，掷一枚 D6：若掷骰结果高于那\n个敌方特工的 APL 属性：\n• 它无法在那次激活或反击中执行那次行动（并且\n消耗的 AP 不会退还）。若这是一次反应，则那\n个反应结束。\n• 您在战斗中不能再次使用本规则。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER CONFESSOR\n2 6\" 5+ 10\nCommanding Declamation: Whenever an enemy operative\nwould perform an action during an activation or counteraction\nwhile visible to and within 6\" of this operative, you can use this\nrule. If you do, roll one D6: if the result is higher than that enemy\noperative’s APL stat:\n• It cannot perform that action during that activation/\ncounteraction (the AP spent on it isn’t refunded). If it’s a\ncounteraction, that counteraction ends.\n• You cannot use this rule again during the battle."
+    },
+    {
+      "id": "kt-sanctifiers-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "净化者智天使-数据卡",
+      "title_en": "SANCTIFIER CHERUB",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-净化者智天使-数据卡.png",
+      "is_back": false,
+      "text": "净化者智天使 APL 移动豁免耐伤\n2 7\" 5+ 5\n名称攻击命中伤害武器规则\n激励器 3 5+ 1/3 震荡\n智天使：\n• 在判断对目标标识的控制时，将该特工的 APL 视\n作比实际属性低 1 点。请注意，这并非对 APL 属\n性的修正，因此任何修正将与本规则效果叠加。\n• 当这名特工拥有隐匿命令且被掩护时，其无法被\n选为有效目标，本规则优先于其他所有规则（例\n如“追踪”武器规则和地形制高点），除非选择\n目标的特工位于该特工的 2\" 内。\n• 这名特工无法使用任何不在其数据卡上的武器或\n执行除了激励以外的任何独特行动。\n请继续阅读背面规则\n净化者、帝国、国教教会、智天使 25",
+      "weapon_types": {
+        "激励器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER CHERUB\n2 7\" 5+ 5\nNAME A HIT D WR\nIncentiviser 3 5+ 1/3 Shock\nCherub:\n• Whenever determining control of an objective marker, treat\nthis operative’s APL stat as 1 lower. Note this isn’t a change\nto its APL stat, so any changes are cumulative with this.\n• Whenever this operative has a Conceal order and is in cover,\nit cannot be selected as a valid target, taking precedence\nover all other rules (e.g. Seek, Vantage terrain) except being\nwithin 2\".\n• This operative cannot use any weapons that aren’t on its\ndatacard, or perform unique actions other than Incentivise.\nRULES CONTINUE ON OTHER SIDE\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, CHERUB 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "净化者智天使-能力卡",
+      "title_en": "SANCTIFIER CHERUB",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-净化者智天使-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n净化者智天使\n2 7\" 5+ 5\n飞行：每当这名特工开始执行冲锋，后撤或转移行\n动时，便可以飞行。若选择飞行，不要移动它。作\n为替代，将特工移出杀戮区，随后将其部署至完全\n位于原本位置一定距离内，距离等同于该特工的移\n动属性，并且在测量这个距离时，仅测量水平距离\n（如果是墓穴世界这类使用近距离战斗规则的杀戮\n区，您还不能越过或穿过墙壁地形测量距离）。请\n注意，通过这种方式执行冲锋行动的特工不会获得\n额外的移动距离。特工必须被部署至可以将其容纳\n的位置，并且除了执行冲锋行动外，特工不能被部\n署至敌方特工的交战范围内。\n激励 1AP\n支援。选择对这名特工可见且位于其 2\" 内的另一\n名己方净化者特工（忏悔士，死亡教派刺客，\n圣迹士以及演说家除外）。直到那名特工下一次\n激活结束前，为其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行此行\n动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER CHERUB\n2 7\" 5+ 5\nFly: Whenever this operative is performing the Charge, Fall\nBack or Reposition action, it can FLY. If it does, don’t move\nit. Instead, remove it from the killzone and set it back up wholly\nwithin a distance equal to its Move stat horizontally of its original\nlocation (in a killzone that uses the close quarters rules, e.g.\nKillzone: Tomb World, this distance cannot be measured over or\nthrough Wall terrain). Note that it gains no additional distance\nwhen performing the Charge action. It must be set up in a\nlocation it can be placed, and unless it’s the Charge action, it\ncannot be set up within control range of an enemy operative.\nINCENTIVISE 1AP\nSUPPORT. Select one other friendly SANCTIFIER\noperative (excluding CONFESSOR, DEATH CULT\nASSASSIN, MIRACULIST and ORATOR) visible to and\nwithin 2\" of this operative. Until the end of that operative’s\nnext activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-sanctifiers-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "净化者烈火士-数据卡",
+      "title_en": "SANCTIFIER CONFLAGRATOR",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-净化者烈火士-数据卡.png",
+      "is_back": false,
+      "text": "净化者烈火士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n双持喷火手枪（集中） 4 2+ 3/3 范围 6\"、集中、洪流 2\"、烈焰*\n双持喷火手枪（双重涌流） 4 2+ 3/3 范围 6\"、集中、洪流 0\"、\n双重涌流¹、烈焰*\n枪托 4 4+ 2/3 -\n1双重涌流：选择至多两个不位于己方特工控制范\n围内且不同的有效目标。按照您选择的顺序使用该\n武器对这两个目标执行射击（为每个目标分别进行\n掷骰)。洪流 0\" 意味着您无法选择次要目标，但这\n个武器在规则的其他层面依然具有“洪流”武器规\n则，例如拥挤堡垒规则（见核心规则书，杀戮区：\n沃库斯)。\n圣珠架：这名特工可以执行圣珠行动（参见阵营装\n备)。通过这种方式执行此行动不被计入每个转折\n点限一次的限制（即：您可以选择其他特工使用这\n个装备)。\n净化者、帝国、国教教会、烈火士 25",
+      "weapon_types": {
+        "双持喷火手枪（集中）": "远程",
+        "双持喷火手枪（双重涌流）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER CONFLAGRATOR\n2 6\" 5+ 7\nNAME A HIT D WR\nTwin hand flamers (focused) 4 2+ 3/3 Range 6\", Saturate, Torrent 2\", Blaze*\nTwin hand flamers (twin torrent) 4 2+ 3/3 Range 6\", Saturate, Torrent 0\",\nTwin Torrent¹, Blaze*\nGun butts 4 4+ 2/3 -\n¹Twin Torrent: Select up to two different valid targets that\naren’t within control range of friendly operatives. Shoot with\nthis weapon against both of them in an order of your choice (roll\neach sequence separately). Torrent 0\" means you cannot select\nsecondary targets, but this weapon still has the Torrent weapon\nrule for all other rules purposes, e.g. the Condensed Stronghold\nrule (see Killzone: Volkus, Kill Team Core Book).\nSanctification Rack: This operative can perform the\nSanctification Orb action (see faction equipment). Doing so\nin this manner doesn’t count towards the once per turning point\nlimit (i.e. if you also select that equipment for other operatives).\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, CONFLAGRATOR 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "净化者死亡教派刺客-数据卡",
+      "title_en": "SANCTIFIER DEATH CULT ASSASSIN",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-净化者死亡教派刺客-数据卡.png",
+      "is_back": false,
+      "text": "净化者死亡教派刺客 APL 移动豁免耐伤\n3 6\" 5+ 8\n名称攻击命中伤害武器规则\n飞刀 4 3+ 2/5 范围 6\"、安静\n仪式双刃 4 2+ 4/6 -\n架刀待发：每当这名特工进行近战或反击时，您可\n以在常规顺序之前先结算一枚己方成功。若此，那\n枚成功必须进行格挡。\n历练刺客 1AP\n改变这名特工的命令。\n该特工不能在敌方特工的控制范围内执行此行\n动。\n净化者、帝国、国教教会、死亡教派刺客 25",
+      "weapon_types": {
+        "飞刀": "远程",
+        "仪式双刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER DEATH CULT ASSASSIN\n3 6\" 5+ 8\nNAME A HIT D WR\nThrowing knives 4 3+ 2/5 Range 6\", Silent\nRitual blades 4 2+ 4/6 -\nBladed Stance: Whenever this operative is fighting or retaliating,\nyou can resolve one of your successes before the normal order. If\nyou do, that success must be used to block.\nTRAINED ASSASSIN 1AP\nChange this operative’s order.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, DEATH CULT ASSASSIN 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "净化者训诫士-数据卡",
+      "title_en": "SANCTIFIER DRILL ABBOT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-净化者训诫士-数据卡.png",
+      "is_back": false,
+      "text": "净化者训诫士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n巨锤 4 4+ 4/4 残暴、震荡\n忠嗣苛律：当一名己方净化者特工位于这名特工\n6\" 内时，您可以忽视那名特工因为伤损造成的属性\n变动（包括其武器属性）。\n归空颅骨：每当一名敌方特工位于这名特工 4\" 内\n时，那名敌方特工的 APL 属性便无法增加（移除其\n拥有的所有 APL 属性正向修正）。如果距离这名特\n工 4\" 外的敌方特工拥有正向修正，且消耗了最后一\n点 AP 将那名特工移动至这名特工的 4\" 内，尽管这\n导致您的对手消耗了超过其 APL 属性的 AP，但这\n种情况下会被允许这么做。\n净化者、帝国、国教教会、训诫士 25",
+      "weapon_types": {
+        "巨锤": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER DRILL ABBOT\n2 6\" 5+ 7\nNAME A HIT D WR\nGreat hammer 4 4+ 4/4 Brutal, Shock\nSchola Progenium Disciplinarian: Whenever a friendly\nSANCTIFIER operative is within 6\" of this operative, you can\nignore any changes to that operative’s stats from being injured\n(including its weapons’ stats).\nNull Skull: Whenever an enemy operative is within 4\" of this\noperative, that enemy operative’s APL stat cannot be added\nto (remove all positive APL stat changes it has). If an enemy\noperative that’s more than 4\" from this operative has a positive\nAPL stat change and your opponent spends its final AP to move\nthat operative within 4\" of this operative, this can cause your\nopponent to have spent more AP than its APL stat – this is\npermitted in this situation.\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, DRILL ABBOT 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "净化者控诉士-数据卡",
+      "title_en": "SANCTIFIER PERSECUTOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-净化者控诉士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n净化者控诉士\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n喷火手枪 4 3+ 3/3 范围 6\"、集中、洪流 1\"、烈焰*\n开膛剑 4 4+ 5/6 残暴\n无情苛责：当这名特工在在每次激活中第一次执行\n近战行动时，若敌方特工和这名特工都没有在那次\n流程中被残废，则这名特工可以立即执行一次无消\n耗的近战行动，但您不能在那次行动中选择任何其\n他敌方特工作为近战目标(并且在其依然为有效目标\n的情况下)。本规则优先于行动限制。\n狂热报复：若这名战士在近战行动中被残废，那么\n在将其从杀戮区移出前，您可以使用一枚未结算的\n成功对那次流程中的敌方特工进行出击。\n净化者、帝国、国教教会、控诉士 25",
+      "weapon_types": {
+        "喷火手枪": "远程",
+        "开膛剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER PERSECUTOR\n2 6\" 5+ 7\nNAME A HIT D WR\nHand flamer 4 3+ 3/3 Range 6\", Saturate, Torrent 1\", Blaze*\nEviscerator 4 4+ 5/6 Brutal\nMerciless Castigation: The first time this operative performs the\nFight action during each of its activations, if neither it nor the\nenemy operative in that sequence is incapacitated, this operative\ncan immediately perform a free Fight action afterwards, but you\ncannot select any other enemy operative to fight against during\nthat action (and only if it’s still valid to fight against). This takes\nprecedence over action restrictions.\nFanatical Retribution: If this operative is incapacitated during\nthe Fight action, you can strike the enemy operative in that\nsequence with one of your unresolved successes before this\noperative is removed from the killzone.\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, PERSECUTOR 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "净化者圣迹士-数据卡",
+      "title_en": "SANCTIFIER MIRACULIST",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-净化者圣迹士-数据卡.png",
+      "is_back": false,
+      "text": "净化者圣迹士 APL 移动豁免耐伤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n圣光 4 2+ 4/3 范围 8\"、毁灭 3 、有限 1、穿刺 1 、\n集中、烈焰*\n焰火萦绕 4 2+ 4/4 爆炸 1\"、有限 1、萦绕¹、烈焰*\n燃火双手 1 2+ 7/8 残暴、有限 1、烈焰*\n双拳 2 5+ 1/2 -\n请继续阅读背面规则\n净化者、帝国、国教教会、圣迹士 25",
+      "weapon_types": {
+        "圣光": "远程",
+        "焰火萦绕": "远程",
+        "燃火双手": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER MIRACULIST\n2 6\" 4+ 7\nNAME A HIT D WR\nHoly light 4 2+ 4/3 Range 8\", Devastating 3, Limited 1, Piercing 1,\nSaturate, Blaze*\nWreathe in fire 4 2+ 4/4 Blast 1\", Limited 1, Wreathed¹, Blaze*\nBurning hands 1 2+ 7/8 Brutal, Limited 1, Blaze*\nFists 2 5+ 1/2 -\nRULES CONTINUE ON OTHER SIDE\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, MIRACULIST 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-10",
+      "sequence": 10,
+      "category": "operative-ability",
+      "title_zh": "净化者圣迹士-能力卡",
+      "title_en": "SANCTIFIER MIRACULIST",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工能力-净化者圣迹士-能力卡.png",
+      "is_back": false,
+      "text": "净化者圣迹士 APL 移动豁免耐伤\n2 6\" 4+ 7\n1萦绕：这名特工可以在一名敌方特工的控制范围\n内使用这个武器执行射击行动。在射击时无需选择\n有效目标，永远将这名特工作为主要目标，但只需\n射击次要目标，且目标无法被掩护或遮挡（换言\n之，从这名特工的位置确定爆炸，但这名特工不受\n影响）。\n圣迹：当这名特工在战斗中首次应当被残废时，它\n不会残废且余下 1 点耐伤，且在那个行动中也不会\n被残废。所有剩余的攻击骰子将被弃置（包含这名\n特工在近战或反击中使用的骰子）。这名特工随后\n可以立即执行一次无消耗的冲刺或后撤行动（但后\n者不能移动超过 3\"），这种行动不受这名特工之前\n进行的使其不能进行冲刺或后撤的行动影响。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER MIRACULIST\n2 6\" 4+ 7\n¹Wreathed: This operative can perform the Shoot action with\nthis weapon while within control range of an enemy operative.\nDon’t select a valid target. Instead, this operative is always the\nprimary target, but only shoot against secondary targets and they\ncannot be in cover or obscured (in other words, determine Blast\nfrom this operative, but this operative isn’t affected).\nMiracle: The first time this operative would be incapacitated\nduring the battle, it’s not incapacitated, has 1 wound remaining\nand cannot be incapacitated for the remainder of the action.\nAll remaining attack dice are discarded (including yours if this\noperative is fighting or retaliating), then this operative can\nimmediately perform a free Dash or Fall Back action (for the\nlatter, it cannot move more than 3\"), even if it’s performed an\naction that prevents it from performing those actions."
+    },
+    {
+      "id": "kt-sanctifiers-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "净化者传教士-数据卡",
+      "title_en": "SANCTIFIER MISSIONARY",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-净化者传教士-数据卡.png",
+      "is_back": false,
+      "text": "净化者传教士 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n圣火火盆 4 2+ 4/4 范围 4\"、集中、洪流 1\"、烈焰*\n热熔枪 4 4+ 6/3 范围 6\"、毁灭 4 、穿刺 2\n教廷火焰喷射器 4 2+ 4/4 范围 8\"、集中、洪流 2\"、烈焰*\n等离子枪（标准） 4 4+ 4/6 穿刺 1\n等离子枪（过载） 4 4+ 5/6 过热、致命 5+、穿刺 1\n圣火火盆 4 4+ 4/4 震荡、烈焰*\n链锯刃 4 4+ 4/5 -\n枪托 3 4+ 2/3 -\n请继续阅读背面规则\n净化者、帝国、国教教会、传教士 25",
+      "weapon_types": {
+        "圣火火盆": "近战",
+        "热熔枪": "远程",
+        "教廷火焰喷射器": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "链锯刃": "近战",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER MISSIONARY\n2 6\" 5+ 8\nNAME A HIT D WR\nBrazier of holy fire 4 2+ 4/4 Range 4\", Saturate, Torrent 1\", Blaze*\nMeltagun 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nMinistorum flamer 4 2+ 4/4 Range 8\", Saturate, Torrent 2\", Blaze*\nPlasma gun (standard) 4 4+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 4+ 5/6 Hot, Lethal 5+, Piercing 1\nBrazier of holy fire 4 4+ 4/4 Shock, Blaze*\nChainsword 4 4+ 4/5 -\nGun butt 3 4+ 2/3 -\nRULES CONTINUE ON OTHER SIDE\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, MISSIONARY 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-12",
+      "sequence": 12,
+      "category": "operative-ability",
+      "title_zh": "净化者传教士-能力卡",
+      "title_en": "SANCTIFIER MISSIONARY",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-净化者传教士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n净化者传教士\n2 6\" 5+ 8\n圣器：如果这名特工拥有圣器，则其总是受到布\n道增益。\n散播帝皇教诲：每当这名特工位于其他己方特工 6\"\n外时，其武器获得“严重”武器规则。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER MISSIONARY\n2 6\" 5+ 8\nHoly Relic: If this operative has a holy relic, it’s always\nbenefitting from the SERMON.\nSpread the Word of the God-Emperor: Whenever this operative\nis more than 6\" from other friendly operatives, its weapons have\nthe Severe weapon rule."
+    },
+    {
+      "id": "kt-sanctifiers-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "净化者布道士-数据卡",
+      "title_en": "SANCTIFIER PREACHER",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-净化者布道士-数据卡.png",
+      "is_back": false,
+      "text": "净化者布道士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n喷火手枪 4 2+ 3/3 范围 6\"、集中、洪流 1\"、烈焰*\n链锯刃 4 4+ 4/5 -\n守护信仰：当这名特工控制一个目标标识时，便受\n到布道增益。\n净化者、帝国、国教教会、布道士 25",
+      "weapon_types": {
+        "喷火手枪": "远程",
+        "链锯刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER PREACHER\n2 6\" 5+ 7\nNAME A HIT D WR\nHand flamer 4 2+ 3/3 Range 6\", Saturate, Torrent 1\", Blaze*\nChainsword 4 4+ 4/5 -\nDefend the Faith: Whenever this operative controls an objective\nmarker, it’s benefitting from the SERMON.\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, PREACHER 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "净化者持圣士-数据卡",
+      "title_en": "SANCTIFIER RELIQUANT",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-净化者持圣士-数据卡.png",
+      "is_back": false,
+      "text": "净化者持圣士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n喷火手枪 4 2+ 3/3 范围 6\"、集中、洪流 1\"、烈焰*\n枪托 3 4+ 2/3 -\n教派徽记：在确定这名特工 4\" 内的标识的控制权\n时，若至少有一名己方净化者特工在争夺该标\n识，将争夺标识的己方净化者特工 APL 属性总和\n增加 1 点。请注意这并不是对 APL 属性的修正，\n所以任何修正都会与之累加。\n献身国教：每个转折点一次，当位于这名特工 6\" 内\n且可见的一名就绪己方净化者特工被残废时，便\n可以使用本规则。若此，在那名特工从杀戮区移除\n前，它可以执行一个无消耗的行动（近战除外），\n并且您可以为此更改其命令。在那之后将其正常移\n出杀戮区。\n净化者、帝国、国教教会、持圣士 25",
+      "weapon_types": {
+        "喷火手枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER RELIQUANT\n2 6\" 5+ 7\nNAME A HIT D WR\nHand flamer 4 2+ 3/3 Range 6\", Saturate, Torrent 1\", Blaze*\nGun butt 3 4+ 2/3 -\nCult Icon: Whenever determining control of a marker within 4\" of\nthis operative, treat the total APL stat of friendly\nSANCTIFIER operatives that contest it as 1 higher if at least\none friendly SANCTIFIER operative contests that marker.\nNote this isn’t a change to the APL stat, so any changes are\ncumulative with this.\nImperial Cult Devotion: Once per turning point, when a ready\nfriendly SANCTIFIER operative is incapacitated while visible\nto and within 6\" of this operative, you can use this rule. If you do,\nbefore that operative is removed from the killzone, it can perform\none free action (excluding Fight), and you can change its order\nto do so. It’s then removed from the killzone as normal.\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, RELIQUANT 25"
+    },
+    {
+      "id": "kt-sanctifiers-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "净化者救赎士-数据卡",
+      "title_en": "SANCTIFIER SALVATIONIST",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-净化者救赎士-数据卡.png",
+      "is_back": false,
+      "text": "净化者救赎士 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n慰魂之杖 3 5+ 2/3 -\n转换立场：每当距离这名特工超过 6\" 的特工对这名\n特工 6\" 内的己方净化者特工进行射击时，将那名\n己方特工的豁免属性增加 1 点。\n医疗包 1AP\n选择这名特工控制范围内的一名己方净化者特\n工恢复最多 2D3 点失去的耐伤。\n该特工不能在敌方特工的控制范围内执行此行\n动。\n净化者、帝国、国教教会、救赎士 25",
+      "weapon_types": {
+        "慰魂之杖": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTIFIER SALVATIONIST\n2 6\" 5+ 7\nNAME A HIT D WR\nSoulstave 3 5+ 2/3 -\nConversion Field: Whenever an operative more than 6\" from\nthis operative is shooting a friendly SANCTIFIER operative\nwithin 6\" of this operative, improve that friendly operative’s Save\nstat by 1.\nMEDIKIT 1AP\nSelect one friendly SANCTIFIER operative within this\noperative’s control range to regain up to 2D3 lost wounds.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nSANCTIFIER , IMPERIUM, ADEPTUS MINISTORUM, MEDIC, SALVATIONIST 25"
+    },
+    {
+      "id": "kt-sanctifiers-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "净化者杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-净化者杀戮小队-1.png",
+      "is_back": false,
+      "text": "净化者杀戮小队\n原型：安全保护、搜索与摧毁\n特工\n↘ 1 名净化者忏悔士特工\n↘ 1 名净化者智天使特工\n↘ 9 名净化者特工，从以下列表进行选择：\n• 烈火士\n• 死亡教派刺客\n• 训诫士\n• 圣迹士\n• 传教士，装备有以下一种选项:\n○ 教廷火焰喷射器，圣火火盆\n○ 教廷火焰喷射器，枪托，圣器\n• 传教士，装备有以下一种选项:\n○ 热熔枪，链锯刃，圣器\n○ 等离子枪，链锯刃，圣火火盆\n• 控诉士\n• 布道士\n• 持圣士\n• 救赎士\n请继续阅读背面规则",
+      "text_en": "SANCTIFIERS KILL TEAM\nARCHETYPES: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 SANCTIFIER CONFESSOR operative\n↘ 1 SANCTIFIER CHERUB operative\n↘ 9 SANCTIFIER operatives selected from the\nfollowing list:\n• CONFLAGRATOR\n• DEATH CULT ASSASSIN\n• DRILL ABBOT\n• MIRACULIST\n• MISSIONARY with one of the\nfollowing options:\n○ Ministorum flamer; brazier of holy fire\n○ Ministorum flamer; gun butt; holy relic\n• MISSIONARY with one of the\nfollowing options:\n○ Meltagun; chainsword; holy relic\n○ Plasma gun; chainsword; brazier of\nholy fire\n• PERSECUTOR\n• PREACHER\n• RELIQUANT\n• SALVATIONIST\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-sanctifiers-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "净化者杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-净化者杀戮小队-2.png",
+      "is_back": true,
+      "text": "除了布道士特工以外，上述的每一名特工只能被\n纳入您的杀戮小队一次。同时。您的杀戮小队至\n多能纳入四名布道士特工。\n在每场战斗中，您无法选择超过一名在选项中\n拥有圣火火盆的特工。",
+      "text_en": "Other than PREACHER operatives, your kill\nteam can only include each operative on this list\nonce. Your kill team can only include up to four\nPREACHER operatives.\nYou cannot select an option that includes a\nbrazier of holy fire more than once per battle."
+    },
+    {
+      "id": "kt-sanctifiers-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "烈焰",
+      "title_en": "BLAZE",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-烈焰.png",
+      "is_back": false,
+      "text": "净化者\n阵营规则\n烈焰\n只有圣火才能消解越轨行为。通过火焰喷射\n器以及燃烧的双手，信徒们清除着异端的邪\n恶污秽。\n这个杀戮小队中的一些武器拥有烈焰规则，其规\n则如下：\n*烈焰：若您的任何关键成功造成伤害，则这名\n特工使用这个武器攻击的目标特工获得一枚己方\n烈焰指示物（如果其尚未拥有一枚这个指示物）\n。每当拥有一枚己方烈焰指示物的特工被激活，\n便受到 D3 点伤害。之后控制那名特工的玩家进\n行下列选项之一：\n• 掷一枚 D6：若掷骰结果为 3+，则移除那枚指\n示物。\n• 直到那名特工那次激活结束前，将其 APL 属\n性减去 1 点并移除那枚指示物。",
+      "text_en": "SANCTIFIER\nFACTION RULE\nBLAZE\nOnly in holy fire can deviance be absolved. With flamer\nand burning hands the faithful purge the malignant taint\nof heresy.\nSome weapons in this team’s rules have the Blaze\nweapon rule below.\n*Blaze: If you inflict damage with any critical\nsuccesses, the operative this weapon is being\nused against gains one of your Blaze tokens (if it\ndoesn’t already have one). Whenever an operative\nthat has one of your Blaze tokens is activated,\ninflict D3 damage on it. Then that operative’s\ncontrolling player selects one of the following:\n• Roll one D6: on a 3+, remove that token.\n• Subtract 1 from the operative’s APL stat until\nthe end of that activation to remove that token."
+    },
+    {
+      "id": "kt-sanctifiers-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "国教布道-1",
+      "title_en": "MINISTORUM SERMON",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-国教布道-1.png",
+      "is_back": false,
+      "text": "净化者\n阵营规则\n国教布道\n一位热情洋溢的大演说家正在高声进行着布\n道。话语如同焰火和硫磺一般点燃了追随者的\n热情，使他们抛下伤痛继续战斗。\n战略计划。选择一名己方净化者特工。若一名\n己方忏悔士特工没有被残废，则您必须选择它。\n直到您在战斗中再一次使用这个战略计划前，那\n名特工获得演说家关键词。\n当一名己方净化者特工位于一名己方演说家特\n工 3\" （若那名演说家为忏悔士则为 6\"）内时，\n那名己方净化者特工便受到布道增益。\n请继续阅读背面规则",
+      "text_en": "SANCTIFIER\nFACTION RULE\nMINISTORUM SERMON\nA mighty orator booms out an impassioned sermon.\nThe fire and brimstone words inflame the zeal of their\nfollowers, enabling them to shrug off wounds and\nremain in the fight.\nSTRATEGIC GAMBIT. Select one friendly\nSANCTIFIER operative. If a friendly CONFESSOR\noperative hasn’t been incapacitated, you must\nselect it. Until you use this STRATEGIC GAMBIT\nagain during the battle, that operative has the\nORATOR keyword.\nWhenever a friendly SANCTIFIER operative is\nwithin 3\" of a friendly ORATOR operative (or 6\"\nif the ORATOR is a CONFESSOR), that friendly\nSANCTIFIER operative is benefitting from\nthe SERMON.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-sanctifiers-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "国教布道-2",
+      "title_en": "MINISTORUM SERMON",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-国教布道-2.png",
+      "is_back": true,
+      "text": "当一名己方净化者特工在一名己方演说家特工\n3\" （若那名演说家为忏悔士则为 6\"）内激活时，\n那名己方净化者特工在那次激活结束前受到布\n道增益（这意味着它即便因为移动超出了受演说\n家增益的范围也会受到增益）。\n当一名己方净化者特工受到布道增益，伤害为\n4 点或更多的普通或暴击伤害造成的伤害将减去\n1 点。",
+      "text_en": "Whenever a friendly SANCTIFIER operative\nis activated within 3\" of a friendly ORATOR\noperative (or 6\" if the ORATOR is a CONFESSOR),\nthat friendly SANCTIFIER operative is benefitting\nfrom the SERMON until the end of that activation\n(i.e. even if it then moves more than the distance\nrequirement from the ORATOR operative).\nWhenever a friendly SANCTIFIER operative\nis benefitting from the SERMON, Normal and\nCritical Dmg of 4 or more inflicts 1 less damage\non it."
+    },
+    {
+      "id": "kt-sanctifiers-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "SANCTIFIER",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "净化者\n标识/指示物指南\n烈焰指示物激昂宣令燃火双手\n指示物指示物\n演说家指示物圣光指示物圣迹指示物\n浸湿指示物焰火萦绕献身国教\n指示物指示物\n贞洁印章帝国国教标志圣珠指示物\n指示物指示物",
+      "text_en": "SANCTIFIER\nMARKER/TOKEN GUIDE\nBlaze token Commanding Burning Hands\nDeclamation token\ntoken\nOrator token Holy Light Miracle token\ntoken\nDoused token Wreathe in Fire Imperial Cult\ntoken Devotion token\nPurity Seals Imperial Cult Sanctification\ntoken Symbols token Orbs token"
+    },
+    {
+      "id": "kt-sanctifiers-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "帝皇佑护",
+      "title_en": "THE EMPEROR PROTECTS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-帝皇佑护.png",
+      "is_back": false,
+      "text": "净化者\n战略计谋\n帝皇佑护\n帝国信仰最为忠实的信徒相信自己会受到帝皇\n佑护。在冲入战斗时，他们认为自己的信念会\n保护自己。\n当一名特工对受到布道增益的一名己方净化者\n特工射击时，您可以重掷任意数量的某个结果的\n防御骰子（例如，结果为 2）。",
+      "text_en": "SANCTIFIER\nSTRATEGY PLOY\nTHE EMPEROR PROTECTS\nThe most dedicated adherents to the Imperial Creed\nbelieve that the Emperor protects. They hurl themselves\ninto battle, confident that their faith will shield them.\nWhenever an operative is shooting a friendly\nSANCTIFIER operative that’s benefitting from\nthe SERMON, you can re-roll any of your defence\ndice results of one result (e.g. results of 2)."
+    },
+    {
+      "id": "kt-sanctifiers-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "虔诚击打",
+      "title_en": "FERVENT BRAWL",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-虔诚击打.png",
+      "is_back": false,
+      "text": "净化者\n战略计谋\n虔诚击打\n一旦祭司道出不可饶恕的抨击，净化者便会不\n知疲倦地在怒火中作战。\n当受到布道增益的一名己方净化者特工处于近\n战或反击中，其近战武器便获得“无休”武器\n规则。",
+      "text_en": "SANCTIFIER\nSTRATEGY PLOY\nFERVENT BRAWL\nWith the intolerant diatribes of the priesthood ringing in\ntheir ears, the Sanctifiers fight with a tireless fury.\nWhenever a friendly SANCTIFIER operative\nthat’s benefitting from the SERMON is fighting or\nretaliating, its melee weapons have the Ceaseless\nweapon rule."
+    },
+    {
+      "id": "kt-sanctifiers-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "狂热控诉",
+      "title_en": "ZEALOUS PERSECUTION",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-狂热控诉.png",
+      "is_back": false,
+      "text": "净化者\n战略计谋\n狂热控诉\n异端存活的时间越长，留下的印记就越难以磨\n灭。因此，必须对其迅速果断地进行清理。\n每当一名己方净化者特工在执行过冲锋行动的\n激活中进行近战，其近战武器获得“致命 5+”\n武器规则。",
+      "text_en": "SANCTIFIER\nSTRATEGY PLOY\nZEALOUS PERSECUTION\nThe longer that heresy is allowed to persist, the more\nindelible the mark it leaves. It must be scoured swiftly\nand without mercy.\nWhenever a friendly SANCTIFIER operative is\nfighting during an activation in which it performed\nthe Charge action, its melee weapons have the\nLethal 5+ weapon rule."
+    },
+    {
+      "id": "kt-sanctifiers-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "召集信徒",
+      "title_en": "RALLY THE FLOCK",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-召集信徒.png",
+      "is_back": false,
+      "text": "净化者\n战略计谋\n召集信徒\n宣讲之声盖过了雷鸣般的战斗声响，将虔诚之\n人拉回队伍。\n受到布道增益的每一名己方净化者特工（演说\n家除外）可以立即按照您决定的顺序执行一次无\n消耗的冲刺或后撤行动（为每一名特工分别进行\n选择，后者不能移动超过 3\")。这些行动在移动\n结束时必须更为靠近一名己方演说家特工且对其\n可见（反之亦然）。您不能在第一个转折点中使\n用这个战略计谋。",
+      "text_en": "SANCTIFIER\nSTRATEGY PLOY\nRALLY THE FLOCK\nAn orator’s voice booms above the thunderous din of\ncombat, drawing the faithful back into formation.\nEach friendly SANCTIFIER operative (excluding\nORATOR) that’s benefitting from the SERMON\ncan immediately perform a free Dash or Fall\nBack action in an order of your choice (choose\nseparately for each and, for the latter, it cannot\nmove more than 3\"). Each that does so must end\nthat move closer and visible to (or vice versa) a\nfriendly ORATOR operative. You cannot use this\nploy during the first turning point."
+    },
+    {
+      "id": "kt-sanctifiers-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "玫瑰念珠",
+      "title_en": "ROSARIUS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-玫瑰念珠.png",
+      "is_back": false,
+      "text": "净化者\n交战计谋\n玫瑰念珠\n作为官员神圣象征的玫瑰念珠中包含了一个转\n换立场发生器，能够偏转攻击。\n当一枚攻击骰子对一名己方净化者特工造成普\n通伤害时使用此交战计谋。无视那次伤害。",
+      "text_en": "SANCTIFIER\nFIREFIGHT PLOY\nROSARIUS\nA sacred symbol of office, the Rosarius contains a\npowerful conversion field generator capable of turning\naside incoming blows.\nUse this firefight ploy when an attack dice\ninflicts Normal Dmg on a friendly SANCTIFIER\noperative. Ignore that inflicted damage."
+    },
+    {
+      "id": "kt-sanctifiers-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "狂热根除",
+      "title_en": "ARDENT ERADICATION",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-狂热根除.png",
+      "is_back": false,
+      "text": "净化者\n交战计谋\n狂热根除\n对那些与帝国信仰抗衡的人而言，只有一种刑\n罚：死刑。\n在一名己方净化者特工进行攻击掷骰后使用此\n交战计谋。如果它射击或近战的目标为位于一\n名己方演说家特工 3\" （如果演说家为忏悔士则\n为 6\"）内的一名敌方特工，则您可以重掷任意攻\n击掷骰。",
+      "text_en": "SANCTIFIER\nFIREFIGHT PLOY\nARDENT ERADICATION\nFor those who stand against the Imperial faith there is\nonly one punishment: death.\nUse this firefight ploy after rolling your attack\ndice for a friendly SANCTIFIER operative, if it’s\nshooting against or fighting against an enemy\noperative that’s within 3\" of a friendly ORATOR\noperative (or 6\" if the ORATOR is a CONFESSOR).\nYou can re-roll any of your attack dice."
+    },
+    {
+      "id": "kt-sanctifiers-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "烈火救赎",
+      "title_en": "REDEEMED THROUGH FIRE",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-烈火救赎.png",
+      "is_back": false,
+      "text": "净化者\n交战计谋\n烈火救赎\n比起在烈火中殉难，少有其他更受到祝福的死\n法了。而这种牺牲也会令伴其左右的净化者心\n中隐隐燃起决心。\n当拥有“烈焰”武器规则的一名己方净化者特\n工被残废时，在将其移出杀戮区前使用此交战\n计谋。每个位于其 2\" 内且对其可见的敌方特工\n获得一枚己方烈焰指示物（如果其尚未拥有一\n枚)。",
+      "text_en": "SANCTIFIER\nFIREFIGHT PLOY\nREDEEMED THROUGH FIRE\nThere are few more blessed deaths than fiery\nmartyrdom. Such a sacrifice stokes smouldering resolve\nin the hearts of fellow Sanctifiers.\nUse this firefight ploy when a friendly\nSANCTIFIER operative that has a weapon with\nthe Blaze weapon rule is incapacitated, before it’s\nremoved from the killzone. Each enemy operative\nvisible to and within 2\" of it gains one of your\nBlaze tokens (if it doesn’t already have one)."
+    },
+    {
+      "id": "kt-sanctifiers-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "献身！绝不动摇",
+      "title_en": "UNWAVERING DEVOTION",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-献身！绝不动摇.png",
+      "is_back": false,
+      "text": "净化者\n交战计谋\n献身！绝不动摇\n那些低阶的净化者为了上级以及确保胜利，会\n非常乐意冲进刀山火海。\n在一名净化者演说家特工或一名净化者圣迹士\n特工被选择进行近战或成为射击行动目标时使用\n此交战计谋。选择位于第一个成为有效目标或选\n择执行近战的己方特工 3\" 内且对其可见的另一\n名己方净化者特工（忏悔士，圣迹士或演说家\n除外）作为这次执行近战或成为射击行动的替代\n目标（即便通常情况它无法作为可用目标）。如\n果这是一次近战行动，则将那个另一名特工视为\n在那次行动中处于近战特工的控制范围内。\n如果那次行动为射击行动且对应远程武器拥有\n“爆炸”或“洪流”武器规则，则本计谋没有\n效果。",
+      "text_en": "SANCTIFIER\nFIREFIGHT PLOY\nUNWAVERING DEVOTION\nLow ranking Sanctifiers will gladly hurl themselves into\nthe path of bullet or blade if doing so will preserve their\nblessed superiors and ensure victory.\nUse this firefight ploy when a friendly\nSANCTIFIER ORATOR or SANCTIFIER\nMIRACULIST operative is selected as the valid\ntarget of a Shoot action or to fight against\nduring the Fight action. Select one other friendly\nSANCTIFIER operative (excluding CONFESSOR,\nMIRACULIST and ORATOR) visible to and within\n3\" of that first friendly operative to become\nthe valid target or to be fought against (as\nappropriate) instead (even if it wouldn’t normally\nbe valid for this). If it’s the Fight action, treat\nthat other operative as being within the fighting\noperative’s control range for the duration of\nthat action. If it’s the Shoot action, that other\noperative is only in cover or obscured if the\noriginal target was.\nThis ploy has no effect if it’s the Shoot action\nand the ranged weapon has the Blast or Torrent\nweapon rule."
+    },
+    {
+      "id": "kt-sanctifiers-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "圣珠-1",
+      "title_en": "SANCTIFICATION ORBS",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-圣珠-1.png",
+      "is_back": false,
+      "text": "净化者\n阵营装备\n圣珠\n这种球形装置中包含着易燃油料。它会在撞击\n目标时破碎，然后爆炸，将敌人包裹在燃烧的\n液体中。\n每个转折点限一次，一名己方净化者特工（智\n天使，死亡教派刺客和圣迹士除外）可以执行下\n列独特行动：\n请继续阅读背面规则",
+      "text_en": "SANCTIFIER\nFACTION EQUIPMENT\nSANCTIFICATION ORBS\nThese spherical devices contain flammable oils. They\nshatter, ignite and detonate upon impact with their\ntarget, coating the foe in burning liquid.\nOnce per turning point, one friendly SANCTIFIER\noperative (excluding CHERUB, DEATH CULT\nASSASSIN and MIRACULIST) can perform the\nfollowing unique action:\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-sanctifiers-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "圣珠-2",
+      "title_en": "SANCTIFICATION ORBS",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-圣珠-2.png",
+      "is_back": true,
+      "text": "圣珠 1AP\n选择位于这名特工 6\" 内且可见的一名敌方\n特工。那名特工和位于其 1\" 内的每一名敌\n方特工都需要进行浸湿测试。每个进行浸\n湿测试的特工需要掷一枚 D6 ：若掷骰结果\n为 3+，则它会获得一个浸湿指示物。\n当一名己方净化者特工使用拥有“烈焰”\n武器规则的武器对拥有一枚己方浸湿指示\n物的敌方单位进行射击时，那个武器还会\n拥有“追踪”武器规则。\n在一名己方净化者特工使用拥有“烈焰”\n武器规则的武器对拥有一枚己方浸湿指示\n物的敌方单位进行射击后，移除那枚指示\n物（即便其没有使用“追踪”武器规则）。\n该特工不能在敌方特工的控制范围内执行\n此行动。",
+      "text_en": "SANCTIFICATION ORB 1AP\nSelect one enemy operative visible to and\nwithin 6\" of this operative. That operative\nand each other enemy operative within 1\"\nof it takes a doused test. For an operative to\ntake a doused test, roll one D6: on a 3+, it\ngains one of your Doused tokens.\nWhenever a friendly SANCTIFIER operative\nis shooting an operative that has one of your\nDoused tokens with a weapon that has the\nBlaze weapon rule, that weapon also has the\nSeek weapon rule.\nAfter a friendly SANCTIFIER operative uses\na weapon that has the Blaze weapon rule\nagainst an enemy operative that has one\nof your Doused tokens, remove that token\n(even if the Seek weapon rule wasn’t used).\nThis operative cannot perform this\naction while within control range of an\nenemy operative."
+    },
+    {
+      "id": "kt-sanctifiers-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "贞洁印章",
+      "title_en": "PURITY SEALS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-贞洁印章.png",
+      "is_back": false,
+      "text": "净化者\n阵营装备\n贞洁印章\n这些刻有神圣祷文和祝福的羊皮纸通过腊封贴\n于衣物，护甲和战斗装备上。\n每个转折点限一次，当一名己方净化者特工进\n行射击或近战时，若您的掷骰中出现两个或更多\n失败，您可以弃置其中一枚，并将另一枚替换为\n普通成功并保留。",
+      "text_en": "SANCTIFIER\nFACTION EQUIPMENT\nPURITY SEALS\nAffixed to clothing, armour and wargear by way of wax\nseals, these pieces of parchment are inscribed with holy\nprayers and blessings.\nOnce per turning point, when a friendly\nSANCTIFIER operative is shooting or fighting,\nif you roll two or more fails, you can discard\none of them to retain another as a normal\nsuccess instead."
+    },
+    {
+      "id": "kt-sanctifiers-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "国教经文",
+      "title_en": "ECCLESIARCHY TEXTS",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-国教经文.png",
+      "is_back": false,
+      "text": "净化者\n阵营装备\n国教经文\n国教教会的演说家们会携带许多写在破败羊皮\n纸上的激烈祷文和严厉圣诗，用于激励盟友并\n羞辱敌人。\n在每个战略阶段的就绪步骤中，掷 3D6 ：若掷\n骰结果低于己方演说家特工剩余的耐伤，则您获\n得 1 点 CP。请注意，本规则是在计谋步骤前完\n成的，所以如果没有可用的演说家特工，您便无\n法在那个转折点使用本规则（例如第一个转折点\n中）。",
+      "text_en": "SANCTIFIER\nFACTION EQUIPMENT\nECCLESIARCHY TEXTS\nThe orators of the Adeptus Ministorum carry with them\nmany a fiery prayer and excoriating psalm scribed on\ntattered vellum, designed to inspire their allies and\ndiminish the foe.\nIn the Ready step of each Strategy phase, roll\n3D6: if the result is less than the remaining\nwounds of a friendly ORATOR operative, you gain\n1CP. Note that this is done before the Gambit\nstep, so if there isn’t a valid ORATOR operative,\nyou cannot use this rule during that turning point\n(e.g. during the first turning point)."
+    },
+    {
+      "id": "kt-sanctifiers-40-05",
+      "sequence": 5,
+      "category": "faction-equipment",
+      "title_zh": "帝国国教标志",
+      "title_en": "IMPERIAL CULT SYMBOLS",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-05-阵营装备-帝国国教标志.png",
+      "is_back": false,
+      "text": "净化者\n阵营装备\n帝国国教标志\n无论是石刻还是纯金打造，这种备受祝福的宗\n教符号都能赋予持有者好运。\n每个转折点限一次，当一名特工对受到布道增益\n的一名己方净化者特工进行射击时，在您拿取\n防御骰子时，您可以使用本规则。若此，将攻击\n者保留的一枚暴击成功改为一枚普通成功（任何\n已经结算的武器规则不受影响，如穿刺暴击）。",
+      "text_en": "SANCTIFIER\nFACTION EQUIPMENT\nIMPERIAL CULT SYMBOLS\nWhether carved from stone or wrought in solid gold,\nblessed religious symbols bestow upon their bearers\nboth fortune and favour.\nOnce per turning point, when an operative is\nshooting a friendly SANCTIFIER operative that’s\nbenefitting from the SERMON, when you collect\nyour defence dice, you can use this rule. If you\ndo, change one of the attacker’s retained critical\nsuccesses to a normal success (any weapon rules\nthey’ve already resolved aren’t affected, e.g.\nPiercing Crits)."
+    }
+  ]
+}

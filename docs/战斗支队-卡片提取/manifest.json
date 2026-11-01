@@ -1,0 +1,705 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-BATTLECLADE",
+  "team_name_zh": "战斗支队",
+  "team_name_en": "Battleclade",
+  "source_pdf": "最新杀戮小队规则更新/战斗支队杀戮小队 Battleclade 杀戮小队规则.pdf",
+  "source_pdf_sha256": "767baa59ed686a62b087e0510d529dec594d05735cabc41f3a6ae640e4bb4e09",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 26,
+    "operative": 7,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-battleclade-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "战斗支队科技考古学家-数据卡",
+      "title_en": "BATTLECLADE TECHNOARCHEOLOGIST",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-战斗支队科技考古学家-数据卡.png",
+      "is_back": false,
+      "text": "战斗支队科技考古学家 APL 移动豁免耐伤\n3 6\" 3+ 9\n名称攻击命中伤害武器规则\n歼灭手枪 4 3+ 4/2 范围 8\"、 1\" 毁灭 3、致命 5+\n伺服电弧爪 4 3+ 3/4 严重、震荡\n神圣奥秘的寻觅者：战略计划。您可以立即改变该\n特工的命令并且/或者立即无消耗执行一次全知扫描\n仪、后撤、放置标识、拾取标识、转移，或者任务\n行动。如果该特工选择执行后撤或转移行动，并且\n没有携带标识，那么该特工必须在己方降落区内\n（如果不可能，那么在尽可能靠近的位置)，或者控\n制范围内存在一个目标标识或己方任务标识的情况\n下结束那次行动。\n全知扫描仪 1AP\n选择一个位于该特工 8\" 内或对其可见的一名敌\n方特工来获得一枚己方全知扫描仪指示物。每\n当一名己方战斗支队特工对一名拥有己方全\n知扫描仪指示物的敌方特工进行射击、近战或\n反击时，那名己方特工的武器拥有“无休”武\n器规则。\n该特工不能在敌方特工的控制范围内执行本行\n动。\n战斗支队、帝国、机械修会、技术祭司、队长、科技考古学家 32",
+      "weapon_types": {
+        "歼灭手枪": "远程",
+        "伺服电弧爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE TECHNOARCHEOLOGIST\n3 6\" 3+ 9\nNAME ATK HIT DMG WR\nEradication pistol 4 3+ 4/2 Range 8\", 1\" Devastating 3, Lethal 5+\nServo-arc claw 4 3+ 3/4 Severe, Shock\nSeeker of Divine Arcana: STRATEGIC GAMBIT. You\ncan immediately change this operative’s order and/or it can\nimmediately perform a free Omniscanner, Fall Back, Place\nMarker, Pick Up Marker, Reposition or mission action.\nIf it’s the Fall Back or Reposition action and this operative\nisn’t carrying a marker, it must end that move either within your\ndrop zone (if this isn’t possible, then as close as possible to it), or\nwith an objective marker or one of your mission markers within\nits control range.\nOMNISCANNER 1AP\nSelect one enemy operative visible to or within 8\" of this\noperative to gain one of your Omniscanner tokens. Whenever\na friendly BATTLECLADE operative is shooting against,\nfighting against or retaliating against an enemy operative that\nhas one of your Omniscanner tokens, that friendly operative’s\nweapons have the Ceaseless weapon rule.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nBATTLECLADE , IMPERIUM, ADEPTUS MECHANICUS, TECH-PRIEST, LEADER, TECHNOARCHEOLOGIST 32"
+    },
+    {
+      "id": "kt-battleclade-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "战斗支队自动侦测奴工-数据卡",
+      "title_en": "BATTLECLADE AUTO-PROXY SERVITOR",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-战斗支队自动侦测奴工-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n战斗支队自动侦测奴工\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n电击刺棒 4 4+ 3/4 致命 5+、震荡\n阿基里安之眼：每当一名己方战欧姆尼赛亚的注视 1AP\n斗支队特工对一名对该特工可选择一名对该特工可见的敌方特工。直到转折点结束前，每当一名\n见的敌方特工进行射击时，那名己方战斗支队特工对那名敌方特工进行射击时，您可以使用本效\n己方特工的远程武器拥有“集果。若使用：\n中”武器规则。如果该特工位于\n• 那名己方特工的远程武器拥有“追踪轻型”武器规则。\n敌方特工的控制范围内，那么本\n• 那名敌方特工不能被遮挡。\n规则无效。\n该特工不能在敌方特工的控制范围内执行本行动。\n战斗支队、帝国、机械修会、自动侦测、奴工 25",
+      "weapon_types": {
+        "电击刺棒": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE AUTO-PROXY SERVITOR\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nTaser goad 4 4+ 3/4 Lethal 5+, Shock\nAchillan Eye: Whenever a friendly GAZE OF THE OMNISSIAH 1AP\nBATTLECLADE operative is\nSelect one enemy operative visible to this operative. Until the end of the turning\nshooting an enemy operative visible to\npoint, whenever a friendly BATTLECLADE operative is shooting that enemy\nthis operative, that friendly operative’s\noperative, you can use this effect. If you do:\nranged weapons have the Saturate\nweapon rule. This rule has no effect if this • That friendly operative’s ranged weapons have the Seek Light weapon rule.\noperative is within control range of an • That enemy operative cannot be obscured.\nenemy operative.\nThis operative cannot perform this action while within control range of an\nenemy operative.\nBATTLECLADE , IMPERIUM, ADEPTUS MECHANICUS, AUTO-PROXY, SERVITOR 25"
+    },
+    {
+      "id": "kt-battleclade-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "战斗支队突破者奴工-数据卡",
+      "title_en": "BATTLECLADE BREACHER SERVITOR",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-战斗支队突破者奴工-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n战斗支队突破者奴工\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n激光切割器（近距离） 4 3+ 4/5 范围 2\"、致命 5+、穿刺 2\n激光切割器（短距离） 4 3+ 4/5 范围 6\"、致命 5+\n液压钳爪与激光切割器 4 4+ 4/6 致命 5+\n突破 1AP\n选择一个位于该特工控制范围内的地形模型。将\n一个己方突破标识放置在该特工控制范围内尽可\n能靠近那个地形模型的位置。每当一名特工位于\n那个标识的 1\" 内时，那个地形模型厚度不超过\n1\" 的部分被视作为可穿越地形。\n该特工不能在敌方特工的控制范围内执行本行\n动，也不能在其控制范围内不存在地形模型时执\n行本行动。\n战斗支队、帝国、机械修会、突破者、奴工 25",
+      "weapon_types": {
+        "激光切割器（近距离）": "远程",
+        "激光切割器（短距离）": "远程",
+        "液压钳爪与激光切割器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE BREACHER SERVITOR\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nLascutter (close range) 4 3+ 4/5 Range 2\", Lethal 5+, Piercing 2\nLascutter (short range) 4 3+ 4/5 Range 6\", Lethal 5+\nHydraulic pincer & lascutter 4 4+ 4/6 Lethal 5+\nBREACH 1AP\nPlace one of your Breach markers within this operative’s\ncontrol range as close as possible to a terrain feature within\ncontrol range of it. Whenever an operative is within 1\" of that\nmarker, it treats parts of that terrain feature that are no more\nthan 1\" thick as Accessible terrain.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if a terrain feature isn’t\nwithin its control range.\nBATTLECLADE , IMPERIUM, ADEPTUS MECHANICUS, BREACHER, SERVITOR 25"
+    },
+    {
+      "id": "kt-battleclade-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "战斗支队战斗奴工-数据卡",
+      "title_en": "BATTLECLADE COMBAT SERVITOR",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-战斗支队战斗奴工-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n战斗支队战斗奴工\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n怒焰点火器 4 2+ 4/4 范围 6\"、集中、洪流 1\"\n热熔枪 4 4+ 6/3 范围 6\"、毁灭 4、穿刺 2\n磷光爆枪 4 4+ 3/4 严重、爆炸 1\"\n伺服钳爪 3 4+ 3/4 -\n25\n战斗支队、帝国、机械修会、战斗、奴工",
+      "weapon_types": {
+        "怒焰点火器": "远程",
+        "热熔枪": "远程",
+        "磷光爆枪": "远程",
+        "伺服钳爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE COMBAT SERVITOR\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nIncendine igniter 4 2+ 4/4 Range 6\", Saturate, Torrent 1\"\nMeltagun 4 4+ 6/3 Range 6\", Devastating 4, Piercing 2\nPhosphor blaster 4 4+ 3/4 Blast 1\", Severe\nServo-claw 3 4+ 3/4 -\nBATTLECLADE , IMPERIUM, ADEPTUS MECHANICUS, COMBAT, SERVITOR 25"
+    },
+    {
+      "id": "kt-battleclade-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "战斗支队枪炮奴工-数据卡",
+      "title_en": "BATTLECLADE GUN SERVITOR",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-战斗支队枪炮奴工-数据卡.png",
+      "is_back": false,
+      "text": "战斗支队枪炮奴工 APL 移动豁免耐伤\n2 5\" 4+ 11\n名称攻击命中伤害武器规则\n重型电弧步枪 5 4+ 4/6 重型（仅限冲刺）、穿刺 1、眩晕\n重型爆矢枪（集中） 5 4+ 4/5 重型（仅限冲刺）、关键穿刺 1\n重型爆矢枪（扫射） 4 4+ 4/5 重型（仅限冲刺）、关键穿刺 1、洪流 1\"\n强化钳爪 3 4+ 4/5 残暴\n战斗支队、帝国、机械修会、枪炮、奴工 32",
+      "weapon_types": {
+        "重型电弧步枪": "远程",
+        "重型爆矢枪（集中）": "远程",
+        "重型爆矢枪（扫射）": "远程",
+        "强化钳爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE GUN SERVITOR\n2 5\" 4+ 11\nNAME ATK HIT DMG WR\nHeavy arc rifle 5 4+ 4/6 Heavy (Dash only), Piercing 1, Stun\nHeavy bolter (focused) 5 4+ 4/5 Heavy (Dash only), Piercing Crits 1\nHeavy bolter (sweeping) 4 4+ 4/5 Heavy (Dash only), Piercing Crits 1, Torrent 1\"\nAugmetic claw 3 4+ 4/5 Brutal\nBATTLECLADE , IMPERIUM, ADEPTUS MECHANICUS, GUN, SERVITOR 32"
+    },
+    {
+      "id": "kt-battleclade-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "战斗支队奴工管理员-数据卡",
+      "title_en": "BATTLECLADE SERVITOR UNDERSEER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-战斗支队奴工管理员-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n战斗支队奴工管理员\n3 6\" 3+ 9\n名称攻击命中伤害武器规则\n大师级辐射手枪 4 3+ 2/4 范围 8\"、平衡、撕裂\n数据尖刺 3 5+ 2/3 -\n数冕通馈仪 1AP\n支援。确定位于该特工 6\" 内的己方战斗支队特工和/或一个己方战斗支队自动侦测特工，然后掷一枚\nD3。若结果小于等于那些己方特工争夺的目标标识数量，您获得 1CP。在结算“通讯装置”通用装备\n时，这些特工必须控制己方通讯装置标识才可以让本规则要求的距离增加 3\"。\n该特工不能在敌方特工的控制范围内执行本行动。\n请继续阅读背面规则\n战斗支队、帝国、机械修会、技术祭司、奴工管理员 32",
+      "weapon_types": {
+        "大师级辐射手枪": "远程",
+        "数据尖刺": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE SERVITOR UNDERSEER\n3 6\" 3+ 9\nNAME ATK HIT DMG WR\nMaster-crafted radium pistol 4 3+ 2/4 Range 8\", Balanced, Rending\nDataspikes 3 5+ 2/3 -\nDATACORONAL ACCUMULATOR 1AP\nSUPPORT. Determine the friendly BATTLECLADE operatives within 6\" of this operative and/or a friendly\nBATTLECLADE AUTO-PROXY operative, then roll one D3. If the result is equal to or less than the number of objective\nmarkers those friendly operatives contest, you gain 1CP. For the purposes of the Comms Device universal equipment, the\noperative the distance is being determined from must control your Comms Device marker to add 3\" to its distance requirement\nfor this rule.\nThis operative cannot perform this action while within control range of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nBATTLECLADE , IMPERIUM, ADEPTUS MECHANICUS, TECH-PRIEST, SERVITOR UNDERSEER 32"
+    },
+    {
+      "id": "kt-battleclade-01-07",
+      "sequence": 7,
+      "category": "operative-ability",
+      "title_zh": "战斗支队奴工管理员-能力卡",
+      "title_en": "BATTLECLADE SERVITOR UNDERSEER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工能力-战斗支队奴工管理员-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n战斗支队奴工管理员\n3 6\" 3+ 9\n网络覆盖 1AP\n支援。选择一个位于该特工或者己方战斗支队自动侦测特工 6\" 内的己方战斗支队奴工特工来立刻进\n行网络反应（您不需要转移功率就能这么做)或者执行一次无消耗的冲刺行动。随后继续进行该特工的\n激活。\n该特工可以在其激活中执行这个行动两次，但每次必须选择一名不同的己方特工，并且不能在敌方特工\n的控制范围内执行本行动。在通讯设备通用装备的规则中，用于判断距离的特工必须控制那枚标识。",
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE SERVITOR UNDERSEER\n3 6\" 3+ 9\nNETWORK OVERRIDE 1AP\nSUPPORT. Select one friendly BATTLECLADE SERVITOR operative within 6\" of either this operative or a friendly\nBATTLECLADE AUTO-PROXY operative to immediately NETWORK COUNTERACT (you don’t have to TRANSFER\nPOWER to do so) or perform a free Dash action. Continue this operative’s activation after doing so. For the purposes of the\nComms Device universal equipment, the operative the distance is being determined from must control that marker.\nThis operative can perform this action twice during its activation, but it must select a different friendly operative each time and it\ncannot perform this action while within control range of an enemy operative."
+    },
+    {
+      "id": "kt-battleclade-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "战斗支队科技医疗奴工-数据卡",
+      "title_en": "BATTLECLADE TECHNOMEDIC SERVITOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-战斗支队科技医疗奴工-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n战斗支队科技医疗奴工\n2 5\" 4+ 8\n名称攻击命中伤害武器规则\n伺服手术爪 4 4+ 3/4 撕裂\n机械缝合阵列：每个转折点限一次，当位于该特工 3\" 内且可见的另一名己方战斗支队特工将要被残废\n时，您可以使用本规则，前提是该特工和那名被残废的特工没有位于敌方特工的控制范围内。若使用，那\n名己方特工不会残废，剩余 1 处耐伤并且在那次行动期间不能被残废。在那次移动后，那名己方特工可以\n执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。如果该规则在那名己方特工\n的的激活期间被使用，那么那次激活结束，您不能在本特工被残废时使用本规则，也不能在该特工成为了\n一次射击行动的主要或次要目标时使用本规则。\n请继续阅读背面规则\n战斗支队、帝国、机械修会、医疗、科技医疗、奴工 25",
+      "weapon_types": {
+        "伺服手术爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE TECHNOMEDIC SERVITOR\n2 5\" 4+ 8\nNAME ATK HIT DMG WR\nServo-chirurgic claw 4 4+ 3/4 Rending\nMechanosuture Array: Once per turning point, when another friendly BATTLECLADE operative would be incapacitated while\nvisible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range of\nan enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated\nfor the remainder of the action. After that action, that friendly operative can immediately perform a free Dash action, but must\nend that move within this operative’s control range. If this rule was used during that friendly operative’s activation, that activation\nends. You cannot use this rule if this operative is incapacitated, or if it’s a Shoot action and this operative would be a primary or\nsecondary target.\nRULES CONTINUE ON OTHER SIDE\nBATTLECLADE , IMPERIUM, ADEPTUS MECHANICUS, MEDIC, TECHNOMEDIC, SERVITOR 25"
+    },
+    {
+      "id": "kt-battleclade-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "战斗支队科技医疗奴工-能力卡",
+      "title_en": "BATTLECLADE TECHNOMEDIC SERVITOR",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-战斗支队科技医疗奴工-能力卡.png",
+      "is_back": false,
+      "text": "战斗支队科技医疗奴工 APL 移动豁免耐伤\n2 5\" 4+ 8\n紧急修理 1AP\n选择一个位于该特工控制范围的己方战斗支队\n特工，那名特工回复最多 D3+3 点失去的耐伤。\n选择的特工不能是在转折点中成为“机械缝合阵\n列”技能目标的特工。\n该特工不能在敌方特工的控制范围内执行本行\n动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nBATTLECLADE TECHNOMEDIC SERVITOR\n2 5\" 4+ 8\nEXPEDIENT REPAIR 1AP\nSelect one friendly BATTLECLADE operative within this\noperative’s control range to regain up to D3+3 lost wounds.\nIt cannot be an operative that the Mechanosuture Array rule\nwas used on during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-battleclade-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "战斗支队杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-战斗支队杀戮小队-1.png",
+      "is_back": false,
+      "text": "战斗支队杀戮小队\n原型：渗透，侦查\n特工\n↘ 1 战斗支队科技考古学家特工\n↘ 1 战斗支队奴工管理员特工\n↘ 8 战斗支队特工，从以下列表中选择：\n• 自动侦测奴工\n• 突破者奴工\n• 战斗奴工装备有以下一种选项：\n○ 伺服钳爪；怒焰点火器\n○ 伺服钳爪；热熔枪\n○ 伺服钳爪；磷光爆枪\n• 枪炮奴工，装备有重型电弧步枪和强化钳爪\n• 枪炮奴工，装备有重型爆矢枪和强化钳爪\n• 科技医疗奴工\n请继续阅读背面规则",
+      "text_en": "BATTLECLADE KILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 BATTLECLADE TECHNOARCHEOLOGIST\noperative\n↘ 1 BATTLECLADE SERVITOR UNDERSEER\noperative\n↘ 8 BATTLECLADE operatives selected from the\nfollowing list:\n• AUTO-PROXY SERVITOR\n• BREACHER SERVITOR\n• COMBAT SERVITOR with one of the\nfollowing options:\n○ Servo-claw; incendine igniter\n○ Servo-claw; meltagun\n○ Servo-claw; phosphor blaster\n• GUN SERVITOR with heavy arc rifle and\naugmetic claw\n• GUN SERVITOR with heavy bolter and\naugmetic claw\n• TECHNOMEDIC SERVITOR\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-battleclade-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "战斗支队杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-战斗支队杀戮小队-2.png",
+      "is_back": true,
+      "text": "除了战斗奴工特工以外，上述的每一名特工只能\n被纳入您的杀戮小队一次。您不能选择装备热熔\n枪的战斗奴工超过一次，并且您不能选择装备怒\n焰点火器的战斗奴工超过三次。",
+      "text_en": "Other than COMBAT SERVITOR operatives, your\nkill team can only include each operative on this\nlist once. Your kill team can only include up to\none COMBAT SERVITOR operative with meltagun,\nand it can only include up to three COMBAT\nSERVITOR operatives with incendine igniter."
+    },
+    {
+      "id": "kt-battleclade-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "智慧圈网络-1",
+      "title_en": "NOOSPHERIC NETWORK",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-智慧圈网络-1.png",
+      "is_back": false,
+      "text": "战斗支队\n阵营规则\n智慧圈网络\n技术祭司通过无形的控制网络操控着手下的\n奴工。这种智慧圈网络能够对奴工进行迅速\n调整，将处理功率转移至其他奴仆的身上，\n让它们能够更好达成技术祭司及时的需求。\n在一些奴工执行基础程序的同时，其他的成\n员会接收到重要的任务指示，为了机械神的\n荣耀而行动。\n在每一名己方战斗支队奴工特工被激活时执行\n一个行动的之前或之后，您可以消耗 1 AP 进行\n转移功率。若这么做，那么直到那名特工的激活\n结束前，那名特工的 APL 属性减少 1 点。\n在那次激活之后，您可以在您的对手进行激活\n之前使用另一名己方战斗支队奴工特工进行网\n络反应。每当您使用一名己方特工进行网络反应\n时，先选择其拥有的命令。在那之后，特工可以\n无消耗执行一次消耗 1AP 的行动，但是不能在\n那次行动中移动超过 2\"。在这么做之后，您的对\n手照常进行激活。\n请继续阅读背面规则",
+      "text_en": "BATTLECLADE\nFACTION RULE\nNOOSPHERIC NETWORK\nServitors are yoked to their Tech-Priest masters by\nan invisible web of control. This noospheric network\nenables servitors to be rapidly reorganised, transferring\nprocessing power to other thralls who might better serve\nthe Tech-Priests’ immediate wishes. While some are\nleft to conform to their basic programming, others are\ninstructed with key tasks that must be fulfilled for the\nglory of the Machine God.\nOnce during each friendly BATTLECLADE\nSERVITOR operative’s activation, before or after\nit performs an action, you can spend 1AP to\nTRANSFER POWER.\nAfter that activation, you can NETWORK\nCOUNTERACT with one other friendly\nBATTLECLADE SERVITOR operative before your\nopponent activates. Whenever you NETWORK\nCOUNTERACT with a friendly operative, first\nselect its order. It can then perform a 1AP action\nfor free, but cannot move more than 2\" during\nthat action. Once it’s done so, your opponent\nthen activates as normal.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-battleclade-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "智慧圈网络-2",
+      "title_en": "NOOSPHERIC NETWORK",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-智慧圈网络-2.png",
+      "is_back": true,
+      "text": "一名 APL 属性小于 2 的特工不能进行转移功率\n或者网络反应（例如，特工的属性被一些规则修\n改至小于 2)。网络反应属于一种反应，但是特工\n不需要处于待机并拥有交战命令。这意味着如果\n一名就绪的特工进行了网络反应，它依旧可以在\n转折点中照常被激活。一名进行过网络反应的特\n工不能在同一个转折点中再次进行网络反应或者\n进行反应。",
+      "text_en": "An operative cannot TRANSFER POWER or\nNETWORK COUNTERACT if it has an APL stat of\nless than 2 (e.g. if the stat has been changed to\nless than 2 by a rule). NETWORK COUNTERACT is\na counteraction, but the operative doesn’t need\nto be expended with an Engage order to do it.\nThat means if they’re ready when they NETWORK\nCOUNTERACT, they can still be activated as\nnormal later in the turning point. An operative\nthat does NETWORK COUNTERACT cannot\ndo so again, or counteract, during the same\nturning point."
+    },
+    {
+      "id": "kt-battleclade-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "BATTLECLADE",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "战斗支队\n标识/指示物指南\n全知扫描仪指示物机械缝合阵列指示物\n优先获取指示物网络反应指示物\n欧姆尼赛亚的注视\n突破标识\n指示物",
+      "text_en": "BATTLECLADE\nMARKER/TOKEN GUIDE\nMechanosuture Array\nOmniscanner token\ntoken\nPrioritised Acquisition Network Counteract\ntoken token\nGaze of the Omnissiah\nBreach marker\ntoken"
+    },
+    {
+      "id": "kt-battleclade-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "智慧圈操控",
+      "title_en": "NOOSPHERIC POSSESSION",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-智慧圈操控.png",
+      "is_back": false,
+      "text": "战斗支队\n战略计谋\n智慧圈操控\n通过将自己的神经构造传输至奴工，奴工管\n理员能够几乎完全附体在自己的工具身上来\n更好的引导欧姆尼赛亚的怒火。\n支援。每当一名己方战斗支队奴工特工位于己\n方战斗支队自动侦测或己方战斗支队奴工管\n理员特工的 6\" 内时，那名己方奴工特工的武器\n拥有“精准 1”武器规则。\n在结算本支援规则和“通讯装置”通用装备时，\n自动侦测特工或者奴工管理员特工必须控制己\n方通讯装置标识才可以让本规则要求的距离增\n加 3\"。",
+      "text_en": "BATTLECLADE\nSTRATEGY PLOY\nNOOSPHERIC POSSESSION\nBy broadcasting portions of their neural architecture\ninto their thralls, sometimes via a well-positioned relay,\nmanipulative Servitor Underseers effectively possess\ntheir tools to better direct the Omnissiah’s wrath.\nSUPPORT. Whenever a friendly BATTLECLADE\nSERVITOR operative is within 6\" of a friendly\nBATTLECLADE AUTO-PROXY or BATTLECLADE\nSERVITOR UNDERSEER operative, that friendly\nSERVITOR operative’s weapons have the\nAccurate 1 weapon rule.\nFor the purposes of the Comms Device universal\nequipment, the operative the distance is\nbeing determined from must control your\nComms Device marker to add 3\" to its distance\nrequirement for this rule."
+    },
+    {
+      "id": "kt-battleclade-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "回收使命",
+      "title_en": "DUTY OF RECLAMATION",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-回收使命.png",
+      "is_back": false,
+      "text": "战斗支队\n战略计谋\n回收使命\n战斗支队的特工们被植入了经过强化的二相\n条令。这些指示时刻等待着被激活，在接近\n了技术祭司所指定的宝物之后开始生效。\n每次行动限一次，如果己方战斗支队特工正在\n争夺一个目标标识或者己方任务标识，那么您可\n以消耗 0CP 对其攻击骰或防御骰使用“指挥重\n掷”交战计谋。",
+      "text_en": "BATTLECLADE\nSTRATEGY PLOY\nDUTY OF RECLAMATION\nEmbedded in Battleclade operatives are lurking strands\nof enhanced binharic doctrine. These instructions await\nthe moment to activate, triggered by the proximity of a\nTech-Priest’s designated prize.\nOnce per action, you can use the Command Re-\nroll firefight ploy for 0CP if the attack or defence\ndice was rolled for a friendly BATTLECLADE\noperative that contests an objective marker or\none of your mission markers."
+    },
+    {
+      "id": "kt-battleclade-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "铁魂咒语",
+      "title_en": "INCANTATION OF THE IRON SOUL",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-铁魂咒语.png",
+      "is_back": false,
+      "text": "战斗支队\n战略计谋\n铁魂咒语\n通过技术祭司吟诵的二相赞歌，或者神圣子\n程序的激发，微型制动器锁定至迎击状态，\n后备电源被启动。血肉虽然脆弱，但是机神\n祝福的无敌是显而易见的。\n每当一枚攻击骰对一名己方战斗支队特工造成 3\n点或更多伤害时，掷一枚 D6：若结果为 4+，那\n次造成的伤害减少 1 点。",
+      "text_en": "BATTLECLADE\nSTRATEGY PLOY\nINCANTATION OF THE IRON SOUL\nThrough chanted binharic praise from the Tech-Priests,\nor sparked by holy subroutines, microactuators lock\ninto bracing positions and reserve power cells are\nbrought online. The flesh may be weak, but the sacred\ninvulnerability of the Machine God’s augmetic blessings\nis evident to all.\nWhenever an attack dice inflicts damage of 3 or\nmore on a friendly BATTLECLADE operative,\nroll one D6: on a 4+, subtract 1 from that\ninflicted damage."
+    },
+    {
+      "id": "kt-battleclade-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "优先获取",
+      "title_en": "PRIORITISED ACQUISITION",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-优先获取.png",
+      "is_back": false,
+      "text": "战斗支队\n战略计谋\n优先获取\n获取科技是科技考古学家的神圣使命，而他\n们的狂热专注也会溢入自己的二相指示中。\n在亵圣的贼人面前，他们会将进攻性程序和\n生化激素注入仆从的体内，让所有手下都被\n主人的憎恨感染。\n选择一个目标标识或者己方任务标识。\n• 每次判断对目标的控制时，如果有至少一名己\n方战斗支队特工在争夺那个目标，那么将争\n夺那个目标的己方战斗支队特工的 APL 属性\n总和视作为比原本要高 1 点。请注意，这并非\n对 APL 属性的修正，因此其他修正效果可以\n与本规则叠加。\n• 每当一名己方战斗支队特工位于那个目标的\n3\" 内时，其近战武器的攻击属性增加 1 点（最\n多提升至 4)。",
+      "text_en": "BATTLECLADE\nSTRATEGY PLOY\nPRIORITISED ACQUISITION\nAcquisition is a holy task to a Technoarcheologist,\nand their zealous fanaticism bleeds into their binharic\ninstructions. Faced with the sacrilege of thieves,\naggression protocols are initiated and biochemical\nstimulants are released in their thralls, endowing all with\na measure of their master’s repugnance.\nSelect one objective marker or one of your\nmission markers.\n• Whenever determining control of that\nmarker, treat the total APL stat of friendly\nBATTLECLADE operatives that contest it as 1\nhigher if at least one friendly BATTLECLADE\noperative contests that marker. Note this isn’t\na change to the APL stat, so any changes are\ncumulative with this.\n• Whenever a friendly BATTLECLADE operative\nis within 3\" of that marker, add 1 to the Atk stat\nof its melee weapons (to a maximum of 4)."
+    },
+    {
+      "id": "kt-battleclade-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "系统驱邪",
+      "title_en": "SYSTEM EXORCISM",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-系统驱邪.png",
+      "is_back": false,
+      "text": "战斗支队\n交战计谋\n系统驱邪\n通过修改感官路径、清理感染物或者释放狂\n野机魂来吞噬被腐化的逻辑循环，战斗支队\n的精英特工们能够驱散各种危险的异常。\n在您将要激活一名己方战斗支队特工时使用本\n交战计谋。将您的对手向那名己方特工适用的一\n个规则效果或者属性修正移除（例如，剧毒指示\n物、-1APL、不能被激活或执行行动等)，随后激\n活那名特工。这个计谋不能让特工回复失去的耐\n伤，忽略受创的效果，移除任务包规则。",
+      "text_en": "BATTLECLADE\nFIREFIGHT PLOY\nSYSTEM EXORCISM\nBy redirecting sensory pathways, purging contaminants\nor unleashing feral machine spirits to consume tainted\nlogic loops, the elite operatives of a Battleclade can\nexorcise many dangerous afflictions.\nUse this firefight ploy when you would activate a\nfriendly BATTLECLADE operative. Remove one\nrules effect or stat change your opponent has\napplied to it (e.g. Poison token, -1APL, cannot be\nactivated or perform actions, etc.), then activate\nit. This ploy cannot allow it to regain lost wounds,\nignore the effects of being injured or remove\nmission pack rules."
+    },
+    {
+      "id": "kt-battleclade-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "远程访问",
+      "title_en": "REMOTE ACCESS",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-远程访问.png",
+      "is_back": false,
+      "text": "战斗支队\n交战计谋\n远程访问\n通过释放十六进制权限的赞歌，最为神圣的\n技术祭司能够在不与设备物理接触的情况下\n与其中的固执机魂沟通。\n在一个己方战斗支队技术祭司特工的激活期间\n使用本交战计谋。每个激活限一次，您可以使用\n以下一个规则：\n• 那名特工不需要在一个标识位于其控制范围内\n就可以执行需要满足这个条件的任务行动（本\n规则的优先度高于那个行动的条件)。作为替\n代，特工必须位于那个标识的 4\" 内，并且没\n有敌方特工正在争夺那个标识。不过，在进行\n判断时，您可以忽略控制范围内存在其他己方\n战斗支队特工的敌方特工。\n• 那名特工不需要在一个舱门过道的访问点位于\n其控制范围内就可以执行操作舱门行动。作为\n替代，那个访问点必须位于特工的 4\" 内。",
+      "text_en": "BATTLECLADE\nFIREFIGHT PLOY\nREMOTE ACCESS\nProjecting a canticle of hexamathic authority, the most\nworthy Tech-Priests can commune with intransigent\nmachine spirits even without physical contact.\nUse this firefight ploy during a friendly\nBATTLECLADE TECH-PRIEST operative’s\nactivation. Once during that activation, you can\nuse one of the following rules:\n• That operative doesn’t require a marker to be\nwithin its control range to perform a mission\naction that usually requires this (this takes\nprecedence over that action’s conditions).\nInstead, the marker must be within 4\" of it\nand no enemy operatives can contest that\nmarker. However, you can ignore enemy\noperatives within control range of other\nfriendly BATTLECLADE operatives when\ndetermining this.\n• That operative doesn’t require a hatchway’s\naccess point to be within its control range to\nperform an Operate Hatch action. Instead, that\naccess point must be within 4\" of it."
+    },
+    {
+      "id": "kt-battleclade-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "自动钢化祈祷",
+      "title_en": "AUTO-FERRIC SUPPLICATION",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-自动钢化祈祷.png",
+      "is_back": false,
+      "text": "战斗支队\n交战计谋\n自动钢化祈祷\n在极端情况下，欧姆尼赛亚的信徒们会将自\n己的狂热之情引导至护盾生成器和义体的折\n射位置中。\n当一名特工对一名己方战斗支队技术祭司特工\n进行射击时，在掷攻击骰步骤开始时使用本交\n战计谋。直到流程结束前，忽略“穿刺”武器\n规则。",
+      "text_en": "BATTLECLADE\nFIREFIGHT PLOY\nAUTO-FERRIC SUPPLICATION\nIn extremis, the Omnissiah’s faithful channel their zeal\ninto shielding energy projectors and the refractive\nrealignment of their bionic body parts.\nUse this firefight ploy when an operative is\nshooting a friendly BATTLECLADE TECH-PRIEST\noperative, at the start of the Roll Attack Dice step.\nUntil the end of the sequence, ignore the Piercing\nweapon rule."
+    },
+    {
+      "id": "kt-battleclade-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "奴仆盾牌",
+      "title_en": "SERVILE SURROGACY",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-奴仆盾牌.png",
+      "is_back": false,
+      "text": "战斗支队\n交战计谋\n奴仆盾牌\n被深深植入在奴工机械程序内的是在主人们\n遇到威胁时挺身而出的直觉。\n在一个己方战斗支队技术祭司特工被选择成为\n一次射击行动或近战行动的目标时使用本交战计\n谋。选择一名位于那个己方特工 3\" 内且对其可\n见的己方战斗支队奴工特工，那名特工将代替\n成为那次行动的目标（尽管它在通常情况下无法\n成为有效目标)。如果这是一次近战行动，那么\n那名奴工特工将在那次行动期间被视作为位于近\n战特工的控制范围内。如果是一次射击行动，那\n么那名奴工特工只有在原本的目标拥有掩护或遮\n挡时才能拥有对应的加成。\n本计谋对使用带有“爆炸”或“洪流”武器规则\n的武器进行的射击行动无效。",
+      "text_en": "BATTLECLADE\nFIREFIGHT PLOY\nSERVILE SURROGACY\nDeeply woven into each thrall’s cybernetic programming\nis the instinct to bodily shield their masters should they\nbe threatened.\nUse this firefight ploy when a friendly\nBATTLECLADE TECH-PRIEST operative is\nselected as the valid target of a Shoot action or\nto fight against during the Fight action. Select\none friendly BATTLECLADE SERVITOR operative\nvisible to and within 3\" of that first friendly\noperative to become the valid target or to be\nfought against (as appropriate) instead (even if\nit wouldn’t normally be valid for this). If it’s the\nFight action, treat that SERVITOR operative as\nbeing within the fighting operative’s control range\nfor the duration of that action. If it’s the Shoot\naction, that SERVITOR operative is only in cover\nor obscured if the original target was.\nThis ploy has no effect if it’s the Shoot action\nand the ranged weapon has the Blast or Torrent\nweapon rule."
+    },
+    {
+      "id": "kt-battleclade-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "潜伏伪装",
+      "title_en": "COVERT GUISES",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-潜伏伪装.png",
+      "is_back": false,
+      "text": "战斗支队\n阵营装备\n潜伏伪装\n通过使用带有当地设计的肮脏服饰、伪造徽\n记或者播放干扰生物感官的干扰杂音，战斗\n支队能够在不被察觉的情况下潜入受限区\n域。\n在揭示了这个装备选项后，掷一枚 D3。在第一\n转折点中，作为一个战略计划，完全位于己方\n降落区内且相当于掷骰结果数量的己方战斗支\n队特工可以执行一次无消耗的转移行动，但\n是在结束那次移动时必须完全位于己方降落区\n的 3\" 内。您的科技考古学家特工不能在第一转\n折点的战略阶段中执行超过一次的转移行动（例\n如通过“科技奥秘的寻觅者”规则来再次进行移\n动)。",
+      "text_en": "BATTLECLADE\nFACTION EQUIPMENT\nCOVERT GUISES\nUsing filthy bodysuits of local design, falsified insignia or\nemitters that broadcast shrouding static-filled hisses to\nfoil biological senses, this Battleclade can infiltrate into\nrestricted areas undetected.\nAfter revealing this equipment option, roll one\nD3. As a STRATEGIC GAMBIT in the first turning\npoint, a number of friendly BATTLECLADE\noperatives equal to the result that are wholly\nwithin your drop zone can immediately perform\na free Reposition action, but must end that\nmove wholly within 3\" of your drop zone. Your\nTECHNOARCHEOLOGIST operative cannot\nperform more than one Reposition action in the\nStrategy phase of the first turning point (i.e. as a\nresult of the Seeker of Divine Arcana rule as well)."
+    },
+    {
+      "id": "kt-battleclade-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "电磁电容器",
+      "title_en": "ELECTROMANTIC CAPACITORS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-电磁电容器.png",
+      "is_back": false,
+      "text": "战斗支队\n阵营装备\n电磁电容器\n这些装置被连接在了特工身上的多处机械零\n件上，能够将神圣的源力电弧注入小队的躯\n体中。\n己方战斗支队特工的近战武器拥有“震荡”武\n器技能。每当一名己方战斗支队特工进行反击\n时，其近战武器拥有“严重”武器规则。",
+      "text_en": "BATTLECLADE\nFACTION EQUIPMENT\nELECTROMANTIC CAPACITORS\nWired into an operative’s numerous mechanical\ncomponents, these devices can charge the bodies of a\nclandestine team with coruscating arcs of the sacred\nMotive Force.\nFriendly BATTLECLADE operatives’ melee\nweapons have the Shock weapon rule. Whenever\na friendly BATTLECLADE operative is retaliating,\nits melee weapons also have the Severe\nweapon rule."
+    },
+    {
+      "id": "kt-battleclade-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "隐藏装置",
+      "title_en": "CONCEALED APPARATUS",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-隐藏装置.png",
+      "is_back": false,
+      "text": "战斗支队\n阵营装备\n隐藏装置\n在主人的指示下，一个看似毫无武装的奴工\n能够迅速组装出极为致命的武器，它们将零\n件藏在体内，或者将武器伪装成了完全不同\n的机械装置。\n每场战斗限一次，一名战斗奴工或枪炮奴工特工\n可以使用其数据卡上没有在战斗中选择的另一个\n武器选项。",
+      "text_en": "BATTLECLADE\nFACTION EQUIPMENT\nCONCEALED APPARATUS\nSeemingly lightly equipped servitors can, at an\nimperative from their master, swiftly assemble far more\ndeadly apparatus, the components of which were hidden\nin body cavities or as entirely different mechanisms.\nOnce per battle, one COMBAT SERVITOR or\nGUN SERVITOR operative can use another\nweapon option on its datacard it didn’t select for\nthe battle."
+    },
+    {
+      "id": "kt-battleclade-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "神经循环后备电源",
+      "title_en": "NEUROCYCLIC RESERVE CELLS",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-神经循环后备电源.png",
+      "is_back": false,
+      "text": "战斗支队\n阵营装备\n神经循环后备电源\n战斗支队被授予了加强奴工能力的装置。\n每个转折点一次，每当您转移功率时，您可以使\n用本规则，最多可以使用的次数相当于掷骰结\n果。若使用，您可以消耗 0AP 转移功率 (本规则\n的优先级高于“智慧圈网络”规则)。",
+      "text_en": "BATTLECLADE\nFACTION EQUIPMENT\nNEUROCYCLIC RESERVE CELLS\nBattleclades are granted these devices to accelerate\nservitor capabilities.\nOnce per turning point, whenever you TRANSFER\nPOWER, you can use this rule. If you do, you\ncan TRANSFER POWER for 0AP (this takes\nprecedence over the normal Noospheric\nNetwork rules)."
+    }
+  ]
+}

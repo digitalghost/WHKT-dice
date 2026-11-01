@@ -24,9 +24,9 @@ class PrivateObjectiveTest {
     @Test fun everyTeamHasTwoTacticalArchetypesAndEligibleCards() {
         RosterCatalog.teams.forEach { team ->
             val archetypes=TeamArchetypes.forTeam(team.id)
-            assertEquals(team.id,2,archetypes.size)
+            assertTrue(team.id,archetypes.size in setOf(2,4))
             val eligible=MissionCards.tacticalForTeam(team.id)
-            assertEquals(team.id,6,eligible.size)
+            assertEquals(team.id,archetypes.size*3,eligible.size)
             assertTrue(eligible.all { card ->
                 card.archetype?.let { TeamArchetypes.supports(team.id,it) } == true
             })

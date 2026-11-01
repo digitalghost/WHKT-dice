@@ -1,0 +1,560 @@
+{
+  "teamId": "KT-NEMESIS_CLAW",
+  "name": "复仇之爪",
+  "nameEn": "Nemesis Claw",
+  "subtitle": "混沌 · 阿斯塔特叛军 · 8 种特工",
+  "archetypes": [
+    "渗透",
+    "搜索与摧毁"
+  ],
+  "source": "官方中文 PDF 17/06/2026（复仇之爪 Nemesis Claw 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "nemesis_claw_01",
+      "name": "午夜领主卓见者",
+      "role": "卓见者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 15,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "灵能者",
+        "队长",
+        "卓见者"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-01-特工-午夜领主卓见者-数据卡.png",
+        "KT-NEMESIS_CLAW--01-02-特工能力-午夜领主卓见者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_01_w01",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "nemesis_claw_01_w02",
+          "name": "等离子手枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、穿刺 1"
+        },
+        {
+          "id": "nemesis_claw_01_w03",
+          "name": "等离子手枪（过载）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 8\"、过热、致命 5+、穿刺 1"
+        },
+        {
+          "id": "nemesis_claw_01_w04",
+          "name": "诺斯特拉莫链锯刃",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 撕裂"
+        },
+        {
+          "id": "nemesis_claw_01_w05",
+          "name": "动力拳",
+          "kind": "melee",
+          "profile": "5A · 4+ · 5/7 · 残暴"
+        },
+        {
+          "id": "nemesis_claw_01_w06",
+          "name": "动力槌",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 震荡"
+        },
+        {
+          "id": "nemesis_claw_01_w07",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_01_w01",
+        "nemesis_claw_01_w02",
+        "nemesis_claw_01_w03",
+        "nemesis_claw_01_w04",
+        "nemesis_claw_01_w05",
+        "nemesis_claw_01_w06",
+        "nemesis_claw_01_w07"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        },
+        {
+          "name": "预感",
+          "ap": null,
+          "text": "灵能。在每个战略阶段的就绪步骤中，您获得 1 点预感点数，如果该特工不位于敌方特工的 3\" 内，则获得 2 点预感点数：\n• 恶兆：灵能。当轮到您激活一名己方特工时，您可以消耗 1 点预感点数跳过那次激活。\n• 先兆：灵能。每个转折点一次，当这名特工进行近战或反击时，在结算攻击骰步骤中，如果一枚攻击骰对这名特工造成了普通伤害，您可以消耗 1 点预感点数忽略这些伤害。\n在这名特工残废时，您无法获得和消耗预感点数。"
+        },
+        {
+          "name": "征兆",
+          "ap": 1,
+          "text": "灵能。消耗己方的 1 点预感点数，获得 1 点指挥点数。\n这名特工不能在敌方特工的控制范围内执行此行动，且在同一个转折点中不能使用本技能超过一次。"
+        }
+      ]
+    },
+    {
+      "id": "nemesis_claw_02",
+      "name": "午夜领主布恐者",
+      "role": "布恐者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "布恐者"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-03-特工-午夜领主布恐者-数据卡.png",
+        "KT-NEMESIS_CLAW--01-04-特工能力-午夜领主布恐者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_02_w01",
+          "name": "带瞄准镜的爆矢手枪（近距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、致命 5+"
+        },
+        {
+          "id": "nemesis_claw_02_w02",
+          "name": "带瞄准镜的爆矢手枪（远距离）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "nemesis_claw_02_w03",
+          "name": "恐惧试剂瓶",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 2/0 · 范围 6\"、爆炸 2\"、毁灭 3、有限 1、集中、恐惧试剂"
+        },
+        {
+          "id": "nemesis_claw_02_w04",
+          "name": "淬秽匕首",
+          "kind": "melee",
+          "profile": "5A · 3+ · 3/5 · 恐惧试剂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_02_w01",
+        "nemesis_claw_02_w02",
+        "nemesis_claw_02_w03",
+        "nemesis_claw_02_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        },
+        {
+          "name": "恐惧试剂毒害",
+          "ap": null,
+          "text": "每当一名拥有己方恐惧试剂标识的特工被激活时，对其造成 D3 点伤害。"
+        },
+        {
+          "name": "毒害目标",
+          "ap": 1,
+          "text": "选择一个受这名特工控制的目标标记获得一枚己方恐惧试剂指示物，您不能对敌方特工控制范围内的目标标记或已经拥有己方恐惧试剂指示物的目标标记这么做。没有恐惧试剂指示物的一名敌方特工首次争夺那个目标标识时，那名特工受到2D3 点伤害且获得那枚恐惧试剂指示物（如果它处于行动中，结束那次行动）。\n这名特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "nemesis_claw_03",
+      "name": "午夜领主炮手",
+      "role": "炮手",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "炮手"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-05-特工-午夜领主炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_03_w01",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "nemesis_claw_03_w02",
+          "name": "火焰喷射器",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 3/3 · 范围 8\"、集中、洪流 2\""
+        },
+        {
+          "id": "nemesis_claw_03_w03",
+          "name": "热熔枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 6/3 · 范围 6\"、毁灭 4、穿刺 2"
+        },
+        {
+          "id": "nemesis_claw_03_w04",
+          "name": "等离子枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/6 · 穿刺 1"
+        },
+        {
+          "id": "nemesis_claw_03_w05",
+          "name": "等离子枪（过载）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 5/6 · 过热、致命 5+、穿刺 1"
+        },
+        {
+          "id": "nemesis_claw_03_w06",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_03_w01",
+        "nemesis_claw_03_w02",
+        "nemesis_claw_03_w03",
+        "nemesis_claw_03_w04",
+        "nemesis_claw_03_w05",
+        "nemesis_claw_03_w06"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "nemesis_claw_04",
+      "name": "午夜领主重炮手",
+      "role": "重炮手",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "重炮手"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-06-特工-午夜领主重炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_04_w01",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "nemesis_claw_04_w02",
+          "name": "重型爆矢枪（集中）",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 4/5 · 重型 (仅限转移)、关键穿刺 1"
+        },
+        {
+          "id": "nemesis_claw_04_w03",
+          "name": "重型爆矢枪（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 重型 (仅限转移)、关键穿刺 1、洪流 1\""
+        },
+        {
+          "id": "nemesis_claw_04_w04",
+          "name": "导弹发射器（破片）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 爆炸 2\"、重型 (仅限转移)"
+        },
+        {
+          "id": "nemesis_claw_04_w05",
+          "name": "导弹发射器（穿甲）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 5/7 · 重型 (仅限转移)、穿刺 1"
+        },
+        {
+          "id": "nemesis_claw_04_w06",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_04_w01",
+        "nemesis_claw_04_w02",
+        "nemesis_claw_04_w03",
+        "nemesis_claw_04_w04",
+        "nemesis_claw_04_w05",
+        "nemesis_claw_04_w06"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "nemesis_claw_05",
+      "name": "午夜领主啸叫者",
+      "role": "啸叫者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "啸叫者"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-07-特工-午夜领主啸叫者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_05_w01",
+          "name": "闪电爪",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 无休、致命 5+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_05_w01"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        },
+        {
+          "name": "啸叫者",
+          "ap": null,
+          "text": "每当在这名特工 3\" 内的一名敌方特工进行射击，近战或反击时，您的对手无法重掷其攻击骰。"
+        },
+        {
+          "name": "残暴欲望",
+          "ap": null,
+          "text": "每当这名特工对受伤的敌方特工进行近战时，这名特工的闪电爪获得“致命 4+”武器规则。"
+        }
+      ]
+    },
+    {
+      "id": "nemesis_claw_06",
+      "name": "午夜领主窃皮者",
+      "role": "窃皮者",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "窃皮者"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-08-特工-午夜领主窃皮者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_06_w01",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "nemesis_claw_06_w02",
+          "name": "诺斯特拉莫链锯刃",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/6 · 撕裂"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_06_w01",
+        "nemesis_claw_06_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        },
+        {
+          "name": "活剥他们",
+          "ap": null,
+          "text": "每个转折点一次，当这名特工在其控制范围内残废了一名敌方特工时，您可以选择对这名特工或那名残废敌方特工可见且位于其 6\" 内的另一名敌方特工。直到下一个转折点开始前，那名敌方特工无法控制标识或执行拾取标识行动以及任务行动。"
+        },
+        {
+          "name": "剥皮深坑的暴君",
+          "ap": null,
+          "text": "每当这名特工进行近战或反击时，这名特工在受到 3 点或更多普通及暴击伤害时，伤害将被减去 1 点。"
+        }
+      ]
+    },
+    {
+      "id": "nemesis_claw_07",
+      "name": "午夜领主腹语师",
+      "role": "腹语师",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "灵能者",
+        "腹语师"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-09-特工-午夜领主腹语师-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_07_w01",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "nemesis_claw_07_w02",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_07_w01",
+        "nemesis_claw_07_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        },
+        {
+          "name": "徽记持有者",
+          "ap": null,
+          "text": "在确定标识的控制时，将这名特工的 APL 属性视为高于原先 1 点。请注意，这并不改变其 APL 属性，所以任何修正都会与本效果累加。"
+        },
+        {
+          "name": "不安模仿",
+          "ap": 1,
+          "text": "减益。选择一名位于该特工 8\" 内的敌方特工，然后选择下列效果之一（每个选项在每场战斗中只能选择一次）：\n• 如果那名敌方特工处于隐匿状态，那么它可以立即执行一次免费的冲刺行动，但由您来移动那名特工。\n• 直到本转折点结束前，那名敌方特工不能协助近战，且其控制范围被视为无。\n• 那名敌方特工失去 1 点 AP（如果其已被激活，则在其下一次激活时失去 1 点 AP）。\n该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "nemesis_claw_08",
+      "name": "午夜领主战士",
+      "role": "战士",
+      "apl": 3,
+      "move": "6\"",
+      "save": "3+",
+      "wounds": 14,
+      "baseSizeMm": 32,
+      "keywords": [
+        "复仇之爪",
+        "混沌",
+        "阿斯塔特叛军",
+        "战士"
+      ],
+      "cards": [
+        "KT-NEMESIS_CLAW--01-10-特工-午夜领主战士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "nemesis_claw_08_w01",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\""
+        },
+        {
+          "id": "nemesis_claw_08_w02",
+          "name": "爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4"
+        },
+        {
+          "id": "nemesis_claw_08_w03",
+          "name": "链锯剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5"
+        },
+        {
+          "id": "nemesis_claw_08_w04",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "nemesis_claw_08_w01",
+        "nemesis_claw_08_w02",
+        "nemesis_claw_08_w03",
+        "nemesis_claw_08_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-nemesis_claw_faction_rule",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以执行两次近战行动或两次射击行动。若执行两次射击行动，则其中至少一次需要选择爆矢手枪，爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都可以执行反应。",
+          "factionRule": true
+        },
+        {
+          "name": "残暴折磨者",
+          "ap": null,
+          "text": "每当这名特工对一名受创或耐伤属性为 7 点或更低的敌方特工进行射击，近战或反击时，其武器获得“致命 5+”武器规则。"
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "恐惧试剂",
+      "text": "在结算攻击骰步骤中，如果您使用关键成功造成伤害（包括作为“毁灭”武器规则的结果），那么被这个武器作为目标的特工获得一枚己方恐惧试剂指示物（如果它尚未拥有这种指示物）。"
+    }
+  ],
+  "compositionHint": "选择 1 名卓见者，再从布恐者、炮手、重炮手、啸叫者、窃皮者、腹语师和战士中选择 5 名；除战士外，同一种特工最多 1 名。"
+}

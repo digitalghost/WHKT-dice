@@ -52,7 +52,11 @@ enum class TokenDuration(val label: String) {
     TURNING_POINT_END("本转折点结束"),
     NEXT_READY("下一就绪步骤"),
     BATTLE("整场"),
-    MANUAL("手动移除")
+    MANUAL("手动移除");
+
+    companion object {
+        val UNTIL_REMOVED: TokenDuration get() = MANUAL
+    }
 }
 
 data class OperativeToken(
@@ -67,6 +71,8 @@ data class OperativeToken(
     companion object {
         const val OFF_FIELD = "离场"
         const val STUNNED = "晕眩"
+        /** Rules that stop an operative from being activated (e.g. 磨难耳语). */
+        const val BLOCKED = "不能激活"
     }
 }
 
@@ -87,6 +93,7 @@ data class BattleOperativeState(
     val wounded: Boolean get() = currentWounds > 0 && currentWounds * 2 < maxWounds
     val offField: Boolean get() = tokens.any { it.name == OperativeToken.OFF_FIELD }
     val stunned: Boolean get() = tokens.any { it.name == OperativeToken.STUNNED }
+    val frenzied: Boolean get() = tokens.any { it.name == "狂暴" }
 
     companion object {
         const val ORDER_CONCEAL = "隐匿"
@@ -127,8 +134,11 @@ data class BattleSide(
     val currentScore: Int get() = score.total(null)
     val totalScore: Int get() = score.total(primaryOp)
     val incapacitatedCount: Int get() = operatives.count { it.incapacitated }
+    val inFieldCount: Int get() = operatives.count { !it.incapacitated && !it.offField }
     val killStartingCount: Int get() = operatives.count { !it.excludedFromKill }
-    val killIncapacitatedCount: Int get() = operatives.count { it.incapacitated && !it.excludedFromKill }
+    val killIncapacitatedCount: Int get() = operatives.count {
+        (it.incapacitated || it.tokens.any { t -> t.name == "狂暴" }) && !it.excludedFromKill
+    }
 }
 
 /** A named team resource (nodes, tunnels, free rerolls...). No team-specific code reads it. */
@@ -238,7 +248,13 @@ object BattleRules {
                     val kept = operative.copy(tokens = operative.tokens.filterNot { it.duration == TokenDuration.NEXT_READY })
                     if (kept.incapacitated) kept else kept.copy(ready = true)
                 },
-                counters = side.counters.map { c -> c.resetEachTurningPoint?.let { c.copy(value = it) } ?: c }
+                counters = side.counters.map { c ->
+                    when {
+                        c.resetEachTurningPoint != null -> c.copy(value = c.resetEachTurningPoint)
+                        side.teamId == "KT-SPECTRE_SQUAD" && c.name == "野战点数" && nextTurningPoint > 1 -> c.copy(value = c.value + 1)
+                        else -> c
+                    }
+                }
             )
         }
 
@@ -295,7 +311,20 @@ object BattleRules {
      * is revealed via totalScore. Most VP wins; equal VP is a draw.
      */
     fun complete(battle: BattleRecord): BattleRecord {
-        val synced = syncKills(battle)
+        val burrowNotes = mutableListOf<String>()
+        fun incapacitateBurrowed(side: BattleSide): BattleSide = side.copy(
+            operatives = side.operatives.map { o ->
+                if (!o.incapacitated && o.tokens.any { it.name == OperativeToken.OFF_FIELD && it.source == "钻地" }) {
+                    burrowNotes += "${o.displayName} 战斗结束时仍处于钻地地下状态，视作丧失行动能力"
+                    setWounds(o, 0)
+                } else o
+            }
+        )
+        val afterBurrow = battle.copy(
+            sideA = incapacitateBurrowed(battle.sideA),
+            sideB = incapacitateBurrowed(battle.sideB)
+        )
+        val synced = syncKills(afterBurrow)
         val levelA = killLevelAgainst(synced.sideB)
         val levelB = killLevelAgainst(synced.sideA)
         val bonusA = !synced.progress.killBonusApplied && levelA > levelB
@@ -304,8 +333,9 @@ object BattleRules {
         val sideB = if (bonusB) synced.sideB.copy(score = synced.sideB.score.change(ScoreType.KILL, 1)) else synced.sideB
         val ended = synced.copy(sideA = sideA, sideB = sideB, progress = synced.progress.copy(killBonusApplied = true))
         val notes = buildList {
-            if (bonusA) add("${sideA.playerName}击杀等级 $levelA 高于对手 $levelB，+1VP")
-            if (bonusB) add("${sideB.playerName}击杀等级 $levelB 高于对手 $levelA，+1VP")
+            addAll(burrowNotes)
+            if (bonusA) add("${sideA.playerName} 击杀等级 $levelA 高于对手 $levelB，+1VP")
+            if (bonusB) add("${sideB.playerName} 击杀等级 $levelB 高于对手 $levelA，+1VP")
             add("战斗结束：${sideA.playerName} ${sideA.totalScore} - ${sideB.totalScore} ${sideB.playerName}，${resultLabel(ended.copy(completed = true))}")
         }
         return ended.copy(
@@ -329,36 +359,155 @@ object BattleRules {
     }
 
     /** Kill grade this side's opponent has reached against [victims]. */
-    fun killLevelAgainst(victims: BattleSide): Int =
-        KillScoreCalculator.killLevel(victims.killStartingCount, victims.killIncapacitatedCount)
+    fun killLevelAgainst(victims: BattleSide): Int {
+        val startingCount = if (victims.teamId == "KT-HIEROTEK_CIRCLE") 5 else victims.killStartingCount
+        return KillScoreCalculator.killLevel(startingCount, victims.killIncapacitatedCount)
+    }
 
     /**
-     * Each new kill grade reached gains 1VP (p107). Grades already counted are remembered in
-     * progress, so reviving an operative never removes VP and manual VP edits stay intact.
+     * Each new kill grade reached gains 1VP (p107). Tracked via [BattleProgress.killLevelA]/[BattleProgress.killLevelB]
+     * so manual VP edits are preserved and each grade is only awarded once.
      */
     fun syncKills(battle: BattleRecord): BattleRecord {
         val levelA = killLevelAgainst(battle.sideB)
         val levelB = killLevelAgainst(battle.sideA)
-        val gainA = (levelA - battle.progress.killLevelA).coerceAtLeast(0)
-        val gainB = (levelB - battle.progress.killLevelB).coerceAtLeast(0)
-        if (gainA == 0 && gainB == 0) return battle
+        val reanimatingB = battle.sideB.teamId in setOf("KT-HIEROTEK_CIRCLE", "NEC-CAN")
+        val reanimatingA = battle.sideA.teamId in setOf("KT-HIEROTEK_CIRCLE", "NEC-CAN")
+        val deltaA = if (reanimatingB) levelA - battle.progress.killLevelA else (levelA - battle.progress.killLevelA).coerceAtLeast(0)
+        val deltaB = if (reanimatingA) levelB - battle.progress.killLevelB else (levelB - battle.progress.killLevelB).coerceAtLeast(0)
+        if (deltaA == 0 && deltaB == 0) return battle
         return battle.copy(
-            sideA = battle.sideA.copy(score = battle.sideA.score.change(ScoreType.KILL, gainA)),
-            sideB = battle.sideB.copy(score = battle.sideB.score.change(ScoreType.KILL, gainB)),
+            sideA = battle.sideA.copy(score = battle.sideA.score.change(ScoreType.KILL, deltaA)),
+            sideB = battle.sideB.copy(score = battle.sideB.score.change(ScoreType.KILL, deltaB)),
             progress = battle.progress.copy(
-                killLevelA = maxOf(levelA, battle.progress.killLevelA),
-                killLevelB = maxOf(levelB, battle.progress.killLevelB)
+                killLevelA = if (reanimatingB) levelA else maxOf(levelA, battle.progress.killLevelA),
+                killLevelB = if (reanimatingA) levelB else maxOf(levelB, battle.progress.killLevelB)
             ),
             log = battle.log + listOfNotNull(
-                if (gainA > 0) BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
-                    message = "${battle.sideA.playerName}击杀等级提升至 $levelA，击杀行动 +${gainA}VP") else null,
-                if (gainB > 0) BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
-                    message = "${battle.sideB.playerName}击杀等级提升至 $levelB，击杀行动 +${gainB}VP") else null
+                when {
+                    deltaA > 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideA.playerName} 击杀等级提升至 $levelA，击杀行动 +${deltaA}VP")
+                    deltaA < 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideB.playerName} 重生规程生效，${battle.sideA.playerName} 击杀等级调整为 $levelA，击杀行动 ${deltaA}VP")
+                    else -> null
+                },
+                when {
+                    deltaB > 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideB.playerName} 击杀等级提升至 $levelB，击杀行动 +${deltaB}VP")
+                    deltaB < 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideA.playerName} 重生规程生效，${battle.sideB.playerName} 击杀等级调整为 $levelB，击杀行动 ${deltaB}VP")
+                    else -> null
+                }
             )
         )
     }
 
+    /**
+     * Explicitly recalculates Kill Grade and Kill Op VP when an operative is saved from incapacitation
+     * (医疗兵！, 被规则阻止残废) or reanimated (重生规程, 恢复在场).
+     */
+    fun recalculateKills(battle: BattleRecord): BattleRecord {
+        val levelA = killLevelAgainst(battle.sideB)
+        val levelB = killLevelAgainst(battle.sideA)
+        val deltaA = levelA - battle.progress.killLevelA
+        val deltaB = levelB - battle.progress.killLevelB
+        if (deltaA == 0 && deltaB == 0) return battle
+        return battle.copy(
+            sideA = battle.sideA.copy(score = battle.sideA.score.change(ScoreType.KILL, deltaA)),
+            sideB = battle.sideB.copy(score = battle.sideB.score.change(ScoreType.KILL, deltaB)),
+            progress = battle.progress.copy(
+                killLevelA = levelA,
+                killLevelB = levelB
+            ),
+            log = battle.log + listOfNotNull(
+                when {
+                    deltaA > 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideA.playerName} 击杀等级提升至 $levelA，击杀行动 +${deltaA}VP")
+                    deltaA < 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideB.playerName} 特工免于残废/重生，${battle.sideA.playerName} 击杀等级调整为 $levelA，击杀行动 ${deltaA}VP")
+                    else -> null
+                },
+                when {
+                    deltaB > 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideB.playerName} 击杀等级提升至 $levelB，击杀行动 +${deltaB}VP")
+                    deltaB < 0 -> BattleLogEntry(turningPoint = battle.turningPoint, phase = battle.phase,
+                        message = "${battle.sideA.playerName} 特工免于残废/重生，${battle.sideB.playerName} 击杀等级调整为 $levelB，击杀行动 ${deltaB}VP")
+                    else -> null
+                }
+            )
+        )
+    }
+
+    private val expendableOperativeIds = setOf(
+        "kt_inb_cat_unit",
+        "kt_inb_gheistskull",
+        "inquisitorial_agents_tome_skull",
+        "kt_kom_bomb_squig",
+        "spectre_squad_12",
+        "wrecka_krew_02",
+        "kt_xv26_mv15",
+        "kt_xv26_mv75",
+        "nec_can_war",
+        "gellerpox_infected_07",
+        "gellerpox_infected_08",
+        "gellerpox_infected_09"
+    )
+
+    /** True when an operative's rules state it is ignored for the opponent's Kill Op (消耗品/无人机/变异害虫). */
+    fun isExpendableForKillOp(operativeId: String): Boolean {
+        if (operativeId in expendableOperativeIds) return true
+        return AbilityCatalog.forOperative(operativeId).any { a ->
+            a.name.contains("消耗品") ||
+                a.description.contains("在对手的击杀/灭敌行动中被忽略") ||
+                a.description.contains("在您对手的杀戮/消灭任务中") ||
+                a.description.contains("在对手的杀戮／消灭任务中忽略")
+        }
+    }
+
+    /** Built-in Frag & Krak Grenades granted by a Grenadier operative's ability (掷弹兵 / 手雷专家). */
+    fun grenadierWeapons(operativeId: String, existing: List<BattleWeaponSnapshot>): List<BattleWeaponSnapshot> {
+        val grenadierAbility = AbilityCatalog.forOperative(operativeId).firstOrNull {
+            it.name == "掷弹兵" || it.name == "手雷专家"
+        } ?: return emptyList()
+        val improvedHit = grenadierAbility.description.contains("命中属性") &&
+            (grenadierAbility.description.contains("提升 1") ||
+                grenadierAbility.description.contains("改善 1") ||
+                grenadierAbility.description.contains("增加 1"))
+        val hit = if (improvedHit) 3 else 4
+        val out = mutableListOf<BattleWeaponSnapshot>()
+        if (existing.none { it.name.contains("破片手雷") || it.name.contains("疫病手雷") }) {
+            out += snapshot(WeaponOption("${operativeId}_frag_grenade", "破片手雷",
+                "4A · ${hit}+ · 2/4 · 范围 6\"、爆炸 2\"、集中", WeaponKind.RANGED))
+        }
+        if (existing.none { it.name.contains("穿甲手雷") }) {
+            out += snapshot(WeaponOption("${operativeId}_krak_grenade", "穿甲手雷",
+                "4A · ${hit}+ · 4/5 · 范围 6\"、穿刺 1、集中", WeaponKind.RANGED))
+        }
+        return out
+    }
+
     /** Wounds at 0 incapacitate (p21); raising wounds above 0 again revives the token. */
+    fun snapshot(weapon: WeaponOption): BattleWeaponSnapshot {
+        val stats = weapon.stats
+        return BattleWeaponSnapshot(weapon.id, weapon.name, weapon.profile, stats.attacks, stats.hit,
+            stats.criticalThreshold, stats.normalDamage, stats.criticalDamage, stats.keywords, weapon.kind)
+    }
+
+    /** A fresh battle operative from a team template (rules that add operatives mid-battle). */
+    fun fromTemplate(template: OperativeTemplate, memberId: String, name: String = template.name): BattleOperativeState {
+        val baseWeapons = template.weapons.filter { it.id in template.defaultWeaponIds }.ifEmpty { template.weapons }.map(::snapshot)
+        return BattleOperativeState(
+            memberId = memberId,
+            operativeId = template.id,
+            displayName = name,
+            maxWounds = template.wounds,
+            apl = template.apl,
+            weapons = baseWeapons + grenadierWeapons(template.id, baseWeapons),
+            ready = false,
+            excludedFromKill = isExpendableForKillOp(template.id)
+        )
+    }
+
     fun setWounds(operative: BattleOperativeState, wounds: Int): BattleOperativeState {
         val value = wounds.coerceIn(0, operative.maxWounds)
         return when {
@@ -375,6 +524,49 @@ object BattleRules {
         return battle.copy(sideA = clean(battle.sideA), sideB = clean(battle.sideB))
     }
 
+    fun defaultCounters(teamId: String): List<TeamCounter> = when (teamId) {
+        "TYR-RAV" -> listOf(TeamCounter(name = "隧道标识", value = 0))
+        "NEC-CAN" -> listOf(TeamCounter(name = "方尖碑节点", value = 3))
+        "KT-NOVITIATES" -> listOf(TeamCounter(name = "信仰点数", value = 0))
+        "KT-BLOODED" -> listOf(TeamCounter(name = "浴血指示物", value = 0))
+        "KT-WRECKA_KREW" -> listOf(TeamCounter(name = "破坏点数", value = 0))
+        "KT-SPECTRE_SQUAD" -> listOf(TeamCounter(name = "野战点数", value = 1))
+        "KT-VESPID_STINGWINGS" -> listOf(TeamCounter(name = "交融点数", value = 0))
+        "KT-HAND_OF_THE_ARCHON" -> listOf(TeamCounter(name = "痛苦指示物", value = 0))
+        "KT-ELUCIDIAN_STARSTRIDERS" -> listOf(TeamCounter(name = "贸易许可（剩余）", value = 4))
+        "KT-HERNKYN_YAEGRIS" -> listOf(TeamCounter(name = "机敏点数", value = 0, resetEachTurningPoint = 0))
+        else -> emptyList()
+    }
+
+    private fun defaultLoadoutIds(operative: OperativeTemplate, occurrenceIndex: Int): Set<String> {
+        return when (operative.id) {
+            "kt_kas_gunner" -> when (occurrenceIndex % 4) {
+                0 -> setOf("kt_kas_gun_plasma_std", "kt_kas_gun_plasma_sc", "kt_kas_gun_gun_butt")
+                1 -> setOf("kt_kas_gun_meltagun", "kt_kas_gun_gun_butt")
+                2 -> setOf("kt_kas_gun_volley_focused", "kt_kas_gun_volley_sweeping", "kt_kas_gun_gun_butt")
+                else -> setOf("kt_kas_gun_gl_frag", "kt_kas_gun_gl_krak", "kt_kas_gun_gun_butt")
+            }
+            "void_dancer_troupe_03" -> when (occurrenceIndex) {
+                0 -> setOf("void_dancer_troupe_03_w01", "void_dancer_troupe_03_w07")
+                1 -> setOf("void_dancer_troupe_03_w02", "void_dancer_troupe_03_w06")
+                2 -> setOf("void_dancer_troupe_03_w03", "void_dancer_troupe_03_w05")
+                3 -> setOf("void_dancer_troupe_03_w03", "void_dancer_troupe_03_w04")
+                else -> setOf("void_dancer_troupe_03_w03", "void_dancer_troupe_03_w07")
+            }
+            "nec_can_tc" -> if (occurrenceIndex == 0) {
+                setOf("nec_can_tc_tdi_01", "nec_can_tc_c_01")
+            } else {
+                setOf("nec_can_tc_tgr_01", "nec_can_tc_tgr_02", "nec_can_tc_c_01")
+            }
+            "elucidian_starstriders_07" -> if (occurrenceIndex == 3) {
+                setOf("elucidian_starstriders_07_w02", "elucidian_starstriders_07_w03", "elucidian_starstriders_07_w04")
+            } else {
+                operative.defaultWeaponIds.toSet()
+            }
+            else -> operative.defaultWeaponIds.toSet()
+        }
+    }
+
     private fun createSide(
         id: String,
         playerName: String,
@@ -384,6 +576,7 @@ object BattleRules {
         primary: ScoreType?
     ): BattleSide {
         val team = RosterCatalog.team(roster.teamId)
+        val seenByOpId = mutableMapOf<String, Int>()
         return BattleSide(
             id = id,
             rosterId = roster.rosterId,
@@ -393,32 +586,31 @@ object BattleRules {
             primaryOp = primary,
             equipmentNotes = equipment,
             tacticalOpNotes = tactical,
+            counters = defaultCounters(roster.teamId),
             operatives = roster.members.mapNotNull { member ->
                 val operative = RosterCatalog.operative(team, member.operativeId) ?: return@mapNotNull null
+                val occ = seenByOpId.getOrDefault(operative.id, 0).also { seenByOpId[operative.id] = it + 1 }
+                val chosenIds = member.weaponIds.ifEmpty {
+                    defaultLoadoutIds(operative, occ)
+                }
+                val baseWeapons = operative.weapons
+                    .filter { operative.matchesWeaponId(it.id, chosenIds) }
+                    .ifEmpty { operative.weapons }
+                    .map(::snapshot)
+                val initialOrder = if (operative.id == "kt_kom_bomb_squig") {
+                    BattleOperativeState.ORDER_ENGAGE
+                } else {
+                    BattleOperativeState.ORDER_CONCEAL
+                }
                 BattleOperativeState(
                     memberId = member.id,
                     operativeId = operative.id,
                     displayName = member.callsign.ifBlank { operative.name },
                     maxWounds = operative.wounds,
+                    order = initialOrder,
                     apl = operative.apl,
-                    weapons = operative.weapons
-                        .filter { it.id in member.weaponIds }
-                        .ifEmpty { operative.weapons }
-                        .map { weapon ->
-                            val stats = weapon.stats
-                            BattleWeaponSnapshot(
-                                id = weapon.id,
-                                name = weapon.name,
-                                profile = weapon.profile,
-                                attacks = stats.attacks,
-                                hit = stats.hit,
-                                critical = stats.criticalThreshold,
-                                normalDamage = stats.normalDamage,
-                            criticalDamage = stats.criticalDamage,
-                            keywords = stats.keywords,
-                            kind = weapon.kind
-                            )
-                        }
+                    weapons = baseWeapons + grenadierWeapons(operative.id, baseWeapons),
+                    excludedFromKill = isExpendableForKillOp(operative.id)
                 )
             }
         )
@@ -427,6 +619,10 @@ object BattleRules {
 
 object KillScoreCalculator {
     private val thresholds = mapOf(
+        1 to listOf(1, 1, 1, 1, 1),
+        2 to listOf(1, 1, 2, 2, 2),
+        3 to listOf(1, 2, 2, 3, 3),
+        4 to listOf(1, 2, 3, 4, 4),
         5 to listOf(1, 2, 3, 4, 5),
         6 to listOf(1, 2, 4, 5, 6),
         7 to listOf(1, 3, 4, 6, 7),
@@ -440,7 +636,8 @@ object KillScoreCalculator {
     )
 
     fun killLevel(enemyStartingOperatives: Int, enemyIncapacitated: Int): Int {
-        val table = thresholds[enemyStartingOperatives] ?: return 0
+        if (enemyStartingOperatives <= 0 || enemyIncapacitated <= 0) return 0
+        val table = thresholds[enemyStartingOperatives.coerceIn(1, 14)] ?: return 0
         return table.count { enemyIncapacitated >= it }
     }
 

@@ -390,4 +390,84 @@ class ShootingCombatRulesTest {
         assertTrue(critical.defenderStunned)
         assertFalse(normal.defenderStunned)
     }
+
+    @Test
+    fun `obscured prevents punishing rending and severe from triggering`() {
+        val rules = ShootingWeaponRules(
+            punishing = true,
+            rending = true,
+            severe = true,
+            devastating = 2
+        )
+        var state = ShootingCombatRules.start(attacker(attacks = 3, rules = rules), defender())
+        state = ShootingCombatRules.configure(state, CoverChoice.NONE, obscured = true, accurateRetained = 0)
+        state = ShootingCombatRules.acceptAttackRoll(state, listOf(6, 4, 1))
+        state = ShootingCombatRules.finishAttackRerolls(state)
+        assertEquals(1 to 0, ShootingCombatRules.previewAttackRetention(
+            state,
+            ShootingRetainChoices(punishing = true, rending = true, severe = true)
+        ))
+        state = ShootingCombatRules.finishAttackRetention(
+            state,
+            ShootingRetainChoices(punishing = true, rending = true, severe = true)
+        )
+        assertEquals(0, state.attackPool.criticals)
+        assertEquals(1, state.attackPool.normals)
+        assertEquals(0, state.devastatingDamage)
+    }
+
+    @Test
+    fun `punishing normal can be upgraded by rending in the same retention step`() {
+        val rules = ShootingWeaponRules(punishing = true, rending = true)
+        var state = ShootingCombatRules.start(attacker(attacks = 2, rules = rules), defender())
+        state = ShootingCombatRules.configure(state, CoverChoice.NONE, obscured = false, accurateRetained = 0)
+        state = ShootingCombatRules.acceptAttackRoll(state, listOf(6, 1))
+        state = ShootingCombatRules.finishAttackRerolls(state)
+        assertEquals(0 to 1, ShootingCombatRules.previewAttackRetention(
+            state,
+            ShootingRetainChoices(punishing = false, rending = true)
+        ))
+        assertEquals(0 to 2, ShootingCombatRules.previewAttackRetention(
+            state,
+            ShootingRetainChoices(punishing = true, rending = true)
+        ))
+        state = ShootingCombatRules.finishAttackRetention(
+            state,
+            ShootingRetainChoices(punishing = true, rending = true)
+        )
+        assertEquals(2, state.attackPool.criticals)
+        assertEquals(0, state.attackPool.normals)
+    }
+
+    @Test
+    fun `area devastating parses radius and tracks splash damage`() {
+        val rules = ShootingRuleParser.parse(listOf("2\" 毁灭 3"))
+        assertEquals(3, rules.devastating)
+        assertEquals(2, rules.devastatingRadius)
+        val state = retained(
+            attacker = attacker(attacks = 2, rules = rules),
+            attackValues = listOf(6, 6)
+        )
+        assertEquals(6, state.devastatingDamage)
+        assertTrue(state.log.any { it.contains("2″ 内所有可见特工") })
+    }
+
+    @Test
+    fun `skipOverheat skips hot check on secondary targets`() {
+        var state = ShootingCombatRules.finishAttackRetention(
+            ShootingCombatRules.finishAttackRerolls(
+                ShootingCombatRules.acceptAttackRoll(
+                    ShootingCombatRules.start(
+                        attacker(attacks = 1, hit = 3, rules = ShootingWeaponRules(hot = true)),
+                        defender()
+                    ),
+                    listOf(2)
+                )
+            )
+        )
+        assertEquals(ShootingPhase.OVERHEAT, state.phase)
+        state = ShootingCombatRules.skipOverheat(state)
+        assertEquals(ShootingPhase.FINISHED, state.phase)
+        assertEquals(0, state.overheatDamage)
+    }
 }

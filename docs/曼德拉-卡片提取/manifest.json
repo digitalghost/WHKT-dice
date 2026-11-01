@@ -1,0 +1,725 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-MANDRAKES",
+  "team_name_zh": "曼德拉",
+  "team_name_en": "Mandrakes",
+  "source_pdf": "最新杀戮小队规则更新/曼德拉 Mandrakes 杀戮小队规则.pdf",
+  "source_pdf_sha256": "5fd41faf185bab5f362d393a658f3bc9ad1702baf7ee4e87b5ccf176e77135e6",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 27,
+    "operative": 6,
+    "operative-ability": 3,
+    "team-selection": 1,
+    "faction-rule": 4,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-mandrakes-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "曼德拉暗夜恶魔-数据卡",
+      "title_en": "MANDRAKE NIGHTFIEND",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-曼德拉暗夜恶魔-数据卡.png",
+      "is_back": false,
+      "text": "曼德拉暗夜恶魔 APL 移动豁免耐伤\n2 7\" 5+ 9\n名称攻击命中伤害武器规则\n荒火爆焰 4 3+ 3/4 灵魂打击*\n虚壳利刃 5 3+ 4/6 致命 5+，震荡\n磨难耳语：每当您对手激活位于这名特工 6\" 内的一\n名敌方特工时，您可以掷一枚 D6（如果您在本次\n转折点中已经通过这条规则或挽歌之喉特工的“阴\n魂不散的注视”规则打断了那名特工的激活，那么\n您不能这么做）：若掷骰结果大于那名敌方特工的\nAPL 属性，则那名特工无法在这次激活中被激活。\n若当时已没有其他可用的敌方特工可以被激活，则\n本技能无效。\n欧伯列斯：当这名特工就绪或使用其虚壳利刃使一\n名敌方特工残废时，其欧伯列斯便会激活。当欧伯\n列斯激活且这名特工将因为一枚攻击骰受到伤害\n时，您便可以掷一枚 D6：若掷骰结果为 5+ ，则无\n视那枚攻击骰子造成的伤害，且这名特工的欧伯列\n斯不再处于激活状态。\n曼德拉、艾达灵族、黑暗灵族、队长、暗夜恶魔 28",
+      "weapon_types": {
+        "荒火爆焰": "远程",
+        "虚壳利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE NIGHTFIEND\n2 7\" 5+ 9\nNAME ATK HIT DMG WR\nBaleblast 4 3+ 3/4 Soulstrike*\nHuskblade 5 3+ 4/6 Lethal 5+, Shock\nHarrowing Whispers: Whenever your opponent would activate\nan enemy operative within 6\" of this operative, you can roll one\nD6 (you cannot do so if you already interrupted that operative’s\nactivation with this rule or the DIRGEMAW operative’s\nHaunting Focus additional rule during this turning point): if\nthe result is higher than that enemy operative’s APL stat, your\nopponent cannot activate it during this activation. If there are\nno other enemy operatives eligible to be activated, this rule has\nno effect.\nOubliex: Whenever this operative is readied, or if this operative\nincapacitates an enemy operative with its huskblade, its oubliex\nbecomes active. Whenever its oubliex is active and an attack dice\nwould inflict damage on this operative, you can roll one D6: on\na 5+, ignore the damage inflicted from that attack dice and its\noubliex is no longer active.\nMANDRAKE , AELDARI, DRUKHARI, LEADER, NIGHTFIEND 28"
+    },
+    {
+      "id": "kt-mandrakes-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "曼德拉潜渊者-数据卡",
+      "title_en": "MANDRAKE ABYSSAL",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-曼德拉潜渊者-数据卡.png",
+      "is_back": false,
+      "text": "曼德拉潜渊者 APL 移动豁免耐伤\n2 7\" 5+ 8\n名称攻击命中伤害武器规则\n荒火喷涌（喷涌） 5 3+ 3/4 爆炸 2\"，灵魂打击*\n荒火喷涌（灼烧） 5 3+ 3/4 致命 5+，灵魂打击*\n幽钢利刃 4 3+ 4/5 致命 5+\n荒火：每当一名己方曼德拉特工对一名获得己方荒火指示物的敌方特工进行射击时，为那名己方特工的\n远程武器的两种伤害属性各增加 1 点，并获得“集中”武器规则。每当一名特工射击拥有己方荒火指示物\n的己方曼德拉特工时，将那名敌方特工远程武器的两种伤害属性各减少 1 点（至多减至 1 点）。\n请继续阅读背面规则\n曼德拉、艾达灵族、黑暗灵族、潜渊者 28",
+      "weapon_types": {
+        "荒火喷涌（喷涌）": "远程",
+        "荒火喷涌（灼烧）": "远程",
+        "幽钢利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE ABYSSAL\n2 7\" 5+ 8\nNAME ATK HIT DMG WR\nBalesurge (blast) 5 3+ 3/4 Blast 2\", Soulstrike*\nBalesurge (burn) 5 3+ 3/4 Lethal 5+, Soulstrike*\nGlimmersteel blade 4 3+ 4/5 Lethal 5+\nBalefire: Whenever a friendly MANDRAKE operative is shooting an enemy operative that has one of your Balefire tokens, add\n1 to both Dmg stats of that friendly operative’s ranged weapons, and those weapons have the Saturate weapon rule. Whenever an\noperative is shooting a friendly MANDRAKE operative that has one of your Balefire tokens, subtract 1 from both Dmg stats of that\noperative’s ranged weapons (to a minimum of 1).\nRULES CONTINUE ON OTHER SIDE\nMANDRAKE , AELDARI, DRUKHARI, ABYSSAL 28"
+    },
+    {
+      "id": "kt-mandrakes-01-03",
+      "sequence": 3,
+      "category": "operative-ability",
+      "title_zh": "曼德拉潜渊者-能力卡",
+      "title_en": "MANDRAKE ABYSSAL",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工能力-曼德拉潜渊者-能力卡.png",
+      "is_back": false,
+      "text": "曼德拉潜渊者 APL 移动豁免耐伤\n2 7\" 5+ 8\n荒火萦绕 1AP\n选择一名对这名特工可见且没有己方荒火指示物\n的特工。直到这名特工的下一次激活开始前，这\n名特工残废前或它再次执行这个行动前（以其中\n先发生的为准），被选中的那名特工便会获得一\n个己方荒火指示物。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE ABYSSAL\n2 7\" 5+ 8\nWREATHE IN BALEFIRE 1AP\nSelect one operative visible to this operative that doesn’t\nhave one of your Balefire tokens. Until the start of this\noperative’s next activation, until it’s incapacitated or until\nit performs this action again (whichever comes first), that\nselected operative gains one of your Balefire tokens.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-mandrakes-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "曼德拉夺肢者-数据卡",
+      "title_en": "MANDRAKE CHOOSER OF THE FLESH",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-曼德拉夺肢者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n曼德拉夺肢者\n2 7\" 5+ 8\n名称攻击命中伤害武器规则\n荒火爆焰 4 3+ 3/4 灵魂打击*\n荒火利刃 4 3+ 5/6 残暴，致命 5+\n灵魂收割：每当一名敌方特工由于这名特工的“肢体收集”技能或荒肢体收集：每当一名敌方特工在\n火利刃而残废时，您便获得 1 点灵魂收割点，若那名敌方特工的 APL 这名特工的控制范围内执行后撤\n属性为 3 点或更高时，则获得两点灵魂收割点。每当一名己方曼德行动时，您可以使用本技能。若\n拉特工激活时，您可以花费 1 点灵魂收割点在战斗结束前为那名己此，那名敌方特工在它移动前受\n方特工增加 1 点 APL 属性，或使其恢复 2D3 点失去的耐伤点数。请到 2D3 点伤害。\n注意，即便在该特工残废的情况下，您依然可以花费己方的灵魂收割\n点。\n曼德拉、艾达灵族、黑暗灵族、夺肢者 28",
+      "weapon_types": {
+        "荒火爆焰": "远程",
+        "荒火利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE CHOOSER OF THE FLESH\n2 7\" 5+ 8\nNAME ATK HIT DMG WR\nBaleblast 4 3+ 3/4 Soulstrike*\nBaleblade 4 3+ 5/6 Brutal, Lethal 5+\nSoul Harvest: Whenever an enemy operative is incapacitated as a result of this Part Collector: Whenever an enemy\noperative’s Part Collector rule or baleblade, you gain 1 Soul Harvest point, or two if that operative performs the Fall Back\nenemy operative had an APL stat of 3 or more. Whenever a friendly MANDRAKE action while within control range of this\noperative is activated, you can spend 1 of your Soul Harvest points to either add 1 to its operative, you can use this rule. If you\nAPL stat until the end of the battle, or have it regain up to 2D3 lost wounds. Note you do, inflict 2D3 damage on that enemy\ncan spend your Soul Harvest points even if this operative is incapacitated. operative before it moves.\nMANDRAKE , AELDARI, DRUKHARI, CHOOSER OF THE FLESH 28"
+    },
+    {
+      "id": "kt-mandrakes-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "曼德拉挽歌之喉-数据卡",
+      "title_en": "MANDRAKE DIRGEMAW",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-曼德拉挽歌之喉-数据卡.png",
+      "is_back": false,
+      "text": "曼德拉挽歌之喉 APL 移动豁免耐伤\n2 7\" 5+ 8\n名称攻击命中伤害武器规则\n荒火爆焰 4 3+ 3/4 灵魂打击*\n生惧尖叫 5 2+ 2/2 范围 6\" ，毁灭 2，追踪轻型，晕眩，灵魂打击*\n幽钢利刃 4 3+ 4/5 致命 5+\n阴魂不散的注视：战略计划。选择一名敌方特工。直到下一个战略阶段的就绪步骤前，它获得阴魂不散的\n注视指示物。当您的对手准备激活拥有阴魂不散的注视指示物的敌方特工时，若这名特工处于就绪，您便\n可以先激活该特工（如果您在本次转折点中通过暗夜恶魔特工的“莫难耳语”规则进行掷骰并阻止了那名\n特工的激活，那么您不能这么做)。若此，在那次激活中，除非其他敌方特工对这名特工进行近战或射击，\n否则这名特工只能对那名敌方特工进行近战或射击（如果做不到这一点，则这名特工的激活被取消）。这\n名特工的激活结束后，您的对手将激活那名敌方特工（如果可能)，如果不能，则激活一名不同的敌方特\n工。\n请继续阅读背面规则\n曼德拉、艾达灵族、黑暗灵族、挽歌之喉 28",
+      "weapon_types": {
+        "荒火爆焰": "远程",
+        "生惧尖叫": "远程",
+        "幽钢利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE DIRGEMAW\n2 7\" 5+ 8\nNAME ATK HIT DMG WR\nBaleblast 4 3+ 3/4 Soulstrike*\nHorrifying scream 5 2+ 2/2 Range 6\", Devastating 2, Seek Light,\nStun, Soulstrike*\nGlimmersteel blade 4 3+ 4/5 Lethal 5+\nHaunting Focus: STRATEGIC GAMBIT. Select one enemy operative. Until the Ready step of the next Strategy phase, it gains your\nHaunting Focus token. The next time your opponent would activate an enemy operative that has your Haunting Focus token, if this\noperative is ready, you can activate this operative first (you cannot do so if you also rolled to prevent that operative’s activation with\nthe NIGHTFIEND operative’s Harrowing Whispers additional rule during this turning point). If you do, during that activation, this\noperative must shoot against or fight against that enemy operative, and cannot do so against any other enemy operatives until it does\n(if this isn’t possible, this operative’s activation is cancelled). After completing this operative’s activation, your opponent activates\nthat enemy operative (if possible), or activates a different enemy operative if they can’t.\nRULES CONTINUE ON OTHER SIDE\nMANDRAKE , AELDARI, DRUKHARI, DIRGEMAW 28"
+    },
+    {
+      "id": "kt-mandrakes-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "曼德拉挽歌之喉-能力卡",
+      "title_en": "MANDRAKE DIRGEMAW",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-曼德拉挽歌之喉-能力卡.png",
+      "is_back": false,
+      "text": "曼德拉挽歌之喉 APL 移动豁免耐伤\n2 7\" 5+ 8\n投射空想幻视 1AP\n选择可作为这名特工的有效目标或处于阴影的\n一名敌方特工。直到这名特工的下一次激活开\n始前，残废或再次执行本行动前（以这些情况\n中先发生的为准），将那名敌方特工武器的命\n中属性减去 1 点，移动属性减去 2\" （这不与受\n创累加）。\n这名特工不能在敌方特工的控制范围内执行此行\n动，除非唯一的敌方特工位于其控制范围内且被\n选为这个行动的目标。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE DIRGEMAW\n2 7\" 5+ 8\nPAREIDOLIC PROJECTION 1AP\nSelect one enemy operative that’s a valid target for this operative or is WITHIN SHADOW. Until the start of this operative’s\nnext activation, until it’s incapacitated or until it performs this action again (whichever comes first), worsen the Hit stat of that\nenemy operative’s weapons by 1 and subtract 2\" from its Move stat (these aren’t cumulative with being injured).\nThis operative cannot perform this action while within control range of an enemy operative, unless the only enemy operative it’s\nwithin control range of is selected for this action."
+    },
+    {
+      "id": "kt-mandrakes-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "曼德拉织影者-数据卡",
+      "title_en": "MANDRAKE SHADEWEAVER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-曼德拉织影者-数据卡.png",
+      "is_back": false,
+      "text": "曼德拉织影者 APL 移动豁免耐伤\n2 7\" 5+ 8\n名称攻击命中伤害武器规则\n荒火爆焰 4 3+ 3/4 灵魂打击*\n幽钢利刃 4 3+ 4/5 致命 5+\n暗影传送门：每当这名特工使用暗影通道进行转移行动（见阵营规则）时，您可以使用这个规则。若此，\n将己方暗影传送门标识从杀戮区中移除（如果有），并在这名特工移除前和部署后的控制范围内各放置一\n枚暗影传送门标识。\n每名己方曼德拉特工在每个转折点中可以使用一次暗影通道（这优先于每个转折点一次），前提是那名\n特工在移除前的控制范围内以及重新部署后的控制范围内都存在己方暗影传送门标识。请注意，这名特工\n残废对本效果没有影响，并且不会阻止一名特工正常使用暗影通道。\n请继续阅读背面规则\n曼德拉、艾达灵族、黑暗灵族、织影者 28",
+      "weapon_types": {
+        "荒火爆焰": "远程",
+        "幽钢利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE SHADEWEAVER\n2 7\" 5+ 8\nNAME ATK HIT DMG WR\nBaleblast 4 3+ 3/4 Soulstrike*\nGlimmersteel blade 4 3+ 4/5 Lethal 5+\nShadow Portal: Whenever this operative performs the Reposition action using a SHADOW PASSAGE, you can use this rule.\nIf you do, remove your Shadow Portal markers from the killzone (if any), then place one of your Shadow Portal markers within this\noperative’s control range before it’s removed and one within its control range after it’s set up.\nEach friendly MANDRAKE operative can use a SHADOW PASSAGE each turning point (this takes precedence over one\noperative once per turning point) if one of your Shadow Portal markers is within that operative’s control range when it’s removed,\nand the other is when it’s set up. Note that friendly operatives can do so even if this operative has been incapacitated, and doing so\ndoesn’t prevent one operative from using a SHADOW PASSAGE in the normal manner.\nRULES CONTINUE ON OTHER SIDE\nMANDRAKE , AELDARI, DRUKHARI, SHADEWEAVER 28"
+    },
+    {
+      "id": "kt-mandrakes-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "曼德拉织影者-能力卡",
+      "title_en": "MANDRAKE SHADEWEAVER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-曼德拉织影者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n曼德拉织影者\n2 7\" 5+ 8\n编织暗影 1AP\n将己方编织暗影标识从杀戮区移除（如果有），\n之后将己方编织暗影标识放置在对这名特工可见\n的位置或对这名特工可见的制高点地形或地形模\n型上。那个标识会产生一个与烟雾手雷相同尺寸\n和效果的烟雾区域，但并不会在之后的转折点中\n移除。若这名特工残废，则从杀戮区移除己方的\n编织暗影标识。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE SHADEWEAVER\n2 7\" 5+ 8\nWEAVE DARKNESS 1AP\nRemove your Weave Darkness marker from the killzone (if\nany). Then place your Weave Darkness marker visible to this\noperative, or on Vantage terrain of a terrain feature visible\nto this operative. That marker creates an area of smoke with\nthe same size and effects as a smoke grenade (see universal\nequipment), except you don’t remove it during the following\nturning point. If this operative is incapacitated, remove your\nWeave Darkness marker from the killzone.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-mandrakes-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "曼德拉战士-数据卡",
+      "title_en": "MANDRAKE WARRIOR",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-曼德拉战士-数据卡.png",
+      "is_back": false,
+      "text": "曼德拉战士 APL 移动豁免耐伤\n2 7\" 5+ 8\n名称攻击命中伤害武器规则\n荒火爆焰 4 3+ 3/4 灵魂打击*\n幽钢利刃 4 3+ 4/5 致命 5+\n暗影战士：每当这名特工处于阴影时，便为其幽钢\n利刃的暴击伤害属性增加 1 点。\n曼德拉、艾达灵族、黑暗灵族、战士 28",
+      "weapon_types": {
+        "荒火爆焰": "远程",
+        "幽钢利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMANDRAKE WARRIOR\n2 7\" 5+ 8\nNAME ATK HIT DMG WR\nBaleblast 4 3+ 3/4 Soulstrike*\nGlimmersteel blade 4 3+ 4/5 Lethal 5+\nShadow Warrior: Whenever this operative is WITHIN\nSHADOW, add 1 to the Critical Dmg stat of its\nglimmersteel blade.\nMANDRAKE , AELDARI, DRUKHARI, WARRIOR 28"
+    },
+    {
+      "id": "kt-mandrakes-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "曼德拉杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-曼德拉杀戮小队.png",
+      "is_back": false,
+      "text": "曼德拉杀戮小队\n原型：渗透，侦察\n特工\n↘ 1 名曼德拉暗夜恶魔\n↘ 8 名曼德拉特工，从以下列表进行选择:\n• 潜渊者\n• 夺肢者\n• 挽歌之喉\n• 织影者\n• 战士\n除了战士特工以外，列表中的每一名特工只能被\n纳入您的杀戮小队一次。",
+      "text_en": "MANDRAKES\nKILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 MANDRAKE NIGHTFIEND operative\n↘ 8 MANDRAKE operatives selected from the\nfollowing list:\n• ABYSSAL\n• CHOOSER OF THE FLESH\n• DIRGEMAW\n• SHADEWEAVER\n• WARRIOR\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-mandrakes-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "灵魂打击",
+      "title_en": "SOULSTRIKE",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-灵魂打击.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营规则\n灵魂打击\n曼德拉投出的荒火是一种冰冷却燃烧得极其猛烈的\n火焰，这种火焰以受害者的生命力以及意志作为燃\n料。传统意义上的护甲很难对付这种邪恶力量。\n这支小队中一些武器拥有灵魂打击规则，其规则\n如下。\n*灵魂打击：防御骰的成功判定与常规方式不\n同。每个等同或低于目标 APL 属性的结果被视\n为成功并被保留。每个高于目标 APL 属性的结\n果被视为失败且被弃置。数值为 1 的结果总是被\n视为关键成功，其他成功则被视为普通成功。数\n值为 6 的结果总是被视为失败的。\n设计者注：本杀戮小队中有许多规则都涉及对手\n的 APL 属性。这里的 APL 属性为规则生效时的\nAPL 属性（即包含修正）。",
+      "text_en": "MANDRAKE\nFACTION RULE\nSOULSTRIKE\nThe balefire hurled by the Mandrakes burns cold and\nfierce, fed by the tinder of their victim’s life force and\nanimus. Conventional armour offers little protection\nagainst this insidious force.\nSome weapons in this team’s rules have the\nSoulstrike weapon rule below.\n*Soulstrike: Successful defence dice are\ndetermined differently. Each result that’s equal\nto or less than the target’s APL stat is a success\nand is retained. Each result that’s higher than the\ntarget’s APL stat is a fail and is discarded. Each\nresult of 1 is always a critical success. Each other\nsuccess is a normal success. Each result of 6 is\nalways a fail.\nDesigner’s Note: Many of this kill team’s rules\nrefer to an enemy operative’s APL stat. This would\nbe the APL stat at the time the rule takes effect\n(i.e. including changes)."
+    },
+    {
+      "id": "kt-mandrakes-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "暗影通道",
+      "title_en": "SHADOW PASSAGE",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-暗影通道.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营规则\n暗影通道\n曼德拉具有如消失于幽暗水体一般潜入最为细微阴\n影的能力——并能跨越任何距离出现在另一片幽暗\n之中。这种恶毒能力能使他们在不被察觉的情况下\n绕过哨位和防线，从最为出人意料的方位扑向受害\n者。\n每个转折点一次，当一名己方曼德拉特工执行\n转移行动时，它可以使用暗影通道。若此，不要\n将其移动，而是将其从杀戮区移除，并重新部署\n在处于阴影的位置，但不能：\n• 位于一名敌方特工控制范围内。\n• 成为一名敌方特工的有效目标。\n• 在下一个转折点开始前执行射击或近战行动。",
+      "text_en": "MANDRAKE\nFACTION RULE\nSHADOW PASSAGE\nMandrakes can slip into the slightest patch of shadow\nas if vanishing into dark waters, only to crawl forth\nfrom another patch of gloom as though the intervening\ndistance doesn’t exist. This sinister ability allows them\nto bypass sentries and defences unseen, and to pounce\nupon their victims from unexpected quarters.\nOnce per turning point, one friendly MANDRAKE\noperative WITHIN SHADOW can use a SHADOW\nPASSAGE when it performs the Reposition action.\nIf it does, don’t move it. Instead, remove it from\nthe killzone and set it back up WITHIN SHADOW\nin a location it can be placed. When you set it\nback up, it cannot:\n• Be within control range of an enemy operative.\n• Be a valid target for an enemy operative.\n• Perform the Shoot or Fight action until the start\nof the next turning point."
+    },
+    {
+      "id": "kt-mandrakes-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "幽影存在",
+      "title_en": "UMBRAL ENTITIES",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-幽影存在.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营规则\n幽影存在\n曼德拉在物理形态上不断处于变换和颤动中，就如\n同被熄灭火炬中最后那束颤抖光芒的阴影。在少数\n遭到曼德拉袭击的幸存者的描述中，曼德拉似乎与\n慢慢逼近的黑暗融为一体，又或是在视线中完全消\n失。猎物往往会不知所措且毫无目标。\n当一名特工对一名己方曼德拉特工进行射击\n时，忽略“穿刺”武器规则。当一名己方曼德拉\n特工处于阴影时，其豁免属性增加 1 点。",
+      "text_en": "MANDRAKE\nFACTION RULE\nUMBRAL ENTITIES\nThe Mandrakes’ physical forms shift and shudder like\nshadows smothering the last light of a guttering torch.\nThose rare survivors of their attacks describe the\nMandrakes blending with the encroaching darkness, or\neven vanishing from sight altogether, confounding the\nincreasingly panicked aim of their prey as they flitter\never closer.\nWhenever an operative is shooting a friendly\nMANDRAKE operative, ignore the Piercing\nweapon rule. Whenever a friendly MANDRAKE\noperative is WITHIN SHADOW, improve its Save\nstat by 1."
+    },
+    {
+      "id": "kt-mandrakes-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "处于阴影",
+      "title_en": "WITHIN SHADOW",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-处于阴影.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营规则\n处于阴影\n曼德拉是居于阴影中的生物，会在靠近毫不知情的\n猎物时利用黑暗隐匿自己的行踪。\n若一名特工符合以下任一条件，则它处于阴影：\n• 其位于不低于它的重型地形 1\" 内。\n• 其底座的任意部分位于制高点地形之下。\n• 其控制范围内有一枚暗影传送门标识（参见织\n影者特工）。",
+      "text_en": "MANDRAKE\nFACTION RULE\nWITHIN SHADOW\nMandrakes are creatures of shadow, using the darkness\nto conceal their movements and close in upon their\nunsuspecting prey.\nAn operative is WITHIN SHADOW if any of the\nfollowing are true:\n• It’s within 1\" of Heavy terrain that’s not lower\nthan it.\n• Any part of its base is underneath\nVantage terrain.\n• A Shadow Portal marker is within its control\nrange (see SHADEWEAVER)."
+    },
+    {
+      "id": "kt-mandrakes-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "MANDRAKE",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "曼德拉\n标识/指示物指南\n暗影通道指示物欧伯列斯指示物荒火指示物\n阴魂不散的注视投射空想幻视灵魂收割点数\n指示物指示物（1 点和 2 点）\n暗影传送门标识暗影铭文指示物\n魂之宝石指示物编织暗影标识",
+      "text_en": "MANDRAKE\nMARKER/TOKEN GUIDE\nShadow Oubliex token Balefire token\nPassage token\nHaunting Pareidolic Soul Harvest\nFocus token Projection points\ntoken (Values 1 & 2)\nShadow Portal marker Shadow Glyph token\nSoul Gem token Weave Darkness marker"
+    },
+    {
+      "id": "kt-mandrakes-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "恐惧蔓延",
+      "title_en": "CREEPING HORROR",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-恐惧蔓延.png",
+      "is_back": false,
+      "text": "曼德拉\n战略计谋\n恐惧蔓延\n曼德拉在阴影中来回窜动，展现出令人不安\n的速度。\n在每一名敌方特工激活后，下一名特工激活前，\n一名拥有隐匿命令的己方曼德拉特工可以执行\n一次在开始和结束时均处于阴影的无消耗冲刺行\n动。该计谋在第一个转折点中无法使用。每一名\n特工在每个转折点中只能被这个计谋选择一次。",
+      "text_en": "MANDRAKE\nSTRATEGY PLOY\nCREEPING HORROR\nFlitting in and out of the shadows, Mandrakes advance\nwith unsettling speed.\nAfter each enemy operative’s activation, before\nthe next operative is activated, one friendly\nMANDRAKE operative that has a Conceal order\ncan perform a free Dash action if it starts and\nends that action WITHIN SHADOW. You cannot\nuse this ploy during the first turning point, and\nyou cannot select each friendly operative for this\nploy more than once per turning point."
+    },
+    {
+      "id": "kt-mandrakes-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "阴暗尸布",
+      "title_en": "GLOAMING SHROUD",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-阴暗尸布.png",
+      "is_back": false,
+      "text": "曼德拉\n战略计谋\n阴暗尸布\n曼德拉身披阴影，形态模糊，难以在远距离对\n其进行攻击。\n当一名特工对处于阴影的一名己方曼德拉特工\n进行射击时，您无需进行掷骰便可以保留一枚防\n御骰（这一保留额外于掩护豁免，如果有）。",
+      "text_en": "MANDRAKE\nSTRATEGY PLOY\nGLOAMING SHROUD\nCloaked in shadows, a Mandrake’s form is indistinct,\nrendering it particularly difficult to strike from range.\nWhenever an operative is shooting a friendly\nMANDRAKE operative that’s WITHIN SHADOW,\nyou can retain one of your defence dice as a\nnormal success without rolling it (in addition to a\ncover save, if any)."
+    },
+    {
+      "id": "kt-mandrakes-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "暗影利刃",
+      "title_en": "BLADE IN THE DARK",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-暗影利刃.png",
+      "is_back": false,
+      "text": "曼德拉\n战略计谋\n暗影利刃\n曼德拉游走于一片片阴影中，在毫无防备的敌\n人身边举起利刃。\n拥有隐匿命令的每一名己方曼德拉特工可以执\n行一次在行动开始或结束时处于阴影的冲锋行\n动。",
+      "text_en": "MANDRAKE\nSTRATEGY PLOY\nBLADE IN THE DARK\nLeaping from shadow to shadow, Mandrakes appear\nbeside unsuspecting foes with blades raised to strike.\nEach friendly MANDRAKE operative can perform\nthe Charge action while it has a Conceal order if it\nstarts or ends that action WITHIN SHADOW."
+    },
+    {
+      "id": "kt-mandrakes-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "梦魇，无法逃脱",
+      "title_en": "INESCAPABLE NIGHTMARE",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-梦魇，无法逃脱.png",
+      "is_back": false,
+      "text": "曼德拉\n战略计谋\n梦魇，无法逃脱\n曼德拉梦魇般的外貌与其可怕的速度和精准相\n得益彰。\n每当一名己方曼德拉特工进行射击，近战或反\n击时处于阴影，您便可以重掷一枚己方的攻击\n骰。",
+      "text_en": "MANDRAKE\nSTRATEGY PLOY\nINESCAPABLE NIGHTMARE\nThe nightmarish appearance of a Mandrake is matched\nby its terrifying speed and accuracy.\nWhenever a friendly MANDRAKE operative is\nshooting, fighting or retaliating, if it’s WITHIN\nSHADOW, you can re-roll one of your attack dice."
+    },
+    {
+      "id": "kt-mandrakes-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "淡出视线",
+      "title_en": "SLITHER OUT OF SIGHT",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-淡出视线.png",
+      "is_back": false,
+      "text": "曼德拉\n交战计谋\n淡出视线\n曼德拉作为恶毒的幽影生物，有能力通过潜伏\n于阴影中躲开那些疑惑敌人的注意。\n在任意特工激活结束时使用此交战计谋。选择\n拥有交战命令且处于阴影的一名己方曼德拉特\n工，将那名特工的命令改为隐匿。",
+      "text_en": "MANDRAKE\nFIREFIGHT PLOY\nSLITHER OUT OF SIGHT\nBeings of umbral malice, Mandrakes may slip\ninto shadow to evade the attentions of their\nconfounded foes.\nUse this firefight ploy at the end of any\noperative’s activation. Select one friendly\nMANDRAKE operative that has an Engage order\nand is WITHIN SHADOW. Change that operative’s\norder to Conceal."
+    },
+    {
+      "id": "kt-mandrakes-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "灵魂盛宴",
+      "title_en": "SOUL FEAST",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-灵魂盛宴.png",
+      "is_back": false,
+      "text": "曼德拉\n交战计谋\n灵魂盛宴\n曼德拉依靠受害者的痛苦生存，每次使敌人受\n到折磨的打击都会使其自身获得活力。\n在一名己方曼德拉特工对 6\" 内的敌方特工射\n击，近战或反击的结算攻击骰步骤时使用此交战\n计谋。那名己方特工恢复一定数量失去的耐伤，\n数量等同于那名敌方特工的 APL 属性乘以在那\n次攻击流程中造成伤害的攻击骰数量。多余的攻\n击骰将被忽略（例：在余下攻击骰结算前敌方\n特工已经残废）。在那名己方曼德拉特工残废\n时，您不能使用此交战计谋。",
+      "text_en": "MANDRAKE\nFIREFIGHT PLOY\nSOUL FEAST\nMandrakes subsist on the agonies of their victims,\ngaining vigour with each torturous blow inflicted upon\ntheir prey.\nUse this firefight ploy when a friendly\nMANDRAKE operative is shooting against,\nfighting against or retaliating against an enemy\noperative within 6\" of it, at the end of the Resolve\nAttack Dice step. That friendly operative regains\na number of lost wounds equal to that enemy\noperative’s APL stat, multiplied by the number\nof your attack dice that inflicted damage during\nthat sequence. Excess attack dice are ignored\n(i.e. if the enemy operative is incapacitated\nbefore remaining attack dice are resolved). You\ncannot use this ploy if that friendly MANDRAKE\noperative is incapacitated."
+    },
+    {
+      "id": "kt-mandrakes-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "无处可藏",
+      "title_en": "NOWHERE TO HIDE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-无处可藏.png",
+      "is_back": false,
+      "text": "曼德拉\n交战计谋\n无处可藏\n墙或者其他障碍对曼德拉没有意义——他们能\n够随心所欲地滑入或淡出现实世界。\n在一名己方曼德拉特工的激活中，它执行了造\n成移动的行动时使用此交战计谋。直到激活结束\n前，那名特工可以如同地形模型的一部分不存在\n一般穿过它，但若为冲锋行动，则它不能移动超\n过其移动属性的距离并且在移动结束时必须处于\n能够被放置的位置。",
+      "text_en": "MANDRAKE\nFIREFIGHT PLOY\nNOWHERE TO HIDE\nWalls and other obstructions are of no concern to\nMandrakes, who fade in and out of the physical realm at\ntheir own whim.\nUse this firefight ploy during a friendly\nMANDRAKE operative’s activation, when it\nperforms an action in which it moves. Until the\nend of that activation, that operative can move\nthrough parts of terrain features as if they weren’t\nthere, but it cannot move more than its Move\nstat if it’s the Charge action and must end those\nmoves in a location it can be placed."
+    },
+    {
+      "id": "kt-mandrakes-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "暗影咬啮",
+      "title_en": "SHADOW’S BITE",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-暗影咬啮.png",
+      "is_back": false,
+      "text": "曼德拉\n交战计谋\n暗影咬啮\n在阴影蔓延时，曼德拉会在移动中展现出非自\n然的速度和优雅，并用其幽钢利刃先发制人。\n当一名敌方特工在执行了冲锋行动的激活中选择\n了处于阴影的一名己方曼德拉特工执行近战行\n动时使用此交战计谋。在那个流程的结算攻击骰\n步骤中，您将结算第一枚攻击骰（即防御方变为\n进攻方）。",
+      "text_en": "MANDRAKE\nFIREFIGHT PLOY\nSHADOW’S BITE\nWhen suffused with shadow, a Mandrake moves with\nunnatural speed and grace, lashing out preemptively\nwith its glimmersteel blade.\nUse this firefight ploy when an enemy operative\nperforms the Fight action during an activation\nin which it performed the Charge action, and\nselects a friendly MANDRAKE operative WITHIN\nSHADOW to fight against. In the Resolve Attack\nDice step of that sequence, you resolve the first\nattack dice (i.e. defender instead of attacker)."
+    },
+    {
+      "id": "kt-mandrakes-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "链缚陷阱",
+      "title_en": "CHAIN SNARE",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-链缚陷阱.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营装备\n链缚陷阱\n这种能紧咬血肉或护甲的武器由一条附有带钩\n利刃的修长链条组成，能够阻止敌人逃跑。\n每当位于一名己方曼德拉特工控制范围内的一\n名敌方特工执行后撤行动时，若没有其他敌方特\n工位于那名己方战士的控制范围内，则您可以\n使用这个规则。若此，掷两枚 D6，若那名敌方\n特工的耐伤属性高于那名己方特工，掷一枚 D6\n：若有任意掷骰结果为 4+，则那名敌方特工在\n那次激活或反应中无法执行那个行动（这不会消\n耗 AP），并且您在这个转折点无法再次使用这\n个规则。",
+      "text_en": "MANDRAKE\nFACTION EQUIPMENT\nCHAIN SNARE\nComposed of hooked blades attached to a length of\nchain, this weapon bites into the flesh or armour of the\nwielder’s target, preventing them from fleeing.\nWhenever an enemy operative would perform\nthe Fall Back action while within control range\nof a friendly MANDRAKE operative, if no\nother enemy operatives are within that friendly\noperative’s control range, you can use this rule.\nIf you do, roll two D6, or one D6 if that enemy\noperative has a higher Wounds stat than that\nfriendly operative. If any result is a 4+, that enemy\noperative cannot perform that action during that\nactivation/counteraction (no AP are spent on it),\nand you cannot use this rule again during this\nturning point."
+    },
+    {
+      "id": "kt-mandrakes-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "暗影铭文",
+      "title_en": "SHADOW GLYPH",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-暗影铭文.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营装备\n暗影铭文\n这些铭文刻入曼德拉漆黑的皮肤中，被激活\n后，这个生物会在敌人视野中完全消失。\n每个转折点一次，当一名己方曼德拉特工在处\n于阴影时被激活时，您可以使用这个规则。若\n此，直到那名特工的下一次激活前，当其拥有隐\n匿命令且处于掩护中时，它无法被选为有效目\n标，本规则优先于其他所有规则（例如制高点\n地形）。",
+      "text_en": "MANDRAKE\nFACTION EQUIPMENT\nSHADOW GLYPH\nEtched into the inky skin of the Mandrake, this glyph\nglows when activated, causing the creature to fade\nutterly from sight.\nOnce per turning point, when a friendly\nMANDRAKE operative is activated WITHIN\nSHADOW, you can use this rule. If you do, until\nthe start of its next activation, while that operative\nhas a Conceal order and is in cover, it cannot be\nselected as a valid target, taking precedence over\nall other rules (e.g. Seek, Vantage terrain) except\nbeing within 2\"."
+    },
+    {
+      "id": "kt-mandrakes-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "魂之宝石",
+      "title_en": "SOUL GEM",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-魂之宝石.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营装备\n魂之宝石\n这颗闪耀水晶中蕴含着受害者饱经折磨的生命\n力，在其散发的怪异光辉下，持有者的超自然\n力量进一步得到增强。\n每个转折点一次，当一名己方曼德拉特工执行\n射击行动且选择了荒火爆焰时，您可以使用这个\n规则。若此，在那个行动结束前，那个武器获\n得“爆炸 1\"”武器规则。",
+      "text_en": "MANDRAKE\nFACTION EQUIPMENT\nSOUL GEM\nContaining the life force of a tortured victim, this\nshimmering crystal emits an eerie glow and enhances\nthe supernatural might of the bearer.\nOnce per turning point, when a friendly\nMANDRAKE operative is performing the Shoot\naction and you select a baleblast, you can use\nthis rule. If you do, until the end of that action,\nthat weapon has the Blast 1\" weapon rule."
+    },
+    {
+      "id": "kt-mandrakes-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "骨镖",
+      "title_en": "BONE DARTS",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-骨镖.png",
+      "is_back": false,
+      "text": "曼德拉\n阵营装备\n骨镖\n这种脆弱但锋利的投射物由曼德拉受害者的骨\n头精心雕刻而成，在精准抛掷下极为致命。\n每个转折点限一次，一名己方曼德拉特工可以\n使用下列远程武器：\n名称攻击命中伤害\n骨镖 4 3+ 2/4\n武器规则\n范围 6\"，撕裂，安静",
+      "text_en": "MANDRAKE\nFACTION EQUIPMENT\nBONE DARTS\nDelicately carved from the bones of the Mandrakes’\nvictims, these brittle but sharp projectiles are deadly\nwhen hurled accurately.\nOnce per turning point, a friendly MANDRAKE\noperative can use the following ranged weapon:\nNAME ATK HIT DMG\nBone dart 4 3+ 2/4\nWR\nRange 6\", Rending, Silent"
+    }
+  ]
+}

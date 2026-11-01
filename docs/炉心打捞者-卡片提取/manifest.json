@@ -1,0 +1,936 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-HEARTHKYN_SALVAGERS",
+  "team_name_zh": "炉心打捞者",
+  "team_name_en": "Hearthkyn Salvagers",
+  "source_pdf": "最新杀戮小队规则更新/炉心打捞者 Hearthkyn Salvagers 杀戮小队规则.pdf",
+  "source_pdf_sha256": "a697fdae3572fbd7f43f71b3b93028501b2f709184c3a6a0586dc7bbd680eb48",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 34,
+    "operative": 11,
+    "operative-ability": 7,
+    "team-selection": 2,
+    "faction-rule": 1,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-hearthkyn_salvagers-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "炉心头领-数据卡",
+      "title_en": "HEARTHKYN THEYN",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-炉心头领-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心头领\n2 5\" 3+ 9\n名称攻击命中伤害武器规则\n基岩型爆矢手枪 4 3+ 3/4 范围 8\"、精准 1\n基岩型爆矢枪 4 4+ 3/4 精准 1\n爆矢左轮手枪 4 3+ 3/5 范围 8\"\n艾塔-卡恩等离子手枪 4 4+ 3/5 范围 8\"、穿刺 1\n离子爆裂枪 4 4+ 3/4 关键穿刺 1\n离子手枪 4 3+ 3/4 范围 8\"、关键穿刺 1\n震荡拳套 4 4+ 5/7 残暴、震荡\n等离子武器 4 3+ 4/6 致命 5+\n请继续阅读背面规则\n炉心打捞者、沃坦联盟、队长、头领 28",
+      "weapon_types": {
+        "基岩型爆矢手枪": "远程",
+        "基岩型爆矢枪": "远程",
+        "爆矢左轮手枪": "远程",
+        "艾塔-卡恩等离子手枪": "远程",
+        "离子爆裂枪": "远程",
+        "离子手枪": "远程",
+        "震荡拳套": "近战",
+        "等离子武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN THEYN\n2 5\" 3+ 9\nNAME ATK HIT DMG WR\nAutoch-pattern bolt pistol 4 3+ 3/4 Range 8\", Accurate 1\nAutoch-pattern bolter 4 4+ 3/4 Accurate 1\nBolt revolver 4 3+ 3/5 Range 8\"\nEtaCarn plasma pistol 4 4+ 3/5 Range 8\", Piercing 1\nIon blaster 4 4+ 3/4 Piercing Crits 1\nIon pistol 4 3+ 3/4 Range 8\", Piercing Crits 1\nConcussion gauntlet 4 4+ 5/7 Brutal, Shock\nPlasma weapon 4 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, LEADER, THEYN 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "炉心头领-能力卡",
+      "title_en": "HEARTHKYN THEYN",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-炉心头领-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心头领\n2 5\" 3+ 9\n先祖之眼：战略计划，如果该特工位于杀戮区内。\n选择一名敌方特工。如果有三名或更多己方炉心打\n捞者特工被残废，则选择最多两名敌方特工。每\n一名被选择的敌方特工获得一枚己方仇恨指示物。\n织盾符冠：在战斗中首次有一枚攻击骰对该特工造\n成 4 点或更多的伤害时，忽略那次造成的伤害。",
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN THEYN\n2 5\" 3+ 9\nEye of the Ancestors: STRATEGIC GAMBIT if this operative\nis in the killzone. Select one enemy operative, or up to two\nenemy operatives if three or more friendly HEARTHKYN\nSALVAGER operatives are incapacitated. Each of those\nenemy operatives gains one of your Grudge tokens.\nWeavefield Crest: Once per battle, when an attack dice\ninflicts Normal Dmg on this operative, you can ignore that\ninflicted damage."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "炉心重拳士-数据卡",
+      "title_en": null,
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-炉心重拳士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心重拳士\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢手枪 4 4+ 3/4 范围 8\"、精准 1\n震荡拳环 4 3+ 4/4 无休、致命 5+、震荡\n格斗家：每当该特工进行近战或拳环重击 1AP\n反击时：\n选择一名位于该特工控制范围内的敌方特工。您可以将那名敌方特\n• 敌方特工不能进行协助。工最多移动 3\" 至一个可部署位置。随后对那名特工造成 D3+1 点\n• 如果该特工被残废，那么您可伤害（就算您没有移动那名特工)；如果 D3 的掷骰结果为 3，那么\n以在将其移出杀戮区前使用一直到那名敌方特工的下一次激活结束前，其 APL 属性减少 1 点。\n次未结算的成功对流程中的敌该特工可以立即执行一次无消耗的冲锋行动（即使它在激活中已经\n方特工进行出击。执行了冲锋行动），但在那次行动中不能移动超过 3\"。\n• 数值大于等于 4 的普通伤害\n对该特工造成的伤害数量减除非有敌方特工位于该特工的控制范围内，否则该特工不能执行\n少 1 点。本行动。\n炉心打捞者、沃坦联盟、重拳士 28",
+      "weapon_types": {
+        "基岩型爆矢手枪": "远程",
+        "震荡拳环": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN DÔZR\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolt pistol 4 4+ 3/4 Range 8\", Accurate 1\nConcussion knux 4 3+ 4/4 Ceaseless, Lethal 5+, Shock\nBrawler: Whenever this operative is KNUX SMASH 1AP\nfighting or retaliating:\nSelect one enemy operative within this operative’s control range. You can move that\n• Enemy operatives cannot assist. enemy operative up to 3\" to a location it can be placed. Then inflict D3+1 damage on\n• If it's incapacitated, you can strike it (even if you don’t move it); if the D3 result is a 3, also subtract 1 from that enemy\nthe enemy operative in that sequence operative's APL stat until the end of its next activation. This operative can then\nwith one of your unresolved successes immediately perform a free Charge action (even if it’s already performed the Charge\nbefore it’s removed from the killzone. action during that activation), but cannot move more than 3\" during that action.\n• Normal Dmg of 4 or more inflicts 1 less\ndamage on it. This operative cannot perform this action unless an enemy operative is within its\ncontrol range.\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, DÔZR 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "炉心战地医疗兵-数据卡",
+      "title_en": "HEARTHKYN FIELD MEDIC",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-炉心战地医疗兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心战地医疗兵\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n爆矢左轮手枪 4 4+ 3/5 范围 8\"\n等离子匕首 4 4+ 3/5 致命 5+\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方炉心打捞者特工将被残废时，\n如果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方\n特工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工\n可以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名\n特工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，\n那么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时\n使用此规则。\n请继续阅读背面规则\n炉心打捞者、沃坦联盟、医疗、战地医疗兵 28",
+      "weapon_types": {
+        "爆矢左轮手枪": "远程",
+        "等离子匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN FIELD MEDIC\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nBolt revolver 4 4+ 3/5 Range 8\"\nPlasma knife 4 4+ 3/5 Lethal 5+\nMedic!: The first time during each turning point that another friendly HEARTHKYN SALVAGER operative would be incapacitated\nwhile visible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range\nof an enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for\nthe remainder of the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that\nmove within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations\nrespectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this\noperative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, MEDIC, FIELD MEDIC 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "炉心战地医疗兵-能力卡",
+      "title_en": "HEARTHKYN FIELD MEDIC",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-炉心战地医疗兵-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心战地医疗兵\n2 5\" 3+ 8\n医疗包 1AP\n选择一个位于该特工控制范围的己方炉心打捞者\n特工，那名特工回复最多 2D3 点失去的耐伤。选\n择的特工不能是在转折点中成为“医疗兵！”技能\n目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN FIELD MEDIC\n2 5\" 3+ 8\nMEDIKIT 1AP\nSelect one friendly HEARTHKYN SALVAGER operative\nwithin this operative’s control range to regain up to 2D3 lost\nwounds. It cannot be an operative that the Medic! rule was\nused on during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "炉心掷弹兵-数据卡",
+      "title_en": "HEARTHKYN GRENADIER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-炉心掷弹兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心掷弹兵\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢手枪 4 4+ 3/4 范围 8\"、精准 1\nC8 HX 炸药 4 3+ 4/6 范围 4\"、爆炸 1\"、重型（仅限转移)、\n有限 1、穿刺 1、集中\n双拳 3 4+ 2/3 -\n掷弹兵：该特工可以使用破片、穿甲、烟雾和震荡手雷（参见通用装备)。该特工使用这些装备时不算入您\n拥有的使用限制（如果您还为其他特工选择了手雷类的装备)。每当该特工使用破片或穿甲手雷时，那件武\n器的命中属性提升 1。\n请继续阅读背面规则\n炉心打捞者、沃坦联盟、掷弹兵 28",
+      "weapon_types": {
+        "基岩型爆矢手枪": "远程",
+        "C8 HX 炸药": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN GRENADIER\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolt pistol 4 4+ 3/4 Range 8\", Accurate 1\nC8 HX charge 4 3+ 4/6 Range 4\", Blast 1\", Heavy (Reposition only),\nLimited 1, Piercing 1, Saturate\nFists 3 4+ 2/3 -\nGrenadier: This operative can use frag, krak, smoke and stun grenades (see universal equipment). Doing so doesn’t count towards any\nlimited uses you have (i.e. if you also select those grenades from equipment for other operatives). Whenever this operative is using a\nfrag or krak grenade, improve the Hit stat of that weapon by 1.\nRULES CONTINUE ON OTHER SIDE\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, GRENADIER 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-07",
+      "sequence": 7,
+      "category": "operative-ability",
+      "title_zh": "炉心掷弹兵-能力卡",
+      "title_en": "HEARTHKYN GRENADIER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工能力-炉心掷弹兵-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心掷弹兵\n2 5\" 3+ 8\n瓦尔-3 万用手雷 1AP\n将一枚己方万用手雷标识放置在该特工的 6\" 内。这个标识必须在该特工不能在敌方特工的控制\n该特工可见的位置，或者位于该特工可见的一个地形模型的制高范围内执行本行动。\n点地形上。在一名特工位于那个万用手雷标识的 3\" 内时，那名特\n工的控制玩家在让特工执行拾取标识或任务行动时必须消耗额外\n1AP。\n在下一个战略阶段的就绪步骤中，掷一枚 D3。在相当于掷骰结果\n数量的激活被完成后，或者在转折点结束时（以先满足的条件为\n准)，将那枚万用手雷标识移除。",
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN GRENADIER\n2 5\" 3+ 8\nVÂYR-3 UTILITY GRENADE 1AP\nPlace one of your Utility Grenade markers within 6\" of this operative. It must be visible to this operative, or on Vantage terrain of\na terrain feature that’s visible to this operative. Whenever an operative is within 3\" of that Utility Grenade marker, its controlling\nplayer must spend 1 additional AP for that operative to perform the Pick Up Marker and mission actions.\nIn the Ready step of the next Strategy phase, roll one D3. Remove that Utility Grenade marker after a number of activations equal\nto the result have been completed or at the end of the turning point (whichever comes first).\nThis operative cannot perform this action while within control range of an enemy operative."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "炉心炮手-数据卡",
+      "title_en": "HEARTHKYN GUNNER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-炉心炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心炮手\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n艾塔-卡恩等离子射线炮 4 4+ 5/6 穿刺 1、射线*\n高能激光自动步枪 4 4+ 4/5 无休、撕裂\n高能激光转轮炮（集中） 5 4+ 4/5 无休、重型（仅限转移)、集中\n高能激光转轮炮（扫射） 4 4+ 4/5 无休、重型（仅限转移)、集中、洪流 1”\nL7 导弹发射器（爆炸） 4 4+ 3/5 爆炸 2\"\nL7 导弹发射器（集束） 4 4+ 5/6 穿刺 1\n磁轨步枪 4 4+ 4/2 毁灭 3、重型（仅限冲刺)、穿刺 2\n双拳 3 4+ 2/3 -\n请继续阅读背面规则\n炉心打捞者、沃坦联盟、炮手 28",
+      "weapon_types": {
+        "艾塔-卡恩等离子射线炮": "远程",
+        "高能激光自动步枪": "远程",
+        "高能激光转轮炮（集中）": "远程",
+        "高能激光转轮炮（扫射）": "远程",
+        "L7 导弹发射器（爆炸）": "远程",
+        "L7 导弹发射器（集束）": "远程",
+        "磁轨步枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN GUNNER\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nEtaCarn plasma beamer 4 4+ 5/6 Piercing 1, Beam*\nHYLas auto rifle 4 4+ 4/5 Ceaseless, Rending\nHYLas rotary cannon (focused) 5 4+ 4/5 Ceaseless, Heavy (Reposition only), Saturate\nHYLas rotary cannon (sweeping) 4 4+ 4/5 Ceaseless, Heavy (Reposition only), Saturate,\nTorrent 1\"\nL7 missile launcher (blast) 4 4+ 3/5 Blast 2\"\nL7 missile launcher (focused) 4 4+ 5/6 Piercing 1\nMagna rail rifle 4 4+ 4/2 Devastating 3, Heavy (Dash only), Piercing 2\nFists 3 4+ 2/3 -\nRULES CONTINUE ON OTHER SIDE\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, GUNNER 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "炉心炮手-能力卡",
+      "title_en": "HEARTHKYN GUNNER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-炉心炮手-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心炮手\n2 5\" 3+ 8\n*射线：每当该特工使用本武器进行射击时，每一\n次关键成功将立即对位于一根（且仅限一根）射线\n直线上的每一名其他特工造成 D3 点伤害（为每一\n名特工单独进行掷骰)，但射击目标不会受到本效\n果的影响。从该特工的底座上画一条瞄准直线，如\n果这条直线穿过原本目标的底座，并且没有穿过重\n型地形，那么位于这条直线上的其他特工位于射线\n直线上。\n在右图的示例中，特工 A 是射击目标。特工 B 与特\n工 C 位于射线直线上，但特工 D 不是。\n炉心 D\n炮手\nC\nA\n射线直线\nB",
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN GUNNER\n2 5\" 3+ 8\n*Beam: Whenever this operative is shooting with this weapon,\neach retained critical success immediately inflicts D3 damage\non each other operative along one (and only one) beam line (roll\nseparately for each operative), but the target isn’t affected. An\noperative is along a beam line if a targeting line can be drawn\nfrom this operative to its base, and that line crosses the base of\nthe original target but doesn’t cross Heavy terrain.\nIn this example, Operative A is the target. Operatives B and C are\nalong the beam line, but Operative D isn’t.\nHearthkyn D\nGunner\nC\nA\nBeam line\nB"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "炉心跳跃背包战士-数据卡",
+      "title_en": "HEARTHKYN JUMP PACK WARRIOR",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-炉心跳跃背包战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心跳跃背包战士\n2 8\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢手枪 4 4+ 3/4 范围 8\"、精准 1\n等离子武器 4 3+ 4/6 致命 5+、强力冲撞*\n跳跃背包：每当该特工执行一次需要进行移动的行动时，该特工可以飞行。若 *强力冲撞：每当该特\n选择飞行，不要移动特工。作为替代，将特工移出杀戮区，随后将其部署至完工使用本武器进行近战\n全位于原本位置一定距离内的地方，这个距离相当于特工的移动属性（如果特\n时，如果特工在激活期\n工执行的是冲刺行动，则是 3\")。在测量这个距离时，仅测量水平距离（如果杀\n间执行了冲锋行动，\n戮区使用近距离战斗规则，例如杀戮区：墓穴世界，那么测量距离时不能穿越\n墙壁地形，特工也不能被部署至一个访问点的另一侧——也就是说，特工不能那么这件武器拥有“残\n飞行穿过舱门过道）。请注意，通过这种方式执行冲锋行动的特工不会获得额暴”武器规则。\n外的移动距离。特工必须被部署至可以将其容纳的位置，并且除了执行冲锋行\n动外，特工不能被部署至敌方特工的交战范围内。\n炉心打捞者、沃坦联盟、跳跃背包战士 28",
+      "weapon_types": {
+        "基岩型爆矢手枪": "远程",
+        "等离子武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN JUMP PACK WARRIOR\n2 8\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolt pistol 4 4+ 3/4 Range 8\", Accurate 1\nPlasma weapon 4 3+ 4/6 Lethal 5+, Force Impact*\nJump Pack: Whenever this operative performs an action in which it moves, it can FLY. If it does, don’t move it. Instead, remove it\nfrom the killzone and set it back up wholly within a distance equal to its Move stat (or 3\" if it was a Dash) horizontally of its original\nlocation (in a killzone that uses the close quarters rules, e.g. Killzone: Tomb World, this distance cannot be measured over or through\nWall terrain, and that operative cannot be set up on the other side of an access point – in other words it cannot FLY through an open\nhatchway). Note that it gains no additional distance when performing the Charge action. It must be set up in a location it can be\nplaced, and unless it’s the Charge action, it cannot be set up within control range of an enemy operative.\n*Force Impact: Whenever this operative is fighting with this weapon, if it’s performed the Charge action during the activation, this\nweapon has the Brutal weapon rule.\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, JUMP PACK WARRIOR 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "炉心氏族通讯兵-数据卡",
+      "title_en": "HEARTHKYN KINLYNK",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-炉心氏族通讯兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心氏族通讯兵\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢枪 4 4+ 3/4 精准 1\n离子爆裂枪 4 4+ 3/4 关键穿刺 1\n双拳 3 4+ 2/3 -\n传讯 1AP\n支援。选择位于该特工 6\" 内且可见的另一名己\n方炉心打捞者特工。直到那名特工的下一次激\n活结束前，其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行本行动。\n请继续阅读背面规则\n炉心打捞者、沃坦联盟、氏族通讯兵 28",
+      "weapon_types": {
+        "基岩型爆矢枪": "远程",
+        "离子爆裂枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN KINLYNK\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolter 4 4+ 3/4 Accurate 1\nIon blaster 4 4+ 3/4 Piercing Crits 1\nFists 3 4+ 2/3 -\nSIGNAL 1AP\nSUPPORT. Select one other friendly HEARTHKYN\nSALVAGER operative in the killzone. Until the end of that\noperative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, KINLYNK 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-12",
+      "sequence": 12,
+      "category": "operative-ability",
+      "title_zh": "炉心氏族通讯兵-能力卡",
+      "title_en": "HEARTHKYN KINLYNK",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工能力-炉心氏族通讯兵-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心氏族通讯兵\n2 5\" 3+ 8\n系统干扰 1AP\n选择一名属于该特工的有效目标，并且没有己方系\n统干扰指示物的敌方特工。那名特工获得一枚己方\n系统干扰指示物。直到战斗结束前，拥有一枚己方\n系统干扰指示物的敌方特工不能在没有指示物的敌\n方特工都进入待机前被激活。当一名拥有己方系统\n干扰指示物的敌方特工被激活时，移除那枚标识。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN KINLYNK\n2 5\" 3+ 8\nSYSTEM JAM 1AP\nSelect one enemy operative that's a valid target for this\noperative and that doesn’t have one of your System Jam\ntokens; it gains one. Until the end of the battle, whenever\nan enemy operative has one of your System Jam tokens, it\ncannot be activated until each enemy operative without one\nis expended. When an enemy operative that has one of your\nSystem Jam tokens is activated, remove that token.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "炉心思考士-数据卡",
+      "title_en": null,
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-炉心思考士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心思考士\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢枪 4 4+ 3/4 精准 1\n离子爆裂枪 4 4+ 3/4 关键穿刺 1\n双拳 3 4+ 2/3 -\n战术家：战略计划，如果该特工位于杀戮区内。将己方进攻或防御标识放在杀戮区中。每当一名己方炉心\n打捞者特工对位于己方进攻标识 3\" 内的敌方特工进行射击、近战或反击时，您可以重掷一枚自己的攻击\n骰。每当一名敌方特工对位于己方防御标识 3\" 内的己方炉心打捞者特工进行射击时，您可以重掷一枚自\n己的防御骰。在下一个战略阶段的就绪步骤中，移除那枚标识。\n请继续阅读背面规则\n炉心打捞者、沃坦联盟、思考士 28",
+      "weapon_types": {
+        "基岩型爆矢枪": "远程",
+        "离子爆裂枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN KOGNITÂAR\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolter 4 4+ 3/4 Accurate 1\nIon blaster 4 4+ 3/4 Piercing Crits 1\nFists 3 4+ 2/3 -\nTactician: STRATEGIC GAMBIT if this operative is in the killzone. Place either your Attack or Defence marker in the killzone.\nWhenever a friendly HEARTHKYN SALVAGER operative is shooting against, fighting against or retaliating against an enemy\noperative that’s within 3\" of your Attack marker, that friendly operative’s weapons have the Balanced weapon rule. Whenever an\nenemy operative is shooting a friendly HEARTHKYN SALVAGER operative that’s within 3\" of your Defence marker, you can\nre-roll one of your defence dice. In the Ready step of the next Strategy phase, remove that marker.\nRULES CONTINUE ON OTHER SIDE\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, KOGNITÂAR 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-14",
+      "sequence": 14,
+      "category": "operative-ability",
+      "title_zh": "炉心思考士-能力卡",
+      "title_en": "ACCELERATED APPRAISAL 1AP",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工能力-炉心思考士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心思考士\n2 5\" 3+ 8\n加速分析 1AP\n如果己方进攻或防御标识位于杀戮区内，将其移除。\n将己方进攻或防御标识放置在杀戮区内。\n该特工不能在敌方特工的控制范围内执行本行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN KOGNITÂAR\n2 5\" 3+ 8\nACCELERATED APPRAISAL 1AP\nIf your Attack or Defence marker is in the killzone, remove it.\nPlace your Attack or Defence marker in the killzone.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "炉心锁定士-数据卡",
+      "title_en": null,
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-炉心锁定士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心锁定士\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢枪 4 4+ 3/4 精准 1\n离子爆裂枪 4 4+ 3/4 关键穿刺 1\n双拳 3 4+ 2/3 -\n请继续阅读背面规则\n炉心打捞者、沃坦联盟、锁定士 28",
+      "weapon_types": {
+        "基岩型爆矢枪": "远程",
+        "离子爆裂枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN LOKÂTR\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolter 4 4+ 3/4 Accurate 1\nIon blaster 4 4+ 3/4 Piercing Crits 1\nFists 3 4+ 2/3 -\nRULES CONTINUE ON OTHER SIDE\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, LOKÂTR 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-16",
+      "sequence": 16,
+      "category": "operative-ability",
+      "title_zh": "炉心锁定士-能力卡",
+      "title_en": "SPOT 1AP",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-16-特工能力-炉心锁定士-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心锁定士\n2 5\" 3+ 8\n侦测 1AP\n支援。选择一名对该特工可见的敌方特工。直到\n转折点结束前，每当一名位于该特工 3\" 的己方\n炉心打捞者特工对那名敌方特工进行射击时，\n您可以使用这个效果。若使用：\n• 那名己方特工的远程武器拥有“追踪轻型”武器\n规则。\n• 那名敌方特工不能被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。\n多光谱扫描 1AP\n将一枚己方多光谱扫描标识放置在杀戮区内。每\n当一名己方炉心打捞者特工对这枚标识 3\" 内的\n敌方特工进行射击时，那名己方特工的远程武器\n拥有“精准 1”和“集中”武器规则。在该特工\n下次激活时，被残废时或再次执行该行动时（先\n到为准），移除那枚标识。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN LOKÂTR\n2 5\" 3+ 8\nSPOT 1AP\nSUPPORT. Select one enemy operative visible to this\noperative. Until the end of the turning point, whenever a\nfriendly HEARTHKYN SALVAGER operative within 3\"\nof this operative is shooting that enemy operative, you can\nuse this effect. If you do:\n• That friendly operative’s ranged weapons have the Seek Light\nweapon rule.\n• That enemy operative cannot be obscured.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nPAN SPECTRAL SCAN 1AP\nPlace your Pan Spectral Scan marker in the killzone.\nWhenever a friendly HEARTHKYN SALVAGER\noperative is shooting an enemy operative that’s within 3\"\nof that marker, that friendly operative’s ranged weapons\nhave the Accurate 1 and Saturate weapon rules. When this\noperative is next activated, is incapacitated or performs this\naction again (whichever comes first), remove that marker.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-17",
+      "sequence": 17,
+      "category": "operative",
+      "title_zh": "炉心搬运士-数据卡",
+      "title_en": "HEARTHKYN LUGGER",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-17-特工-炉心搬运士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心搬运士\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢枪 4 4+ 3/4 精准 1\n离子爆裂枪 4 4+ 3/4 关键穿刺 1\n双拳 3 4+ 2/3 -\n装备齐全：您可以选择额外一个装备选项，并且在\n第一个战略阶段的就绪步骤中，您额外获得 1 CP。\n我来搞定：该特工的每次激活限一次，该特工在执\n行一个任务行动时可以少消耗 1AP。\n炉心打捞者、沃坦联盟、搬运士 28",
+      "weapon_types": {
+        "基岩型爆矢枪": "远程",
+        "离子爆裂枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN LUGGER\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolter 4 4+ 3/4 Accurate 1\nIon blaster 4 4+ 3/4 Piercing Crits 1\nFists 3 4+ 2/3 -\nWell Supplied: You can select one additional equipment option,\nand in the Ready step of the first Strategy phase, you gain 1\nadditional CP.\nI’ve Got It: Once during each of this operative’s activations, it\ncan perform a mission action for 1 less AP.\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, LUGGER 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-01-18",
+      "sequence": 18,
+      "category": "operative",
+      "title_zh": "炉心战士-数据卡",
+      "title_en": "HEARTHKYN WARRIOR",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-18-特工-炉心战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n炉心战士\n2 5\" 3+ 8\n名称攻击命中伤害武器规则\n基岩型爆矢枪 4 4+ 3/4 精准 1\n离子爆裂枪 4 4+ 3/4 关键穿刺 1\n双拳 3 4+ 2/3 -\n保护打捞物：每当一名敌方特工对该特工进行射\n击、近战或反击时，如果该特工正在争夺一个目标\n标识或己方任务标识，那么在结算攻击骰步骤中，\n您可以让一次成功对该特工造成的伤害减少 1 点。\n炉心打捞者、沃坦联盟、战士 28",
+      "weapon_types": {
+        "基岩型爆矢枪": "远程",
+        "离子爆裂枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEARTHKYN WARRIOR\n2 5\" 3+ 8\nNAME ATK HIT DMG WR\nAutoch-pattern bolter 4 4+ 3/4 Accurate 1\nIon blaster 4 4+ 3/4 Piercing Crits 1\nFists 3 4+ 2/3 -\nSecure Salvage: Whenever an enemy operative is shooting\nagainst, fighting against or retaliating against this operative,\nif this operative contests an objective marker or one of your\nmission markers, in the Resolve Attack Dice step, you can\nsubtract 1 from the damage inflicted on it from one success.\nHEARTHKYN SALVAGER , LEAGUES OF VOTANN, WARRIOR 28"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "炉心打捞者杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-炉心打捞者杀戮小队-1.png",
+      "is_back": false,
+      "text": "炉心打捞者\n杀戮小队\n原型：侦察、安全保护\n特工\n↘ 1 名炉心打捞者头领特工，从以下选项中各\n选择一件进行装备：\n• 基岩型爆矢手枪，基岩型爆矢枪，爆矢左\n轮手枪，艾塔-卡恩等离子手枪、离子爆裂\n枪，或者离子手枪\n• 震荡拳套或等离子武器\n↘ 9 名炉心打捞者特工，从以下列表中选择：\n• 重拳士\n• 战地医疗兵\n• 掷弹兵\n• 炮手特工，装备有以下一种选项：\n○ 艾塔-卡恩等离子射线炮；双拳\n○ 高能激光自动步枪；双拳\n○ 高能激光转轮炮；双拳\n○ L7 导弹发射器；双拳\n○ 磁轨步枪；双拳\n请继续阅读背面规则",
+      "text_en": "HEARTHKYN SALVAGERS\nKILL TEAM\nARCHETYPES: RECON, SECURITY\nOPERATIVES\n↘ 1 HEARTHKYN SALVAGER THEYN operative\nwith one option from each of the following:\n• Autoch-pattern bolt pistol, Autoch-pattern\nbolter, bolt revolver, EtaCarn plasma pistol,\nion blaster or ion pistol\n• Concussion gauntlet or plasma weapon\n↘ 9 HEARTHKYN SALVAGER operatives\nselected from the following list:\n• DÔZR\n• FIELD MEDIC\n• GRENADIER\n• GUNNER with one of the following options:\n○ EtaCarn plasma beamer; fists\n○ HYLas auto rifle; fists\n○ HYLas rotary cannon; fists\n○ L7 missile launcher; fists\n○ Magna rail rifle; fists\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "炉心打捞者杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-炉心打捞者杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 跳跃背包战士\n• 氏族通讯兵\n• 思考士\n• 锁定士\n• 搬运士\n• 战士\n除了炮手和战士特工以外，上述的每一名特工只\n能被纳入您的杀戮小队一次。己方杀戮小队最多\n只能包含三名炮手特工（每一名特工必须装备有\n不同的选项)。\n装备有以下一种选项：\n• 基岩型爆矢枪；双拳\n• 离子爆裂枪；双拳",
+      "text_en": "• JUMP PACK WARRIOR\n• KINLYNK\n• KOGNITÂAR\n• LOKÂTR\n• LUGGER\n• WARRIOR\nOther than GUNNER and WARRIOR operatives,\nyour kill team can only include each operative on\nthis list once. Your kill team can only include up\nto three GUNNER operatives (each must have a\ndifferent option).\nWith one of the following options:\n• Autoch-pattern bolter; fists\n• Ion blaster; fists"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "仇恨",
+      "title_en": "GRUDGE",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-仇恨.png",
+      "is_back": false,
+      "text": "炉心打捞者\n阵营规则\n仇恨\n在一个敌人对炉裔造成足够严重的侮辱或冒\n犯时，他们将成为仇恨的目标。为了摧毁这\n些最为可恨的敌人，炉裔会不惜一切代价，\n就算这会让他们得不偿失。\n每当一名敌方特工将一名己方炉心打捞者特工\n残废时，那名敌方特工在战斗中获得一枚己方仇\n恨指示物。\n每当一名己方炉心打捞者特工对一名敌方特工\n进行射击、近战或反击时，那名敌方特工每拥有\n一枚己方仇恨指示物，您便可以将一枚普通成功\n作为关键成功进行保留（包括任何通过“精准”\n武器规则保留的普通成功)。请注意，仇恨指示物\n不会在那之后被移除。",
+      "text_en": "HEARTHKYN SALVAGER\nFACTION RULE\nGRUDGE\nIf a particular foe shames or insults the Kin gravely\nenough, they will become the subject of a Grudge. To\ndestroy this most hated enemy, the Kin will go to any\nlengths, even if it is to their own detriment.\nWhenever an enemy operative incapacitates a\nfriendly HEARTHKYN SALVAGER operative, that\nenemy operative gains one of your Grudge tokens\nfor the battle.\nWhenever a friendly HEARTHKYN SALVAGER\noperative is shooting against, fighting against or\nretaliating against an enemy operative, for each\nof your Grudge tokens that enemy operative has,\nyou can retain one of your normal successes as\na critical success instead (including any normal\nsuccesses already retained as a result of the\nAccurate weapon rule). Note that Grudge tokens\naren’t removed when you do this."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "HEARTHKYN SALVAGER",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "炉心打捞者\n标识/指示物指南\n万用手雷\n仇恨指示物标识\n(数值 1&2)\n进攻\n标识\n需求尚存\n指示物防御\n标识\n苦尽甘来\n指示物所有权令状\n指示物\n医疗兵\n指示物多光谱扫描\n标识\n系统干扰\n指示物\nC8 HX 炸药\n指示物\n侦测\n指示物",
+      "text_en": "HEARTHKYN SALVAGER\nMARKER/TOKEN GUIDE\nUtility\nGrenade\nGrudge tokens\nmarker\n(Values 1 & 2)\nAttack\nmarker\nNeed Keeps\ntoken Defence\nmarker\nToil Earns\ntoken Writ of Claim\ntoken\nMedic token\nPan Spectral\nScan marker\nSystem Jam\ntoken\nC8 HX Charge\ntoken\nSpot token"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "需求尚存",
+      "title_en": "NEED KEEPS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-需求尚存.png",
+      "is_back": false,
+      "text": "炉心打捞者\n战略计谋\n需求尚存\n那些需求最大的人为了获得资源会全力以赴。\n选择一个目标标识或一个己方任务标识。\n• 在判断对那枚标识的控制权时，如果有至少一\n名特工在争夺那枚标识，那么将争夺标识的己\n方炉心打捞者特工的 APL 总和视作为比原\n本要高 1 点。请注意这并非对 APL 属性的修\n正，因此任何修正效果可以与本规则叠加。\n• 当一名己方炉心打捞者特工位于标识的 3\" 内\n时，其近战武器的攻击属性增加 1 点（最多提\n升至 4)，若武器的攻击属性已经为 4 点，则它\n会获得“平衡”武器规则。",
+      "text_en": "HEARTHKYN SALVAGER\nSTRATEGY PLOY\nNEED KEEPS\nThose whose need is greatest shall fight hardest for\ntheir prize.\nSelect one objective marker or one of your\nmission markers.\n• Whenever determining control of that marker,\ntreat the total APL stat of friendly HEARTHKYN\nSALVAGER operatives that contest it as 1\nhigher if at least one friendly HEARTHKYN\nSALVAGER operative contests that marker.\nNote this isn’t a change to the APL stat, so any\nchanges are cumulative with this.\n• Whenever a friendly HEARTHKYN SALVAGER\noperative is within 3\" of that marker, add\n1 to the Atk stat of its melee weapons (to a\nmaximum of 4); if the weapon already has an\nAtk stat of 4, it has the Balanced weapon rule."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "苦尽甘来",
+      "title_en": "TOIL EARNS",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-02-战略计谋-苦尽甘来.png",
+      "is_back": false,
+      "text": "炉心打捞者\n战略计谋\n苦尽甘来\n获取资源的过程越艰辛，回报也就越大。\n选择一枚目标标识或者一枚己方任务标识。将那\n枚标识 3\" 内的敌方特工视作为拥有额外一枚仇\n恨指示物。",
+      "text_en": "HEARTHKYN SALVAGER\nSTRATEGY PLOY\nTOIL EARNS\nThe harder the prize is won, the greater the reward.\nSelect one objective marker or one of your\nmission markers. Whenever an enemy operative\nis within 3\" of that marker, treat it as having one\nadditional Grudge token."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "锻造防御",
+      "title_en": "WROUGHT DEFENCE",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-锻造防御.png",
+      "is_back": false,
+      "text": "炉心打捞者\n战略计谋\n锻造防御\n炉裔是极为出色的工匠，他们所锻造的护甲极\n为精致且坚固。\n每当一名特工对己方炉心打捞者特工进行射击\n时，如果您掷的成功数量小于等于一枚（包括任\n何重掷)，那么您可以将一次失败作为一次普通成\n功进行保留。",
+      "text_en": "HEARTHKYN SALVAGER\nSTRATEGY PLOY\nWROUGHT DEFENCE\nArtificers of consummate skill, the Kin forge armour of\ngreat quality and resilience.\nWhenever an operative is shooting a friendly\nHEARTHKYN SALVAGER operative, if you rolled\none or less successes (including any re-rolls), you\ncan retain one of your fails as a normal success\ninstead of discarding it."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "近距离火力",
+      "title_en": "PROXIMATE FIREPOWER",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-04-战略计谋-近距离火力.png",
+      "is_back": false,
+      "text": "炉心打捞者\n战略计谋\n近距离火力\n炉心打捞者在近距离战斗环境中极为高效。\n每当一名己方炉心打捞者特工对其 6\" 内的敌方\n特工进行射击时，其远程武器的命中属性提升 1\n(最多提升至 3+)。这将允许您添加或者移除在\n一次行动期间对命中属性的修正（本规则的优先\n度高于核心规则）。",
+      "text_en": "HEARTHKYN SALVAGER\nSTRATEGY PLOY\nPROXIMATE FIREPOWER\nHearthkyn Salvagers are supremely effective in\nclose-quarters environments.\nWhenever a friendly HEARTHKYN SALVAGER\noperative is shooting an enemy operative within\n6\" of it, improve the Hit stat of that friendly\noperative’s ranged weapons by 1 (to a maximum\nof 3+). This can allow you to apply or remove\nthe Hit stat change during an action (this takes\nprecedence over the core rules)."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "先祖在上",
+      "title_en": "THE ANCESTORS ARE WATCHING",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-先祖在上.png",
+      "is_back": false,
+      "text": "炉心打捞者\n交战计谋\n先祖在上\n炉裔十分崇敬自己的先祖，并且被他们的教导\n所指引。\n在一名己方炉心打捞者特工的激活期间使用本\n交战计谋。直到那次激活结束前，那名特工可以\n执行一次无消耗的近战或射击行动，并且您可以\n忽视伤损对那名特工武器属性的任何修正。",
+      "text_en": "HEARTHKYN SALVAGER\nFIREFIGHT PLOY\nTHE ANCESTORS ARE WATCHING\nThe Kin revere their Ancestors and are guided by the\nlessons of their forebears.\nUse this firefight ploy during a friendly\nHEARTHKYN SALVAGER operative’s activation.\nUntil the end of that activation, that operative\ncan perform either a free Shoot or a free Fight\naction and you can ignore any changes to that\noperative’s weapon stats from being injured."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "值得一搏",
+      "title_en": "WORTH IT",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-02-交战计谋-值得一搏.png",
+      "is_back": false,
+      "text": "炉心打捞者\n交战计谋\n值得一搏\n如果换来的回报能够造福自己的氏族，那么炉\n裔战士们十分愿意牺牲自己。\n在一名己方炉心打捞者特工被残废时使用本交\n战计谋。在将该特工移出杀戮区前，该特工可以\n执行一次无消耗的任务行动。",
+      "text_en": "HEARTHKYN SALVAGER\nFIREFIGHT PLOY\nWORTH IT\nKin will gladly risk death if the rewards to their kindred\nare justified.\nUse this firefight ploy when a friendly\nHEARTHKYN SALVAGER operative is\nincapacitated. It can perform a free mission\naction before it’s removed from the killzone."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "坚韧",
+      "title_en": "STURDY",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-坚韧.png",
+      "is_back": false,
+      "text": "炉心打捞者\n交战计谋\n坚韧\n身体健壮且心灵坚毅，炉心打捞者能够咬牙忍\n受那些可以将普通人类击倒在地的重伤。\n当一名特工对一名己方炉心打捞者特工进行射\n击时，在您收集防御骰时使用本交战计谋。将攻\n击者保留的关键成功转变为普通成功（任何已经\n被结算的武器规则不会受到影响，例如“关键穿\n刺”)。",
+      "text_en": "HEARTHKYN SALVAGER\nFIREFIGHT PLOY\nSTURDY\nStocky and stalwart, Hearthkyn Salvagers grit their\nteeth and shrug off wounds that would fell a Human.\nUse this firefight ploy when an operative is\nshooting a friendly HEARTHKYN SALVAGER\noperative, when you collect your defence dice.\nChange the attacker’s retained critical successes\nto normal successes (any weapon rules\nthey’ve already resolved aren’t affected, e.g.\nPiercing Crits)."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "为利益而战",
+      "title_en": "ENGAGE TO ACQUIRE",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-04-交战计谋-为利益而战.png",
+      "is_back": false,
+      "text": "炉心打捞者\n交战计谋\n为利益而战\n一些资源和利益必须通过武力从敌人的手中夺\n取。这种必要的暴力手段激发了炉裔们心中的\n冷酷决心。\n如果己方炉心打捞者特工对一名控制了目标标\n识或己方任务标识的敌方特工进行射击或近战，\n那么在您为其掷攻击骰后使用本交战计谋。您可\n以重掷任何自己的攻击骰。",
+      "text_en": "HEARTHKYN SALVAGER\nFIREFIGHT PLOY\nENGAGE TO ACQUIRE\nSome prizes must be wrested from the foe by force. The\nnecessity of violent acquisition incites within the Kin a\nruthless determination.\nUse this firefight ploy after rolling your attack dice\nfor a friendly HEARTHKYN SALVAGER operative,\nif it’s shooting against or fighting against an\nenemy operative that controls an objective\nmarker or one of your mission markers. You can\nre-roll any of your attack dice."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "等离子匕首",
+      "title_en": "PLASMA KNIVES",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-等离子匕首.png",
+      "is_back": false,
+      "text": "炉心打捞者\n阵营装备\n等离子匕首\n等离子匕首的超高温刀刃能够切开数尺厚的\n金属硬板。在这样的武器面前，护甲、血肉\n和骨骼都不是障碍。\n己方炉心打捞者特工拥有以下近战武器。请注\n意，战地医疗兵特工已经拥有本武器，并且属\n性更佳；在这种情况下，使用属性更佳的武器\n版本。\n名称攻击命中伤害\n等离子匕首 3 4+ 3/5\n武器规则\n致命 5+",
+      "text_en": "HEARTHKYN SALVAGER\nFACTION EQUIPMENT\nPLASMA KNIVES\nThe superheated edge of a plasma knife can slice\nthrough several inches of solid metal. Armour and bone\nare no match for such a cutting edge.\nFriendly HEARTHKYN SALVAGER operatives\nhave the following melee weapon. Note that the\nFIELD MEDIC operative already has this weapon\nbut with better stats; in that instance, use the\nbetter version.\nNAME ATK HIT DMG\nPlasma knife 3 4+ 3/5\nWR\nLethal 5+"
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "攀爬工具",
+      "title_en": "CLIMBING RIGS",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-02-阵营装备-攀爬工具.png",
+      "is_back": false,
+      "text": "炉心打捞者\n阵营装备\n攀爬工具\n这些攀爬装备能够让炉心打捞者们穿越任何\n在执行任务时可能会遇到的困难地形。\n在每一名炉心打捞者特工激活中，您可以使用\n下列规则之一：\n• 每当那名特工向上攀爬时，您可以将垂直距离\n视为 2\"（无论那名特工实际垂直经过距离为\n多少）。\n• 当那名特工跳落时，忽视垂直距离。",
+      "text_en": "HEARTHKYN SALVAGER\nFACTION EQUIPMENT\nCLIMBING RIGS\nThis climbing gear allows pioneering Hearthkyn\nSalvagers to traverse any difficult terrain they may\nencounter during the course of their duty.\nDuring each friendly HEARTHKYN\nSALVAGER operative’s activation, you can do\none of the following:\n• When that operative is climbing up, you can\ntreat the vertical distance as 2\" (regardless of\nhow far the operative actually moves vertically).\n• When that operative is dropping, ignore the\nvertical distance."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "挖掘工具",
+      "title_en": "EXCAVATION TOOLS",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-挖掘工具.png",
+      "is_back": false,
+      "text": "炉心打捞者\n阵营装备\n挖掘工具\n动力镐、等离子切割器和气动钻，这些装备\n能够让炉心打捞者获取埋藏在深处的宝物。\n己方炉心打捞者特工在执行拾取标识行动时可\n以少消耗 1AP，并且不需要控制那枚标识（本规\n则的优先度高于行动条件，特工只需要争夺那枚\n标识即可)。",
+      "text_en": "HEARTHKYN SALVAGER\nFACTION EQUIPMENT\nEXCAVATION TOOLS\nPowered picks, plasma cutters and pneumatic drills are\nitems of equipment that allow the Hearthkyn Salvagers\nto extract treasures buried deep.\nFriendly HEARTHKYN SALVAGER operatives can\nperform the Pick Up Marker action for 1 less AP,\nand don’t have to control the marker to do so (this\ntakes precedence over that action’s conditions –\nthey only need to contest the marker)."
+    },
+    {
+      "id": "kt-hearthkyn_salvagers-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "所有权令状",
+      "title_en": "WRIT OF CLAIM",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-04-阵营装备-所有权令状.png",
+      "is_back": false,
+      "text": "炉心打捞者\n阵营装备\n所有权令状\n在沃坦联盟的打捞者们声明了对资源的所有\n权后，他们将坚定不移地保护自己的利益。\n每场战斗限一次，如果己方炉心打捞者特工长\n在争夺两个或更多目标标识，那么在拼骰决定先\n手权时，您可以使用本规则。若使用，您可以重\n掷自己的骰子。",
+      "text_en": "HEARTHKYN SALVAGER\nFACTION EQUIPMENT\nWRIT OF CLAIM\nWhen the Salvagers of a League have staked their claim,\nthey will defend their due with steadfast determination.\nOnce per battle, if friendly HEARTHKYN\nSALVAGER operatives contest two or more\nobjective markers, after rolling off to decide\ninitiative, you can use this rule. If you do, you can\nre-roll your dice."
+    }
+  ]
+}

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案一：KT24 战术竞技场 — 手机版 UI (Spec-Ops Handheld HUD)</title>
+<style>
+  :root {
+    --bg-deep: #08090C;
+    --bg-panel: #11141B;
+    --bg-card: #171B24;
+    --orange: #FF5500;
+    --orange-dim: rgba(255, 85, 0, 0.16);
+    --cyan: #00E0F0;
+    --cyan-dim: rgba(0, 224, 240, 0.15);
+    --gold: #FFB800;
+    --crimson: #FF2E4C;
+    --steel: #8C96A8;
+    --ink: #F2F5FA;
+    --line: #283040;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+  body {
+    background: #050608;
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(255,85,0,0.12), transparent 55%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 2px, transparent 2px 10px);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 12px 40px;
+    min-height: 100vh;
+  }
+  .showcase-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .showcase-tag {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 4px 10px;
+    background: var(--orange-dim);
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+    font-weight: 700;
+  }
+  .screen-switch {
+    display: flex;
+    gap: 6px;
+    background: #10131A;
+    padding: 4px;
+    border: 1px solid var(--line);
+  }
+  .screen-btn {
+    background: transparent;
+    color: var(--steel);
+    border: 0;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+  }
+  .screen-btn.active {
+    background: var(--orange);
+    color: #08090C;
+  }
+
+  /* Phone Chassis (412 x 892) */
+  .phone-frame {
+    width: 412px;
+    height: 892px;
+    background: var(--bg-deep);
+    background-image: linear-gradient(180deg, rgba(11,13,18,0.88), rgba(8,9,12,0.96)), url('assets/texture_carbon_armor.jpg');
+    background-size: cover;
+    border: 2px solid #2C3444;
+    box-shadow: 0 24px 70px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,85,0,0.22);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    clip-path: polygon(16px 0, calc(100% - 16px) 0, 100% 16px, 100% calc(100% - 16px), calc(100% - 16px) 100%, 16px 100%, 0 calc(100% - 16px), 0 16px);
+  }
+
+  /* Top Tactical Status Bar */
+  .hud-topbar {
+    padding: 12px 14px 10px;
+    background: linear-gradient(180deg, #161B26 0%, #0E1118 100%);
+    border-bottom: 2px solid var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hud-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hud-brand img {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--orange);
+    clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+  }
+  .hud-kicker {
+    font-size: 10px;
+    color: var(--orange);
+    letter-spacing: 0.16em;
+    font-weight: 700;
+  }
+  .hud-title {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+  .undo-pill {
+    background: rgba(255,85,0,0.14);
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 10px;
+    clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+    cursor: pointer;
+  }
+
+  /* Turning Point Telemetry Strip */
+  .tp-strip {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: #0C0F15;
+    border-bottom: 1px solid var(--line);
+    font-size: 11px;
+  }
+  .tp-nodes {
+    display: flex;
+    gap: 4px;
+  }
+  .tp-node {
+    padding: 3px 7px;
+    background: #171C26;
+    color: var(--steel);
+    font-weight: 800;
+    font-size: 11px;
+    clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  }
+  .tp-node.active {
+    background: var(--orange);
+    color: #08090C;
+  }
+  .tp-phase {
+    color: var(--ink);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+  .tp-phase span { color: var(--orange); }
+
+  /* Dual Faction Telemetry Header */
+  .score-compare {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(17, 20, 27, 0.9);
+    border-bottom: 1px solid var(--line);
+  }
+  .side-pod {
+    padding: 8px 10px;
+    background: #141822;
+    position: relative;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+  .side-pod.side-a { border-left: 3px solid var(--orange); }
+  .side-pod.side-b { border-right: 3px solid var(--cyan); text-align: right; }
+  .side-name { font-size: 13px; font-weight: 800; }
+  .side-sub { font-size: 10px; color: var(--steel); margin-top: 2px; }
+  .side-metrics {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  .side-b .side-metrics { justify-content: flex-end; }
+  .metric-cp { color: var(--ink); background: #222938; padding: 2px 6px; }
+  .metric-vp-a { color: #08090C; background: var(--orange); padding: 2px 7px; }
+  .metric-vp-b { color: #08090C; background: var(--cyan); padding: 2px 7px; }
+  .vs-badge {
+    align-self: center;
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--steel);
+    letter-spacing: 0.1em;
+    padding: 0 2px;
+  }
+
+  /* Screen Content Area */
+  .viewport {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 14px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .viewport.active { display: flex; }
+
+  /* Active Turn Banner */
+  .turn-callout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, rgba(255,85,0,0.22), rgba(255,85,0,0.03));
+    border: 1px solid rgba(255,85,0,0.55);
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+  .turn-callout-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--orange);
+    box-shadow: 0 0 8px var(--orange);
+  }
+
+  /* Spec-Ops Chamfered Operative Card */
+  .op-card {
+    background: linear-gradient(135deg, #191E2B 0%, #121620 100%);
+    border: 1px solid #2B3346;
+    border-left: 5px solid var(--orange);
+    padding: 10px 12px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    display: grid;
+    grid-template-columns: 54px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    position: relative;
+  }
+  .op-card.conceal {
+    border-left-color: var(--cyan);
+  }
+  .op-card.expended {
+    opacity: 0.58;
+    border-left-color: #454E63;
+    background: repeating-linear-gradient(-45deg, #12151E 0 6px, #0F1219 6px 12px);
+  }
+  .op-avatar-wrap {
+    position: relative;
+    width: 54px;
+    height: 54px;
+  }
+  .op-avatar {
+    width: 54px;
+    height: 54px;
+    object-fit: cover;
+    border: 1px solid #434E68;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+  .op-token {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+    width: 24px;
+    height: 24px;
+  }
+  .op-title {
+    font-size: 14px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .op-stat-pills {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 11px;
+    font-family: "SF Mono", Menlo, monospace;
+    color: var(--steel);
+  }
+  .stat-pill {
+    background: #0D1017;
+    padding: 2px 6px;
+    border: 1px solid #262E3F;
+  }
+  .stat-pill strong { color: var(--ink); }
+
+  /* Segmented Armor Health Bar */
+  .hp-module {
+    text-align: right;
+    min-width: 96px;
+  }
+  .hp-readout {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 15px;
+    font-weight: 900;
+  }
+  .hp-readout.injured { color: var(--crimson); }
+  .hp-segments {
+    display: flex;
+    gap: 2px;
+    justify-content: flex-end;
+    margin: 5px 0 6px;
+  }
+  .hp-seg {
+    width: 6px;
+    height: 8px;
+    background: var(--orange);
+    transform: skewX(-18deg);
+  }
+  .hp-seg.cyan { background: var(--cyan); }
+  .hp-seg.lost { background: #252B3B; }
+  .hp-seg.crit-warn { background: var(--crimson); }
+  .hp-steppers {
+    display: inline-flex;
+    gap: 4px;
+  }
+  .step-btn {
+    width: 28px;
+    height: 24px;
+    background: #232A3A;
+    border: 1px solid #3A455E;
+    color: var(--ink);
+    font-weight: 900;
+    cursor: pointer;
+  }
+
+  .buff-row {
+    display: flex;
+    gap: 5px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+  .buff-chip {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    background: rgba(255, 184, 0, 0.14);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+  }
+  .buff-chip.danger {
+    background: rgba(255, 46, 76, 0.16);
+    border-color: var(--crimson);
+    color: var(--crimson);
+  }
+
+  /* Screen 2: Combat Resolution (Shooting / Melee) */
+  .duel-banner {
+    background: linear-gradient(90deg, rgba(255,85,0,0.18), rgba(17,20,27,0.95) 50%, rgba(0,224,240,0.18));
+    border: 1px solid #313B52;
+    padding: 10px 12px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 8px;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+  .duel-side { font-size: 12px; }
+  .duel-side.def { text-align: right; }
+  .duel-unit { font-size: 14px; font-weight: 800; }
+  .duel-wep { font-size: 11px; color: var(--steel); margin-top: 2px; font-family: monospace; }
+
+  .tactical-Switches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .switch-box {
+    background: #131722;
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+  }
+  .switch-label {
+    font-size: 10px;
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .seg-group {
+    display: flex;
+    gap: 4px;
+  }
+  .seg-pill {
+    flex: 1;
+    text-align: center;
+    padding: 5px 4px;
+    font-size: 11px;
+    font-weight: 700;
+    background: #1B2130;
+    color: var(--steel);
+  }
+  .seg-pill.on {
+    background: var(--orange);
+    color: #08090C;
+  }
+
+  /* Tactical Laser-Linked Dice Matrix */
+  .dice-arena {
+    background: #0D1018;
+    border: 1px solid #2A3347;
+    padding: 12px;
+    position: relative;
+  }
+  .dice-row-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--steel);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .dice-strip {
+    display: flex;
+    gap: 10px;
+  }
+  .die-chip {
+    width: 62px;
+    height: 64px;
+    background: #171C28;
+    border: 2px solid var(--orange);
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .die-chip.crit {
+    border-color: var(--gold);
+    background: rgba(255, 184, 0, 0.14);
+    box-shadow: 0 0 12px rgba(255, 184, 0, 0.25);
+  }
+  .die-chip.def-die {
+    border-color: var(--cyan);
+    background: rgba(0, 224, 240, 0.1);
+  }
+  .die-chip.blocked {
+    opacity: 0.42;
+    border-style: dashed;
+  }
+  .die-num {
+    font-family: "SF Mono", Menlo, monospace;
+    font-size: 22px;
+    font-weight: 900;
+  }
+  .die-tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .die-badge {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    font-size: 9px;
+    color: var(--gold);
+  }
+
+  .laser-link-bar {
+    margin: 10px 0;
+    padding: 6px 10px;
+    background: rgba(0, 224, 240, 0.08);
+    border-left: 3px solid var(--cyan);
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .damage-gateway {
+    background: linear-gradient(90deg, rgba(255,46,76,0.2), rgba(255,85,0,0.12));
+    border: 1px solid var(--crimson);
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dmg-total {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--crimson);
+    font-family: "SF Mono", Menlo, monospace;
+  }
+
+  /* Screen 3: Killzone Hub & Squad Roster */
+  .hero-card {
+    position: relative;
+    height: 158px;
+    border: 1px solid var(--orange);
+    overflow: hidden;
+    clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 14px;
+    background: url('assets/hero_killzone_banner.jpg') center/cover no-repeat;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,9,12,0.15) 0%, rgba(8,9,12,0.92) 85%);
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-grid-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .menu-tile {
+    background: #141923;
+    border: 1px solid #2A3346;
+    border-top: 2px solid var(--orange);
+    padding: 12px 10px;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+  .menu-tile h4 { font-size: 13px; margin-bottom: 4px; }
+  .menu-tile p { font-size: 10px; color: var(--steel); }
+
+  /* Bottom Single-Hand Thumb Command Deck */
+  .thumb-deck {
+    background: #0E1118;
+    border-top: 2px solid #273042;
+    padding: 10px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ap-quick-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .ap-chip {
+    background: #181D29;
+    border: 1px solid #2E384E;
+    padding: 7px 4px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+    clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+  }
+  .ap-chip span {
+    display: block;
+    font-size: 9px;
+    color: var(--orange);
+    font-family: monospace;
+  }
+  .cta-primary {
+    background: linear-gradient(90deg, #FF5500, #FF7700);
+    color: #07080B;
+    border: 0;
+    padding: 13px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="showcase-bar">
+  <span class="showcase-tag">方案一 · KT24 战术竞技场 (手机版 412×892)</span>
+  <div class="screen-switch">
+    <button class="screen-btn active" onclick="showScreen('battle', this)">1. 对局主控台</button>
+    <button class="screen-btn" onclick="showScreen('combat', this)">2. 攻防骰裁决台</button>
+    <button class="screen-btn" onclick="showScreen('hub', this)">3. 战区总控首页</button>
+  </div>
+</div>
+
+<div class="phone-frame">
+  <!-- Top Tactical Status Bar -->
+  <header class="hud-topbar">
+    <div class="hud-brand">
+      <img src="assets/emblem_specops_skull.jpg" alt="KT Emblem">
+      <div>
+        <div class="hud-kicker">KILLZONE // VOLKUS-09</div>
+        <div class="hud-title" id="top-title">TP 2 · 交战阶段</div>
+      </div>
+    </div>
+    <button class="undo-pill">↶ 撤回 · 瘟疫勇士 HP</button>
+  </header>
+
+  <!-- Turning Point Telemetry Strip -->
+  <div class="tp-strip">
+    <div class="tp-nodes">
+      <span class="tp-node">TP1</span>
+      <span class="tp-node active">TP2</span>
+      <span class="tp-node">TP3</span>
+      <span class="tp-node">TP4</span>
+    </div>
+    <div class="tp-phase">先手 ✓ · 战略 ✓ · <span>● 交战中</span></div>
+    <div style="color:var(--steel);font-family:monospace;">LOG #18</div>
+  </div>
+
+  <!-- Dual Faction Telemetry Header -->
+  <section class="score-compare">
+    <div class="side-pod side-a">
+      <div class="side-name" style="color:var(--orange);">死亡天使 ★先手</div>
+      <div class="side-sub">阿斯塔特 · 在场 6/6</div>
+      <div class="side-metrics">
+        <span class="metric-cp">4 CP</span>
+        <span class="metric-vp-a">5 VP</span>
+      </div>
+    </div>
+    <div class="vs-badge">VS</div>
+    <div class="side-pod side-b">
+      <div class="side-name" style="color:var(--cyan);">瘟疫战士</div>
+      <div class="side-sub">赫伦阿斯塔特 · 在场 5/6</div>
+      <div class="side-metrics">
+        <span class="metric-cp">2 CP</span>
+        <span class="metric-vp-b">4 VP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN 1: BATTLE CONSOLE -->
+  <main class="viewport active" id="screen-battle">
+    <div class="turn-callout">
+      <div class="turn-callout-left">
+        <span class="pulse-dot"></span>
+        <span>主动方激活：星际战士连长（剩余 2 AP）</span>
+      </div>
+      <span style="font-size:11px;color:var(--orange);font-weight:700;">小队规则 ⓘ</span>
+    </div>
+
+    <img src="assets/divider_specops.svg" alt="" style="width:100%;height:18px;">
+
+    <!-- Operative 1 (Active / Engage) -->
+    <article class="op-card">
+      <div class="op-avatar-wrap">
+        <img class="op-avatar" src="../shared-portraits/roster_aod_captain.webp" alt="">
+        <img class="op-token" src="assets/token_engage.svg" alt="交战">
+      </div>
+      <div>
+        <div class="op-title">星际战士连长 <span style="font-size:10px;color:var(--orange);">[激活中]</span></div>
+        <div class="op-stat-pills">
+          <span class="stat-pill">APL <strong>3</strong></span>
+          <span class="stat-pill">移动 <strong>6"</strong></span>
+          <span class="stat-pill">豁免 <strong>3+</strong></span>
+        </div>
+        <div class="buff-row">
+          <span class="buff-chip">+ 铁光环 · 4+无视</span>
+          <span class="buff-chip">+ 至高权威</span>
+        </div>
+      </div>
+      <div class="hp-module">
+        <div class="hp-readout">15/15</div>
+        <div class="hp-segments">
+          <span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span>
+        </div>
+        <div class="hp-steppers">
+          <button class="step-btn">−</button>
+          <button class="step-btn">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Operative 2 (Conceal / Sniper) -->
+    <article class="op-card conceal">
+      <div class="op-avatar-wrap">
+        <img class="op-avatar" src="../shared-portraits/roster_aod_sniper.webp" alt="">
+        <img class="op-token" src="assets/token_conceal.svg" alt="隐匿">
+      </div>
+      <div>
+        <div class="op-title">淘汰者狙击手</div>
+        <div class="op-stat-pills">
+          <span class="stat-pill">APL <strong>3</strong></span>
+          <span class="stat-pill">移动 <strong>6"</strong></span>
+          <span class="stat-pill">豁免 <strong>3+</strong></span>
+        </div>
+        <div class="buff-row">
+          <span class="buff-chip">+ 神射手 · 精准1/严重</span>
+          <span class="buff-chip">光学迷彩</span>
+        </div>
+      </div>
+      <div class="hp-module">
+        <div class="hp-readout">12/12</div>
+        <div class="hp-segments">
+          <span class="hp-seg cyan"></span><span class="hp-seg cyan"></span><span class="hp-seg cyan"></span><span class="hp-seg cyan"></span><span class="hp-seg cyan"></span><span class="hp-seg cyan"></span>
+        </div>
+        <div class="hp-steppers">
+          <button class="step-btn">−</button>
+          <button class="step-btn">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Operative 3 (Injured / Heavy Gunner) -->
+    <article class="op-card">
+      <div class="op-avatar-wrap">
+        <img class="op-avatar" src="../shared-portraits/roster_aod_heavy_gunner.webp" alt="">
+        <img class="op-token" src="assets/token_engage.svg" alt="交战">
+      </div>
+      <div>
+        <div class="op-title">重装机枪手</div>
+        <div class="op-stat-pills">
+          <span class="stat-pill">APL <strong>3</strong></span>
+          <span class="stat-pill">移动 <strong>4"▼</strong></span>
+          <span class="stat-pill">豁免 <strong>3+</strong></span>
+        </div>
+        <div class="buff-row">
+          <span class="buff-chip danger">▲ 受创（命中恶化 1）</span>
+        </div>
+      </div>
+      <div class="hp-module">
+        <div class="hp-readout injured">5/18 ▲</div>
+        <div class="hp-segments">
+          <span class="hp-seg crit-warn"></span><span class="hp-seg crit-warn"></span><span class="hp-seg crit-warn"></span><span class="hp-seg lost"></span><span class="hp-seg lost"></span><span class="hp-seg lost"></span><span class="hp-seg lost"></span><span class="hp-seg lost"></span>
+        </div>
+        <div class="hp-steppers">
+          <button class="step-btn">−</button>
+          <button class="step-btn">+</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Operative 4 (Expended) -->
+    <article class="op-card expended">
+      <div class="op-avatar-wrap">
+        <img class="op-avatar" src="../shared-portraits/roster_aod_sergeant.webp" alt="">
+        <img class="op-token" src="assets/token_engage.svg" alt="已待机">
+      </div>
+      <div>
+        <div class="op-title">仲裁者军士 <span style="font-size:10px;color:var(--steel);">[已待机]</span></div>
+        <div class="op-stat-pills">
+          <span class="stat-pill">APL <strong>3</strong></span>
+          <span class="stat-pill">移动 <strong>6"</strong></span>
+          <span class="stat-pill">豁免 <strong>3+</strong></span>
+        </div>
+      </div>
+      <div class="hp-module">
+        <div class="hp-readout">13/15</div>
+        <div class="hp-segments">
+          <span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg"></span><span class="hp-seg lost"></span>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- SCREEN 2: COMBAT RESOLUTION -->
+  <main class="viewport" id="screen-combat">
+    <section class="duel-banner">
+      <div class="duel-side">
+        <div style="color:var(--orange);font-size:10px;font-weight:800;">ATTACKER // 攻击方</div>
+        <div class="duel-unit">淘汰者狙击手</div>
+        <div class="duel-wep">死神狙击步枪 · 4A 2+ 3/3 致命2</div>
+      </div>
+      <div style="font-weight:900;color:var(--orange);font-size:16px;">⟫</div>
+      <div class="duel-side def">
+        <div style="color:var(--cyan);font-size:10px;font-weight:800;">DEFENDER // 防御方</div>
+        <div class="duel-unit">瘟疫战士冠军</div>
+        <div class="duel-wep">豁免 3+ · 耐伤 15/15 · 交战</div>
+      </div>
+    </section>
+
+    <div class="tactical-Switches">
+      <div class="switch-box">
+        <div class="switch-label"><span>掩护 COVER</span><span>ⓘ</span></div>
+        <div class="seg-group">
+          <span class="seg-pill">无</span>
+          <span class="seg-pill on">普通预留</span>
+          <span class="seg-pill">强化</span>
+        </div>
+      </div>
+      <div class="switch-box">
+        <div class="switch-label"><span>制高点 VANTAGE</span><span>ⓘ</span></div>
+        <div class="seg-group">
+          <span class="seg-pill">无</span>
+          <span class="seg-pill on">≥2" 精准1</span>
+          <span class="seg-pill">≥4"</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="dice-arena">
+      <div class="dice-row-label">
+        <span style="color:var(--orange);">▲ 攻击保留池（1 暴击 · 2 普通）</span>
+        <span>长按骰子可改判/指挥重掷</span>
+      </div>
+      <div class="dice-strip">
+        <div class="die-chip crit">
+          <span class="die-badge">★致命2</span>
+          <span class="die-num">6</span>
+          <span class="die-tag" style="color:var(--gold);">暴击</span>
+        </div>
+        <div class="die-chip">
+          <span class="die-badge">◆精准</span>
+          <span class="die-num">4</span>
+          <span class="die-tag">普通</span>
+        </div>
+        <div class="die-chip blocked">
+          <span class="die-badge">⟳重投</span>
+          <span class="die-num">3</span>
+          <span class="die-tag">已被抵挡</span>
+        </div>
+      </div>
+
+      <div class="laser-link-bar">
+        <span>⚡ 推荐分配：用 [掩护普通] 抵挡 [普通 3]</span>
+        <span style="color:var(--cyan);font-weight:800;">已套用 ✓</span>
+      </div>
+
+      <div class="dice-row-label">
+        <span style="color:var(--cyan);">▼ 防御骰池（3 枚 − 穿刺 1 = 2 枚）</span>
+        <span>点选配对抵挡</span>
+      </div>
+      <div class="dice-strip">
+        <div class="die-chip def-die">
+          <span class="die-badge">◆掩护</span>
+          <span class="die-num">4</span>
+          <span class="die-tag" style="color:var(--cyan);">已抵挡 3</span>
+        </div>
+        <div class="die-chip" style="border-color:#353D52;opacity:0.45;">
+          <span class="die-num">2</span>
+          <span class="die-tag">失败</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="damage-gateway">
+      <div>
+        <div style="font-size:11px;font-weight:800;color:var(--ink);">伤害关口（含致命 2 立即伤 + 1 普通未挡）</div>
+        <div style="font-size:10px;color:var(--steel);">点此可应用「恶心韧性」减伤或人工修正</div>
+      </div>
+      <div class="dmg-total">−5 HP</div>
+    </section>
+  </main>
+
+  <!-- SCREEN 3: KILLZONE HUB -->
+  <main class="viewport" id="screen-hub">
+    <section class="hero-card">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hud-kicker">APPROVED OPS 2025 // 认证行动对局台</div>
+        <h2 style="font-size:22px;font-weight:900;margin:4px 0;">部署新杀戮战区</h2>
+        <p style="font-size:11px;color:var(--steel);">4 步战术向导：双军编成 → 通用装备 → 关键行动 → 秘密战术卡</p>
+      </div>
+    </section>
+
+    <div class="hero-grid-menu">
+      <div class="menu-tile">
+        <h4>我的小队</h4>
+        <p>8 支官方特遣队与自定义武器库</p>
+      </div>
+      <div class="menu-tile" style="border-top-color:var(--cyan);">
+        <h4>战术骰盘</h4>
+        <p>独立 3D 物理攻防与通用 D6/D3</p>
+      </div>
+      <div class="menu-tile" style="border-top-color:var(--gold);">
+        <h4>规则圣典</h4>
+        <p>v11.5 原文速查与 48 队卡册</p>
+      </div>
+    </div>
+
+    <img src="assets/divider_specops.svg" alt="" style="width:100%;height:18px;">
+    <div style="font-size:12px;font-weight:800;color:var(--steel);">进行中与历史战报 (ACTIVE OPERATIONS)</div>
+
+    <div class="op-card" style="grid-template-columns: 1fr auto;">
+      <div>
+        <div class="op-title">死亡天使 <span style="color:var(--orange);">VS</span> 瘟疫战士</div>
+        <div class="op-stat-pills">
+          <span class="stat-pill">TP 2 · 交战中</span>
+          <span class="stat-pill">任务：传输情报</span>
+        </div>
+      </div>
+      <div class="hp-readout" style="color:var(--orange);">5 : 4</div>
+    </div>
+    <div class="op-card conceal" style="grid-template-columns: 1fr auto;">
+      <div>
+        <div class="op-title">恶角兽掠夺者 <span style="color:var(--cyan);">VS</span> 次元密会</div>
+        <div class="op-stat-pills">
+          <span class="stat-pill">已完赛 · 恶角兽胜</span>
+          <span class="stat-pill">任务：占领</span>
+        </div>
+      </div>
+      <div class="hp-readout" style="color:var(--cyan);">14 : 11</div>
+    </div>
+  </main>
+
+  <!-- Single-Hand Thumb Command Deck -->
+  <footer class="thumb-deck">
+    <div class="ap-quick-bar">
+      <div class="ap-chip">移动<span>1 AP · 6"</span></div>
+      <div class="ap-chip" style="border-color:var(--orange);">远程射击<span>1 AP · 狙击</span></div>
+      <div class="ap-chip">近战格斗<span>1 AP · 匕首</span></div>
+      <div class="ap-chip">任务行动<span>1 AP · 交互</span></div>
+    </div>
+    <button class="cta-primary">⚡ 确认结算 / 结束当前特工激活</button>
+  </footer>
+</div>
+
+<script>
+function showScreen(id, btn) {
+  document.querySelectorAll('.viewport').forEach(el => el.classList.remove('active'));
+  document.getElementById('screen-' + id).classList.add('active');
+  document.querySelectorAll('.screen-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const titles = {
+    battle: 'TP 2 · 交战阶段',
+    combat: '射击裁决 · 分配防御',
+    hub: 'WHKT // 战区总控台'
+  };
+  document.getElementById('top-title').textContent = titles[id];
+}
+
+const p = new URLSearchParams(location.search).get('screen');
+if (p) {
+  const btns = document.querySelectorAll('.screen-btn');
+  const idx = {battle:0, combat:1, hub:2}[p] || 0;
+  showScreen(p, btns[idx]);
+}
+</script>
+</body>
+</html>

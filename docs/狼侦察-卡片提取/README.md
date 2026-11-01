@@ -1,55 +1,87 @@
-# 狼侦察卡片提取
+# 狼侦察（Wolf Scouts）卡片索引
 
-提取与核对日期：2026-09-24。来源：[狼侦察杀戮小队 Wolf Scouts 杀戮小队规则.pdf](../狼侦察杀戮小队%20Wolf%20Scouts%20杀戮小队规则.pdf)。
+- 小队 ID：`IMP-WS`
+- 来源 PDF：`最新杀戮小队规则更新/狼侦察 杀戮小队 Wolf Scouts 杀戮小队规则.pdf`
+- 提取日期：2026-10-26
+- 数据来源：官方中文 PDF（唯一信源）
+- 独立卡图总数：**27**（总览图不计入）
 
-200 DPI 整页渲染后裁切；坐标使用 PDF 点坐标（左上原点，x/y/宽/高）。卡框外的白边和裁切线已去除，圆角外为透明 alpha。原卡内容未修改，当前规则以完整资料及 manifest 中正文为准。
-
-[完整规则资料](../狼侦察-完整规则资料.md) · [manifest](manifest.json) · [当前API快照](ktdash-current.json)
+## 分类计数
 
 | 类别 | 数量 |
-|---|---|
-| 特工 | 8 |
-| 特工能力 | 3 |
-| 其他 | 2 |
-| 小队选择 | 1 |
-| 阵营规则 | 2 |
-| 战略计谋 | 4 |
-| 交战计谋 | 4 |
-| 阵营装备 | 4 |
+|---|---:|
+| faction-equipment | 4 |
+| faction-rule | 2 |
+| firefight-ploy | 4 |
+| operative | 8 |
+| operative-ability | 3 |
+| other | 1 |
+| strategic-ploy | 4 |
+| team-selection | 1 |
 
-独立卡片 28 张；另有2张总览，不计入卡片数。
+## 特工（8 张）
 
-![特工总览](00-总览-特工卡.png)
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 狼侦察狼群领袖-数据卡 | 第 1 页 | [01-01-特工-狼侦察狼群领袖-数据卡.png](01-01-特工-狼侦察狼群领袖-数据卡.png) |
+| 2 | 狼侦察獠牙使者-数据卡 | 第 1 页 | [01-02-特工-狼侦察獠牙使者-数据卡.png](01-02-特工-狼侦察獠牙使者-数据卡.png) |
+| 3 | 狼侦察霜眼-数据卡 | 第 1 页 | [01-03-特工-狼侦察霜眼-数据卡.png](01-03-特工-狼侦察霜眼-数据卡.png) |
+| 5 | 狼侦察炮手-数据卡 | 第 2 页 | [01-05-特工-狼侦察炮手-数据卡.png](01-05-特工-狼侦察炮手-数据卡.png) |
+| 6 | 狼侦察猎手-数据卡 | 第 2 页 | [01-06-特工-狼侦察猎手-数据卡.png](01-06-特工-狼侦察猎手-数据卡.png) |
+| 7 | 狼侦察符文祭司诗人-数据卡 | 第 2 页 | [01-07-特工-狼侦察符文祭司诗人-数据卡.png](01-07-特工-狼侦察符文祭司诗人-数据卡.png) |
+| 9 | 狼侦察陷阱大师-数据卡 | 第 3 页 | [01-09-特工-狼侦察陷阱大师-数据卡.png](01-09-特工-狼侦察陷阱大师-数据卡.png) |
+| 11 | 狼侦察芬里斯狼-数据卡 | 第 3 页 | [01-11-特工-狼侦察芬里斯狼-数据卡.png](01-11-特工-狼侦察芬里斯狼-数据卡.png) |
 
-![规则总览](00-总览-规则卡.png)
+## 特工能力（3 张）
 
-| 编号 | 类别 | 中文标题 / English | 页 | 本地ID | KTDash ID | 状态 |
-|---|---|---|---|---|---|---|
-| 1 | 特工 | [狼侦察狼群领袖-数据卡](01-特工-狼侦察狼群领袖-数据卡.png) / Pack Leader | 1 | imp-ws-card-01 | IMP-WS-LDR、IMP-WS-LDR-GV、IMP-WS-LDR-LG | current |
-| 2 | 特工 | [狼侦察獠牙使者-数据卡](02-特工-狼侦察獠牙使者-数据卡.png) / Fangbearer | 1 | imp-ws-card-02 | IMP-WS-FB、IMP-WS-FB-HB、IMP-WS-FB-SC | current |
-| 3 | 特工 | [狼侦察霜眼-数据卡](03-特工-狼侦察霜眼-数据卡.png) / Frosteye | 1 | imp-ws-card-03 | IMP-WS-FE、IMP-WS-FE-SVE | current |
-| 4 | 特工能力 | [狼侦察霜眼-能力卡](04-特工能力-狼侦察霜眼-能力卡.png) / Frosteye | 1 | imp-ws-card-04 | IMP-WS-FE、IMP-WS-FE-HS | current |
-| 5 | 特工 | [狼侦察炮手-数据卡](05-特工-狼侦察炮手-数据卡.png) / Gunner | 2 | imp-ws-card-05 | IMP-WS-GNR、IMP-WS-GNR-TF | current |
-| 6 | 特工 | [狼侦察猎手-数据卡](06-特工-狼侦察猎手-数据卡.png) / Hunter | 2 | imp-ws-card-06 | IMP-WS-HNT、IMP-WS-HNT-FT | current |
-| 7 | 特工 | [狼侦察符文祭司诗人-数据卡](07-特工-狼侦察符文祭司诗人-数据卡.png) / Rune Priest Skjald | 2 | imp-ws-card-07 | IMP-WS-RP、IMP-WS-RP-CTR | current |
-| 8 | 特工能力 | [狼侦察符文祭司诗人-能力卡](08-特工能力-狼侦察符文祭司诗人-能力卡.png) / Rune Priest Skjald | 2 | imp-ws-card-08 | IMP-WS-RP、IMP-WS-RP-CTS | current |
-| 9 | 特工 | [狼侦察陷阱大师-数据卡](09-特工-狼侦察陷阱大师-数据卡.png) / Trapmaster | 3 | imp-ws-card-09 | IMP-WS-TM、IMP-WS-TM-HWM | current |
-| 10 | 特工能力 | [狼侦察陷阱大师-能力卡](10-特工能力-狼侦察陷阱大师-能力卡.png) / Trapmaster | 3 | imp-ws-card-10 | IMP-WS-TM、IMP-WS-TM-PM | current |
-| 11 | 特工 | [狼侦察芬里斯狼-数据卡](11-特工-狼侦察芬里斯狼-数据卡.png) / Fenrisian Wolf | 3 | imp-ws-card-11 | IMP-WS-WLF、IMP-WS-WLF-IP、IMP-WS-WLF-P | current |
-| 12 | 其他 | [笔记](12-其他-笔记.png) / PDF未提供英文标题 | 3 | imp-ws-card-12 | null | PDF-only |
-| 13 | 小队选择 | [狼侦察杀戮小队](13-小队选择-狼侦察杀戮小队.png) / Wolf Scouts | 4 | imp-ws-card-13 | IMP-WS | current |
-| 14 | 阵营规则 | [元素风暴](14-阵营规则-元素风暴.png) / Elemental Storm | 4 | imp-ws-card-14 | IMP-WS-LDR-ES、IMP-WS-FB-ES、IMP-WS-FE-ES、IMP-WS-GNR-ES、IMP-WS-HNT-ES、IMP-WS-RP-ES、IMP-WS-TM-ES、IMP-WS-WLF-ES | current |
-| 15 | 阵营规则 | [猎手阿斯塔特](15-阵营规则-猎手阿斯塔特.png) / Hunting Astartes | 4 | imp-ws-card-15 | IMP-WS-LDR-HA、IMP-WS-FB-HA、IMP-WS-FE-HA、IMP-WS-GNR-HA、IMP-WS-HNT-HA、IMP-WS-RP-HA、IMP-WS-TM-HA、IMP-WS-WLF-HA | current |
-| 16 | 其他 | [标识-指示物指南](16-其他-标识-指示物指南.png) / PDF未提供英文标题 | 4 | imp-ws-card-16 | null | PDF-only |
-| 17 | 战略计谋 | [隐藏于暴风](17-战略计谋-隐藏于暴风.png) / Cloaked By The Storm | 5 | imp-ws-card-17 | IMP-WS-CBTS | current |
-| 18 | 战略计谋 | [寒风之怒](18-战略计谋-寒风之怒.png) / Tempestuous Wrath | 5 | imp-ws-card-18 | IMP-WS-TW | current |
-| 19 | 战略计谋 | [狂风肆虐](19-战略计谋-狂风肆虐.png) / Storm's Bite | 5 | imp-ws-card-19 | IMP-WS-SB | current |
-| 20 | 战略计谋 | [狂野斗士](20-战略计谋-狂野斗士.png) / Savage Fighters | 5 | imp-ws-card-20 | IMP-WS-SF | current |
-| 21 | 交战计谋 | [敏锐感官](21-交战计谋-敏锐感官.png) / Acute Senses | 6 | imp-ws-card-21 | IMP-WS-AS | current |
-| 22 | 交战计谋 | [反击](22-交战计谋-反击.png) / Counterattack | 6 | imp-ws-card-22 | IMP-WS-CA | current |
-| 23 | 交战计谋 | [洛基雅尔之魂](23-交战计谋-洛基雅尔之魂.png) / Touched By Lokyar | 6 | imp-ws-card-23 | IMP-WS-TBL | current |
-| 24 | 交战计谋 | [超人体格](24-交战计谋-超人体格.png) / Transhuman Physiology | 6 | imp-ws-card-24 | IMP-WS-THP | current |
-| 25 | 阵营装备 | [冰霜武器](25-阵营装备-冰霜武器.png) / Frost Weapons | 7 | imp-ws-card-25 | IMP-WS-FW | current |
-| 26 | 阵营装备 | [符文守护](26-阵营装备-符文守护.png) / Runic Charms | 7 | imp-ws-card-26 | IMP-WS-RC | current |
-| 27 | 阵营装备 | [狼牙项链](27-阵营装备-狼牙项链.png) / Wolfteeth Necklaces | 7 | imp-ws-card-27 | IMP-WS-WTNL | current |
-| 28 | 阵营装备 | [战利品护符](28-阵营装备-战利品护符.png) / Talismanic Trophies | 7 | imp-ws-card-28 | IMP-WS-TT | current |
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 4 | 狼侦察霜眼-能力卡 | 第 1 页 | [01-04-特工能力-狼侦察霜眼-能力卡.png](01-04-特工能力-狼侦察霜眼-能力卡.png) |
+| 8 | 狼侦察符文祭司诗人-能力卡 | 第 2 页 | [01-08-特工能力-狼侦察符文祭司诗人-能力卡.png](01-08-特工能力-狼侦察符文祭司诗人-能力卡.png) |
+| 10 | 狼侦察陷阱大师-能力卡 | 第 3 页 | [01-10-特工能力-狼侦察陷阱大师-能力卡.png](01-10-特工能力-狼侦察陷阱大师-能力卡.png) |
+
+## 小队选择（1 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 狼侦察杀戮小队 | 第 4 页 | [10-01-小队选择-狼侦察杀戮小队.png](10-01-小队选择-狼侦察杀戮小队.png) |
+
+## 阵营规则（2 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 元素风暴 | 第 4 页 | [11-01-阵营规则-元素风暴.png](11-01-阵营规则-元素风暴.png) |
+| 2 | 猎手阿斯塔特 | 第 4 页 | [11-02-阵营规则-猎手阿斯塔特.png](11-02-阵营规则-猎手阿斯塔特.png) |
+
+## 战略计谋（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 隐藏于暴风 | 第 5 页 | [20-01-战略计谋-隐藏于暴风.png](20-01-战略计谋-隐藏于暴风.png) |
+| 2 | 寒风之怒 | 第 5 页 | [20-02-战略计谋-寒风之怒.png](20-02-战略计谋-寒风之怒.png) |
+| 3 | 狂风肆虐 | 第 5 页 | [20-03-战略计谋-狂风肆虐.png](20-03-战略计谋-狂风肆虐.png) |
+| 4 | 狂野斗士 | 第 5 页 | [20-04-战略计谋-狂野斗士.png](20-04-战略计谋-狂野斗士.png) |
+
+## 交战计谋（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 敏锐感官 | 第 6 页 | [30-01-交战计谋-敏锐感官.png](30-01-交战计谋-敏锐感官.png) |
+| 2 | 反击 | 第 6 页 | [30-02-交战计谋-反击.png](30-02-交战计谋-反击.png) |
+| 3 | 洛基雅尔之魂 | 第 6 页 | [30-03-交战计谋-洛基雅尔之魂.png](30-03-交战计谋-洛基雅尔之魂.png) |
+| 4 | 超人体格 | 第 6 页 | [30-04-交战计谋-超人体格.png](30-04-交战计谋-超人体格.png) |
+
+## 阵营装备（4 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 冰霜武器 | 第 7 页 | [40-01-阵营装备-冰霜武器.png](40-01-阵营装备-冰霜武器.png) |
+| 2 | 符文守护 | 第 7 页 | [40-02-阵营装备-符文守护.png](40-02-阵营装备-符文守护.png) |
+| 3 | 狼牙项链 | 第 7 页 | [40-03-阵营装备-狼牙项链.png](40-03-阵营装备-狼牙项链.png) |
+| 4 | 战利品护符 | 第 7 页 | [40-04-阵营装备-战利品护符.png](40-04-阵营装备-战利品护符.png) |
+
+## 其他（1 张）
+
+| # | 标题 | 源页 | 卡图 |
+|---:|---|---:|---|
+| 1 | 标识/指示物指南 | 第 4 页 | [16-01-其他-标识-指示物指南.png](16-01-其他-标识-指示物指南.png) |

@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "team_id": "WYRM",
+  "team_name_zh": "虫刃",
+  "team_name_en": "Wyrmblade",
+  "source_pdf": "最新杀戮小队规则更新/虫刃 Wyrmblade 杀戮小队规则.pdf",
+  "source_pdf_sha256": "58281130cae5df9d06d4406da504a3352cbcbbfed192762b1a9fe5b32502e8d3",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 32,
+    "operative": 9,
+    "operative-ability": 5,
+    "team-selection": 2,
+    "faction-rule": 4,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "wyrm-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "新信徒队长-数据卡",
+      "title_en": "NEOPHYTE LEADER",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-新信徒队长-数据卡.png",
+      "is_back": false,
+      "text": "新信徒队长 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n自动枪 4 3+ 2/3 -\n爆矢手枪 4 3+ 3/4 范围 8\"\n精工自动手枪 4 3+ 2/4 范围 8\"、致命 5+\n霰弹枪 4 2+ 3/3 范围 6\"\n黏网手枪 4 3+ 3/4 范围 6\"、严重、晕眩\n链锯剑 4 3+ 4/5 -\n枪托 3 4+ 2/3 -\n能量槌 4 3+ 4/6 震荡\n能量镐 4 3+ 4/5 撕裂\n请继续阅读背面规则\n虫刃、泰伦虫族、基因窃取者教派、新信徒、队长 25",
+      "weapon_types": {
+        "自动枪": "远程",
+        "爆矢手枪": "远程",
+        "精工自动手枪": "远程",
+        "霰弹枪": "远程",
+        "黏网手枪": "远程",
+        "链锯剑": "近战",
+        "枪托": "近战",
+        "能量槌": "近战",
+        "能量镐": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNEOPHYTE LEADER\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nAutogun 4 3+ 2/3 -\nBolt pistol 4 3+ 3/4 Range 8\"\nMaster-crafted autopistol 4 3+ 2/4 Range 8\", Lethal 5+\nShotgun 4 2+ 3/3 Range 6\"\nWeb pistol 4 3+ 3/4 Range 6\", Severe, Stun\nChainsword 4 3+ 4/5 -\nGun butt 3 4+ 2/3 -\nPower maul 4 3+ 4/6 Shock\nPower pick 4 3+ 4/5 Rending\nRULES CONTINUE ON OTHER SIDE\nWYRMBLADE , TYRANID, GENESTEALER CULT, NEOPHYTE, LEADER 25"
+    },
+    {
+      "id": "wyrm-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "新信徒队长-能力卡",
+      "title_en": "NEOPHYTE LEADER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-新信徒队长-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n新信徒队长\n2 6\" 5+ 8\n暗影载体：每个转折点限一次，如果遁入黑暗或盘\n蛇交战计谋的己方虫刃特工对象为对这名特工可见\n的新信徒时，您可以消耗 0 CP 使用那条计谋。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNEOPHYTE LEADER\n2 6\" 5+ 8\nShadow Vector: Once per turning point, you can use the Slink\nInto Darkness or Coiled Serpent firefight ploy for 0CP if the\nspecified friendly WYRMBLADE operative is a NEOPHYTE\nvisible to this operative."
+    },
+    {
+      "id": "wyrm-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "杀戮兵器-数据卡",
+      "title_en": "KELERMORPH",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-杀戮兵器-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n杀戮兵器\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n解放者自动手枪（超感官能力） 5 3+ 3/4 范围 6\"、集中、追踪轻型、超感官能力*\n解放者自动手枪（远距离） 4 4+ 3/4 关键穿刺 1、撕裂\n解放者自动手枪（近距离） 5 3+ 3/4 范围 8\"、穿刺 1、撕裂\n杀戮兵器利刃 3 4+ 3/4 穿刺\n*超感官能力：每当这名特工使用这个武器执行射击\n时，敌方特工无法被遮挡。\n职业枪手：这名特工可以在它的激活中执行两次射\n击行动。\n英勇激励：每当对这名特工可见且位于其 3\" 内的一\n名己方虫刃新信徒特工执行射击，近战或反击时，\n如果这名特工在这个转折点使一名敌方特工残废，\n则那名己方特工的武器获得“严重”武器规则。\n虫刃、泰伦虫族、基因窃取者教派、教派特使、杀戮兵器 32",
+      "weapon_types": {
+        "解放者自动手枪（超感官能力）": "远程",
+        "解放者自动手枪（远距离）": "远程",
+        "解放者自动手枪（近距离）": "远程",
+        "杀戮兵器利刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nKELERMORPH\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nLiberator autostubs (hypersense) 5 3+ 3/4 Range 6\", Saturate, Seek Light, Hypersense*\nLiberator autostubs (long range) 4 4+ 3/4 Piercing Crits 1, Rending\nLiberator autostubs (short range) 5 3+ 3/4 Range 8\", Piercing 1, Rending\nKelermorph knife 3 4+ 3/4 Rending\n*Hypersense: Whenever this operative is shooting with this\nweapon profile, enemy operatives cannot be obscured.\nExpert Gunslinger: This operative can perform two Shoot\nactions during its activation.\nHeroic Inspiration: Whenever a friendly WYRMBLADE\nNEOPHYTE operative visible to and within 3\" of this operative\nis shooting, fighting or retaliating, if this operative has\nincapacitated an enemy operative during this turning point, that\nfriendly operative’s weapons have the Severe weapon rule.\nWYRMBLADE , TYRANID, GENESTEALER CULT, CULT AGENT, KELERMORPH 32"
+    },
+    {
+      "id": "wyrm-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "基卫-数据卡",
+      "title_en": "LOCUS",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-基卫-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n基卫\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n带刺之尾 4 3+ 3/4 范围 3\"、安静\n基卫之刃 5 3+ 4/6 致命 5+\n剑术大师：这名特工在它的激活中可以执行两次近\n战行动。每当这名特工结束近战行动时，若它不再\n位于敌方特工的控制范围内，则它可以立即执行一\n次无消耗的冲锋行动（即便它已经在那次激活中执\n行了冲锋行动也不受影响），但在那次行动中不能\n移动超过 3\"。这些行为不会阻止那次激活中随后执\n行冲刺行动。\n极速攻击：每个转折点限一次，在敌方特工执行了进\n行移动或部署的行动后，您可以使用本规则打断那次\n激活或反应。若此，这名特工可以立即执行一次无消\n耗的冲锋行动（您可以为此更改它的命令），但它的\n移动不能超过 3\"，并且必须在那名敌方特工的控制\n范围内结束那次移动。如果这无法做到，那么打断\n将被取消，并且这个规则没有被使用。\n请继续阅读背面规则\n虫刃、泰伦虫族、基因窃取者教派、教派特使、基卫 32",
+      "weapon_types": {
+        "带刺之尾": "远程",
+        "基卫之刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nLOCUS\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nBarbed tail 4 3+ 3/4 Range 3\", Silent\nLocus blades 5 3+ 4/6 Lethal 5+\nExpert Swordsman: This operative can perform two Fight\nactions during its activation. Whenever this operative ends the\nFight action, if it’s no longer within control range of enemy\noperatives, it can immediately perform a free Charge action\n(even if it’s already performed the Charge action during that\nactivation), but it cannot move more than 3\" during that action.\nDoing so doesn’t prevent it from performing the Dash action\nafterwards during that activation.\nQuicksilver Strike: Once per turning point, after an enemy\noperative performs an action in which it moves or is set up,\nyou can interrupt to use this rule. If you do, this operative can\nimmediately perform a free Charge action (you can change its\norder to do so), but it cannot move more than 3\", and it must end\nthat move within control range of that enemy operative. If this\nisn’t possible, the interruption is cancelled and this rule hasn’t\nbeen used.\nRULES CONTINUE ON OTHER SIDE\nWYRMBLADE , TYRANID, GENESTEALER CULT, CULT AGENT, LOCUS 32"
+    },
+    {
+      "id": "wyrm-01-05",
+      "sequence": 5,
+      "category": "operative-ability",
+      "title_zh": "基卫-能力卡",
+      "title_en": "LOCUS",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工能力-基卫-能力卡.png",
+      "is_back": false,
+      "text": "基卫 APL 移动豁免耐伤\n3 6\" 4+ 9\n横刀招架：每当这名特工进行近战或反击时，您可\n以在正常顺序前先结算一枚成功。若此，那次成功\n必须为格挡。",
+      "text_en": "APL MOVE SAVE WOUNDS\nLOCUS\n3 6\" 4+ 9\nBladed Stance: Whenever this operative is fighting or retaliating,\nyou can resolve one of your successes before the normal order. If\nyou do, that success must be used to block."
+    },
+    {
+      "id": "wyrm-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "新信徒炮手-数据卡",
+      "title_en": "NEOPHYTE GUNNER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-新信徒炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n新信徒炮手\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n榴弹发射器（破片） 4 4+ 2/4 爆炸 2\"\n榴弹发射器（穿甲） 4 4+ 4/5 穿刺 1\n投网枪 4 3+ 3/4 范围 12\"、晕眩、严重\n枪托 3 4+ 2/3 -\n虫刃、泰伦虫族、基因窃取者教派、新信徒、炮手 25",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "榴弹发射器（破片）": "远程",
+        "榴弹发射器（穿甲）": "远程",
+        "投网枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNEOPHYTE GUNNER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGrenade launcher (frag) 4 4+ 2/4 Blast 2\"\nGrenade launcher (krak) 4 4+ 4/5 Piercing 1\nWebber 4 3+ 3/4 Range 12\", Severe, Stun\nGun butt 3 4+ 2/3 -\nWYRMBLADE , TYRANID, GENESTEALER CULT, NEOPHYTE, GUNNER 25"
+    },
+    {
+      "id": "wyrm-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "新信徒重炮手-数据卡",
+      "title_en": "NEOPHYTE HEAVY GUNNER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-新信徒重炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n新信徒重炮手\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n重机枪（集中） 5 4+ 4/5 重型（仅限冲刺）\n重机枪（扫射） 4 4+ 4/5 重型（仅限冲刺）、洪流 1\"\n采矿激光炮 5 4+ 5/6 重型（仅限冲刺）、精准 1\n震荡炮（长波） 6 4+ 2/2 爆炸 1\"、重型（仅限冲刺）、晕眩\n震荡炮（短波） 4 3+ 4/4 范围 6\"、重型（仅限冲刺）、关键穿刺 1、晕眩\n枪托 3 4+ 2/3 -\n请继续阅读背面规则\n虫刃、泰伦虫族、基因窃取者教派、新信徒、重炮手 32",
+      "weapon_types": {
+        "重机枪（集中）": "远程",
+        "重机枪（扫射）": "远程",
+        "采矿激光炮": "远程",
+        "震荡炮（长波）": "远程",
+        "震荡炮（短波）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNEOPHYTE HEAVY GUNNER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nHeavy stubber (focused) 5 4+ 4/5 Heavy (Dash only)\nHeavy stubber (sweeping) 4 4+ 4/5 Heavy (Dash only), Torrent 1\"\nMining laser 5 4+ 5/6 Heavy (Dash only), Piercing 1\nSeismic cannon (long-wave) 6 4+ 2/2 Blast 1\", Heavy (Dash only), Stun\nSeismic cannon (short-wave) 4 3+ 4/4 Range 6\", Heavy (Dash only), Piercing Crits 1,\nStun\nGun butt 3 4+ 2/3 -\nRULES CONTINUE ON OTHER SIDE\nWYRMBLADE , TYRANID, GENESTEALER CULT, NEOPHYTE, HEAVY GUNNER 32"
+    },
+    {
+      "id": "wyrm-01-08",
+      "sequence": 8,
+      "category": "operative-ability",
+      "title_zh": "新信徒重炮手-能力卡",
+      "title_en": "NEOPHYTE HEAVY GUNNER",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工能力-新信徒重炮手-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n新信徒重炮手\n2 6\" 5+ 7\n重武器脚架：每当这名特工使用它数据卡上的武器\n执行射击时，若它在该激活中没有进行过移动，或\n者它正在进行反应时，则那个武器获得“无休”\n武器规则，如果那个武器已经拥有那个武器规则\n（例如：从教派伏击阵营规则中获得），则它会\n获得“毫不留情”武器规则。请注意，本规则并\n不限制这名特工在射击后进行移动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNEOPHYTE HEAVY GUNNER\n2 6\" 5+ 7\nHeavy Weapon Bipod: Whenever this operative is shooting\nwith a weapon from its datacard, if it hasn’t moved during\nthe activation, or if it’s a counteraction, that weapon has the\nCeaseless weapon rule; if the weapon already has that weapon\nrule (i.e. from the Cult Ambush faction rule), it has the Relentless\nweapon rule. Note this operative isn’t restricted from moving\nafter shooting."
+    },
+    {
+      "id": "wyrm-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "新信徒徽记持有者-数据卡",
+      "title_en": "NEOPHYTE ICON BEARER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-新信徒徽记持有者-数据卡.png",
+      "is_back": false,
+      "text": "新信徒徽记持有者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n自动枪 4 4+ 2/3 -\n霰弹枪 4 3+ 3/3 范围 6\"\n枪托 3 4+ 2/3 -\n徽记持有者：在确定一个标识的控制时，则将这名特工的 APL 属性视作提升 1 点，请注意这并非对 APL\n属性的修正，所以任何修正都会与这一效果累加。\n推翻压迫者：每个转折点一次，当就绪的一名己方虫刃新信徒特工在这名特工 6\" 内且可见的位置残废\n时，您可以使用这个规则。若此，在那名特工从杀戮区移除前，它可以执行一次无消耗的射击行动（您可\n以为此改变它的命令），或者如果对那名己方虫刃新信徒特工使用“世代大计”交战计谋时，您消耗的\n指挥点数为 0 CP。随后正常将它从杀戮区移除。\n虫刃、泰伦虫族、基因窃取者教派、新信徒、徽记持有者 25",
+      "weapon_types": {
+        "自动枪": "远程",
+        "霰弹枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNEOPHYTE ICON BEARER\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nAutogun 4 4+ 2/3 -\nShotgun 4 3+ 3/3 Range 6\"\nGun butt 3 4+ 2/3 -\nIcon Bearer: Whenever determining control of a marker, treat this operative’s APL stat as 1 higher. Note this isn't a change to its APL\nstat, so any changes are cumulative with this.\nOverthrow the Oppressors: Once per turning point, when a ready friendly WYRMBLADE NEOPHYTE operative is incapacitated\nwhile visible to and within 6\" of this operative, you can use this rule. If you do, before that operative is removed from the killzone, it\ncan either perform one free Shoot action (you can change its order to do so), or you can use the A Plan Generations in the Making\nfirefight ploy for 0CP if that incapacitated operative is the specified friendly WYRMBLADE NEOPHYTE operative. It's then\nremoved from the killzone as normal.\nWYRMBLADE , TYRANID, GENESTEALER CULT, NEOPHYTE, ICON BEARER 25"
+    },
+    {
+      "id": "wyrm-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "狙击圣裁者-数据卡",
+      "title_en": "SANCTUS SNIPER",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-狙击圣裁者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n狙击圣裁者\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n圣裁者狙击步枪（机动） 4 3+ 3/4 -\n圣裁者狙击步枪（静止） 4 2+ 3/3 毁灭 3、重型（仅限冲刺）、安静\n双拳 4 3+ 2/4 -\n目标弱点 1AP\n直到这名特工激活结束，圣裁者狙击步枪的“静止”选项获得“致命 5+”武器规则。\n该特工不能在敌方特工的控制范围内执行此行动。\n请继续阅读背面规则\n虫刃、泰伦虫族、基因窃取者教派、教派特使、狙击圣裁者 32",
+      "weapon_types": {
+        "圣裁者狙击步枪（机动）": "远程",
+        "圣裁者狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTUS SNIPER\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nSanctus sniper rifle (mobile) 4 3+ 3/4 -\nSanctus sniper rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy (Dash only), Silent\nFists 4 3+ 2/4 -\nTARGET VULNERABILITY 1AP\nUntil the end of this operative’s activation, the stationary profile of its Sanctus sniper rifle has the Lethal 5+ weapon rule.\nThis operative cannot perform this action while within control range of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nWYRMBLADE , TYRANID, GENESTEALER CULT, CULT AGENT, SANCTUS, SNIPER 32"
+    },
+    {
+      "id": "wyrm-01-11",
+      "sequence": 11,
+      "category": "operative-ability",
+      "title_zh": "狙击圣裁者-能力卡",
+      "title_en": "SANCTUS SNIPER",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工能力-狙击圣裁者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n狙击圣裁者\n3 6\" 4+ 9\n侍仆魂视 1AP\n选择对这名特工可见的一名敌方特工。直到战斗\n结束或一名己方特工再次执行了这个行动（以先\n达成的条件为准），那名敌方特工获得一枚己方\n侍仆魂视指示物。每当这名特工对一名拥有一枚\n己方侍仆魂视指示物的敌方特工射击时，这名特\n工圣裁者狙击步枪的所有选项都获得“集中”武\n器规则，并且那名敌方特工无法被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTUS SNIPER\n3 6\" 4+ 9\nFAMILIAR’S SOULSIGHT 1AP\nSelect one enemy operative visible to this operative. Until\nthe end of the battle, or until this action is performed again\nby a friendly operative (whichever comes first), that enemy\noperative gains one of your Soulsight tokens. Whenever this\noperative is shooting an enemy operative that has one of\nyour Soulsight tokens, all profiles of this operative's Sanctus\nsniper rifle have the Saturate weapon rule and that enemy\noperative cannot be obscured.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "wyrm-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "利爪圣裁者-数据卡",
+      "title_en": "SANCTUS TALON",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-利爪圣裁者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n利爪圣裁者\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n圣裁者生化匕首 4 3+ 3/6 致命 4+、震荡\n徘徊暗影：这名特工可以在拥有隐匿命令时执行冲\n锋行动。每当这名特工执行近战行动，它便可以随\n后立即执行一次无消耗的冲刺或后撤行动（在后者\n行动中不能移动超过 3\"），那名特工即便先前执\n行了会阻止它执行这些行动的行动也不会影响本规\n则效果。\n请继续阅读背面规则\n虫刃、泰伦虫族、基因窃取者教派、教派特使、利爪圣裁者 32",
+      "weapon_types": {
+        "圣裁者生化匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTUS TALON\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nSanctus bio-dagger 4 3+ 3/6 Lethal 4+, Shock\nCreeping Shadow: This operative can perform the Charge\naction while it has a Conceal order. Whenever this operative\nperforms the Fight action, it can immediately perform a free\nDash or Fall Back action afterwards (for the latter, it cannot\nmove more than 3\"), even if it’s performed an action that\nprevents it from performing those actions.\nRULES CONTINUE ON OTHER SIDE\nWYRMBLADE , TYRANID, GENESTEALER CULT, CULT AGENT, SANCTUS, TALON 32"
+    },
+    {
+      "id": "wyrm-01-13",
+      "sequence": 13,
+      "category": "operative-ability",
+      "title_zh": "利爪圣裁者-能力卡",
+      "title_en": "SANCTUS TALON",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工能力-利爪圣裁者-能力卡.png",
+      "is_back": false,
+      "text": "利爪圣裁者 APL 移动豁免耐伤\n3 6\" 4+ 9\n刺杀 2AP\n选择对这名特工不可见的一名敌方特工。这名特\n工执行一次无消耗的冲锋行动，但不要超过其移\n动属性（即不要增加 2\"），并且必须在那名敌\n方特工的控制范围内结束那次移动。随后这名特\n工立即执行一次针对那名特工的无消耗的近战行\n动。在这次行动中首次出击时，您可以将另一枚\n成功立即作为出击结算（在您的对手之前）。\n该特工不能在拥有交战命令或处于敌方特工的控制\n范围内执行此行动。\n侍仆魂视 1AP\n选择对这名特工可见的一名敌方特工。直到战斗\n结束或一名己方特工再次执行了这个行动（以\n先达成的条件为准），那名敌方特工获得一枚\n己方侍仆魂视指示物。每当这名特工对一名拥有\n一枚己方侍仆魂视指示物的敌方特工执行近战或\n反击时，这名特工的圣裁者生化匕首获得 “残\n暴”和“平衡”武器规则，并且那名敌方特工无\n法被遮挡。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSANCTUS TALON\n3 6\" 4+ 9\nASSASSINATE 2AP\nSelect one enemy operative this operative isn’t visible to.\nPerform a free Charge action with this operative, but don't\nexceed its Move stat (i.e. don't add 2\"), and it must end that\nmove within control range of that enemy operative. Then\nimmediately perform a free Fight action with this operative\nagainst that enemy operative. The first time you strike during\nthat action, you can immediately resolve another of your\nsuccesses as a strike (before your opponent).\nThis operative cannot perform this action while it has\nan Engage order, or while within control range of an\nenemy operative.\nFAMILIAR’S SOULSIGHT 1AP\nSelect one enemy operative visible to this operative. Until\nthe end of the battle, or until this action is performed again\nby a friendly operative (whichever comes first), that enemy\noperative gains one of your Soulsight tokens. Whenever this\noperative is fighting or retaliating against an enemy operative\nthat has one of your Soulsight tokens, its Sanctus bio-dagger\nhas the Brutal and Balanced weapon rules.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "wyrm-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "新信徒战士-数据卡",
+      "title_en": "NEOPHYTE WARRIOR",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-新信徒战士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n新信徒战士\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n自动枪 4 4+ 2/3 -\n霰弹枪 4 3+ 3/3 范围 6\"\n枪托 3 4+ 2/3 -\n成队激活：当这名特工进入待机后，您必须在您对\n手特工激活前激活就绪的另一名虫刃战士特工\n（如果有）。当那名特工进入待机后您的对手便能\n正常激活（换言之，您无法通过这个规则连续激活\n超过两名特工）。\n虫刃、泰伦虫族、基因窃取者教派、新信徒、战士 25",
+      "weapon_types": {
+        "自动枪": "远程",
+        "霰弹枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNEOPHYTE WARRIOR\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nAutogun 4 4+ 2/3 -\nShotgun 4 3+ 3/3 Range 6\"\nGun butt 3 4+ 2/3 -\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly WYRMBLADE\nWARRIOR operative (if able) before your opponent activates.\nWhen that other operative is expended, your opponent then\nactivates as normal (in other words, you cannot activate more\nthan two operatives in succession with this rule).\nWYRMBLADE , TYRANID, GENESTEALER CULT, NEOPHYTE, WARRIOR 25"
+    },
+    {
+      "id": "wyrm-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "虫刃杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-虫刃杀戮小队-1.png",
+      "is_back": false,
+      "text": "虫刃\n杀戮小队\n原型：渗透，搜索与摧毁\n特工\n↘ 1 名虫刃新信徒队长特工，装备有以下一种\n选项：\n• 自动枪；枪托\n• 霰弹枪；枪托\n或以下选项中各选择一件装备：\n• 爆矢手枪、精工自动手枪或者黏网手枪\n• 链锯剑、能量槌或者能量镐\n↘ 13 名虫刃特工，从以下列表选择：\n• 杀戮兵器\n• 基卫\n• 炮手，装备有火焰喷射器；枪托\n• 炮手，装备有榴弹发射器；枪托\n• 炮手，装备有投网枪；枪托\n• 重炮手，装备有重机枪；枪托\n请继续阅读背面",
+      "text_en": "WYRMBLADE\nKILL TEAM\nARCHETYPE: INFILTRATION, SEEK & DESTROY\nOPERATIVES\n↘ 1 WYRMBLADE NEOPHYTE LEADER operative\nwith one of the following options:\n• Autogun; gun butt\n• Shotgun; gun butt\nOr one option from each of the following:\n• Bolt pistol, master-crafted autopistol or\nweb pistol\n• Chainsword, power maul or power pick\n↘ 13 WYRMBLADE operatives selected from\nthe following list:\n• KELERMORPH\n• LOCUS\n• GUNNER with flamer and gun butt\n• GUNNER with grenade launcher and\ngun butt\n• GUNNER with webber and gun butt\n• HEAVY GUNNER with heavy stubber and\ngun butt\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "wyrm-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "虫刃杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-虫刃杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 重炮手，装备有震荡炮；枪托\n• 徽记持有者，装备有以下一种选项：\n○ 自动枪；枪托\n○ 霰弹枪；枪托\n• 狙击圣裁者\n• 利爪圣裁者\n• 战士，装备有以下一种选项：\n○ 自动枪；枪托\n○ 霰弹枪；枪托\n除了战士特工，每一种特工在您的杀戮小队中只\n能被包含一次。您的杀戮小队至多只能包含两名\n炮手特工、两名重炮手特工和两名教派特使。\n这些特工被视为两个选项。",
+      "text_en": "• HEAVY GUNNER with mining laser and\ngun butt\n• HEAVY GUNNER with seismic cannon and\ngun butt\n• ICON BEARER with one of the\nfollowing options:\n○ Autogun; gun butt\n○ Shotgun; gun butt\n• SANCTUS SNIPER\n• SANCTUS TALON\n• WARRIOR with one of the following options:\n○ Autogun; gun butt\n○ Shotgun; gun butt\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once.\nYour kill team can only include up to two GUNNER\noperatives, up to two HEAVY GUNNER operatives\nand up to two CULT AGENT operatives.\nThese operatives count as two selections each."
+    },
+    {
+      "id": "wyrm-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "熟悉地盘-1",
+      "title_en": "FAMILIAR TERRITORY",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-熟悉地盘-1.png",
+      "is_back": false,
+      "text": "虫刃\n阵营规则\n熟悉地盘\n基因窃取者教派渗透了帝国社会的方方面面，\n获取了能用于包抄敌人的交通道路，人员通道\n以及隐匿管道等各种情报。\n在战斗开始前部署虫刃杀戮小队时，己方杀戮\n小队的三分之一可以作为藏匿状态部署：将它们\n放在一边，而不是部署在杀戮区。教派特使特工\n无法以藏匿状态部署。\n在交战阶段中，藏匿状态的己方虫刃特工如同\n正常情况激活。在激活时，您可以使那名特工进\n入待机或现身。如果选择现身，则将它部署在符\n合下列条件的位置（并且不再处于藏匿状态）：\n• 完全位于己方降落区 6\" 内。\n• 距离敌方特工 6\" 外。\n• 拥有您选择的命令。\n请继续阅读背面",
+      "text_en": "WYRMBLADE\nFACTION RULE\nFAMILIAR TERRITORY\nGenestealer Cults infiltrate all stratas of Imperial\nsociety, accumulating knowledge of transit routes,\npassageways and hidden tunnels by which they may\noutmanoeuvre their foes.\nWhen setting up a WYRMBLADE kill team before\nthe battle, one third of your kill team can be set\nup in HIDING: place them to one side instead of\nin the killzone. CULT AGENT operatives cannot be\nset up in HIDING.\nIn the Firefight phase, friendly WYRMBLADE\noperatives set up in HIDING are activated as\nnormal. When you do, you can either expend that\noperative or have it emerge. If it emerges, set it\nup in the killzone in a location it can be placed as\nfollows (it’s no longer set up in HIDING):\n• Wholly within 6\" of your drop zone.\n• More than 6\" from enemy operatives.\n• With an order of your choice.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "wyrm-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "熟悉地盘-2",
+      "title_en": "FAMILIAR TERRITORY",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-熟悉地盘-2.png",
+      "is_back": true,
+      "text": "对应特工被视为执行了转移行动（因此消耗了相\n应的 AP），并且可以继续正常激活。如果对应\n特工是一名战士，则忽视其“成队激活”规则。\n在第二个转折点结束时依然处于藏匿状态的己方\n特工将被残废。",
+      "text_en": "The operative is treated as performing the\nReposition action (spend the AP accordingly),\nthen continue its activation as normal. If the\noperative is a WARRIOR, ignore its Group\nActivation rule. Friendly operatives still in\nHIDING at the end of the second turning point\nare incapacitated."
+    },
+    {
+      "id": "wyrm-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "教派特使",
+      "title_en": "CULT AGENT",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-教派特使.png",
+      "is_back": false,
+      "text": "虫刃\n阵营规则\n教派特使\n族长的亲选特使们广泛存在于教派的队伍中，\n为他们提供指引，激起信念。\n每当一名特工对一名己方虫刃教派特使特工射\n击时：\n• 忽视“穿刺”和“集中”武器规则。\n• 如果您可以保留任意掩护豁免，那么您可以保\n留额外一次掩护豁免，或者将一次掩护豁免作\n为关键成功进行保留。本规则的效果不能与制\n高点地形提供的增益效果叠加。",
+      "text_en": "WYRMBLADE\nFACTION RULE\nCULT AGENT\nThe Patriarch’s chosen agents are seeded throughout\nthe Cult’s forces, providing guidance and motivation to\nthe faithful.\nWhenever an operative is shooting a friendly\nWYRMBLADE CULT AGENT operative:\n• Ignore the Piercing and Saturate weapon rules.\n• If you can retain any cover saves, you can\nretain one additional cover save, or you can\nretain one cover save as a critical success\ninstead. This isn’t cumulative with improved\ncover saves from Vantage terrain."
+    },
+    {
+      "id": "wyrm-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "教派伏击",
+      "title_en": "CULT AMBUSH",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-教派伏击.png",
+      "is_back": false,
+      "text": "虫刃\n阵营规则\n教派伏击\n在飞升之日降临时，一心同体的教会四处出\n击，用致命伏击和奇袭压倒措手不及的敌人。\n每当一名己方虫刃特工在它的激活中执行了射\n击或近战时，如果它的命令状态在这次激活开始\n时从隐匿转变为交战，或者在那次激活开始时敌\n方特工对它没有视野，则那名己方特工的武器获\n得“无休”武器规则。",
+      "text_en": "WYRMBLADE\nFACTION RULE\nCULT AMBUSH\nWhen the Day of Ascension arrives, the Cult strike as\none, catching their foes unawares with lethal ambushes\nand surprise assaults.\nWhenever a friendly WYRMBLADE operative\nis shooting or fighting during its activation, if its\norder was changed from Conceal to Engage at\nthe start of that activation, or it wasn’t visible to\nenemy operatives at the start of that activation,\nthat friendly operative's weapons have the\nCeaseless weapon rule."
+    },
+    {
+      "id": "wyrm-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "黎明在望",
+      "title_en": "THE DAY IS AT HAND",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-黎明在望.png",
+      "is_back": false,
+      "text": "虫刃\n战略计谋\n黎明在望\n在时机成熟时，教派便会出击。突发且残暴的\n伏击高度致命——即便使用的是土制武器依\n然如此。\n每当一名己方虫刃特工激活时，若它的命令从\n隐匿改为交战，则直到那次激活结束前：\n• 它的远程武器获得“撕裂”武器规则。\n• 为它的近战武器攻击属性增加 1 点（至多增加\n至 5 点）。",
+      "text_en": "WYRMBLADE\nSTRATEGY PLOY\nTHE DAY IS AT HAND\nWhen the moment is right, the Cult strikes. Swift and\nbrutal ambushes allow for high lethality, even with\nimprovised weapons.\nWhenever a friendly WYRMBLADE operative is\nactivated, if its order is changed from Conceal to\nEngage, until the end of that activation:\n• Its ranged weapons have the Rending\nweapon rule.\n• Add 1 to the Atk stat of its melee weapons (to a\nmaximum of 5)."
+    },
+    {
+      "id": "wyrm-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "交叉火力",
+      "title_en": "CROSSFIRE",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-交叉火力.png",
+      "is_back": false,
+      "text": "虫刃\n战略计谋\n交叉火力\n教派特工们会在开火前包围敌人，以便对目标\n进行致命的交叉火力打击。\n每当一名己方虫刃特工对在这个转折点中已经\n被另一名己方虫刃特工射击过的特工进行射击\n时，那个第一名己方特工的远程武器获得“精准\n1”武器规则。",
+      "text_en": "WYRMBLADE\nSTRATEGY PLOY\nCROSSFIRE\nThe Cult’s operatives surround their foes before opening\nfire and catching their targets in a lethal crossfire.\nWhenever a friendly WYRMBLADE operative\nis shooting an operative that another friendly\nWYRMBLADE operative has already shot\nduring this turning point, that first friendly\noperative's ranged weapons have the Accurate 1\nweapon rule."
+    },
+    {
+      "id": "wyrm-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "伏于暗影",
+      "title_en": "ONE WITH THE SHADOWS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-伏于暗影.png",
+      "is_back": false,
+      "text": "虫刃\n战略计谋\n伏于暗影\n虫刃特工们对战场环境就如同对自己的爪状手\n一般熟悉，并借此潜藏于阴影或利用地形创\n造优势。\n每当一名特工射击拥有隐匿命令的一名己方虫刃\n特工时，如果有轻型地形造成阻碍，则那名己\n方特工处于遮挡中（除非造成阻碍的轻型地形位\n于这两名特工任意一位的 1\" 内）。",
+      "text_en": "WYRMBLADE\nSTRATEGY PLOY\nONE WITH THE SHADOWS\nWyrmblade operatives know the battlefield like the\nbacks of their clawed hands, stalking the shadows and\nusing terrain to their own advantage.\nWhenever an operative is shooting a friendly\nWYRMBLADE operative that has a Conceal\norder, if Light terrain is intervening, that friendly\noperative is obscured (unless the intervening\nLight terrain is within 1\" of either operative)."
+    },
+    {
+      "id": "wyrm-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "四散消隐",
+      "title_en": "DIVERT AND DISAPPEAR",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-四散消隐.png",
+      "is_back": false,
+      "text": "虫刃\n战略计谋\n四散消隐\n教派特工会狡猾地指挥狂热下属们进入战场或\n回撤，并利用其带来的混乱为自己制造优势。\n至多三名己方虫刃特工可以按您希望的顺序立\n即执行一次无消耗的冲刺或冲锋行动（为它们分\n别执行行动，并且在后者情况下移动距离不能超\n过 3\"）。如果为这个计谋选择了一名己方虫刃\n教派特使特工，则它会被算作两名特工，并且他\n可以执行无消耗的后撤行动作为替代（移动距离\n也不能超过 3\"）；若此，在它的下一次激活结束\n前将其 APL 属性降低 1 点。",
+      "text_en": "WYRMBLADE\nSTRATEGY PLOY\nDIVERT AND DISAPPEAR\nThe Cult’s agents direct their zealous underlings\nwith great cunning by throwing them into the fray or\ndrawing them back, using the resultant chaos to place\nthemselves in advantageous positions.\nUp to three friendly WYRMBLADE operatives\ncan immediately perform a free Dash or Charge\naction in an order of your choice (choose\nseparately for each, and for the latter, it cannot\nmove more than 3\"). If a WYRMBLADE CULT\nAGENT operative is selected for this ploy, it\ncounts as two operatives, and it can perform a\nfree Fall Back action instead (it cannot move\nmore than 3\"); if it does, subtract 1 from its APL\nstat until the end of its next activation."
+    },
+    {
+      "id": "wyrm-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "遁入黑暗",
+      "title_en": "SLINK INTO DARKNESS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-遁入黑暗.png",
+      "is_back": false,
+      "text": "虫刃\n交战计谋\n遁入黑暗\n正如同迅速发起的伏击，虫刃特工们再次消失\n了。他们藏匿于维护管道和幽暗的的隐匿角\n落，静待下一次袭击。\n当一名己方虫刃特工在激活结束时使用本交战\n计谋。如果那名特工拥有交战命令，则将其改变\n为隐匿。每一名己方特工在每场战斗中不能使用\n这个技能超过一次。",
+      "text_en": "WYRMBLADE\nFIREFIGHT PLOY\nSLINK INTO DARKNESS\nAs swiftly as their ambush is launched, Wyrmblade\noperatives fade away once more, scrambling into access\ntunnels and shadowy hiding places in preparation for\nthe next wave.\nUse this firefight ploy at the end of a friendly\nWYRMBLADE operative’s activation. If that\noperative has an Engage order, change it to\nConceal. You cannot use this ploy for each\nfriendly operative more than once per battle."
+    },
+    {
+      "id": "wyrm-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "盘蛇",
+      "title_en": "COILED SERPENT",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-盘蛇.png",
+      "is_back": false,
+      "text": "虫刃\n交战计谋\n盘蛇\n在精准协调的作用下，伏击的虫刃特工们使目\n标迅速被大量火力或一次次白刃劈砍包围。\n在一名己方虫刃特工执行射击或交战，在掷己\n方攻击骰子后使用本交战计谋。如果那名特工在\n那次激活时将命令从隐匿改为交战，并且这是在\n那次激活中第一次执行的射击或近战行动，您便\n可以将一枚己方普通成功保留为关键成功作为替\n代。请注意这个计谋在每次激活中无法生效超过\n一次（您不能在同一次激活中将本计谋同时用于\n射击和近战行动）。",
+      "text_en": "WYRMBLADE\nFIREFIGHT PLOY\nCOILED SERPENT\nWhen the ambush occurs, it does so with lightning\nspeed and precise coordination, obliterating its targets\nin a hail of firepower or slashing blades.\nUse this firefight ploy when a friendly\nWYRMBLADE operative is shooting or fighting,\nafter rolling your attack dice. If that friendly\noperative’s order was changed from Conceal to\nEngage at the start of that activation and this\nis the first time it's performed either the Shoot\nor Fight action during that activation, you can\nretain one of your normal successes as a critical\nsuccess instead. Note this ploy cannot come into\neffect more than once per activation (you cannot\nuse it during both the Shoot and Fight action in\nthe same activation)."
+    },
+    {
+      "id": "wyrm-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "绝对忠诚",
+      "title_en": "UNQUESTIONING LOYALTY",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-绝对忠诚.png",
+      "is_back": false,
+      "text": "虫刃\n交战计谋\n绝对忠诚\n新信徒常常牺牲——他们常常会为了教派领袖\n或英雄而在枪林弹雨和刀山火海中不断穿行。\n在一名己方虫刃教派特使特工或己方虫刃队长\n特工作为射击行动的有效目标或近战行动的对象\n时使用本交战计谋。选择对其可见且位于那个第\n一名己方特工 3\" 内的另一名己方虫刃新信徒特\n工（队长除外）替代为有效目标或近战对象\n（选择相应的行动）（即便正常情况下不能成为\n有效目标的情况下依然可以如此）。如果为近战\n行动，则将那个另一名特工在那次行动中视为位\n于近战特工的控制范围内。若那是一次射击行\n动，那么其他特工只有在原本目标拥有掩护或被\n遮挡时才能拥有对应的效果。\n这个计谋对射击行动中远程武器的“爆炸”和\n“洪流”武器规则没有效果。",
+      "text_en": "WYRMBLADE\nFIREFIGHT PLOY\nUNQUESTIONING LOYALTY\nNeophytes frequently sacrifice themselves for the\ncause, leaping in front of bullets and blades intended for\nthe Cult’s leaders and heroes.\nUse this firefight ploy when a friendly\nWYRMBLADE CULT AGENT or WYRMBLADE\nLEADER operative is selected as the valid target\nof a Shoot action or to fight against during\nthe Fight action. Select one other friendly\nWYRMBLADE NEOPHYTE operative (excluding\nLEADER) visible to and within 3\" of that first\nfriendly operative to become the valid target or to\nbe fought against (as appropriate) instead (even\nif it wouldn’t normally be valid for this). If it’s the\nFight action, treat that other operative as being\nwithin the fighting operative’s control range for\nthe duration of that action. If it’s the Shoot action,\nthat other operative is only in cover or obscured if\nthe original target was.\nThis ploy has no effect if it’s the Shoot action\nand the ranged weapon has the Blast or Torrent\nweapon rule."
+    },
+    {
+      "id": "wyrm-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "世代大计",
+      "title_en": "A PLAN GENERATIONS IN",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-世代大计.png",
+      "is_back": false,
+      "text": "虫刃\n交战计谋\n世代大计\n教派绝不容许对计划的干扰。飞升之日必须降\n临。即便身受致命伤损，信徒们都会用上自己\n最后一丝气力确保成功。\n在一名己方虫刃新信徒特工残废时使用本交战\n计谋。它可以在从杀戮区移除前执行一次无消耗\n的任务行动。",
+      "text_en": "WYRMBLADE\nFIREFIGHT PLOY\nA PLAN GENERATIONS IN\nTHE MAKING\nThe Cult will allow no interference in the execution of\ntheir plan. The Day of Ascension must occur. Even the\nmortally wounded will expend the last of their energy to\nensure success.\nUse this firefight ploy when a friendly\nWYRMBLADE NEOPHYTE operative is\nincapacitated. It can perform a free mission\naction before it’s removed from the killzone."
+    },
+    {
+      "id": "wyrm-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "爆破炸药",
+      "title_en": "BLASTING CHARGES",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-爆破炸药.png",
+      "is_back": false,
+      "text": "虫刃\n阵营装备\n爆破炸药\n在虫刃手中，采矿装备成了致命武器。\n每个转折点限一次，一名己方虫刃新信徒特工\n可以使用下列远程武器：\n名称攻击命中伤害\n爆破炸药 4 4+ 3/5\n武器规则\n范围 4\"、爆炸 1”、集中",
+      "text_en": "WYRMBLADE\nFACTION EQUIPMENT\nBLASTING CHARGES\nMining equipment becomes deadly weaponry in the\nhands of the Wyrmblade.\nOnce per turning point, a friendly WYRMBLADE\nNEOPHYTE operative can use the following\nranged weapon:\nNAME ATK HIT DMG\nBlasting charge 4 4+ 3/5\nWR\nRange 4\", Blast 1\", Saturate"
+    },
+    {
+      "id": "wyrm-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "教派利刃",
+      "title_en": "CULT KNIVES",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-教派利刃.png",
+      "is_back": false,
+      "text": "虫刃\n阵营装备\n教派利刃\n教派特使携带着许多有刃之物。它们中有些是\n工具，还有的则具有仪式意义，不过它们在虫\n刃手中都非常致命。\n一名己方虫刃新信徒特工可以使用下列近战武\n器：\n名称攻击命中伤害\n教派利刃 3 4+ 3/4",
+      "text_en": "WYRMBLADE\nFACTION EQUIPMENT\nCULT KNIVES\nThe agents of the Cult bear many bladed implements.\nSome mere tools, others ritual in significance, yet all\nequally lethal in their hands.\nFriendly WYRMBLADE NEOPHYTE operatives\nhave the following melee weapon:\nNAME ATK HIT DMG\nCult knife 3 4+ 3/4"
+    },
+    {
+      "id": "wyrm-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "爆炸陷阱",
+      "title_en": "EXPLOSIVE TRAPS",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-爆炸陷阱.png",
+      "is_back": false,
+      "text": "虫刃\n阵营装备\n爆炸陷阱\n虫刃特工们常常在伏击中使用诱杀陷阱和地\n雷。\n这个装备可以使您选择两枚地雷（通用装备），\n同时您无法正常选择那个装备（即获得三枚），\n并且己方虫刃特工会忽视它的效果（即它们无\n法触发和因此受到伤害）。本规则优先于普通地\n雷规则。",
+      "text_en": "WYRMBLADE\nFACTION EQUIPMENT\nEXPLOSIVE TRAPS\nWyrmblade operatives make frequent use of booby traps\nand mines in the execution of their ambushes.\nThis equipment allows you to select two mines\n(see universal equipment). You cannot also\nselect that equipment as normal (i.e. to give you\nthree), and friendly WYRMBLADE operatives are\nignored for your mines’ effects (i.e. they cannot\ntrigger or take damage from them). This takes\nprecedence over the normal mines rules."
+    },
+    {
+      "id": "wyrm-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "探照灯",
+      "title_en": "SPOTLIGHTS",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-探照灯.png",
+      "is_back": false,
+      "text": "虫刃\n阵营装备\n探照灯\n虫刃新信徒们装备了矿灯和闪光灯，并能通过\n这类设备扫掠暗影，找出隐藏的敌人。\n每当一名己方虫刃特工执行射击时，如果目标\n对其可见且有不处于敌方控制范围内的一名己方\n虫刃新信徒特工位于其 6\" 内，则目标无法被\n遮挡。",
+      "text_en": "WYRMBLADE\nFACTION EQUIPMENT\nSPOTLIGHTS\nWyrmblade Neophytes bear mining lumen and\nflashlights, using these devices to sweep the shadows\nand reveal concealed foes.\nWhenever a friendly WYRMBLADE operative\nis shooting, the target cannot be obscured\nif it's visible to and within 6\" of a friendly\nWYRMBLADE NEOPHYTE operative that isn't\nwithin control range of enemy operatives."
+    }
+  ]
+}

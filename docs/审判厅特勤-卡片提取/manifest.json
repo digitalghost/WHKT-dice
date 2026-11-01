@@ -1,0 +1,1279 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-INQUISITORIAL_AGENTS",
+  "team_name_zh": "审判厅特勤",
+  "team_name_en": "Inquisitorial Agents",
+  "source_pdf": "最新杀戮小队规则更新/审判厅特勤 Inquisitorial Agents 杀戮小队规则.pdf",
+  "source_pdf_sha256": "a2c5e0128df604b9e8baf2c1210609cb33f27f4df9d3cae3e1c0d9c5b5ef153d",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 47,
+    "operative": 17,
+    "operative-ability": 4,
+    "team-selection": 2,
+    "faction-rule": 2,
+    "other": 10,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-inquisitorial_agents-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "审讯者特工-数据卡",
+      "title_en": "INTERROGATOR AGENT",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-审讯者特工-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n审讯者特工\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n加长枪托圣物自动手枪 4 3+ 2/4 致命 5+、范围 12\"\n双拳 3 4+ 2/3 -\n审判书典：如果该特工位于战 • 谴责：每当一名己方审判庭特 • 圣化：每当一名敌方特工对位\n场，那么作为战略计划，为该特勤特工对位于该特工 2\" 内的于该特工 2\" 内的己方审判庭特\n工选择以下一个审判书典规则的一名敌方特工进行射击、近战勤特工进行射击、近战或反击\n效果，并为己方审判庭特勤典或反击时，那名己方特工武器时，那名敌方特工武器的攻击属\n籍之颅特工选择一个效果（您的攻击属性提升 1 点。性降低 1 点。\n不能为这两名特工选择相同的\n规则，并忽视特工没有选择的\n规则)：\n审判庭特勤、帝国、审判庭、领袖、审讯者 25",
+      "weapon_types": {
+        "加长枪托圣物自动手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nINTERROGATOR AGENT\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nExtended stock relic autopistol 4 3+ 2/4 Range 12\", Lethal 5+\nFists 3 4+ 2/3 -\nInquisitorial Tomes: STRATEGIC • Denunciation: Whenever a friendly • Sanctification: Whenever an enemy\nGAMBIT if this operative is in the INQUISITORIAL AGENT operative operative is shooting against, fighting\nkillzone. Select one of the following is shooting against, fighting against or against or retaliating against a friendly\nINQUISITORIAL TOME rules for retaliating against an enemy operative INQUISITORIAL AGENT operative\nthis operative to have, and one for a within 2\" of friendly operatives with within 2\" of friendly operatives with this\nfriendly INQUISITORIAL AGENT this rule, add 1 to the Atk stat of that rule, subtract 1 from the Atk stat of that\nTOME-SKULL operative to have (they friendly operative’s weapons. enemy operative’s weapons.\ncannot be the same, and ignore the rule\nyou didn’t select for each operative):\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, LEADER, INTERROGATOR 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "典籍之颅-能力卡1",
+      "title_en": "TOME-SKULL",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-典籍之颅-能力卡1.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n典籍之颅\n2 6\" 5+ 5\n神圣之典：该特工可以拥有一个“审判书典”规则\n（参见审讯者特工的数据卡)。就算己方审讯者特工\n被移出杀戮区，该特工依旧保留选择的规则效果。\n机械：\n• 该特工不能执行除了冲锋、冲刺、后撤和转移以\n外的行动。\n• 该特工不能在近战中进行反击或协助。\n• 在判断对标识的控制权时，将该特工的 APL 属性\n视作为比原本要低 1 点。请注意这不是对 APL 属\n性的修正，因此可以与其他修正效果叠加。\n• 当该特工拥有隐匿命令并且拥有掩护时，该特工\n不能被选择成为有效目标，本规则的优先度高于\n所有其他规则（例如制高点地形)。\n请继续阅读背面规则\n审判庭特勤、帝国、审判庭、典籍之颅 25",
+      "text_en": "APL MOVE SAVE WOUNDS\nTOME-SKULL\n2 6\" 5+ 5\nConsecrated Tome: This operative can have an\nINQUISITORIAL TOME rule (see INTERROGATOR).\nNote it keeps that rule even if that friendly INTERROGATOR\noperative is removed from the killzone.\nMachine:\n• This operative cannot perform any actions other than\nCharge, Dash, Fall Back and Reposition.\n• It cannot retaliate or assist in a fight.\n• Whenever determining control of a marker, treat this\noperative’s APL stat as 1 lower. Note this isn’t a change to its\nAPL stat, so any changes are cumulative with this.\n• Whenever this operative has a Conceal order and is in cover, it\ncannot be selected as a valid target, taking precedence over all\nother rules (e.g. Seek, Vantage terrain) except being within 2\".\nRULES CONTINUE ON OTHER SIDE\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, TOME-SKULL 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-03",
+      "sequence": 3,
+      "category": "operative-ability",
+      "title_zh": "典籍之颅-能力卡2",
+      "title_en": "TOME-SKULL",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工能力-典籍之颅-能力卡2.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n典籍之颅\n2 6\" 5+ 5\n消耗品：在判断己方的起始特工数量时，以及若该\n特工被残废，它在对手的击杀/灭敌行动中被忽略。\n在判断需要特工“逃离”、“存活”，或者被敌方\n特工残废的胜利条件和 VP 获取方式时，将该特工\n忽略（例如在判断该特工是否逃离/存活/被残废，或\n者判断有多少特工必须逃离/存活/被残废时)。\n集体激活：每当该特工进入待机时，您必须在对手\n之前激活一名就绪的己方审讯者特工（如果可能)，\n反之亦然（您需要在审讯者特工进入待机时立刻激\n活典籍之颅)。在另一名特工的激活结束后，您的对\n手将照常激活特工。",
+      "text_en": "APL MOVE SAVE WOUNDS\nTOME-SKULL\n2 6\" 5+ 5\nExpendable: This operative is ignored for your opponent’s kill/\nelimination op (when it’s incapacitated, and when determining\nyour starting number of operatives). It’s also ignored for victory\nconditions and scoring VPs if either require operatives to\n‘escape’, ‘survive’ or be incapacitated by enemy operatives (if\nit escapes/survives/is incapacitated, determining how many\noperatives must escape/survive/be incapacitated, etc.).\nGroup Activation: Whenever this operative is expended, you\nmust then activate a ready friendly INQUISITORIAL AGENT\nINTERROGATOR operative (if able) before your opponent\nactivates. The same is true in reverse (INTERROGATOR\nfollowed by TOME-SKULL). When that other operative is\nexpended, your opponent then activates as normal."
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "自动学者特勤-数据卡",
+      "title_en": "AUTOSAVANT AGENT",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-自动学者特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n自动学者特勤\n2 6\" 4+ 7\n名称攻击命中伤害武器规则\n机械附肢 3 5+ 1/2 -\n书记员：在战斗中，每当您的对手在第一次使用每\n个计谋之后再次使用那些计谋时（指挥重掷除外)，\n如果该特工位于杀戮区内，那么您获得 1CP（每个\n转折点最多获得 2CP）。\n轻装上阵：该特工不能使用任何不在其数据卡上的\n武器，也不能执行独特行动。\n权威报告：每当该特工争夺一个目标标识或者己方\n任务标识时，该特工将总是被视作为控制了那枚标\n识。本规则的优先度高于其他任何规则。\n审判庭特勤、帝国、审判庭、自动学者 25",
+      "weapon_types": {
+        "机械附肢": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAUTOSAVANT AGENT\n2 6\" 4+ 7\nNAME ATK HIT DMG WR\nMechanical appendages 3 5+ 1/2 -\nScrivener: Each subsequent time your opponent uses each ploy\nduring the battle (excluding Command Re-roll), if this operative\nis in the killzone, you gain 1CP (to a maximum of 2CP per\nturning point).\nIrrefutable Report: Whenever this operative contests an\nobjective marker or one of your mission markers, it always\ncontrols that marker. This takes precedence over all other rules.\nLightly Armed: This operative cannot use any weapons that\naren’t on its datacard, or perform unique actions.\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, AUTOSAVANT 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "死亡世界老兵特勤-数据卡",
+      "title_en": "DEATH WORLD VETERAN AGENT",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-死亡世界老兵特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n死亡世界老兵特勤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n匕首 1 2+ 5/7 致命 5+\n长柄武器 4 3+ 4/5 -\n猎人：该特工可以在拥有隐匿命令时执行冲锋行动。\n硬捱：每个转折点限一次，当该特工进行近战或反\n击时，在结算攻击骰步骤中，您可以忽略一次普通\n成功对其造成的伤害。\n审判庭特勤、帝国、审判庭、死亡世界老兵 25",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "匕首": "近战",
+        "长柄武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nDEATH WORLD VETERAN AGENT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nKnife 1 2+ 5/7 Lethal 5+\nPolearm 4 3+ 4/5 -\nHunter: This operative can perform the Charge action while it\nhas a Conceal order.\nWeathered: Once per turning point, when this operative is\nfighting or retaliating, in the Resolve Attack Dice step, you can\nignore the damage inflicted on it from one normal success.\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, DEATH WORLD VETERAN 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "教化者特勤-数据卡",
+      "title_en": "ENLIGHTENER AGENT",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-教化者特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n教化者特勤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n双刀 4 3+ 3/5 平衡、撕裂\n无处可逃：当位于该特工控制范围内的敌方特工执\n行后撤行动时，您可以使用本规则。若使用，掷一\n枚 D6，如果那名敌方特工的耐伤属性大于本特工，\n那么掷骰结果减少 1 点，如果那名敌方特工受创，\n那么掷骰结果增加 1 点：若结果为 4+，那名敌方特\n工不能执行那次行动（返还被消耗的 AP）。\n获取情报：每当一名敌方特工在该特工的控制范围\n内被残废，您获得 1CP。\n审判庭特勤、帝国、审判庭、教化者 25",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "双刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nENLIGHTENER AGENT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nPaired blades 4 3+ 3/5 Balanced, Rending\nNo Escape: Whenever an enemy operative would perform the\nFall Back action while within control range of this operative,\nyou can use this rule. If you do, roll one D6, subtracting 1 from\nthe result if that enemy operative has a higher Wounds stat than\nthis operative, and adding 1 if that enemy operative is wounded:\non a 4+, that enemy operative cannot perform that action during\nthat activation/counteraction (the AP spent on it isn’t refunded).\nExtract Information: Whenever an enemy operative is\nincapacitated within this operative’s control range, you gain 1CP.\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, ENLIGHTENER 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "驱巫师特勤-数据卡",
+      "title_en": "HEXORCIST AGENT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-驱巫师特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n驱巫师特勤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n霰弹枪 4 3+ 3/3 范围 6\"\n双拳 3 4+ 2/3 -\n驱巫：若一名敌方特工位于该特惩戒 1AP\n工 6\" 内且对其可见，您的对手不选择一名位于该特工 6\" 内且可以作为有效目标的可见敌方特工，\n能为其重掷攻击骰或防御骰。随后选择那名敌方特工数据卡上一个不是武器规则或者忽视击杀/\n灭敌行动规则的额外规则（包括独特行动）。直到那名敌方特工\n的下一次激活结束前，将其视作为数据卡上没有那个被选择的额\n外规则。\n该特工不能在敌方特工的控制范围内执行此行动。\n审判庭特勤、帝国、审判庭、驱巫师 25",
+      "weapon_types": {
+        "霰弹枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nHEXORCIST AGENT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nShotgun 4 3+ 3/3 Range 6\"\nFists 3 4+ 2/3 -\nHexorcise: Whenever an enemy operative CHASTEN 1AP\nis visible to and within 6\" of this operative,\nSelect one enemy operative that's a valid target for this operative and within 6\" of it,\nyour opponent cannot re-roll their attack\nthen select one additional rule (including a unique action) that enemy operative has\nor defence dice for that operative.\non its datacard (excluding a weapon rule or a rule that states it is ignored for the kill/\nelimination op). Until the end of that enemy operative’s next activation, it’s treated\nas not having that additional rule.\nThis operative cannot perform this action while within control range of an\nenemy operative.\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, HEXORCIST 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "奥术师特勤-数据卡",
+      "title_en": "MYSTIC AGENT",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-奥术师特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n奥术师特勤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 2+ 2/3 范围 8\"、追踪\n双拳 3 5+ 2/3 -\n持徽手：在判断一个标识的控制权时，将该特工的\nAPL 属性视为比原本要高 1 点。请注意，这并非对\nAPL 属性的修改，因此任何额外的修改效果会与本\n规则叠加。\n轻装上阵：该特工不能使用任何不在其数据卡上的\n武器。\n请继续阅读背面规则\n审判庭特勤、帝国、审判庭、灵能者、奥术师 25",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMYSTIC AGENT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 2+ 2/3 Range 8\", Seek\nFists 3 5+ 2/3 -\nIcon Bearer: Whenever determining control of a marker, treat\nthis operative’s APL stat as 1 higher. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\nLightly Armed: This operative cannot use any weapons that\naren’t on its datacard.\nRULES CONTINUE ON OTHER SIDE\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, PSYKER, MYSTIC 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-09",
+      "sequence": 9,
+      "category": "operative-ability",
+      "title_zh": "奥术师特勤-能力卡",
+      "title_en": "MYSTIC AGENT",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工能力-奥术师特勤-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n奥术师特勤\n2 6\" 5+ 7\n预知 1AP\n灵能。选择一名位于该特工 6\" 内的己方审判庭特勤特工，随后选择以下一该特工不能在敌方特\n种效果，它将持续至该特工的下一次激活开始，该特工被残废或该特工再次工的控制范围内执行\n执行该行动为止（以先满足的条件为准)：此行动。\n• 指引：灵能。每当被选择的特工进行射击、近战或反击时，在掷攻击骰步骤\n中，您可以将一次失败作为普通成功进行保留，而不是将其舍弃，或者您可\n以将一次普通成功作为关键成功进行保留。\n• 守护：灵能。当一名特工对被选择的特工进行射击时，在掷防御骰步骤中，\n您可以将一次失败作为普通成功进行保留，而不是将其舍弃，或者您可以将\n一次普通成功作为关键成功进行保留。",
+      "text_en": "APL MOVE SAVE WOUNDS\nMYSTIC AGENT\n2 6\" 5+ 7\nSCRY 1AP\nPSYCHIC. Select one friendly INQUISITORIAL AGENT operative within 6\" of this operative, then select one of the\nfollowing effects to last until the start of this operative’s next activation, until it’s incapacitated or until it performs this action\nagain (whichever comes first):\n• Guidance: PSYCHIC. Whenever the selected operative is shooting, fighting or retaliating, in the Roll Attack Dice step, you\ncan retain one of your fails as a normal success instead of discarding it, or retain one of your normal successes as a critical\nsuccess instead.\n• Protection: PSYCHIC. Whenever an operative is shooting the selected operative, in the Roll Defence Dice step, you can retain one\nof your fails as a normal success instead of discarding it, or retain one of your normal successes as a critical success instead.\nThis operative cannot perform this action while within control range of an enemy operative."
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "刑罚兵团士兵特勤-数据卡",
+      "title_en": "PENAL LEGIONNAIRE AGENT",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-刑罚兵团士兵特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n刑罚兵团士兵特勤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n手持火焰喷射器 4 2+ 3/3 范围 6\"、集中、洪流 1\"\n链锯剑 4 4+ 4/5 -\n化学面具：您可以忽略任何对该特工 APL 属性的\n修正，以及因为受创而对其属性的修正，并且该特\n工不受敌方特工的“震荡”和“眩晕”武器规则的\n影响。\n心狠手辣：每当该特工对一名受创的敌方特工进行\n射击、近战或反击时，该特工的武器拥有“毫不留\n情”武器规则。\n审判庭特勤、帝国、审判庭、刑罚兵团士兵 25",
+      "weapon_types": {
+        "手持火焰喷射器": "远程",
+        "链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPENAL LEGIONNAIRE AGENT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nHand flamer 4 2+ 3/3 Range 6\", Saturate, Torrent 1\"\nChainsword 4 4+ 4/5 -\nChem-mask: You can ignore any changes to this operative’s\nAPL stat, and any changes to its stats from being injured. This\noperative isn’t affected by enemy operatives’ Shock and Stun\nweapon rules.\nCruel: Whenever this operative is shooting against, fighting\nagainst or retaliating against a wounded enemy operative, this\noperative’s weapons have the Relentless weapon rule.\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, PENAL LEGIONNAIRE 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "手枪兵特勤-数据卡",
+      "title_en": "PISTOLIER AGENT",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-手枪兵特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n手枪兵特勤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n瞄准镜等离子手枪（标准） 4 3+ 3/5 范围 12\"、穿刺 1\n瞄准镜等离子手枪（过载） 4 3+ 4/5 范围 12\"、过热、致命 5+、穿刺 1\n消音自动手枪 4 3+ 2/3 范围 8\"、安静\n双拳 3 4+ 2/3 -\n手枪兵：您可以忽略任何对该特双枪齐射 1AP\n工远程武器命中属性的修正。使用本特工执行两次无消耗的射击行动（本规则的优先度高于行动\n限制规则）。其中一次行动必须使用瞄准镜等离子手枪的一个武器\n资料，另一次行动则必须使用消音自动手枪（任意顺序）。\n本特工不能在拥有隐匿命令时执行此行动。\n审判庭特勤、帝国、审判庭、手枪兵 25",
+      "weapon_types": {
+        "瞄准镜等离子手枪（标准）": "远程",
+        "瞄准镜等离子手枪（过载）": "远程",
+        "消音自动手枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nPISTOLIER AGENT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nScoped plasma pistol (standard) 4 3+ 3/5 Range 12\", Piercing 1\nScoped plasma pistol (supercharge) 4 3+ 4/5 Range 12\", Hot, Lethal 5+, Piercing 1\nSuppressed autopistol 4 3+ 2/3 Range 8\", Silent\nFists 3 4+ 2/3 -\nPistolier: You can ignore any changes PISTOL BARRAGE 1AP\nto the Hit stat of this operative’s\nPerform two free Shoot actions with this operative (this takes precedence over\nranged weapons.\naction restrictions). You must select a profile of its scoped plasma pistol for one\naction and its suppressed autopistol for the other (in any order).\nThis operative cannot perform this action while it has a Conceal order, or during an\nactivation in which it performed the Shoot action (or vice versa).\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, PISTOLIER 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "任务使特勤-数据卡",
+      "title_en": "QUESTKEEPER AGENT",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-任务使特勤-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n任务使特勤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n开膛剑 4 4+ 5/6 残暴\n难抑使命：如果该特工在近战行动中被残废，您可\n以在将其移出杀戮区前使用一次未结算的成功对流\n程中的敌方特工进行出击。\n狂热者：每当一枚攻击骰对该特工造成大于等于 3\n点的伤害时，掷一枚 D6：若结果为 5+，那么造成\n的伤害减少 1 点。\n审判庭特勤、帝国、审判庭、任务使 25",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "开膛剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nQUESTKEEPER AGENT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nEviscerator 4 4+ 5/6 Brutal\nIrrepressible Purpose: If this operative is incapacitated during\nthe Fight action, you can strike the enemy operative in that\nsequence with one of your unresolved successes before this\noperative is removed from the killzone.\nZealot: Whenever an attack dice inflicts damage of 3 or more\non this operative, roll one D6: on a 5+, subtract 1 from that\ninflicted damage.\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, QUESTKEEPER 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "被征用枪炮奴工-数据卡",
+      "title_en": "REQUISITIONED GUN SERVITOR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-被征用枪炮奴工-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n被征用枪炮奴工\n1 5\" 4+ 11\n名称攻击命中伤害武器规则\n重型爆矢枪（集中） 5 4+ 4/5 重型（仅限冲刺）、关键穿刺 1\n重型爆矢枪（扫射） 4 4+ 4/5 重型（仅限冲刺）、关键穿刺 1、洪流 1\"\n多管热熔枪 4 4+ 6/3 毁灭 4、重型（仅限冲刺)、穿刺 2\n等离子炮（标准） 4 4+ 4/6 爆炸 2\"、重型（仅限冲刺)、穿刺 1\n等离子炮（过载） 4 4+ 5/6 爆炸 2\"、重型（仅限冲刺)、过热、致命 5+、穿刺\n1\n机械爪 3 4+ 4/5 -\n迟钝：每当该特工被激活时，如果该特工对其 3\" 内的另一名己方审判庭特勤特工（枪炮奴工除外）可\n见，或者是对应情况，那么直到那次激活结束前，该特工的 APL 属性增加 1 点。\n审判庭特勤、帝国、审判庭、枪炮奴工 32",
+      "weapon_types": {
+        "重型爆矢枪（集中）": "远程",
+        "重型爆矢枪（扫射）": "远程",
+        "多管热熔枪": "远程",
+        "等离子炮（标准）": "远程",
+        "等离子炮（过载）": "远程",
+        "机械爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nREQUISITIONED GUN SERVITOR\n1 5\" 4+ 11\nNAME ATK HIT DMG WR\nHeavy bolter (focused) 5 4+ 4/5 Heavy (Dash only), Piercing Crits 1\nHeavy bolter (sweeping) 4 4+ 4/5 Heavy (Dash only), Piercing Crits 1, Torrent 1\"\nMulti-melta 4 4+ 6/3 Devastating 4, Heavy (Dash only), Piercing 2\nPlasma cannon (standard) 4 4+ 4/6 Blast 2\", Heavy (Dash only), Piercing 1\nPlasma cannon (supercharge) 4 4+ 5/6 Blast 2\", Heavy (Dash only), Hot, Lethal 5+,\nPiercing 1\nServo claw 3 4+ 4/5 -\nLobotomised: Whenever this operative is activated, if it’s visible to and within 3\" of another friendly INQUISITORIAL AGENT\noperative (excluding GUN SERVITOR) or vice versa, add 1 to this operative’s APL stat until the end of that activation.\nINQUISITORIAL AGENT , IMPERIUM, INQUISITION, GUN SERVITOR 32"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "寂静修女判官-数据卡",
+      "title_en": "SISTER OF SILENCE PROSECUTOR",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-寂静修女判官-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n寂静修女判官\n2 6\" 3+ 8\n名称攻击命中伤害武器规则\n爆矢枪 4 3+ 3/4 -\n枪托 4 4+ 2/3 -\n灵能无效化：灵能远程武器无法对该特工造成伤害。在结算灵能行动时，该特工不能被选择成为目标，并\n且永远被视作为不位于这类行动的指定范围内。每当一名特工位于该特工的 6\" 内时：\n• 那名特工不能执行灵能行动或使用灵能额外规则。\n• 那么特工不能使用灵能远程武器。\n• 灵能近战武器没有武器规则，并且伤害属性不能高于 3/4。\n审判庭特勤、帝国、巫咒、寂静修女、判官 32",
+      "weapon_types": {
+        "爆矢枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSISTER OF SILENCE PROSECUTOR\n2 6\" 3+ 8\nNAME ATK HIT DMG WR\nBoltgun 4 3+ 3/4 -\nGun butt 4 4+ 2/3 -\nPsychic Null: PSYCHIC ranged weapons cannot inflict damage on this operative. For the effects of PSYCHIC actions, this\noperative cannot be selected and is never treated as being within those actions’ required distances. Whenever an operative is within\n6\" of this operative:\n• That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n• That operative cannot use PSYCHIC ranged weapons.\n• PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\nINQUISITORIAL AGENT , IMPERIUM, ANATHEMA PSYKANA, SISTER OF SILENCE, PROSECUTOR 32"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "寂静修女警戒者-数据卡",
+      "title_en": "SISTER OF SILENCE VIGILATOR",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-寂静修女警戒者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n寂静修女警戒者\n2 6\" 3+ 8\n名称攻击命中伤害武器规则\n行刑者巨剑 4 3+ 4/6 致命 5+\n灵能无效化：灵能远程武器无法对该特工造成伤害。在结算灵能行动时，该特工不能被选择成为目标，并\n且永远被视作为不位于这类行动的指定范围内。每当一名特工位于该特工的 6\" 内时：\n• 那名特工不能执行灵能行动或使用灵能额外规则。\n• 那么特工不能使用灵能远程武器。\n• 灵能近战武器没有武器规则，并且伤害属性不能高于 3/4。\n审判庭特勤、帝国、巫咒、寂静修女、警戒者 32",
+      "weapon_types": {
+        "行刑者巨剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSISTER OF SILENCE VIGILATOR\n2 6\" 3+ 8\nNAME ATK HIT DMG WR\nExecutioner greatblade 4 3+ 4/6 Lethal 5+\nPsychic Null: PSYCHIC ranged weapons cannot inflict damage on this operative. For the effects of PSYCHIC actions, this\noperative cannot be selected and is never treated as being within those actions’ required distances. Whenever an operative is within\n6\" of this operative:\n• That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n• That operative cannot use PSYCHIC ranged weapons.\n• PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\nINQUISITORIAL AGENT , IMPERIUM, ANATHEMA PSYKANA, SISTER OF SILENCE, VIGILATOR 32"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-16",
+      "sequence": 16,
+      "category": "operative",
+      "title_zh": "寂静修女猎巫者-数据卡",
+      "title_en": "SISTER OF SILENCE WITCHSEEKER",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-16-特工-寂静修女猎巫者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n寂静修女猎巫者\n2 6\" 3+ 8\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n枪托 4 4+ 2/3 -\n灵能无效化：灵能远程武器无法对该特工造成伤害。在结算灵能行动时，该特工不能被选择成为目标，并\n且永远被视作为不位于这类行动的指定范围内。每当一名特工位于该特工的 6\" 内时：\n• 那名特工不能执行灵能行动或使用灵能额外规则。\n• 那么特工不能使用灵能远程武器。\n• 灵能近战武器没有武器规则，并且伤害属性不能高于 3/4。\n审判庭特勤、帝国、巫咒、寂静修女、猎巫者 32",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSISTER OF SILENCE WITCHSEEKER\n2 6\" 3+ 8\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGun butt 4 4+ 2/3 -\nPsychic Null: PSYCHIC ranged weapons cannot inflict damage on this operative. For the effects of PSYCHIC actions, this\noperative cannot be selected and is never treated as being within those actions’ required distances. Whenever an operative is within\n6\" of this operative:\n• That operative cannot perform PSYCHIC actions or use PSYCHIC additional rules.\n• That operative cannot use PSYCHIC ranged weapons.\n• PSYCHIC melee weapons have no weapon rules and cannot have Dmg stats higher than 3/4.\nINQUISITORIAL AGENT , IMPERIUM, ANATHEMA PSYKANA, SISTER OF SILENCE, WITCHSEEKER 32"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-17",
+      "sequence": 17,
+      "category": "operative",
+      "title_zh": "风暴忠嗣军炮手-数据卡",
+      "title_en": "TEMPESTUS SCION GUNNER",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-17-特工-风暴忠嗣军炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n风暴忠嗣军炮手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n榴弹发射器（破片） 4 3+ 2/4 爆炸 2\"\n榴弹发射器（穿甲） 4 3+ 4/5 穿刺 1\n高能齐射枪（集中） 5 3+ 3/4 关键穿刺 1\n高能齐射枪（扫射） 4 3+ 3/4 关键穿刺 1、洪流 1\"\n热熔枪 4 3+ 6/3 范围 6\"、毁灭 4、穿刺 2\n等离子枪（标准） 4 3+ 4/6 穿刺 1\n等离子枪（过载） 4 3+ 5/6 过热、致命 5+、穿刺 1\n枪托 3 4+ 2/3 -\n审判庭特勤、帝国、星界军、风暴忠嗣军、炮手 25",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "榴弹发射器（破片）": "远程",
+        "榴弹发射器（穿甲）": "远程",
+        "高能齐射枪（集中）": "远程",
+        "高能齐射枪（扫射）": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTEMPESTUS SCION GUNNER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGrenade launcher (frag) 4 3+ 2/4 Blast 2\"\nGrenade launcher (krak) 4 3+ 4/5 Piercing 1\nHot-shot volley gun (focused) 5 3+ 3/4 Piercing Crits 1\nHot-shot volley gun (sweeping) 4 3+ 3/4 Piercing Crits 1, Torrent 1\"\nMeltagun 4 3+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 3+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nGun butt 3 4+ 2/3 -\nINQUISITORIAL AGENT , IMPERIUM, ASTRA MILITARUM, TEMPESTUS SCION, GUNNER 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-18",
+      "sequence": 18,
+      "category": "operative",
+      "title_zh": "风暴忠嗣军医疗兵-数据卡",
+      "title_en": "TEMPESTUS SCION MEDIC",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-18-特工-风暴忠嗣军医疗兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n风暴忠嗣军医疗兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光枪 4 3+ 3/4 -\n枪托 3 4+ 2/3 -\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方审判庭特勤特工将被残废时，\n如果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方\n特工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工\n可以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名\n特工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，\n那么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时\n使用此规则。\n请继续阅读背面规则\n审判庭特勤、帝国、星界军、风暴忠嗣军、医务、医疗兵 25",
+      "weapon_types": {
+        "高能激光枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTEMPESTUS SCION MEDIC\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot lasgun 4 3+ 3/4 -\nGun butt 3 4+ 2/3 -\nMedic!: The first time during each turning point that another friendly INQUISITORIAL AGENT operative would be incapacitated\nwhile visible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range\nof an enemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for\nthe remainder of the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that\nmove within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations\nrespectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this\noperative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nINQUISITORIAL AGENT , IMPERIUM, ASTRA MILITARUM, TEMPESTUS SCION, MEDIC 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-19",
+      "sequence": 19,
+      "category": "operative-ability",
+      "title_zh": "风暴忠嗣军医疗兵-能力卡",
+      "title_en": "TEMPESTUS SCION MEDIC",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-19-特工能力-风暴忠嗣军医疗兵-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n风暴忠嗣军医疗兵\n2 6\" 4+ 8\n医疗包 1AP\n选择一个位于该特工控制范围的己方审判庭特勤\n特工，那名特工回复 2D3 点失去的耐伤。选择\n的特工不能是在转折点中成为“医疗兵！”技能\n目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nTEMPESTUS SCION MEDIC\n2 6\" 4+ 8\nMEDIKIT 1AP\nSelect one friendly INQUISITORIAL AGENT operative\nwithin this operative’s control range to regain up to 2D3 lost\nwounds. It cannot be an operative that the Medic! rule was\nused on during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-20",
+      "sequence": 20,
+      "category": "operative",
+      "title_zh": "风暴忠嗣军士兵-数据卡",
+      "title_en": "TEMPESTUS SCION TROOPER",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-20-特工-风暴忠嗣军士兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n风暴忠嗣军士兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光枪 4 3+ 3/4 -\n枪托 3 4+ 2/3 -\n多功能装备：每个转折点中以下每项各限一次：\n• 一名己方审判庭特勤风暴忠嗣军士兵特工可以执行烟雾手雷行动。\n• 一名己方审判庭特勤风暴忠嗣军士兵特工可以执行震荡手雷行动。\n这些行动的规则可以在通用装备中找到。使用本规则所执行的上述行动不会算入装备的行动次数限制（也\n就是说，您依旧可以选择这些手雷装备)。\n审判庭特勤、帝国、星界军、风暴忠嗣军、士兵 25",
+      "weapon_types": {
+        "高能激光枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTEMPESTUS SCION TROOPER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot lasgun 4 3+ 3/4 -\nGun butt 3 4+ 2/3 -\nAdaptive Equipment: You can do each of the following once per turning point:\n• One friendly INQUISITORIAL AGENT TEMPESTUS SCION TROOPER operative can perform the Smoke\nGrenade action.\n• One friendly INQUISITORIAL AGENT TEMPESTUS SCION TROOPER operative can perform the Stun\nGrenade action.\nThe rules for these actions are found in universal equipment. Performing these actions using this rule doesn’t count towards their\naction limits (i.e. if you also select those grenades from equipment).\nINQUISITORIAL AGENT , IMPERIUM, ASTRA MILITARUM, TEMPESTUS SCION, TROOPER 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-01-21",
+      "sequence": 21,
+      "category": "operative",
+      "title_zh": "风暴忠嗣军通讯兵-数据卡",
+      "title_en": "TEMPESTUS SCION VOX-OPERATOR",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-21-特工-风暴忠嗣军通讯兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n风暴忠嗣军通讯兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光枪 4 3+ 3/4 -\n枪托 3 4+ 2/3 -\n传讯 1AP\n支援。选择位于杀戮区中的另一名己方审判庭特\n勤特工。直到那名特工的下一次激活结束前，\n其 APL 属性提升 1 点。\n该特工可以在激活期间执行本行动两次，但不能\n在敌方特工的控制范围内执行此行动。\n审判庭特勤、帝国、星界军、风暴忠嗣军、通讯兵 25",
+      "weapon_types": {
+        "高能激光枪": "远程",
+        "枪托": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTEMPESTUS SCION VOX-OPERATOR\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot-shot lasgun 4 3+ 3/4 -\nGun butt 3 4+ 2/3 -\nSIGNAL 1AP\nSUPPORT. Select one other friendly INQUISITORIAL\nAGENT operative in the killzone. Until the end of that\noperative’s next activation, add 1 to its APL stat.\nThis operative can perform this action twice during its\nactivation, but cannot perform this action while within\ncontrol range of an enemy operative.\nINQUISITORIAL AGENT , IMPERIUM, ASTRA MILITARUM, TEMPESTUS SCION, VOX-OPERATOR 25"
+    },
+    {
+      "id": "kt-inquisitorial_agents-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "审判厅特勤杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-审判厅特勤杀戮小队-1.png",
+      "is_back": false,
+      "text": "审判庭特勤\n杀戮小队\n原型：任意\n特工\n↘ 1 名审判庭特勤审讯者特工\n↘ 1 名审判庭特勤典籍之颅特工\n↘ 5 名审判庭特勤特工，从以下列表中选择：\n• 自动学者 • 枪炮奴工，装备有\n• 任务使特勤以下一种选项：\n• 死亡世界老兵 ○ 重型爆矢枪；\n• 教化者机械爪\n• 驱巫师 ○ 多管热熔枪；\n• 奥术师机械爪\n• 刑罚兵团士兵 ○ 等离子炮；\n• 手枪兵机械爪\n请继续阅读背面规则",
+      "text_en": "INQUISITORIAL AGENTS\nKILL TEAM\nARCHETYPES: ANY\nOPERATIVES\n↘ 1 INQUISITORIAL AGENT INTERROGATOR\noperative\n↘ 1 INQUISITORIAL AGENT TOME-SKULL\noperative\n↘ 5 INQUISITORIAL AGENT operatives selected\nfrom the following list:\n• AUTOSAVANT • GUN SERVITOR\n• QUESTKEEPER with one of the\n• DEATH WORLD following options:\nVETERAN ○ Heavy bolter;\n• ENLIGHTENER servo claw\n• HEXORCIST ○ Multi-melta;\n• MYSTIC servo claw\n• PENAL ○ Plasma\nLEGIONNAIRE cannon;\n• PISTOLIER servo claw\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-inquisitorial_agents-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "审判厅特勤杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-审判厅特勤杀戮小队-2.png",
+      "is_back": true,
+      "text": "↘ 5 名审判庭特勤特工，从本卡片的另一面选\n择，或者通过“审判庭征用命令”阵营规则从\n同一小组中选择征用特工（您不能从不同的小\n组中分别选择征用特工)。\n上述的每一名特工只能被纳入您的杀戮小队一\n次，除非您没有纳入任何征用特工。在这样的情\n况下，您可以纳入最多两名枪炮奴工特工，但是\n每一名特工都必须装备不同的选项。己方杀戮小\n队（包括任何征用特工）包含的拥有‘穿刺 2’\n武器规则的武器不能超过一个，且不能包含超过\n三个‘穿刺 X’武器（‘关键穿刺 X’除外)。",
+      "text_en": "↘ 5 INQUISITORIAL AGENT operatives selected\nfrom the list on the other side of this card, or\nREQUISITIONED operatives from one group in\nthe Inquisitorial Requisition faction rule (you\ncannot select REQUISITIONED operatives from\ndifferent groups).\nYour kill team can only include each operative\non this list once, unless you’re not including any\nREQUISITIONED operatives, in which case you\ncan include up to two GUN SERVITOR operatives,\nbut each one must have different options.\nYour kill team (including any REQUISITIONED\noperatives) cannot include more than one\nweapon with the Piercing 2 weapon rule, and\ncannot include more than three weapons with the\nPiercing X (excluding Piercing Crits X) weapon\nrule combined."
+    },
+    {
+      "id": "kt-inquisitorial_agents-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "审判庭征用命令-1",
+      "title_en": "INQUISITORIAL REQUISITION",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-审判庭征用命令-1.png",
+      "is_back": false,
+      "text": "审判庭特勤\n阵营规则\n审判庭征用命令\n在人类帝国中，没有任何组织的管理范围和\n权威能够与审判庭披靡。一名审判官只要提\n出要求便能立刻征用帝国军队中的任何一支\n部队。\n一支审判庭特勤杀戮小队可以从以下一个小组\n中选择征用特工来作为辅助单位，具体由本杀戮\n小队的规则决定：\n• 死亡军团\n• 强征小队\n• 帝国海军跳帮队\n• 卡舍津\n• 寂静修女\n• 风暴忠嗣军\n请继续阅读背面规则",
+      "text_en": "INQUISITORIAL AGENT\nFACTION RULE\nINQUISITORIAL REQUISITION\nFew authorities in the Imperium have greater\njurisdiction than the Inquisition. An Inquisitor can, on\na whim, requisition forces from virtually any of the\nImperium’s military branches.\nREQUISITIONED operatives can be taken from\none of the following groups to supplement an\nINQUISITORIAL AGENT kill team, as specified in\nthis kill team’s selection rules:\n• DEATH KORPS\n• EXACTION SQUAD\n• IMPERIAL NAVY BREACHER\n• KASRKIN\n• SISTER OF SILENCE\n• TEMPESTUS SCION\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-inquisitorial_agents-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "审判庭征用命令-2",
+      "title_en": "INQUISITORIAL REQUISITION",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-审判庭征用命令-2.png",
+      "is_back": true,
+      "text": "这些特工数据卡上所有的阵营关键词都将被替换\n成审判庭特勤（除非特工已经拥有本关键词)。\n您不能使用与征用特工原本的阵营关键词相关的\n计谋和装备，除非其数据卡上有明确规定（并且\n这个规则只适用于那名征用特工)。请注意，由\n于获得了新的阵营关键词，征用特工能够与审判\n庭特勤规则产生互动。\n例如，一名死亡军团小组中的征用通讯兵特\n工会将其数据卡上的所有死亡军团关键词替换\n成审判庭特勤关键词。这将允许您在执行传讯\n独特行动时选择任何其他的己方审判庭特勤特\n工。不过，“卫士命令”将无法被使用，因此\n“集结命令”额外规则将被忽略。该特工也能够\n被己方审判庭特勤奥术师特工选择成为预知独\n特行动的目标。",
+      "text_en": "These operatives have their faction keyword\nreplaced in all instances on their datacards with\nINQUISITORIAL AGENT (unless they already\nhave it). You cannot use ploys and equipment\nassociated with a REQUISITIONED operative’s\nformer faction keyword, and you cannot use a\nREQUISITIONED operative’s former faction rules\nunless specified on their Inquisitorial Requisition\ncard (it only applies to those REQUISITIONED\noperatives). Note that with their new faction\nkeyword, REQUISITIONED operatives can interact\nwith the INQUISITORIAL AGENT rules.\nFor example, a REQUISITIONED VOX-OPERATOR\noperative from the DEATH KORPS group would\nhave its DEATH KORPS keyword replaced in all\ninstances on its datacard with INQUISITORIAL\nAGENT . This allows you to select any other\nfriendly INQUISITORIAL AGENT operative for its\nSignal unique action. However, the Guardsman\nOrders faction rule isn’t permitted, so its Relay\nOrders additional rule would be ignored. It\nwould now also be a valid operative for the\nINQUISITORIAL AGENT MYSTIC operative’s Scry\nunique action."
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "审判庭征用命令-1",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-审判庭征用命令-1.png",
+      "is_back": false,
+      "text": "审判庭特勤\n审判庭征用命令\n死亡军团\n↘ 6 名死亡军团特工，从以下列表中选择：\n• 格斗兵\n• 亲信，装备有以下一种选项：\n○ 爆矢枪或激光枪；刺刀\n○ 爆矢手枪或圣物激光手枪；链锯剑\n• 炮手，装备有火焰喷射器和刺刀\n• 炮手，装备有榴弹发射器和刺刀\n• 炮手，装备有热熔枪和刺刀\n• 炮手，装备有等离子枪和刺刀\n• 医疗兵\n• 工程兵\n• 狙击手\n• 士兵\n• 老兵\n• 通讯兵\n• 狂热者\n请继续阅读背面规则",
+      "text_en": "INQUISITORIAL AGENT\nINQUISITORIAL REQUISITION\nDEATH KORPS\n↘ 6 DEATH KORPS operatives selected from the\nfollowing list:\n• BRUISER\n• CONFIDANT with one of the\nfollowing options:\n○ Boltgun or lasgun; bayonet\n○ Bolt pistol or relic laspistol; chainsword\n• GUNNER with flamer and bayonet\n• GUNNER with grenade launcher\nand bayonet\n• GUNNER with meltagun and bayonet\n• GUNNER with plasma gun and bayonet\n• MEDIC\n• SAPPER\n• SNIPER\n• TROOPER\n• VETERAN\n• VOX-OPERATOR\n• ZEALOT\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-02",
+      "sequence": 2,
+      "category": "other",
+      "title_zh": "审判庭征用命令-2",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-02-其他-审判庭征用命令-2.png",
+      "is_back": true,
+      "text": "除了士兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。\n选择这些特工的总数不能超过三名。",
+      "text_en": "Other than TROOPER operatives, your kill team\ncan only include each operative on this list once.\nYou cannot select more than three of these\noperatives combined."
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-03",
+      "sequence": 3,
+      "category": "other",
+      "title_zh": "审判庭征用命令-3",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-03-其他-审判庭征用命令-3.png",
+      "is_back": false,
+      "text": "审判庭特勤\n审判庭征用命令\n强征小队\n↘ 5 名强征小队特工，从以下列表中选择：\n• 惩罚者\n• 外科医生\n• 炮手，装备有以下一种选项：\n○ 榴弹发射器；镇压短棍\n○ 重型机枪；镇压短棍\n○ 捕网枪；镇压短棍\n• 束犬大师\n• 定迹者\n• 神枪手\n• 启示者\n• R-VR型赛博獒犬\n• 冲覆者\n• 警戒者\n• 辩音者\n请继续阅读背面规则",
+      "text_en": "INQUISITORIAL AGENT\nINQUISITORIAL REQUISITION\nEXACTION SQUAD\n↘ 5 EXACTION SQUAD operatives selected from\nthe following list:\n• CASTIGATOR\n• CHIRURGANT\n• GUNNER with one of the following options:\n○ Grenade launcher; repression baton\n○ Heavy stubber; repression baton\n○ Webber; repression baton\n• LEASHMASTER\n• MALOCATOR\n• MARKSMAN\n• REVELATUM\n• R-VR CYBER-MASTIFF\n• SUBDUCTOR\n• VIGILANT\n• VOX-SIGNIFIER\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-04",
+      "sequence": 4,
+      "category": "other",
+      "title_zh": "审判庭征用命令-4",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-04-其他-审判庭征用命令-4.png",
+      "is_back": true,
+      "text": "除了冲覆者和士兵特工以外，上述的每一名特工\n只能被纳入您的杀戮小队一次。您的杀戮小队只\n能包含最多两名冲覆者特工。\n允许使用以下强征小队阵营规则：\n“无情效率”、“镇压”。",
+      "text_en": "Other than SUBDUCTOR and VIGILANT\noperatives, your kill team can only include each\noperative on this list once. Your kill team can only\ninclude up to two SUBDUCTOR operatives.\nPermitted EXACTION SQUAD faction rules:\nRuthless Efficiency, Repress."
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-05",
+      "sequence": 5,
+      "category": "other",
+      "title_zh": "审判庭征用命令-5",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-05-其他-审判庭征用命令-5.png",
+      "is_back": false,
+      "text": "审判庭特勤\n审判庭征用命令\n帝国海军跳帮队\n↘ 5 名帝国海军跳帮队特工，从以下列表中\n选择：\n• 船兵 • 炮手，装备有以下\n• 巨斧手一种选项：\n• C.A.T单位 ○ 海军齐射枪；\n• 盾手枪托\n• 幽魂颅骨 ○ 热熔枪；枪托\n• 掷弹兵 ○ 等离子枪；\n• 破舱手枪托\n• 侦测员\n• 干扰员\n除了船兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。您的杀戮小队只有在包含\n了干扰员特工时才能包含一名幽魂颅骨特工，并\n且只有在包含一名侦测员特工时才能包含一名\nC.A.T单位特工。\n请继续阅读背面规则",
+      "text_en": "INQUISITORIAL AGENT\nINQUISITORIAL REQUISITION\nIMPERIAL NAVY BREACHERS\n↘ 5 IMPERIAL NAVY BREACHER operatives\nselected from the following list:\n• ARMSMAN • GUNNER with\n• AXEJACK one of the\n• C.A.T. UNIT following options:\n• ENDURANT ○ Navis\n• GHEISTSKULL las-volley;\n• GRENADIER gun butt\n• HATCHCUTTER ○ Meltagun;\n• SURVEYOR gun butt\n• VOID-JAMMER ○ Plasma gun;\ngun butt\nOther than ARMSMAN operatives, your kill\nteam can only include each operative on this\nlist once. Your kill team can only include a\nGHEISTSKULL operative if it also includes a\nVOID-JAMMER operative, and it can only include\na C.A.T. UNIT operative if it also includes a\nSURVEYOR operative.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-06",
+      "sequence": 6,
+      "category": "other",
+      "title_zh": "审判庭征用命令-6",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-06-其他-审判庭征用命令-6.png",
+      "is_back": true,
+      "text": "这些特工被算作为半个选项，意味着如果您纳\n入了这两名特工，它们总共算是一个选项。\n允许使用以下帝国海军跳帮队阵营规则：\n“虚空护甲”。",
+      "text_en": "These operatives count as half a selection each,\nmeaning you can select both of them and it’s\ntreated as one selection in total.\nPermitted IMPERIAL NAVY BREACHER faction\nrule: Void Armour."
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-07",
+      "sequence": 7,
+      "category": "other",
+      "title_zh": "审判庭征用命令-7",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 9,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "16-07-其他-审判庭征用命令-7.png",
+      "is_back": false,
+      "text": "审判庭特勤\n审判庭征用命令\n卡舍津\n↘ 5 名卡舍津特工，从以下列表中选择：\n• 战斗医疗兵\n• 爆破兵\n• 炮手，装备有火焰喷射器和枪托\n• 炮手，装备有榴弹发射器和枪托\n• 炮手，装备有高能齐射枪和枪托\n• 炮手，装备有热熔枪和枪托\n• 炮手，装备有等离子枪和枪托\n• 侦察兵\n• 神射手\n• 士兵\n• 通讯兵\n除了士兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。\n选择这些特工的总数不能超过两名。",
+      "text_en": "INQUISITORIAL AGENT\nINQUISITORIAL REQUISITION\nKASRKIN\n↘ 5 KASRKIN operatives selected from the\nfollowing list:\n• COMBAT MEDIC\n• DEMO-TROOPER\n• GUNNER with flamer and gun butt\n• GUNNER with grenade launcher and\ngun butt\n• GUNNER with hot-shot volley gun and\ngun butt\n• GUNNER with meltagun and gun butt\n• GUNNER with plasma gun and gun butt\n• RECON-TROOPER\n• SHARPSHOOTER\n• TROOPER\n• VOX-TROOPER\nOther than TROOPER operatives, your kill team\ncan only include each operative on this list once.\nYou cannot select more than two of these\noperatives combined."
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-08",
+      "sequence": 8,
+      "category": "other",
+      "title_zh": "审判庭征用命令-8",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 9,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "16-08-其他-审判庭征用命令-8.png",
+      "is_back": false,
+      "text": "审判庭特勤\n审判庭征用命令\n寂静修女\n↘ 5 名寂静修女特工，从以下列表中选择：\n• 判官\n• 警戒者\n• 猎巫者",
+      "text_en": "INQUISITORIAL AGENT\nINQUISITORIAL REQUISITION\nSISTERS OF SILENCE\n↘ 5 SISTER OF SILENCE operatives selected from\nthe following list:\n• PROSECUTOR\n• VIGILATOR\n• WITCHSEEKER"
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-09",
+      "sequence": 9,
+      "category": "other",
+      "title_zh": "审判庭征用命令-9",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 10,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-09-其他-审判庭征用命令-9.png",
+      "is_back": false,
+      "text": "审判庭特勤\n审判庭征用命令\n风暴忠嗣军\n↘ 5 名风暴忠嗣军特工，从以下列表中选择：\n• 炮手，装备有火焰喷射器和枪托\n• 炮手，装备有榴弹发射器和枪托\n• 炮手，装备有高能齐射枪和枪托\n• 炮手，装备有热熔枪和枪托\n• 炮手，装备有等离子枪和枪托\n• 医疗兵\n• 士兵\n• 通讯兵\n除了士兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。您的杀戮小队只能包含最\n多两名炮手特工。",
+      "text_en": "INQUISITORIAL AGENT\nINQUISITORIAL REQUISITION\nTEMPESTUS SCIONS\n↘ 5 TEMPESTUS SCION operatives selected from\nthe following list:\n• GUNNER with flamer and gun butt\n• GUNNER with grenade launcher and\ngun butt\n• GUNNER with hot-shot volley gun and\ngun butt\n• GUNNER with meltagun and gun butt\n• GUNNER with plasma gun and gun butt\n• MEDIC\n• TROOPER\n• VOX-OPERATOR\nOther than TROOPER operatives, your kill team\ncan only include each operative on this list\nonce. Your kill team can only include up to two\nGUNNER operatives."
+    },
+    {
+      "id": "kt-inquisitorial_agents-16-10",
+      "sequence": 10,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "INQUISITORIAL AGENT",
+      "source_page": 10,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-10-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "审判庭特勤\n标识/指示物指南\n定罪谴责圣化\n指示物指示物指示物\n医疗兵守护指引\n指示物指示物指示物\n惩戒猎物硬捱\n指示物指示物指示物\n伺服颅骨典籍之颅审判圣徽\n指示物标识指示物",
+      "text_en": "INQUISITORIAL AGENT\nMARKER/TOKEN GUIDE\nDenounce Denunciation Sanctification\ntoken token token\nMedic token Protection Guidance\ntoken token\nChasten token Quarry token Weathered\ntoken\nServo-skull Tome-skull Inquisitorial\ntoken marker Rosette token"
+    },
+    {
+      "id": "kt-inquisitorial_agents-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "定罪",
+      "title_en": "DENOUNCE",
+      "source_page": 10,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-定罪.png",
+      "is_back": false,
+      "text": "审判庭特勤\n战略计谋\n定罪\n没有什么能够逃离审判庭的铁拳。那些遭受\n谴责并定为有罪的目标将在残酷的特勤们面\n前颤抖。\n选择一名敌方特工并掷一枚 D3。在当前转折点\n的交战阶段中，除非这名特工是最后被激活的敌\n方特工，或者您的对手激活了相当于掷骰结果数\n量的其他敌方特工（以先满足的条件为准)，否\n则这名特工不能被激活或者执行行动。如果您在\n战斗中已经使用过了本计谋，那么您在之后每次\n使用本计谋时需比之前多消耗 1CP（第一次使用\n时为 1CP，第二次使用时为 2CP，以此类推)。",
+      "text_en": "INQUISITORIAL AGENT\nSTRATEGY PLOY\nDENOUNCE\nNone escape the long arm of the Inquisition. Those\ndenounced and proclaimed guilty quail before its\nvengeful Agents.\nSelect one enemy operative and roll one D3. In\nthe Firefight phase of this turning point, that\nenemy operative cannot be activated or perform\nactions until it's the last enemy operative to\nbe activated, or your opponent has activated a\nnumber of enemy operatives equal to the result\nof the D3 (whichever comes first). This ploy costs\nyou 1 additional CP for each previous time you’ve\nused it during the battle (e.g. 1CP the first time\nyou would use it, 2CP the second time, etc.)."
+    },
+    {
+      "id": "kt-inquisitorial_agents-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "严密检查",
+      "title_en": "INTENSE SCRUTINY",
+      "source_page": 10,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-严密检查.png",
+      "is_back": false,
+      "text": "审判庭特勤\n战略计谋\n严密检查\n没有什么能够躲过审判庭的全视之眼。\n在您为一名己方审判庭特勤特工选择有效目标\n时，位于其 4\" 内的敌方特工不能拥有掩护（而不\n是 2\")。虽然这样能够让敌方特工成为目标（假\n设它们可见)，但不会移除这些敌方特工的掩护\n豁免（若有)，除非己方审判庭特勤特工位于目\n标的 2\" 内。",
+      "text_en": "INQUISITORIAL AGENT\nSTRATEGY PLOY\nINTENSE SCRUTINY\nThere is no hiding from the all-seeing eyes of\nthe Inquisition.\nWhenever you’re selecting a valid target for a\nfriendly INQUISITORIAL AGENT operative,\nenemy operatives within 4\" of it cannot be in\ncover (instead of 2\"). While this can allow such\noperatives to be targeted (assuming they’re\nvisible), it doesn’t remove their cover save (if\nany), unless the friendly INQUISITORIAL AGENT\noperative is within 2\" as normal."
+    },
+    {
+      "id": "kt-inquisitorial_agents-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "猎物",
+      "title_en": "QUARRY",
+      "source_page": 11,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-猎物.png",
+      "is_back": false,
+      "text": "审判庭特勤\n战略计谋\n猎物\n那些被定为罪人的存在是无处可逃的。一旦被\n标记处决，审判庭的目标就必将遭到毁灭。\n选择一名敌方特工来作为本次转折点中的猎物。\n每当一名己方审判庭特勤特工对己方猎物进行\n射击、近战或反击时，它的武器拥有“无休”武\n器规则。在己方的猎物被残废后，您可以选择新\n的敌方特工来作为猎物（并且在转折点期间可以\n重复这个过程)。",
+      "text_en": "INQUISITORIAL AGENT\nSTRATEGY PLOY\nQUARRY\nFor those judged guilty, there is no escape. Once marked\nfor execution, the Inquisition’s quarry is doomed.\nSelect one enemy operative to be your quarry\nfor the turning point. Whenever a friendly\nINQUISITORIAL AGENT operative is shooting\nagainst, fighting against or retaliating against your\nquarry, that friendly operative’s weapons have\nthe Ceaseless weapon rule. Whenever your quarry\nis incapacitated, you can select a new enemy\noperative to be your quarry (and can continue to\ndo so during this turning point)."
+    },
+    {
+      "id": "kt-inquisitorial_agents-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "绝对审判",
+      "title_en": "IRREFUTABLE JURISDICTION",
+      "source_page": 11,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-绝对审判.png",
+      "is_back": false,
+      "text": "审判庭特勤\n战略计谋\n绝对审判\n审判庭的特工们在几乎无尽的权威之下变得英\n勇无畏，他们在叛徒和异形面前绝不会屈服。\n每当一名特工对位于目标标识 3\" 内的己方审判\n庭特勤特工进行射击时，您可以重掷一枚自己\n的防御骰。如果那名己方特工正在争夺那个标\n识，那么您可以重掷任意指定结果的防御骰（例\n如结果为 2 的防御骰)。",
+      "text_en": "INQUISITORIAL AGENT\nSTRATEGY PLOY\nIRREFUTABLE JURISDICTION\nThe Agents of the Inquisition are emboldened by their\nnear-limitless authority, and will bow before neither\ntraitor nor xenos.\nWhenever an operative is shooting a friendly\nINQUISITORIAL AGENT operative that’s within\n3\" of an objective marker, you can re-roll one\nof your defence dice. If that friendly operative\ncontests that marker, you can re-roll any of your\ndefence dice results of one result instead (e.g.\nresults of 2)."
+    },
+    {
+      "id": "kt-inquisitorial_agents-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "绝对权威",
+      "title_en": "ABSOLUTE AUTHORITY",
+      "source_page": 11,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-绝对权威.png",
+      "is_back": false,
+      "text": "审判庭特勤\n交战计谋\n绝对权威\n那些知道审判庭存在的人畏惧着他们的无尽影\n响力。那些不幸触怒审判庭特勤的人通常都会\n陷入恐惧。\n在战斗期间，在一名对手使用战略或交战计谋\n时(指挥重掷或花费 0CP 的计谋除外）使用本交\n战计谋。对手不能使用那次计谋，返还消耗的\nCP，并且对手不能在本次转折点中再次使用那个\n计谋。在每场战斗中，本计谋不能被多次用于阻\n止同一个计谋的使用。",
+      "text_en": "INQUISITORIAL AGENT\nFIREFIGHT PLOY\nABSOLUTE AUTHORITY\nAll who know of the Inquisition fear its limitless reach.\nThose unfortunate enough to draw the ire of its Agents\nare often stricken by fear.\nUse this firefight ploy during the battle, when\nan opponent uses a strategy or firefight ploy\n(excluding Command Re-roll or one that costs\n0CP). Their ploy isn’t used, the CP spent on it is\nrefunded and they cannot use that ploy again\nduring this turning point. This ploy cannot be\nused to stop the same ploy more than once\nper battle."
+    },
+    {
+      "id": "kt-inquisitorial_agents-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "不懈追击",
+      "title_en": "RELENTLESS IN PURSUIT",
+      "source_page": 11,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-不懈追击.png",
+      "is_back": false,
+      "text": "审判庭特勤\n交战计谋\n不懈追击\n审判庭的特勤们以坚持不懈与毫不停息的决心\n追击着他们的敌人。\n在一名就绪的己方审判庭特勤特工 2\" 内的一\n名敌方特工执行需要移动的行动时使用本交战计\n谋。在那名特工完成移动后，那名己方审判庭特\n勤特工可以执行一次无消耗的转移行动，但是\n必须在结束移动时位于那名敌方特工的 2\" 内，\n或者执行一次冲锋行动，但是在结束移动时必须\n位于那名敌方特工的控制范围内。如果无法满足\n上述的任何一个条件，那么那名己方特工不能执\n行上述的行动，并且本计谋不能被使用，返还被\n消耗的 CP。",
+      "text_en": "INQUISITORIAL AGENT\nFIREFIGHT PLOY\nRELENTLESS IN PURSUIT\nThe Inquisition pursues its foes with dogged and\nrelentless determination.\nUse this firefight ploy when an enemy operative\nwithin 2\" of a ready friendly INQUISITORIAL\nAGENT operative performs an action in\nwhich it moves. After it moves, that friendly\nINQUISITORIAL AGENT operative can either\nperform a free Reposition action, but must end\nthat move within 2\" of that enemy operative, or\na free Charge action, but must end that move\nwithin control range of that enemy operative. If\nneither is possible, that friendly operative cannot\nperform those actions, this ploy isn’t used and the\nCP spent on it is refunded."
+    },
+    {
+      "id": "kt-inquisitorial_agents-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "帝皇的意志",
+      "title_en": "THE EMPEROR'S WILL",
+      "source_page": 12,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-帝皇的意志.png",
+      "is_back": false,
+      "text": "审判庭特勤\n交战计谋\n帝皇的意志\n审判庭的特勤战士们执行着帝皇的意志。这样\n的权威使他们在执行任务时变得更加勇猛。\n在一名己方审判庭特勤特工被激活时使用本交\n战计谋。直到那名特工的激活结束前，您可以忽\n略任何对其属性的修正（包括武器属性)。",
+      "text_en": "INQUISITORIAL AGENT\nFIREFIGHT PLOY\nTHE EMPEROR'S WILL\nThe Agents of the Inquisition enforce the Emperor’s will.\nThis authority emboldens them in their duties.\nUse this firefight ploy when a friendly\nINQUISITORIAL AGENT operative is activated.\nUntil the end of that operative’s activation, you\ncan ignore any changes to its stats (including its\nweapons’ stats)."
+    },
+    {
+      "id": "kt-inquisitorial_agents-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "可怕存在",
+      "title_en": "INTIMIDATING PRESENCE",
+      "source_page": 12,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-可怕存在.png",
+      "is_back": false,
+      "text": "审判庭特勤\n交战计谋\n可怕存在\n那些拥有审判庭徽记和权力的人深受他人的畏\n惧，就算是最为强大的敌人也会变得谨慎。\n在一名位于己方审判庭特勤特工 3\" 内，或者\n位于己方奥术师特工 6\" 内且可见的敌方特工执\n行拾取标识行动或一次任务行动时（操作舱门除\n外）使用本交战计谋。您的对手在执行那次行动\n时必须消耗额外 1AP（如果对手不能这么做或者\n选择不这么做，那么返还被消耗的 AP)。",
+      "text_en": "INQUISITORIAL AGENT\nFIREFIGHT PLOY\nINTIMIDATING PRESENCE\nThose that bear the sigils and authority of the Inquisition\nare rightly feared, even by the mightiest of foes.\nUse this firefight ploy when an enemy\noperative visible to and within 3\" of a friendly\nINQUISITORIAL AGENT operative, or visible to\nand within 6\" of a friendly MYSTIC operative,\nperforms the Pick Up Marker or a mission action\n(excluding Operate Hatch). Your opponent must\nspend 1 additional AP for that enemy operative to\nperform that action (if they cannot or choose not\nto, the AP spent on it is refunded)."
+    },
+    {
+      "id": "kt-inquisitorial_agents-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "审判圣徽",
+      "title_en": "INQUISITORIAL ROSETTE",
+      "source_page": 12,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-审判圣徽.png",
+      "is_back": false,
+      "text": "审判庭特勤\n阵营装备\n审判圣徽\n审判官的徽记拥有着几乎无穷的权威，一切\n都将在这枚圣徽面前颤抖。\n每场战斗限一次，当一名己方审判庭特勤特工\n被激活时，如果您在转折点中使用了“猎物”战\n略计谋，那么您可以使用本规则。若使用，那么\n直到转折点结束前，您可以将一名新的敌方特工\n选作为猎物。",
+      "text_en": "INQUISITORIAL AGENT\nFACTION EQUIPMENT\nINQUISITORIAL ROSETTE\nA symbol of an Inquisitor’s near-boundless authority,\nthe rosette is feared by all.\nOnce per battle, when a friendly INQUISITORIAL\nAGENT operative is activated, if you’ve used the\nQuarry strategy ploy during this turning point, you\ncan use this rule. If you do, you can select a new\nenemy operative to be your quarry until the end of\nthe turning point."
+    },
+    {
+      "id": "kt-inquisitorial_agents-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "格斗匕首",
+      "title_en": "COMBAT DAGGERS",
+      "source_page": 12,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-格斗匕首.png",
+      "is_back": false,
+      "text": "审判庭特勤\n阵营装备\n格斗匕首\n在被迫进行近战肉搏时，一把简单的匕首将\n决定特工的生死。\n己方审判庭特勤特工装备有以下近战武器。在\n一名己方寂静修女特工使用本武器时，其攻击属\n性提升 1 点。\n名称攻击命中伤害\n格斗匕首 3 4+ 3/4",
+      "text_en": "INQUISITORIAL AGENT\nFACTION EQUIPMENT\nCOMBAT DAGGERS\nIn the press of melee combat, a simple dagger can be\nthe difference between life and death.\nFriendly INQUISITORIAL AGENT operatives have\nthe following melee weapon. Whenever a friendly\nSISTER OF SILENCE operative is using it, add 1 to\nits Atk stat.\nNAME ATK HIT DMG\nCombat dagger 3 4+ 3/4"
+    },
+    {
+      "id": "kt-inquisitorial_agents-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "装甲紧身衣",
+      "title_en": "ARMOURED BODYSUITS",
+      "source_page": 13,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-装甲紧身衣.png",
+      "is_back": false,
+      "text": "审判庭特勤\n阵营装备\n装甲紧身衣\n这种贴身的连体服轻便但坚固，能够为穿着\n者提供一层额外的保护。\n当一名特工对豁免属性为 5+ 的己方审判庭特勤\n特工（典籍之颅除外）进行射击时，您可以将\n一枚结果为 4 的防御骰作为普通成功进行保留。",
+      "text_en": "INQUISITORIAL AGENT\nFACTION EQUIPMENT\nARMOURED BODYSUITS\nLightweight yet tough, these form-fitting bodysuits\nprovide an extra layer of protection to the wearer.\nWhenever an operative is shooting a friendly\nINQUISITORIAL AGENT operative (excluding\nTOME-SKULL) that has a 5+ Save stat, you can\nretain one of your defence dice results of 4 as a\nnormal success."
+    },
+    {
+      "id": "kt-inquisitorial_agents-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "伺服颅骨",
+      "title_en": "SERVO-SKULL",
+      "source_page": 13,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-伺服颅骨.png",
+      "is_back": false,
+      "text": "审判庭特勤\n阵营装备\n伺服颅骨\n伺服颅骨是漂浮在空中的小型奴工，他们可\n以通过改造和设定来协助特工执行各种类型\n的任务。\n每场战斗限一次，一名己方审判庭特勤特工在\n执行一次任务行动时可以少消耗 1AP。",
+      "text_en": "INQUISITORIAL AGENT\nFACTION EQUIPMENT\nSERVO-SKULL\nServo-skulls are diminutive floating servitors that can be\ncrafted and programmed to assist their operators with a\nwide range of tasks.\nOnce per battle, one friendly INQUISITORIAL\nAGENT operative can perform a mission action\nfor 1 less AP."
+    }
+  ]
+}

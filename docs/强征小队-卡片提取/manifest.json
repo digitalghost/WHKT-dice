@@ -1,0 +1,912 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-EXACTION_SQUAD",
+  "team_name_zh": "强征小队",
+  "team_name_en": "Exaction Squad",
+  "source_pdf": "最新杀戮小队规则更新/强征小队 Exaction Squad 杀戮小队规则.pdf",
+  "source_pdf_sha256": "a3ba95d18c0379abe07110de2dadec2bbb336ae77411e5d3e0b93be92ba94d3c",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 33,
+    "operative": 12,
+    "operative-ability": 3,
+    "team-selection": 2,
+    "faction-rule": 3,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-exaction_squad-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "裁决官督法者-数据卡",
+      "title_en": "ARBITES PROCTOR-EXACTANT",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-裁决官督法者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官督法者\n2 6\" 4+ 9\n名称攻击命中伤害武器规则\n战斗霰弹枪 (近距离） 4 2+ 4/4 范围 6\"\n战斗霰弹枪 (远距离） 4 4+ 2/2 -\n霰弹手枪 4 3+ 3/3 范围 8\"\n镇压短棍 3 3+ 2/3 -\n统御之棰与突击盾 4 3+ 4/4 致命 5+、震荡、镇压*\n突击盾：如果该特工装备有统御之棰与突击盾，那\n么其豁免属性为 3+。\n请继续阅读背面规则\n强征小队、帝国、法务部、队长、督法者 28",
+      "weapon_types": {
+        "战斗霰弹枪 (近距离）": "远程",
+        "战斗霰弹枪 (远距离）": "远程",
+        "霰弹手枪": "远程",
+        "镇压短棍": "近战",
+        "统御之棰与突击盾": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES PROCTOR-EXACTANT\n2 6\" 4+ 9\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 2+ 4/4 Range 6\"\nCombat shotgun (long range) 4 4+ 2/2 -\nShotpistol 4 3+ 3/3 Range 8\"\nDominator maul & assault shield 4 3+ 4/4 Lethal 5+, Shock, Repress*\nRepression baton 3 3+ 2/3 -\nAssault Shield: If this operative has a dominator maul & assault\nshield, it has a 3+ Save stat.\nRULES CONTINUE ON OTHER SIDE\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, LEADER, PROCTOR-EXACTANT 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "裁决官督法者-能力卡",
+      "title_en": "ARBITES PROCTOR-EXACTANT",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-裁决官督法者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官督法者\n2 6\" 4+ 9\n天鹰使节：\n• 每当一名敌方特工位于己方天鹰使节标识（如果\n该标识不位于杀戮区，则每当敌方特工位于该单\n位）的 3\" 内时，那名敌方特工在执行拾取标识或\n任务行动时必须多消耗 1AP。\n• 在判断对标识的控制权时，如果有至少一名争夺\n标识的敌方特工位于己方天鹰使节标识（如果标\n识不位于杀戮区，则是敌方特工位于该特工）的\n3\" 内，那么将争夺标识的敌方特工的 APL 属性\n总和视作为比原本要低 1 点。请注意，这并非对\nAPL 属性的修正，因此任何修正效果将与本规则\n的效果叠加。\n部署天鹰使节 0AP\n如果天鹰使节标识不位于杀戮区内，那么将其部\n署在该特工水平 6\" 内的位置；若是其他情况，\n将己方天鹰使节标识水平移动最多 6\"。如果该\n特工被移出杀戮区，那么将己方天鹰使节标识移\n出杀戮区。\n该特工不能在敌方特工的控制范围内执行本\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES PROCTOR-EXACTANT\n2 6\" 4+ 9\nNuncio-aquila:\n• Whenever an enemy operative is within 3\" of your\nNuncio-aquila marker (or this operative if your Nuncio-aquila\nmarker isn’t in the killzone), your opponent must spend 1\nadditional AP for that enemy operative to perform the Pick\nUp Marker and mission actions.\n• Whenever determining control of a marker, treat the total\nAPL stat of enemy operatives that contest it as 1 lower if\nat least one of those enemy operatives is within 3\" of your\nNuncio-aquila marker (or this operative if your Nuncio-aquila\nmarker isn’t in the killzone). Note this isn’t a change to the APL\nstat, so any changes are cumulative with this.\nDEPLOY NUNCIO-AQUILA 0AP\nIf your Nuncio-aquila marker isn’t in the killzone, place it\nwithin 6\" horizontally of this operative; otherwise, move your\nNuncio-aquila marker up to 6\" horizontally. If this operative\nis removed from the killzone, remove your Nuncio-aquila\nmarker from the killzone.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-exaction_squad-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "裁决官外科医生-数据卡",
+      "title_en": "ARBITES CHIRURGANT",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-裁决官外科医生-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官外科医生\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n战斗霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n战斗霰弹枪（远距离） 4 5+ 2/2 -\n镇压短棍 3 4+ 2/3 -\n医疗兵!：在每个转折点中，首次有另一名位于该特工 3\" 内且可见的己方强征小队特工将被残废时，如\n果该特工或者那名特工不位于敌方特工的控制范围内，那么您可以使用此规则。若使用，那么那名己方特\n工不会被残废，并且剩余 1 点耐伤并且直到行动结束前不能被残废。在那次行动结束后，那名己方特工可\n以立即执行一次无消耗的冲刺行动，但是必须在该特工的控制范围内结束这次移动。直到该特工和那名特\n工的下一次激活结束前，他们的 APL 属性各减少 1 点。如果您在那名特工的激活期间使用了本规则，那\n么那次激活结束。您不能在该特工残废时，或者在该特工被选择成为一次射击行动的主要或次要目标时使\n用此规则。\n请继续阅读背面规则\n强征小队、帝国、法务部、医疗、外科医生 28",
+      "weapon_types": {
+        "战斗霰弹枪（近距离）": "远程",
+        "战斗霰弹枪（远距离）": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES CHIRURGANT\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 3+ 4/4 Range 6\"\nCombat shotgun (long range) 4 5+ 2/2 -\nRepression baton 3 4+ 2/3 -\nMedic!: The first time during each turning point that another friendly EXACTION SQUAD operative would be incapacitated while\nvisible to and within 3\" of this operative, you can use this rule, providing neither this nor that operative is within control range of an\nenemy operative. If you do, that friendly operative isn’t incapacitated, has 1 wound remaining and cannot be incapacitated for the\nremainder of the action. After that action, that friendly operative can immediately perform a free Dash action, but must end that\nmove within this operative’s control range. Subtract 1 from this and that operative’s APL stats until the end of their next activations\nrespectively, and if this rule was used during that friendly operative’s activation, that activation ends. You cannot use this rule if this\noperative is incapacitated, or if it’s a Shoot action and this operative would be a primary or secondary target.\nRULES CONTINUE ON OTHER SIDE\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, MEDIC, CHIRURGANT 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "裁决官外科医生-能力卡",
+      "title_en": "ARBITES CHIRURGANT",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-裁决官外科医生-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官外科医生\n2 6\" 4+ 8\n医疗包 1AP\n选择一个位于该特工控制范围内的己方强征小队\n特工，那名特工回复最多 2D3 点失去的耐伤。选\n择的特工不能是在转折点中成为“医疗兵！”技能\n目标的特工。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES CHIRURGANT\n2 6\" 4+ 8\nMEDIKIT 1AP\nSelect one friendly EXACTION SQUAD operative\nwithin this operative’s control range to regain up to 2D3 lost\nwounds. It cannot be an operative that the Medic! rule was\nused on during this turning point.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-exaction_squad-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "裁决官束犬大师-数据卡",
+      "title_en": "ARBITES LEASHMASTER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-裁决官束犬大师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官束犬大师\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n战斗霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n战斗霰弹枪（远距离） 4 5+ 2/2 -\n霰弹手枪 4 4+ 3/3 范围 8\"\n镇压短棍 3 4+ 2/3 -\n训犬师：在该特工被激活时，您攻击模式：在第一转折点中的战略计划。为一名己方强征小队 R-VR\n可以在同时激活一名就绪的己方赛博猎犬特工选择以下两个攻击模式在战斗中生效：\n强征小队 R-VR 赛博猎犬特工。 • 激进：特工的近战武器拥有“毫不留情”武器规则。\n您可以按照任何行动顺序逐步完 • 迅捷：特工的移动属性增加 2\"。\n成他们的激活。 • 防御：特工的豁免属性提升 1。\n请继续阅读背面规则\n强征小队、帝国、法务部、束犬大师 28",
+      "weapon_types": {
+        "战斗霰弹枪（近距离）": "远程",
+        "战斗霰弹枪（远距离）": "远程",
+        "霰弹手枪": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES LEASHMASTER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 3+ 4/4 Range 6\"\nCombat shotgun (long range) 4 5+ 2/2 -\nShotpistol 4 4+ 3/3 Range 8”\nRepression baton 3 4+ 2/3 -\nHandler: Whenever this operative is Attack Pattern: STRATEGIC GAMBIT in the first turning point. Select two\nactivated, you can activate a ready of the following attack patterns for a friendly EXACTION SQUAD R-VR\nfriendly EXACTION SQUAD R-VR CYBER-MASTIFF operative to have for the battle:\nCYBER-MASTIFF operative at the\n• Aggressive: Its melee weapons have the Relentless weapon rule.\nsame time. Complete their activations\n• Swift: Add 2\" to its Move stat.\naction by action in any order.\n• Defensive: Improve its Save stat by 1.\nRULES CONTINUE ON OTHER SIDE\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, LEASHMASTER 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "裁决官束犬大师-能力卡",
+      "title_en": "ARBITES LEASHMASTER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-裁决官束犬大师-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官束犬大师\n2 6\" 4+ 8\nR-VR 指令 0AP\n选择一名己方强征小队 R-VR 赛博猎犬特工并\n更改其中一个攻击模式。",
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES LEASHMASTER\n2 6\" 4+ 8\nR-VR COMMAND 0AP\nSelect one friendly EXACTION SQUAD R-VR\nCYBER-MASTIFF operative and change one of its\nattack patterns."
+    },
+    {
+      "id": "kt-exaction_squad-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "R-VR-数据卡",
+      "title_en": "R-VR CYBER-MASTIFF",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-R-VR-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\nR-VR 赛博獒犬\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n机械撕咬 4 4+ 3/5 致命 5+\n野兽：该特工不能执行除了扣扣押 0AP\n押、冲锋、冲刺、后撤、近战、选择位于该特工控制范围内的一名敌方特工。直到那名特工不再\n戒备、转移、拾取标识和放置标位于该特工的控制范围内前，或者直到该特工再次执行本行动前\n识以外的行动。该特工不能使用（以先满足的条件为准)，那名敌方特工武器的命中属性降低 1\n任何不在其数据卡上的武器。（这个效果不会与受创效果叠加)；此外，那名敌方特工不能执\n行后撤行动。\n除非该特工位于敌方特工的控制范围内，否则该特工不能执行此\n行动。\n强征小队、帝国、法务部、R-VR 赛博獒犬 25",
+      "weapon_types": {
+        "机械撕咬": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nR-VR CYBER-MASTIFF\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nMechanical bite 4 4+ 3/5 Lethal 5+\nBeast: This operative cannot perform APPREHEND 0AP\nany actions other than Apprehend,\nSelect one enemy operative within this operative’s control range. Until that enemy\nCharge, Dash, Fall Back, Fight,\noperative is no longer within this operative’s control range, or until this operative\nGuard, Reposition, Pick Up\nperforms this action again (whichever comes first), worsen the Hit stat of that\nMarker and Place Marker. It\nenemy operative’s weapons by 1 (this isn’t cumulative with being injured); in\ncannot use any weapons that aren’t on\naddition, that enemy operative cannot perform the Fall Back action.\nits datacard.\nThis operative cannot perform this action unless an enemy operative is within its\ncontrol range.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, R-VR CYBER-MASTIFF 25"
+    },
+    {
+      "id": "kt-exaction_squad-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "裁决官惩戒者-数据卡",
+      "title_en": "ARBITES CASTIGATOR",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-裁决官惩戒者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官惩戒者\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n战斗霰弹枪 (近距离） 4 3+ 4/4 范围 6\"\n战斗霰弹枪 (远距离） 4 5+ 2/2 -\n拷打者之棰 4 3+ 5/5 撕裂、震荡\n专心致志：您可以忽略任意对该特工属性的修正(包\n括武器属性，但豁免属性除外)。\n狂热奉献：每当一枚攻击骰对该特工造成 3 点或更\n多的伤害时，掷一枚 D6：若结果为 5+，那么那次\n造成的伤害减少 1 点。\n惩戒者的逮捕：当一名敌方特工位于该特工的控制\n范围内时，如果该特工的控制范围内不存在其他敌\n方特工，那么那名敌方特工不能执行后撤行动。\n强征小队、帝国、法务部、惩戒者 28",
+      "weapon_types": {
+        "战斗霰弹枪 (近距离）": "远程",
+        "战斗霰弹枪 (远距离）": "远程",
+        "拷打者之棰": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES CASTIGATOR\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 3+ 4/4 Range 6\"\nCombat shotgun (long range) 4 5+ 2/2 -\nExcruciator maul 4 3+ 5/5 Rending, Shock\nEngendered Focus: You can ignore any changes to this\noperative’s stats (including its weapons’ stats, but excluding its\nSave stat).\nZealous Dedication: Whenever an attack dice inflicts damage of\n3 or more on this operative, roll one D6: on a 5+, subtract 1 from\nthat inflicted damage.\nCastigator’s Arrest: Whenever an enemy operative is within\ncontrol range of this operative, if no other enemy operatives\nare within this operative’s control range, that enemy operative\ncannot perform the Fall Back action.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, CASTIGATOR 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "裁决官炮手-数据卡",
+      "title_en": "ARBITES GUNNER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-裁决官炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官炮手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n榴弹发射器 5 4+ 4/5 穿刺 1\n重机枪（集中） 5 4+ 4/5 重型（仅限冲刺）\n重机枪（扫射） 4 4+ 4/5 重型（仅限冲刺)、洪流 1\"\n捕网枪 4 3+ 4/5 范围 12\"、严重、眩晕\n镇压短棍 3 4+ 2/3 -\n强征小队、帝国、法务部、炮手 28",
+      "weapon_types": {
+        "榴弹发射器": "远程",
+        "重机枪（集中）": "远程",
+        "重机枪（扫射）": "远程",
+        "捕网枪": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES GUNNER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nGrenade launcher 5 4+ 4/5 Piercing 1\nHeavy stubber (focused) 5 4+ 4/5 Heavy (Dash Only)\nHeavy stubber (sweeping) 4 4+ 4/5 Heavy (Dash Only), Torrent 1\"\nWebber 4 3+ 4/5 Range 12\", Severe, Stun\nRepression baton 3 4+ 2/3 -\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, GUNNER 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "裁决官定迹者-数据卡",
+      "title_en": "ARBITES MALOCATOR",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-裁决官定迹者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官定迹者\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n战斗霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n战斗霰弹枪（远距离） 4 5+ 2/2 -\n镇压短棍 3 4+ 2/3 -\n极度专注：该特工的核实扫描 1AP\n每次激活限一次，该选择一名对该特工可见的敌方特工。直到该特工的下一次激活开始前，直到\n特工在执行拾取标识、该特工被残废或直到特工再次执行本行动前（以先满足的条件为准)，每当\n一名己方强征小队特工对那名敌方特工进行射击、近战或反击时，那名己\n放置标识、核实扫描或\n方特工的武器拥有“致命 5+”和“严重”武器规则。\n任务行动时可以少消耗\n该特工不能在敌方特工的控制范围内执行此行动。\n1AP。\n强征小队、帝国、法务部、定迹者 28",
+      "weapon_types": {
+        "战斗霰弹枪（近距离）": "远程",
+        "战斗霰弹枪（远距离）": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES MALOCATOR\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 3+ 4/4 Range 6\"\nCombat shotgun (long range) 4 5+ 2/2 -\nRepression baton 3 4+ 2/3 -\nAcute Focus: Once during VERISCANT 1AP\neach of this operative’s\nSelect one enemy operative visible to this operative. Until the start of this operative’s next\nactivations, it can perform the\nactivation, until it’s incapacitated or until it performs this action again (whichever comes first),\nPick Up Marker, Place\nwhenever a friendly EXACTION SQUAD operative is shooting against, fighting against or\nMarker, Veriscant or a\nretaliating against that enemy operative, that friendly operative’s weapons have the Lethal 5+\nmission action for 1 less AP.\nand Severe weapon rules.\nThis operative cannot perform this action while within control range of an enemy operative.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, MALOCATOR 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-11",
+      "sequence": 11,
+      "category": "operative",
+      "title_zh": "裁决官神枪手-数据卡",
+      "title_en": "ARBITES MARKSMAN",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-11-特工-裁决官神枪手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官神枪手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n处刑者霰弹枪（隐匿） 4 2+ 4/0 毁灭 4、重型、安静、隐匿位置*\n处刑者霰弹枪（移动） 4 3+ 4/4 -\n处刑者霰弹枪（静止） 4 2+ 4/0 毁灭 4、重型\n镇压短棍 3 4+ 2/3 -\n*隐匿位置：该特工只有在战斗中瞄准镜 1AP\n第一次执行射击行动时才可以使直到该特工下一次激活开始\n用本武器。前，\n• 处刑者霰弹枪的隐匿和静止数据拥有“致命 5+”武器规则。\n• 每当它使用处刑者霰弹枪进行射击时，那名敌方特工不能被遮挡。\n强征小队、帝国、法务部、神枪手 28",
+      "weapon_types": {
+        "处刑者霰弹枪（隐匿）": "远程",
+        "处刑者霰弹枪（移动）": "远程",
+        "处刑者霰弹枪（静止）": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES MARKSMAN\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nExecutioner shotgun (concealed) 4 2+ 4/0 Devastating 4, Heavy, Silent, Concealed Position*\nExecutioner shotgun (mobile) 4 3+ 4/4 -\nExecutioner shotgun (stationary) 4 2+ 4/0 Devastating 4, Heavy\nRepression baton 3 4+ 2/3 -\n*Concealed Position: This operative can only use this weapon the first time it’s performing the Shoot action during the battle.\nOPTICS 1AP\nUntil the start of this operative’s next activation:\n• The concealed and stationary profiles of its executioner shotgun have the Lethal 5+ weapon rule.\n• Whenever it’s shooting with its executioner shotgun, enemy operatives cannot be obscured.\nThis operative cannot perform this action while within control range of an enemy operative.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, MARKSMAN 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-12",
+      "sequence": 12,
+      "category": "operative",
+      "title_zh": "裁决官启示者-数据卡",
+      "title_en": "ARBITES REVELATUM",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-12-特工-裁决官启示者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官启示者\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n带瞄准镜的霰弹手枪（远距离） 4 3+ 3/3 -\n带瞄准镜的霰弹手枪（近距离） 4 3+ 3/3 范围 8\"、致命 5+\n镇压短棍 3 4+ 2/3 -\n率先入场：在第一转折侦测 1AP\n点中的战略计划。如果选择一名对该特工可见且位于它 8\" 内的敌方特工。直到转折点结束前，每\n该特工完全位于您的降当一名己方强征小队特工对那名敌方特工进行射击时，您可以使用这个效\n果。若使用：\n落区内，那么特工可以\n立即执行一次无消耗转 • 那名己方特工的远程武器拥有“追踪轻型”武器规则。\n• 那名敌方特工不能被遮挡。\n移行动。\n该特工不能在敌方特工的控制范围内执行本行动。\n强征小队、帝国、法务部、启示者 28",
+      "weapon_types": {
+        "带瞄准镜的霰弹手枪（远距离）": "远程",
+        "带瞄准镜的霰弹手枪（近距离）": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES REVELATUM\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nScoped shotpistol (short range) 4 3+ 3/3 Range 8\", Lethal 5+\nScoped shotpistol (long range) 4 3+ 3/3 -\nRepression baton 3 4+ 2/3 -\nFirst in the Field: SPOT 1AP\nSTRATEGIC GAMBIT\nSelect one enemy operative visible to and within 8\" of this operative. Until the end of the turning\nin the first turning point.\npoint, whenever a friendly EXACTION SQUAD operative is shooting that enemy operative,\nIf this operative is wholly\nyou can use this effect. If you do:\nwithin your drop zone, it can\nimmediately perform a free • That friendly operative’s ranged weapons have the Seek Light weapon rule.\nReposition action. • That enemy operative cannot be obscured.\nThis operative cannot perform this action while within control range of an enemy operative.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, REVELATUM 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-13",
+      "sequence": 13,
+      "category": "operative",
+      "title_zh": "裁决官冲覆者-数据卡",
+      "title_en": "ARBITES SUBDUCTOR",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-13-特工-裁决官冲覆者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官冲覆者\n2 6\" 3+ 8\n名称攻击命中伤害武器规则\n霰弹手枪 4 4+ 3/3 范围 8\"\n震荡棰与突击盾 4 4+ 4/4 震荡、镇压*\n顽固镇压者：您可以忽略任何对该特工近战武器命\n中属性的修正效果。\n强征小队、帝国、法务部、冲覆者 28",
+      "weapon_types": {
+        "霰弹手枪": "远程",
+        "震荡棰与突击盾": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES SUBDUCTOR\n2 6\" 3+ 8\nNAME ATK HIT DMG WR\nShotpistol 4 4+ 3/3 Range 8\"\nShock maul & assault shield 4 4+ 4/4 Shock, Repress*\nStubborn Subjugator: You can ignore any changes to the Hit stat\nof this operative’s melee weapons.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, SUBDUCTOR 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-14",
+      "sequence": 14,
+      "category": "operative",
+      "title_zh": "裁决官警戒者-数据卡",
+      "title_en": "ARBITES VIGILANT",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-14-特工-裁决官警戒者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官警戒者\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n战斗霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n战斗霰弹枪（远距离） 4 5+ 2/2 -\n镇压短棍 3 4+ 2/3 -\n近距离警戒：该特工可以在敌方特工的控制范围内\n执行射击行动（戒备除外)，但是只有在该特工在激\n活期间没有执行过冲锋行动，或者在进行反应时才\n可以这么做。请注意，这并不会限制该特工在进行\n射击行动之后执行冲锋行动。\n强征小队、帝国、法务部、警戒者 28",
+      "weapon_types": {
+        "战斗霰弹枪（近距离）": "远程",
+        "战斗霰弹枪（远距离）": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES VIGILANT\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 3+ 4/4 Range 6\"\nCombat shotgun (long range) 4 5+ 2/2 -\nRepression baton 3 4+ 2/3 -\nClose Quarters Vigilance: This operative can perform the\nShoot action (excluding Guard) while within control range of\nan enemy operative, but only if it hasn’t performed the Charge\naction during the activation, or if it’s a counteraction. Note this\noperative isn’t restricted from performing the Charge action\nafter performing the Shoot action.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, VIGILANT 28"
+    },
+    {
+      "id": "kt-exaction_squad-01-15",
+      "sequence": 15,
+      "category": "operative",
+      "title_zh": "裁决官辨音者-数据卡",
+      "title_en": "ARBITES VOX-SIGNIFIER",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-15-特工-裁决官辨音者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n裁决官辨音者\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n战斗霰弹枪（近距离） 4 3+ 4/4 范围 6\"\n战斗霰弹枪（远距离） 4 5+ 2/2 -\n镇压短棍 3 4+ 2/3 -\n传讯 1AP\n支援。选择对该特工可见的另一名己方强征小\n队特工。直到那名特工的下一次激活结束前，\n其 APL 属性增加 1 点。\n该特工不能在敌方特工的控制范围内执行本\n行动。\n强征小队、帝国、法务部、辨音者 28",
+      "weapon_types": {
+        "战斗霰弹枪（近距离）": "远程",
+        "战斗霰弹枪（远距离）": "远程",
+        "镇压短棍": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nARBITES VOX-SIGNIFIER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nCombat shotgun (close range) 4 3+ 4/4 Range 6\"\nCombat shotgun (long range) 4 5+ 2/2 -\nRepression baton 3 4+ 2/3 -\nSIGNAL 1AP\nSUPPORT. Select one other friendly EXACTION\nSQUAD operative visible to this operative. Until the end of\nthat operative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nEXACTION SQUAD , IMPERIUM, ADEPTUS ARBITES, VOX-SIGNIFIER 28"
+    },
+    {
+      "id": "kt-exaction_squad-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "强征小队杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-强征小队杀戮小队-1.png",
+      "is_back": false,
+      "text": "强征小队\n杀戮小队\n原型：安全保护、搜索与摧毁\n特工\n↘ 1 名强征小队督法者特工，装备有以下一种\n选项：\n• 战斗霰弹枪；镇压短棍\n• 霰弹手枪；统御棰与突击盾\n↘ 10 名强征小队特工，从以下列表中选择：\n• 惩罚者 • 神枪手\n• 外科医生 • 启示者\n• 束犬大师 • 冲覆者\n• R-VR 赛博猎犬 • 警戒者\n• 定迹者 • 辨音者\n• 炮手，装备有以下一种选项：\n○ 榴弹发射器；镇压短棍\n○ 重机枪；镇压短棍\n○ 捕网枪；镇压短棍\n请继续阅读背面规则",
+      "text_en": "EXACTION SQUAD\nKILL TEAM\nARCHETYPES: SECURITY, SEEK & DESTROY\nOPERATIVES\n↘ 1 EXACTION SQUAD PROCTOR-EXACTANT\noperative with one of the following options:\n• Combat shotgun; repression baton\n• Shotpistol; dominator maul & assault shield\n↘ 10 EXACTION SQUAD operatives selected\nfrom the following list:\n• CASTIGATOR • MARKSMAN\n• CHIRURGANT • REVELATUM\n• LEASHMASTER • SUBDUCTOR\n• R-VR • VIGILANT\nCYBER-MASTIFF • VOX-SIGNIFIER\n• MALOCATOR\n• GUNNER with one of the following options:\n○ Grenade launcher; repression baton\n○ Heavy stubber; repression baton\n○ Webber; repression baton\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-exaction_squad-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "强征小队杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-强征小队杀戮小队-2.png",
+      "is_back": true,
+      "text": "除了炮手、冲覆者和警戒者特工以外，上述的每\n一名特工只能被纳入您的杀戮小队一次。您的杀\n戮小队可以包含最多两名炮手特工（每一名特工\n的装备选项必须不同），以及最多四名冲覆者\n特工。",
+      "text_en": "Other than GUNNER, SUBDUCTOR and VIGILANT\noperatives, your kill team can only include each\noperative on this list once. Your kill team can\nonly include up to two GUNNER operatives (each\nmust have a different option) and up to four\nSUBDUCTOR operatives."
+    },
+    {
+      "id": "kt-exaction_squad-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "无情效率",
+      "title_en": "RUTHLESS EFFICIENCY",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-无情效率.png",
+      "is_back": false,
+      "text": "强征小队\n阵营规则\n无情效率\n无论是被标记逮捕还是消灭，被法务部盯上\n的目标无处可藏。\n每当一名己方强征小队特工进行射击时（破片\n和穿甲手雷除外)，您可以在选择有效目标时使\n用本规则。若使用，敌方特工的控制范围内存在\n其他己方强征小队特工并不会阻止该敌方特工\n被选择成为目标。",
+      "text_en": "EXACTION SQUAD\nFACTION RULE\nRUTHLESS EFFICIENCY\nA target, whether marked to be apprehended or\neliminated, stands little chance of escaping the\nattention of an Adeptus Arbites Exaction Squad.\nWhenever a friendly EXACTION SQUAD\noperative is shooting (excluding with frag or krak\ngrenades) and you’re selecting a valid target, you\ncan use this rule. If you do, having other friendly\nEXACTION SQUAD operatives within an enemy\noperative’s control range doesn’t prevent that\nenemy operative from being selected."
+    },
+    {
+      "id": "kt-exaction_squad-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "标记审判",
+      "title_en": "MARKED FOR JUSTICE",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-标记审判.png",
+      "is_back": false,
+      "text": "强征小队\n阵营规则\n标记审判\n强征小队会将注意力集中在被标记的目标身\n上，在那之后将仇恨转向下一个罪人。\n战略计划。选择一个敌方特工在转折点中进行标\n记。每当一名己方强征小队特工对标记的特工\n进行射击、近战或反击时，那名己方特工的武\n器拥有“重击”武器规则。在标记的特工被残废\n后，您可以在转折点中选择新的敌方特工进行标\n记(并且在转折点期间可以持续这个过程)。",
+      "text_en": "EXACTION SQUAD\nFACTION RULE\nMARKED FOR JUSTICE\nExaction Squads prioritise their targets, focusing their\nire on those marked for immediate punishment before\nmoving on to the next transgressor.\nSTRATEGIC GAMBIT. Select one enemy operative\nto be your mark for the turning point. Whenever a\nfriendly EXACTION SQUAD operative is shooting\nagainst, fighting against or retaliating against\nyour mark, that friendly operative's weapons\nhave the Punishing weapon rule. Whenever your\nmark is incapacitated, you can select a new\nenemy operative to be your mark for the turning\npoint (and can continue to do so during this\nturning point)."
+    },
+    {
+      "id": "kt-exaction_squad-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "镇压",
+      "title_en": "REPRESS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-镇压.png",
+      "is_back": false,
+      "text": "强征小队\n阵营规则\n镇压\n执法部拥有镇压暴动、叛逆以及各种骚动的\n经验，无论敌人身份如何，他们都能够保持\n自身的坚毅。\n本杀戮小队规则中的一些武器拥有“镇压”武器\n规则，具体如下。\n*镇压：每当该特工使用本武器时：\n• 您的每一次格挡可以被用来格挡两次未结算的\n成功（而不是一次)。\n• 如果该特工正在进行反击，那么您先结算第一\n枚攻击骰（也就是防守方先结算，而不是进\n攻方)。",
+      "text_en": "EXACTION SQUAD\nFACTION RULE\nREPRESS\nExperienced in suppressing riots, rebellions and various\nother kinds of unrest, the Adeptus Arbites are resilient\nin the face of any oncoming foe, no matter their origin.\nSome weapons in this team’s rules have the\nRepress weapon rule below.\n*Repress: Whenever this operative is using\nthis weapon:\n• Each of your blocks can be allocated to block\ntwo unresolved successes (instead of one).\n• If this operative is retaliating, you resolve\nthe first attack dice (i.e. defender instead\nof attacker)."
+    },
+    {
+      "id": "kt-exaction_squad-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "EXACTION SQUAD",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "强征小队\n标识/指示物指南\n医疗扣押标记审判\n指示物指示物指示物\n核实扫描侦测激进\n指示物指示物指示物\n迅捷防御天鹰使节\n指示物指示物标识",
+      "text_en": "EXACTION SQUAD\nMARKER/TOKEN GUIDE\nMedic token Apprehend Marked for\ntoken Justice token\nVeriscant token Spot token Aggressive\ntoken\nSwift token Defensive Nuncio-aquila\ntoken marker"
+    },
+    {
+      "id": "kt-exaction_squad-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "罪恶自我揭示",
+      "title_en": "GUILT REVEALS ITSELF",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-罪恶自我揭示.png",
+      "is_back": false,
+      "text": "强征小队\n战略计谋\n罪恶自我揭示\n强征小队在追击罪人时绝不会留情。几乎没\n有人能够逃过他们的追捕。\n在您为己方强征小队特工选择有效目标时，位\n于那名特工 4\" 内的敌方特工无法拥有掩护（而\n不是 2\")。虽然这能够让上述的特工成为有效目\n标（假设他们可见)，但并不会移除特工拥有的\n任何掩护豁免，除非己方强征小队特工和常规\n一样位于那名特工的 2\" 内。",
+      "text_en": "EXACTION SQUAD\nSTRATEGY PLOY\nGUILT REVEALS ITSELF\nExaction Squads are relentless in their pursuit of the\ncondemned. Few escape their clutches.\nWhenever you’re selecting a valid target for a\nfriendly EXACTION SQUAD operative, enemy\noperatives within 4\" of it cannot be in cover\n(instead of 2\"). While this can allow such\noperatives to be targeted (assuming they’re\nvisible), it doesn’t remove their cover save (if\nany), unless the friendly EXACTION SQUAD\noperative is within 2\" as normal."
+    },
+    {
+      "id": "kt-exaction_squad-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "不可侵犯的权威",
+      "title_en": "INVIOLATE JURISDICTION",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-不可侵犯的权威.png",
+      "is_back": false,
+      "text": "强征小队\n战略计谋\n不可侵犯的权威\n强征小队被他们所拥有的权威激励，他们为\n了守住关键位置会狂热地进行战斗。\n在一名特工对位于目标标识或敌方特工 2\" 内的\n己方强征小队特工进行射击时，您可以重掷一\n枚自己的防御骰。",
+      "text_en": "EXACTION SQUAD\nSTRATEGY PLOY\nINVIOLATE JURISDICTION\nEmboldened by the authority they hold, Exaction\nSquads will fight with zealous determination to hold key\npositions against the foe.\nWhenever an operative is shooting a friendly\nEXACTION SQUAD operative that’s within 2\" of\nan objective marker or an enemy operative, you\ncan re-roll one of your defence dice."
+    },
+    {
+      "id": "kt-exaction_squad-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "施予正义",
+      "title_en": "DISPENSE JUSTICE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-施予正义.png",
+      "is_back": false,
+      "text": "强征小队\n战略计谋\n施予正义\n在追击罪人时，裁决官们极度专注，他们纪\n律严明且决心坚定。\n在一名己方强征小队特工进行近战或反击时，\n如果特工在激活期间没有移动超过其移动属性，\n或者如果特工正在进行反应，那么其近战武器拥\n有“无休”武器规则。",
+      "text_en": "EXACTION SQUAD\nSTRATEGY PLOY\nDISPENSE JUSTICE\nIn pursuit of the guilty, Arbitrators are focused,\ndisciplined and utterly determined.\nWhenever a friendly EXACTION SQUAD\noperative is fighting or retaliating, if it hasn’t\nmoved more than its Move stat during the\nactivation, or if it's a counteraction, its melee\nweapons have the Ceaseless weapon rule."
+    },
+    {
+      "id": "kt-exaction_squad-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "最终判决",
+      "title_en": "TERMINAL DECREE",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-最终判决.png",
+      "is_back": false,
+      "text": "强征小队\n战略计谋\n最终判决\n一个危险的敌人被宣判犯下了重罪，并且必\n须立即将其消灭。\n每当一名己方强征小队特工对一名位于其 6\" 内\n的敌方特工进行射击时，或每当一名己方强征小\n队炮手特工进行射击时，那名己方特工的远程\n武器拥有“平衡”武器规则。",
+      "text_en": "EXACTION SQUAD\nSTRATEGY PLOY\nTERMINAL DECREE\nA dangerous quarry has been judged guilty of heinous\ncrimes against the Imperium and must be terminated\nwith extreme prejudice.\nWhenever a friendly EXACTION SQUAD\noperative is shooting an enemy operative within\n6\" of it, or whenever a friendly EXACTION\nSQUAD GUNNER operative is shooting, that\nfriendly operative’s ranged weapons have the\nBalanced weapon rule."
+    },
+    {
+      "id": "kt-exaction_squad-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "帝皇律法的长臂",
+      "title_en": "LONG ARM OF THE EMPEROR'S LAW",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-帝皇律法的长臂.png",
+      "is_back": false,
+      "text": "强征小队\n交战计谋\n帝皇律法的长臂\n没有人能够逃过法务部的无情审判。\n在一名己方强征小队特工执行射击行动时，如\n果您选择了一件拥有“范围 X”武器规则的武器\n（破片和穿甲手雷除外)，那么您可以使用本规\n则。直到那次行动结束前，X 的距离增加 3\"。",
+      "text_en": "EXACTION SQUAD\nFIREFIGHT PLOY\nLONG ARM OF THE EMPEROR'S LAW\nNo one escapes the merciless judgement of the\nAdeptus Arbites.\nUse this firefight ploy when a friendly EXACTION\nSQUAD operative is performing the Shoot\naction and you select a weapon with the Range\nx weapon rule (excluding frag or krak grenade).\nUntil the end of that action, add 3\" to x."
+    },
+    {
+      "id": "kt-exaction_squad-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "实行制裁",
+      "title_en": "EXACT PUNISHMENT",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-实行制裁.png",
+      "is_back": false,
+      "text": "强征小队\n交战计谋\n实行制裁\n对一名裁决官出手是一项可以被立即处决的\n罪行。\n在一名敌方特工对其 6\" 内的一名己方强征小队\n特工进行射击或近战后，如果那名己方特工没\n有被残废，那么您可以使用本交战计谋。那名己\n方特工可以立即执行一次无消耗的近战或射击行\n动，但是其他敌方特工不能被选择成为那次行\n动的有效目标或近战对象（但依旧可以成为“爆\n炸”武器规则的次要目标)。",
+      "text_en": "EXACTION SQUAD\nFIREFIGHT PLOY\nEXACT PUNISHMENT\nTo strike against an Arbitrator is an offence punishable\nby immediate termination.\nUse this firefight ploy after an enemy operative\nshoots against or fights against a friendly\nEXACTION SQUAD operative within 6\" of it, and\nthat friendly operative isn’t incapacitated as a\nresult. That friendly operative can immediately\nperform either a free Shoot or a free Fight action,\nbut you cannot select any other enemy operative\nas a valid target or to fight against during that\naction (note that secondary targets from the Blast\nweapon rule can still be targeted)."
+    },
+    {
+      "id": "kt-exaction_squad-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "残暴支援",
+      "title_en": "BRUTAL BACKUP",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-残暴支援.png",
+      "is_back": false,
+      "text": "强征小队\n交战计谋\n残暴支援\n在面对最为难缠的敌人时，裁决官们会将力\n量聚集在一起，使用棍棒和手棰痛击罪人。\n在一名己方强征小队特工的激活期间，在它执\n行行动的之前或之后使用本交战计谋。选择一名\n位于其控制范围内的敌方特工，另一名己方强\n征小队特工可以立即执行一次无消耗的近战行\n动，但只能以那名敌方特工作为近战对象。",
+      "text_en": "EXACTION SQUAD\nFIREFIGHT PLOY\nBRUTAL BACKUP\nWhen combating the most belligerent of foes,\nArbitrators may combine their considerable might to\nbludgeon the guilty with baton and maul.\nUse this firefight ploy during a friendly EXACTION\nSQUAD operative’s activation, before or after it\nperforms an action. Select one enemy operative\nwithin its control range. One other friendly\nEXACTION SQUAD operative can immediately\nperform a free Fight action, but you cannot select\nany other enemy operative to fight against during\nthat action."
+    },
+    {
+      "id": "kt-exaction_squad-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "处刑命令",
+      "title_en": "EXECUTION ORDER",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-处刑命令.png",
+      "is_back": false,
+      "text": "强征小队\n交战计谋\n处刑命令\n那些触怒人类帝国的存在将被法务部标记进\n行处决，他们将被优先针对。\n在一名敌方特工执行任务行动（操作舱门除外）\n时使用本交战计谋。或者在交战行动结束时使\n用本交战计谋。选择一名控制目标标识的敌方\n特工。\n在上述任意情况中，当您的对手下一次将要激活\n被选择的敌方特工时，您可以打断那次激活并激\n活一名就绪的己方强征小队特工。若这么做，\n那么那名己方特工必须对被选择的敌方特工进行\n近战或者射击，并且直到完成之前不能对其他\n敌方特工进行近战或射击（如果无法达成这个条\n件，那么那名己方特工的激活被取消)。\n在完成那名己方特工的激活后，继续那名敌方特\n工的激活（若可能)。直到被选择的敌方特工被\n激活或残废前，您无法再次使用本交战计谋。",
+      "text_en": "EXACTION SQUAD\nFIREFIGHT PLOY\nEXECUTION ORDER\nThose who have earned the ire of the Imperium are\nmarked by the Adeptus Arbites for execution, their\ntermination prioritised.\nUse this firefight ploy when an enemy operative\nperforms a mission action (excluding Operate\nHatch). Alternatively, use it at the end of the\nFirefight phase and select one enemy operative\nthat controls an objective marker.\nIn either case, the next time your opponent would\nactivate that enemy operative, you can interrupt\nthat activation and activate a ready friendly\nEXACTION SQUAD operative. If you do, during\nthat activation, that friendly operative must shoot\nagainst or fight against that enemy operative, and\ncannot do so against any other enemy operatives\nuntil it does (if this isn’t possible, that friendly\noperative’s activation is cancelled).\nAfter completing that friendly operative’s\nactivation, continue that enemy operative’s\nactivation (if possible). You cannot use this ploy\nagain until that enemy operative is activated\nor incapacitated."
+    },
+    {
+      "id": "kt-exaction_squad-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "加固目镜",
+      "title_en": "REINFORCED MIRROR-VISOR",
+      "source_page": 8,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-加固目镜.png",
+      "is_back": false,
+      "text": "强征小队\n阵营装备\n加固目镜\n这个装甲目镜能够帮助佩戴者抵御武器和其\n他装置所产生的致盲和眩晕效果。\n您可以忽略任何对己方强征小队特工 APL 属性\n的修正，并且不会受到敌方特工“震荡”武器规\n则的影响。",
+      "text_en": "EXACTION SQUAD\nFACTION EQUIPMENT\nREINFORCED MIRROR-VISOR\nThis armoured visor is designed to shield the wearer\nfrom blinding and disorientating weapons or devices.\nYou can ignore any changes to the APL stat of\nfriendly EXACTION SQUAD operatives, and\nthey aren’t affected by enemy operatives’ Shock\nweapon rule."
+    },
+    {
+      "id": "kt-exaction_squad-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "镣铐",
+      "title_en": "MANACLES",
+      "source_page": 8,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-镣铐.png",
+      "is_back": false,
+      "text": "强征小队\n阵营装备\n镣铐\n这对精金镣铐能够阻止受捕目标逃脱逮捕。\n每当一名位于己方强征小队特工控制范围内的\n敌方特工执行后撤行动时，如果那名己方特工的\n控制范围内不存在任何其他敌方特工，那么您可\n以使用本规则。若使用，掷 2D6，如果敌方特工\n的耐伤属性大于那名己方特工，则掷一枚 D6。\n如果有任何掷骰结果为 4+，那名敌方特工不能\n在那次激活或反应期间执行那个行动（不会消耗\n任何 AP)，并且您不能在这个转折点中再次使用\n这个规则。",
+      "text_en": "EXACTION SQUAD\nFACTION EQUIPMENT\nMANACLES\nThese adamantine manacles prevent captive subjects\nfrom escaping custody.\nWhenever an enemy operative would perform\nthe Fall Back action while within control range\nof a friendly EXACTION SQUAD operative, if no\nother enemy operatives are within that friendly\noperative’s control range, you can use this rule.\nIf you do, roll two D6, or one D6 if that enemy\noperative has a higher Wounds stat than that\nfriendly operative. If any result is a 4+, that enemy\noperative cannot perform that action during that\nactivation/counteraction (no AP are spent on it),\nand you cannot use this rule again during this\nturning point."
+    },
+    {
+      "id": "kt-exaction_squad-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "频闪磷光灯",
+      "title_en": "STROBING PHOSPHOR-LUMEN",
+      "source_page": 9,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-频闪磷光灯.png",
+      "is_back": false,
+      "text": "强征小队\n阵营装备\n频闪磷光灯\n这个明亮的白色闪光灯会使照射到的敌人陷入眩晕。\n当一名敌方特工对位于其 2\" 内的己方强征小队\n特工进行射击、近战和反击时，您的对手不能重\n掷结果为 1 的攻击骰。",
+      "text_en": "EXACTION SQUAD\nFACTION EQUIPMENT\nSTROBING PHOSPHOR-LUMEN\nThe brilliant white, flickering light of this rotating lumen\ndevice has the effect of disorientating foes caught in\nits beam.\nWhenever an enemy operative is shooting\nagainst, fighting against or retaliating against a\nfriendly EXACTION SQUAD operative within 2\" of\nit, your opponent cannot re-roll their attack dice\nresults of 1."
+    },
+    {
+      "id": "kt-exaction_squad-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "特殊弹药",
+      "title_en": "SPECIAL ISSUE SHELLS",
+      "source_page": 9,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-特殊弹药.png",
+      "is_back": false,
+      "text": "强征小队\n阵营装备\n特殊弹药\n裁决官的霰弹枪可以使用各种类型的特殊弹\n药，这包括燃烧弹和穿甲独头弹。\n每个转折点限两次，当一名己方强征小队特工\n执行射击行动时，而您选择了战斗霰弹枪、处刑\n者霰弹枪、带瞄准镜的霰弹手枪或霰弹手枪，便\n可以使用本规则。若使用，选择以下一个武器规\n则，它将在行动结束前生效：\n• 集中。\n• 穿刺 1，但是只有在目标的豁免属性为 3+ 或\n更佳时才生效。\n• 洪流 1\"，但是您不能选择超过一个次要目标。",
+      "text_en": "EXACTION SQUAD\nFACTION EQUIPMENT\nSPECIAL ISSUE SHELLS\nArbites shotguns can be loaded with a wide range of\nspecialist ammunition, including but not limited to\nincendiary rounds and armour-piercing slugs.\nUp to twice per turning point, when a friendly\nEXACTION SQUAD operative is performing the\nShoot action and you select a combat shotgun,\nexecutioner shotgun, scoped shotpistol or\nshotpistol, you can use this rule. If you do, select\none of the following weapon rules for that weapon\nto have until the end of that action:\n• Saturate.\n• Piercing 1, but only if the target has a Save stat\nof 3+ or better.\n• Torrent 1\", but you cannot select more than\none secondary target."
+    }
+  ]
+}

@@ -1,0 +1,747 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-NEMESIS_CLAW",
+  "team_name_zh": "复仇之爪",
+  "team_name_en": "Nemesis Claw",
+  "source_pdf": "最新杀戮小队规则更新/复仇之爪 Nemesis Claw 杀戮小队规则.pdf",
+  "source_pdf_sha256": "8cae9fa359db0cba18d8158d6875274ac5941b720b80713bb7c529117900cd06",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 27,
+    "operative": 8,
+    "operative-ability": 2,
+    "team-selection": 2,
+    "faction-rule": 2,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-nemesis_claw-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "午夜领主卓见者-数据卡",
+      "title_en": "NIGHT LORD VISIONARY",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-午夜领主卓见者-数据卡.png",
+      "is_back": false,
+      "text": "午夜领主卓见者 APL 移动豁免耐伤\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n等离子手枪（标准） 4 3+ 3/5 范围 8\"，穿刺 1\n等离子手枪（过载） 4 3+ 4/5 范围 8\"，过热，致命 5+，穿刺 1\n诺斯特拉莫链锯刃 5 3+ 4/5 撕裂\n动力拳 5 4+ 5/7 残暴\n动力槌 5 3+ 4/6 震荡\n动力武器 5 3+ 4/6 致命 5+\n请继续阅读背面规则\n复仇之爪、混沌、阿斯塔特叛军、灵能者、队长、卓见者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "等离子手枪（标准）": "远程",
+        "等离子手枪（过载）": "远程",
+        "诺斯特拉莫链锯刃": "近战",
+        "动力拳": "近战",
+        "动力槌": "近战",
+        "动力武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD VISIONARY\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nPlasma pistol (standard) 4 3+ 3/5 Range 8\", Piercing 1\nPlasma pistol (supercharge) 4 3+ 4/5 Range 8\", Hot, Lethal 5+, Piercing 1\nNostraman chainblade 5 3+ 4/5 Rending\nPower fist 5 4+ 5/7 Brutal\nPower maul 5 3+ 4/6 Shock\nPower weapon 5 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, PSYKER, LEADER, VISIONARY 32"
+    },
+    {
+      "id": "kt-nemesis_claw-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "午夜领主卓见者-能力卡",
+      "title_en": "NIGHT LORD VISIONARY",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-午夜领主卓见者-能力卡.png",
+      "is_back": false,
+      "text": "午夜领主卓见者 APL 移动豁免耐伤\n3 6\" 3+ 15\n预感：灵能。在每个战略阶段的就绪步骤中，您获得 1 点预感点数，征兆 1AP\n如果该特工不位于敌方特工的 3\" 内，则获得 2 点预感点数：\n灵能。消耗己方的 1 点预感点\n• 恶兆：灵能。当轮到您激活一名己方特工时，您可以消耗 1 点预感数，获得 1 点指挥点数。\n点数跳过那次激活。\n这名特工不能在敌方特工的控\n• 先兆：灵能。每个转折点一次，当这名特工进行近战或反击时，在\n制范围内执行此行动，且在同\n结算攻击骰步骤中，如果一枚攻击骰对这名特工造成了普通伤害，\n一个转折点中不能使用本技能\n您可以消耗 1 点预感点数忽略这些伤害。\n超过一次。\n在这名特工残废时，您无法获得和消耗预感点数。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD VISIONARY\n3 6\" 3+ 15\nPrescience: PSYCHIC. In the Ready step of each Strategy phase, you gain D3 Prescience points. At the end of each turning point,\ndiscard your Prescience points. You can spend your Prescience points in the Firefight phase as follows (you cannot use each of the\nfollowing rules more than once per turning point):\n• Foreboding: PSYCHIC. Whenever it’s your turn to activate a friendly operative, you can spend 1 of your Prescience points to\nskip that activation.\n• Portent: PSYCHIC. Whenever an attack dice inflicts Normal Dmg on this operative, you can spend 1 of your Prescience points to\nignore that inflicted damage.\nYou cannot gain or spend your Prescience points if this operative is incapacitated.\nPREMONITION 1AP\nPSYCHIC. Spend 1 of your Prescience points to gain 1CP.\nThis operative cannot perform this action while within control range of an enemy operative, or more than once per turning point."
+    },
+    {
+      "id": "kt-nemesis_claw-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "午夜领主布恐者-数据卡",
+      "title_en": "NIGHT LORD FEARMONGER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-午夜领主布恐者-数据卡.png",
+      "is_back": false,
+      "text": "午夜领主布恐者 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n带瞄准镜的爆矢手枪（近距离） 4 3+ 3/4 范围 8\"，致命 5+\n带瞄准镜的爆矢手枪（远距离） 4 3+ 3/4 -\n恐惧试剂瓶 5 3+ 2/0 范围 6\"，爆炸 2\"，毁灭 3，有限 1，集中，\n恐惧试剂*\n淬秽匕首 5 3+ 3/5 恐惧试剂*\n*恐惧试剂：在结算攻击骰步骤中，如果您使用关\n键成功造成伤害（包括作为“毁灭”武器规则的\n结果），那么被这个武器作为目标的特工获得一\n枚己方恐惧试剂指示物（如果它尚未拥有这种指示\n物）。\n恐惧试剂毒害：每当一名拥有己方恐惧试剂标识的\n特工被激活时，对其造成 D3 点伤害。\n请继续阅读背面规则\n复仇之爪、混沌、阿斯塔特叛军、布恐者 32",
+      "weapon_types": {
+        "带瞄准镜的爆矢手枪（近距离）": "远程",
+        "带瞄准镜的爆矢手枪（远距离）": "远程",
+        "恐惧试剂瓶": "远程",
+        "淬秽匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD FEARMONGER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nScoped bolt pistol (short range) 4 3+ 3/4 Range 8\", Lethal 5+\nScoped bolt pistol (long range) 4 3+ 3/4 -\nTerrorchem vial 5 3+ 2/0 Range 6\", Blast 2\", Devastating 3, Limited 1,\nSaturate, Terrorchem*\nTainted blade 5 3+ 3/5 Terrorchem*\n*Terrorchem: In the Resolve Attack Dice step, if you inflict\ndamage with any critical successes (including as a result of the\nDevastating weapon rule), the operative this weapon is being\nused against gains one of your Terrorchem tokens (if it doesn’t\nalready have one).\nTerrorchem Poison: Whenever an operative that has one of your\nTerrorchem tokens is activated, inflict D3 damage on it.\nRULES CONTINUE ON OTHER SIDE\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, FEARMONGER 32"
+    },
+    {
+      "id": "kt-nemesis_claw-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "午夜领主布恐者-能力卡",
+      "title_en": "NIGHT LORD FEARMONGER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-午夜领主布恐者-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n午夜领主布恐者\n3 6\" 3+ 14\n毒害目标 1AP\n选择一个受这名特工控制的目标标记获得一枚己\n方恐惧试剂指示物，您不能对敌方特工控制范围\n内的目标标记或已经拥有己方恐惧试剂指示物的\n目标标记这么做。没有恐惧试剂指示物的一名敌\n方特工首次争夺那个目标标识时，那名特工受到\n2D3 点伤害且获得那枚恐惧试剂指示物（如果它\n处于行动中，结束那次行动）。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD FEARMONGER\n3 6\" 3+ 14\nPOISON OBJECTIVE 1AP\nSelect one objective marker this operative controls to gain\none of your Terrorchem tokens. It cannot be an objective\nmarker within control range of an enemy operative, or one\nthat already has one of your Terrorchem tokens. The first time\nan enemy operative that doesn’t have one of your Terrorchem\ntokens contests that objective marker, that operative gains\nthat Terrorchem token, then inflict 2D3 damage on it (if it’s\nduring an action, at the end of that action).\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-nemesis_claw-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "午夜领主炮手-数据卡",
+      "title_en": "NIGHT LORD GUNNER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-午夜领主炮手-数据卡.png",
+      "is_back": false,
+      "text": "午夜领主炮手 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n火焰喷射器 4 2+ 3/3 范围 8\"，集中，洪流 2\"\n热熔枪 4 3+ 6/3 范围 6\"，毁灭 4，穿刺 2\n等离子枪（标准） 4 3+ 4/6 穿刺 1\n等离子枪（过载） 4 3+ 5/6 过热，致命 5+，穿刺 1\n双拳 4 3+ 3/4 -\n复仇之爪、混沌、阿斯塔特叛军、炮手 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "火焰喷射器": "远程",
+        "热熔枪": "远程",
+        "等离子枪（标准）": "远程",
+        "等离子枪（过载）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD GUNNER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nMeltagun 4 3+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma gun (standard) 4 3+ 4/6 Piercing 1\nPlasma gun (supercharge) 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nFists 4 3+ 3/4 -\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, GUNNER 32"
+    },
+    {
+      "id": "kt-nemesis_claw-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "午夜领主重炮手-数据卡",
+      "title_en": "NIGHT LORD HEAVY GUNNER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-午夜领主重炮手-数据卡.png",
+      "is_back": false,
+      "text": "午夜领主重炮手 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n重型爆矢枪（集中） 5 3+ 4/5 重型 (仅限转移)，关键穿刺 1\n重型爆矢枪（扫射） 4 3+ 4/5 重型 (仅限转移)，关键穿刺 1，洪流 1\"\n导弹发射器（破片） 4 3+ 3/5 爆炸 2\"，重型 (仅限转移)\n导弹发射器（穿甲） 4 3+ 5/7 重型 (仅限转移)，穿刺 1\n双拳 4 3+ 3/4 -\n复仇之爪、混沌、阿斯塔特叛军、重炮手 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "重型爆矢枪（集中）": "远程",
+        "重型爆矢枪（扫射）": "远程",
+        "导弹发射器（破片）": "远程",
+        "导弹发射器（穿甲）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD HEAVY GUNNER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nHeavy bolter (focused) 5 3+ 4/5 Heavy (Reposition only), Piercing Crits 1\nHeavy bolter (sweeping) 4 3+ 4/5 Heavy (Reposition only), Piercing Crits 1,\nTorrent 1\"\nMissile launcher (frag) 4 3+ 3/5 Blast 2\", Heavy (Reposition only)\nMissile launcher (krak) 4 3+ 5/7 Heavy (Reposition only), Piercing 1\nFists 4 3+ 3/4 -\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, HEAVY GUNNER 32"
+    },
+    {
+      "id": "kt-nemesis_claw-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "午夜领主啸叫者-数据卡",
+      "title_en": "NIGHT LORD SCREECHER",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-午夜领主啸叫者-数据卡.png",
+      "is_back": false,
+      "text": "午夜领主啸叫者 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n闪电爪 5 3+ 4/5 无休，致命 5+\n啸叫者：每当在这名特工 3\" 内的一名敌方特工进\n行射击，近战或反击时，您的对手无法重掷其攻\n击骰。\n残暴欲望：每当这名特工对受伤的敌方特工进行\n近战时，这名特工的闪电爪获得“致命 4+”武器\n规则。\n复仇之爪、混沌、阿斯塔特叛军、啸叫者 32",
+      "weapon_types": {
+        "闪电爪": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD SCREECHER\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nLightning claws 5 3+ 4/5 Ceaseless, Lethal 5+\nScreecher: Whenever an enemy operative within 3\" of this\noperative is shooting, fighting or retaliating, your opponent\ncannot re-roll their attack dice.\nAppetite for Cruelty: Whenever this operative is fighting against\na wounded enemy operative, this operative’s lightning claws have\nthe Lethal 4+ weapon rule.\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, SCREECHER 32"
+    },
+    {
+      "id": "kt-nemesis_claw-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "午夜领主窃皮者-数据卡",
+      "title_en": "NIGHT LORD SKINTHIEF",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-午夜领主窃皮者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n午夜领主窃皮者\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n诺斯特拉莫链锯刃 5 3+ 4/6 撕裂\n活剥他们：每个转折点一次，当这名特工在其控制范围内残废了一名剥皮深坑的暴君：每当这名特工\n敌方特工时，您可以选择对这名特工或那名残废敌方特工可见且位于进行近战或反击时，这名特工在\n其 6\" 内的另一名敌方特工。直到下一个转折点开始前，那名敌方特工受到 3 点或更多普通及暴击伤害\n无法控制标识或执行拾取标识行动以及任务行动。时，伤害将被减去 1 点。\n复仇之爪、混沌、阿斯塔特叛军、窃皮者 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "诺斯特拉莫链锯刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD SKINTHIEF\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nNostraman chainglaive 5 3+ 4/6 Rending\nFlay Them Alive: Once per turning point, when this operative\nincapacitates an enemy operative within its control range, you\ncan select one other enemy operative visible to and within 6\" of\neither this operative or the incapacitated enemy operative. Until\nthe start of the next turning point, that other enemy operative\ncannot control markers or perform the Pick Up Marker or\nmission actions.\nTyrant of the Skinning Pits: Whenever this operative is fighting\nor retaliating, Normal and Critical Dmg of 3 or more inflicts 1 less\ndamage on it.\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, SKINTHIEF 32"
+    },
+    {
+      "id": "kt-nemesis_claw-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "午夜领主腹语师-数据卡",
+      "title_en": "NIGHT LORD VENTRILOKAR",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-午夜领主腹语师-数据卡.png",
+      "is_back": false,
+      "text": "午夜领主腹语师 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n链锯剑 5 3+ 4/5 -\n徽记持有者：在确定标\n不安模仿 1AP\n识的控制时，将这名特\n工的 APL 属性视为高于灵能。选择位于这名特工 6\" 内的一名敌方特工，再为那名敌方特工选择下\n原先 1 点。请注意，这列效果之一（每个选项在每场战斗中只能选择一次）：\n并不改变其 APL 属性，\n• 直到那名特工的下一次激活结束前，将其 APL 属性减去 1 点。\n所以任何修正都会与本\n• 改变其命令。\n效果累加。\n• 为其执行一次无消耗的冲刺行动（为对手指定移动后的位置）。\n这名特工不能在敌方特工的控制范围内执行此行动。\n复仇之爪、混沌、阿斯塔特叛军、灵能者、腹语师 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "链锯剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD VENTRILOKAR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nChainsword 5 3+ 4/5 -\nIcon Bearer: Whenever DISCONCERTING MIMICRY 1AP\ndetermining control of a\nPSYCHIC. Select one enemy operative within 6\" of this operative, then select one of the\nmarker, treat this operative’s\nfollowing for that enemy operative (you can only select each option once per battle):\nAPL stat as 1 higher. Note this\nisn’t a change to its APL stat, • Until the end of its next activation, subtract 1 from its APL stat.\nso any changes are cumulative • Change its order.\nwith this. • Perform a free Dash action with it (specify the location for\nyour opponent to move it to).\nThis operative cannot perform this action while within control range of an enemy operative.\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, PSYKER, VENTRILOKAR 32"
+    },
+    {
+      "id": "kt-nemesis_claw-01-10",
+      "sequence": 10,
+      "category": "operative",
+      "title_zh": "午夜领主战士-数据卡",
+      "title_en": "NIGHT LORD WARRIOR",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-10-特工-午夜领主战士-数据卡.png",
+      "is_back": false,
+      "text": "午夜领主战士 APL 移动豁免耐伤\n3 6\" 3+ 14\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢枪 4 3+ 3/4 -\n链锯剑 5 3+ 4/5 -\n双拳 4 3+ 3/4 -\n残暴折磨者：每当这名特工对一名受创或耐伤属性\n为 7 点或更低的敌方特工进行射击，近战或反击\n时，其武器获得“致命 5+”武器规则。\n复仇之爪、混沌、阿斯塔特叛军、战士 32",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "链锯剑": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nNIGHT LORD WARRIOR\n3 6\" 3+ 14\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nBoltgun 4 3+ 3/4 -\nChainsword 5 3+ 4/5 -\nFists 4 3+ 3/4 -\nCruel Tormenter: Whenever this operative is shooting against,\nfighting against or retaliating against an injured enemy operative,\nor an enemy operative that has a Wounds stat of 7 or less, this\noperative’s weapons have the Lethal 5+ weapon rule.\nNEMESIS CLAW , CHAOS, HERETIC ASTARTES, WARRIOR 32"
+    },
+    {
+      "id": "kt-nemesis_claw-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "复仇之爪杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-复仇之爪杀戮小队-1.png",
+      "is_back": false,
+      "text": "复仇之爪杀戮小队\n原型：渗透，搜索与摧毁\n特工\n↘ 1 名复仇之爪卓见者特工，装备有以下一种\n选项:\n• 爆矢手枪；动力拳\n• 爆矢手枪；动力槌\n• 爆矢手枪；动力武器\n• 等离子手枪；诺斯特拉莫链锯刃\n↘ 5 名复仇之爪特工，从以下列表进行选择:\n• 布恐者\n• 炮手，装备有以下一种选项:\n○ 爆矢手枪；火焰喷射器；双拳\n○ 爆矢手枪；热熔枪；双拳\n○ 爆矢手枪；等离子枪；双拳\n• 重炮手，装备有以下一种选项:\n○ 爆矢手枪；重型爆矢枪；双拳\n○ 爆矢手枪；导弹发射器；双拳\n请继续阅读背面",
+      "text_en": "NEMESIS CLAW\nKILL TEAM\nARCHETYPES: INFILTRATION, SEEK & DESTROY\nOPERATIVES\n↘ 1 NEMESIS CLAW VISIONARY operative with\none of the following options:\n• Bolt pistol; power fist\n• Bolt pistol; power maul\n• Bolt pistol; power weapon\n• Plasma pistol; Nostraman chainblade\n↘ 5 NEMESIS CLAW operatives selected from\nthe following list:\n• FEARMONGER\n• GUNNER with one of the following options:\n○ Bolt pistol; flamer; fists\n○ Bolt pistol; meltagun; fists\n○ Bolt pistol; plasma gun; fists\n• HEAVY GUNNER with one of the\nfollowing options:\n○ Bolt pistol; heavy bolter; fists\n○ Bolt pistol; missile launcher; fists\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-nemesis_claw-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "复仇之爪杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-复仇之爪杀戮小队-2.png",
+      "is_back": true,
+      "text": "• 啸叫者\n• 窃皮者\n• 腹语师\n• 战士，装备有以下一种选项:\n○ 爆矢手枪；链锯剑\n○ 爆矢枪；双拳\n除了战士特工以外，列表中的每一名特工只能被\n纳入您的杀戮小队一次。",
+      "text_en": "• SCREECHER\n• SKINTHIEF\n• VENTRILOKAR\n• WARRIOR with one of the following options:\n○ Bolt pistol; chainsword\n○ Boltgun; fists\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-nemesis_claw-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "阿斯塔特",
+      "title_en": "ASTARTES",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-阿斯塔特.png",
+      "is_back": false,
+      "text": "复仇之爪\n阵营规则\n阿斯塔特\n这些通过基因强化的超人类只为一个目的而存在：\n战争。\n在每一名己方复仇之爪特工激活时，特工可以\n执行两次近战行动或两次射击行动。若执行两次\n射击行动，则其中至少一次需要选择爆矢手枪，\n爆矢枪或带瞄准镜的爆矢手枪进行射击。\n每一名己方复仇之爪特工无论拥有什么命令都\n可以执行反应。",
+      "text_en": "NEMESIS CLAW\nFACTION RULE\nASTARTES\nThese genetically modified superhumans are made for\none purpose: war.\nDuring each friendly NEMESIS CLAW operative’s\nactivation, it can perform either two Shoot\nactions or two Fight actions. If it’s two Shoot\nactions, a bolt pistol, boltgun or scoped bolt pistol\nmust be selected for at least one of them.\nEach friendly NEMESIS CLAW operative can\ncounteract regardless of its order."
+    },
+    {
+      "id": "kt-nemesis_claw-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "身披午夜",
+      "title_en": "IN MIDNIGHT CLAD",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-身披午夜.png",
+      "is_back": false,
+      "text": "复仇之爪\n阵营规则\n身披午夜\n黑暗伴随着午夜领主，成为他们的盟友和武器。\n每当一名敌方特工对一名己方复仇之爪特工进\n行射击时，若那名己方特工满足下列所有条件，\n则其处于遮挡：\n• 对其可见的敌方特工距离它超过 8\"。\n• 它位于重型地形 1\" 内且不低于它，或它的底\n盘的任意部分位于制高点之下。",
+      "text_en": "NEMESIS CLAW\nFACTION RULE\nIN MIDNIGHT CLAD\nNight Lords are one with the darkness, employing it as\nan ally and a weapon.\nWhenever an enemy operative is shooting a\nfriendly NEMESIS CLAW operative, that friendly\noperative is obscured if both of the following\nare true:\n• It’s more than 8\" from enemy operatives it’s\nvisible to.\n• It’s within 1\" of Heavy terrain that’s not lower\nthan it, or any part of its base is underneath\nVantage terrain."
+    },
+    {
+      "id": "kt-nemesis_claw-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "NEMESIS CLAW",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "复仇之爪\n标识/指示物指南\n先兆指示物恐惧试剂指示物\n活剥他们指示物不安模仿指示物\n毒害目标指示物惊悚战利品指示物\n预感点数（1 点和 2 点）",
+      "text_en": "NEMESIS CLAW\nMARKER/TOKEN GUIDE\nPortent token Terrorchem token\nFlay Them Alive token Disconcerting Mimicry\ntoken\nPoison Objective token Grisly Trophy token\nPrescience points\n(Values 1 & 2)"
+    },
+    {
+      "id": "kt-nemesis_claw-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "我们为你而来",
+      "title_en": "WE HAVE COME FOR YOU",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-01-战略计谋-我们为你而来.png",
+      "is_back": false,
+      "text": "复仇之爪\n战略计谋\n我们为你而来\n午夜领主对敌人发起的突袭极为迅速，在对手\n拿起利刃反击前会报以震撼，惊愕和恐怖至极\n的残暴。\n每当一名己方复仇之爪特工激活时，若那次激\n活的第一个行动为冲锋行动，则它可以在那次行\n动的移动结束时对其控制范围内的一名敌方特工\n造成 D3 点伤害。",
+      "text_en": "NEMESIS CLAW\nSTRATEGY PLOY\nWE HAVE COME FOR YOU\nThe Night Lords strike their foes swiftly, utilising shock,\nawe and terror to brutalise the enemy before they can\nlift a blade in response.\nWhenever a friendly NEMESIS CLAW operative\nis activated, if the first action it performs during\nthat activation is the Charge action, when it\nends its move during that action, you can inflict\nD3 damage on one enemy operative within its\ncontrol range."
+    },
+    {
+      "id": "kt-nemesis_claw-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "黑暗狩猎",
+      "title_en": "THE BLACK HUNT",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-黑暗狩猎.png",
+      "is_back": false,
+      "text": "复仇之爪\n战略计谋\n黑暗狩猎\n每一名午夜领主的两颗心脏中都燃烧着可怕的\n恶意，而玩弄受伤的猎物正是他们的最爱。\n每当一名己方复仇之爪特工对受伤的敌方特工\n进行射击，近战或反击时，您可以重掷一枚攻\n击骰。",
+      "text_en": "NEMESIS CLAW\nSTRATEGY PLOY\nTHE BLACK HUNT\nA terrible malice burns within the twin hearts of each\nNight Lord, and they enjoy nothing more than toying\nwith their wounded prey.\nWhenever a friendly NEMESIS CLAW operative\nis shooting against, fighting against or retaliating\nagainst a wounded enemy operative, you can\nre-roll one of your attack dice."
+    },
+    {
+      "id": "kt-nemesis_claw-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "猎杀视觉",
+      "title_en": "PREYSIGHT",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-03-战略计谋-猎杀视觉.png",
+      "is_back": false,
+      "text": "复仇之爪\n战略计谋\n猎杀视觉\n午夜领主能感知到猎物畏缩时的恐惧，随之便\n用精准的追猎捉拿他们。\n每当您为一名己方复仇之爪特工执行射击行动\n时您可以使用这个规则。若此，直至那次行动结\n束，那名己方特工的远程武器获得“范围 6\"”\n和“追踪轻型”武器规则。",
+      "text_en": "NEMESIS CLAW\nSTRATEGY PLOY\nPREYSIGHT\nThe Night Lords seem able to sense the fear of cowering\nprey, hunting down the craven with unerring precision.\nWhenever a friendly NEMESIS CLAW operative\nperforms the Shoot action, you can use this rule.\nIf you do, until the end of that action, that friendly\noperative’s ranged weapons have the Range 6\"\nand Seek Light weapon rules."
+    },
+    {
+      "id": "kt-nemesis_claw-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "归于黑暗",
+      "title_en": "RETURN TO DARKNESS",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-归于黑暗.png",
+      "is_back": false,
+      "text": "复仇之爪\n战略计谋\n归于黑暗\n尽管午夜领主拥有远超人类的巨大体格，但机\n敏迅捷地穿行于一片片阴影之间对他们而言完\n全不成问题。\n一名己方复仇之爪特工可以立即执行一次无消\n耗的后撤或转移行动，但它结束移动时必须有重\n型地形位于其控制范围内，或其底座任意部分位\n于制高点地形下方，而且它不能在那次行动中移\n动超过 4\"，并且不能在移动结束时更靠近敌方特\n工（在使用近距离战斗规则的杀戮区中，例如杀\n戮区：墓穴世界，在结算本规则时忽略墙壁地形\n模型）。",
+      "text_en": "NEMESIS CLAW\nSTRATEGY PLOY\nRETURN TO DARKNESS\nThe Night Lords move from shadow to shadow with an\nagility and speed belied by their transhuman bulk.\nOne friendly NEMESIS CLAW operative\ncan immediately perform a free Fall Back or\nReposition action, but it must end that move\nwith Heavy terrain within its control range, or\nany part of its base underneath Vantage terrain.\nIn addition, it cannot move more than 4\" during\nthat action and it cannot end that move closer\nto enemy operatives (in a killzone that uses the\nclose quarters rules, e.g. Killzone: Tomb World,\nignore Wall terrain when determining this)."
+    },
+    {
+      "id": "kt-nemesis_claw-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "尖啸音频",
+      "title_en": "VOX SCREAM",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-01-交战计谋-尖啸音频.png",
+      "is_back": false,
+      "text": "复仇之爪\n交战计谋\n尖啸音频\n通过调整其头盔的内建发声单元的频率，午夜\n领主们能够发出足以令敌人眩晕的可怕尖啸。\n在您的对手激活一名对己方复仇之爪特工可见\n的敌方特工时使用此交战计谋。掷一枚 D6；如\n果掷骰结果大于那名敌方特工的 APL 属性，那\n么您的对手无法在这次激活中激活那名特工；如\n果掷骰结果低于那名敌方特工的 APL 属性，那\n么这次计谋不会被使用，并且返还消耗的 CP，\n在那之后，您不能在当前转折点中再次使用本\n计谋。",
+      "text_en": "NEMESIS CLAW\nFIREFIGHT PLOY\nVOX SCREAM\nBy modulating the frequency of their helm-mounted\nvox-units, Night Lord operatives can unleash a terrifying\nscream with the ability to stun an opponent.\nUse this firefight ploy when your opponent would\nactivate an enemy operative that’s visible to a\nfriendly NEMESIS CLAW operative. Roll one D6;\nif the result is higher than that enemy operative’s\nAPL stat, your opponent cannot activate it during\nthis activation; if the result is less than or equal\nto that enemy operative’s APL stat, this ploy isn’t\nused, the CP spent on it is refunded and you\ncannot use this ploy again during this turning\npoint. If there are no other enemy operatives\neligible to be activated, this ploy has no effect."
+    },
+    {
+      "id": "kt-nemesis_claw-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "诛杀伪帝",
+      "title_en": "DEATH TO THE FALSE EMPEROR",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-诛杀伪帝.png",
+      "is_back": false,
+      "text": "复仇之爪\n交战计谋\n诛杀伪帝\n和其他阿斯塔特叛军一样，午夜领主也对崇拜\n着那具尸体的帝国士兵抱有特别的恨意。\n当一名己方复仇之爪特工对拥有帝国关键词的\n敌方特工进行射击，近战或反击时，在掷攻击骰\n后使用此交战计谋。那名己方特工的武器在那个\n流程结束前获得“无休”武器规则；若那名敌方\n特工还拥有阿斯塔特修会关键词，则那个己方特\n工的武器在那个流程结束前会改为获得“毫不留\n情”武器规则。",
+      "text_en": "NEMESIS CLAW\nFIREFIGHT PLOY\nDEATH TO THE FALSE EMPEROR\nThe Night Lords, like all Heretic Astartes, bear a\nparticular hatred for the corpse-worshipping soldiers of\nthe Imperium.\nUse this firefight ploy after rolling your attack\ndice for a friendly NEMESIS CLAW operative,\nif it’s shooting against, fighting against or\nretaliating against an enemy operative that has\nthe IMPERIUM keyword. That friendly operative’s\nweapons have the Ceaseless weapon rule\nuntil the end of that sequence; if that enemy\noperative also has the ADEPTUS ASTARTES\nkeyword, that friendly operative’s weapons have\nthe Relentless weapon rule until the end of that\nsequence instead."
+    },
+    {
+      "id": "kt-nemesis_claw-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "杀戮癖",
+      "title_en": "PROCLIVITY FOR MURDER",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-03-交战计谋-杀戮癖.png",
+      "is_back": false,
+      "text": "复仇之爪\n交战计谋\n杀戮癖\n每一次残杀都能满足午夜领主的嗜血欲，并激\n励着他们做出更为残暴的行为。\n在一名己方复仇之爪特工令位于其控制范围内\n的一名敌方特工残废时使用此交战计谋。那个己\n方特工可以立即执行一次至多为 3\" 的无消耗冲\n锋行动或冲刺行动（如果是前者，移动距离不能\n超过 3\"），即使在那次激活中您已经执行过某行\n动会阻止您执行冲锋或冲刺行动，也不会影响这\n个行动的执行。",
+      "text_en": "NEMESIS CLAW\nFIREFIGHT PLOY\nPROCLIVITY FOR MURDER\nEach brutal kill a Night Lord performs serves to feed\ntheir bloodlust and drives them to further acts of\nterrible violence.\nUse this firefight ploy after a friendly NEMESIS\nCLAW operative incapacitates an enemy\noperative within its control range. That friendly\noperative can immediately perform a free Charge\nor Dash action (for the former, it cannot move\nmore than 3\"), even if it’s performed an action\nthat prevents it from performing those actions."
+    },
+    {
+      "id": "kt-nemesis_claw-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "卑鄙战士",
+      "title_en": "DIRTY FIGHTER",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-卑鄙战士.png",
+      "is_back": false,
+      "text": "复仇之爪\n交战计谋\n卑鄙战士\n午夜领主对荣耀这类概念毫无敬意，只要有必\n要，他们会使用任何卑鄙战术。\n当一名就绪的己方复仇之爪特工在反击的结算\n攻击骰步骤开始时，使用此交战计谋。您可以在\n正常顺序前先结算一次成功，这样做的话，在那\n次流程中您不能结算任意其他成功。",
+      "text_en": "NEMESIS CLAW\nFIREFIGHT PLOY\nDIRTY FIGHTER\nThe Night Lords have no respect for the concept of\nhonour and will use whatever underhanded tactics they\ndeem necessary.\nUse this firefight ploy when a friendly NEMESIS\nCLAW operative is retaliating, at the start of the\nResolve Attack Dice step. You can resolve one of\nyour successes before the normal order. If you do,\nyou cannot resolve any other successes during\nthat sequence."
+    },
+    {
+      "id": "kt-nemesis_claw-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "剥制皮肤",
+      "title_en": "FLAYED SKIN",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-01-阵营装备-剥制皮肤.png",
+      "is_back": false,
+      "text": "复仇之爪\n阵营装备\n剥制皮肤\n午夜领主身披被屠戮者的皮肤，敌人因此感到\n极度恐惧和厌恶。\n每当一名敌方特工对位于其 2\" 内的一名己方复\n仇之爪特工进行射击，近战或反击时，您的对\n手无法重掷结果为 1 的攻击骰。",
+      "text_en": "NEMESIS CLAW\nFACTION EQUIPMENT\nFLAYED SKIN\nBedecked with the bloody hides of butchered victims,\nthe Night Lords inspire abject terror and revulsion in\ntheir enemies.\nWhenever an enemy operative is shooting\nagainst, fighting against or retaliating against a\nfriendly NEMESIS CLAW operative within 2\" of\nit, your opponent cannot re-roll their attack dice\nresults of 1."
+    },
+    {
+      "id": "kt-nemesis_claw-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "链缚陷阱",
+      "title_en": "CHAIN SNARE",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-链缚陷阱.png",
+      "is_back": false,
+      "text": "复仇之爪\n阵营装备\n链缚陷阱\n这种能紧咬血肉或护甲的武器由一条附有带钩\n利刃的修长链条组成，能够阻止敌人逃跑。\n每当位于一名己方复仇之爪特工控制范围内的\n一名敌方特工执行后撤行动时，若没有其他敌方\n特工位于那名己方战士的控制范围内，则您可\n以使用这个规则。若此，掷两枚 D6，若那名敌\n方特工的耐伤属性高于那名己方特工，则掷一枚\nD6：若有任意掷骰结果为 4+，则那名敌方特工\n在那次激活或反应中无法执行那个行动（这不会\n消耗 AP），并且您不能在当前转折点中再次使\n用这个规则。",
+      "text_en": "NEMESIS CLAW\nFACTION EQUIPMENT\nCHAIN SNARE\nComposed of hooked blades attached to a length of\nchain, this weapon bites into the flesh or armour of the\nwielder’s target, preventing them from fleeing.\nWhenever an enemy operative would perform\nthe Fall Back action while within control range\nof a friendly NEMESIS CLAW operative, if no\nother enemy operatives are within that friendly\noperative’s control range, you can use this rule.\nIf you do, roll two D6, or one D6 if that enemy\noperative has a higher Wounds stat than that\nfriendly operative. If any result is a 4+, that enemy\noperative cannot perform that action during that\nactivation/counteraction (no AP are spent on it),\nand you cannot use this rule again during this\nturning point."
+    },
+    {
+      "id": "kt-nemesis_claw-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "惊悚战利品",
+      "title_en": "GRISLY TROPHY",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-03-阵营装备-惊悚战利品.png",
+      "is_back": false,
+      "text": "复仇之爪\n阵营装备\n惊悚战利品\n断肢，断手，从尖叫受害者的头颅中拔出的眼\n球——这类耸人听闻的战利品能使午夜领主之\n敌在战栗中动摇。\n每场战斗限一次，当一名己方复仇之爪特工使\n位于其 2\" 内的一名敌方特工残废时，您可以使\n用本规则。若此，那名己方特工获得己方惊悚战\n利品指示物（如果它尚未拥有这种指示物）。当\n拥有己方惊悚战利品的一名己方复仇之爪特工\n位于一名敌方特工 2\" 内且对其可见时，将那名\n敌方特工武器的攻击属性减去 1 点。",
+      "text_en": "NEMESIS CLAW\nFACTION EQUIPMENT\nGRISLY TROPHY\nSevered hands and limbs, eyeballs plucked from the\nskulls of screaming victims – these macabre trophies\nand more cause the Night Lords’ foes to waver.\nOnce per battle, when a friendly NEMESIS CLAW\noperative incapacitates an enemy operative\nwithin 2\" of it, you can use this rule. If you do, that\nfriendly operative gains one of your Grisly Trophy\ntokens (if it doesn’t already have one). Whenever\na friendly NEMESIS CLAW operative that has\none of your Grisly Trophy tokens is visible to and\nwithin 2\" of an enemy operative, subtract 1 from\nthe Atk stat of that enemy operative’s weapons."
+    },
+    {
+      "id": "kt-nemesis_claw-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "通讯干扰器",
+      "title_en": "COMMS JAMMERS",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-通讯干扰器.png",
+      "is_back": false,
+      "text": "复仇之爪\n阵营装备\n通讯干扰器\n在午夜领主们的干扰装置影响下，惊慌失措的\n敌人无法通讯，进一步扩大了混乱的战况。\n当一名敌方特工位于一名己方复仇之爪特工 3\"\n内时，那名敌方特工的 APL 属性无法提升。请\n注意，这并不能影响已经改变的 APL 属性。",
+      "text_en": "NEMESIS CLAW\nFACTION EQUIPMENT\nCOMMS JAMMERS\nThe Night Lords use jamming devices to sow chaos\nand confusion by preventing their panicked foes\nfrom communicating.\nWhenever an enemy operative is within 3\" of a\nfriendly NEMESIS CLAW operative, that enemy\noperative’s APL stat cannot be added to. Note\nthat this doesn’t affect APL stats that have\nalready been changed."
+    }
+  ]
+}

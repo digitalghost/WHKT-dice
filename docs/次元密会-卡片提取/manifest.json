@@ -1,1304 +1,875 @@
 {
   "schema_version": 1,
   "team_id": "CHAOS-WC",
-  "faction_id": "CHAOS",
   "team_name_zh": "次元密会",
-  "team_name_en": "Warp Coven",
-  "source_pdf": "../次元密会 Warpcoven 杀戮小队规则.pdf",
-  "ktdash_page": "https://ktdash.app/killteams/CHAOS-WC",
-  "ktdash_api": "https://ktdash.app/api/killteams/CHAOS-WC",
-  "extracted_at": "2026-09-23",
-  "source_pdf_pages": 17,
-  "card_source_pages": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
-  ],
+  "team_name_en": "Warpcoven",
+  "source_pdf": "最新杀戮小队规则更新/次元密会 Warpcoven 杀戮小队规则.pdf",
+  "source_pdf_sha256": "1eb144ad25157a94a7a0b8afa46ec40a9df8d5e0ef99aa98fb595a3fb82c2f30",
+  "extracted_at": "2026-10-26",
   "render_dpi": 200,
-  "page_size_px": [
-    1654,
-    2339
-  ],
+  "source_data": "官方中文 PDF（唯一信源）",
   "counts": {
-    "cards": 36,
+    "total": 32,
     "operative": 10,
-    "operative_ability": 3,
-    "team_selection": 2,
-    "faction_rule": 5,
-    "strategic_ploy": 4,
-    "firefight_ploy": 4,
-    "faction_equipment": 4,
-    "other": 4
+    "operative-ability": 3,
+    "team-selection": 2,
+    "faction-rule": 5,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
   },
   "cards": [
     {
-      "id": "wc-001-sorcerer-destiny-data",
+      "id": "chaos-wc-01-01",
       "sequence": 1,
       "category": "operative",
-      "title_zh": "命运巫师",
-      "title_en": "Sorcerer Of Destiny",
+      "title_zh": "命运巫师-数据卡",
+      "title_en": "SORCERER OF DESTINY",
       "source_page": 1,
       "page_order": 1,
-      "bbox_px": [
-        350,
-        66,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        23.76,
-        343.44,
-        199.08
+        126.1,
+        23.7,
+        343.0,
+        198.5
       ],
       "bbox_norm": [
-        0.211608,
-        0.028217,
-        0.576784,
-        0.236426
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
       ],
-      "image": "01-特工-命运巫师-数据卡.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOD"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "数据卡"
+      "image": "01-01-特工-命运巫师-数据卡.png",
+      "is_back": false,
+      "text": "命运巫师 APL 移动豁免耐伤\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n裁决闪电 4 3+ 4/2 灵能、毁灭 2、致命 5+\n地狱火爆矢手枪 4 3+ 3/4 范围 8\"、穿刺 1\n亚空间炽焰手枪 4 2+ 3/3 范围 6\"、穿刺 1、洪流 1\"\n灵能杖 4 3+ 4/6 灵能、震荡\n普罗斯佩罗弯刀 5 3+ 4/6 致命 5+\n请继续阅读背面规则\n次元密会、混沌、阿斯塔特叛军、灵能者、巫师、命运 32",
+      "weapon_types": {
+        "裁决闪电": "远程",
+        "地狱火爆矢手枪": "远程",
+        "亚空间炽焰手枪": "远程",
+        "灵能杖": "近战",
+        "普罗斯佩罗弯刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSORCERER OF DESTINY\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nDoombolt 4 3+ 4/2 PSYCHIC, Devastating 2, Lethal 5+\nInferno bolt pistol 4 3+ 3/4 Range 8\", Piercing 1\nWarpflame pistol 4 2+ 3/3 Range 6\", Piercing 1, Torrent 1\"\nForce stave 4 3+ 4/6 PSYCHIC, Shock\nProsperine khopesh 5 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nWARPCOVEN , CHAOS, HERETIC ASTARTES, PSYKER, SORCERER, DESTINY 32"
     },
     {
-      "id": "wc-002-sorcerer-destiny-ability",
+      "id": "chaos-wc-01-02",
       "sequence": 2,
       "category": "operative-ability",
-      "title_zh": "命运巫师",
-      "title_en": "Sorcerer Of Destiny",
+      "title_zh": "命运巫师-能力卡",
+      "title_en": "SORCERER OF DESTINY",
       "source_page": 1,
       "page_order": 2,
-      "bbox_px": [
-        350,
-        618,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        222.48,
-        343.44,
-        199.08
+        126.1,
+        222.2,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.264215,
-        0.576784,
-        0.236426
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
       ],
-      "image": "02-特工-命运巫师-能力卡.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOD-PBF",
-        "CHAOS-WC-SOD-RD"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "能力卡"
+      "image": "01-02-特工能力-命运巫师-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n命运巫师\n3 6\" 3+ 15\n天命庇护 1AP\n灵能。选择对这名特工可见的一名己方次元密会\n特工。直到这名特工下一次激活开始，这名特\n工残废或这个行动被一名己方特工再次执行（以\n先达成的条件为准），每当一名特工对那名被选\n择中的特工执行射击时，您便可以重掷任意己方\n防御骰子。\n该特工不能在敌方特工的控制范围内执行此行\n动。\n蹂躏命运 1AP\n灵能。选择位于这名特工 9\" 内且可见的一名敌\n方特工。直到这名特工下一次激活开始，这名特\n工残废或这个行动被一名己方特工再次执行（以\n先达成的条件为准），每当被选择的那名敌方特\n工执行射击、近战或反击时，您的对手必须为它\n掷骰结果为 6 的攻击骰子进行重掷，并在确定\n标识的控制时将被选中敌方特工的 APL 属性视\n为降低 1 点。请注意这不是对其 APL 属性的修\n正，所以任何执行行动前产生的修正都会与本效\n果相累加。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSORCERER OF DESTINY\n3 6\" 3+ 15\nPROTECTED BY FATE 1AP\nPSYCHIC. Select one friendly WARPCOVEN operative\nvisible to this operative. Until the start of this operative’s\nnext activation, until it’s incapacitated or until this action is\nperformed again by a friendly operative (whichever comes\nfirst), whenever an operative is shooting that selected\noperative, you can re-roll any of your defence dice.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nRAVAGE DESTINY 1AP\nPSYCHIC. Select one enemy operative visible to and\nwithin 9\" of this operative. Until the start of this operative’s\nnext activation, until it's incapacitated or until this action is\nperformed again by a friendly operative (whichever comes\nfirst), whenever that enemy operative is shooting, fighting\nor retaliating, your opponent must re-roll their attack dice\nresults of 6, and whenever determining control of a marker,\ntreat that enemy operative’s APL stat as 1 lower. Note this\nisn't a change to its APL stat, so any changes are cumulative\nwith this.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
     },
     {
-      "id": "wc-003-sorcerer-tempyrion-data",
+      "id": "chaos-wc-01-03",
       "sequence": 3,
       "category": "operative",
-      "title_zh": "时间巫师",
-      "title_en": "Sorcerer Of Tempyrion",
+      "title_zh": "时间巫师-数据卡",
+      "title_en": "SORCERER OF TEMPYRION",
       "source_page": 1,
       "page_order": 3,
-      "bbox_px": [
-        350,
-        1170,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        421.2,
-        343.44,
-        199.08
+        126.1,
+        420.6,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.500214,
-        0.576784,
-        0.236426
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
       ],
-      "image": "03-特工-时间巫师-数据卡.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOT",
-        "CHAOS-WC-SOT-RR"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "数据卡"
+      "image": "01-03-特工-时间巫师-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n时间巫师\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n奔腾涌流 4 3+ 3/4 灵能、爆炸 2\"、撕裂\n地狱火爆矢手枪 4 3+ 3/4 范围 8\"、穿刺 1\n亚空间炽焰手枪 4 2+ 3/3 范围 6\"、穿刺 1、洪流 1\"\n灵能杖 4 3+ 4/6 灵能、震荡\n普罗斯佩罗弯刀 5 3+ 4/6 致命 5+\n重构仪式 1AP\n灵能。选择位于这名特工 6\" 内且可见的一名己方次元密会特工，那名特工恢复最多 2D3 点失去的耐伤。\n该特工不能在敌方特工的控制范围内，或者在一名己方特工在当前转折点中已经执行过本行动的情况下执\n行此行动。\n请继续阅读背面规则\n次元密会、混沌、阿斯塔特叛军、灵能者、巫师、时间 32",
+      "weapon_types": {
+        "奔腾涌流": "远程",
+        "地狱火爆矢手枪": "远程",
+        "亚空间炽焰手枪": "远程",
+        "灵能杖": "近战",
+        "普罗斯佩罗弯刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSORCERER OF TEMPYRION\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nFluxblast 4 3+ 3/4 PSYCHIC, Blast 2\", Rending\nInferno bolt pistol 4 3+ 3/4 Range 8\", Piercing 1\nWarpflame pistol 4 2+ 3/3 Range 6\", Piercing 1, Torrent 1\"\nForce stave 4 3+ 4/6 PSYCHIC, Shock\nProsperine khopesh 5 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nWARPCOVEN , CHAOS, HERETIC ASTARTES, PSYKER, SORCERER, TEMPYRION 32"
     },
     {
-      "id": "wc-004-sorcerer-tempyrion-ability",
+      "id": "chaos-wc-01-04",
       "sequence": 4,
       "category": "operative-ability",
-      "title_zh": "时间巫师",
-      "title_en": "Sorcerer Of Tempyrion",
+      "title_zh": "时间巫师-能力卡",
+      "title_en": "SORCERER OF TEMPYRION",
       "source_page": 1,
       "page_order": 4,
-      "bbox_px": [
-        350,
-        1723,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        620.28,
-        343.44,
-        199.08
+        126.1,
+        619.0,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.73664,
-        0.576784,
-        0.236426
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
       ],
-      "image": "04-特工-时间巫师-能力卡.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOT-TF"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "能力卡"
+      "image": "01-04-特工能力-时间巫师-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n时间巫师\n3 6\" 3+ 15\n时空波动 1AP\n灵能。选择位于这名特工 6\" 内且可见的一名己方次元密会特工，并将己方时空波涌标识放置在那名特工\n的控制范围内。\n在那名特工下一次激活结束时，若它没有残废且完全位于己方时空波涌标识 6\" 内，便将那名特工从杀戮\n区移除并重新放置在可以放置的位置；在重新放置时，它必须在其控制范围内拥有己方时空波涌标识（或\n尽可能靠近），并随后将己方时空波涌标识从杀戮区移除。如果那名特工没有完全位于己方时空波涌标识\n6\" 内，则将那个标识移除。\n该特工不能在敌方特工的控制范围内或者己方时空波涌标识位于杀戮区时执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSORCERER OF TEMPYRION\n3 6\" 3+ 15\nRECONSTITUTION RITUAL 1AP\nPSYCHIC. Select one friendly WARPCOVEN operative\nvisible to and within 6\" of this operative. That operative\nregains up to 2D3 lost wounds.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if a friendly operative has\nalready performed this action during this turning point.\nTEMPORAL FLUX 1AP\nPSYCHIC. Select one friendly WARPCOVEN operative\nvisible to and within 6\" of this operative and place your\nTemporal Flux marker within that operative’s control range.\nAt the end of that operative’s next activation, if it hasn’t been\nincapacitated and is still wholly within 6\" of your Temporal\nFlux marker, remove that operative from the killzone and set\nit back up in a location it can be placed; when it's set back\nup, it must have your Temporal Flux marker within its control\nrange (or as close as possible). Then remove your Temporal\nFlux marker from the killzone. If that operative isn't wholly\nwithin 6\" of your Temporal Flux marker (including if it’s\nincapacitated), remove that marker from the killzone.\nThis operative cannot perform this action while within control\nrange of an enemy operative, or if your Temporal Flux marker\nis currently in the killzone."
     },
     {
-      "id": "wc-005-sorcerer-warpfire-data",
+      "id": "chaos-wc-01-05",
       "sequence": 5,
       "category": "operative",
-      "title_zh": "亚空间炽焰巫师",
-      "title_en": "Sorcerer Of Warpfire",
+      "title_zh": "亚空间炽焰巫师-数据卡",
+      "title_en": "SORCERER OF WARPFIRE",
       "source_page": 2,
       "page_order": 1,
-      "bbox_px": [
-        350,
-        66,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        23.76,
-        343.44,
-        199.08
+        126.1,
+        23.7,
+        343.0,
+        198.5
       ],
       "bbox_norm": [
-        0.211608,
-        0.028217,
-        0.576784,
-        0.236426
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
       ],
-      "image": "05-特工-亚空间炽焰巫师-数据卡.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOW",
-        "CHAOS-WC-SOW-A-MB"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "数据卡"
+      "image": "01-05-特工-亚空间炽焰巫师-数据卡.png",
+      "is_back": false,
+      "text": "亚空间炽焰巫师 APL 移动豁免耐伤\n3 6\" 3+ 15\n名称攻击命中伤害武器规则\n烈焰风暴 5 4+ 2/3 灵能、集中、追踪轻型、洪流 2\"\n地狱火爆矢手枪 4 3+ 3/4 范围 8\"、穿刺 1\n焚却理智 5 4+ 1/1 灵能、致命 5+、集中、追踪轻型、焚却理智*\n亚空间炽焰手枪 4 2+ 3/3 范围 6\"、穿刺 1、洪流 1\"\n灵能杖 4 3+ 4/6 灵能、震荡\n普罗斯佩罗弯刀 5 3+ 4/6 致命 5+\n*焚却理智：在结算攻击骰子步骤中，若您通过任意关键成功造成了伤害，则作为这个武器攻击对象的特工\n获得一枚己方焚却理智标识（如果它原先没有），直至它的下一次激活结束、它被残废或一名己方特工再\n次使用这个武器（以先达成的条件为准）。每当一名特工拥有一枚己方焚却理智标识，便将它武器的命中\n属性降低 1 点（这不与受创叠加）。\n请继续阅读背面规则\n次元密会、混沌、阿斯塔特叛军、灵能者、巫师、亚空间炽焰 32",
+      "weapon_types": {
+        "烈焰风暴": "远程",
+        "地狱火爆矢手枪": "远程",
+        "焚却理智": "远程",
+        "亚空间炽焰手枪": "远程",
+        "灵能杖": "近战",
+        "普罗斯佩罗弯刀": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSORCERER OF WARPFIRE\n3 6\" 3+ 15\nNAME ATK HIT DMG WR\nFirestorm 5 4+ 2/3 PSYCHIC, Saturate, Seek Light, Torrent 2\"\nInferno bolt pistol 4 3+ 3/4 Range 8\", Piercing 1\nMindburn 5 4+ 1/1 PSYCHIC, Lethal 5+, Saturate, Seek Light,\nMindburn*\nWarpflame pistol 4 2+ 3/3 Range 6\", Piercing 1, Torrent 1\"\nForce stave 4 3+ 4/6 PSYCHIC, Shock\nProsperine khopesh 5 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nWARPCOVEN , CHAOS, HERETIC ASTARTES, PSYKER, SORCERER, WARPFIRE 32"
     },
     {
-      "id": "wc-006-sorcerer-warpfire-ability",
+      "id": "chaos-wc-01-06",
       "sequence": 6,
       "category": "operative-ability",
-      "title_zh": "亚空间炽焰巫师",
-      "title_en": "Sorcerer Of Warpfire",
+      "title_zh": "亚空间炽焰巫师-能力卡",
+      "title_en": "SORCERER OF WARPFIRE",
       "source_page": 2,
       "page_order": 2,
-      "bbox_px": [
-        350,
-        618,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        222.48,
-        343.44,
-        199.08
+        126.1,
+        222.2,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.264215,
-        0.576784,
-        0.236426
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
       ],
-      "image": "06-特工-亚空间炽焰巫师-能力卡.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOW-AL"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "能力卡"
+      "image": "01-06-特工能力-亚空间炽焰巫师-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n亚空间炽焰巫师\n3 6\" 3+ 15\n点明 1AP\n灵能。选择对这名特工可见的一名敌方特工。直\n到这名特工的下一次激活开始前、它被残废或这\n个行动被一名己方特工再次执行（以先达成的条\n件为准），那名被选中的敌方特工获得一枚己方\n点明标识（如果它原先没有）。每当一名己方次\n元密会特工对拥有点明标识的敌方特工执行射\n击、近战或反击时，那名己方特工的武器获得\n“无休”武器规则。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSORCERER OF WARPFIRE\n3 6\" 3+ 15\n*Mindburn: In the Resolve Attack Dice step, if you inflict damage\nwith any critical successes, the operative this weapon is being\nused against gains one of your Mindburn tokens (if it doesn't\nalready have one) until the end of its next activation, until it’s\nincapacitated or until a friendly operative uses this weapon again\n(whichever comes first). Whenever an operative has one of your\nMindburn tokens, worsen the Hit stat of its weapons by 1 (this\nisn’t cumulative with being injured).\nALIGHT 1AP\nPSYCHIC. Select one enemy operative visible to this\noperative. Until the start of this operative’s next activation,\nuntil it's incapacitated or until this action is performed\nagain by a friendly operative (whichever comes first), that\nenemy operative gains one of your Alight tokens (if it doesn’t\nalready have one). Whenever a friendly WARPCOVEN\noperative is shooting against, fighting against or retaliating\nagainst an enemy operative that has one of your Alight\ntokens, that friendly operative’s weapons have the Ceaseless\nweapon rule.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
     },
     {
-      "id": "wc-007-rubric-gunner",
+      "id": "chaos-wc-01-07",
       "sequence": 7,
       "category": "operative",
-      "title_zh": "红字战士炮手",
-      "title_en": "Rubric Marine Gunner",
+      "title_zh": "红字战士炮手-数据卡",
+      "title_en": "RUBRIC MARINE GUNNER",
       "source_page": 2,
       "page_order": 3,
-      "bbox_px": [
-        350,
-        1170,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        421.2,
-        343.44,
-        199.08
+        126.1,
+        420.6,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.500214,
-        0.576784,
-        0.236426
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
       ],
-      "image": "07-特工-红字战士炮手.png",
-      "ktdash_ids": [
-        "CHAOS-WC-GNR",
-        "CHAOS-WC-GNR-A-SA"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "01-07-特工-红字战士炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n红字战士炮手\n3 5\" 2+ 14\n名称攻击命中伤害武器规则\n灵魂收割者炮（集中） 5 3+ 4/5 穿刺 1\n灵魂收割者炮（扫射） 4 3+ 4/5 穿刺 1、洪流 1\"\n亚空间火焰喷射器 4 2+ 4/4 范围 8\"、集中、穿刺 1、洪流 2\"\n双拳 3 3+ 3/4 -\n奥术自动机兵：在这名特工激活时，便在其结束激\n活前将 APL 属性降低 1 点，除非己方次元密会巫\n师特工位于它 9\" 内。\n次元密会、混沌、阿斯塔特叛军、红字战士、炮手 32",
+      "weapon_types": {
+        "灵魂收割者炮（集中）": "远程",
+        "灵魂收割者炮（扫射）": "远程",
+        "亚空间火焰喷射器": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRUBRIC MARINE GUNNER\n3 5\" 2+ 14\nNAME ATK HIT DMG WR\nSoulreaper cannon (focused) 5 3+ 4/5 Piercing 1\nSoulreaper cannon (sweeping) 4 3+ 4/5 Piercing 1, Torrent 1\"\nWarpflamer 4 2+ 4/4 Range 8\", Saturate, Piercing 1, Torrent 2\"\nFists 3 3+ 3/4 -\nSorcerous Automata: Whenever this operative is activated,\nsubtract 1 from its APL stat until the end of that activation,\nunless a friendly WARPCOVEN SORCERER operative is\nwithin 9\" of it.\nWARPCOVEN , CHAOS, HERETIC ASTARTES, RUBRIC MARINE, GUNNER 32"
     },
     {
-      "id": "wc-008-rubric-icon-bearer",
+      "id": "chaos-wc-01-08",
       "sequence": 8,
       "category": "operative",
-      "title_zh": "红字战士徽记持有者",
-      "title_en": "Rubric Marine Icon Bearer",
+      "title_zh": "红字战士徽记持有者-数据卡",
+      "title_en": "RUBRIC MARINE ICON BEARER",
       "source_page": 2,
       "page_order": 4,
-      "bbox_px": [
-        350,
-        1723,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        620.28,
-        343.44,
-        199.08
+        126.1,
+        619.0,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.73664,
-        0.576784,
-        0.236426
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
       ],
-      "image": "08-特工-红字战士徽记持有者.png",
-      "ktdash_ids": [
-        "CHAOS-WC-IB",
-        "CHAOS-WC-IB-A-IB",
-        "CHAOS-WC-IB-A-SA"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "01-08-特工-红字战士徽记持有者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n红字战士徽记持有者\n3 5\" 2+ 14\n名称攻击命中伤害武器规则\n地狱火爆矢枪 4 3+ 3/4 穿刺 1\n双拳 3 3+ 3/4 -\n奥术自动机兵：在这名特工激活时，便在其结束激\n活前将 APL 属性降低 1 点，除非己方次元密会巫\n师特工位于它 9\" 内。\n徽记持有者：在确定一个标识的控制时，则将这\n名特工的 APL 属性视作提升 1 点，请注意这并非\n对 APL 属性的修正，所以任何修正都会与这一效\n果累加。\n次元密会、混沌、阿斯塔特叛军、红字战士、徽记持有者 32",
+      "weapon_types": {
+        "地狱火爆矢枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRUBRIC MARINE ICON BEARER\n3 5\" 2+ 14\nNAME ATK HIT DMG WR\nInferno boltgun 4 3+ 3/4 Piercing 1\nFists 3 3+ 3/4 -\nSorcerous Automata: Whenever this operative is activated,\nsubtract 1 from its APL stat until the end of that activation,\nunless a friendly WARPCOVEN SORCERER operative is\nwithin 9\" of it.\nIcon Bearer: Whenever determining control of a marker, treat\nthis operative’s APL stat as 1 higher. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\nWARPCOVEN , CHAOS, HERETIC ASTARTES, RUBRIC MARINE, ICON BEARER 32"
     },
     {
-      "id": "wc-009-rubric-warrior",
+      "id": "chaos-wc-01-09",
       "sequence": 9,
       "category": "operative",
-      "title_zh": "红字战士战士",
-      "title_en": "Rubric Marine Warrior",
+      "title_zh": "红字战士战士-数据卡",
+      "title_en": "RUBRIC MARINE WARRIOR",
       "source_page": 3,
       "page_order": 1,
-      "bbox_px": [
-        350,
-        66,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        23.76,
-        343.44,
-        199.08
+        126.1,
+        23.7,
+        343.0,
+        198.5
       ],
       "bbox_norm": [
-        0.211608,
-        0.028217,
-        0.576784,
-        0.236426
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
       ],
-      "image": "09-特工-红字战士战士.png",
-      "ktdash_ids": [
-        "CHAOS-WC-WAR",
-        "CHAOS-WC-WAR-A-SAP",
-        "CHAOS-WC-WAR-A-SA"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "01-09-特工-红字战士战士-数据卡.png",
+      "is_back": false,
+      "text": "红字战士战士 APL 移动豁免耐伤\n3 5\" 2+ 14\n名称攻击命中伤害武器规则\n地狱火爆矢枪 4 3+ 3/4 穿刺 1\n双拳 3 3+ 3/4 -\n奥术自动机兵：在这名特工激活时，便在其结束激\n活前将 APL 属性降低 1 点，除非己方次元密会巫\n师特工位于它 9\" 内。\n缓慢而坚定：每当这名特工执行射击时，若它在\n该激活中没有执行过冲锋和转移行动，或者它正\n在进行反应，则它的远程武器获得“无休”武器\n规则。请注意，本规则并不限制这名特工在射击\n后进行移动。\n次元密会、混沌、阿斯塔特叛军、红字战士、战士 32",
+      "weapon_types": {
+        "地狱火爆矢枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nRUBRIC MARINE WARRIOR\n3 5\" 2+ 14\nNAME ATK HIT DMG WR\nInferno boltgun 4 3+ 3/4 Piercing 1\nFists 3 3+ 3/4 -\nSorcerous Automata: Whenever this operative is activated,\nsubtract 1 from its APL stat until the end of that activation,\nunless a friendly WARPCOVEN SORCERER operative is\nwithin 9\" of it.\nSlow and Purposeful: Whenever this operative is shooting, if it\nhasn’t performed the Charge or Reposition action during the\nactivation, or if it's a counteraction, its ranged weapons have the\nCeaseless weapon rule. Note this operative isn’t restricted from\nperforming these actions after shooting.\nWARPCOVEN , CHAOS, HERETIC ASTARTES, RUBRIC MARINE, WARRIOR 32"
     },
     {
-      "id": "wc-010-tzaangor-champion",
+      "id": "chaos-wc-01-10",
       "sequence": 10,
       "category": "operative",
-      "title_zh": "奸角兽勇士",
-      "title_en": "Tzaangor Champion",
+      "title_zh": "奸角兽勇士-数据卡",
+      "title_en": "TZAANGOR CHAMPION",
       "source_page": 3,
       "page_order": 2,
-      "bbox_px": [
-        350,
-        618,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        222.48,
-        343.44,
-        199.08
+        126.1,
+        222.2,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.264215,
-        0.576784,
-        0.236426
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
       ],
-      "image": "10-特工-奸角兽勇士.png",
-      "ktdash_ids": [
-        "CHAOS-WC-TZC",
-        "CHAOS-WC-TZC-A-SB"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "01-10-特工-奸角兽勇士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n奸角兽勇士\n2 6\" 5+ 10\n名称攻击命中伤害武器规则\n巨斧 4 3+ 4/5 残暴、致命 5+\n巨剑 4 3+ 4/5 致命 5+、撕裂\n野性狂暴：在这名特工每次激活执行的首次近战行\n动中，若它没有残废，便可以随后立即执行一次无\n消耗的近战行动（您并非必须选择同一名敌方特工\n进行近战）。本规则优先于行动限制。\n次元密会、混沌、奸角兽、勇士 32",
+      "weapon_types": {
+        "巨斧": "近战",
+        "巨剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTZAANGOR CHAMPION\n2 6\" 5+ 10\nNAME ATK HIT DMG WR\nGreataxe 4 3+ 4/5 Brutal, Lethal 5+\nGreatblade 4 3+ 4/5 Lethal 5+, Rending\nSavage Brutality: The first time this operative performs\nthe Fight action during each of its activations, if it isn’t\nincapacitated, it can immediately perform a free Fight action\nafterwards (you don't have to select the same enemy operative\nto fight against). This takes precedence over action restrictions.\nWARPCOVEN , CHAOS, TZAANGOR, CHAMPION 32"
     },
     {
-      "id": "wc-011-tzaangor-horn-bearer",
+      "id": "chaos-wc-01-11",
       "sequence": 11,
       "category": "operative",
-      "title_zh": "奸角兽号手",
-      "title_en": "Tzaangor Horn Bearer",
+      "title_zh": "奸角兽号手-数据卡",
+      "title_en": "TZAANGOR HORN BEARER",
       "source_page": 3,
       "page_order": 3,
-      "bbox_px": [
-        350,
-        1170,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        421.2,
-        343.44,
-        199.08
+        126.1,
+        420.6,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.500214,
-        0.576784,
-        0.236426
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
       ],
-      "image": "11-特工-奸角兽号手.png",
-      "ktdash_ids": [
-        "CHAOS-WC-TZHB",
-        "CHAOS-WC-TZHB-BH"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "01-11-特工-奸角兽号手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n奸角兽号手\n2 6\" 5+ 9\n名称攻击命中伤害武器规则\n匕首 4 4+ 3/5 -\n兽群号角 0AP\n直到下一个战略阶段的就绪步骤前，为己方次元密\n会奸角兽特工的移动属性增加 1\"。\n该特工不能在敌方特工的控制范围内执行此行\n动。\n次元密会、混沌、奸角兽、号手 32",
+      "weapon_types": {
+        "匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTZAANGOR HORN BEARER\n2 6\" 5+ 9\nNAME ATK HIT DMG WR\nDagger 4 4+ 3/5 -\nBRAYHORN 0AP\nUntil the Ready step of the next Strategy phase, add\n1\" to the Move stat of friendly WARPCOVEN\nTZAANGOR operatives.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nWARPCOVEN , CHAOS, TZAANGOR, HORN BEARER 32"
     },
     {
-      "id": "wc-012-tzaangor-icon-bearer",
+      "id": "chaos-wc-01-12",
       "sequence": 12,
       "category": "operative",
-      "title_zh": "奸角兽徽记持有者",
-      "title_en": "Tzaangor Icon Bearer",
+      "title_zh": "奸角兽徽记持有者-数据卡",
+      "title_en": "TZAANGOR ICON BEARER",
       "source_page": 3,
       "page_order": 4,
-      "bbox_px": [
-        350,
-        1723,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        620.28,
-        343.44,
-        199.08
+        126.1,
+        619.0,
+        343.0,
+        198.4
       ],
       "bbox_norm": [
-        0.211608,
-        0.73664,
-        0.576784,
-        0.236426
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
       ],
-      "image": "12-特工-奸角兽徽记持有者.png",
-      "ktdash_ids": [
-        "CHAOS-WC-TZIB",
-        "CHAOS-WC-TZIB-A-HB",
-        "CHAOS-WC-TZIB-A-IB"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "01-12-特工-奸角兽徽记持有者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n奸角兽徽记持有者\n2 6\" 5+ 9\n名称攻击命中伤害武器规则\n匕首 4 4+ 3/5 -\n兽群旗帜：每当位于这位特工 3\" 内且可见的一名己\n方次元密会奸角兽特工因为一枚攻击骰子而受到 3\n点或更多普通伤害时，将受到的伤害减少 1 点。\n徽记持有者：在确定一个标识的控制时，则将这\n名特工的 APL 属性视作提升 1 点，请注意这并非\n对 APL 属性的修正，所以任何修正都会与这一效\n果累加。\n次元密会、混沌、奸角兽、徽记持有者 32",
+      "weapon_types": {
+        "匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTZAANGOR ICON BEARER\n2 6\" 5+ 9\nNAME ATK HIT DMG WR\nDagger 4 4+ 3/5 -\nHerd Banner: Whenever an attack dice inflicts Normal Dmg of 3\nor more on a friendly WARPCOVEN TZAANGOR operative\nthat’s visible to and within 3\" of this operative, subtract 1 from\nthat inflicted damage.\nIcon Bearer: Whenever determining control of a marker, treat\nthis operative’s APL stat as 1 higher. Note this isn't a change to\nits APL stat, so any changes are cumulative with this.\nWARPCOVEN , CHAOS, TZAANGOR, ICON BEARER 32"
     },
     {
-      "id": "wc-013-tzaangor-warrior",
+      "id": "chaos-wc-01-13",
       "sequence": 13,
       "category": "operative",
-      "title_zh": "奸角兽战士",
-      "title_en": "Tzaangor Warrior",
+      "title_zh": "奸角兽战士-数据卡",
+      "title_en": "TZAANGOR WARRIOR",
       "source_page": 4,
       "page_order": 1,
-      "bbox_px": [
-        350,
-        66,
-        954,
-        553
-      ],
       "bbox_pt": [
-        126.0,
-        23.76,
-        343.44,
-        199.08
+        126.1,
+        23.7,
+        343.0,
+        198.5
       ],
       "bbox_norm": [
-        0.211608,
-        0.028217,
-        0.576784,
-        0.236426
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
       ],
-      "image": "13-特工-奸角兽战士.png",
-      "ktdash_ids": [
-        "CHAOS-WC-TZWAR",
-        "CHAOS-WC-TZWAR-A-RH",
-        "CHAOS-WC-TZWAR-A-SH"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "01-13-特工-奸角兽战士-数据卡.png",
+      "is_back": false,
+      "text": "奸角兽战士 APL 移动豁免耐伤\n2 6\" 5+ 9\n名称攻击命中伤害武器规则\n自动手枪 4 4+ 2/3 范围 8\"\n链锯剑 4 4+ 4/5 -\n奸角兽之刃和盾牌 4 4+ 3/4 盾牌*\n奸角兽双刃 4 4+ 4/5 平衡\n神器猎人：每场战斗限一次，若一名己方奸角兽战\n士特工位于您对手的领地内，则那名己方特工可以\n在执行拾取标识、放置标识或任务行动时消耗的 AP\n减少 1 点。\n*盾牌：这名特工的豁免属性为 4+，并且当它使用\n这个武器进行近战或反击时，每个己方的格挡可以\n格挡两个未结算的成功（而不是一个）。\n次元密会、混沌、奸角兽、战士 32",
+      "weapon_types": {
+        "自动手枪": "远程",
+        "链锯剑": "近战",
+        "奸角兽之刃和盾牌": "近战",
+        "奸角兽双刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nTZAANGOR WARRIOR\n2 6\" 5+ 9\nNAME ATK HIT DMG WR\nAutopistol 4 4+ 2/3 Range 8\"\nChainsword 4 4+ 4/5 -\nTzaangor blade & shield 4 4+ 3/4 Shield*\nTzaangor blades 4 4+ 4/5 Balanced\nRelic Hunters: Once per battle, one friendly WARPCOVEN\nTZAANGOR WARRIOR can perform the Pick Up Marker,\nPlace Marker or a mission action for 1 less AP if that friendly\noperative is within your opponent's territory.\n*Shield: This operative has a 4+ Save stat, and whenever it’s\nfighting or retaliating with this weapon, each of your blocks can\nbe allocated to block two unresolved successes (instead of one).\nWARPCOVEN , CHAOS, TZAANGOR, WARRIOR 32"
     },
     {
-      "id": "wc-014-notes-1",
-      "sequence": 14,
-      "category": "other",
-      "title_zh": "笔记 1",
-      "title_en": "Notes 1",
-      "source_page": 4,
-      "page_order": 2,
-      "bbox_px": [
-        350,
-        618,
-        954,
-        553
-      ],
-      "bbox_pt": [
-        126.0,
-        222.48,
-        343.44,
-        199.08
-      ],
-      "bbox_norm": [
-        0.211608,
-        0.264215,
-        0.576784,
-        0.236426
-      ],
-      "image": "14-其他-笔记-1.png",
-      "ktdash_ids": [
-
-      ],
-      "text_status": "not_applicable",
-      "translation_status": "not_applicable",
-      "errata_status": "not_applicable"
-    },
-    {
-      "id": "wc-015-notes-2",
-      "sequence": 15,
-      "category": "other",
-      "title_zh": "笔记 2",
-      "title_en": "Notes 2",
-      "source_page": 4,
-      "page_order": 3,
-      "bbox_px": [
-        350,
-        1170,
-        954,
-        553
-      ],
-      "bbox_pt": [
-        126.0,
-        421.2,
-        343.44,
-        199.08
-      ],
-      "bbox_norm": [
-        0.211608,
-        0.500214,
-        0.576784,
-        0.236426
-      ],
-      "image": "15-其他-笔记-2.png",
-      "ktdash_ids": [
-
-      ],
-      "text_status": "not_applicable",
-      "translation_status": "not_applicable",
-      "errata_status": "not_applicable"
-    },
-    {
-      "id": "wc-016-notes-3",
-      "sequence": 16,
-      "category": "other",
-      "title_zh": "笔记 3",
-      "title_en": "Notes 3",
-      "source_page": 4,
-      "page_order": 4,
-      "bbox_px": [
-        350,
-        1723,
-        954,
-        553
-      ],
-      "bbox_pt": [
-        126.0,
-        620.28,
-        343.44,
-        199.08
-      ],
-      "bbox_norm": [
-        0.211608,
-        0.73664,
-        0.576784,
-        0.236426
-      ],
-      "image": "16-其他-笔记-3.png",
-      "ktdash_ids": [
-
-      ],
-      "text_status": "not_applicable",
-      "translation_status": "not_applicable",
-      "errata_status": "not_applicable"
-    },
-    {
-      "id": "wc-017-team-selection-1",
-      "sequence": 17,
+      "id": "chaos-wc-10-01",
+      "sequence": 1,
       "category": "team-selection",
-      "title_zh": "次元密会杀戮小队",
-      "title_en": "Warp Coven Kill Team",
+      "title_zh": "次元密会杀戮小队-1",
+      "title_en": "KILL TEAM",
       "source_page": 5,
       "page_order": 1,
-      "bbox_px": [
-        273,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        77.4,
-        200.16,
-        345.6
+        99.2,
+        78.0,
+        198.4,
+        342.9
       ],
       "bbox_norm": [
-        0.165054,
-        0.09192,
-        0.336155,
-        0.410432
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
       ],
-      "image": "17-小队选择-次元密会杀戮小队-1.png",
-      "ktdash_ids": [
-        "CHAOS-WC"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "1/2"
+      "image": "10-01-小队选择-次元密会杀戮小队-1.png",
+      "is_back": false,
+      "text": "次元密会杀戮小队\n原型：侦查，安全保护\n特工\n↘ 5名次元密会特工，从以下列表选择：\n• 命运巫师1\n• 时间巫师1\n• 亚空间炽焰巫师1\n• 红字战士炮手，装备有以下一种选项：\n○ 亚空间火焰喷射器；双拳\n○ 灵魂收割者炮2；双拳\n• 红字战士徽记持有者\n• 红字战士战士\n• 奸角兽勇士3，装备有以下一种选项：\n○ 巨斧\n○ 巨剑\n• 奸角兽号手3\n• 奸角兽徽记持有者3\n• 奸角兽战士3 ，装备有以下一种选项：\n○ 奸角兽双刃\n○ 奸角兽之刃和盾牌\n○ 自动手枪；链锯剑\n请继续阅读背面",
+      "text_en": "WARPCOVEN KILL TEAM\nARCHETYPE: RECON, SECURITY\nOPERATIVES\n↘ 5 WARPCOVEN operatives selected from the\nfollowing list:\n• SORCERER OF DESTINY1\n• SORCERER OF TEMPYRION1\n• SORCERER OF WARPFIRE1\n• RUBRIC MARINE GUNNER with one of the\nfollowing options:\n○ Warpflamer; fists\n○ Soulreaper cannon2; fists\n• RUBRIC MARINE ICON BEARER\n• RUBRIC MARINE WARRIOR\n• TZAANGOR CHAMPION3 with one of the\nfollowing options:\n○ Greataxe\n○ Greatblade\n• TZAANGOR HORN BEARER3\n• TZAANGOR ICON BEARER3\n• TZAANGOR WARRIOR3 with one of the\nfollowing options:\n○ Tzaangor blades\n○ Tzaangor blade & shield\n○ Autopistol; chainsword\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "wc-018-team-selection-2",
-      "sequence": 18,
+      "id": "chaos-wc-10-02",
+      "sequence": 2,
       "category": "team-selection",
-      "title_zh": "次元密会杀戮小队",
-      "title_en": "Warp Coven Kill Team",
+      "title_zh": "次元密会杀戮小队-2",
+      "title_en": "KILL TEAM",
       "source_page": 5,
       "page_order": 2,
-      "bbox_px": [
-        826,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        77.4,
-        200.16,
-        345.6
+        297.6,
+        78.0,
+        198.5,
+        342.9
       ],
       "bbox_norm": [
-        0.499395,
-        0.09192,
-        0.336155,
-        0.410432
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
       ],
-      "image": "18-小队选择-次元密会杀戮小队-2.png",
-      "ktdash_ids": [
-        "CHAOS-WC"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "2/2"
+      "image": "10-02-小队选择-次元密会杀戮小队-2.png",
+      "is_back": true,
+      "text": "1 装备有灵能杖，数据卡上的灵能武器以及以下\n一种选项：\n• 地狱火爆矢手枪\n• 普罗斯佩罗弯刀\n• 亚空间炽焰手枪2\n2 您的杀戮小队至多只能包含一把亚空间炽焰手\n枪和一门灵魂收割者炮。\n3 这些特工各自被视为半个选项，因此您可以选\n择两名这样的特工，视为一个特工选项。\n您必须选择至少一名己方巫师特工，除了战士特\n工，每一种特工在您的杀戮小队中只能被包含\n一次。",
+      "text_en": "You must select at least one friendly SORCERER\noperative. Other than WARRIOR operatives, your\nkill team can only include each operative on this\nlist once.\n1 With force stave, PSYCHIC weapons on their\ndatacard and one of the following options:\n• Inferno bolt pistol\n• Prosperine khopesh\n• Warpflame pistol2\n2 Your kill team can only include up to\none warpflame pistol and up to one\nsoulreaper cannon.\n3 These operatives count as half a selection each,\nmeaning you can select both of them and it’s\ntreated as one selection in total."
     },
     {
-      "id": "wc-019-boons-1",
-      "sequence": 19,
+      "id": "chaos-wc-11-01",
+      "sequence": 1,
       "category": "faction-rule",
-      "title_zh": "奸奇恩惠",
-      "title_en": "Boons Of Tzeentch",
+      "title_zh": "奸奇恩惠-1",
+      "title_en": "BOONS OF TZEENTCH",
       "source_page": 5,
       "page_order": 3,
-      "bbox_px": [
-        273,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        420.48,
-        200.16,
-        345.6
+        99.2,
+        420.9,
+        198.4,
+        343.0
       ],
       "bbox_norm": [
-        0.165054,
-        0.499359,
-        0.336155,
-        0.410432
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
       ],
-      "image": "19-阵营规则-奸奇恩惠-1.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOD-A-BOT",
-        "CHAOS-WC-SOT-A-BOT",
-        "CHAOS-WC-SOW-A-BOT"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "1/4"
+      "image": "11-01-阵营规则-奸奇恩惠-1.png",
+      "is_back": false,
+      "text": "次元密会\n阵营规则\n奸奇恩惠\n作为虔诚的奸奇信徒，次元密会巫师从其信奉\n的神明处获得了大量恩惠——从有益变异，恶\n魔知识到法术奥秘应有尽有。\n当您为一场战斗选择了巫师特工，便必须为它选\n择一个战斗中使用的奸奇恩惠（见下文）。每个\n奸奇恩惠在一场战斗中不能被选择超过一次。\n虚化视觉\n千子巫师们能感知到生灵们散发出的至高天\n能量。\n这名特工的远程武器获得“集中”武器规则。当\n这名特工执行射击时，敌方特工无法被遮挡。\n时间行者\n鲜少有什么恩惠能比操纵时间本身更为强大\n了。\n这名特工的移动属性增加 1\"。\n请继续阅读背面",
+      "text_en": "WARPCOVEN\nFACTION RULE\nBOONS OF TZEENTCH\nWarpcoven Sorcerers are dedicated followers of Tzeentch,\nand have earned many great boons from their patron\ndeity, from beneficial mutations to diabolical knowledge.\nWhenever you select a SORCERER operative for\nthe battle, you must select a BOON OF TZEENTCH\n(below) for it to have for the battle. You cannot\nselect each BOON OF TZEENTCH more than once\nper battle.\nIncorporeal Sight\nThe empyric energies given off by living creatures can be\nsensed by the Sorcerers of the Thousand Sons.\nThis operative’s ranged weapons have the\nSaturate weapon rule. Whenever this operative is\nshooting, enemy operatives cannot be obscured.\nTime-Walk\nThere are few greater boons than mastery over time itself.\nAdd 1\" to this operative’s Move stat.\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "wc-020-boons-2",
-      "sequence": 20,
+      "id": "chaos-wc-11-02",
+      "sequence": 2,
       "category": "faction-rule",
-      "title_zh": "奸奇恩惠",
-      "title_en": "Boons Of Tzeentch",
+      "title_zh": "奸奇恩惠-2",
+      "title_en": "BOONS OF TZEENTCH",
       "source_page": 5,
       "page_order": 4,
-      "bbox_px": [
-        826,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        420.48,
-        200.16,
-        345.6
+        297.6,
+        420.9,
+        198.5,
+        343.0
       ],
       "bbox_norm": [
-        0.499395,
-        0.499359,
-        0.336155,
-        0.410432
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
       ],
-      "image": "20-阵营规则-奸奇恩惠-2.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOD-A-BOT",
-        "CHAOS-WC-SOT-A-BOT",
-        "CHAOS-WC-SOW-A-BOT"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "2/4"
+      "image": "11-02-阵营规则-奸奇恩惠-2.png",
+      "is_back": true,
+      "text": "亚空间残响\n在能够预知未来的情况下，掌握敌人的动向轻\n而易举。\n每场战斗限一次，当您使用这名特工反击时，可\n以更改它的命令，并且可以在那次反击中额外执\n行一个消耗 1 AP 的行动，但两次行动必须为不\n同的行动。\n亚空间强化\n在注入亚空间力量后，近身肉搏变得极为凶\n猛。\n这名特工近战武器的普通伤害属性增加 1 点。\n变异肢体\n尽管外观有些惊骇，但额外的肢体非常实用。\n控制范围内有一名敌方特工不会阻止这名特工\n执行拾取标识或任务行动。每次激活限一次，\n这名特工可以在执行拾取标识或任务行动时减\n少 1 AP。\n请继续阅读背面",
+      "text_en": "Echoes from the Warp\nAn ability to predict the future allows for stronger\nresponses to enemy movement.\nOnce per battle, when you counteract with\nthis operative, you can change its order, and it\ncan perform an additional 1AP action for free\nduring that counteraction, but both actions must\nbe different.\nWarp Swell\nAn influx of warp power grants impetus to melee strikes.\nAdd 1 to the Normal Dmg stat of this operative’s\nmelee weapons.\nMutant Appendage\nHorrific though they may appear, additional limbs are\nuseful indeed.\nHaving an enemy operative within this operative’s\ncontrol range doesn’t prevent it from performing\nthe Pick Up Marker or mission actions. Once per\nactivation, this operative can perform the Pick\nUp Marker, Place Marker or a mission action for\n1 less AP.\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "wc-021-boons-3",
-      "sequence": 21,
+      "id": "chaos-wc-11-03",
+      "sequence": 3,
       "category": "faction-rule",
-      "title_zh": "奸奇恩惠",
-      "title_en": "Boons Of Tzeentch",
+      "title_zh": "奸奇恩惠-3",
+      "title_en": "BOONS OF TZEENTCH",
       "source_page": 6,
       "page_order": 1,
-      "bbox_px": [
-        273,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        77.4,
-        200.16,
-        345.6
+        99.2,
+        78.0,
+        198.4,
+        342.9
       ],
       "bbox_norm": [
-        0.165054,
-        0.09192,
-        0.336155,
-        0.410432
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
       ],
-      "image": "21-阵营规则-奸奇恩惠-3.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOD-A-BOT",
-        "CHAOS-WC-SOT-A-BOT",
-        "CHAOS-WC-SOW-A-BOT"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "3/4"
+      "image": "11-03-阵营规则-奸奇恩惠-3.png",
+      "is_back": true,
+      "text": "亚空间飞行\n在获得飞行之力后，巫师变得极为敏捷。\n每个转折点限一次，当这名特工在它的激活中执\n行冲锋或转移行动时，它可以飞行。若此，不要\n移动它。作为替代，将它从杀戮区移除并将其重\n新放置在完全位于其原本位置一定范围内（相当\n于其移动属性的距离）的位置（只测量水平距\n离）。在使用近距离战斗规则的杀戮区时（例如\n杀戮区：墓穴世界），测量不能穿过墙壁地形，\n并且那名特工不能被放置在访问点的另一侧（换\n言之，它不能飞行穿过打开的舱门过道）。请注\n意，这不会在执行冲锋行动中获得额外距离，且\n必须被放置在它可以被放置的位置。此外，除非\n它执行的是冲锋行动，否则无法被放置在一名敌\n方特工的控制范围内。\n扭曲命运\n还有什么恩惠能比得上凭意志便能扭曲他人\n命运？\n这名特工的灵能远程武器获得“关键穿刺 1”武\n器规则。\n请继续阅读背面",
+      "text_en": "Immaterial Flight\nThe power of flight renders the recipient highly elusive.\nOnce per turning point, when this operative is\nperforming the Charge or Reposition action\nduring its activation, it can FLY. If it does, don’t\nmove it. Instead, remove it from the killzone and\nset it back up wholly within a distance equal to\nits Move stat horizontally of its original location.\nIn a killzone that uses the close quarters rules\n(e.g. Killzone: Tomb World), this distance cannot\nbe measured over or through Wall terrain, and\nthat operative cannot be set up on the other side\nof an access point (in other words, it cannot FLY\nthrough an open hatchway). Note that it gains\nno additional distance when performing the\nCharge action. It must be set up in a location it\ncan be placed, and unless it’s the Charge action,\nit cannot be set up within control range of an\nenemy operative.\nTwist of Fate\nWhat greater boon than the ability to bend fate to one’s\nown will.\nThis operative’s PSYCHIC ranged weapons have\nthe Piercing Crits 1 weapon rule.\nCONTINUES ON OTHER SIDE"
     },
     {
-      "id": "wc-022-boons-4",
-      "sequence": 22,
+      "id": "chaos-wc-11-04",
+      "sequence": 4,
       "category": "faction-rule",
-      "title_zh": "奸奇恩惠",
-      "title_en": "Boons Of Tzeentch",
+      "title_zh": "奸奇恩惠-4",
+      "title_en": "BOONS OF TZEENTCH",
       "source_page": 6,
       "page_order": 2,
-      "bbox_px": [
-        826,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        77.4,
-        200.16,
-        345.6
+        297.6,
+        78.0,
+        198.5,
+        342.9
       ],
       "bbox_norm": [
-        0.499395,
-        0.09192,
-        0.336155,
-        0.410432
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
       ],
-      "image": "22-阵营规则-奸奇恩惠-4.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOD-A-BOT",
-        "CHAOS-WC-SOT-A-BOT",
-        "CHAOS-WC-SOW-A-BOT"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04",
-      "part": "4/4"
+      "image": "11-04-阵营规则-奸奇恩惠-4.png",
+      "is_back": true,
+      "text": "星爆术\n在痛饮备受赐福的至高天能量后，巫师获得了\n毫无拘束的毁灭能量。\n选择这名特工的一个灵能远程武器。那个武器获\n得“毁灭 1”武器规则。若您选择了毁灭之矢，\n则它会获得“2\" 毁灭 2”武器规则替代“毁灭\n2”武器规则。如果您选择了烈焰风暴或者焚却\n理智(亚空间炽焰巫师)，那么每当那名特工执行\n射击行动时，选择“追踪轻型”或者“毁灭 1”\n武器规则，直到那次行动结束前，那件武器拥有\n被选择的技能（不能同时选择这两个武器技能)。\n非物质界专家\n禁忌奥术学识能提供极为可怕的灵能力量。\n当这名特工的灵能行动有距离要求时，为其增\n加 3\" 距离。请注意，在时间巫师的时空波动行\n动中，这个恩惠的效果指挥影响那个规则的第一\n个效果。",
+      "text_en": "Astral Bombardment\nThe truly blessed drink deeply of the Warp’s entropic\npower, wielding its destructive energies with abandon.\nSelect one of this operative's PSYCHIC ranged\nweapons. That weapon has the Devastating 1\nweapon rule. If you select a doombolt, it has\nthe 2\" Devastating 2 weapon rule instead of\nDevastating 2. If you select firestorm or mindburn\n(SORCERER OF WARPFIRE), whenever that\noperative performs the Shoot action, select the\nSeek Light or Devastating 1 weapon rule for that\nweapon to have until the end of the action (it\ncannot have both).\nMaster of the Immaterium\nThe gift of forbidden arcane knowledge grants the\nrecipient terrible psychic power.\nAdd 3\" to the distance requirements of this\noperative’s PSYCHIC actions that have a distance\nrequirement. Note that for the SORCERER OF\nTEMPYRION’s Temporal Flux action, this boon\nonly affects the distance in the first effect of\nthat rule."
     },
     {
-      "id": "wc-023-astartes",
-      "sequence": 23,
+      "id": "chaos-wc-11-05",
+      "sequence": 5,
       "category": "faction-rule",
       "title_zh": "阿斯塔特",
-      "title_en": "Astartes",
+      "title_en": "ASTARTES",
       "source_page": 6,
       "page_order": 3,
-      "bbox_px": [
-        273,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        420.48,
-        200.16,
-        345.6
+        99.2,
+        420.9,
+        198.4,
+        343.0
       ],
       "bbox_norm": [
-        0.165054,
-        0.499359,
-        0.336155,
-        0.410432
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
       ],
-      "image": "23-阵营规则-阿斯塔特.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SOD-A-AS",
-        "CHAOS-WC-SOT-A-AS",
-        "CHAOS-WC-SOW-A-AS",
-        "CHAOS-WC-GNR-A-AS",
-        "CHAOS-WC-IB-A-AS",
-        "CHAOS-WC-WAR-A-AS"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "11-05-阵营规则-阿斯塔特.png",
+      "is_back": false,
+      "text": "次元密会\n阵营规则\n阿斯塔特\n这些经受了基因强化的超人们的存在意义只有\n一个：战争。\n在每一名己方次元密会阿斯塔特叛军特工的激\n活期间，特工可以执行两次近战行动或者两次射\n击行动。如果两次行动都使用了灵魂收割者炮或\n亚空间火焰喷射器进行攻击，那么第二次行动必\n须消耗额外 1AP。此外，在每次激活中您不能选\n择同一个灵能远程武器超过一次。\n无论其拥有的命令，每一名己方次元密会阿斯\n塔特叛军特工都可以进行反应。",
+      "text_en": "WARPCOVEN\nFACTION RULE\nASTARTES\nThese genetically modified superhumans are made for\none purpose: war.\nDuring each friendly WARPCOVEN HERETIC\nASTARTES operative’s activation, it can perform\neither two Shoot actions or two Fight actions. If\nit’s two Shoot actions and a soulreaper cannon or\na warpflamer is selected for both, 1 additional AP\nmust be spent for the second action. You cannot\nselect the same PSYCHIC ranged weapon more\nthan once per activation.\nEach friendly WARPCOVEN HERETIC ASTARTES\noperative can counteract regardless of its order."
     },
     {
-      "id": "wc-024-aetherial-warding",
-      "sequence": 24,
+      "id": "chaos-wc-20-01",
+      "sequence": 1,
       "category": "strategic-ploy",
       "title_zh": "以太守护",
-      "title_en": "Aetherial Warding",
+      "title_en": "AETHERIAL WARDING",
       "source_page": 6,
       "page_order": 4,
-      "bbox_px": [
-        826,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        420.48,
-        200.16,
-        345.6
+        297.6,
+        420.9,
+        198.5,
+        343.0
       ],
       "bbox_norm": [
-        0.499395,
-        0.499359,
-        0.336155,
-        0.410432
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
       ],
-      "image": "24-战略计谋-以太守护.png",
-      "ktdash_ids": [
-        "CHAOS-WC-S-AW"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "20-01-战略计谋-以太守护.png",
+      "is_back": false,
+      "text": "次元密会\n战略计谋\n以太守护\n千子巫师们用法术保护着他的战士们，一道至\n高天之力形成的屏障保护着他们。\n当一名特工向一名己方次元密会特工射击时，\n拥有“穿刺 1”武器规则的武器将变为拥有“关\n键穿刺 1”规则。",
+      "text_en": "WARPCOVEN\nSTRATEGY PLOY\nAETHERIAL WARDING\nThe Sorcerers of the Thousand Sons ward their\nwarriors with spells, shielding them with a barrier of\nempyric force.\nWhenever an operative is shooting a friendly\nWARPCOVEN operative, weapons with the\nPiercing 1 weapon rule have the Piercing Crits 1\nweapon rule instead."
     },
     {
-      "id": "wc-025-fate-itself-is-my-weapon",
-      "sequence": 25,
+      "id": "chaos-wc-20-02",
+      "sequence": 2,
       "category": "strategic-ploy",
       "title_zh": "彼之命运，我之凶器",
-      "title_en": "Fate Itself Is My Weapon",
+      "title_en": "FATE ITSELF IS MY WEAPON",
       "source_page": 7,
       "page_order": 1,
-      "bbox_px": [
-        273,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        77.4,
-        200.16,
-        345.6
+        99.2,
+        78.0,
+        198.4,
+        342.9
       ],
       "bbox_norm": [
-        0.165054,
-        0.09192,
-        0.336155,
-        0.410432
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
       ],
-      "image": "25-战略计谋-彼之命运我之凶器.png",
-      "ktdash_ids": [
-        "CHAOS-WC-S-FIIMW"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "20-02-战略计谋-彼之命运，我之凶器.png",
+      "is_back": false,
+      "text": "次元密会\n战略计谋\n彼之命运，我之凶器\n通过对命运丝线的操弄，巫师能够亲自手刃敌\n人，或确保自己的战士进行致命打击。\n掷两枚 D6 并留置它们（将它们放在一边）。在\n该转折点的交战阶段中，每当一名特工执行射\n击，近战或反击时，在您或您的对手掷攻击骰子\n后，进行重掷前，您可以在那个流程中将其中一\n枚 D6 替换为您留置的一枚骰子（您或您对手的\n骰子都可以被替换）；那枚被替代的 D6 无法被\n修正和重掷或者在不是对应结果的情况下被作为\n一次成功进行保留，并且在流程结束后被舍弃。\n之后，如果两枚留置骰子的数值总和小于 9，便\n弃置那个另一枚骰子。在每个流程中您不能使用\n留置骰子超过一次。在转折点结束时，弃置任何\n剩余的留置骰子。",
+      "text_en": "WARPCOVEN\nSTRATEGY PLOY\nFATE ITSELF IS MY WEAPON\nBy manipulating the skeins of fate, a Sorcerer may stay\nthe blade of a foe, or ensure their own warriors land a\nkilling strike.\nRoll two D6 and reserve them (put them to one\nside). In the Firefight phase of this turning point,\nwhenever an operative is shooting, fighting\nor retaliating, after you or your opponent roll\ntheir attack dice, but before re-rolls, you can\nuse one of your reserved dice to replace one of\nthe D6 rolled for that sequence (yours or your\nopponent's); that replacement dice cannot be\nre-rolled or retained as a success if it’s not, and\nis discarded at the end of that sequence. Then,\nif the combined result of both reserved dice was\nless than 9, discard the other dice. You cannot\nuse more than one reserved dice per sequence.\nDiscard any remaining reserved dice at the end of\nthe turning point."
     },
     {
-      "id": "wc-026-brotherhood-of-sorcerers",
-      "sequence": 26,
+      "id": "chaos-wc-20-03",
+      "sequence": 3,
       "category": "strategic-ploy",
       "title_zh": "巫师兄弟会",
-      "title_en": "Brotherhood Of Sorcerers",
+      "title_en": "BROTHERHOOD OF SORCERERS",
       "source_page": 7,
       "page_order": 2,
-      "bbox_px": [
-        826,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        77.4,
-        200.16,
-        345.6
+        297.6,
+        78.0,
+        198.5,
+        342.9
       ],
       "bbox_norm": [
-        0.499395,
-        0.09192,
-        0.336155,
-        0.410432
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
       ],
-      "image": "26-战略计谋-巫师兄弟会.png",
-      "ktdash_ids": [
-        "CHAOS-WC-S-BOS"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "20-03-战略计谋-巫师兄弟会.png",
+      "is_back": false,
+      "text": "次元密会\n战略计谋\n巫师兄弟会\n通过血脉和法术缔结密会，千子巫师们的灵能\n潜力大大强化。\n己方次元密会巫师特工的灵能武器获得“平\n衡”武器规则，若那名特工 9\" 内有另一名己方\n次元密会巫师特工，则会获得“无休”武器规\n则作为替代。",
+      "text_en": "WARPCOVEN\nSTRATEGY PLOY\nBROTHERHOOD OF SORCERERS\nBy forming covens bound by blood and magick, the\nSorcerers of the Thousand Sons greatly increase the\npotency of their psychic powers.\nFriendly WARPCOVEN SORCERER operatives’\nPSYCHIC weapons have the Balanced weapon\nrule, or Ceaseless instead if another friendly\nWARPCOVEN SORCERER operative is within 9\"\nof that operative."
     },
     {
-      "id": "wc-027-savage-herd",
-      "sequence": 27,
+      "id": "chaos-wc-20-04",
+      "sequence": 4,
       "category": "strategic-ploy",
       "title_zh": "野蛮兽群",
-      "title_en": "Savage Herd",
+      "title_en": "SAVAGE HERD",
       "source_page": 7,
       "page_order": 3,
-      "bbox_px": [
-        273,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        420.48,
-        200.16,
-        345.6
+        99.2,
+        420.9,
+        198.4,
+        343.0
       ],
       "bbox_norm": [
-        0.165054,
-        0.499359,
-        0.336155,
-        0.410432
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
       ],
-      "image": "27-战略计谋-野蛮兽群.png",
-      "ktdash_ids": [
-        "CHAOS-WC-S-SH"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "20-04-战略计谋-野蛮兽群.png",
+      "is_back": false,
+      "text": "次元密会\n战略计谋\n野蛮兽群\n野兽般的奸角兽们展现出了堪比其狂野的奸\n诈，而在强大巫师现身时这一点更为突出。\n己方次元密会奸角兽特工的近战武器获得“精\n准 1”武器规则。此外，当一名己方次元密会\n奸角兽特工被一名己方次元密会特工协助，或\n在位于一名己方次元密会巫师特工 6\" 内且可见\n的情况下执行近战，那名己方次元密会奸角兽\n特工的近战武器还会获得“严重”武器规则。",
+      "text_en": "WARPCOVEN\nSTRATEGY PLOY\nSAVAGE HERD\nThough bestial of form, the Tzaangor possess great\ncunning to match their savagery, particularly when\nfighting in the presence of a powerful Sorcerer.\nFriendly WARPCOVEN TZAANGOR operatives’\nmelee weapons have the Accurate 1 weapon rule.\nWhenever a friendly WARPCOVEN TZAANGOR\noperative is assisted by a friendly WARPCOVEN\noperative, or is fighting while visible to and within\n6\" of a friendly WARPCOVEN SORCERER\noperative, that friendly WARPCOVEN\nTZAANGOR operative's melee weapons also have\nthe Severe weapon rule."
     },
     {
-      "id": "wc-028-all-is-dust",
-      "sequence": 28,
+      "id": "chaos-wc-30-01",
+      "sequence": 1,
       "category": "firefight-ploy",
       "title_zh": "皆为尘土",
-      "title_en": "All Is Dust",
+      "title_en": "ALL IS DUST",
       "source_page": 7,
       "page_order": 4,
-      "bbox_px": [
-        826,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        420.48,
-        200.16,
-        345.6
+        297.6,
+        420.9,
+        198.5,
+        343.0
       ],
       "bbox_norm": [
-        0.499395,
-        0.499359,
-        0.336155,
-        0.410432
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
       ],
-      "image": "28-交战计谋-皆为尘土.png",
-      "ktdash_ids": [
-        "CHAOS-WC-T-AID"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "30-01-交战计谋-皆为尘土.png",
+      "is_back": false,
+      "text": "次元密会\n交战计谋\n皆为尘土\n作为不再由血肉塑造的战士，红字战士们展现\n出超自然的坚韧。\n当一枚攻击骰子对一名己方次元密会红字战士\n特工造成普通伤害时使用本交战计谋。那枚攻击\n骰子造成 1 点伤害作为替代。",
+      "text_en": "WARPCOVEN\nFIREFIGHT PLOY\nALL IS DUST\nNo longer warriors of flesh and blood, the Rubricae are\npossessed of an unnatural resilience.\nUse this firefight ploy when an attack dice inflicts\nNormal Dmg on a friendly WARPCOVEN RUBRIC\nMARINE operative. That attack dice inflicts 1\ndamage instead."
     },
     {
-      "id": "wc-029-capricious-plan",
-      "sequence": 29,
+      "id": "chaos-wc-30-02",
+      "sequence": 2,
       "category": "firefight-ploy",
       "title_zh": "无常计划",
-      "title_en": "Capricious Plan",
+      "title_en": "CAPRICIOUS PLAN",
       "source_page": 8,
       "page_order": 1,
-      "bbox_px": [
-        273,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        77.4,
-        200.16,
-        345.6
+        99.2,
+        78.0,
+        198.4,
+        342.9
       ],
       "bbox_norm": [
-        0.165054,
-        0.09192,
-        0.336155,
-        0.410432
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
       ],
-      "image": "29-交战计谋-无常计划.png",
-      "ktdash_ids": [
-        "CHAOS-WC-T-CP"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "30-02-交战计谋-无常计划.png",
+      "is_back": false,
+      "text": "次元密会\n交战计谋\n无常计划\n在遭遇战中，巫师们如同梭影般施展着未知的\n阴谋，导致那些洞察力极为敏锐的敌人都无法\n看穿其目的与野心。\n在一名己方次元密会巫师特工激活结束时使用\n本交战计谋。那名己方特工可以立即执行一次无\n消耗的冲刺行动（即便执行了会阻止它执行冲刺\n行动的行动也不受影响），或者您可以为此改变\n它的命令作为替代。",
+      "text_en": "WARPCOVEN\nFIREFIGHT PLOY\nCAPRICIOUS PLAN\nSorcerers dart from skirmish to firefight in the\nfurtherance of their unknowable schemes, their\ngoals and ambitions indecipherable to even the most\ninsightful of foes.\nUse this firefight ploy at the end of a friendly\nWARPCOVEN SORCERER operative’s activation.\nThat friendly operative can immediately perform\na free Dash action (even if it’s performed an\naction that prevents it from performing the Dash\naction), or you can change its order instead."
     },
     {
-      "id": "wc-030-psychic-cabal",
-      "sequence": 30,
+      "id": "chaos-wc-30-03",
+      "sequence": 3,
       "category": "firefight-ploy",
       "title_zh": "灵能阴谋团",
-      "title_en": "Psychic Cabal",
+      "title_en": "PSYCHIC CABAL",
       "source_page": 8,
       "page_order": 2,
-      "bbox_px": [
-        826,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        77.4,
-        200.16,
-        345.6
+        297.6,
+        78.0,
+        198.5,
+        342.9
       ],
       "bbox_norm": [
-        0.499395,
-        0.09192,
-        0.336155,
-        0.410432
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
       ],
-      "image": "30-交战计谋-灵能阴谋团.png",
-      "ktdash_ids": [
-        "CHAOS-WC-T-PB"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "30-03-交战计谋-灵能阴谋团.png",
+      "is_back": false,
+      "text": "次元密会\n交战计谋\n灵能阴谋团\n通过连结力量，密会的巫师们可以共享学识，\n使灵能更为致命。\n在一名己方次元密会巫师特工激活时使用本交\n战计谋。选择位于那名特工 9\" 内且可见的另一\n名己方次元密会巫师特工，随后那个第一名己\n方特工可以选择另一名己方特工的灵能独特行动\n或灵能远程武器在它的激活结束前使用。您不能\n选择一件在转折点中被另一名己方特工使用过的\n灵能远程武器，并且那另一名己方特工不能在转\n折点中使用被选择的武器。",
+      "text_en": "WARPCOVEN\nFIREFIGHT PLOY\nPSYCHIC CABAL\nPooling their power, a coven of Sorcerers may share\ntheir learnings, rendering their psychic powers even\nmore deadly.\nUse this firefight ploy when a friendly\nWARPCOVEN SORCERER operative is activated.\nSelect one other friendly WARPCOVEN\nSORCERER operative visible to and within 9\"\nof that operative, then select one of that other\nfriendly operative's PSYCHIC unique actions or\nPSYCHIC ranged weapons for that first friendly\noperative to have until the end of its activation.\nYou cannot select a PSYCHIC ranged weapon that\nhas been used by that other friendly operative\nduring this turning point, and that other friendly\noperative cannot use the selected weapon during\nthis turning point."
     },
     {
-      "id": "wc-031-mutant-herd",
-      "sequence": 31,
+      "id": "chaos-wc-30-04",
+      "sequence": 4,
       "category": "firefight-ploy",
       "title_zh": "变种兽群",
-      "title_en": "Mutant Herd",
+      "title_en": "MUTANT HERD",
       "source_page": 8,
       "page_order": 3,
-      "bbox_px": [
-        273,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        420.48,
-        200.16,
-        345.6
+        99.2,
+        420.9,
+        198.4,
+        343.0
       ],
       "bbox_norm": [
-        0.165054,
-        0.499359,
-        0.336155,
-        0.410432
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
       ],
-      "image": "31-交战计谋-变种兽群.png",
-      "ktdash_ids": [
-        "CHAOS-WC-T-MH"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "30-04-交战计谋-变种兽群.png",
+      "is_back": false,
+      "text": "次元密会\n交战计谋\n变种兽群\n成群的奸角兽合作无间，能在协同攻击中展现\n出奇妙的精准。\n在一名己方次元密会奸角兽特工激活时使用\n本交战计谋。选择位于它 2\" 内、可见且就绪的\n另一名己方次元密会奸角兽特工并同时激活它\n们。您需要按照任意顺序一个行动接着一个行动\n完成它们的激活。",
+      "text_en": "WARPCOVEN\nFIREFIGHT PLOY\nMUTANT HERD\nTzaangor herds share an instinctive understanding,\ncoordinating their attacks with eerie precision.\nUse this firefight ploy when a friendly\nWARPCOVEN TZAANGOR operative is activated.\nSelect one other ready friendly WARPCOVEN\nTZAANGOR operative visible to and within 2\" of\nit to activate at the same time. Complete their\nactivations action by action in any order."
     },
     {
-      "id": "wc-032-ensorcelled-rounds",
-      "sequence": 32,
+      "id": "chaos-wc-40-01",
+      "sequence": 1,
       "category": "faction-equipment",
       "title_zh": "附魔弹药",
-      "title_en": "Ensorcelled Rounds",
+      "title_en": "ENSORCELLED ROUNDS",
       "source_page": 8,
       "page_order": 4,
-      "bbox_px": [
-        826,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        420.48,
-        200.16,
-        345.6
+        297.6,
+        420.9,
+        198.5,
+        343.0
       ],
       "bbox_norm": [
-        0.499395,
-        0.499359,
-        0.336155,
-        0.410432
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
       ],
-      "image": "32-阵营装备-附魔弹药.png",
-      "ktdash_ids": [
-        "CHAOS-WC-ER"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "40-01-阵营装备-附魔弹药.png",
+      "is_back": false,
+      "text": "次元密会\n阵营装备\n附魔弹药\n在咒术和黑魔法的加持下，自动手枪和爆失枪\n弹药的致命性被大大加强了。\n己方特工的地狱火爆矢枪、地狱火爆矢手枪和自\n动手枪获得“毁灭 1”武器规则。",
+      "text_en": "WARPCOVEN\nFACTION EQUIPMENT\nENSORCELLED ROUNDS\nThe placing of hexes and casting of dark magicks\nenhance the lethality of autopistol and bolt rounds.\nFriendly WARPCOVEN operatives’ inferno\nboltguns, inferno bolt pistols and autopistols have\nthe Devastating 1 weapon rule."
     },
     {
-      "id": "wc-033-daemonmaw-weapons",
-      "sequence": 33,
+      "id": "chaos-wc-40-02",
+      "sequence": 2,
       "category": "faction-equipment",
       "title_zh": "魔啮武器",
-      "title_en": "Daemonmaw Weapons",
+      "title_en": "DAEMONMAW WEAPONS",
       "source_page": 9,
       "page_order": 1,
-      "bbox_px": [
-        273,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        77.4,
-        200.16,
-        345.6
+        99.2,
+        78.0,
+        198.4,
+        342.9
       ],
       "bbox_norm": [
-        0.165054,
-        0.09192,
-        0.336155,
-        0.410432
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
       ],
-      "image": "33-阵营装备-魔啮武器.png",
-      "ktdash_ids": [
-        "CHAOS-WC-DMW"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "40-02-阵营装备-魔啮武器.png",
+      "is_back": false,
+      "text": "次元密会\n阵营装备\n魔啮武器\n红字战士的的武器已经在非物质界被扭曲了数\n千年之久。于枪口处突出的锋利恶魔之口作为\n近战武器极为有效。\n为己方次元密会红字战士特工的近战武器的攻\n击属性增加 1 点。每当一名己方次元密会红字\n战士特工进行反击时，它的近战武器获得“精准\n1”武器规则。",
+      "text_en": "WARPCOVEN\nFACTION EQUIPMENT\nDAEMONMAW WEAPONS\nThe weapons of the Rubricae have been warped by\nmillennia spent immersed in the immaterium. Daemonic\nmaws erupt around gun muzzles, their razor beaks\nserving as effective melee weapons.\nAdd 1 to the Atk stat of friendly WARPCOVEN\nRUBRIC MARINE operatives’ melee weapons.\nWhenever a friendly WARPCOVEN RUBRIC\nMARINE operative is retaliating, its melee\nweapons have the Accurate 1 weapon rule."
     },
     {
-      "id": "wc-034-arcane-robes",
-      "sequence": 34,
+      "id": "chaos-wc-40-03",
+      "sequence": 3,
       "category": "faction-equipment",
       "title_zh": "奥术长袍",
-      "title_en": "Arcane Robes",
+      "title_en": "ARCANE ROBES",
       "source_page": 9,
       "page_order": 2,
-      "bbox_px": [
-        826,
-        215,
-        556,
-        960
-      ],
       "bbox_pt": [
-        297.36,
-        77.4,
-        200.16,
-        345.6
+        297.6,
+        78.0,
+        198.5,
+        342.9
       ],
       "bbox_norm": [
-        0.499395,
-        0.09192,
-        0.336155,
-        0.410432
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
       ],
-      "image": "34-阵营装备-奥术长袍.png",
-      "ktdash_ids": [
-        "CHAOS-WC-AR"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
+      "image": "40-03-阵营装备-奥术长袍.png",
+      "is_back": false,
+      "text": "次元密会\n阵营装备\n奥术长袍\n巫师披风上强大的防御法术能够通过偏转攻击\n接下极为强大的打击。\n每个转折点限一次，每当一名己方次元密会巫\n师特工因为一枚攻击骰子而受到暴击伤害时，您\n可以使用本规则。若使用，将那枚攻击骰子替换\n为普通伤害。",
+      "text_en": "WARPCOVEN\nFACTION EQUIPMENT\nARCANE ROBES\nPowerful defensive wards in the Sorcerer’s cloaks allow\nthem to deflect attacks, absorbing the force of the most\npowerful strikes.\nOnce per turning point, whenever an attack\ndice would inflict Critical Dmg on a friendly\nWARPCOVEN SORCERER operative, you can use\nthis rule. If you do, that attack dice inflicts Normal\nDmg instead."
     },
     {
-      "id": "wc-035-sorcerous-scrolls",
-      "sequence": 35,
+      "id": "chaos-wc-40-04",
+      "sequence": 4,
       "category": "faction-equipment",
       "title_zh": "巫术卷轴",
-      "title_en": "Sorcerous Scrolls",
+      "title_en": "SORCEROUS SCROLLS",
       "source_page": 9,
       "page_order": 3,
-      "bbox_px": [
-        273,
-        1168,
-        556,
-        960
-      ],
       "bbox_pt": [
-        98.28,
-        420.48,
-        200.16,
-        345.6
+        99.2,
+        420.9,
+        198.4,
+        343.0
       ],
       "bbox_norm": [
-        0.165054,
-        0.499359,
-        0.336155,
-        0.410432
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
       ],
-      "image": "35-阵营装备-巫术卷轴.png",
-      "ktdash_ids": [
-        "CHAOS-WC-SS"
-      ],
-      "text_status": "current_rules_verified",
-      "translation_status": "pdf_official_chinese",
-      "errata_status": "verified_through_2026-04"
-    },
-    {
-      "id": "wc-036-notes-4",
-      "sequence": 36,
-      "category": "other",
-      "title_zh": "笔记 4",
-      "title_en": "Notes 4",
-      "source_page": 9,
-      "page_order": 4,
-      "bbox_px": [
-        826,
-        1168,
-        556,
-        960
-      ],
-      "bbox_pt": [
-        297.36,
-        420.48,
-        200.16,
-        345.6
-      ],
-      "bbox_norm": [
-        0.499395,
-        0.499359,
-        0.336155,
-        0.410432
-      ],
-      "image": "36-其他-笔记-4.png",
-      "ktdash_ids": [
-
-      ],
-      "text_status": "not_applicable",
-      "translation_status": "not_applicable",
-      "errata_status": "not_applicable"
+      "image": "40-04-阵营装备-巫术卷轴.png",
+      "is_back": false,
+      "text": "次元密会\n阵营装备\n巫术卷轴\n来自普罗斯佩罗宝库中罕见而危险的卷轴能使\n巫师们向奸奇祈求更强大的力量。\n每场战斗限制一次，每当己方次元密会巫师特\n工激活或反应时，您可以选择让其拥有一个不同\n的奸奇恩惠，持续至战斗结束（特工失去任何原\n先拥有的恩惠)。特工不能选择任何其他己方战士\n已经拥有的奸奇恩惠。",
+      "text_en": "WARPCOVEN\nFACTION EQUIPMENT\nSORCEROUS SCROLLS\nRare and dangerous scrolls from the vaults of Prospero\nallow the Sorcerers to beseech Tzeentch for even\ngreater power.\nOnce per battle, when a friendly WARPCOVEN\nSORCERER operative is activated or counteracts,\nyou can select a different BOON OF TZEENTCH for\nit to have until the end of the battle (it loses any it\npreviously had). It cannot be the same BOON OF\nTZEENTCH any other friendly operative has. Note\nthat if you use this rule when a friendly operative\ncounteracts and you select Echoes from the\nWarp, it can be used immediately to change the\noperative’s order and perform a free action during\nthat counteraction."
     }
   ]
 }

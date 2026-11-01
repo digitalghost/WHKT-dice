@@ -86,7 +86,9 @@ class BattleFlowTest {
         assertThrows(IllegalArgumentException::class.java) { BattleFlow.action(reaction, "后撤", 2, "") }
         val shot = BattleFlow.action(reaction, "射击", 1, "")
         assertEquals(0, shot.progress.active?.spent)
-        assertThrows(IllegalArgumentException::class.java) { BattleFlow.action(shot, "射击", 1, "阿斯塔特") }
+        // A second reaction action needs a rule (e.g. 亚空间残响); without one it is refused.
+        assertThrows(IllegalArgumentException::class.java) { BattleFlow.action(shot, "转移", 1, "") }
+        assertEquals(listOf("射击", "转移"), BattleFlow.action(shot, "转移", 1, "亚空间残响").progress.active?.actions)
         val ended = BattleFlow.endActivation(shot)
         assertTrue("A/same-member" in ended.progress.reacted)
         assertFalse("B/same-member" in ended.progress.reacted)

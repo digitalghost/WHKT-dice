@@ -1,0 +1,685 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-SCOUT_SQUAD",
+  "team_name_zh": "侦查小队",
+  "team_name_en": "Scout Squad",
+  "source_pdf": "最新杀戮小队规则更新/侦查小队 Scout Squad 杀戮小队规则.pdf",
+  "source_pdf_sha256": "254f2d9f357f897ecb97529ff2bcee3ac8b18c6e7e9c63307712f482006eca2d",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 25,
+    "operative": 6,
+    "operative-ability": 1,
+    "team-selection": 1,
+    "faction-rule": 4,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-scout_squad-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "侦察兵军士-数据卡",
+      "title_en": "SCOUT SERGEANT",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-侦察兵军士-数据卡.png",
+      "is_back": false,
+      "text": "侦察兵军士 APL 移动豁免耐伤\n3 6\" 4+ 11\n名称攻击命中伤害武器规则\n阿斯塔特霰弹枪 4 2+ 4/4 范围 6\"\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢枪 4 3+ 3/4 -\n链锯剑 5 3+ 4/5 -\n双拳 4 3+ 3/4 -\n指引与历练：在这名特工的每次激活中，您可以选择位于杀戮区中的另一名己方侦察小队特工。直到那\n名特工的下一次激活结束前，为其 APL 属性增加 1 点。\n阿斯塔特：在这名特工的激活中，它可以执行两次射击行动或两次近战行动。如果是两次射击行动，其中\n一次必须使用阿斯塔特霰弹枪，爆矢手枪或爆矢枪。这名特工无论拥有何种命令都可以执行反应。\n侦察小队、帝国、阿斯塔特修会、队长、军士 28",
+      "weapon_types": {
+        "阿斯塔特霰弹枪": "远程",
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "链锯剑": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSCOUT SERGEANT\n3 6\" 4+ 11\nNAME ATK HIT DMG WR\nAstartes shotgun 4 2+ 4/4 Range 6\"\nBolt pistol 4 3+ 3/4 Range 8\"\nBoltgun 4 3+ 3/4 -\nChainsword 5 3+ 4/5 -\nFists 4 3+ 3/4 -\nGuidance and Experience: Once during each of this operative’s activations, you can select one other friendly SCOUT SQUAD\noperative in the killzone. Until the end of that operative’s next activation, add 1 to its APL stat.\nAstartes: During this operative’s activation, it can perform either two Shoot actions or two Fight actions. If it’s two Shoot actions,\nan Astartes shotgun, bolt pistol or boltgun must be selected for at least one of them. This operative can counteract regardless of\nits order.\nSCOUT SQUAD , IMPERIUM, ADEPTUS ASTARTES, LEADER, SERGEANT 28"
+    },
+    {
+      "id": "kt-scout_squad-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "侦察兵重炮手-数据卡",
+      "title_en": "SCOUT HEAVY GUNNER",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-侦察兵重炮手-数据卡.png",
+      "is_back": false,
+      "text": "侦察兵重炮手 APL 移动豁免耐伤\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n重型爆矢枪（集中） 5 3+ 4/5 重型 (仅限冲刺)，关键穿刺 1\n重型爆矢枪（扫射） 4 3+ 4/5 重型 (仅限冲刺)，关键穿刺 1，洪流 1\"\n导弹发射器（破片） 4 3+ 3/5 爆炸 2\"，重型 (仅限冲刺)\n导弹发射器（穿甲） 4 3+ 5/7 重型 (仅限冲刺)，穿刺 1\n双拳 3 3+ 3/4 -\n重武器两脚架：每当一名己方侦察小队重炮手特\n工使用重型爆矢枪或导弹发射器射击时，若它在那\n次激活中尚未进行移动或这是一次反应，则那个武\n器获得“无休”武器规则。若那个武器已经拥有这\n条规则，则改为拥有“毫不留情”武器规则。请注\n意，这并不会限制其在射击后执行移动。\n侦察小队、帝国、阿斯塔特修会、重炮手 28",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "重型爆矢枪（集中）": "远程",
+        "重型爆矢枪（扫射）": "远程",
+        "导弹发射器（破片）": "远程",
+        "导弹发射器（穿甲）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSCOUT HEAVY GUNNER\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nHeavy bolter (focused) 5 3+ 4/5 Heavy (Dash only), Piercing Crits 1\nHeavy bolter (sweeping) 4 3+ 4/5 Heavy (Dash only), Piercing Crits 1, Torrent 1\"\nMissile launcher (frag) 4 3+ 3/5 Blast 2\", Heavy (Dash only)\nMissile launcher (krak) 4 3+ 5/7 Heavy (Dash only), Piercing 1\nFists 3 3+ 3/4 -\nHeavy Weapon Bipod: Whenever this operative is shooting with a weapon from its datacard, if it hasn’t moved during the activation, or\nif it’s a counteraction, that weapon has the Ceaseless weapon rule; if the weapon already has that weapon rule (i.e. from the Ambush\nstrategy ploy), it has the Relentless weapon rule instead. Note that this operative isn’t restricted from moving after shooting.\nSCOUT SQUAD , IMPERIUM, ADEPTUS ASTARTES, HEAVY GUNNER 28"
+    },
+    {
+      "id": "kt-scout_squad-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "侦察兵猎手-数据卡",
+      "title_en": "SCOUT HUNTER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-侦察兵猎手-数据卡.png",
+      "is_back": false,
+      "text": "侦察兵猎手 APL 移动豁免耐伤\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n格斗匕首 4 3+ 4/5 -\n抓钩发射器：在这名特工向上攀爬时，您可以将其\n经过的垂直距离视作 2\"（无论其实际垂直移动距离\n为多少）。\n抓钩突袭：若这名特工在执行冲锋行动中攀爬，跳\n落，跳跃或其底盘移动经过制高点地形之下，则\n在激活结束前，其近战武器获得“致命 3+”武器\n规则。\n侦察小队、帝国、阿斯塔特修会、猎手 28",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "格斗匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSCOUT HUNTER\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nCombat blade 4 3+ 4/5 -\nGrapnel Launcher: Whenever this operative is climbing up, you\ncan treat the vertical distance as 2\" (regardless of how far the\noperative actually moves vertically).\nGrapnel Assault: Whenever this operative performs the Charge\naction during its activation, if it climbs, drops, jumps or its\nbase moves underneath Vantage terrain during that action, its\nmelee weapons have the Lethal 3+ weapon rule until the end of\nthat activation.\nSCOUT SQUAD , IMPERIUM, ADEPTUS ASTARTES, HUNTER 28"
+    },
+    {
+      "id": "kt-scout_squad-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "侦察兵狙击手-数据卡",
+      "title_en": "SCOUT SNIPER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-侦察兵狙击手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n侦察兵狙击手\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n爆矢手枪 4 3+ 3/4 范围 8\"\n狙击步枪（机动） 4 3+ 3/4 -\n狙击步枪（静止） 4 2+ 3/3 毁灭 3，重型（仅限冲刺），安静\n双拳 3 3+ 3/4 -\n迷彩斗篷：当一名特工对这名特工射击时：\n• 忽略“集中”武器规则。\n• 若您保留了任意掩护豁免，则您可以额外保留一\n个掩护豁免，或将保留的一个掩护豁免替换为关\n键成功。但这无法与制高点提供的掩护豁免相累\n加。\n先进瞄具 1AP\n直到这名特工的下一次激活开始前，当它进行射\n击时，敌方特工的遮挡将被无视。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n侦察小队、帝国、阿斯塔特修会、狙击手 28",
+      "weapon_types": {
+        "爆矢手枪": "远程",
+        "狙击步枪（机动）": "远程",
+        "狙击步枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSCOUT SNIPER\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nBolt pistol 4 3+ 3/4 Range 8\"\nSniper rifle (mobile) 4 3+ 3/4 -\nSniper rifle (stationary) 4 2+ 3/3 Devastating 3, Heavy (Dash only), Silent\nFists 3 3+ 3/4 -\nCamo Cloak: Whenever an operative is shooting this operative:\n• Ignore the Saturate weapon rule.\n• If you can retain any cover saves, you can retain one additional\ncover save, or you can retain one cover save as a critical\nsuccess instead. This isn’t cumulative with improved cover\nsaves from Vantage terrain.\nOPTICS 1AP\nUntil the start of this operative’s next activation, whenever\nit’s shooting, enemy operatives cannot be obscured.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nSCOUT SQUAD , IMPERIUM, ADEPTUS ASTARTES, SNIPER 28"
+    },
+    {
+      "id": "kt-scout_squad-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "侦察兵追踪者-数据卡",
+      "title_en": "SCOUT TRACKER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-侦察兵追踪者-数据卡.png",
+      "is_back": false,
+      "text": "侦察兵追踪者 APL 移动豁免耐伤\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n爆矢枪 4 3+ 3/4 -\n双拳 3 3+ 3/4 -\n追踪敌人 1AP\n选择这名战士 8\" 内的一名敌方特工。直到这个\n转折点结束前，每当一名己方侦察小队特工对\n那名敌方特工进行射击时，其远程武器获得“追\n踪轻型”规则。\n这名特工不能在敌方特工的控制范围内执行此\n行动。\n请继续阅读背面规则\n侦察小队、帝国、阿斯塔特修会、追踪者 28",
+      "weapon_types": {
+        "爆矢枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSCOUT TRACKER\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nBoltgun 4 3+ 3/4 -\nFists 3 3+ 3/4 -\nTRACK ENEMY 1AP\nSelect one enemy operative within 8\" of this operative. Until\nthe end of the turning point, whenever a friendly SCOUT\nSQUAD operative is shooting that enemy operative, that\nfriendly operative’s ranged weapons have the Seek Light\nweapon rule.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nRULES CONTINUE ON OTHER SIDE\nSCOUT SQUAD , IMPERIUM, ADEPTUS ASTARTES, TRACKER 28"
+    },
+    {
+      "id": "kt-scout_squad-01-06",
+      "sequence": 6,
+      "category": "operative-ability",
+      "title_zh": "侦察兵追踪者-能力卡",
+      "title_en": "SCOUT TRACKER",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工能力-侦察兵追踪者-能力卡.png",
+      "is_back": false,
+      "text": "侦察兵追踪者 APL 移动豁免耐伤\n2 6\" 4+ 10\n鸟卜仪扫描 1AP\n直到这名特工下一次激活开始前或直到这名特工\n残废（先到者为准），每当一名己方侦察小队\n特工对这名特工 8\" 内的敌方特工进行射击时，\n那名敌方特工无法被遮挡；如果那名己方特工为\n狙击手且正受到“先进瞄具”行动的增益，则其\n远程武器还将获得“追踪轻型”武器规则。\n这名特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nSCOUT TRACKER\n2 6\" 4+ 10\nAUSPEX SCAN 1AP\nUntil the start of this operative’s next activation or until\nit’s incapacitated (whichever comes first), whenever a\nfriendly SCOUT SQUAD operative is shooting an\nenemy operative within 8\" of this operative, that enemy\noperative cannot be obscured; if that friendly operative is a\nSNIPER that’s currently benefitting from the effects of its\nOptics action, its ranged weapons also have the Seek Light\nweapon rule.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-scout_squad-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "侦察兵战士-数据卡",
+      "title_en": "SCOUT WARRIOR",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-侦察兵战士-数据卡.png",
+      "is_back": false,
+      "text": "侦察兵战士 APL 移动豁免耐伤\n2 6\" 4+ 10\n名称攻击命中伤害武器规则\n阿斯塔特霰弹枪 4 2+ 4/4 范围 6\"\n爆矢手枪 4 3+ 3/4 范围 8\"\n爆矢枪 4 3+ 3/4 -\n格斗匕首 4 3+ 4/5 -\n双拳 3 3+ 3/4 -\n自适应装备：每个转折点中，以下每项您都只能使\n用一次：\n• 一名己方侦察小队战士特工可以执行烟雾手雷\n行动。\n• 一名己方侦察小队战士特工可以执行震荡手雷\n行动。\n这些行动的规则在通用装备的相应装备中。但使用\n本规则执行的行动并不计入其可执行的次数限制\n（在您同时在装备中选择了这些手雷的情况下）。\n侦察小队、帝国、阿斯塔特修会、战士 28",
+      "weapon_types": {
+        "阿斯塔特霰弹枪": "远程",
+        "爆矢手枪": "远程",
+        "爆矢枪": "远程",
+        "格斗匕首": "近战",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nSCOUT WARRIOR\n2 6\" 4+ 10\nNAME ATK HIT DMG WR\nAstartes shotgun 4 2+ 4/4 Range 6\"\nBolt pistol 4 3+ 3/4 Range 8\"\nBoltgun 4 3+ 3/4 -\nCombat blade 4 3+ 4/5 -\nFists 3 3+ 3/4 -\nAdaptive Equipment: You can do each of the following once per turning point:\n• One friendly SCOUT SQUAD WARRIOR operative can perform the Smoke Grenade action.\n• One friendly SCOUT SQUAD WARRIOR operative can perform the Stun Grenade action.\nThe rules for these actions are found in universal equipment. Performing these actions using this rule doesn’t count towards their\naction limits (i.e. if you also select those grenades from equipment).\nSCOUT SQUAD , IMPERIUM, ADEPTUS ASTARTES, WARRIOR 28"
+    },
+    {
+      "id": "kt-scout_squad-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "侦查小队杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-侦查小队杀戮小队.png",
+      "is_back": false,
+      "text": "侦查小队杀戮小队\n原型：渗透，侦察\n特工\n↘ 1 名侦察小队军士特工，装备有以下一种选\n项:\n• 阿斯塔特霰弹枪；双拳\n• 爆矢枪；双拳\n• 爆矢手枪；链锯剑\n↘ 8 名侦察小队特工，从以下列表进行选择:\n• 重炮手，装备有双 • 追踪者\n拳，爆矢手枪和重 • 战士，装备有以下\n型爆矢枪一种选项:\n• 重炮手，装备有 ○ 阿斯塔特霰弹枪；\n双拳，爆矢手枪和双拳\n导弹发射器 ○ 爆矢枪；双拳\n• 猎手 ○ 爆矢手枪；格斗\n• 狙击手匕首\n除了战士特工以外，列表中的每一名特工只能被\n纳入您的杀戮小队一次。",
+      "text_en": "SCOUT SQUAD\nKILL TEAM\nARCHETYPES: INFILTRATION, RECON\nOPERATIVES\n↘ 1 SCOUT SQUAD SERGEANT operative with\none of the following options:\n• Astartes shotgun; fists\n• Boltgun; fists\n• Bolt pistol; chainsword\n↘ 8 SCOUT SQUAD operatives selected from\nthe following list:\n• HEAVY GUNNER • TRACKER\nwith fists, bolt • WARRIOR\npistol and heavy with one of the\nbolter following options:\n• HEAVY GUNNER ○ Astartes\nwith fists, bolt shotgun; fists\npistol and missile ○ Boltgun; fists\nlauncher ○ Bolt pistol;\n• HUNTER combat blade\n• SNIPER\nOther than WARRIOR operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-scout_squad-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "侦查前锋-1",
+      "title_en": "FORWARD SCOUTING",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-侦查前锋-1.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营规则\n侦查前锋\n星际战士侦察兵的基本职责是作为其所属打击\n部队的前锋对敌人布置陷阱，骚扰巡逻队，\n收集情报并侦查地形，为战团的突袭部队做\n好准备。\n在部署特工阶段结束时，您可以选择并结算至多\n六个侦查前锋选项。每个选项的括号内都有一个\n数字，代表着您可以在本场战斗中选择并结算该\n选项的最大次数。例如，您的六个选择可以是转\n移（2），绊索警报（1），饵雷陷阱（1）和分\n散注意（1）。若双方玩家都拥有本规则，则交\n替结算，从拥有先手的玩家开始。\n侦查前锋选项将在单独的卡片中描述",
+      "text_en": "SCOUT SQUAD\nFACTION RULE\nFORWARD SCOUTING\nCentral to the role of Space Marine Scouts is ranging\nahead of the strike force they are attached to, spending\nextensive periods laying traps for the foe, harassing\nenemy patrols, gathering intelligence and reconnoitring\nthe ground in preparation for the Chapter’s\nassault force.\nAt the end of the Set Up Operatives step, you can\nselect and resolve up to six Forward Scouting\noptions. Each option has a number in brackets,\nwhich is the maximum number of times you can\nselect and resolve it for the battle. For example,\nyour six selections could be Reposition (2), Trip\nAlarm (1), Booby Trap (1) and Diversion (1). If\nboth players have this rule, alternate resolving\nselection by selection, starting with the player\nwith initiative.\nFORWARD SCOUTING OPTIONS ARE PRESENTED\nON THEIR OWN CARDS"
+    },
+    {
+      "id": "kt-scout_squad-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "侦查前锋-2",
+      "title_en": "FORWARD SCOUTING",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-侦查前锋-2.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营规则\n侦查前锋\n重新部署 (1)\n改变己方三分之一数量特工的部署（向上取整）。\n转移 (2)\n完全位于己方降落区内的一名己方特工可执行一\n次无消耗的转移行动，但它必须在完全位于己方\n降落区 3\" 内的位置结束那次移动。\n绊索警报 (2)\n将一枚己方绊索警报标识放置在距离敌方降落区\n6\" 以外的位置。在第一个和第二个转折点中，当\n一名己方侦察小队特工对位于那个标识 2\" 内的\n一名敌方特工进行射击时，其远程武器获得\n“追踪”武器规则。在第三个战略阶段的就绪步\n骤中，将那个标识移除。",
+      "text_en": "SCOUT SQUAD\nFACTION RULE\nFORWARD SCOUTING\nRedeploy (1)\nChange the set up of one third of your operatives\n(rounding up).\nReposition (2)\nPerform a free Reposition action with one friendly\noperative that’s wholly within your drop zone.\nIt must end that move wholly within 3\" of your\ndrop zone.\nTrip Alarm (2)\nPlace one of your Trip Alarm markers more than\n6\" from your opponent’s drop zone. During\nthe first and second turning point, whenever a\nfriendly SCOUT SQUAD operative is shooting an\nenemy operative that’s within 2\" of that marker,\nthat friendly operative’s ranged weapons have the\nSeek weapon rule. In the Ready step of the third\nStrategy phase, remove that marker."
+    },
+    {
+      "id": "kt-scout_squad-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "侦查前锋-3",
+      "title_en": "FORWARD SCOUTING",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-侦查前锋-3.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营规则\n侦查前锋\n饵雷陷阱 (1)\n将一枚己方饵雷陷阱标识放置在距离敌方降落区\n6\" 外且距离其他标识、访问点，以及可穿越地\n形 2\" 以外的位置。当您的饵雷陷阱标识首次位\n于一名敌方特工的控制范围内时，移除标识，\n并对那名特工造成 2D3 点伤害。如果它没有残\n废，中断它的行动（如果有），即使行动效果还\n未满足。如果它不能被放置，则移动最小距离以\n放置。\n战术移动（1） (1)\n每场战斗限两次。战略计划。选择一名己方特\n工。直到那名特工的下一次激活结束前，其 APL\n属性增加 1 点。",
+      "text_en": "SCOUT SQUAD\nFACTION RULE\nFORWARD SCOUTING\nBooby Trap (1)\nPlace one of your Booby Trap markers more than\n6\" from your opponent’s drop zone and more\nthan 2\" from other markers, access points and\nAccessible terrain. The first time your Booby\nTrap marker is within an enemy operative’s\ncontrol range, remove that marker and inflict 2D3\ndamage on that operative; if it isn’t incapacitated,\nend its action (if any), even if that action’s effects\naren’t fulfilled. If it cannot be placed, move it the\nminimum amount to do so.\nTactical Manoeuvre (1)\nTwice per battle STRATEGIC GAMBIT. Select\none friendly operative. Until the end of that\noperative’s next activation, add 1 to its APL stat."
+    },
+    {
+      "id": "kt-scout_squad-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "侦查前锋-4",
+      "title_en": "FORWARD SCOUTING",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-侦查前锋-4.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营规则\n侦查前锋\n分散注意 (1)\n每场战斗限一次的战略计划。选择一名杀戮区边\n缘 6\" 内的敌方特工。直到那名特工下一次激活\n结束前，将其 APL 减去 1 点。\n制定计划 (1)\n己方获得 1 点指挥点数。\n指定目标 (1)\n选择一名敌方特工获得一枚己方目标指示物。每\n当己方侦察小队特工对您放置了己方目标指示\n物的敌方特工进行射击，近战或反击时，您便可\n以重掷一枚己方的攻击骰。\n窥察 (1)\n仅限认证行动。您的对手必须揭示其选择的战术\n行动。",
+      "text_en": "SCOUT SQUAD\nFACTION RULE\nFORWARD SCOUTING\nDiversion (1)\nOnce per battle STRATEGIC GAMBIT. Select one\nenemy operative within 6\" of a killzone edge.\nUntil the end of that operative’s next activation,\nsubtract 1 from its APL stat.\nDevise Plan (1)\nYou gain 1CP.\nDesignate Target (1)\nSelect one enemy operative to gain one of your\nTarget tokens. Whenever a friendly SCOUT\nSQUAD operative is shooting against, fighting\nagainst or retaliating against an enemy operative\nthat has one of your Target tokens, you can re-roll\none of your attack dice.\nSpy (1)\nApproved Ops only. Your opponent must reveal\ntheir selected tac op."
+    },
+    {
+      "id": "kt-scout_squad-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "SCOUT SQUAD",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "侦查小队\n标识/指示物指南\n指定目标鸟卜仪扫描先进瞄具\n指示物指示物指示物\n追踪敌人绊索警报标识饵雷陷阱标识\n指示物\n烟雾手雷震荡手雷\n指示物指示物",
+      "text_en": "SCOUT SQUAD\nMARKER/TOKEN GUIDE\nDesignate Auspex Scan Optics token\nTarget token token\nTrack Enemy Trip Alarm Booby Trap\ntoken marker marker\nSmoke Grenade Stun Grenade\ntoken token"
+    },
+    {
+      "id": "kt-scout_squad-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "游击交战",
+      "title_en": "GUERRILLA ENGAGEMENT",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-游击交战.png",
+      "is_back": false,
+      "text": "侦查小队\n战略计谋\n游击交战\n星际战士侦察兵知晓如何利用地形为自己获\n取优势，能够在敌方杀伤范围内移动而不被\n注意。\n每当一名敌方特工对一名己方侦察小队特工进\n行射击时，若那名己方特工位于掩护且距离可\n见敌方特工 6\" 外，您便可以重掷一枚己方的防\n御骰。",
+      "text_en": "SCOUT SQUAD\nSTRATEGY PLOY\nGUERRILLA ENGAGEMENT\nSpace Marine Scouts learn to use terrain to their\nadvantage, preventing the enemy from getting a bead on\nthem as they move within killing range.\nWhenever an enemy operative is shooting a\nfriendly SCOUT SQUAD operative, if that friendly\noperative is in cover and more than 6\" from\nenemy operatives it’s visible to, you can re-roll\none of your defence dice."
+    },
+    {
+      "id": "kt-scout_squad-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "伏击",
+      "title_en": "AMBUSH",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-伏击.png",
+      "is_back": false,
+      "text": "侦查小队\n战略计谋\n伏击\n侦察小队在接近敌方射程时保持隐匿，并在精\n心选择目标后进行攻击。\n若一名己方侦察小队特工的命令在激活开始时\n从隐匿转变为交战，或这名特工在激活开始时\n对敌方特工不可见，那么每当它在那次激活中\n进行射击或近战时：\n• 其武器获得“平衡”武器规则。\n• 若目标进入待机，则其武器获得“无休”武\n器规则作为替代。",
+      "text_en": "SCOUT SQUAD\nSTRATEGY PLOY\nAMBUSH\nScout Squads utilise stealth to close within range\nof their foes, carefully selecting their targets before\nunleashing a devastating assault.\nWhenever a friendly SCOUT SQUAD operative\nis shooting or fighting during its activation, if its\norder was changed from Conceal to Engage at\nthe start of that activation, or it wasn’t visible to\nenemy operatives at the start of that activation:\n• That friendly operative’s weapons have the\nBalanced weapon rule.\n• If the target is expended, that friendly\noperative’s weapons have the Ceaseless\nweapon rule instead."
+    },
+    {
+      "id": "kt-scout_squad-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "灵活训练",
+      "title_en": "ADAPTABLE TRAINING",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-灵活训练.png",
+      "is_back": false,
+      "text": "侦查小队\n战略计谋\n灵活训练\n星际战士新手和经验丰富的军士运用催眠灌输\n了一系列灵活战术。再加上潜行训练，他们能\n够智胜敌人，同时保持自身隐蔽。\n您可以改变最多 D3 个位于敌方特工 4\" 外的己\n方侦察小队特工的命令。",
+      "text_en": "SCOUT SQUAD\nSTRATEGY PLOY\nADAPTABLE TRAINING\nSpace Marine Neophytes and their experienced\nSergeants draw upon a host of versatile tactics\nembedded through hypno-indoctrination. Coupled\nwith their stealth training, this enables them to\noutmanoeuvre their foes while remaining out of reach.\nYou can change the order of up to D3 friendly\nSCOUT SQUAD operatives that are more than 4\"\nfrom enemy operatives."
+    },
+    {
+      "id": "kt-scout_squad-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "匿迹转移",
+      "title_en": "STEALTH RELOCATION",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-匿迹转移.png",
+      "is_back": false,
+      "text": "侦查小队\n战略计谋\n匿迹转移\n星际战士侦察小队是一个极具机动性的单位，\n往往能通过快速转移压倒敌人。\n最多 D3 名拥有隐匿命令且位于敌方特工 4\" 外\n的己方侦察小队特工可以立即执行一次无消耗\n的冲刺行动。您无法在第一个转折点中使用本\n计谋。",
+      "text_en": "SCOUT SQUAD\nSTRATEGY PLOY\nSTEALTH RELOCATION\nSpace Marine Scout Squads are highly mobile\nunits, shifting swiftly from cover to cover in order to\noutmanoeuvre the foe.\nUp to D3 friendly SCOUT SQUAD operatives that\nhave a Conceal order and are more than 4\" from\nenemy operatives can immediately perform a free\nDash action. You cannot use this ploy during the\nfirst turning point."
+    },
+    {
+      "id": "kt-scout_squad-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "阿斯塔特训练",
+      "title_en": "ASTARTES TRAINING",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-阿斯塔特训练.png",
+      "is_back": false,
+      "text": "侦查小队\n交战计谋\n阿斯塔特训练\n星际战士战团是银河中最为精锐的战斗组织。\n即便其中的新进者都能在使用武器时展现出无\n与伦比的技艺。\n在一名己方侦察小队特工激活时使用此交战计\n谋。直到那个激活结束前，那名特工可以执行下\n列选项之一：\n• 执行两次近战行动。\n• 执行两次射击行动，并且其中至少一次选择了\n阿斯塔特霰弹枪，爆矢手枪或爆矢枪作为远程\n武器。\n• 使用重型爆矢枪，导弹发射器或狙击步枪执行\n两次射击行动，但第二次行动必须消耗额外 1\n点 AP。",
+      "text_en": "SCOUT SQUAD\nFIREFIGHT PLOY\nASTARTES TRAINING\nSpace Marine Chapters are amongst the galaxy’s most\nelite fighting forces. Even their Neophytes wield their\nweapons with peerless skill.\nUse this firefight ploy during a friendly SCOUT\nSQUAD operative’s activation. Until the end\nof that activation, that operative can do one of\nthe following:\n• Perform two Fight actions.\n• Perform two Shoot actions if an Astartes\nshotgun, bolt pistol or boltgun is selected for at\nleast one of them.\n• Perform two Shoot actions with a heavy bolter,\nmissile launcher or sniper rifle, but 1 additional\nAP must be spent for the second action."
+    },
+    {
+      "id": "kt-scout_squad-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "狂野生理",
+      "title_en": "RAW PHYSIOLOGY",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-狂野生理.png",
+      "is_back": false,
+      "text": "侦查小队\n交战计谋\n狂野生理\n尽管星际战士侦察兵们尚未完成训练，但他们\n已经拥有了和其他成熟战斗兄弟们相同的基因\n强化恢复力。\n在一名己方侦察小队特工激活时，在其执行一\n次行动之前或之后使用此交战计谋。直到它的下\n一次激活开始前，为其移动属性增加 1\" 并且您\n可以忽略受创对这名特工属性的任何修正（其中\n包含了其武器属性）。",
+      "text_en": "SCOUT SQUAD\nFIREFIGHT PLOY\nRAW PHYSIOLOGY\nThough their training may not yet be complete, Space\nMarine Scouts possess the same genetically augmented\nresilience as their fully fledged battle-brothers.\nUse this firefight ploy during a friendly SCOUT\nSQUAD operative’s activation, before or after\nit performs an action. Until the start of its next\nactivation, add 1\" to its Move stat and you can\nignore any changes to that operative’s stats from\nbeing injured (including its weapons’ stats)."
+    },
+    {
+      "id": "kt-scout_squad-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "勇猛新进者",
+      "title_en": "EMBOLDENED ASPIRANT",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-勇猛新进者.png",
+      "is_back": false,
+      "text": "侦查小队\n交战计谋\n勇猛新进者\n手术强化，教导和严酷训练为这些星际战士新\n进者注入了与强大敌人战斗的信念和决心。\n在一名己方侦察小队特工执行近战或射击行动\n时，在进行任何重掷后使用此交战计谋。如果\n它是当前转折点中第一个执行那次行动的己方\n特工，或者那次行动中的敌方特工（如果涉及\n多名敌方特工，则为主要目标）拥有的耐伤属\n性高于那名己方侦察小队特工，那么您可以将\n一个自己的普通成功作为关键成功进行保留。",
+      "text_en": "SCOUT SQUAD\nFIREFIGHT PLOY\nEMBOLDENED ASPIRANT\nSurgical enhancement, indoctrination and brutal\ntraining instil within a Space Marine Neophyte the\nconfidence and determination to battle powerful foes.\nUse this firefight ploy when a friendly SCOUT\nSQUAD operative performs the Shoot or\nFight action, after any re-rolls. If it’s the first\nfriendly operative to perform either of those\nactions during this turning point, or if the\nenemy operative in that action (primary target,\nif relevant) has a higher Wounds stat than that\nfriendly SCOUT SQUAD operative, you can\nretain one of your normal successes as a critical\nsuccess instead."
+    },
+    {
+      "id": "kt-scout_squad-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "隐蔽位置",
+      "title_en": "COVERT POSITION",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-隐蔽位置.png",
+      "is_back": false,
+      "text": "侦查小队\n交战计谋\n隐蔽位置\n星际战士侦察兵擅长伪装自己，能在数小时乃\n至数日的待命中找到绝佳时机然后发起突袭。\n在一名己方侦察小队特工激活时使用此交战计\n谋。直到它的下一次激活开始前，若那名特工拥\n有隐蔽命令并处于掩护中，便无法被选为有效\n目标，本规则的优先度高于所有其他规则（例\n如‘追踪’武器规则和制高点地形)，除非攻击\n者位于特工的 2\" 内。",
+      "text_en": "SCOUT SQUAD\nFIREFIGHT PLOY\nCOVERT POSITION\nSpace Marine Scouts excel at camouflaging themselves,\nlaying in wait for hours or even days at a time until they\nidentify the perfect moment to strike.\nUse this firefight ploy during a friendly SCOUT\nSQUAD operative’s activation. Until the start\nof its next activation, while that operative has\na Conceal order and is in cover, it cannot be\nselected as a valid target, taking precedence over\nall other rules (e.g. Seek, Vantage terrain) except\nbeing within 2\"."
+    },
+    {
+      "id": "kt-scout_squad-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "迷彩斗篷",
+      "title_en": "CAMO CLOAK",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-迷彩斗篷.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营装备\n迷彩斗篷\n迷彩斗篷使用了诸如变色织物这类能够操弄光\n线的材料，能够让使用者融入周围地形。\n当一名特工对一名己方侦察小队特工进行射击\n时（狙击手除外），若您能够保留任意掩护豁\n免，则您可以额外保留一个掩护豁免。但这无\n法与制高点提供的掩护豁免相累加。",
+      "text_en": "SCOUT SQUAD\nFACTION EQUIPMENT\nCAMO CLOAK\nCrafted from light-manipulating materials such as\ncameleoline, camo cloaks help the bearer blend into\nsurrounding terrain.\nWhenever an operative is shooting a friendly\nSCOUT SQUAD operative (excluding SNIPER),\nif you can retain any cover saves, you can retain\none additional cover save. This isn’t cumulative\nwith improved cover saves from Vantage terrain."
+    },
+    {
+      "id": "kt-scout_squad-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "瞄准目镜",
+      "title_en": "TARGETING OCULARS",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-瞄准目镜.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营装备\n瞄准目镜\n这些极为灵敏的多光谱瞄准目镜能够协助使用\n者执行瞄准，使武器更为致命。\n每个转折点最多两次，当一名己方侦察小队特\n工在执行射击行动中选择了一个有效目标后，\n您可以使用这个规则。若此，直到那个行动结\n束前，其远程武器获得“致命 5+”和“集中”\n武器规则。",
+      "text_en": "SCOUT SQUAD\nFACTION EQUIPMENT\nTARGETING OCULARS\nThese highly sensitive multispectral targeting visors\nserve to aid the bearer’s aim, rendering their weapons\neven more lethal.\nUp to twice per turning point, when a friendly\nSCOUT SQUAD operative is performing the\nShoot action and you’re selecting a valid target,\nyou can use this rule. If you do, until the end\nof that action, that friendly operative’s ranged\nweapons have the Lethal 5+ and Saturate\nweapon rules."
+    },
+    {
+      "id": "kt-scout_squad-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "格斗刀",
+      "title_en": "COMBAT BLADES",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-格斗刀.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营装备\n格斗刀\n星际战士新进者使用一系列短刃近战武器，他\n们很善于用这些武器对敌人造成致命伤害。\n己方侦察小队特工获得以下近战武器。请注\n意，一些特工已经拥有这件武器并且它们拥有\n更佳的数据；在这种情况下，使用更好的那个\n版本。\n名称攻击命中伤害\n格斗刀 3 3+ 4/5",
+      "text_en": "SCOUT SQUAD\nFACTION EQUIPMENT\nCOMBAT BLADES\nSpace Marine Neophytes wield a variety of short-bladed\nmelee weapons, demonstrating lethal proficiency with\nthem all.\nFriendly SCOUT SQUAD operatives have\nthe following melee weapon. Note that some\noperatives already have this weapon but\nwith better stats; in that instance, use the\nbetter version.\nNAME ATK HIT DMG\nCombat blade 3 3+ 4/5"
+    },
+    {
+      "id": "kt-scout_squad-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "战术通讯链路",
+      "title_en": "TACTICAL VOX-LINK",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-战术通讯链路.png",
+      "is_back": false,
+      "text": "侦查小队\n阵营装备\n战术通讯链路\n侦查军士架起了战术通讯链路，指引下属进行\n狂暴而精准的攻击。\n每个转折点限一次，如果一个己方军士特工位\n于杀戮区，您可以消耗 0CP 使用阿斯塔特训练\n或勇猛新进者交战计谋。",
+      "text_en": "SCOUT SQUAD\nFACTION EQUIPMENT\nTACTICAL VOX-LINK\nThe Scout Sergeant maintains a constant vox-link with\nthe aspirants in his charge, directing their aggression\nwith deadly precision.\nOnce per turning point, you can use the Astartes\nTraining or Emboldened Aspirant firefight ploy\nfor 0CP if a friendly SERGEANT operative is in\nthe killzone."
+    }
+  ]
+}

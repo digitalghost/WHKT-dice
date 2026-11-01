@@ -1,0 +1,563 @@
+{
+  "teamId": "KT-HAND_OF_THE_ARCHON",
+  "name": "执政官之手",
+  "nameEn": "Hand of the Archon",
+  "subtitle": "艾达灵族 · 黑暗灵族 · 9 种特工",
+  "archetypes": [
+    "侦察",
+    "搜索与摧毁"
+  ],
+  "source": "官方中文 PDF 28/01/2026（执政官之手 Hand of the Archon 杀戮小队规则.pdf）",
+  "operatives": [
+    {
+      "id": "hand_of_the_archon_01",
+      "name": "阴谋团大享乐者",
+      "role": "大享乐者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 9,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "队长",
+        "大享乐者"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-01-特工-阴谋团大享乐者-数据卡.png",
+        "KT-HAND_OF_THE_ARCHON--01-02-特工能力-阴谋团大享乐者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_01_w01",
+          "name": "爆能手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"、穿刺 2"
+        },
+        {
+          "id": "hand_of_the_archon_01_w02",
+          "name": "毒晶手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 范围 8\"、致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_01_w03",
+          "name": "毒晶步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_01_w04",
+          "name": "折磨之鞭",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/5 · 残暴、致命 5+、震荡"
+        },
+        {
+          "id": "hand_of_the_archon_01_w05",
+          "name": "成套刀具",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        },
+        {
+          "id": "hand_of_the_archon_01_w06",
+          "name": "动力武器",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/6 · 致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_01_w07",
+          "name": "毒刃",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5 · 致命 4+"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_01_w01",
+        "hand_of_the_archon_01_w02",
+        "hand_of_the_archon_01_w03",
+        "hand_of_the_archon_01_w04",
+        "hand_of_the_archon_01_w05",
+        "hand_of_the_archon_01_w06",
+        "hand_of_the_archon_01_w07"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        },
+        {
+          "name": "狡诈",
+          "ap": null,
+          "text": "在每个战略阶段的计划步骤中，如果该特工位于杀戮区并且您跳过第一次机会，那么您获得1CP。结算这个规则时，忽略任务手册中的每一个战略计划（若有)。"
+        },
+        {
+          "name": "苦痛视界",
+          "ap": null,
+          "text": "该特工的每次激活中限一次，若该特工在执行近战或射击行动时没有任何己方痛苦指示物，那么它在选择射击或近战目标时可以获得一枚己方痛苦指示物。"
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_02",
+      "name": "阴谋团特使",
+      "role": "特使",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "特使"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-03-特工-阴谋团特使-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_02_w01",
+          "name": "毒晶步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_02_w02",
+          "name": "成套刀具",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_02_w01",
+        "hand_of_the_archon_02_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        },
+        {
+          "name": "残暴竞争",
+          "ap": null,
+          "text": "每个转折点限一次，当一名己方执政官之手特工获得一枚己方痛苦指示物时，一名没有痛苦指示物的己方执政官之手特使特工也可以获得一枚指示物。"
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_03",
+      "name": "阴谋团猩红决斗者",
+      "role": "猩红决斗者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "猩红决斗者"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-04-特工-阴谋团猩红决斗者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_03_w01",
+          "name": "毒晶手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 范围 8\"、致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_03_w02",
+          "name": "剃刀链枷",
+          "kind": "melee",
+          "profile": "4A · 2+ · 4/5 · 残暴、挥打"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_03_w01",
+        "hand_of_the_archon_03_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        },
+        {
+          "name": "暴力演出",
+          "ap": null,
+          "text": "每个转折点限一次，在该特工将一名位于其控制范围内的敌方特工残废时，您可以选择位于该特工或者被残废特工 6\" 内且可见的另一名敌方特工。直到下一个转折点开始前，那名敌方特工不能控制标识或者执行拾取标识和任务行动。"
+        },
+        {
+          "name": "猩红决斗者",
+          "ap": null,
+          "text": "该特工可以在激活期间执行两次近战行动。"
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_04",
+      "name": "阴谋团叶琳德拉信徒",
+      "role": "叶琳德拉信徒",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "叶琳德拉信徒"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-05-特工-阴谋团叶琳德拉信徒-数据卡.png",
+        "KT-HAND_OF_THE_ARCHON--01-06-特工能力-阴谋团叶琳德拉信徒-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_04_w01",
+          "name": "毒刺手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、致命 5+、毒刺"
+        },
+        {
+          "id": "hand_of_the_archon_04_w02",
+          "name": "成套刀具",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_04_w01",
+        "hand_of_the_archon_04_w02"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        },
+        {
+          "name": "折磨手雷",
+          "ap": 1,
+          "text": "选择一名位于该特工 6\" 内且对其可见的敌方特工。那名特工以及其 1\" 内的每一名其他特工需要进行一次中毒测试。\n在进行中毒测试时，掷一枚 D6，如果特工的豁免属性为 4+ 或更差，那么掷骰结果增加 1 点：若结果为 3+，对那名特工造成 D3 点伤害，并且获得一枚己方的中毒标识（如果特工原先没有这个标识的话)。每当一枚拥有己方中毒标识的特工被激活时，对其造成 D3 点伤害。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_05",
+      "name": "阴谋团酏剂师",
+      "role": "酏剂师",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "酏剂师"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-07-特工-阴谋团酏剂师-数据卡.png",
+        "KT-HAND_OF_THE_ARCHON--01-08-特工能力-阴谋团酏剂师-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_05_w01",
+          "name": "毒晶步枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_05_w02",
+          "name": "激素注射枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 0/0 · 范围 3\"、致命 3+、眩晕"
+        },
+        {
+          "id": "hand_of_the_archon_05_w03",
+          "name": "成套刀具",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_05_w01",
+        "hand_of_the_archon_05_w02",
+        "hand_of_the_archon_05_w03"
+      ],
+      "abilities": [
+        {
+          "name": "战斗药剂",
+          "text": "在选择特工步骤结束时，如果该特工被选择部署，选择以下一个战斗药剂规则，己方执政官之手特工在战斗中拥有被选择的规则：\n• 痛苦使者：每当一枚攻击骰对该特工造成了 3 点或更多伤害时，掷一枚 D6：若结果为 6，造成的伤害减少 1 点。\n• 肾上腺素：在每个战略阶段的就绪步骤中，您可以选择一名拥有本战斗药剂的己方特工，那名特工获得一枚己方痛苦指示物。\n• 激越药：您可以忽略任何该特工因受创而导致的对移动属性的修正。",
+          "ap": null
+        },
+        {
+          "name": "注射药剂",
+          "ap": 1,
+          "text": "支援。选择位于该特工控制范围内的一名己方执政官之手特工，在战斗中，那名特工获得一类您在战斗药剂规则中没有选择的战斗药剂效果（您必须在每次执行此行动时选择同一个战斗药剂效果）。该特工不能在敌方特工的控制范围内执行此行动。"
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_06",
+      "name": "阴谋团剥皮者",
+      "role": "剥皮者",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "剥皮者"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-09-特工-阴谋团剥皮者-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_06_w01",
+          "name": "塑苦刃",
+          "kind": "melee",
+          "profile": "4A · 3+ · 4/5 · 无休、剥皮"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_06_w01"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        },
+        {
+          "name": "不觉疼痛",
+          "ap": null,
+          "text": "大于等于 3 的普通伤害和暴击伤害对该特工造成的伤害减少 1 点。"
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_07",
+      "name": "阴谋团炮手",
+      "role": "炮手",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "炮手"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-10-特工-阴谋团炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_07_w01",
+          "name": "爆能枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 穿刺 2"
+        },
+        {
+          "id": "hand_of_the_archon_07_w02",
+          "name": "破裂枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 撕裂、洪流 2\""
+        },
+        {
+          "id": "hand_of_the_archon_07_w03",
+          "name": "成套刀具",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_07_w01",
+        "hand_of_the_archon_07_w02",
+        "hand_of_the_archon_07_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_08",
+      "name": "阴谋团重炮手",
+      "role": "重炮手",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "重炮手"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-11-特工-阴谋团重炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_08_w01",
+          "name": "暗黑光矛",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 6/7 · 重型（仅限冲刺)、穿刺 2"
+        },
+        {
+          "id": "hand_of_the_archon_08_w02",
+          "name": "毒晶炮（集中）",
+          "kind": "ranged",
+          "profile": "5A · 3+ · 3/5 · 重型（仅限冲刺)、致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_08_w03",
+          "name": "毒晶炮（扫射）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 重型（仅限冲刺)、洪流 1\"、致命 5+"
+        },
+        {
+          "id": "hand_of_the_archon_08_w04",
+          "name": "成套刀具",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_08_w01",
+        "hand_of_the_archon_08_w02",
+        "hand_of_the_archon_08_w03",
+        "hand_of_the_archon_08_w04"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "hand_of_the_archon_09",
+      "name": "阴谋团天裂刺客",
+      "role": "天裂刺客",
+      "apl": 2,
+      "move": "7\"",
+      "save": "4+",
+      "wounds": 8,
+      "baseSizeMm": 25,
+      "keywords": [
+        "执政官之手",
+        "艾达灵族",
+        "黑暗灵族",
+        "天裂刺客"
+      ],
+      "cards": [
+        "KT-HAND_OF_THE_ARCHON--01-12-特工-阴谋团天裂刺客-数据卡.png",
+        "KT-HAND_OF_THE_ARCHON--01-13-特工能力-阴谋团天裂刺客-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "hand_of_the_archon_09_w01",
+          "name": "刃翼",
+          "kind": "ranged",
+          "profile": "4A · 4+ · 1/2 · 集中、追踪、安静"
+        },
+        {
+          "id": "hand_of_the_archon_09_w02",
+          "name": "毒晶卡宾枪",
+          "kind": "ranged",
+          "profile": "4A · 2+ · 2/2 · 致命 5+、毁灭 2"
+        },
+        {
+          "id": "hand_of_the_archon_09_w03",
+          "name": "成套刀具",
+          "kind": "melee",
+          "profile": "3A · 3+ · 3/4"
+        }
+      ],
+      "defaultWeaponIds": [
+        "hand_of_the_archon_09_w01",
+        "hand_of_the_archon_09_w02",
+        "hand_of_the_archon_09_w03"
+      ],
+      "abilities": [
+        {
+          "id": "kt-hand_of_the_archon_faction_rule",
+          "name": "痛苦之力",
+          "ap": null,
+          "text": "黑暗灵族吸食着被杀者与受折磨者的灵魂，从亲手造成的痛苦之中得到滋养。\n在一名己方执政官之手特工执行行动后，如果满足以下条件，则获得一枚己方痛苦指示物：\n• 一名敌方特工在那次行动期间受创，但是没有被残废。\n• 一名敌方特工在那次行动期间被残废。如果那名敌方特工的耐伤属性大于等于 12，那么己方特工则获得两枚痛苦指示物。\n在满足了激励的“时机”条件后，您可以消耗己方特工的痛苦指示物来进行激励。您在每次激活或反应中不能使用超过一种激励，“感官刺激”除外，它可以在行动和反应期间与其他激励一同使用一次。",
+          "factionRule": true
+        },
+        {
+          "name": "无情猎手",
+          "ap": null,
+          "text": "如果该特工在激活期间没有执行标记独特行动（见另一侧)，那么该特工可以在激活期间执行两次射击行动，但是其中一次（且只有一次）必须使用刃翼进行。"
+        },
+        {
+          "name": "标记",
+          "ap": 1,
+          "text": "选择一名对该特工可见的敌方特工。直到转折点结束前，每当该特工对那名敌方特工进行射击时，您可以使用本效果。若使用：\n• 该特工的远程武器拥有“追踪轻型”武器规则。\n• 那名敌方特工不能被遮挡。\n该特工不能在敌方特工的控制范围内执行本行动。"
+        },
+        {
+          "name": "预示",
+          "text": "在每个转折点中，该特工可以使用本规则一次。当位于该特工 6\" 内且可见的己方执政官之手特工掷攻击或防御骰时，如果您重掷那枚骰子，那么您可以将那枚骰子改为与另一枚已保留的成功或普通成功相同的结果（而不是实际掷骰）。",
+          "ap": null
+        }
+      ]
+    }
+  ],
+  "weaponRules": [
+    {
+      "name": "挥打",
+      "text": "每当该特工使用本武器进行近战或反击时，您的每一次格挡可以被用于格挡两个未结算的成功(而不是一个)。"
+    },
+    {
+      "name": "毒刺",
+      "text": "每当一名敌方特工被本武器残废时，在将其移出杀戮区之前，对那名特工 2\" 内且对其可见的每一名特工造成 D3 点伤害（对每一名特工分别掷骰）。在之后的每一名因本武器规则而被残废的特工将再次触发本规则。"
+    },
+    {
+      "name": "剥皮",
+      "text": "每当该特工使用本武器时，如果您在流程中首次使用关键成功出击，那么您可以选择位于其 6\"内的一名己方执政官之手特工，那名特工获得一枚己方痛苦指示物。"
+    }
+  ],
+  "compositionHint": "选择 1 名大享乐者，再从特使、猩红决斗家、叶琳德拉信徒、酏剂师、剥皮者、炮手、重炮手和天裂刺客中选择 8 名；除特使外同一种特工最多 1 名，暗光武器（爆能手枪、爆能枪、暗黑光矛）全队最多 2 件。"
+}

@@ -1,0 +1,744 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-TEMPESTUS_AQUILONS",
+  "team_name_zh": "风暴飞鹰",
+  "team_name_en": "Tempestus Aquilons",
+  "source_pdf": "最新杀戮小队规则更新/风暴飞鹰 Tempestus Aquilons 杀戮小队规则.pdf",
+  "source_pdf_sha256": "f4c412dc509ad26a18efcf3cee461e2e84f9c615a3fda82fefae7f784bd2b7a2",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 27,
+    "operative": 8,
+    "operative-ability": 1,
+    "team-selection": 2,
+    "faction-rule": 3,
+    "other": 1,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-tempestus_aquilons-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "飞鹰风暴队长-数据卡",
+      "title_en": "AQUILON TEMPESTOR",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-飞鹰风暴队长-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰风暴队长\n3 6\" 4+ 9\n名称攻击命中伤害武器规则\n高能激光卡宾枪 4 3+ 3/4 -\n高能激光手枪 4 3+ 3/4 范围 8\"\n圣物爆矢手枪 4 3+ 3/5 范围 8\"、致命 5+\n链锯剑 4 3+ 4/5 -\n双拳 3 3+ 2/3 -\n动力剑 4 3+ 4/6 致命 5+\n请继续阅读背面规则\n风暴飞鹰、帝国、队长、风暴队长 28",
+      "weapon_types": {
+        "高能激光卡宾枪": "远程",
+        "高能激光手枪": "远程",
+        "圣物爆矢手枪": "远程",
+        "链锯剑": "近战",
+        "双拳": "近战",
+        "动力剑": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON TEMPESTOR\n3 6\" 4+ 9\nNAME ATK HIT DMG WR\nHot‑shot lascarbine 4 3+ 3/4 ‑\nHot‑shot laspistol 4 3+ 3/4 Range 8\"\nRelic bolt pistol 4 3+ 3/5 Range 8\", Lethal 5+\nChainsword 4 3+ 4/5 ‑\nFists 3 3+ 2/3 ‑\nPower weapon 4 3+ 4/6 Lethal 5+\nRULES CONTINUE ON OTHER SIDE\nTEMPESTUS AQUILON , IMPERIUM, LEADER, TEMPESTOR 28"
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-02",
+      "sequence": 2,
+      "category": "operative-ability",
+      "title_zh": "飞鹰风暴队长-能力卡",
+      "title_en": "AQUILON TEMPESTOR",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工能力-飞鹰风暴队长-能力卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰风暴队长\n3 6\" 4+ 9\n风暴军老兵：每场战斗限一次，如果交战计谋指定\n的风暴飞鹰特工是该特工，那么您可以消耗 0CP\n使用那次交战计谋。或者，您可以消耗 0CP 使\n用“指挥重掷”交战计谋来重掷该特工的攻击或\n防御骰。\n命令 1AP\n支援。选择位于该特工 6\" 内且可见的另一名己\n方风暴飞鹰特工（伺服哨戒炮除外)。直到那个\n特工的下一次激活结束前，那个特工的 APL 属\n性增加 1。\n该特工不能在敌方特工的控制范围内执行此行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON TEMPESTOR\n3 6\" 4+ 9\nTempestus Veteran: Once per battle, you can either use a\nfirefight ploy for 0CP if this is the specified TEMPESTUS\nAQUILON operative, or the Command Re‑roll firefight ploy\nfor 0CP if this is the operative the attack or defence dice was\nrolled for.\nCOMMAND 1AP\nSUPPORT. Select one other friendly TEMPESTUS\nAQUILON operative (excluding SERVO‑SENTRY)\nvisible to and within 6\" of this operative. Until the end of that\noperative’s next activation, add 1 to its APL stat.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "飞鹰掷弹兵-数据卡",
+      "title_en": "AQUILON GRENADIER",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-飞鹰掷弹兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰掷弹兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光手枪 4 3+ 3/4 范围 8\"\n热熔炸弹 4 3+ 5/3 范围 3\"、毁灭 3、重型(仅限转移)、有限 1、\n穿刺 2\n双拳 3 4+ 2/3 -\n掷弹兵：该特工可以使用破片、穿甲、烟雾和震荡\n手雷（参见通用装备)。这么做不计入您拥有的任何\n使用限制（例如：您为其他特工也选择装备这些装\n备)。在该特工使用破片或穿甲手雷时，武器的命中\n属性提升 1 。\n风暴飞鹰、帝国、掷弹兵 28",
+      "weapon_types": {
+        "高能激光手枪": "远程",
+        "热熔炸弹": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON GRENADIER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot‑shot laspistol 4 3+ 3/4 Range 8\"\nMelta bomb 4 3+ 5/3 Range 3\", Devastating 3, Heavy (Reposition only),\nLimited 1, Piercing 2\nFists 3 4+ 2/3 ‑\nGrenadier: This operative can use frag, krak, smoke and stun\ngrenades (see universal equipment). Doing so doesn’t count\ntowards any limited uses you have (i.e. if you also select those\ngrenades from equipment for other operatives). Whenever this\noperative is using a frag or krak grenade, improve the Hit stat of\nthat weapon by 1.\nTEMPESTUS AQUILON , IMPERIUM, GRENADIER 28"
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-04",
+      "sequence": 4,
+      "category": "operative",
+      "title_zh": "飞鹰枪斗士-数据卡",
+      "title_en": "AQUILON GUNFIGHTER",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工-飞鹰枪斗士-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰枪斗士\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n双持高能激光手枪(集中) 4 3+ 3/4 范围 8\"、无休、撕裂\n双持高能激光手枪(乱射) 4 4+ 3/4 范围 8\"、乱射*\n双持高能激光手枪(零距离) 4 3+ 3/4 无休\n*乱射：选择最多两个不位于己方火拼：每当一名位于该特工 8\" 内的敌方特工对其进行射击时，记录敌\n特工控制范围内且不同的有效目方特工作为失败而舍弃的攻击骰数量。在那次行动结束后，移除任何\n标。按照您选择的顺序使用该武残废特工前（包括该特工)，该特工可以进行一次无消耗的射击行动\n器对这两个目标进行射击（为每（将特工的命令转换为交战命令)，但是该特工只能使用高能激光手\n一个目标分别进行结算)。枪（集中）对执行那次行动的敌方特工进行射击，并且您掷出的攻击\n骰数量相当于对手舍弃的攻击骰数量+1（最多为 4)。\n风暴飞鹰、帝国、枪斗士 28",
+      "weapon_types": {
+        "双持高能激光手枪(集中)": "远程",
+        "双持高能激光手枪(乱射)": "远程",
+        "双持高能激光手枪(零距离)": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON GUNFIGHTER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot‑shot laspistols (focused) 4 3+ 3/4 Range 8\", Ceaseless, Rending\nHot‑shot laspistols (salvo) 4 4+ 3/4 Range 8\", Salvo*\nHot‑shot laspistols (point‑blank) 4 3+ 3/4 Ceaseless\n*Salvo: Select up to two different Gunfight: Whenever an enemy operative within 8\" of this operative shoots this\nvalid targets that aren’t within control operative, keep track of each attack dice that’s discarded as a fail. After the action,\nrange of friendly operatives. Shoot before incapacitated operatives are removed (including this one, if relevant), this\nwith this weapon against both of them operative can perform a free Shoot action (you can change its order to Engage to do\nin an order of your choice (roll each so), but it can only target that enemy operative with its hot‑shot laspistols (focused),\nsequence separately). and you only roll a number of attack dice equal to the opponent’s discarded attack dice\nplus one (to a maximum of four).\nTEMPESTUS AQUILON , IMPERIUM, GUNFIGHTER 28"
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "飞鹰炮手-数据卡",
+      "title_en": "AQUILON GUNNER",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-飞鹰炮手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰炮手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n热熔卡宾枪 4 3+ 6/3 范围 6\"、毁灭 4、穿刺 2\n等离子卡宾枪（标准） 4 3+ 4/6 穿刺 1\n等离子卡宾枪（过载） 4 3+ 5/6 过热、致命 5+、穿刺 1\n双拳 3 4+ 2/3 -\n风暴飞鹰、帝国、炮手 28",
+      "weapon_types": {
+        "热熔卡宾枪": "远程",
+        "等离子卡宾枪（标准）": "远程",
+        "等离子卡宾枪（过载）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON GUNNER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nMelta carbine 4 3+ 6/3 Range 6\", Devastating 4, Piercing 2\nPlasma carbine (standard) 4 3+ 4/6 Piercing 1\nPlasma carbine (supercharge) 4 3+ 5/6 Hot, Lethal 5+, Piercing 1\nFists 3 4+ 2/3 ‑\nTEMPESTUS AQUILON , IMPERIUM, GUNNER 28"
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "飞鹰神枪手-数据卡",
+      "title_en": "AQUILON MARKSMAN",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-飞鹰神枪手-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰神枪手\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光长枪（隐匿） 4 2+ 3/3 毁灭 3、重型、安静、隐匿位置*\n高能激光长枪（移动） 4 3+ 3/4 -\n高能激光长枪（静止） 4 2+ 3/3 毁灭 3、重型\n双拳 3 4+ 2/3 -\n狙击手的优势：在该特工位于制高点地形上方进行\n射击时，如果射击目标是一名拥有交战命令且所在\n位置低于该特工至少 2\" 的敌方特工，那么该特工高\n能激光长枪的所有数据都拥有“严重”武器规则。\n* 隐匿位置：该特工只有在战斗中第一次执行射击行\n动时才能使用本武器。\n风暴飞鹰、帝国、神枪手 28",
+      "weapon_types": {
+        "高能激光长枪（隐匿）": "远程",
+        "高能激光长枪（移动）": "远程",
+        "高能激光长枪（静止）": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON MARKSMAN\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot‑shot long‑las (concealed) 4 2+ 3/3 Devastating 3, Heavy, Silent, Concealed Position*\nHot‑shot long‑las (mobile) 4 3+ 3/4 ‑\nHot‑shot long‑las (stationary) 4 2+ 3/3 Devastating 3, Heavy\nFists 3 4+ 2/3 ‑\nSniper’s Vantage: Whenever this operative is on Vantage terrain\nand is shooting an operative that has an Engage order and is at\nleast 2\" lower than it, all profiles of its hot‑shot long‑las have the\nSevere weapon rule.\n*Concealed Position: This operative can only use this weapon\nthe first time it’s performing the Shoot action during the battle.\nTEMPESTUS AQUILON , IMPERIUM, MARKSMAN 28"
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "飞鹰先行者-数据卡",
+      "title_en": "AQUILON PRECURSOR",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-飞鹰先行者-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰先行者\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光手枪 4 3+ 3/4 范围 8\"\n风暴军匕首 4 3+ 3/4 致命 5+，无休\n凶狠刀战士：当该特工进行近战时，在您结算了第\n一枚攻击骰后，您可以在对手之前立刻结算另一枚\n攻击骰。\n活跃：该特工在执行近战或射击行动后可以立刻执\n行一次无消耗的冲刺行动。就算该特工在激活中执\n行了冲锋行动也可以进行本次移动。\n风暴飞鹰、帝国、先行者 28",
+      "weapon_types": {
+        "高能激光手枪": "远程",
+        "风暴军匕首": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON PRECURSOR\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot‑shot laspistol 4 3+ 3/4 Range 8\"\nTempestus dagger 4 3+ 3/4 Ceaseless, Lethal 5+\nVicious Knife Fighter: Whenever this operative is fighting, after\nresolving your first attack dice during that sequence, you can\nimmediately resolve another (before your opponent).\nDynamic: Whenever this operative performs the Shoot or\nFight action, it can immediately perform a free Dash action\nafterwards. It can do so even if it’s performed the Charge\naction during this activation.\nTEMPESTUS AQUILON , IMPERIUM, PRECURSOR 28"
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "飞鹰伺服哨戒炮-数据卡",
+      "title_en": null,
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-飞鹰伺服哨戒炮-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰伺服哨戒炮\n2 4\" 3+ 10\n名称攻击命中伤害武器规则\n火焰喷射器 4 2+ 3/3 范围 8\"、集中、洪流 2\"\n榴弹发射器（破片） 4 4+ 2/4 爆炸 2\"\n榴弹发射器（穿甲） 4 4+ 4/5 穿刺 1\n高能齐射枪（集中） 5 4+ 3/4 关键穿刺 1\n高能齐射枪（扫射） 4 4+ 3/4 关键穿刺 1、洪流 1\"\n机械：该特工不能执行冲刺、后撤、转移和射击行\n动以外的任何行动。该特工不能在近战中进行反击\n或者协助，也不能使用任何其数据卡上不存在的\n武器。\n炮台：该特工可以在激活期间执行两次射击行动。\n风暴飞鹰、帝国、伺服哨戒炮 40",
+      "weapon_types": {
+        "火焰喷射器": "远程",
+        "榴弹发射器（破片）": "远程",
+        "榴弹发射器（穿甲）": "远程",
+        "高能齐射枪（集中）": "远程",
+        "高能齐射枪（扫射）": "远程"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON SERVO‑SENTRY\n2 4\" 3+ 10\nNAME ATK HIT DMG WR\nFlamer 4 2+ 3/3 Range 8\", Saturate, Torrent 2\"\nGrenade launcher (frag) 4 4+ 2/4 Blast 2\"\nGrenade launcher (krak) 4 4+ 4/5 Piercing 1\nHot‑shot volley gun (focused) 5 4+ 3/4 Piercing Crits 1\nHot‑shot volley gun (sweeping) 4 4+ 3/4 Piercing Crits 1, Torrent 1\"\nMachine: This operative cannot perform any actions other\nthan Dash, Fall Back, Reposition and Shoot. It cannot\nretaliate, assist in a fight or use any weapons that aren’t on\nits datacard.\nTurret: This operative can perform two Shoot actions during\nits activation.\nTEMPESTUS AQUILON , IMPERIUM, SERVO‑SENTRY 40"
+    },
+    {
+      "id": "kt-tempestus_aquilons-01-09",
+      "sequence": 9,
+      "category": "operative",
+      "title_zh": "飞鹰伞兵-数据卡",
+      "title_en": "AQUILON TROOPER",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-09-特工-飞鹰伞兵-数据卡.png",
+      "is_back": false,
+      "text": "APL 移动豁免耐伤\n飞鹰伞兵\n2 6\" 4+ 8\n名称攻击命中伤害武器规则\n高能激光卡宾枪 4 3+ 3/4 -\n双拳 3 4+ 2/3 -\n极速攻势：第一转折点中的战略计划。每一个完全\n位于己方降落区内的风暴飞鹰伞兵可以立刻执行\n一次无消耗的转移行动，但是必须在完全位于己方\n降落区 3\" 内的位置结束那次行动。\n迅速空降：在该特工着陆后，您可以将其部署在己\n方空降标识的 4\" 内（仅测量水平距离)，本效果的\n优先级高于原本的距离要求。\n风暴飞鹰、帝国、伞兵 28",
+      "weapon_types": {
+        "高能激光卡宾枪": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nAQUILON TROOPER\n2 6\" 4+ 8\nNAME ATK HIT DMG WR\nHot‑shot lascarbine 4 3+ 3/4 ‑\nFists 3 4+ 2/3 ‑\nRapid Insertion: STRATEGIC GAMBIT in the first turning\npoint. Each friendly TEMPESTUS AQUILON TROOPER\noperative wholly within your drop zone can immediately perform\na free Reposition action, but must end that move wholly within\n3\" of your drop zone.\nSwift Landing: When this operative lands, you can set it up\nwithin 4\" horizontally of one of your Drop markers, taking\nprecedence over the normal distance requirement.\nTEMPESTUS AQUILON , IMPERIUM, TROOPER 28"
+    },
+    {
+      "id": "kt-tempestus_aquilons-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "风暴飞鹰杀戮小队-1",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-风暴飞鹰杀戮小队-1.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n杀戮小队\n原型：侦察，搜索与摧毁\n特工\n↘ 1 名风暴飞鹰风暴队长特工，装备有以下一\n种选项:\n• 高能激光手枪；动力武器\n• 圣物爆矢手枪；链锯剑\n• 高能激光卡宾枪；双拳\n↘ 1 名风暴飞鹰伺服哨戒炮，装备有以下一种\n选项:\n• 火焰喷射器\n• 榴弹发射器\n• 高能激光齐射枪\n↘ 9 名风暴飞鹰特工，从以下列表进行选择:\n• 掷弹兵\n• 枪斗士\n• 炮手，装备有热熔卡宾枪和双拳\n• 炮手，装备有等离子卡宾枪和双拳\n• 神枪手\n• 先行者\n• 伞兵\n请继续阅读背面规则",
+      "text_en": "TEMPESTUS AQUILONS\nKILL TEAM\nARCHETYPE: RECON, SEEK & DESTROY\nOPERATIVES\n↘ 1 TEMPESTUS AQUILON TEMPESTOR\noperative with one of the following options:\n• Hot‑shot laspistol; power weapon\n• Relic bolt pistol; chainsword\n• Hot‑shot lascarbine; fists\n↘ 1 TEMPESTUS AQUILON SERVO‑SENTRY with\none of the following options:\n• Flamer\n• Grenade launcher\n• Hot‑shot volley gun\n↘ 9 TEMPESTUS AQUILON operatives selected\nfrom the following list:\n• GRENADIER\n• GUNFIGHTER\n• GUNNER with melta carbine and fists\n• GUNNER with plasma carbine and fists\n• MARKSMAN\n• PRECURSOR\n• TROOPER\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-tempestus_aquilons-10-02",
+      "sequence": 2,
+      "category": "team-selection",
+      "title_zh": "风暴飞鹰杀戮小队-2",
+      "title_en": "KILL TEAM",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "10-02-小队选择-风暴飞鹰杀戮小队-2.png",
+      "is_back": true,
+      "text": "除了伞兵特工以外，上述的每一名特工只能被纳\n入您的杀戮小队一次。",
+      "text_en": "Other than TROOPER operatives, your kill team\ncan only include each operative on this list once."
+    },
+    {
+      "id": "kt-tempestus_aquilons-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "伞兵入侵-1",
+      "title_en": "DROP INSERTION",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-01-阵营规则-伞兵入侵-1.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n阵营规则\n伞兵入侵\n在战斗开始前部署风暴飞鹰杀戮小队时，杀戮\n小队中三分之一的特工必须按照常规进行部署。\n在那之后每三分之一的特工可以被部署至高处：\n将这些特工放在一边，而不是部署至杀戮区中。\n在将三分之一的特工部署至高处时，这些特工都\n必须按照这个方式部署（您不能只将其中的个别\n特工部署至高处)，随后将一枚空降标识放置在\n完全位于己方降落区内的位置。\n在第一和第二转折点中，作为一个战略计划，您\n可以将空降标识移动最多 4\"，仅计算移动的水平\n距离。在近距离战斗中，您可以让标识移动穿过\n墙壁并以这个方式测量距离。\n在交战阶段中，被部署至高处的己方风暴飞鹰特\n工将照常被激活。在将这些特工激活时，您可以选\n择让其进入待机或者着陆。如果选择让特工着陆，\n那么按照以下规定将其部署在杀戮区中一个可以容\n纳该特工的位置（特工不再被部署至高处)：\n请继续阅读背面规则",
+      "text_en": "TEMPESTUS AQUILON\nFACTION RULE\nDROP INSERTION\nWhen setting up a TEMPESTUS AQUILON kill\nteam before the battle, the first third of your\nkill team must be set up as normal. Each third\nthereafter can be set up above: place them to\none side instead of in the killzone. For each third\nthat’s set up above, you must set up the whole\nthird in this way (not some of them), then place\none of your Drop markers wholly within your\ndrop zone.\nAs a STRATEGIC GAMBIT in the first and second\nturning point, you can move your Drop markers\nup to 4\" horizontally. In a killzone that uses the\nclose quarters rules (e.g. Killzone: Tomb World),\nthis can be measured and moved through\nWall terrain.\nIn the Firefight phase, friendly TEMPESTUS\nAQUILON operatives set up above are activated\nas normal. When you do, you can either expend\nor land that operative. If it lands, set it up in the\nkillzone in a location it can be placed as follows\n(it’s no longer set up above):\nRULE CONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-tempestus_aquilons-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "伞兵入侵-2",
+      "title_en": "DROP INSERTION",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-伞兵入侵-2.png",
+      "is_back": true,
+      "text": "• 位于己方空降标识的 3\" 内，仅测量水平距\n离，或者完全位于己方降落区内。\n• 位于敌方特工的控制范围外（除非您部署的是\n先行者特工，该特工可以被部署至敌方特工的\n控制范围内)。\n• 特工底座的任何部分都不能位于制高点地形的\n下方。\n• 您将决定特工拥有的命令。\n通过这个方式部署的特工将视作为执行了转移行\n动（消耗对应数量的 AP)，随后照常进行特工的\n激活。直到下一次激活结束或者转折点结束前\n（以先到的条件为准)，该特工视为被遮挡。\n在第一转折点结束时，只有半数以下的特工能被\n允许部署至高处。也就是说，在第一转折点结束\n时，您必须将杀戮小队中至少一半以上数量的特\n工部署至杀戮区。\n当您在第二和第三转折点就绪特工时，分别移除\n一枚空降标识。这意味着在第二转折点结束时还\n依旧部署至高处的特工将被残废。",
+      "text_en": "• Within 3\" horizontally of one of your Drop\nmarkers, or wholly within your drop zone.\n• Not within control range of enemy operatives\n(unless you’re setting up a PRECURSOR\noperative, which can be set up within control\nrange of an enemy operative).\n• With no part of its base underneath\nVantage terrain.\n• With an order of your choice.\nThe operative is treated as performing the\nReposition action (spend the AP accordingly),\nthen continue its activation as normal. It’s\nobscured until the end of the next activation\nor the end of the turning point (whichever\ncomes first).\nLess than half of your operatives can be set up\nabove by the end of the first turning point. In\nother words, by the end of the first turning point,\nmore than half of your operatives must have been\nset up in the killzone during the battle.\nWhen readying your operatives during the second\nand third turning points, remove one of your\nDrop markers. This means operatives still set up\nabove are incapacitated at the end of the second\nturning point."
+    },
+    {
+      "id": "kt-tempestus_aquilons-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "重力伞",
+      "title_en": "GRAV‑CHUTE",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-03-阵营规则-重力伞.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n阵营规则\n重力伞\n重力伞所生成的反重力力场可以让装备者快\n速且稳定地安全着陆，无论落差。\n己方风暴飞鹰特工在进行跳落时忽略所有垂直\n距离。",
+      "text_en": "TEMPESTUS AQUILON\nFACTION RULE\nGRAV‑CHUTE\nGrav‑chutes employ gravitic repulsion fields to allow\ntheir wearers to drop at a swift but measured pace and\nland safely, no matter from what height they fall.\nWhenever a friendly TEMPESTUS AQUILON\noperative is dropping, ignore the vertical distance."
+    },
+    {
+      "id": "kt-tempestus_aquilons-16-01",
+      "sequence": 1,
+      "category": "other",
+      "title_zh": "标识/指示物指南",
+      "title_en": "TEMPESTUS AQUILON",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "16-01-其他-标识-指示物指南.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n标识/指示物指南\n侦测指示物空降扫荡指示物\n空降标识热熔炸弹指示物",
+      "text_en": "TEMPESTUS AQUILON\nMARKER/TOKEN GUIDE\nDetected token Drop and Secure token\nDrop marker Melta Bomb token"
+    },
+    {
+      "id": "kt-tempestus_aquilons-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "突袭攻势",
+      "title_en": "SUDDEN OFFENSIVE",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-突袭攻势.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n战略计谋\n突袭攻势\n风暴飞鹰擅长快速空降至战斗区域并在敌人还\n未察觉时发起进攻。\n计算还没有被残废的己方风暴飞鹰特工的数\n量，随后将结果减半（向上取整）并计算出 x。\n在激活己方风暴飞鹰特工时，如果该特工是转\n折点中最初 x 个被激活的己方风暴飞鹰特工，\n那么直到特工的激活结束前，该特工的武器拥\n有“平衡”武器规则。例如，如果存在五名没\n有被残废的己方特工，那么在转折点中最初三\n个被激活的特工将获得本计谋的增益效果。",
+      "text_en": "TEMPESTUS AQUILON\nSTRATEGY PLOY\nSUDDEN OFFENSIVE\nTempestus Aquilons are skilled at dropping swiftly into\ncombat and catching their enemies unawares.\nCount the number of friendly TEMPESTUS\nAQUILON operatives that aren’t incapacitated,\nthen halve the result (rounding up) to give\nyou x. Until the end of their activation, friendly\nTEMPESTUS AQUILON operatives’ weapons\nhave the Balanced weapon rule if they are the\nfirst friendly operatives activated this turning\npoint equal to x. For example, if you have five\noperatives, the first three friendly operatives\nactivated will benefit."
+    },
+    {
+      "id": "kt-tempestus_aquilons-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "保持势头",
+      "title_en": "MAINTAIN MOMENTUM",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-保持势头.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n战略计谋\n保持势头\n一旦开始了突袭，风暴飞鹰就会持续施压，让\n敌人猝不及防。\n在一名己方风暴飞鹰特工对就绪的敌方特工\n进行射击或者近战时，该特工的武器拥有“严\n重”武器规则。",
+      "text_en": "TEMPESTUS AQUILON\nSTRATEGY PLOY\nMAINTAIN MOMENTUM\nOnce the assault begins, the Aquilons sustain the\npressure, keeping their enemies reeling and off balance.\nWhenever a friendly TEMPESTUS AQUILON\noperative is shooting against or fighting against a\nready enemy operative, that friendly operative’s\nweapons have the Severe weapon rule."
+    },
+    {
+      "id": "kt-tempestus_aquilons-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "空中侦查",
+      "title_en": "EYE ABOVE",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-空中侦查.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n战略计谋\n空中侦查\n空中飞行的伺服颅骨和侦查机能够为风暴飞鹰\n提供实时更新的战术资料。\n选择一名敌方特工。直到转折点结束前，那名\n特工以及其 3\" 内的所有其他敌方特工获得一枚\n己方的侦测指示物。在一名敌方特工拥有侦测\n指示物时：\n• 如果该特工对一名己方风暴飞鹰特工进行射\n击，那么您可以重掷一枚防御骰。\n• 如果该特工对一名己方风暴飞鹰特工进行近\n战或者反击，那么您可以使用一次格挡来格\n挡两次对手没有结算的成功（而不是只格挡\n一次）。",
+      "text_en": "TEMPESTUS AQUILON\nSTRATEGY PLOY\nEYE ABOVE\nAirborne servo‑skulls and spotter aircraft keep the\nAquilons appraised of up‑to‑the‑minute tactical data.\nSelect one enemy operative. That operative and\neach other enemy operative within 3\" of it gains\none of your Detected tokens until the end of the\nturning point. Whenever an enemy operative that\nhas one of your Detected tokens:\n• Is shooting a friendly TEMPESTUS\nAQUILON operative, you can re‑roll one of\nyour defence dice.\n• Is fighting or retaliating against a friendly\nTEMPESTUS AQUILON operative, one of\nyour blocks can be allocated to block two\nunresolved successes (instead of one)."
+    },
+    {
+      "id": "kt-tempestus_aquilons-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "空降扫荡",
+      "title_en": "DROP AND SECURE",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-空降扫荡.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n战略计谋\n空降扫荡\n要保证绝对的胜利，就必须确保关键战术目标\n的安全。\n选择一枚标识。\n• 直到下一个转折点的就绪步骤前，在判断那\n枚标识的控制权时，将争夺那枚标识的己方\n风暴飞鹰特工的 APL 总和视为比原来高 1\n点，但是需要有至少 1 名己方风暴飞鹰特工\n实际在争夺那个标识。\n• 位于那枚标识的 3\" 内的己方风暴飞鹰特工\n近战武器的攻击属性增加 1 点（最多提升至\n4)。",
+      "text_en": "TEMPESTUS AQUILON\nSTRATEGY PLOY\nDROP AND SECURE\nPriority tactical objectives must be secured to ensure\nvictory is absolute.\nSelect one marker.\n• Until the Ready step of the next Strategy\nphase, when determining control of that\nmarker, treat the total APL stat of friendly\nTEMPESTUS AQUILON operatives that\ncontest it as 1 higher if at least one friendly\nTEMPESTUS AQUILON operative contests\nthat marker. Note this isn’t a change to the APL\nstat, so any changes are cumulative with this.\n• Whenever a friendly TEMPESTUS\nAQUILON operative is within 3\" of that\nmarker, add 1 to the Atk stat of its melee\nweapons (to a maximum of 4)."
+    },
+    {
+      "id": "kt-tempestus_aquilons-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "空降区激战",
+      "title_en": "HOT DROP",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-空降区激战.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n交战计谋\n空降区激战\n风暴飞鹰被训练空降至最激烈的战斗中，在着\n陆之前就会与受惊的敌人展开交火。\n如果一名己方风暴飞鹰特工完全位于对手的领\n地内，或是在本次激活中着陆，或者从高于杀戮\n区地面至少 2\" 的制高点地形上跳落，那么在其\n掷出攻击骰后使用此交战计谋。如果目标位于该\n特工的 6\" 内，您可以对任何攻击骰进行重掷。",
+      "text_en": "TEMPESTUS AQUILON\nFIREFIGHT PLOY\nHOT DROP\nAquilons are trained to drop into the thick of fighting,\nengaging a surprised enemy as they land.\nUse this firefight ploy after rolling your attack dice\nfor a friendly TEMPESTUS AQUILON operative\nthat’s wholly within your opponent’s territory, or\neither landed or dropped from Vantage terrain at\nleast 2\" higher than the killzone floor during this\nactivation. If the target is within 6\" of it, you can\nre‑roll any of your attack dice."
+    },
+    {
+      "id": "kt-tempestus_aquilons-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "调整坐标",
+      "title_en": "ADJUST COORDINATES",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-调整坐标.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n交战计谋\n调整坐标\n随着战斗局势的改变与进展，依旧进行空降的\n风暴飞鹰们会随之改变自己的降落位置。\n在一名己方风暴飞鹰特工着陆时使用此交战计\n谋。您可以将其部署在己方空降标识的 5\" 内\n（仅测量水平距离)，本效果的优先级高于原本\n的距离要求。特工在转折点中不能执行冲刺、近\n战或者射击行动。",
+      "text_en": "TEMPESTUS AQUILON\nFIREFIGHT PLOY\nADJUST COORDINATES\nAs the firefight flows and develops, so those Aquilons\nstill descending adjust their trajectories in response.\nUse this firefight ploy when a friendly\nTEMPESTUS AQUILON operative lands. You\ncan set it up within 5\" horizontally of one of\nyour Drop markers, taking precedence over the\nnormal distance requirement. It cannot perform\nthe Dash, Shoot or Fight actions during this\nturning point."
+    },
+    {
+      "id": "kt-tempestus_aquilons-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "风暴军楷模",
+      "title_en": "TEMPESTUS EXEMPLARS",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-风暴军楷模.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n交战计谋\n风暴军楷模\n风暴飞鹰经受的训练让他们能够专注执行自\n己的任务，就算是在最为激烈的战斗中也是\n如此。\n在一名己方风暴飞鹰特工的激活期间使用此交\n战计谋（伺服哨戒炮和任何 APL 属性大于 2 的\n特工除外)。在那次激活中，该特工在执行拾取\n标识、放置标识或者一个任务行动时需要消耗的\nAP 降低 1 点。",
+      "text_en": "TEMPESTUS AQUILON\nFIREFIGHT PLOY\nTEMPESTUS EXEMPLARS\nThe training and conditioning of the Tempestus Aquilons\nallows them to stay focused on their mission, even\nduring the most ferocious firefights.\nUse this firefight ploy during a friendly\nTEMPESTUS AQUILON operative’s activation\n(excluding SERVO‑SENTRY and any operative\nthat has an APL stat higher than 2). During that\nactivation, that operative can perform the Pick\nUp Marker, Place Marker or a mission action for\n1 less AP."
+    },
+    {
+      "id": "kt-tempestus_aquilons-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "忠嗣战士",
+      "title_en": "PROGENA",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-忠嗣战士.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n交战计谋\n忠嗣战士\n作为忠嗣学院的毕业生，这些战士不仅会毫\n不迟疑地遵循一切命令，还对帝国教条拥有\n极度狂热的信仰，帮助他们忽视自身的苦痛\n和恐惧。\n在一名己方风暴飞鹰特工（伺服哨戒炮除外）\n被激活时使用此交战计谋。特工回复 2D3 点失\n去的耐伤，并且在那次激活期间忽视所有对其\nAPL 属性的修正。",
+      "text_en": "TEMPESTUS AQUILON\nFIREFIGHT PLOY\nPROGENA\nAs graduates of the Schola Progenium, these warriors\nare not only conditioned to follow their orders with\nunquestioning precision, but are also driven by a zealous\ndedication to the Imperial Cult that helps them to shrug\noff pain and fear.\nUse this firefight ploy when a friendly\nTEMPESTUS AQUILON operative (excluding\nSERVO‑SENTRY) is activated. It regains up to 2D3\nlost wounds, and during that activation you can\nignore any changes to its APL stat."
+    },
+    {
+      "id": "kt-tempestus_aquilons-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "风暴军匕首",
+      "title_en": "TEMPESTUS DAGGERS",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-风暴军匕首.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n阵营装备\n风暴军匕首\n每一位战士在加入风暴军时都会获得这件武\n器，它们也被作为兵团的荣誉徽记使用。\n己方风暴飞鹰特工（伺服哨戒炮除外）拥有以\n下近战武器：\n名称攻击命中伤害\n风暴军匕首 3 4+ 3/4",
+      "text_en": "TEMPESTUS AQUILON\nFACTION EQUIPMENT\nTEMPESTUS DAGGERS\nAwarded to each warrior of the Militarum Tempestus\nupon their induction to the ranks, these weapons double\nas a symbol of regimental pride.\nFriendly TEMPESTUS AQUILON operatives\n(excluding SERVO‑SENTRY) have the following\nmelee weapon:\nNAME ATK HIT DMG\nTempestus dagger 3 4+ 3/4"
+    },
+    {
+      "id": "kt-tempestus_aquilons-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "战斗兴奋剂",
+      "title_en": "COMBAT STIMMS",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-战斗兴奋剂.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n阵营装备\n战斗兴奋剂\n在风暴飞鹰中，军务部批准的战斗兴奋剂的使\n用情况十分普遍，因为这些战士很可能会需要\n在长达数日的战斗中保持警惕。\n您可以忽略任何己方风暴飞鹰特工在受创时所\n受到的对移动属性的修正。",
+      "text_en": "TEMPESTUS AQUILON\nFACTION EQUIPMENT\nCOMBAT STIMMS\nThe use of Munitorum‑approved combat stimulants is\nstandard practice amongst the Tempestus Aquilons,\nwho may have to remain alert and fighting for days at\na time.\nYou can ignore any changes to the Move stat of\nfriendly TEMPESTUS AQUILON operatives from\nbeing injured."
+    },
+    {
+      "id": "kt-tempestus_aquilons-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "空降占卜仪",
+      "title_en": "DROP AUGURY",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-空降占卜仪.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n阵营装备\n空降占卜仪\n在与敌人开始交战前，这片区域被轨道上的战\n舰或者悬浮的伺服颅骨进行了全面的扫描，相\n关情报被上传至了风暴队长的数据面板中。\n每场战斗限一次，在一名部署至高处的己方风暴\n飞鹰特工被激活时，在选择让那名特工进入待\n机或着陆前，您可以再次移动一枚空降标识。但\n是，您不能将空降标识移动至比原先更接近对手\n降落区的位置。",
+      "text_en": "TEMPESTUS AQUILON\nFACTION EQUIPMENT\nDROP AUGURY\nPrior to the commencement of hostilities, this region\nhas been subjected to thorough augur scans by orbiting\nwarships or hovering servo‑skulls, the resultant\nintelligence inloaded to the Tempestor’s slate monitron.\nOnce per battle, when a friendly TEMPESTUS\nAQUILON operative that’s set up above is\nactivated, before expending or landing that\noperative, you can move one of your Drop\nmarkers again. However, it cannot be moved\ncloser to your opponent’s drop zone."
+    },
+    {
+      "id": "kt-tempestus_aquilons-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "远程监控员",
+      "title_en": "REMOTE OVERSEER",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-远程监控员.png",
+      "is_back": false,
+      "text": "风暴飞鹰\n阵营装备\n远程监控员\n无论是盘旋在高空中的监控机还是使用战术占\n卜仪的支援团队，监控官能够为杀戮小队提供\n全面的战略指示。\n每场战斗限一次，在拼骰决定先手权时，您可以\n重掷自己的 D6。",
+      "text_en": "TEMPESTUS AQUILON\nFACTION EQUIPMENT\nREMOTE OVERSEER\nBe it a high‑flying observer aircraft or a specialist team\nof lexmechanicae employing tactical augur banks,\nmonitoring officers provide wider strategic insight as the\nfirefight rages.\nOnce per battle, after rolling off to decide\ninitiative, you can re‑roll your dice."
+    }
+  ]
+}

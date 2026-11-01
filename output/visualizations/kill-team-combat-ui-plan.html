@@ -1,0 +1,386 @@
+<div id="kt-ui-plan">
+  <div class="kt-shell" aria-label="杀戮小队射击与近战结算界面规划">
+    <header class="kt-header">
+      <div>
+        <div class="kt-kicker">KILL TEAM / 结算台</div>
+        <div class="kt-title" id="kt-title">射击结算</div>
+      </div>
+      <div class="kt-modes" role="tablist" aria-label="结算类型">
+        <button type="button" class="kt-mode is-active cursor-interaction" data-mode="shoot" role="tab" aria-selected="true">射击</button>
+        <button type="button" class="kt-mode cursor-interaction" data-mode="melee" role="tab" aria-selected="false">近战</button>
+      </div>
+    </header>
+
+    <div class="kt-steps" role="tablist" aria-label="结算阶段"></div>
+
+    <main class="kt-main">
+      <section class="kt-combatants" aria-label="参战特工">
+        <article class="kt-fighter kt-attacker">
+          <div class="kt-side-label">主动方</div>
+          <strong>狼侦察猎手</strong>
+          <span class="kt-weapon">等离子手枪 · 4A · 3+ · 4/5</span>
+          <div class="kt-wounds"><span>耐伤</span><strong>13 / 13</strong></div>
+        </article>
+        <div class="kt-versus">VS</div>
+        <article class="kt-fighter kt-defender">
+          <div class="kt-side-label" id="kt-defender-label">防御方</div>
+          <strong>瘟疫战士</strong>
+          <span class="kt-weapon" id="kt-defender-weapon">豁免 3+ · 防御骰 3</span>
+          <div class="kt-wounds"><span>耐伤</span><strong>14 / 14</strong></div>
+        </article>
+      </section>
+
+      <section class="kt-stage" aria-live="polite">
+        <div class="kt-stage-heading">
+          <div>
+            <div class="kt-stage-label" id="kt-stage-label">步骤 1 / 4</div>
+            <h3 id="kt-stage-title">确认射击条件</h3>
+          </div>
+          <span class="kt-rule" id="kt-rule-badge">远程流程</span>
+        </div>
+        <p id="kt-stage-copy"></p>
+        <div id="kt-stage-content"></div>
+      </section>
+
+      <aside class="kt-why">
+        <strong id="kt-why-title">为什么射击要独立？</strong>
+        <span id="kt-why-copy">防御方使用豁免与固定防御骰池，不会用近战武器反击；抵挡完成后，未被抵挡的攻击同时造成伤害。</span>
+      </aside>
+    </main>
+  </div>
+</div>
+
+<style>
+  #kt-ui-plan {
+    width: 100%;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #eee7d9;
+  }
+  #kt-ui-plan * { box-sizing: border-box; }
+  #kt-ui-plan button { font: inherit; }
+  #kt-ui-plan .kt-shell {
+    overflow: hidden;
+    background: #12110f;
+    border: 1px solid #5d5443;
+    border-radius: 10px;
+    box-shadow: 0 16px 40px rgba(0,0,0,.24);
+  }
+  #kt-ui-plan .kt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 16px;
+    background: #201d18;
+    border-bottom: 1px solid #4b4335;
+  }
+  #kt-ui-plan .kt-kicker,
+  #kt-ui-plan .kt-side-label,
+  #kt-ui-plan .kt-stage-label {
+    color: #aaa18f;
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+  #kt-ui-plan .kt-title { margin-top: 2px; font-size: 20px; font-weight: 500; }
+  #kt-ui-plan .kt-modes { display: flex; gap: 6px; }
+  #kt-ui-plan .kt-mode,
+  #kt-ui-plan .kt-step {
+    min-height: 42px;
+    border: 1px solid #5b5345;
+    border-radius: 6px;
+    color: #c7bead;
+    background: #29251e;
+    padding: 8px 14px;
+  }
+  #kt-ui-plan .kt-mode.is-active,
+  #kt-ui-plan .kt-step.is-active {
+    color: #17130d;
+    background: #d6a753;
+    border-color: #f0cb83;
+  }
+  #kt-ui-plan .kt-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #433b2f;
+  }
+  #kt-ui-plan .kt-step {
+    min-width: 0;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    background: #1d1a16;
+  }
+  #kt-ui-plan .kt-step small { display: block; color: inherit; opacity: .7; }
+  #kt-ui-plan .kt-main { padding: 14px; }
+  #kt-ui-plan .kt-combatants {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 10px;
+    align-items: stretch;
+  }
+  #kt-ui-plan .kt-fighter {
+    display: grid;
+    gap: 4px;
+    min-width: 0;
+    padding: 12px;
+    background: #211b17;
+    border-left: 4px solid #9f5530;
+  }
+  #kt-ui-plan .kt-defender { background: #161e23; border-left-color: #3c7893; }
+  #kt-ui-plan .kt-weapon { color: #bdb5a6; font-size: 13px; overflow-wrap: anywhere; }
+  #kt-ui-plan .kt-wounds { display: flex; justify-content: space-between; gap: 10px; color: #d5cfc2; }
+  #kt-ui-plan .kt-versus { align-self: center; color: #827866; font-weight: 500; }
+  #kt-ui-plan .kt-stage {
+    margin-top: 12px;
+    padding: 14px;
+    background: #1b1916;
+    border: 1px solid #494235;
+  }
+  #kt-ui-plan .kt-stage-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  #kt-ui-plan .kt-stage h3 { margin: 2px 0 0; color: #f1eadc; font-size: 18px; font-weight: 500; }
+  #kt-ui-plan .kt-stage p { margin: 10px 0 12px; color: #c5bdaf; }
+  #kt-ui-plan .kt-rule {
+    flex: none;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: #e4c27f;
+    background: #3a2d19;
+    font-size: 12px;
+  }
+  #kt-ui-plan .kt-dice-area { display: grid; gap: 8px; }
+  #kt-ui-plan .kt-dice-row {
+    display: grid;
+    grid-template-columns: 88px 1fr auto;
+    gap: 8px;
+    align-items: center;
+    padding: 10px;
+    background: #11100e;
+  }
+  #kt-ui-plan .kt-dice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  #kt-ui-plan .kt-die {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 5px;
+    color: #f5efe3;
+    background: #3c3933;
+    border: 1px solid #6f685b;
+    font-weight: 500;
+  }
+  #kt-ui-plan .kt-die.crit { color: #17100a; background: #df9b43; border-color: #ffc477; }
+  #kt-ui-plan .kt-die.normal { color: #06170d; background: #6eb47c; border-color: #9ad2a4; }
+  #kt-ui-plan .kt-die.blocked { opacity: .38; text-decoration: line-through; }
+  #kt-ui-plan .kt-row-note { color: #aba394; font-size: 12px; text-align: right; }
+  #kt-ui-plan .kt-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  #kt-ui-plan .kt-action {
+    min-height: 46px;
+    padding: 9px;
+    border: 1px solid #6a604f;
+    border-radius: 5px;
+    color: #eee7d9;
+    background: #29241d;
+    text-align: left;
+  }
+  #kt-ui-plan .kt-action strong,
+  #kt-ui-plan .kt-action span { display: block; }
+  #kt-ui-plan .kt-action span { margin-top: 2px; color: #b9b0a1; font-size: 12px; }
+  #kt-ui-plan .kt-allocation {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    background: #11100e;
+  }
+  #kt-ui-plan .kt-pool { display: grid; gap: 6px; }
+  #kt-ui-plan .kt-pool:last-child { text-align: right; }
+  #kt-ui-plan .kt-arrow { color: #d2a856; font-size: 22px; }
+  #kt-ui-plan .kt-why {
+    display: grid;
+    gap: 3px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    color: #c7beaf;
+    background: #242019;
+    border-left: 3px solid #c89b4f;
+    font-size: 13px;
+  }
+  #kt-ui-plan .kt-why strong { color: #eadab8; }
+  @media (max-width: 560px) {
+    #kt-ui-plan .kt-header { align-items: flex-start; }
+    #kt-ui-plan .kt-modes { flex-direction: column; width: 104px; }
+    #kt-ui-plan .kt-mode { width: 100%; }
+    #kt-ui-plan .kt-step { padding: 7px 3px; font-size: 12px; }
+    #kt-ui-plan .kt-combatants { grid-template-columns: 1fr; }
+    #kt-ui-plan .kt-versus { display: none; }
+    #kt-ui-plan .kt-dice-row { grid-template-columns: 74px 1fr; }
+    #kt-ui-plan .kt-row-note { grid-column: 1 / -1; text-align: left; }
+    #kt-ui-plan .kt-allocation { grid-template-columns: 1fr; }
+    #kt-ui-plan .kt-pool:last-child { text-align: left; }
+    #kt-ui-plan .kt-arrow { transform: rotate(90deg); justify-self: center; }
+  }
+</style>
+
+<script>
+(() => {
+  const root = document.getElementById('kt-ui-plan');
+  const modes = {
+    shoot: {
+      title: '射击结算',
+      badge: '远程流程',
+      defenderLabel: '防御方',
+      defenderWeapon: '豁免 3+ · 防御骰 3',
+      whyTitle: '为什么射击要独立？',
+      whyCopy: '防御方使用豁免与固定防御骰池，不会用近战武器反击；抵挡完成后，未被抵挡的攻击同时造成伤害。',
+      steps: [
+        {
+          short: '准备',
+          title: '确认射击条件',
+          copy: '确认武器、有效目标、受创命中修正、遮挡、掩护，以及穿刺是否减少防御骰。',
+          html: '<div class="kt-actions"><div class="kt-action"><strong>攻击池 4 枚</strong><span>命中 3+ · 致命 5+</span></div><div class="kt-action"><strong>防御池 2 枚</strong><span>基础 3，穿刺 1</span></div><div class="kt-action"><strong>遮挡：否</strong><span>不会舍弃成功或降级暴击</span></div><div class="kt-action"><strong>掩护：预留 1</strong><span>普通成功，不具有骰面</span></div></div>'
+        },
+        {
+          short: '投骰',
+          title: '攻击方与防御方依序投骰',
+          copy: '攻击方先完成重投和成功转换；再建立防御骰池，防御方完成自己的重投与保留。',
+          html: '<div class="kt-dice-area"><div class="kt-dice-row"><strong>攻击骰</strong><div class="kt-dice"><span class="kt-die crit">6</span><span class="kt-die normal">5</span><span class="kt-die normal">3</span><span class="kt-die">1</span></div><span class="kt-row-note">1 暴击 · 2 普通</span></div><div class="kt-dice-row"><strong>防御骰</strong><div class="kt-dice"><span class="kt-die crit">6</span><span class="kt-die">2</span><span class="kt-die normal">预留</span></div><span class="kt-row-note">1 暴击 · 1 普通</span></div></div>'
+        },
+        {
+          short: '抵挡',
+          title: '由防御方分配成功',
+          copy: '不直接替玩家选“最优解”。点击防御成功，再点击要抵挡的攻击；界面只限制合法组合并预览伤害。',
+          html: '<div class="kt-allocation"><div class="kt-pool"><strong>攻击成功</strong><div class="kt-dice"><span class="kt-die crit">暴</span><span class="kt-die normal blocked">普</span><span class="kt-die normal blocked">普</span></div></div><div class="kt-arrow">←</div><div class="kt-pool"><strong>已分配防御</strong><div class="kt-dice"><span class="kt-die crit blocked">暴</span><span class="kt-die normal blocked">普</span></div></div></div>'
+        },
+        {
+          short: '伤害',
+          title: '同时结算未被抵挡的攻击',
+          copy: '先显示未抵挡普通/暴击数量与伤害预览，再确认写回耐伤、状态、AP 和对局日志。',
+          html: '<div class="kt-actions"><div class="kt-action"><strong>未抵挡：1 暴击</strong><span>武器伤害 5</span></div><div class="kt-action"><strong>额外伤害：0</strong><span>毁灭等效果单独列出</span></div><div class="kt-action"><strong>目标耐伤 9 / 14</strong><span>确认后写回</span></div><div class="kt-action"><strong>射击完成</strong><span>记录 1AP 与完整过程</span></div></div>'
+        }
+      ]
+    },
+    melee: {
+      title: '近战结算',
+      badge: '对抗流程',
+      defenderLabel: '反击方',
+      defenderWeapon: '瘟疫刀 · 4A · 3+ · 3/5',
+      whyTitle: '为什么近战不能复用射击？',
+      whyCopy: '双方都使用自己的近战攻击骰；主动方先结算，之后逐枚轮流选择出击或格挡，伤害会实时改变战局并可能立刻终止流程。',
+      steps: [
+        {
+          short: '准备',
+          title: '确认双方武器与协助',
+          copy: '双方各选一件近战武器。受创使各自命中恶化，协助改善命中；反击方可能因规则无法拿取攻击骰。',
+          html: '<div class="kt-actions"><div class="kt-action"><strong>主动方 5 枚</strong><span>有效命中 3+ · 伤害 4/6</span></div><div class="kt-action"><strong>反击方 4 枚</strong><span>有效命中 3+ · 伤害 3/5</span></div><div class="kt-action"><strong>主动方协助 1</strong><span>命中改善 1</span></div><div class="kt-action"><strong>先手权：反击方</strong><span>只决定双方重投次序</span></div></div>'
+        },
+        {
+          short: '同投',
+          title: '双方同时投攻击骰',
+          copy: '两边都没有“防御骰”。如双方都有重投，从有先手权的一方开始，每次重投一枚或跳过。',
+          html: '<div class="kt-dice-area"><div class="kt-dice-row"><strong>主动方</strong><div class="kt-dice"><span class="kt-die crit">6</span><span class="kt-die normal">5</span><span class="kt-die normal">4</span><span class="kt-die">2</span><span class="kt-die">1</span></div><span class="kt-row-note">1 暴击 · 2 普通</span></div><div class="kt-dice-row"><strong>反击方</strong><div class="kt-dice"><span class="kt-die crit">6</span><span class="kt-die normal">4</span><span class="kt-die normal">3</span><span class="kt-die">1</span></div><span class="kt-row-note">1 暴击 · 2 普通</span></div></div>'
+        },
+        {
+          short: '对砍',
+          title: '主动方开始，逐枚出击或格挡',
+          copy: '当前行动方只看到合法按钮。每次选择后立刻扣耐伤或移除对手成功，再轮到另一方；一方残废时立即停止。',
+          html: '<div class="kt-actions"><div class="kt-action"><strong>普通出击</strong><span>造成 4 点伤害 · 剩余 2 枚</span></div><div class="kt-action"><strong>暴击出击</strong><span>造成 6 点伤害 · 剩余 1 枚</span></div><div class="kt-action"><strong>普通格挡</strong><span>移除对手 1 个普通成功</span></div><div class="kt-action"><strong>暴击格挡</strong><span>移除对手普通或暴击成功</span></div></div>'
+        },
+        {
+          short: '结束',
+          title: '确认双方最终耐伤与状态',
+          copy: '显示终止原因、逐步过程和晕眩等状态；确认后一次性写回双方耐伤、残废状态、1AP 与对局日志。',
+          html: '<div class="kt-actions"><div class="kt-action"><strong>主动方 8 / 13</strong><span>受到一次暴击出击</span></div><div class="kt-action"><strong>反击方 0 / 14</strong><span>已残废，流程立即终止</span></div><div class="kt-action"><strong>剩余成功作废</strong><span>不再继续出击或格挡</span></div><div class="kt-action"><strong>近战完成</strong><span>确认后写回双方状态</span></div></div>'
+        }
+      ]
+    }
+  };
+
+  let state = { mode: 'shoot', step: 0 };
+  const saved = window.openai && window.openai.widgetState && window.openai.widgetState.privateContent;
+  if (saved && modes[saved.mode] && Number.isInteger(saved.step)) {
+    state = { mode: saved.mode, step: Math.max(0, Math.min(3, saved.step)) };
+  }
+
+  function persist() {
+    if (!window.openai || !window.openai.setWidgetState) return;
+    window.openai.setWidgetState({
+      modelContent: { selectedCombatFlow: state.mode, selectedPhase: state.step + 1 },
+      privateContent: state
+    }).catch(() => {});
+  }
+
+  function render() {
+    const mode = modes[state.mode];
+    const step = mode.steps[state.step];
+    root.querySelector('#kt-title').textContent = mode.title;
+    root.querySelector('#kt-rule-badge').textContent = mode.badge;
+    root.querySelector('#kt-defender-label').textContent = mode.defenderLabel;
+    root.querySelector('#kt-defender-weapon').textContent = mode.defenderWeapon;
+    root.querySelector('#kt-why-title').textContent = mode.whyTitle;
+    root.querySelector('#kt-why-copy').textContent = mode.whyCopy;
+    root.querySelector('#kt-stage-label').textContent = `步骤 ${state.step + 1} / 4`;
+    root.querySelector('#kt-stage-title').textContent = step.title;
+    root.querySelector('#kt-stage-copy').textContent = step.copy;
+    root.querySelector('#kt-stage-content').innerHTML = step.html;
+
+    root.querySelectorAll('.kt-mode').forEach(button => {
+      const active = button.dataset.mode === state.mode;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-selected', String(active));
+    });
+
+    const steps = root.querySelector('.kt-steps');
+    steps.innerHTML = '';
+    mode.steps.forEach((item, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = `kt-step cursor-interaction${index === state.step ? ' is-active' : ''}`;
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-selected', String(index === state.step));
+      button.innerHTML = `<small>0${index + 1}</small>${item.short}`;
+      button.addEventListener('click', () => {
+        state.step = index;
+        render();
+        persist();
+      });
+      steps.appendChild(button);
+    });
+  }
+
+  root.querySelectorAll('.kt-mode').forEach(button => {
+    button.addEventListener('click', () => {
+      state.mode = button.dataset.mode;
+      state.step = 0;
+      render();
+      persist();
+    });
+  });
+
+  window.addEventListener('openai:set_globals', event => {
+    const incoming = event.detail && event.detail.globals && event.detail.globals.widgetState;
+    const privateContent = incoming && incoming.privateContent;
+    if (privateContent && modes[privateContent.mode] && Number.isInteger(privateContent.step)) {
+      state = { mode: privateContent.mode, step: Math.max(0, Math.min(3, privateContent.step)) };
+      render();
+    }
+  });
+
+  render();
+})();
+</script>

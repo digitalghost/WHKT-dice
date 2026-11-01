@@ -8,6 +8,7 @@ data class RuleDefinition(
 
 object RuleGlossary {
     private val rules = listOf(
+        rule("torrent_0", "洪流 0\"", "“洪流 0\"”意味着不能选择次要目标，但在所有其他规则的判断中，此武器仍拥有洪流规则，例如“拥挤堡垒”规则（见核心规则的杀戮区：伏库斯）。"),
         rule("mindburn", "焚却理智", "关键成功造成伤害后，为作为攻击目标的特工放置焚却理智标识。其武器命中恶化 1，不与受创叠加；持续到其下次激活结束、其残废或另一名己方特工再次使用此武器，以先发生者为准。"),
         rule("shield", "盾牌", "装备奸角兽之刃和盾牌时，特工豁免为 4+；使用该武器近战或反击时，每个格挡可以格挡两个未结算成功。"),
         rule("silent", "安静", "处于隐匿命令时也可以使用这件远程武器射击。"),
@@ -37,16 +38,21 @@ object RuleGlossary {
         rule("toxic_pm", "剧毒", "瘟疫战士规则：若目标在行动开始时已有己方毒素标识，这件武器的普通和暴击伤害都加 1。"),
         rule("poison_rav", "中毒", "蛇虫规则：这件武器以暴击造成伤害后，目标获得毒素标识；带标识的特工激活时受到 D3 点伤害。"),
         rule("psychic", "灵能", "这是一件灵能武器。该标签本身不改变骰子，其他规则可能引用它。"),
-        rule("crush", "粉碎", "每次出击时双方掷骰对抗；若使用者获胜，按点数差额追加伤害，最多追加 3 点。对耐伤 9 或更低的目标，使用者结果加 1。")
+        rule("crush", "粉碎", "每次出击时双方掷骰对抗；若使用者获胜，按点数差额追加伤害，最多追加 3 点。对耐伤 9 或更低的目标，使用者结果加 1。"),
+        rule("explosive_squig", "爆炸物", "特种兵（炸弹史奎格）规则：每当此特工使用此武器执行射击行动时，在该行动所有攻击结算完毕后，此特工丧失行动能力。")
     )
 
     private val aliases = linkedMapOf(
+        "洪流 0\"" to "洪流 0\"",
+        "洪流0\"" to "洪流 0\"",
         "焚却理智" to "焚却理智",
         "盾牌" to "盾牌",
         "关键穿刺" to "关键穿刺",
         "穿刺" to "穿刺",
         "致命" to "致命",
         "范围" to "范围",
+        "距离" to "范围",
+        "爆炸物" to "爆炸物",
         "爆炸" to "爆炸",
         "洪流" to "洪流",
         "毁灭" to "毁灭",
@@ -75,11 +81,31 @@ object RuleGlossary {
         "粉碎" to "粉碎"
     )
 
-    fun definitionFor(label: String): RuleDefinition? {
-        FellgorCatalog.weaponRules.firstOrNull { label.trim().startsWith(it.name) }?.let { return it }
-        ImportedTeamCatalog.weaponRules.firstOrNull { label.trim() == it.name }?.let { return it }
-        val canonical = aliases.entries.firstOrNull { label.trim().startsWith(it.key) }?.value ?: return null
-        return rules.firstOrNull { it.name == canonical }
+    private val coreRuleNames = setOf(
+        "洪流 0\"", "安静", "爆炸", "残暴", "关键穿刺", "穿刺", "范围", "过热",
+        "毫不留情", "洪流", "毁灭", "集中", "精准", "均衡", "撕裂", "无休",
+        "严重", "有限", "眩晕", "震荡", "致命", "重击", "重型", "追踪"
+    )
+
+    fun definitionFor(label: String, teamId: String? = null): RuleDefinition? {
+        val trimmed = label.trim()
+        val withoutDistancePrefix = trimmed.replace(Regex("^[0-9]+\\s*[\"″“”]\\s*"), "")
+        val canonical = aliases.entries.firstOrNull {
+            trimmed.startsWith(it.key) || withoutDistancePrefix.startsWith(it.key)
+        }?.value
+        if (canonical != null && canonical in coreRuleNames) {
+            val core = rules.firstOrNull { it.name == canonical }
+            if (core != null) {
+                val teamOverride = if (trimmed.removeSuffix("*").trim() == canonical) {
+                    TeamDataLoader.weaponRule(canonical, teamId)
+                } else null
+                return if (teamOverride != null) {
+                    core.copy(description = "${core.description}\n\n${teamOverride.description}")
+                } else core
+            }
+        }
+        TeamDataLoader.weaponRule(trimmed, teamId)?.let { return it }
+        return canonical?.let { c -> rules.firstOrNull { it.name == c } }
     }
 
     fun all(): List<RuleDefinition> = rules
@@ -88,119 +114,6 @@ object RuleGlossary {
 }
 
 object AbilityCatalog {
-    private val aodAstartes = ability(
-        "aod_astartes", "阿斯塔特",
-        "每次激活可执行两次射击或两次战斗。两次射击时至少一次必须使用爆矢武器；若两次都使用爆矢狙击步枪或重型爆矢枪，第二次额外消耗 1AP。无论命令为何都能反制。",
-        faction = true
-    )
-    private val pmAstartes = ability(
-        "pm_astartes", "阿斯塔特",
-        "每次激活可执行两次射击或两次战斗。两次射击时至少一次须使用爆矢手枪、爆矢枪或灵能武器；同一件灵能远程武器每次激活不能选两次。无论命令为何都能反制。",
-        faction = true
-    )
-    private val resilient = ability(
-        "pm_resilient", "恼人韧性",
-        "每当一枚攻击骰对该特工造成 3 点或更多伤害时掷 D6；结果为 4+ 时，所受伤害减少 1。",
-        faction = true
-    )
-    private val burrow = ability(
-        "rav_burrow", "钻地",
-        "部署时前两名特工正常设置，其余可置于地下。地下特工只能执行钻地行动：从己方隧道标识出现并在本次激活或反制中移动减 2 英寸；或站在隧道上时移出战场进入地下。携带标识或不在地下/隧道上时不能执行。",
-        ap = 1,
-        faction = true
-    )
-    private val predatory = ability(
-        "rav_predatory", "掠食本能",
-        "每次激活可执行两次战斗。无论命令为何都能反制；反制前可更改命令，若不执行任务行动还可免费执行一次钻地。",
-        faction = true
-    )
-    private val tunnel = ability(
-        "rav_tunnel", "隧道",
-        "部署结束时在己方边缘放置 0 号隧道标识；前四个转折点可依次在上一枚 5 英寸内放置下一枚。相邻编号标识之间构成己方隧道，钻地及部分能力会引用它。",
-        faction = true
-    )
-
-    private val unique = mapOf(
-        "aod_captain" to listOf(
-            ability("aod_heroic", "英雄领袖", "每个转折点一次：可为该特工免费使用一项交战计谋（指挥重投除外），或在满足位置条件时使用战斗条令/调整条令；同一计谋本转折点已用过则不能再次使用。"),
-            ability("aod_halo", "钢铁光环", "每场战斗一次，一枚攻击骰对该特工造成普通伤害时，可忽略那次伤害。")
-        ),
-        "aod_assault_sergeant" to listOf(
-            ability("aod_chapter_veteran", "战团老兵", "选择部署特工步骤结束时，为该特工额外选择一项本场战斗有效的战团战术。"),
-            ability("aod_assault_doctrine", "条令战争", "每场战斗各一次：该特工在杀戮区时，选择毁灭条令或战术条令的战斗条令计谋可花费 0CP。")
-        ),
-        "aod_sergeant" to listOf(
-            ability("aod_chapter_veteran", "战团老兵", "选择部署特工步骤结束时，为该特工额外选择一项本场战斗有效的战团战术。"),
-            ability("aod_tactical_doctrine", "条令战争", "每场战斗各一次：该特工在杀戮区时，选择毁灭条令或战术条令的战斗条令计谋可花费 0CP。")
-        ),
-        "aod_sniper" to listOf(
-            ability("aod_camo", "迷彩斗篷", "敌人射击该特工时忽略“集中”。该特工拥有隐匿战团战术；若队伍也选择了该战术，可同时使用其两个选项。"),
-            ability("aod_optics", "瞄准", "直到该特工下次激活开始，其射击目标不能处于遮蔽状态。处于敌方控制范围内时不能执行。", ap = 1),
-            ability("aod_stealth", "隐匿", "敌人射击该特工时，若能保留掩护豁免，可额外保留一枚，或将一枚保留为暴击。不能与制高地带来的强化掩护叠加。")
-        ),
-        "aod_grenadier" to listOf(
-            ability("aod_grenadier", "掷弹兵", "可使用破片和穿甲手雷，不占用队伍装备的有限次数；使用这些手雷时命中属性改善 1。")
-        ),
-        "pm_champion" to listOf(
-            ability("pm_blessing", "慈父赐福", "7 英寸内带有己方毒素标识的敌人损失耐伤时，该特工恢复等量已损耐伤；每个转折点最多恢复 3 点，且该特工必须仍在场。")
-        ),
-        "pm_plaguecaster" to listOf(
-            ability("pm_miasma", "有毒瘴气", "灵能。选择 7 英寸内可见的敌方特工或该特工的有效目标：目标获得己方毒素标识；若已有标识，则改为造成 3 点伤害。处于敌方控制范围内时不能执行。", ap = 1),
-            ability("pm_vitality", "腐烂活力", "灵能。选择 3 英寸内可见的友方特工并掷 2D6：总和为 7 时恢复最多 7 点耐伤，否则按较高的一枚 D6 恢复。每个转折点一次，处于敌方控制范围内时不能执行。", ap = 1)
-        ),
-        "pm_bombardier" to listOf(
-            ability("pm_grenadier", "掷弹兵", "可使用疫病与穿甲手雷，不占用队伍装备的有限次数；使用时命中属性改善 1，疫病手雷同时获得“剧毒”。")
-        ),
-        "pm_fighter" to listOf(
-            ability("pm_flail", "连枷", "对 2 英寸内其他每名可见特工分别造成 D3+2 伤害；若敌人对应的 D3 为 3，还获得己方毒素标识。按阿斯塔特限制视为战斗行动，隐匿命令下不能执行。", ap = 1)
-        ),
-        "pm_icon_bearer" to listOf(
-            ability("pm_icon_bearer", "持徽手", "判断标识控制权时，该特工的 APL 视为加 1；这不是属性修改，可与其他效果叠加。"),
-            ability("pm_icon_contagion", "传染圣像", "该特工位于对手领地内时，“传染”战略计谋花费 0CP。")
-        ),
-        "pm_warrior" to listOf(
-            ability("pm_fortitude", "排斥韧性", "敌人射击该特工时，其防御骰结果 5+ 视为暴击。")
-        ),
-        "rav_prime" to listOf(
-            ability("rav_crest", "神经掠食冠", "争夺标识时，若敌方特工在 3 英寸内，其 APL 总和视为少 1。3 英寸内的敌人拾取标识或执行任务行动额外花费 1AP，且不能重投攻击或防御骰。"),
-            ability("rav_synapse", "突触链接", "战略策略：该特工仍在场时掷 D6。若结果至少为当前转折点两倍，获得 1CP；若低于转折点数，该特工受到等于结果的伤害；其余无事发生。")
-        ),
-        "rav_felltalon" to listOf(
-            ability("rav_toxic_lunge", "剧毒突刺", "选择 2 英寸内可见敌人；若处于地下，也可选择隧道上的敌人。造成 D3+2 伤害并令其获得毒素标识。地下时也能执行。", ap = 1)
-        ),
-        "rav_tremorscythe" to listOf(
-            ability("rav_hunter", "超感猎手", "若该特工在同一次激活或反制中执行过钻地，即使是隐匿命令也能执行冲锋。"),
-            ability("rav_ambush", "地下伏击", "每个转折点一次：敌人在移动超过 2 英寸后停于己方隧道 2 英寸内，若该特工在地下且可行动，可立即中断并激活或反制；必须先对该敌人战斗或射击。")
-        ),
-        "rav_venomspitter" to listOf(
-            ability("rav_distend", "扩张背囊", "直到用毒液飞弹射击、再次执行本行动或钻地为止，毒液飞弹所有档案获得致命 5+、攻击骰加 1，并移除范围 8 英寸。", ap = 1)
-        ),
-        "rav_warrior" to listOf(
-            ability("rav_instinct", "本能行为", "射击、战斗或反击受伤的敌人，或本转折点执行过撤退的敌人时，该特工的武器获得致命 5+。")
-        ),
-        "rav_wrecker" to listOf(
-            ability("rav_carapace", "强化甲壳", "普通或暴击伤害为 4 点及以上的攻击骰对该特工造成的伤害减少 1。")
-        )
-    )
-
-    fun forOperative(operativeId: String): List<AbilityDefinition> {
-        FellgorCatalog.abilities[operativeId]?.let { return it }
-        ImportedTeamCatalog.abilities[operativeId]?.let { return it }
-        if (operativeId.startsWith("wc_")) return WarpCovenCatalog.forOperative(operativeId)
-        val common = when {
-            operativeId.startsWith("aod_") -> listOf(aodAstartes)
-            operativeId.startsWith("pm_") -> listOf(pmAstartes, resilient)
-            operativeId.startsWith("rav_") -> listOf(burrow, predatory, tunnel)
-            else -> emptyList()
-        }
-        return common + unique[operativeId].orEmpty()
-    }
-
-    private fun ability(
-        id: String,
-        name: String,
-        description: String,
-        ap: Int? = null,
-        faction: Boolean = false
-    ) = AbilityDefinition(id, name, description, ap, faction)
+    fun forOperative(operativeId: String): List<AbilityDefinition> =
+        TeamDataLoader.abilities(operativeId).orEmpty()
 }

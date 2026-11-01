@@ -1,0 +1,800 @@
+{
+  "schema_version": 1,
+  "team_id": "KT-CHAOS_CULT",
+  "team_name_zh": "混沌教派",
+  "team_name_en": "Chaos Cult",
+  "source_pdf": "最新杀戮小队规则更新/混沌教派 Chaos Cult 杀戮小队规则.pdf",
+  "source_pdf_sha256": "5014c017ba1d857145b821a9828cdd6cbf522645a1ffcf54c3b91744bcbfe92a",
+  "extracted_at": "2026-10-26",
+  "render_dpi": 200,
+  "source_data": "官方中文 PDF（唯一信源）",
+  "counts": {
+    "total": 30,
+    "operative": 7,
+    "operative-ability": 1,
+    "team-selection": 1,
+    "faction-rule": 9,
+    "strategic-ploy": 4,
+    "firefight-ploy": 4,
+    "faction-equipment": 4
+  },
+  "cards": [
+    {
+      "id": "kt-chaos_cult-01-01",
+      "sequence": 1,
+      "category": "operative",
+      "title_zh": "教派煽动家-数据卡",
+      "title_en": "CULT DEMAGOGUE",
+      "source_page": 1,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-01-特工-教派煽动家-数据卡.png",
+      "is_back": false,
+      "text": "教派煽动家 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n恶毒杖（远程） 4 4+ 3/6 范围 2\"、眩晕\n手枪 4 4+ 2/3 范围 8\"\n恶毒杖（近战） 4 4+ 3/6 震荡、眩晕\n诱使杀戮 1AP\n支援。位于该特工 9\" 内且可见的另一名己方混\n沌教派特工可以立即执行一次无消耗的近战\n行动。\n该特工不能在敌方特工的控制范围内执行此\n行动。\n煽动紧迫性 1AP\n支援。位于该特工 9\" 内且可见的另一名己方混\n沌教派特工可以立即执行一次无消耗的冲刺或\n者冲锋行动（如果选择冲锋，那么特工不能移动\n超过 3\")。\n该特工不能在敌方特工的控制范围内执行此\n行动。\n混沌教派、混沌、领袖、黑暗秘社、教派煽动家 32",
+      "weapon_types": {
+        "恶毒杖（远程）": "远程",
+        "手枪": "远程",
+        "恶毒杖（近战）": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCULT DEMAGOGUE\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nDiabolical stave (ranged) 4 4+ 3/6 Range 2\", Stun\nPistol 4 4+ 2/3 Range 8\"\nDiabolical stave (melee) 4 4+ 3/6 Shock, Stun\nINCITE SLAUGHTER 1AP\nSUPPORT. One other friendly CHAOS CULT operative\nvisible to and within 9\" of this operative can immediately\nperform a free Fight action.\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nINCITE URGENCY 1AP\nSUPPORT. One other friendly CHAOS CULT operative\nvisible to and within 9\" of this operative can immediately\nperform a free Charge or Dash action (for the former, it\ncannot move more than 3\").\nThis operative cannot perform this action while within control\nrange of an enemy operative.\nCHAOS CULT , CHAOS, LEADER, DARK COMMUNE, CULT DEMAGOGUE 32"
+    },
+    {
+      "id": "kt-chaos_cult-01-02",
+      "sequence": 2,
+      "category": "operative",
+      "title_zh": "祝福战刃-数据卡",
+      "title_en": "BLESSED BLADE",
+      "source_page": 1,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-02-特工-祝福战刃-数据卡.png",
+      "is_back": false,
+      "text": "祝福战刃 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n秘社之刃 4 4+ 4/6 致命 5+\n斩杀敌人：当一名位于该特工控制范围内的敌方特\n工执行后撤行动时，您可以使用本规则。若使用，\n在那名敌方特工进行移动前对其造成 D3+1 点伤\n害。如果那名敌方特工位于两名这种特工的控制范\n围内，则造成 2D3+2 点伤害。\n同步执行：在该特工被激活时，您可以在同时激活\n其 6\" 内的另一名就绪的己方祝福战刃特工。以任意\n顺序完成他们激活中的每一次行动。\n混沌教派、混沌、黑暗秘社、祝福战刃 28",
+      "weapon_types": {
+        "秘社之刃": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nBLESSED BLADE\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nCommune blade 4 4+ 4/6 Lethal 5+\nCut Them Down: Whenever an enemy operative performs the\nFall Back action while within control range of this operative,\nyou can use this rule. If you do, inflict D3+1 damage on that\nenemy operative before it moves. If that enemy operative is\nwithin control range of two of these operatives, inflict 2D3+2\ndamage instead.\nAttuned In Purpose: Whenever this operative is activated,\nyou can activate another ready friendly BLESSED BLADE\noperative within 6\" of it at the same time. Complete their\nactivations action by action in any order.\nCHAOS CULT , CHAOS, DARK COMMUNE, BLESSED BLADE 28"
+    },
+    {
+      "id": "kt-chaos_cult-01-03",
+      "sequence": 3,
+      "category": "operative",
+      "title_zh": "徽记头领-数据卡",
+      "title_en": "ICONARCH",
+      "source_page": 1,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-03-特工-徽记头领-数据卡.png",
+      "is_back": false,
+      "text": "徽记头领 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n燃烧香炉 4 2+ 4/4 范围 5\"、集中、洪流 2\"\n手枪 4 4+ 2/3 范围 8\"\n粗制近战武器 3 4+ 2/3 -\n持徽手：在判断一个标识的控制权时，将该特工的\nAPL 属性视为比原本要高 1 点。请注意，这并非对\nAPL 属性的修改，因此任何额外的修改效果会与本\n规则叠加。\n请继续阅读背面规则\n混沌教派、混沌、黑暗秘社、灵能者、徽记头领 32",
+      "weapon_types": {
+        "燃烧香炉": "远程",
+        "手枪": "远程",
+        "粗制近战武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nICONARCH\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nBurning censer 4 2+ 4/4 Range 5\", Saturate, Torrent 2\"\nPistol 4 4+ 2/3 Range 8\"\nCrude melee weapon 3 4+ 2/3 -\nIcon Bearer: Whenever determining control of a marker, treat\nthis operative’s APL stat as 1 higher. Note this isn’t a change to\nits APL stat, so any changes are cumulative with this.\nRULES CONTINUE ON OTHER SIDE\nCHAOS CULT , CHAOS, DARK COMMUNE, PSYKER, ICONARCH 32"
+    },
+    {
+      "id": "kt-chaos_cult-01-04",
+      "sequence": 4,
+      "category": "operative-ability",
+      "title_zh": "徽记头领-能力卡",
+      "title_en": "ICONARCH",
+      "source_page": 1,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-04-特工能力-徽记头领-能力卡.png",
+      "is_back": false,
+      "text": "徽记头领 APL 移动豁免耐伤\n2 6\" 5+ 8\n毁灭徽记 1AP\n灵能。选择以下一个效果进行生效，它将持续至\n该特工的下一次激活开始，该特工被残废，或\n者该特工再次执行此行动为止（以先满足的条\n件为准)：\n• 激励：灵能。在位于该特工 4\" 内的己方混沌\n教派特工受到普通和暴击伤害时，如果伤害\n数值大于等于 4，那么那名特工受到的伤害减\n少 1 点。\n• 恶化：灵能。位于该特工 4\" 内的敌方特工所受\n到的普通和暴击伤害增加 1 点。\n该特工不能在敌方特工的控制范围内执行此\n行动。",
+      "text_en": "APL MOVE SAVE WOUNDS\nICONARCH\n2 6\" 5+ 8\nRUINOUS ICON 1AP\nPSYCHIC. Select one of the following effects to last\nuntil the start of this operative’s next activation, until\nit’s incapacitated or until it performs this action again\n(whichever comes first):\n• Invigoration: PSYCHIC. Whenever a friendly CHAOS\nCULT operative is within 4\" of this operative, Normal\nand Critical Dmg of 4 or more inflicts 1 less damage on\nthat operative.\n• Deterioration: PSYCHIC. Whenever an enemy\noperative is within 4\" of this operative, Normal and Critical\nDmg inflicts 1 more damage on that operative.\nThis operative cannot perform this action while within control\nrange of an enemy operative."
+    },
+    {
+      "id": "kt-chaos_cult-01-05",
+      "sequence": 5,
+      "category": "operative",
+      "title_zh": "头脑巫师-数据卡",
+      "title_en": "MINDWITCH",
+      "source_page": 2,
+      "page_order": 1,
+      "bbox_pt": [
+        126.1,
+        23.7,
+        343.0,
+        198.5
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.0282,
+        0.5762,
+        0.2358
+      ],
+      "image": "01-05-特工-头脑巫师-数据卡.png",
+      "is_back": false,
+      "text": "头脑巫师 APL 移动豁免耐伤\n2 6\" 5+ 8\n名称攻击命中伤害武器规则\n地狱凝视 5 3+ 0/0 范围 6\"、毁灭 2、致命 3+、灵能\n双拳 3 5+ 1/2 -\n恶毒之洪 1AP 凶恶漩涡 1AP\n灵能。选择一名属于该特工有灵能。将己方凶恶漩涡标识移出杀戮区（若有)。随后将己方凶恶\n效目标的敌方特工。直到那名漩涡标识放置在该特工可见的位置，或者对该特工可见的地形模型\n特工的下一次激活结束前，其的制高点地形上。对标识 2\" 内的每一名敌方特工造成 1 点伤害。\nAPL 属性减少 1 点。此外，在每一个战略阶段的就绪步骤中，对标识 2\" 内的每一名敌\n该特工不能在敌方特工的控方特工造成 1 点伤害。\n制范围内执行此行动。\n该特工不能在敌方特工的控制范围内执行此行动。\n混沌教派、混沌、黑暗秘社、灵能者、头脑巫师 32",
+      "weapon_types": {
+        "地狱凝视": "远程",
+        "双拳": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nMINDWITCH\n2 6\" 5+ 8\nNAME ATK HIT DMG WR\nInfernal gaze 5 3+ 0/0 PSYCHIC, Range 6\", Devastating 2, Lethal 3+\nFists 3 5+ 1/2 -\nHEINOUS DELUGE 1AP MALEFIC VORTEX 1AP\nPSYCHIC. Select one enemy PSYCHIC. Remove your Malefic Vortex marker from the killzone (if any). Then\noperative that's a valid target for place your Malefic Vortex marker visible to this operative, or on Vantage terrain of\nthis operative. Until the end of that a terrain feature that’s visible to this operative. Inflict 1 damage on each enemy\noperative’s next activation, subtract 1 operative within 2\" of that marker. In addition, in the Ready step of each Strategy\nfrom its APL stat. phase, inflict 1 damage on each enemy operative within 2\" of that marker.\nThis operative cannot perform this\nThis operative cannot perform this action while within control range of an\naction while within control range of an\nenemy operative.\nenemy operative.\nCHAOS CULT , CHAOS, DARK COMMUNE, PSYKER, MINDWITCH 32"
+    },
+    {
+      "id": "kt-chaos_cult-01-06",
+      "sequence": 6,
+      "category": "operative",
+      "title_zh": "混沌虔信者-数据卡",
+      "title_en": "CHAOS DEVOTEE",
+      "source_page": 2,
+      "page_order": 2,
+      "bbox_pt": [
+        126.1,
+        222.2,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.2639,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-06-特工-混沌虔信者-数据卡.png",
+      "is_back": false,
+      "text": "混沌虔信者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n手枪 4 4+ 2/3 范围 8\"\n粗制近战武器 4 4+ 2/3 -\n群体激活：每当该特工进入待机时，您必须在对手\n之前激活另一名就绪的己方混沌教派虔信者特工\n（若有)。在这另一名特工进入待机后，您的对手将\n照常进行激活（换句话说，您通过本规则连续激活\n的特工数量不能超过两名)。\n混沌教派、混沌、虔信者 25",
+      "weapon_types": {
+        "手枪": "远程",
+        "粗制近战武器": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCHAOS DEVOTEE\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nPistol 4 4+ 2/3 Range 8\"\nCrude melee weapon 4 4+ 2/3 -\nGroup Activation: Whenever this operative is expended, you\nmust then activate one other ready friendly CHAOS CULT\nDEVOTEE operative (if able) before your opponent activates.\nWhen that other operative is expended, your opponent then\nactivates as normal (in other words, you cannot activate more\nthan two operatives in succession with this rule).\nCHAOS CULT , CHAOS, DEVOTEE 25"
+    },
+    {
+      "id": "kt-chaos_cult-01-07",
+      "sequence": 7,
+      "category": "operative",
+      "title_zh": "混沌变异者-数据卡",
+      "title_en": "CHAOS MUTANT",
+      "source_page": 2,
+      "page_order": 3,
+      "bbox_pt": [
+        126.1,
+        420.6,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.4996,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-07-特工-混沌变异者-数据卡.png",
+      "is_back": false,
+      "text": "混沌变异者 APL 移动豁免耐伤\n2 6\" 5+ 7\n名称攻击命中伤害武器规则\n渎神附肢 4 4+ 3/4 无休、撕裂\n被诅咒的变异者：该特工不能执行独特行动。在该\n特工执行拾取标识行动或任务行动时（操作舱门除\n外)，您必须消耗额外 1AP。\n超自然再生：每当一枚攻击骰对该特工造成大于等\n于 3 点的伤害时，掷一枚 D6：若结果为 5+，造成\n的伤害减少 1 点。\n混沌教派、混沌、变异者 25",
+      "weapon_types": {
+        "渎神附肢": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCHAOS MUTANT\n2 6\" 5+ 7\nNAME ATK HIT DMG WR\nBlasphemous appendages 4 4+ 3/4 Ceaseless, Rending\nAccursed Mutant: This operative cannot perform unique\nactions. You must spend 1 additional AP for this operative to\nperform the Pick Up Marker and mission actions (excluding\nOperate Hatch).\nUnnatural Regeneration: Whenever an attack dice inflicts\ndamage of 3 or more on this operative, roll one D6: on a 5+,\nsubtract 1 from that inflicted damage.\nCHAOS CULT , CHAOS, MUTANT 25"
+    },
+    {
+      "id": "kt-chaos_cult-01-08",
+      "sequence": 8,
+      "category": "operative",
+      "title_zh": "混沌受难者-数据卡",
+      "title_en": "CHAOS TORMENT",
+      "source_page": 2,
+      "page_order": 4,
+      "bbox_pt": [
+        126.1,
+        619.0,
+        343.0,
+        198.4
+      ],
+      "bbox_norm": [
+        0.2118,
+        0.7353,
+        0.5762,
+        0.2357
+      ],
+      "image": "01-08-特工-混沌受难者-数据卡.png",
+      "is_back": false,
+      "text": "混沌受难者 APL 移动豁免耐伤\n2 6\" 5+ 13\n名称攻击命中伤害武器规则\n骇人变异 5 4+ 4/5 无休、撕裂\n被诅咒的受难者：该特工不能使用任何其数据卡上\n没有的武器，或者执行独特行动、拾取标识行动或\n任务行动（操作舱门除外)。\n笨重：在您的对手选择有效目标时，如果该特工拥\n有隐匿命令，那么该特工不能通过轻型地形获得掩\n护。虽然这样会让特工成为目标（假设该特工可\n见)，但是不会移除其拥有的掩护豁免（若有)。\n超自然再生：每当一枚攻击骰对该特工造成大于等\n于 3 点的伤害时，掷一枚 D6：若结果为 5+，造成\n的伤害减少 1 点。\n混沌教派、混沌、受难者 40",
+      "weapon_types": {
+        "骇人变异": "近战"
+      },
+      "text_en": "APL MOVE SAVE WOUNDS\nCHAOS TORMENT\n2 6\" 5+ 13\nNAME ATK HIT DMG WR\nHideous mutations 5 4+ 4/5 Ceaseless, Rending\nAccursed Torment: This operative cannot use any weapons that\naren’t on its datacard, or perform the Pick Up Marker, unique\nor mission actions (excluding Operate Hatch).\nBrute: Whenever your opponent is selecting a valid target, if\nthis operative has a Conceal order, it cannot use Light terrain\nfor cover. While this can allow this operative to be targeted\n(assuming it’s visible), it doesn’t remove its cover save (if any).\nUnnatural Regeneration: Whenever an attack dice inflicts\ndamage of 3 or more on this operative, roll one D6: on a 5+,\nsubtract 1 from that inflicted damage.\nCHAOS CULT , CHAOS, TORMENT 40"
+    },
+    {
+      "id": "kt-chaos_cult-10-01",
+      "sequence": 1,
+      "category": "team-selection",
+      "title_zh": "混沌教派杀戮小队",
+      "title_en": "KILL TEAM",
+      "source_page": 3,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "10-01-小队选择-混沌教派杀戮小队.png",
+      "is_back": false,
+      "text": "混沌教派\n杀戮小队\n原型: 渗透、搜索与破坏\n特工\n↘ 1 名教派煽动家特工\n↘ 2 名祝福战刃特工\n↘ 9 名混沌虔信者特工\n↘ 1 名徽记头领特工\n↘ 1 名头脑巫师特工",
+      "text_en": "CHAOS CULT\nKILL TEAM\nARCHETYPES: INFILTRATION, SEEK & DESTROY\nOPERATIVES\n↘ 1 CULT DEMAGOGUE operative\n↘ 2 BLESSED BLADE operatives\n↘ 9 CHAOS DEVOTEE operatives\n↘ 1 ICONARCH operative\n↘ 1 MINDWITCH operative"
+    },
+    {
+      "id": "kt-chaos_cult-11-01",
+      "sequence": 1,
+      "category": "faction-rule",
+      "title_zh": "诅咒之礼-1",
+      "title_en": "ACCURSED GIFTS",
+      "source_page": 3,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-01-阵营规则-诅咒之礼-1.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n诅咒之礼\n在神灵的赐福下，被混沌诅咒的追随者们遭\n受了一系列可怕的变异。蝙蝠之翼、锋利脊\n角、邪恶利爪，还有灵活触须：这些邪恶的\n馈赠都能够被用在毁灭之上。\n诅咒之礼是在己方混沌教派特工转变成为另一\n个特工类型时获得的规则（参见“变异”阵营规\n则）。当首次有一名己方虔信者特工在战斗中变\n为变异者特工时，选择您的第一诅咒之礼。当首\n次有一名己方变异者特工在战斗中变为受难者特\n工时，选择您的第二诅咒之礼。\n所有己方变异者特工都将拥有您选择的第一诅咒\n之礼，所有己方受难者特工都将拥有您选择的第\n一和第二诅咒之礼。在每场战斗中，您不能多次\n选择同样的诅咒之礼。\n诅咒之礼选项将在单独的卡片上分别展示",
+      "text_en": "CHAOS CULT\nFACTION RULE\nACCURSED GIFTS\nAccursed followers of Chaos are blessed by the gods\nwith a horrifying array of mutations. Chiropteran wings,\nrigid horns, wicked claws and dextrous tentacles: all of\nthese diabolical gifts are used to devastating effect.\nACCURSED GIFTS are rules that friendly CHAOS\nCULT operatives gain when they turn into\nanother operative type (see Mutation faction\nrule). The first time a friendly DEVOTEE operative\nturns into a MUTANT operative during the battle,\nselect your primary ACCURSED GIFT. The first\ntime a friendly MUTANT operative turns into a\nTORMENT operative during the battle, select your\nsecondary ACCURSED GIFT.\nAll friendly MUTANT operatives have your primary\nACCURSED GIFT, and all friendly TORMENT\noperatives have your primary and secondary\nACCURSED GIFTS. You cannot select the same\nACCURSED GIFT more than once per battle.\nACCURSED GIFT OPTIONS ARE PRESENTED ON\nTHEIR OWN CARDS"
+    },
+    {
+      "id": "kt-chaos_cult-11-02",
+      "sequence": 2,
+      "category": "faction-rule",
+      "title_zh": "诅咒之礼-2",
+      "title_en": "ACCURSED GIFTS",
+      "source_page": 3,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-02-阵营规则-诅咒之礼-2.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n诅咒之礼\n1. 生翼\n残破的巨大翅膀从血肉中生长而出。这些邪\n恶的变异能够让扭曲之物以惊人的敏捷上下\n移动。\n在该特工进行向上攀爬时，您可以将垂直距离视\n作 2\"（无论特工实际移动的垂直距离是多少)。\n每当该特工进行跳落时，无视垂直距离。",
+      "text_en": "CHAOS CULT\nFACTION RULE\nACCURSED GIFTS\n1. Deformed Wings\nTattered, leathery wings burst from heaving folds of\nflesh. These infernal mutations allow their wretched\nbearer to ascend and drop into the fray with\nterrifying agility.\nWhenever this operative is climbing up, you can\ntreat the vertical distance as 2\" (regardless of\nhow far the operative actually moves vertically).\nWhenever this operative is dropping, ignore the\nvertical distance."
+    },
+    {
+      "id": "kt-chaos_cult-11-03",
+      "sequence": 3,
+      "category": "faction-rule",
+      "title_zh": "诅咒之礼-3",
+      "title_en": "ACCURSED GIFTS",
+      "source_page": 3,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-03-阵营规则-诅咒之礼-3.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n诅咒之礼\n2. 迅捷\n粗壮的畸形肢体、抽动的触须和沾满黏液的\n器官让变异的混沌信徒以惊人且可怕的速度\n在战场上穿梭。\n该特工的移动属性增加 1\"。",
+      "text_en": "CHAOS CULT\nFACTION RULE\nACCURSED GIFTS\n2. Fleet\nMuscular, misshapen limbs, undulating tentacles and\nslime-slick extrusions propel mutant Cultists across\nthe battlefield with a speed that is as shocking as it\nis horrific.\nAdd 1\" to this operative’s Move stat."
+    },
+    {
+      "id": "kt-chaos_cult-11-04",
+      "sequence": 4,
+      "category": "faction-rule",
+      "title_zh": "诅咒之礼-4",
+      "title_en": "ACCURSED GIFTS",
+      "source_page": 4,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-04-阵营规则-诅咒之礼-4.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n诅咒之礼\n3. 甲壳\n几丁质和恶魔之力构成的坚固硬壳从教徒的\n血肉中生长而出，让他们能够抵御激光、子\n弹和刀剑的攻击。\n该特工的豁免属性提升 1 点。",
+      "text_en": "CHAOS CULT\nFACTION RULE\nACCURSED GIFTS\n3. Chitinous\nHardened plates formed of chitinous, daemonic material\nerupt from angry, swollen flesh, lending the accursed\nunholy resilience and turning lasbolts, bullets and\nblades aside.\nImprove this operative’s Save stat by 1."
+    },
+    {
+      "id": "kt-chaos_cult-11-05",
+      "sequence": 5,
+      "category": "faction-rule",
+      "title_zh": "诅咒之礼-5",
+      "title_en": "ACCURSED GIFTS",
+      "source_page": 4,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-05-阵营规则-诅咒之礼-5.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n诅咒之礼\n4. 犄角\n一对尖锐的犄角从变异教徒的头部钻出，能\n够被用来冲撞和穿刺敌人。\n在该特工结束冲锋行动的移动时，您可以对一名\n位于其控制范围内的敌方特工造成 1 点伤害，如\n果该特工是一名受难者，则可以造成 D3 点伤害。",
+      "text_en": "CHAOS CULT\nFACTION RULE\nACCURSED GIFTS\n4. Horned\nPairs of sharp, curved horns protrude from the\nforeheads of some mutant Cultists, used to charge, gore\nand impale their victims.\nWhenever this operative ends its move during the\nCharge action, you can inflict 1 damage on one\nenemy operative within its control range, or D3\ndamage instead if this operative is a TORMENT."
+    },
+    {
+      "id": "kt-chaos_cult-11-06",
+      "sequence": 6,
+      "category": "faction-rule",
+      "title_zh": "诅咒之礼-6",
+      "title_en": "ACCURSED GIFTS",
+      "source_page": 4,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "11-06-阵营规则-诅咒之礼-6.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n诅咒之礼\n5. 强肌\n强韧的筋腱包裹着这名扭曲教徒的肌肉，让\n其能够以怪物一般的力量发动攻击。\n您可以忽略该特工因受创而导致的任何对近战武\n器命中属性的修正。该特工的近战武器拥有“残\n暴”武器规则。",
+      "text_en": "CHAOS CULT\nFACTION RULE\nACCURSED GIFTS\n5. Sinewed\nWithin this Cultist’s twisted form, hardened sinews and\ntendons bind muscle, lending monstrous strength to\neach and every strike they make.\nYou can ignore any changes to the Hit stat of this\noperative’s melee weapons from being injured.\nThis operative’s melee weapons have the Brutal\nweapon rule."
+    },
+    {
+      "id": "kt-chaos_cult-11-07",
+      "sequence": 7,
+      "category": "faction-rule",
+      "title_zh": "诅咒之礼-7",
+      "title_en": "ACCURSED GIFTS",
+      "source_page": 4,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "11-07-阵营规则-诅咒之礼-7.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n诅咒之礼\n6. 带刺\n这位教徒的身体和武器上都遍布着尖锐的倒\n刺，在攻击时能够撕裂敌人血肉。\n每当该特工进行近战或反击时：\n• 敌方特工不能协助。\n• 每当您在那个流程中首次出击时，对该特工\n控制范围内的每一个其他敌方特工造成 1 点\n伤害，如果该特工是受难者，则造成 D3 点\n伤害（对每个特工分别掷骰）。",
+      "text_en": "CHAOS CULT\nFACTION RULE\nACCURSED GIFTS\n6. Barbed\nThis Cultist’s body and weapons are coated with sharp\nbarbs that bite into those nearby, ripping flesh and\nspilling blood.\nWhenever this operative is fighting or retaliating:\n• Enemy operatives cannot assist.\n• The first time you strike during that sequence,\nalso inflict 1 damage on each other enemy\noperative within this operative’s control range,\nor D3 damage instead if this operative is a\nTORMENT (roll separately for each)."
+    },
+    {
+      "id": "kt-chaos_cult-11-08",
+      "sequence": 8,
+      "category": "faction-rule",
+      "title_zh": "变异-1",
+      "title_en": "MUTATION",
+      "source_page": 5,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "11-08-阵营规则-变异-1.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营规则\n变异\n通过神秘的仪式，最为热诚的混沌信徒会在\n自己的身上刻下不洁的印记或者刺青。如果\n说出了正确的咒语，那么这些魔印就会吸引\n亚空间的力量，产生变异。对一些人来说，\n这并不能满足他们的黑暗欲望。堕落的祷文\n会被书写在人皮之上并钉入血肉之中，将召\n唤而来的恶魔束缚在凡人的躯壳内。\n在战斗期间，己方混沌教派特工可以通过以下\n方式进行变异：\n• 作为一个战略计划，您可以将一定数量的己方\n混沌教派特工进行变异，具体的数量如下：\n第一转折点 2 个，第二转折点 2 个，第三转折\n点 3 个，第四及之后的转折点 4 个。\n• 每当一名虔信者特工将其控制范围内的敌方特\n工残废时，该特工可以进行变异。\n• 在每个转折点中，每一名特工变异的次数不能\n超过一次。\n请继续阅读背面规则",
+      "text_en": "CHAOS CULT\nFACTION RULE\nMUTATION\nThrough arcane ritual, the most devoted among a\nChaos Cult have profane symbols carved into their\nflesh or tattooed onto their skin. Should the correct\nwords of invocation be uttered, these icons appear to\ndraw empyric power, mutating the form of the devotee.\nThis doesn’t satisfy the dark cravings and power lust\nof some; depraved prayers are written upon flayed\nskin and nailed into tormented flesh, and daemons are\nsummoned and bound into mortal bodies.\nDuring the battle, friendly CHAOS CULT\noperatives can MUTATE as follows:\n• As a STRATEGIC GAMBIT, you can MUTATE a\nnumber of friendly CHAOS CULT operatives\nbased on the turning point as follows: TP1 = 2,\nTP2 = 2, TP3 = 3, TP4+ = 4.\n• Whenever a friendly DEVOTEE operative\nincapacitates an enemy operative within its\ncontrol range, it can MUTATE.\n• Each operative cannot MUTATE more than\nonce per turning point.\nCONTINUES ON OTHER SIDE"
+    },
+    {
+      "id": "kt-chaos_cult-11-09",
+      "sequence": 9,
+      "category": "faction-rule",
+      "title_zh": "变异-2",
+      "title_en": "MUTATION",
+      "source_page": 5,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "11-09-阵营规则-变异-2.png",
+      "is_back": true,
+      "text": "每当一名己方特工进行变异时，选择以下一个\n效果：\n• 如果是一名虔信者特工，那么该特工转变成一\n名变异者特工。\n• 如果是一名变异者特工，那么该特工转变成一\n名受难者特工（每个转折点最多两次）。\n• 特工回复最多 D3+1 点失去的耐伤。\n您不能同时拥有超过 5 名变异者特工和 3 名受难\n者特工。\n每当一名己方特工转变成新的特工时：\n• 更换特工的微缩模型，确保新模型底座的中心\n尽可能靠近原本模型底座中心的位置。这可能\n会导致特工被放置在敌方特工的控制范围内，\n并且如果原本的模型已经位于敌方特工的控制\n范围内，那么如果可能，新的模型也必须位于\n那些敌方特工的控制范围内。\n• 新的特工类型失去一定数量的耐伤，数值等同\n于它之前的特工类型失去的耐伤。\n• 如果特工在之前被任何规则效果选中，那么该\n特工依旧算作是同一名特工。转变后的特工单\n纯属于新的特工类型，使用新的微缩模型以及\n数据卡规则。",
+      "text_en": "Whenever a friendly operative MUTATES, select\none of the following:\n• If it’s a DEVOTEE operative, turn it into a\nMUTANT operative.\n• If it’s a MUTANT operative, turn it into\na TORMENT operative (max twice per\nturning point).\n• It can regain up to D3+1 lost wounds.\nYou cannot have more than five MUTANT\noperatives and three TORMENT operatives at\nonce. Whenever a friendly operative turns into a\nnew operative:\n• Swap the miniatures, ensuring the centre of the\nnew miniature’s base is as close as possible to\nwhere the centre of the old miniature’s base\nwas. This can put it within control range of\nenemy operatives, and if the old miniature was,\nthe new miniature must be if possible.\n• The new operative type loses a number\nof wounds equal to the lost wounds of its\npreceding operative type.\n• It’s still the same operative for any rules it’s\nalready been selected for. The operative is\nsimply a new operative type and will use that\nnew type’s miniature and datacard rules."
+    },
+    {
+      "id": "kt-chaos_cult-20-01",
+      "sequence": 1,
+      "category": "strategic-ploy",
+      "title_zh": "痛苦之乐",
+      "title_en": "EXALTATION IN PAIN",
+      "source_page": 5,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "20-01-战略计谋-痛苦之乐.png",
+      "is_back": false,
+      "text": "混沌教派\n战略计谋\n痛苦之乐\n在狂热信仰的驱使下，狂乱的教徒们享受着自\n己的变异肉体所受到的绝佳痛苦。\n您可以忽略己方混沌教派特工由于处于受创状\n态而导致的武器命中属性的变化。每当一名特工\n对一名受伤的己方混沌教派特工进行射击时，\n您可以重掷一枚自己的防御骰。",
+      "text_en": "CHAOS CULT\nSTRATEGY PLOY\nEXALTATION IN PAIN\nSpurred on by their fervour, Cultists embrace the\nexquisite agony of wounds upon their mutant flesh with\nmaniacal delight.\nYou can ignore any changes to the Hit stat of\nfriendly CHAOS CULT operatives’ weapons\nfrom being injured. Whenever an operative is\nshooting a friendly CHAOS CULT operative\nthat’s wounded, you can re-roll one of your\ndefence dice."
+    },
+    {
+      "id": "kt-chaos_cult-20-02",
+      "sequence": 2,
+      "category": "strategic-ploy",
+      "title_zh": "狂热猛攻",
+      "title_en": "FERVENT ONSLAUGHT",
+      "source_page": 5,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "20-02-战略计谋-狂热猛攻.png",
+      "is_back": false,
+      "text": "混沌教派\n战略计谋\n狂热猛攻\n为了换取冷酷神明的些许祝福，迷失者与受诅\n咒者会热忱且急迫地进行战斗。\n己方混沌教派特工的近战武器拥有“精准 1”\n武器规则，如果受影响的特工是一名变异者或受\n难者特工，则那名特工的近战武器获得‘精准\n2’武器规则。",
+      "text_en": "CHAOS CULT\nSTRATEGY PLOY\nFERVENT ONSLAUGHT\nThe lost and the damned fight with a zealous\ndesperation to earn the fickle favour of their\nuncaring patrons.\nFriendly CHAOS CULT operatives’ melee\nweapons have the Accurate 1 weapon rule, or the\nAccurate 2 weapon rule if that friendly operative\nis a MUTANT or TORMENT operative."
+    },
+    {
+      "id": "kt-chaos_cult-20-03",
+      "sequence": 3,
+      "category": "strategic-ploy",
+      "title_zh": "噩梦生物",
+      "title_en": "CREATURES OF NIGHTMARE",
+      "source_page": 6,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "20-03-战略计谋-噩梦生物.png",
+      "is_back": false,
+      "text": "混沌教派\n战略计谋\n噩梦生物\n这些诅咒之物的扭曲姿态会唤起绝望的恐惧。\n在判断对一个标识的控制权时，如果有至少一名\n争夺标识的敌方特工位于己方混沌教派变异者\n或混沌教派受难者特工的 2\" 内，那么将争夺标\n识的敌方特工的 APL 属性总和视作为比原本低 1\n点。请注意，这不是对 APL 属性的修改，因此\n任何修改效果会与本规则的效果叠加。",
+      "text_en": "CHAOS CULT\nSTRATEGY PLOY\nCREATURES OF NIGHTMARE\nThe twisted and unnatural forms of these accursed\nmonstrosities inspire abject terror.\nWhenever determining control of a marker,\ntreat the total APL stat of enemy operatives that\ncontest it as 1 lower if at least one of those enemy\noperatives is within 2\" of friendly CHAOS CULT\nMUTANT or CHAOS CULT TORMENT operatives.\nNote this isn’t a change to the APL stat, so any\nchanges are cumulative with this."
+    },
+    {
+      "id": "kt-chaos_cult-20-04",
+      "sequence": 4,
+      "category": "strategic-ploy",
+      "title_zh": "恶心气场",
+      "title_en": "SICKENING AURA",
+      "source_page": 6,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "20-04-战略计谋-恶心气场.png",
+      "is_back": false,
+      "text": "混沌教派\n战略计谋\n恶心气场\n变异者和受难者的身上散发着令人不适的腐化\n气息，消磨着周边敌人的理智与力量。\n当敌方特工位于己方混沌教派变异者或混沌教\n派受难者特工 2\" 内时，其武器的命中属性弱化\n1。本规则的效果不能与受创规则的效果叠加。",
+      "text_en": "CHAOS CULT\nSTRATEGY PLOY\nSICKENING AURA\nSickening corruption flows from the hideous form of\nMutant and Torment, eroding the sanity and strength of\nthose who gaze upon them.\nWhenever an enemy operative is within 2\" of\nfriendly CHAOS CULT MUTANT or CHAOS CULT\nTORMENT operatives, worsen the Hit stat of\nthat enemy operative’s weapons by 1. This isn’t\ncumulative with being injured."
+    },
+    {
+      "id": "kt-chaos_cult-30-01",
+      "sequence": 1,
+      "category": "firefight-ploy",
+      "title_zh": "忠诚追随者",
+      "title_en": "FAITHFUL FOLLOWER",
+      "source_page": 6,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "30-01-交战计谋-忠诚追随者.png",
+      "is_back": false,
+      "text": "混沌教派\n交战计谋\n忠诚追随者\n混沌教派人数无穷无尽，每一位教徒都愿意\n为保护自己的不洁领袖而献身。\n在一名己方混沌教派黑暗秘社特工被选择成为\n一次射击行动的有效目标或者近战行动的近战对\n象时使用本交战计谋。选择另一名位于该特工\n3\" 内且可见的己方混沌教派特工（黑暗秘社除\n外）来替代作为那次射击的有效目标或近战对象\n（视情况而定)，就算特工通常不能成为有效目\n标。如果这是一次近战行动，那么在这次行动\n期间将被选择的特工视作为位于近战特工的控\n制范围内。如果进行的是一次射击行动，那么\n其他特工只有在原本目标拥有掩护或被遮挡时\n才能拥有对应的效果。\n本规则对使用带有“爆炸”或者“洪流”武器规\n则的武器所进行的射击行动无效。",
+      "text_en": "CHAOS CULT\nFIREFIGHT PLOY\nFAITHFUL FOLLOWER\nThe teeming masses of a Chaos Cult will gladly\nsacrifice their own wretched lives to preserve their\nunholy superiors.\nUse this firefight ploy when a friendly CHAOS\nCULT DARK COMMUNE operative is selected\nas the valid target of a Shoot action or to fight\nagainst during the Fight action. Select one other\nfriendly CHAOS CULT operative (excluding DARK\nCOMMUNE) visible to and within 3\" of that DARK\nCOMMUNE operative to become the valid target\nor to be fought against (as appropriate) instead\n(even if it wouldn’t normally be valid for this). If\nit’s the Fight action, treat that other operative as\nbeing within the fighting operative’s control range\nfor the duration of that action. If it’s the Shoot\naction, that other operative is only in cover or\nobscured if the original target was.\nThis ploy has no effect if it’s the Shoot action\nand the ranged weapon has the Blast or Torrent\nweapon rule."
+    },
+    {
+      "id": "kt-chaos_cult-30-02",
+      "sequence": 2,
+      "category": "firefight-ploy",
+      "title_zh": "憎恶突变",
+      "title_en": "ABHORRENT MUTATION",
+      "source_page": 6,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "30-02-交战计谋-憎恶突变.png",
+      "is_back": false,
+      "text": "混沌教派\n交战计谋\n憎恶突变\n在战斗之中充斥着各种暴力与情绪，湮灭之\n力会将诅咒之礼赋予手下的信徒。\n在一名己方混沌教派特工（黑暗秘社除外）被\n激活时使用本交战计谋。选择一个诅咒之礼，那\n名特工获得对应的效果。这个效果会与特工已经\n拥有的任何诅咒之礼的效果叠加。在每场战斗\n中，每一名己方特工只能被选择成为本计谋的对\n象一次，并且如果那名特工变成了另一种类型的\n特工（参见“变异”阵营规则)，它依旧拥有通\n过本计谋选择的诅咒之礼。",
+      "text_en": "CHAOS CULT\nFIREFIGHT PLOY\nABHORRENT MUTATION\nIn the midst of battle, when violence and emotion\nrun rampant, the Ruinous Powers bestow upon their\nunderlings their accursed gifts.\nUse this firefight ploy when a friendly CHAOS\nCULT operative (excluding DARK COMMUNE)\nis activated. Select an ACCURSED GIFT for\nthat operative to gain. This is in addition to any\nACCURSED GIFTS it already has. Each friendly\noperative cannot be selected for this ploy more\nthan once per battle, and if that operative turns\ninto a different one (see Mutation faction rule), it\nstill has that ACCURSED GIFT."
+    },
+    {
+      "id": "kt-chaos_cult-30-03",
+      "sequence": 3,
+      "category": "firefight-ploy",
+      "title_zh": "狂热死亡",
+      "title_en": "FRENZIED DEMISE",
+      "source_page": 7,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "30-03-交战计谋-狂热死亡.png",
+      "is_back": false,
+      "text": "混沌教派\n交战计谋\n狂热死亡\n就算在死亡之时，黑暗诸神的信徒们也会想\n尽办法制造痛苦与破坏。\n在一名己方混沌教派变异者或混沌教派受难\n者特工被残废时，在将其移出杀戮区域前使用本\n交战计谋。对那名特工 2\"内的一名可见敌方特工\n造成 D3 点伤害（如果己方特工是受难者特工，\n则造成 D6 点伤害)。",
+      "text_en": "CHAOS CULT\nFIREFIGHT PLOY\nFRENZIED DEMISE\nEven in their death throes, the devotees of the Dark\nGods seek to inflict agony and destruction.\nUse this firefight ploy when a friendly CHAOS\nCULT MUTANT or CHAOS CULT TORMENT\noperative is incapacitated, before it’s removed\nfrom the killzone. Inflict D3 damage (or D6\ndamage instead if that friendly operative is a\nTORMENT) on one enemy operative visible to and\nwithin 2\" of that friendly operative."
+    },
+    {
+      "id": "kt-chaos_cult-30-04",
+      "sequence": 4,
+      "category": "firefight-ploy",
+      "title_zh": "释放恶魔",
+      "title_en": "UNLEASH THE DAEMON",
+      "source_page": 7,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "30-04-交战计谋-释放恶魔.png",
+      "is_back": false,
+      "text": "混沌教派\n交战计谋\n释放恶魔\n在不断升级的暴力之中，现实空间逐渐变得\n支离破碎，而恶魔之力则变得愈加强大。\n在一名己方混沌教派变异者或混沌教派受难\n者特工的激活期间执行任何行动之前或之后使用\n本交战计谋。在那次激活中，那名特工可以执行\n两次近战行动，并且其中一次可以是无消耗的\n行动。",
+      "text_en": "CHAOS CULT\nFIREFIGHT PLOY\nUNLEASH THE DAEMON\nAmidst escalating violence, the veil of reality is torn\nasunder and the influence of the daemonic strengthens.\nUse this firefight ploy during a friendly CHAOS\nCULT MUTANT or CHAOS CULT TORMENT\noperative’s activation, before or after it performs\nan action. During that activation, that operative\ncan perform two Fight actions, and one of them\ncan be free."
+    },
+    {
+      "id": "kt-chaos_cult-40-01",
+      "sequence": 1,
+      "category": "faction-equipment",
+      "title_zh": "邪恶魔典",
+      "title_en": "BALEFUL SCRIPT",
+      "source_page": 7,
+      "page_order": 3,
+      "bbox_pt": [
+        99.2,
+        420.9,
+        198.4,
+        343.0
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.4999,
+        0.3333,
+        0.4074
+      ],
+      "image": "40-01-阵营装备-邪恶魔典.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营装备\n邪恶魔典\n这些邪恶的文字被书写在了人皮制成的书页\n上，在使用黑暗之语进行朗诵后能够赐予阅\n读者恐怖的赠礼。\n每场战斗限一次，战略计划。更换您的一个诅咒\n之礼。请注意，如果您选择了一个通过“憎恶突\n变”交战计谋所获得的诅咒之礼，那么只有那\n名受交战计谋效果影响的特工会获得变更后的\n效果。",
+      "text_en": "CHAOS CULT\nFACTION EQUIPMENT\nBALEFUL SCRIPT\nThese infernal scrawlings, inscribed upon pages\nwrought from Human flesh, may bestow malefic gifts\nupon the reader when recited in the dark tongue.\nOnce per battle STRATEGIC GAMBIT. Change\none of your ACCURSED GIFTS. Note that if it's\nan ACCURSED GIFT an operative has from the\nAbhorrent Mutation firefight ploy, only that\noperative benefits from this."
+    },
+    {
+      "id": "kt-chaos_cult-40-02",
+      "sequence": 2,
+      "category": "faction-equipment",
+      "title_zh": "秘密伪装",
+      "title_en": "COVERT GUISES",
+      "source_page": 7,
+      "page_order": 4,
+      "bbox_pt": [
+        297.6,
+        420.9,
+        198.5,
+        343.0
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.4999,
+        0.3335,
+        0.4074
+      ],
+      "image": "40-02-阵营装备-秘密伪装.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营装备\n秘密伪装\n最为狡诈的混沌教派擅长渗透、伪装和背叛。\n在揭示了这个装备选项后，掷一枚 D3。在第一\n转折点中，作为一个战略计划，相当于掷骰结\n果数量且完全位于己方降落区内的己方混沌教派\n虔信者特工可以立即执行一次无消耗的转移行\n动，但是必须在完全位于己方降落区 3\" 内的位\n置结束那次移动。",
+      "text_en": "CHAOS CULT\nFACTION EQUIPMENT\nCOVERT GUISES\nThe most insidious of Chaos Cults are masters of\ninfiltration, disguise and betrayal.\nAfter revealing this equipment option, roll one D3.\nAs a STRATEGIC GAMBIT in the first turning point,\na number of friendly CHAOS CULT DEVOTEE\noperatives equal to the result that are wholly\nwithin your drop zone can immediately perform a\nfree Reposition action, but must end that move\nwholly within 3\" of your drop zone."
+    },
+    {
+      "id": "kt-chaos_cult-40-03",
+      "sequence": 3,
+      "category": "faction-equipment",
+      "title_zh": "不洁护身符",
+      "title_en": "UNHOLY TALISMAN",
+      "source_page": 8,
+      "page_order": 1,
+      "bbox_pt": [
+        99.2,
+        78.0,
+        198.4,
+        342.9
+      ],
+      "bbox_norm": [
+        0.1666,
+        0.0926,
+        0.3333,
+        0.4073
+      ],
+      "image": "40-03-阵营装备-不洁护身符.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营装备\n不洁护身符\n无论是挂在残破的旗帜之上、雕刻在血肉之\n中，还是垂挂在锁链上，混沌信徒们会将自\n己的护身符展示出来，相信黑暗诸神会因此\n而选中自己。\n每个转折点限一次，在一名特工对己方混沌教派\n特工进行射击时，在掷防御骰步骤中，您可以\n将一枚普通成功作为关键成功保留。",
+      "text_en": "CHAOS CULT\nFACTION EQUIPMENT\nUNHOLY TALISMAN\nWhether held aloft on ragged banners, carved into\npuckered flesh or hanging from spiked chains, these\nCultists display talismans in the belief that the Dark\nGods will look favourably upon them.\nOnce per turning point, when an operative is\nshooting a friendly CHAOS CULT operative,\nin the Roll Defence Dice step, you can retain\none of your normal successes as a critical\nsuccess instead."
+    },
+    {
+      "id": "kt-chaos_cult-40-04",
+      "sequence": 4,
+      "category": "faction-equipment",
+      "title_zh": "污秽祝福",
+      "title_en": "VILE BLESSING",
+      "source_page": 8,
+      "page_order": 2,
+      "bbox_pt": [
+        297.6,
+        78.0,
+        198.5,
+        342.9
+      ],
+      "bbox_norm": [
+        0.4999,
+        0.0926,
+        0.3335,
+        0.4073
+      ],
+      "image": "40-04-阵营装备-污秽祝福.png",
+      "is_back": false,
+      "text": "混沌教派\n阵营装备\n污秽祝福\n虽然丑恶、骇人且十分痛苦，黑暗诸神所赐予\n的变异能够让获得它们的人变得坚韧无比。\n每场战斗限一次，在一枚攻击骰对一名己方混沌\n教派特工（虔信者除外）造成普通伤害时，您\n可以忽略那次伤害。如果那名己方特工是一名变\n异者或受难者特工，那么您不能在进行了“超自\n然再生”规则的掷骰之后再决定是否对同一枚骰\n子使用本规则——您必须选择其中一个规则进行\n使用。",
+      "text_en": "CHAOS CULT\nFACTION EQUIPMENT\nVILE BLESSING\nThough hideous, disturbing and often painful, the Dark\nGods’ gifts of mutation bestow upon their recipients\nincredible resilience.\nOnce per battle, when an attack dice inflicts\nNormal Dmg on a friendly CHAOS CULT\noperative (excluding DEVOTEE), you can ignore\nthat inflicted damage. If that friendly operative\nis a MUTANT or TORMENT operative, you cannot\nroll for the Unnatural Regeneration rule for that\nattack dice then decide to use this rule on the\nsame dice – you must use one or the other."
+    }
+  ]
+}
