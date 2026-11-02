@@ -812,7 +812,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isCurrentConfigLocked(): Boolean =
-        visibleTrayMode != currentMode || encounterComplete ||
+        rollInProgress || visibleTrayMode != currentMode || encounterComplete ||
             (currentMode == RollMode.ATTACK && attackConfirmed)
 
     private fun handlePrimaryAction() {
@@ -1094,6 +1094,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun resetRoll() {
+        rollInProgress = false
         currentValues = emptyList()
         stagesByMode.getValue(currentMode).clear()
         diceTrayView.clearResults()

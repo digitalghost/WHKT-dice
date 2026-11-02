@@ -207,7 +207,8 @@ class MeleeCombatActivity : AppCompatActivity() {
         normalDamage = weapon.normalDamage,
         criticalDamage = weapon.criticalDamage,
         canFight = canFight,
-        frenzied = operative.frenzied
+        frenzied = operative.frenzied,
+        frenzyNormalStrikesTaken = operative.tokens.firstOrNull { it.name == "狂暴已受普攻" }?.value ?: 0
     )
 
     private fun weaponOf(side: MeleeSide) = if (side == MeleeSide.ATTACKER) attackerWeapon else defenderWeapon
@@ -744,19 +745,21 @@ class MeleeCombatActivity : AppCompatActivity() {
                 }
             } else {
                 val label = if (success == MeleeSuccess.CRITICAL) "2D6+6" else "D6+6"
-                actions += CombatKit.SheetAction("出击（爆破 $label 伤，波及自身并结束近战）", primary = true) {
-                    val roll = if (success == MeleeSuccess.CRITICAL) {
+                actions += CombatKit.SheetAction("出击（爆破 $label 伤，分别为目标与自身掷骰并结束近战）", primary = true) {
+                    fun rollDetonation(): Int = if (success == MeleeSuccess.CRITICAL) {
                         kotlin.random.Random.nextInt(1, 7) + kotlin.random.Random.nextInt(1, 7) + 6
                     } else {
                         kotlin.random.Random.nextInt(1, 7) + 6
                     }
+                    val targetRoll = rollDetonation()
+                    val selfRoll = rollDetonation()
                     pushUndo()
                     detonationSide = owner
                     val afterStrike = MeleeCombatRules.resolve(
                         state, owner, success, MeleeUse.STRIKE, null,
-                        roll - damage, "爆破（$label = $roll）"
+                        targetRoll - damage, "爆破（目标 $label = $targetRoll）"
                     )
-                    val selfAfter = MeleeCombatRules.adjustWounds(afterStrike, owner, -roll, "爆破波及自身 $roll 伤")
+                    val selfAfter = MeleeCombatRules.adjustWounds(afterStrike, owner, -selfRoll, "爆破波及自身（$label = $selfRoll）")
                     state = if (selfAfter.phase == MeleePhase.RESOLVE) {
                         selfAfter.copy(
                             phase = MeleePhase.FINISHED,
@@ -770,9 +773,16 @@ class MeleeCombatActivity : AppCompatActivity() {
             val ownSide = battle.side(f.battleSideId)
             val ownOp = ownSide.operatives.firstOrNull { it.memberId == f.memberId }
             val ownAbilities = ownOp?.let { AbilityCatalog.forOperative(it.operativeId) }.orEmpty()
-            val hasDoubleParry = w.name.contains("盾") ||
-                w.keywords.any { it.contains("盾") || it.contains("镇压") || it.contains("缠绕") } ||
-                ownAbilities.any { it.name.contains("盾") || it.name.contains("镇压") || it.description.contains("格挡两次") || it.description.contains("额外舍弃一枚") }
+            val ownMods = setup.getValue(owner).modifiers
+            val hasDoubleParry = w.name == "简易护盾" ||
+                w.keywords.any { it in setOf("盾牌", "护盾", "镇压", "挥打", "缠绕") } ||
+                ownMods.extraKeywords.any { it.contains("缠绕") } ||
+                battle.progress.usedPlans.any { it.startsWith("${ownSide.id}/") && it.contains("织网缠绕") }
+            val hasSurvivalInstincts = ownSide.teamId == "KT-RATLINGS" &&
+                ownOp?.operativeId !in setOf("ratlings_03", "ratlings_04") &&
+                (owner == MeleeSide.DEFENDER || battle.progress.usedPlans.any { it.startsWith("${ownSide.id}/") && it.contains("生存本能") })
+            val hasCritDoubleParry = hasDoubleParry || hasSurvivalInstincts
+            val critDoubleParryLabel = if (!hasDoubleParry && hasSurvivalInstincts) "生存本能" else "护盾/镇压"
             val canParry = MeleeCombatRules.canParryWith(state, owner, success)
             val opponentBrutal = state.fighter(owner.opponent()).rules.brutal
             if (!canParry && opponentBrutal && success == MeleeSuccess.NORMAL) {
@@ -784,7 +794,13 @@ class MeleeCombatActivity : AppCompatActivity() {
                 actions += CombatKit.SheetAction("格挡对手 1 个普通成功", canParry && opponentPool.normals > 0) {
                     resolve(owner, success, MeleeUse.PARRY, MeleeSuccess.NORMAL)
                 }
-                if (success == MeleeSuccess.NORMAL && !opponentBrutal && opponentPool.criticals > 0) {
+                val canParryCritWithNormal = hasSurvivalInstincts || ownAbilities.any {
+                    it.name.contains("生存本能") || it.name.contains("决斗家") ||
+                        it.description.contains("普通成功可以格挡暴击") || it.description.contains("普通成功格挡一个暴击")
+                } || battle.progress.usedPlans.any {
+                    it.startsWith("${ownSide.id}/") && (it.contains("决斗家") || it.contains("生存本能"))
+                }
+                if (success == MeleeSuccess.NORMAL && !opponentBrutal && opponentPool.criticals > 0 && canParryCritWithNormal) {
                     actions += CombatKit.SheetAction("格挡对手 1 个暴击（生存本能/决斗家）") {
                         pushUndo()
                         state = MeleeCombatRules.parryCriticalWithNormal(state, owner, input.text.toString().ifBlank { "生存本能/决斗家" })
@@ -805,22 +821,32 @@ class MeleeCombatActivity : AppCompatActivity() {
                     actions += CombatKit.SheetAction("格挡对手 1 个暴击", canParry && opponentPool.criticals > 0) {
                         resolve(owner, success, MeleeUse.PARRY, MeleeSuccess.CRITICAL)
                     }
-                    if (hasDoubleParry && canParry && opponentPool.criticals >= 1 && opponentPool.normals >= 1) {
-                        actions += CombatKit.SheetAction("格挡对手 1 个暴击 + 1 个普通成功（护盾/镇压）") {
+                    if (!hasDoubleParry && hasSurvivalInstincts && canParry && opponentPool.normals >= 2) {
+                        actions += CombatKit.SheetAction("格挡对手 2 个普通成功（$critDoubleParryLabel）") {
                             pushUndo()
-                            val afterFirst = MeleeCombatRules.resolve(state, owner, success, MeleeUse.PARRY, MeleeSuccess.CRITICAL)
+                            val afterFirst = MeleeCombatRules.resolve(state, owner, success, MeleeUse.PARRY, MeleeSuccess.NORMAL)
                             state = if (afterFirst.phase == MeleePhase.RESOLVE && afterFirst.pool(owner.opponent()).normals > 0) {
-                                MeleeCombatRules.discardSuccess(afterFirst, owner.opponent(), MeleeSuccess.NORMAL, "护盾/镇压额外格挡")
+                                MeleeCombatRules.discardSuccess(afterFirst, owner.opponent(), MeleeSuccess.NORMAL, "${critDoubleParryLabel}额外格挡")
                             } else afterFirst
                             render()
                         }
                     }
-                    if (hasDoubleParry && canParry && opponentPool.criticals >= 2) {
-                        actions += CombatKit.SheetAction("格挡对手 2 个暴击（护盾/镇压）") {
+                    if (hasCritDoubleParry && canParry && opponentPool.criticals >= 1 && opponentPool.normals >= 1) {
+                        actions += CombatKit.SheetAction("格挡对手 1 个暴击 + 1 个普通成功（$critDoubleParryLabel）") {
+                            pushUndo()
+                            val afterFirst = MeleeCombatRules.resolve(state, owner, success, MeleeUse.PARRY, MeleeSuccess.CRITICAL)
+                            state = if (afterFirst.phase == MeleePhase.RESOLVE && afterFirst.pool(owner.opponent()).normals > 0) {
+                                MeleeCombatRules.discardSuccess(afterFirst, owner.opponent(), MeleeSuccess.NORMAL, "${critDoubleParryLabel}额外格挡")
+                            } else afterFirst
+                            render()
+                        }
+                    }
+                    if (hasCritDoubleParry && canParry && opponentPool.criticals >= 2) {
+                        actions += CombatKit.SheetAction("格挡对手 2 个暴击（$critDoubleParryLabel）") {
                             pushUndo()
                             val afterFirst = MeleeCombatRules.resolve(state, owner, success, MeleeUse.PARRY, MeleeSuccess.CRITICAL)
                             state = if (afterFirst.phase == MeleePhase.RESOLVE && afterFirst.pool(owner.opponent()).criticals > 0) {
-                                MeleeCombatRules.discardSuccess(afterFirst, owner.opponent(), MeleeSuccess.CRITICAL, "护盾/镇压额外格挡")
+                                MeleeCombatRules.discardSuccess(afterFirst, owner.opponent(), MeleeSuccess.CRITICAL, "${critDoubleParryLabel}额外格挡")
                             } else afterFirst
                             render()
                         }
@@ -984,7 +1010,15 @@ class MeleeCombatActivity : AppCompatActivity() {
             runCatching { BattleFlow.action(next, "近战", 1, intent.getStringExtra(BattleActivity.EXTRA_ACTION_REASON).orEmpty()) }
                 .onSuccess { next = it }
         }
-        fun update(slot: MeleeSide, f: MeleeFighter, stunned: Boolean, opponentWeapon: BattleWeaponSnapshot, startWounds: Int, critStrikesTaken: Int) {
+        fun update(
+            slot: MeleeSide,
+            f: MeleeFighter,
+            stunned: Boolean,
+            opponentWeapon: BattleWeaponSnapshot,
+            startWounds: Int,
+            critStrikesTaken: Int,
+            normalStrikesTaken: Int
+        ) {
             val side = next.side(f.battleSideId)
             val damageTaken = (startWounds - f.currentWounds).coerceAtLeast(0)
             val dealPoison = damageTaken > 0 && opponentWeapon.keywords.any { it.startsWith("毒素") } && side.teamId != "CHAOS-PM"
@@ -996,12 +1030,23 @@ class MeleeCombatActivity : AppCompatActivity() {
                             currentWounds = 1,
                             incapacitated = false,
                             order = "交战",
-                            tokens = (o.tokens.filterNot { it.name == "狂暴" } +
+                            tokens = (o.tokens.filterNot { it.name == "狂暴" || it.name == "狂暴已受普攻" } +
                                 OperativeToken(name = "狂暴", duration = TokenDuration.UNTIL_REMOVED, source = "狂暴（近战免于残废）")).toMutableList()
                         )
                         slot in preventIncapSides && f.currentWounds <= 0 ->
                             BattleRules.setWounds(o, 1).copy(incapacitated = false)
                         else -> BattleRules.setWounds(o, f.currentWounds)
+                    }
+                    if (o.frenzied && !updated.incapacitated && normalStrikesTaken > 0) {
+                        updated = updated.copy(
+                            tokens = (updated.tokens.filterNot { it.name == "狂暴已受普攻" } +
+                                OperativeToken(
+                                    name = "狂暴已受普攻",
+                                    value = normalStrikesTaken,
+                                    duration = TokenDuration.UNTIL_REMOVED,
+                                    source = "狂暴"
+                                )).toMutableList()
+                        )
                     }
                     if (stunned && !updated.stunned && !updated.incapacitated) {
                         updated = updated.copy(tokens = (updated.tokens +
@@ -1019,8 +1064,8 @@ class MeleeCombatActivity : AppCompatActivity() {
                 }
             }))
         }
-        update(MeleeSide.ATTACKER, state.attacker, state.attackerStunned, defenderWeapon, attackerBase.currentWounds, state.attackerCritStrikesTaken)
-        update(MeleeSide.DEFENDER, state.defender, state.defenderStunned, attackerWeapon, defenderBase.currentWounds, state.defenderCritStrikesTaken)
+        update(MeleeSide.ATTACKER, state.attacker, state.attackerStunned, defenderWeapon, attackerBase.currentWounds, state.attackerCritStrikesTaken, state.attackerNormalStrikesTaken)
+        update(MeleeSide.DEFENDER, state.defender, state.defenderStunned, attackerWeapon, defenderBase.currentWounds, state.defenderCritStrikesTaken, state.defenderNormalStrikesTaken)
         detonationSide?.let { dSide ->
             val wielder = state.fighter(dSide)
             val bSide = next.side(wielder.battleSideId)
@@ -1028,11 +1073,10 @@ class MeleeCombatActivity : AppCompatActivity() {
                 val incaps = listOf(MeleeSide.ATTACKER to state.attacker, MeleeSide.DEFENDER to state.defender).count { (s, fighter) ->
                     fighter.currentWounds <= 0 && s !in frenzySides && s !in preventIncapSides
                 }
-                if (incaps > 0) {
-                    next = BattleFlow.side(next, bSide.copy(counters = bSide.counters.map { c ->
-                        if (c.name == "破坏点数") c.copy(value = c.value + incaps) else c
-                    }))
-                }
+                val wreckaGain = 1 + incaps
+                next = BattleFlow.side(next, bSide.copy(counters = bSide.counters.map { c ->
+                    if (c.name == "破坏点数") c.copy(value = c.value + wreckaGain) else c
+                }))
             }
         }
         listOf(state.attacker.battleSideId to state.attackerCpSpent, state.defender.battleSideId to state.defenderCpSpent)

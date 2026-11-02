@@ -49,6 +49,17 @@ class ShootingCombatActivity : AppCompatActivity() {
     private var ignoreSaturate = false
     private var accurateChoice: Int? = null
     private var modifiers = CombatModifiers()
+    private var canUseKasrkinForegrip = false
+    private var canUseKasrkinLongScope = false
+    private var kasrkinForegrip = false
+    private var kasrkinLongScope = false
+    private var canUseShriekerToxin = false
+    private var shriekerToxinUsedThisTp = false
+    private var useShriekerToxin = false
+    private var canUseTargetAnalysisOptic = false
+    private var targetAnalysisOpticUsedThisTp = false
+    private var useTargetAnalysisOptic = false
+    private var targetMarkerlights = 0
 
     private val undoStates = ArrayDeque<ShootingCombatState>()
     private val undoneTrace = mutableListOf<Pair<Int, String>>()
@@ -167,6 +178,10 @@ class ShootingCombatActivity : AppCompatActivity() {
         // 2. KT-PATHFINDERS 标记光 cumulative bonuses (2026-08 errata, excluding 融合手雷)
         if (attackerSide.teamId == "KT-PATHFINDERS" && !weapon.name.contains("融合手雷")) {
             val ml = defenderOperative.tokens.filter { it.name.startsWith("标记光") }.sumOf { it.value ?: 1 }
+            targetMarkerlights = ml
+            val isDrone = AbilityCatalog.forOperative(attackerOperative.operativeId).any { it.name == "无人机" }
+            canUseTargetAnalysisOptic = attackerSide.equipmentNotes.contains("目标分析镜") && !isDrone && ml >= 1
+            targetAnalysisOpticUsedThisTp = "${attackerSide.id}/交战:目标分析镜" in loaded.progress.usedPlans
             if (ml >= 1) {
                 autoKeywords += "集中"
                 autoKeywords += "平衡"
@@ -185,16 +200,27 @@ class ShootingCombatActivity : AppCompatActivity() {
                 autoKeywords += "追踪"
             }
         }
+        if (attackerSide.teamId == "KT-KASRKIN") {
+            val isDatacardNonPistol = !weapon.name.contains("手枪") && weapon.name !in setOf("破片手雷", "穿甲手雷")
+            val isHotshot = weapon.name.contains("高能")
+            canUseKasrkinForegrip = attackerSide.equipmentNotes.contains("前握把") && isDatacardNonPistol
+            canUseKasrkinLongScope = attackerSide.equipmentNotes.contains("长距离瞄具") && isHotshot
+        }
+        if (attackerSide.teamId == "KT-VOID_DANCER_TROUPE") {
+            canUseShriekerToxin = attackerSide.equipmentNotes.contains("尖啸者毒素弹") &&
+                (weapon.name == "星镖手枪" || weapon.name == "尖啸者加农炮（集中）")
+            shriekerToxinUsedThisTp = "${attackerSide.id}/交战:尖啸者毒素弹" in loaded.progress.usedPlans
+        }
         // 3. Active Strategic Ploys on attacker side
         val activePlans = loaded.progress.usedPlans
             .filter { it.startsWith("${attackerSide.id}/") && !it.startsWith("${attackerSide.id}/交战:") }
             .map { it.substringAfter("/") }
         // 2b. KT-XV26_STEALTH_BATTLESUITS 标记光 / 标记光聚焦
-        if (attackerSide.teamId == "KT-XV26_STEALTH_BATTLESUITS" &&
-            defenderOperative.tokens.any { it.name.startsWith("标记光") }
-        ) {
-            autoKeywords += "严重"
-            autoSources += "标记光"
+        if (attackerSide.teamId == "KT-XV26_STEALTH_BATTLESUITS") {
+            if (defenderOperative.tokens.any { it.name == "标记光" || it.name == "被标记" }) {
+                autoKeywords += "严重"
+                autoSources += "标记光"
+            }
             if (activePlans.any { it.contains("标记光聚焦") } ||
                 defenderOperative.tokens.any { it.name == "标记光聚焦" || it.source.contains("标记光聚焦") }
             ) {
@@ -202,9 +228,12 @@ class ShootingCombatActivity : AppCompatActivity() {
                 autoSources += "标记光聚焦"
             }
         }
-        if (attackerSide.teamId == "KT-SANCTIFIERS" && defenderOperative.tokens.any { it.name == "浸湿" }) {
-            autoKeywords += "烈焰"
-            autoSources += "浸湿"
+        if (attackerSide.teamId == "KT-SANCTIFIERS" &&
+            defenderOperative.tokens.any { it.name == "浸湿" } &&
+            weapon.keywords.any { it.contains("烈焰") }
+        ) {
+            autoKeywords += "追踪"
+            autoSources += "圣珠（浸湿）"
         }
         if (activePlans.any { it.startsWith("突！突！突！") }) {
             autoKeywords += "重击"
@@ -230,8 +259,8 @@ class ShootingCombatActivity : AppCompatActivity() {
             autoKeywords += "无休"
             autoSources += "战略计划"
         }
-        if (activePlans.any { it.contains("瞄准！") }) {
-            autoKeywords += "平衡"
+        if (activePlans.any { it.contains("瞄准！") } && weapon.name != "迫击炮轰炸" && weapon.name != "远程引爆器") {
+            autoKeywords += "无休"
             autoSources += "守卫命令：瞄准！"
         }
         if (activePlans.any { it.contains("屏息凝神") }) {
@@ -273,7 +302,19 @@ class ShootingCombatActivity : AppCompatActivity() {
         if (vantage > 0 && !targetConcealed) "精准 $vantage" else null
 
     private fun rebuild() {
-        val keywords = modifiers.keywords(weapon.keywords) + listOfNotNull(vantageKeyword())
+        val dynamicKeywords = mutableListOf<String>()
+        if (kasrkinForegrip) dynamicKeywords += "精准 1"
+        if (kasrkinLongScope) dynamicKeywords += "集中"
+        if (useShriekerToxin) dynamicKeywords += "毁灭 1"
+        var opticHitBonus = 0
+        if (useTargetAnalysisOptic && targetMarkerlights >= 1) {
+            val effMl = targetMarkerlights + 1
+            if (effMl == 2 && weapon.hit > 3) opticHitBonus = -1
+            if (effMl >= 3) obscured = false
+            if (effMl >= 4) dynamicKeywords += "追踪轻型"
+            if (effMl >= 5) dynamicKeywords += "追踪"
+        }
+        val keywords = modifiers.keywords(weapon.keywords) + dynamicKeywords + listOfNotNull(vantageKeyword())
         val rawRules = ShootingRuleParser.parse(keywords, weapon.critical)
         val rules = if (ignoreSaturate) rawRules.copy(saturate = false) else rawRules
         val attacks = (weapon.attacks + modifiers.attacks).coerceAtLeast(0)
@@ -281,7 +322,7 @@ class ShootingCombatActivity : AppCompatActivity() {
         val retained = (accurateChoice ?: accurate).coerceIn(0, accurate)
         val attacker = baseAttacker.copy(
             attacks = attacks,
-            baseHit = (weapon.hit + modifiers.hit).coerceIn(2, 6),
+            baseHit = (weapon.hit + modifiers.hit + opticHitBonus).coerceIn(2, 6),
             normalDamage = (weapon.normalDamage + modifiers.normalDamage).coerceAtLeast(0),
             criticalDamage = (weapon.criticalDamage + modifiers.criticalDamage).coerceAtLeast(0),
             accurateRetained = retained,
@@ -514,6 +555,40 @@ class ShootingCombatActivity : AppCompatActivity() {
         if (rules.piercing == 2 || rules.piercingCrits == 2) {
             body.addView(kit.segmented("目标在烟雾中", listOf("否", "是"), if (smoke) 1 else 0,
                 info = { CoreRules.show(ui, "smoke") }) { smoke = it == 1; rebuild(); render() }, ui.wrap(12))
+        }
+        if (canUseKasrkinForegrip) {
+            body.addView(kit.segmented("前握把（目标 ≤3″：精准 1）", listOf("否", "是（≤3″）"), if (kasrkinForegrip) 1 else 0) {
+                kasrkinForegrip = it == 1
+                if (kasrkinForegrip) kasrkinLongScope = false
+                accurateChoice = null
+                rebuild(); render()
+            }, ui.wrap(12))
+        }
+        if (canUseKasrkinLongScope) {
+            body.addView(kit.segmented("长距离瞄具（目标 >6″：集中）", listOf("否", "是（>6″）"), if (kasrkinLongScope) 1 else 0) {
+                kasrkinLongScope = it == 1
+                if (kasrkinLongScope) kasrkinForegrip = false
+                accurateChoice = null
+                rebuild(); render()
+            }, ui.wrap(12))
+        }
+        if (canUseShriekerToxin) {
+            body.addView(kit.segmented(
+                "尖啸者毒素弹（每转折点限 1 次：毁灭 1）",
+                listOf("不使用", "使用"),
+                if (useShriekerToxin) 1 else 0,
+                enabled = { it == 0 || !shriekerToxinUsedThisTp },
+                reason = if (shriekerToxinUsedThisTp) "本转折点已使用过尖啸者毒素弹" else null
+            ) { useShriekerToxin = it == 1; rebuild(); render() }, ui.wrap(12))
+        }
+        if (canUseTargetAnalysisOptic) {
+            body.addView(kit.segmented(
+                "目标分析镜（每转折点限 1 次：标记光视为 +1）",
+                listOf("不使用", "使用"),
+                if (useTargetAnalysisOptic) 1 else 0,
+                enabled = { it == 0 || !targetAnalysisOpticUsedThisTp },
+                reason = if (targetAnalysisOpticUsedThisTp) "本转折点已使用过目标分析镜" else null
+            ) { useTargetAnalysisOptic = it == 1; rebuild(); render() }, ui.wrap(12))
         }
         val accurate = minOf(state.attacker.attacks, rules.accurate)
         if (accurate > 0) {
@@ -1159,7 +1234,23 @@ class ShootingCombatActivity : AppCompatActivity() {
                 updated = updated.copy(tokens = updated.tokens +
                     OperativeToken(name = "中毒", duration = TokenDuration.BATTLE, source = weapon.name))
             }
+            if (next.side(state.attacker.battleSideId).teamId == "KT-SANCTIFIERS" &&
+                weapon.keywords.any { it.contains("烈焰") } &&
+                updated.tokens.any { it.name == "浸湿" }
+            ) {
+                updated = updated.copy(tokens = updated.tokens.filterNot { it.name == "浸湿" })
+            }
             updated
+        }
+        if (useShriekerToxin) {
+            next = next.copy(progress = next.progress.copy(
+                usedPlans = next.progress.usedPlans + "${state.attacker.battleSideId}/交战:尖啸者毒素弹"
+            ))
+        }
+        if (useTargetAnalysisOptic) {
+            next = next.copy(progress = next.progress.copy(
+                usedPlans = next.progress.usedPlans + "${state.attacker.battleSideId}/交战:目标分析镜"
+            ))
         }
         val selfExplode = weapon.keywords.any { it == "爆炸物" } && !nextTarget
         val normKeywords = weapon.keywords.map { it.replace(" ", "").replace("(", "（").replace(")", "）") }
@@ -1426,27 +1517,6 @@ object CombatWeapons {
                     .replace("、$removed", "")
             }
         }
-        if (teamId == "KT-VOID_DANCER_TROUPE" && notes.contains("尖啸者毒素弹") &&
-            (weapon.name == "星镖手枪" || weapon.name == "尖啸者加农炮（集中）") &&
-            keywords.none { it.startsWith("毁灭") }
-        ) {
-            keywords += "毁灭 1"
-            profile = if (keywords.size == 1) "$profile · 毁灭 1" else "$profile、毁灭 1"
-        }
-        if (teamId == "KT-KASRKIN") {
-            val isHotshot = weapon.name.contains("高能激光枪") || weapon.name.contains("高能步枪") || weapon.name.contains("高能精确射手步枪")
-            val isVolleyOrShotgun = weapon.name.contains("高能齐射枪") || weapon.name.contains("霰弹枪")
-            val hasForegrip = notes.contains("前握把")
-            val hasLongScope = notes.contains("长距离瞄具")
-            if (hasForegrip && (isVolleyOrShotgun || (isHotshot && !hasLongScope)) && keywords.none { it.startsWith("精准") }) {
-                keywords += "精准 1"
-                profile = if (keywords.size == 1) "$profile · 精准 1" else "$profile、精准 1"
-            }
-            if (hasLongScope && !hasForegrip && isHotshot && "集中" !in keywords) {
-                keywords += "集中"
-                profile = if (keywords.size == 1) "$profile · 集中" else "$profile、集中"
-            }
-        }
         if (teamId == "CHAOS-WC" && notes.contains("附魔弹药") && weapon.kind == WeaponKind.RANGED &&
             weapon.name in setOf("地狱火爆矢枪", "地狱火爆矢手枪", "自动手枪") &&
             keywords.none { it.startsWith("毁灭") }
@@ -1491,7 +1561,9 @@ object CombatWeapons {
         val notes = side.equipmentNotes
         val canEquip = canEquipExtraWeapons(operative)
         val autoExtra = extraOptions(side.teamId).mapNotNull { (source, w) ->
-            val selectedInNotes = canEquip && notes.contains(w.name.substringBefore("（")) && when (w.id) {
+            val noteMatches = notes.contains(w.name.substringBefore("（")) ||
+                (w.id in setOf("eq_universal_frag", "eq_universal_krak") && notes.contains("爆炸手雷"))
+            val selectedInNotes = canEquip && noteMatches && when (w.id) {
                 "eq_ia_combat_dagger_sos" -> operative.operativeId == "inquisitorial_agents_sister" || operative.displayName.contains("寂静修女")
                 "eq_ia_combat_dagger" -> operative.operativeId != "inquisitorial_agents_sister" && !operative.displayName.contains("寂静修女")
                 "eq_bb_cult_knife" -> operative.operativeId !in setOf("kt_bb_patriarch", "kt_bb_psychic_familiar", "kt_bb_magus", "kt_bb_primus")

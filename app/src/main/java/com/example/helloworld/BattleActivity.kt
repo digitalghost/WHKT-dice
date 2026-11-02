@@ -1097,11 +1097,20 @@ class BattleActivity : AppCompatActivity() {
             return emptyList()
         }
         val list = mutableListOf<AbilityDefinition>()
-        if (notes.contains("烟雾手雷")) {
-            list += AbilityDefinition("eq_smoke_grenade", "烟雾手雷", "通用装备独特行动：在可见或距此特工 6\" 内放置一个烟雾区域标识（最多 2 次/场）。", apCost = 1)
+        if (notes.contains("通用手雷") || notes.contains("烟雾手雷") || notes.contains("烟雾弹")) {
+            list += AbilityDefinition("eq_smoke_grenade", "烟雾手雷", "通用装备独特行动：把标识放置在距执行特工 6\" 内的可见位置（包括制高点），形成水平 1\"、垂直无限的烟雾区域（烟雾弹和震撼弹共 2 枚/场）。", apCost = 1)
         }
-        if (notes.contains("震荡手雷")) {
-            list += AbilityDefinition("eq_stun_grenade", "震荡手雷", "通用装备独特行动：对 6\" 内可见敌方特工及其 1\" 内其他特工掷 D6，4+ 使其获得晕眩标记（APL −1，最多 2 次/场）。", apCost = 1)
+        if (notes.contains("通用手雷") || notes.contains("震荡手雷") || notes.contains("震撼弹")) {
+            list += AbilityDefinition("eq_stun_grenade", "震荡手雷", "通用装备独特行动：选择 6\" 内可见敌方特工，为包含该特工在内的 1\" 内所有敌方特工分别掷 D6，3+ 时减少其 1 点 APL，直到其下一次激活结束（烟雾弹和震撼弹共 2 枚/场）。", apCost = 1)
+        }
+        if (notes.contains("可移动掩体")) {
+            list += AbilityDefinition("eq_portable_barricade", "与掩体移动", "通用装备独特行动：掩体内侧接触的特工执行（视为转移行动，最多移动其移动属性 −2\" 的距离，移动结束后将掩体放置于移动后底盘接触处）。", apCost = 1)
+        }
+        if (notes.contains("弹药箱")) {
+            list += AbilityDefinition("eq_ammo_cache", "补给弹药", "通用装备独特行动（0AP）：友方特工控制弹药箱标识且不在敌方控制范围内时执行，直到下一转折点开始使用数据卡远程武器射击可重投 1 个骰子（每转折点限 1 次）。", apCost = 0)
+        }
+        if (notes.contains("破拆炸药")) {
+            list += AbilityDefinition("eq_breaching_charge", "爆破突入", "通用装备独特行动：条件与限制与正常转移行动相同，本次移动中可穿过最多 1\" 厚的地形特征并留下一个宽 1\" 的缺口（每场战斗限 1 次）。", apCost = 1)
         }
         if (side.teamId == "IMP-CI" && notes.contains("灭灵手雷")) {
             list += AbilityDefinition("eq_null_grenade", "灭灵手雷（震荡手雷）", "洁天使隐伏者阵营装备独特行动：执行震荡手雷行动，首名特工震荡测试结果为 3+ 时额外受到等同于结果半数（向上取整）伤害；若拥有灵能者关键词则受到等同于结果数值的伤害（最多 2 次/场）。", apCost = 1)
@@ -1122,9 +1131,14 @@ class BattleActivity : AppCompatActivity() {
             list += AbilityDefinition("eq_mw_vox_caster", "震耳呼嚎（扩声器）", "杀戮之翼阵营装备独特行动：2\" 内每名敌方特工进行眩晕测试（每转折点限 1 次，拥有隐匿命令时无法执行）。", apCost = 1)
         }
         if (side.teamId == "KT-SANCTIFIERS" && notes.contains("圣珠") &&
-            operative.operativeId !in setOf("sanctifiers_02", "sanctifiers_04", "sanctifiers_06")
+            operative.operativeId !in setOf("sanctifiers_02", "sanctifiers_04", "sanctifiers_07")
         ) {
-            list += AbilityDefinition("eq_sanctifiers_rosary", "圣珠", "圣化者阵营装备独特行动：对 3\" 内可见敌方特工及其 1\" 内其他特工掷 D6，3+ 使其获得浸湿指示物（敌方射击它时获得烈焰规则，最多 2 次/场）。", apCost = 1)
+            list += AbilityDefinition(
+                "eq_sanctifiers_rosary",
+                "圣珠",
+                "净化者阵营装备独特行动（每个转折点限一次）：选择位于这名特工 6\" 内且可见的一名敌方特工。那名特工和位于其 1\" 内的每一名敌方特工进行浸湿测试（掷 D6：3+ 获得浸湿指示物；己方净化者使用拥有“烈焰”武器规则的武器射击浸湿目标时获得“追踪”武器规则，射击后移除浸湿指示物；不能在敌方特工控制范围内执行）。",
+                apCost = 1
+            )
         }
         return list
     }
@@ -1159,13 +1173,68 @@ class BattleActivity : AppCompatActivity() {
             return
         }
         when {
+            ua.id == "eq_sanctifiers_rosary" -> {
+                if ("${side.id}/交战:圣珠" in battle.progress.usedPlans) {
+                    note("圣珠：每个转折点限一次，本转折点已使用")
+                    return
+                }
+                val opponent = battle.opponent(side.id)
+                val enemies = opponent.operatives.filter { !it.incapacitated && !it.offField }
+                if (enemies.isEmpty()) { recordAction(ua.name, cost); return }
+                kit.actionSheet("圣珠 · 选择 6\" 内可见敌方目标（D6 3+ 浸湿）", null, enemies.map { target ->
+                    CombatKit.SheetAction(target.displayName, primary = true) {
+                        val res = runCatching { BattleFlow.action(battle, ua.name, cost, "") }.getOrNull()
+                        if (res == null) { recordAction(ua.name, cost); return@SheetAction }
+                        val roll = (1..6).random()
+                        val soaked = roll >= 3
+                        val updatedOpp = res.side(opponent.id).let { oppSide ->
+                            if (!soaked) oppSide else oppSide.copy(operatives = oppSide.operatives.map { o ->
+                                if (o.memberId != target.memberId || o.tokens.any { it.name == "浸湿" }) o
+                                else o.copy(tokens = o.tokens + OperativeToken(name = "浸湿", duration = TokenDuration.UNTIL_REMOVED, source = "圣珠"))
+                            })
+                        }
+                        val withPlan = BattleFlow.side(res, updatedOpp).let { b ->
+                            b.copy(progress = b.progress.copy(usedPlans = b.progress.usedPlans + "${side.id}/交战:圣珠"))
+                        }
+                        val msg = if (soaked) {
+                            "${operative.displayName}对${target.displayName}投掷圣珠：D6 掷出 $roll（≥3 成功），${target.displayName}获得浸湿指示物"
+                        } else {
+                            "${operative.displayName}对${target.displayName}投掷圣珠：D6 掷出 $roll（<3 未浸湿）"
+                        }
+                        commit(BattleFlow.event(withPlan, msg))
+                    }
+                })
+            }
+            ua.name.startsWith("标记光聚焦") -> {
+                val opponent = battle.opponent(side.id)
+                val enemies = opponent.operatives.filter { !it.incapacitated && !it.offField }
+                if (enemies.isEmpty()) { recordAction(ua.name, cost); return }
+                kit.actionSheet("标记光聚焦 · 选择可见敌方目标（本转折点被射击命中+1）", null, enemies.map { target ->
+                    CombatKit.SheetAction(target.displayName, primary = true) {
+                        val res = runCatching { BattleFlow.action(battle, ua.name, cost, "") }.getOrNull()
+                        if (res == null) { recordAction(ua.name, cost); return@SheetAction }
+                        val updatedOpp = res.side(opponent.id).let { oppSide ->
+                            oppSide.copy(operatives = oppSide.operatives.map { o ->
+                                if (o.memberId != target.memberId) o else {
+                                    o.copy(tokens = o.tokens.filterNot { it.name == "标记光聚焦" } +
+                                        OperativeToken(name = "标记光聚焦", duration = TokenDuration.TURNING_POINT_END, source = "${operative.displayName}（标记光聚焦）"))
+                                }
+                            })
+                        }
+                        commit(BattleFlow.event(BattleFlow.side(res, updatedOpp), "${operative.displayName}对${target.displayName}执行标记光聚焦（本转折点被射击命中提升 1 点）"))
+                    }
+                })
+            }
             ua.name.startsWith("标记光") -> {
                 val opponent = battle.opponent(side.id)
                 val enemies = opponent.operatives.filter { !it.incapacitated && !it.offField }
                 if (enemies.isEmpty()) { recordAction(ua.name, cost); return }
-                kit.actionSheet("标记光 · 选择可见敌方目标（上限 5 枚）", null, enemies.map { target ->
-                    val curVal = target.tokens.filter { it.name.startsWith("标记光") }.sumOf { it.value ?: 1 }.coerceAtMost(5)
-                    val nextVal = (curVal + 1).coerceAtMost(5)
+                val isHighIntensityDrone = operative.operativeId == "pathfinders_14" ||
+                    AbilityCatalog.forOperative(operative.operativeId).any { it.name == "高强度标记光" }
+                val step = if (isHighIntensityDrone) 2 else 1
+                kit.actionSheet("标记光 · 选择可见敌方目标（最多 4 枚，配合目标分析镜可达第 5 档）", null, enemies.map { target ->
+                    val curVal = target.tokens.filter { it.name.startsWith("标记光") }.sumOf { it.value ?: 1 }.coerceAtMost(4)
+                    val nextVal = (curVal + step).coerceAtMost(4)
                     CombatKit.SheetAction("${target.displayName}（当前标记光：$curVal → $nextVal）", primary = true) {
                         val res = runCatching { BattleFlow.action(battle, ua.name, cost, "") }
                         val afterAction = res.getOrNull()
@@ -1196,11 +1265,12 @@ class BattleActivity : AppCompatActivity() {
                         if (willGoUnderground) {
                             o.copy(tokens = o.tokens + OperativeToken(name = OperativeToken.OFF_FIELD, duration = TokenDuration.UNTIL_REMOVED, source = "钻地"))
                         } else {
-                            o.copy(tokens = o.tokens.filterNot { it.name == OperativeToken.OFF_FIELD })
+                            o.copy(tokens = o.tokens.filterNot { it.name == OperativeToken.OFF_FIELD || it.name == "钻出（移动−2″）" } +
+                                OperativeToken(name = "钻出（移动−2″）", duration = TokenDuration.THIS_ACTIVATION, source = "钻地"))
                         }
                     }
                 })
-                commit(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}：${if (willGoUnderground) "钻入地下（离场）" else "钻出地面（返场）"}"))
+                commit(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}：${if (willGoUnderground) "钻入地下（离场）" else "钻出地面（返场，直到那次激活或反应结束前移动属性减少 2\"）"}"))
             }
             ua.name.startsWith("暴怒再生") -> {
                 val targets = side.operatives.filter { !it.incapacitated && !it.frenzied && !it.offField && it.memberId != operative.memberId }
@@ -1221,7 +1291,7 @@ class BattleActivity : AppCompatActivity() {
                             })
                             commit(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行暴怒再生：2D3 掷出 $d3a+$d3b=$heal，耐伤 ${curOp.currentWounds} → $newWounds"))
                         },
-                        CombatKit.SheetAction("${target.displayName} · 固定回复 6 点（本转折点失能过敌军/距狂暴友军 6\" 内）") {
+                        CombatKit.SheetAction("${target.displayName} · 固定回复 6 点（本场战斗中曾通过近战或反击使敌方特工残废）") {
                             val res = runCatching { BattleFlow.action(battle, ua.name, cost, "") }.getOrNull()
                             if (res == null) { recordAction(ua.name, cost); return@SheetAction }
                             val heal = 6
@@ -1231,7 +1301,7 @@ class BattleActivity : AppCompatActivity() {
                             val nextSide = curSide.copy(operatives = curSide.operatives.map { o ->
                                 if (o.memberId != target.memberId) o else BattleRules.setWounds(o, newWounds)
                             })
-                            commit(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行暴怒再生（满足强化条件）：固定回复 6 点，耐伤 ${curOp.currentWounds} → $newWounds"))
+                            commit(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行暴怒再生（曾在近战/反击中使敌方残废）：固定回复 6 点，耐伤 ${curOp.currentWounds} → $newWounds"))
                         }
                     )
                 })
@@ -1252,30 +1322,30 @@ class BattleActivity : AppCompatActivity() {
                 if (fallen.isEmpty()) { recordAction(ua.name, cost); return }
                 kit.actionSheet("重生 1/2AP · 选择待重生的友方特工", null, fallen.flatMap { target ->
                     listOf(
-                        CombatKit.SheetAction("${target.displayName} · 1AP（掷 D6，3+ 成功重生）", primary = true) {
+                        CombatKit.SheetAction("${target.displayName} · 1AP（掷 D6，3+ 成功重生并剩余 1 点耐伤）", primary = true) {
                             val res = runCatching { BattleFlow.action(battle, "重生（1AP）", 1, "") }.getOrNull()
                             if (res == null) { recordAction("重生（1AP）", 1); return@SheetAction }
                             val roll = (1..6).random()
                             if (roll >= 3) {
-                                val heal = (1..3).random()
+                                val heal = 1
                                 val curSide = res.side(side.id)
                                 val nextSide = curSide.copy(operatives = curSide.operatives.map { o ->
-                                    if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = false)
+                                    if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = true)
                                 })
-                                commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（1AP）：掷出 $roll（≥3 成功），以 $heal 点耐伤重生")))
+                                commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（1AP）：掷出 $roll（≥3 成功），以 1 点耐伤就绪重生")))
                             } else {
                                 commit(BattleFlow.event(res, "${operative.displayName}对${target.displayName}执行重生（1AP）：掷出 $roll（<3 未能重生）"))
                             }
                         },
-                        CombatKit.SheetAction("${target.displayName} · 2AP（自动成功重生）") {
+                        CombatKit.SheetAction("${target.displayName} · 2AP（自动成功重生并剩余 1 点耐伤）") {
                             val res = runCatching { BattleFlow.action(battle, "重生（2AP）", 2, "") }.getOrNull()
                             if (res == null) { recordAction("重生（2AP）", 2); return@SheetAction }
-                            val heal = (1..3).random()
+                            val heal = 1
                             val curSide = res.side(side.id)
                             val nextSide = curSide.copy(operatives = curSide.operatives.map { o ->
-                                if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = false)
+                                if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = true)
                             })
-                            commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（2AP）：自动成功，以 $heal 点耐伤重生")))
+                            commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（2AP）：自动成功，以 1 点耐伤就绪重生")))
                         }
                     )
                 })
@@ -1305,6 +1375,29 @@ class BattleActivity : AppCompatActivity() {
                             ))
                         }
                         commit(BattleFlow.event(updated, "${operative.displayName}对${target.displayName}执行「${ua.name}」：${target.displayName} APL +1"))
+                    }
+                })
+            }
+            ua.id == "eq_stun_grenade" || ua.name == "震荡手雷" -> {
+                val opponent = battle.opponent(side.id)
+                val enemies = opponent.operatives.filter { !it.incapacitated && !it.offField }
+                if (enemies.isEmpty()) { recordAction(ua.name, cost); return }
+                kit.actionSheet("震荡手雷 · 选择 6\" 内可见敌方目标（掷 D6，3+ 使其 −1 APL）", null, enemies.map { target ->
+                    CombatKit.SheetAction(target.displayName, primary = true) {
+                        val res = runCatching { BattleFlow.action(battle, ua.name, cost, "") }.getOrNull()
+                        if (res == null) { recordAction(ua.name, cost); return@SheetAction }
+                        val roll = (1..6).random()
+                        if (roll >= 3) {
+                            val oppSide = res.side(opponent.id)
+                            val nextOpp = oppSide.copy(operatives = oppSide.operatives.map { o ->
+                                if (o.memberId != target.memberId) o else {
+                                    o.copy(tokens = o.tokens + OperativeToken(name = "APL", value = -1, duration = TokenDuration.NEXT_ACTIVATION_END, source = "震荡手雷"))
+                                }
+                            })
+                            commit(BattleFlow.event(BattleFlow.side(res, nextOpp), "${operative.displayName}对${target.displayName}投掷震荡手雷：D6 掷出 $roll（≥3 成功），${target.displayName} APL −1"))
+                        } else {
+                            commit(BattleFlow.event(res, "${operative.displayName}对${target.displayName}投掷震荡手雷：D6 掷出 $roll（<3 未生效）"))
+                        }
                     }
                 })
             }

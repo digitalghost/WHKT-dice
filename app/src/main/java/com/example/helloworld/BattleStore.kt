@@ -69,7 +69,10 @@ class BattleStore(context: Context) {
 
     fun delete(battleId: String) {
         val remaining = all().filterNot { it.battleId == battleId }
-        preferences.edit().putString(KEY_BATTLES, encodeList(remaining).toString()).apply()
+        preferences.edit()
+            .putString(KEY_BATTLES, encodeList(remaining).toString())
+            .remove("undo_$battleId")
+            .apply()
         clearActiveIf(battleId)
     }
 

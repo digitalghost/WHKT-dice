@@ -510,4 +510,91 @@ class AllTeamsBattleSimulationTest {
             }
         }
     }
+
+    @Test
+    fun `expert review 2026-11-02 fixes are verified`() {
+        // 1. Spectre Squad Fieldcraft points (野战点数): 2 when Comms is in killzone, 1 when incapacitated, not accumulated across TPs
+        val specRoster = CanonicalRosters.forTeam("KT-SPECTRE_SQUAD")
+        val oppRoster = CanonicalRosters.forTeam("IMP-AOD")
+        var bSpec = makeBattle("Spectre vs AoD", specRoster, oppRoster)
+        bSpec = BattleFlow.deployment(bSpec, BattleRules.SIDE_A)
+        bSpec = bSpec.copy(progress = bSpec.progress.copy(setupStep = 3))
+        bSpec = BattleFlow.initiative(bSpec, winner = BattleRules.SIDE_A, chosen = BattleRules.SIDE_A)
+        assertEquals("Fieldcraft points must be 2 when Comms is in killzone", 2,
+            bSpec.sideA.counters.first { it.name == "野战点数" }.value)
+
+        // Advance to FIREFIGHT, incapacitate Comms (spectre_squad_11), advance to TP2 -> must reset to 1 (discarding leftover from TP1)
+        bSpec = BattleFlow.passPlan(BattleFlow.passPlan(bSpec))
+        bSpec = BattleRules.advancePhase(bSpec)
+        val commsId = bSpec.sideA.operatives.first { it.operativeId == "spectre_squad_11" }.memberId
+        bSpec = updateWounds(bSpec, BattleRules.SIDE_A, commsId, 0)
+        bSpec = BattleRules.advancePhase(bSpec) // -> TP2 INITIATIVE
+        assertEquals("Fieldcraft points must be discarded (0) at turning point end", 0,
+            bSpec.sideA.counters.first { it.name == "野战点数" }.value)
+        bSpec = BattleFlow.initiative(bSpec, winner = BattleRules.SIDE_A, chosen = BattleRules.SIDE_A)
+        assertEquals("Fieldcraft points must be 1 when Comms is incapacitated", 1,
+            bSpec.sideA.counters.first { it.name == "野战点数" }.value)
+
+        // 2. Fellgor Frenzy melee normal strikes: pre-Frenzy strikes don't count; cross-fight normal strikes accumulate
+        fun finishMeleeRerolls(s: MeleeCombatState): MeleeCombatState {
+            var cur = s
+            while (cur.phase == MeleePhase.REROLL) {
+                cur = MeleeCombatRules.passReroll(cur, cur.rerollTurn)
+            }
+            return cur
+        }
+        val nonFrenziedDef = MeleeFighter(
+            side = MeleeSide.DEFENDER, battleSideId = "B", memberId = "b1",
+            playerName = "P2", operativeName = "恶角兽", weaponName = "砍刀",
+            maxWounds = 10, currentWounds = 10, attacks = 4, baseHit = 3,
+            normalDamage = 3, criticalDamage = 4, frenzied = false
+        )
+        val meleeAtt = MeleeFighter(
+            side = MeleeSide.ATTACKER, battleSideId = "A", memberId = "a1",
+            playerName = "P1", operativeName = "星际战士", weaponName = "链锯剑",
+            maxWounds = 14, currentWounds = 14, attacks = 4, baseHit = 3,
+            normalDamage = 4, criticalDamage = 5
+        )
+        var mState = MeleeCombatRules.start(meleeAtt, nonFrenziedDef, MeleeSide.ATTACKER)
+        mState = MeleeCombatRules.acceptRolls(mState, listOf(4, 4, 1, 1), listOf(1, 1, 1, 1))
+        mState = finishMeleeRerolls(mState)
+        mState = MeleeCombatRules.finishRetention(mState)
+        mState = MeleeCombatRules.resolve(mState, MeleeSide.ATTACKER, MeleeSuccess.NORMAL, MeleeUse.STRIKE)
+        assertEquals("Pre-frenzy normal strike must NOT increment defenderNormalStrikesTaken", 0, mState.defenderNormalStrikesTaken)
+
+        // Fight 1 while Frenzied: takes 1 normal strike -> survives at 1W with defenderNormalStrikesTaken = 1
+        val frenziedFight1 = nonFrenziedDef.copy(currentWounds = 1, frenzied = true, frenzyNormalStrikesTaken = 0)
+        var f1 = MeleeCombatRules.start(meleeAtt, frenziedFight1, MeleeSide.ATTACKER)
+        f1 = MeleeCombatRules.acceptRolls(f1, listOf(4, 1, 1, 1), listOf(1, 1, 1, 1))
+        f1 = finishMeleeRerolls(f1)
+        f1 = MeleeCombatRules.finishRetention(f1)
+        f1 = MeleeCombatRules.resolve(f1, MeleeSide.ATTACKER, MeleeSuccess.NORMAL, MeleeUse.STRIKE)
+        assertEquals("Frenzied operative survives 1st normal strike at 1W", 1, f1.defender.currentWounds)
+        assertEquals(1, f1.defenderNormalStrikesTaken)
+
+        // Fight 2 while Frenzied (carrying frenzyNormalStrikesTaken = 1): takes 2nd normal strike -> incapacitated (0W)
+        val frenziedFight2 = nonFrenziedDef.copy(currentWounds = 1, frenzied = true, frenzyNormalStrikesTaken = f1.defenderNormalStrikesTaken)
+        var f2 = MeleeCombatRules.start(meleeAtt, frenziedFight2, MeleeSide.ATTACKER)
+        f2 = MeleeCombatRules.acceptRolls(f2, listOf(4, 1, 1, 1), listOf(1, 1, 1, 1))
+        f2 = finishMeleeRerolls(f2)
+        f2 = MeleeCombatRules.finishRetention(f2)
+        f2 = MeleeCombatRules.resolve(f2, MeleeSide.ATTACKER, MeleeSuccess.NORMAL, MeleeUse.STRIKE)
+        assertEquals("Frenzied operative taking 2nd normal strike in subsequent fight must be incapacitated (0W)", 0, f2.defender.currentWounds)
+
+        // 3. Hierotek Circle Reanimation Plasmacyte (hierotek_circle_05) does not expose passive 重生规程 as 1AP unique action
+        val plasmacyteActions = AbilityCatalog.forOperative("hierotek_circle_05").filter { it.apCost != null }
+        assertTrue("重生规程 is passive and must not have apCost on hierotek_circle_05",
+            plasmacyteActions.none { it.name.contains("重生规程") })
+
+        // 4. Inquisitorial Agents Requisition faction rule has no trailing PDF page bios
+        val inqRules = TeamPloys.of("KT-INQUISITORIAL_AGENTS", TeamPloys.FACTION_RULE)
+        val reqRule = inqRules.first { it.name == "审判庭征用命令" }
+        assertTrue("Requisition rule must not contain trailing token guide or PDF page bios",
+            !reqRule.body.contains("标识/指示物指南") && !reqRule.body.contains("PDF 第 18 页"))
+
+        // 5. Ravener Burrow (钻地 1AP) contains full official text (tunnel and -2" Move on emerge)
+        val burrowAction = AbilityCatalog.forOperative("rav_prime").first { it.name.startsWith("钻地") }
+        assertTrue("Burrow action description must include tunnel and -2\" move restriction",
+            burrowAction.description.contains("隧道上") && burrowAction.description.contains("减少 2\""))
+    }
 }

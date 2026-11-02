@@ -67,7 +67,8 @@ data class MeleeFighter(
     val presetNormals: Int = 0,
     val presetCriticals: Int = 0,
     val presetNote: String = "",
-    val frenzied: Boolean = false
+    val frenzied: Boolean = false,
+    val frenzyNormalStrikesTaken: Int = 0
 ) {
     val wounded: Boolean
         get() = currentWounds > 0 && currentWounds * 2 < maxWounds
@@ -189,7 +190,9 @@ object MeleeCombatRules {
             extraRerolls = defender.extraRerolls.coerceIn(0, defender.attacks)
         ),
         initiative = initiative,
-        rerollTurn = initiative
+        rerollTurn = initiative,
+        attackerNormalStrikesTaken = if (attacker.frenzied) attacker.frenzyNormalStrikesTaken.coerceAtLeast(0) else 0,
+        defenderNormalStrikesTaken = if (defender.frenzied) defender.frenzyNormalStrikesTaken.coerceAtLeast(0) else 0
     )
 
     fun acceptRolls(
@@ -503,25 +506,49 @@ object MeleeCombatRules {
                 }
                 if (side == MeleeSide.ATTACKER) {
                     if (damage > 0) {
-                        if (success == MeleeSuccess.CRITICAL) defenderCritStrikesTaken++ else defenderNormalStrikesTaken++
+                        if (success == MeleeSuccess.CRITICAL) {
+                            defenderCritStrikesTaken++
+                        } else if (defender.frenzied) {
+                            defenderNormalStrikesTaken++
+                        }
                     }
                     val rawWounds = (defender.currentWounds - damage).coerceAtLeast(0)
-                    val frenzySurvives = defender.frenzied && defenderCritStrikesTaken == 0 && defenderNormalStrikesTaken < 2
-                    defender = defender.copy(currentWounds = if (rawWounds <= 0 && frenzySurvives) 1 else rawWounds)
+                    val frenzyIncap = defender.frenzied && (defenderCritStrikesTaken > 0 || defenderNormalStrikesTaken >= 2)
+                    val frenzySurvives = defender.frenzied && !frenzyIncap
+                    val nextWounds = when {
+                        frenzyIncap -> 0
+                        rawWounds <= 0 && frenzySurvives -> 1
+                        else -> rawWounds
+                    }
+                    defender = defender.copy(currentWounds = nextWounds)
                     notes += "${fighter.operativeName}以${success.label()}出击，${opponent.operativeName}受到 $damage 点伤害${noteSuffix(extraNote)}"
                     if (rawWounds <= 0 && frenzySurvives) {
                         notes += "${opponent.operativeName}处于狂暴状态，首次受普通出击未丧失行动能力（保留 1 伤）"
+                    } else if (frenzyIncap && rawWounds > 0) {
+                        notes += "${opponent.operativeName}处于狂暴状态，已受暴击或累计 2 次普通出击而丧失行动能力"
                     }
                 } else {
                     if (damage > 0) {
-                        if (success == MeleeSuccess.CRITICAL) attackerCritStrikesTaken++ else attackerNormalStrikesTaken++
+                        if (success == MeleeSuccess.CRITICAL) {
+                            attackerCritStrikesTaken++
+                        } else if (attacker.frenzied) {
+                            attackerNormalStrikesTaken++
+                        }
                     }
                     val rawWounds = (attacker.currentWounds - damage).coerceAtLeast(0)
-                    val frenzySurvives = attacker.frenzied && attackerCritStrikesTaken == 0 && attackerNormalStrikesTaken < 2
-                    attacker = attacker.copy(currentWounds = if (rawWounds <= 0 && frenzySurvives) 1 else rawWounds)
+                    val frenzyIncap = attacker.frenzied && (attackerCritStrikesTaken > 0 || attackerNormalStrikesTaken >= 2)
+                    val frenzySurvives = attacker.frenzied && !frenzyIncap
+                    val nextWounds = when {
+                        frenzyIncap -> 0
+                        rawWounds <= 0 && frenzySurvives -> 1
+                        else -> rawWounds
+                    }
+                    attacker = attacker.copy(currentWounds = nextWounds)
                     notes += "${fighter.operativeName}以${success.label()}出击，${opponent.operativeName}受到 $damage 点伤害${noteSuffix(extraNote)}"
                     if (rawWounds <= 0 && frenzySurvives) {
                         notes += "${opponent.operativeName}处于狂暴状态，首次受普通出击未丧失行动能力（保留 1 伤）"
+                    } else if (frenzyIncap && rawWounds > 0) {
+                        notes += "${opponent.operativeName}处于狂暴状态，已受暴击或累计 2 次普通出击而丧失行动能力"
                     }
                 }
 

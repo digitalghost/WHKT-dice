@@ -250,8 +250,14 @@ object BattleRules {
                 },
                 counters = side.counters.map { c ->
                     when {
+                        side.teamId == "KT-SPECTRE_SQUAD" && c.name == "野战点数" -> {
+                            val hasComms = side.operatives.any {
+                                (it.operativeId == "spectre_squad_11" || it.displayName.contains("通讯手")) &&
+                                    !it.incapacitated && !it.offField
+                            }
+                            c.copy(value = if (hasComms) 2 else 1)
+                        }
                         c.resetEachTurningPoint != null -> c.copy(value = c.resetEachTurningPoint)
-                        side.teamId == "KT-SPECTRE_SQUAD" && c.name == "野战点数" && nextTurningPoint > 1 -> c.copy(value = c.value + 1)
                         else -> c
                     }
                 }
@@ -518,9 +524,14 @@ object BattleRules {
     }
 
     private fun expireTurningPointTokens(battle: BattleRecord): BattleRecord {
-        fun clean(side: BattleSide) = side.copy(operatives = side.operatives.map { o ->
-            o.copy(tokens = o.tokens.filterNot { it.duration == TokenDuration.TURNING_POINT_END || it.duration == TokenDuration.THIS_ACTIVATION })
-        })
+        fun clean(side: BattleSide) = side.copy(
+            operatives = side.operatives.map { o ->
+                o.copy(tokens = o.tokens.filterNot { it.duration == TokenDuration.TURNING_POINT_END || it.duration == TokenDuration.THIS_ACTIVATION })
+            },
+            counters = side.counters.map { c ->
+                if (side.teamId == "KT-SPECTRE_SQUAD" && c.name == "野战点数") c.copy(value = 0) else c
+            }
+        )
         return battle.copy(sideA = clean(battle.sideA), sideB = clean(battle.sideB))
     }
 
@@ -530,7 +541,7 @@ object BattleRules {
         "KT-NOVITIATES" -> listOf(TeamCounter(name = "信仰点数", value = 0))
         "KT-BLOODED" -> listOf(TeamCounter(name = "浴血指示物", value = 0))
         "KT-WRECKA_KREW" -> listOf(TeamCounter(name = "破坏点数", value = 0))
-        "KT-SPECTRE_SQUAD" -> listOf(TeamCounter(name = "野战点数", value = 1))
+        "KT-SPECTRE_SQUAD" -> listOf(TeamCounter(name = "野战点数", value = 0, resetEachTurningPoint = 0))
         "KT-VESPID_STINGWINGS" -> listOf(TeamCounter(name = "交融点数", value = 0))
         "KT-HAND_OF_THE_ARCHON" -> listOf(TeamCounter(name = "痛苦指示物", value = 0))
         "KT-ELUCIDIAN_STARSTRIDERS" -> listOf(TeamCounter(name = "贸易许可（剩余）", value = 4))
