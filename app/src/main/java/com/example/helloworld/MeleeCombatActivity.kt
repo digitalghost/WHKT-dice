@@ -780,7 +780,8 @@ class MeleeCombatActivity : AppCompatActivity() {
                 battle.progress.usedPlans.any { it.startsWith("${ownSide.id}/") && it.contains("织网缠绕") }
             val hasSurvivalInstincts = ownSide.teamId == "KT-RATLINGS" &&
                 ownOp?.operativeId !in setOf("ratlings_03", "ratlings_04") &&
-                (owner == MeleeSide.DEFENDER || battle.progress.usedPlans.any { it.startsWith("${ownSide.id}/") && it.contains("生存本能") })
+                // 交战计谋（1CP）：须先在交战阶段「使用计谋」记录，防守方身份本身不赋予这项格挡能力。
+                battle.progress.usedPlans.any { it.startsWith("${ownSide.id}/") && it.contains("生存本能") }
             val hasCritDoubleParry = hasDoubleParry || hasSurvivalInstincts
             val critDoubleParryLabel = if (!hasDoubleParry && hasSurvivalInstincts) "生存本能" else "护盾/镇压"
             val canParry = MeleeCombatRules.canParryWith(state, owner, success)
@@ -795,10 +796,10 @@ class MeleeCombatActivity : AppCompatActivity() {
                     resolve(owner, success, MeleeUse.PARRY, MeleeSuccess.NORMAL)
                 }
                 val canParryCritWithNormal = hasSurvivalInstincts || ownAbilities.any {
-                    it.name.contains("生存本能") || it.name.contains("决斗家") ||
+                    it.name.contains("决斗家") ||
                         it.description.contains("普通成功可以格挡暴击") || it.description.contains("普通成功格挡一个暴击")
                 } || battle.progress.usedPlans.any {
-                    it.startsWith("${ownSide.id}/") && (it.contains("决斗家") || it.contains("生存本能"))
+                    it.startsWith("${ownSide.id}/") && it.contains("决斗家")
                 }
                 if (success == MeleeSuccess.NORMAL && !opponentBrutal && opponentPool.criticals > 0 && canParryCritWithNormal) {
                     actions += CombatKit.SheetAction("格挡对手 1 个暴击（生存本能/决斗家）") {

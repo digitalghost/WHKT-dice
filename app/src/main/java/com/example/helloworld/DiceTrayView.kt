@@ -79,6 +79,8 @@ class DiceTrayView @JvmOverloads constructor(
         var angularVelocityZ: Float,
         var height: Float,
         var verticalVelocity: Float,
+        /** Fair 1..6 result drawn when the throw starts; the landing animation turns this face up. */
+        var rolledValue: Int = 1,
         var selected: Boolean = false,
         var settled: Boolean = false,
         var finalizing: Boolean = false,
@@ -300,7 +302,8 @@ class DiceTrayView @JvmOverloads constructor(
                 angularVelocityY = signedSpin(random, 760f, 1220f),
                 angularVelocityZ = signedSpin(random, 980f, 1480f),
                 height = random.nextFloat() * 1.2f + 3.2f,
-                verticalVelocity = -(random.nextFloat() * 0.9f + 0.25f)
+                verticalVelocity = -(random.nextFloat() * 0.9f + 0.25f),
+                rolledValue = DiceFaces.draw(random)
             )
         }
         selectionChanged?.invoke(0)
@@ -328,6 +331,7 @@ class DiceTrayView @JvmOverloads constructor(
             body.angularVelocityZ = signedSpin(random, 1050f, 1550f)
             body.height = random.nextFloat() * 1.2f + 3.3f
             body.verticalVelocity = -(random.nextFloat() * 0.9f + 0.3f)
+            body.rolledValue = DiceFaces.draw(random)
             body.selected = false
             body.settled = false
             body.finalizing = false
@@ -655,7 +659,9 @@ class DiceTrayView @JvmOverloads constructor(
     }
 
     private fun beginLanding(body: DieBody) {
-        body.value = upwardFaceValue(body)
+        // Reading the face from the tumbling orientation is not uniform (uniform Euler angles
+        // favour the 3/4 faces ~27% each), so the result comes from the fair pre-drawn value.
+        body.value = body.rolledValue
         val target = canonicalOrientation(body.value)
         body.landingStartOrientationX = body.orientationX
         body.landingStartOrientationY = body.orientationY
@@ -681,10 +687,6 @@ class DiceTrayView @JvmOverloads constructor(
         body.settled = true
         body.finalizing = false
     }
-
-    private fun upwardFaceValue(body: DieBody): Int = faces.maxByOrNull { face ->
-        rotate(face.normal, body.orientationX, body.orientationY, body.orientationZ).z
-    }?.value ?: 1
 
     private fun canonicalOrientation(value: Int): Pair<Float, Float> = when (value) {
         1 -> 0f to 0f
@@ -1352,4 +1354,9 @@ class DiceTrayView @JvmOverloads constructor(
             detailPaint
         )
     }
+}
+
+/** Result of one D6 throw on the tray; uniform over 1..6 regardless of how the die tumbles. */
+object DiceFaces {
+    fun draw(random: Random): Int = random.nextInt(1, 7)
 }

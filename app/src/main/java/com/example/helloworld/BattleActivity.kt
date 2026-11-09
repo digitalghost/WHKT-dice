@@ -1229,8 +1229,7 @@ class BattleActivity : AppCompatActivity() {
                 val opponent = battle.opponent(side.id)
                 val enemies = opponent.operatives.filter { !it.incapacitated && !it.offField }
                 if (enemies.isEmpty()) { recordAction(ua.name, cost); return }
-                val isHighIntensityDrone = operative.operativeId == "pathfinders_14" ||
-                    AbilityCatalog.forOperative(operative.operativeId).any { it.name == "高强度标记光" }
+                val isHighIntensityDrone = AbilityCatalog.forOperative(operative.operativeId).any { it.name == "高强度标记光" }
                 val step = if (isHighIntensityDrone) 2 else 1
                 kit.actionSheet("标记光 · 选择可见敌方目标（最多 4 枚，配合目标分析镜可达第 5 档）", null, enemies.map { target ->
                     val curVal = target.tokens.filter { it.name.startsWith("标记光") }.sumOf { it.value ?: 1 }.coerceAtMost(4)
@@ -1329,10 +1328,11 @@ class BattleActivity : AppCompatActivity() {
                             if (roll >= 3) {
                                 val heal = 1
                                 val curSide = res.side(side.id)
+                                val ready = !expendedThisTurningPoint(side.id, target)
                                 val nextSide = curSide.copy(operatives = curSide.operatives.map { o ->
-                                    if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = true)
+                                    if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = ready)
                                 })
-                                commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（1AP）：掷出 $roll（≥3 成功），以 1 点耐伤就绪重生")))
+                                commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（1AP）：掷出 $roll（≥3 成功），以 1 点耐伤${if (ready) "就绪" else "待机"}重生")))
                             } else {
                                 commit(BattleFlow.event(res, "${operative.displayName}对${target.displayName}执行重生（1AP）：掷出 $roll（<3 未能重生）"))
                             }
@@ -1342,10 +1342,11 @@ class BattleActivity : AppCompatActivity() {
                             if (res == null) { recordAction("重生（2AP）", 2); return@SheetAction }
                             val heal = 1
                             val curSide = res.side(side.id)
+                            val ready = !expendedThisTurningPoint(side.id, target)
                             val nextSide = curSide.copy(operatives = curSide.operatives.map { o ->
-                                if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = true)
+                                if (o.memberId != target.memberId) o else o.copy(incapacitated = false, currentWounds = heal, ready = ready)
                             })
-                            commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（2AP）：自动成功，以 1 点耐伤就绪重生")))
+                            commit(BattleRules.recalculateKills(BattleFlow.event(BattleFlow.side(res, nextSide), "${operative.displayName}对${target.displayName}执行重生（2AP）：自动成功，以 1 点耐伤${if (ready) "就绪" else "待机"}重生")))
                         }
                     )
                 })
@@ -1421,6 +1422,19 @@ class BattleActivity : AppCompatActivity() {
                 })
             }
             else -> recordAction(ua.name, cost)
+        }
+    }
+
+    /**
+     * 重生 1/2AP: an operative that already activated this turning point before it was
+     * incapacitated comes back expended (incapacitation clears [BattleOperativeState.ready],
+     * so the activation is read from this turning point's log).
+     */
+    private fun expendedThisTurningPoint(sideId: String, target: BattleOperativeState): Boolean {
+        val prefix = "${battle.side(sideId).playerName}：${target.displayName}"
+        return battle.log.any {
+            !it.undone && it.turningPoint == battle.turningPoint && it.message.startsWith(prefix) &&
+                (it.message.startsWith("${prefix}激活 · ") || it.message.startsWith("${prefix}额外激活") || it.message.startsWith("${prefix}联合激活"))
         }
     }
 

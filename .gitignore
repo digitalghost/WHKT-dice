@@ -40,3 +40,6 @@ keystore.properties
 # Packaged application artifacts
 *.apk
 *.aab
+
+# Coverage-test evidence (screenshots / exported logs, ~2GB); kept locally, not versioned
+/output/coverage/
