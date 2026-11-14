@@ -59,10 +59,12 @@ func build(board_w: float, board_h: float) -> void:
 	# east (off the table); the card mat sits at local -X, i.e. nearer the camera than the chips.
 	# Scaled up ~1.5x from "real" token size: at the default 60" camera distance the apron is small
 	# on screen, so props need to be over-sized to read as objects rather than specks.
-	_build_side("A", Vector3(hw + 5.4, -0.24, -5.0), -PI * 0.5)
-	_build_side("B", Vector3(-hw - 5.4, -0.24, 5.0), PI * 0.5)
-	_build_vp_track(Vector3(hw + 5.4, -0.24, 5.0), -PI * 0.5)
-	_build_tp_block(Vector3(hw + 5.4, -0.24, hh + 1.6))
+	# Order along the east apron from far (north) to near (south): [A card mat] [A chips] [VP rail] [TP].
+	# Pulled ~3" south of the earlier layout so the card mat clears the top HUD bar at the default camera.
+	_build_side("A", Vector3(hw + 5.4, -0.24, -1.8), -PI * 0.5)
+	_build_side("B", Vector3(-hw - 5.4, -0.24, 1.8), PI * 0.5)
+	_build_vp_track(Vector3(hw + 5.4, -0.24, 7.4), -PI * 0.5)
+	_build_tp_block(Vector3(hw + 5.4, -0.24, hh + 2.4))
 	for c in get_children():
 		(c as Node3D).scale = Vector3.ONE * 1.5
 
@@ -160,8 +162,10 @@ func _build_vp_track(origin: Vector3, yaw: float = 0.0) -> void:
 			var nl := Label3D.new()
 			nl.text = str(i)
 			nl.font = _font
-			nl.font_size = 48
+			nl.font_size = 96
 			nl.pixel_size = 0.0045
+			nl.outline_size = 10
+			nl.outline_modulate = Color(0.05, 0.04, 0.03)
 			nl.modulate = Color(0.74, 0.56, 0.26)
 			nl.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
 			nl.position = Vector3(x, 0.08, 0.32)
