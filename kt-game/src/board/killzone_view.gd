@@ -198,6 +198,15 @@ func _build_3d_viewport() -> void:
 	center_omni.position = Vector3(0.0, 6.5, 0.0)
 	center_omni.light_color = Color(1.0, 0.80, 0.44)
 	center_omni.light_energy = 0.45
+
+	# Reading lamp over the right-hand apron so the CP chips / datacard / VP rail aren't in the dark
+	var apron_lamp := OmniLight3D.new()
+	apron_lamp.position = Vector3(21.0, 7.0, 4.0)
+	apron_lamp.light_color = Color(1.0, 0.92, 0.78)
+	apron_lamp.light_energy = 0.9
+	apron_lamp.omni_range = 16.0
+	apron_lamp.shadow_enabled = false
+	_world_root.add_child(apron_lamp)
 	center_omni.omni_range = 19.0
 	_world_root.add_child(center_omni)
 

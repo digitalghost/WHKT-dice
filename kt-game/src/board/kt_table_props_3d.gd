@@ -53,12 +53,18 @@ func build(board_w: float, board_h: float) -> void:
 	# side B (Plague, deploys north/-Z) mirrors it on the far apron, right of the board, rotated 180°
 	# so its card reads correctly for a hotseat player sitting opposite.
 	# Default camera sits SW of the board looking NE, so the readable apron is the RIGHT (east, +X)
-	# edge: props line up along it from near to far:  [TP block]  [VP rail]  [A chips + A card].
+	# edge. Props line up along it from near (south, +Z) to far:  [TP block]  [VP rail]  [A chips + A card].
 	# Side B mirrors onto the LEFT (west) edge, rotated 180° for a hotseat opponent.
-	_build_side("A", Vector3(hw + 4.6, -0.24, -2.0), -PI * 0.5)
-	_build_side("B", Vector3(-hw - 4.6, -0.24, 2.0), PI * 0.5)
-	_build_vp_track(Vector3(hw + 4.6, -0.24, 5.4), -PI * 0.5)
-	_build_tp_block(Vector3(hw + 4.6, -0.24, hh - 1.2))
+	# The side root is yawed -90° so its local +X runs north (-Z) along the apron and local +Z points
+	# east (off the table); the card mat sits at local -X, i.e. nearer the camera than the chips.
+	# Scaled up ~1.5x from "real" token size: at the default 60" camera distance the apron is small
+	# on screen, so props need to be over-sized to read as objects rather than specks.
+	_build_side("A", Vector3(hw + 5.4, -0.24, -5.0), -PI * 0.5)
+	_build_side("B", Vector3(-hw - 5.4, -0.24, 5.0), PI * 0.5)
+	_build_vp_track(Vector3(hw + 5.4, -0.24, 5.0), -PI * 0.5)
+	_build_tp_block(Vector3(hw + 5.4, -0.24, hh + 1.6))
+	for c in get_children():
+		(c as Node3D).scale = Vector3.ONE * 1.5
 
 
 func _build_side(side: String, origin: Vector3, yaw: float) -> void:
@@ -91,8 +97,10 @@ func _build_side(side: String, origin: Vector3, yaw: float) -> void:
 	var mat_root := Node3D.new()
 	mat_root.position = Vector3(-4.1, 0.0, 0.0)
 	root.add_child(mat_root)
-	var leather := KTModels3D.make_textured_pbr("rust", Color(0.22, 0.18, 0.16), 1.2, 1.0, 0.0)
-	KTModels3D.add_box(mat_root, Vector3(0.0, 0.02, 0.0), Vector3(4.6, 0.04, 3.1), leather)
+	var leather := KTModels3D.make_textured_pbr("rust", Color(0.30, 0.24, 0.20), 1.2, 1.0, 0.0)
+	KTModels3D.add_box(mat_root, Vector3(0.0, 0.02, 0.0), Vector3(4.8, 0.04, 3.2), leather)
+	KTModels3D.add_box(mat_root, Vector3(0.0, 0.035, 0.0), Vector3(4.5, 0.012, 2.9), _mat_brass)
+	KTModels3D.add_box(mat_root, Vector3(0.0, 0.045, 0.0), Vector3(4.4, 0.012, 2.8), leather)
 	for sx in [-1.0, 1.0]:
 		for sz in [-1.0, 1.0]:
 			KTModels3D.add_box(mat_root, Vector3(sx * 2.15, 0.05, sz * 1.4), Vector3(0.28, 0.02, 0.28), _mat_brass)
@@ -100,12 +108,27 @@ func _build_side(side: String, origin: Vector3, yaw: float) -> void:
 	var card := Sprite3D.new()
 	# Datacards are 947x545 px -> ~4.3" x 2.5" on the table, inside the 4.6 x 3.1 mat.
 	card.pixel_size = 0.0045
+	card.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	card.shaded = false
+	card.render_priority = 1
 	card.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
 	card.position = Vector3(0.0, 0.07, -0.12)
 	card.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	card.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	card.visible = false
 	mat_root.add_child(card)
+
+	# Empty-mat hint when no operative is active
+	var empty_l := Label3D.new()
+	empty_l.text = "数据卡"
+	empty_l.font = _font
+	empty_l.font_size = 48
+	empty_l.pixel_size = 0.005
+	empty_l.modulate = Color(0.74, 0.56, 0.26, 0.45)
+	empty_l.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+	empty_l.position = Vector3(0.0, 0.06, 0.0)
+	empty_l.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	mat_root.add_child(empty_l)
 
 	var name_l := Label3D.new()
 	name_l.font = _font
@@ -118,7 +141,7 @@ func _build_side(side: String, origin: Vector3, yaw: float) -> void:
 	name_l.position = Vector3(0.0, 0.08, 1.85)
 	name_l.alpha_cut = Label3D.ALPHA_CUT_DISCARD
 	mat_root.add_child(name_l)
-	_card_mats[side] = {"root": mat_root, "sprite": card, "name": name_l}
+	_card_mats[side] = {"root": mat_root, "sprite": card, "name": name_l, "empty": empty_l}
 
 
 func _build_vp_track(origin: Vector3, yaw: float = 0.0) -> void:
@@ -201,13 +224,23 @@ func sync(cp: Dictionary, vp: Dictionary, tp: int, active_cards: Dictionary) -> 
 			var info: Dictionary = active_cards.get(side, {})
 			var spr: Sprite3D = cm["sprite"]
 			var nl: Label3D = cm["name"]
+			var el: Label3D = cm["empty"]
 			if info.is_empty():
 				spr.visible = false
 				nl.text = ""
+				el.visible = true
 			else:
-				spr.texture = info.get("tex", null)
+				var new_tex: Texture2D = info.get("tex", null)
+				if spr.texture != new_tex and new_tex != null:
+					# Card slides in from above and settles: "placing the card on the mat"
+					spr.position.y = 0.9
+					var tw := spr.create_tween()
+					tw.tween_property(spr, "position:y", 0.07, 0.28).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+					KTSfx.play("card_lift", -8.0, 0.05)
+				spr.texture = new_tex
 				spr.visible = spr.texture != null
 				nl.text = str(info.get("name", ""))
+				el.visible = false
 	if _tp_lbl != null:
 		_tp_lbl.text = "TP %d" % tp
 
