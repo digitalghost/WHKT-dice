@@ -814,6 +814,7 @@ func _build_skill_tooltip() -> void:
 	_skill_tooltip = PanelContainer.new()
 	_skill_tooltip.visible = false
 	_skill_tooltip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_skill_tooltip.z_index = 50
 	_skill_tooltip.custom_minimum_size = Vector2(268, 76)
 	_skill_tooltip.add_theme_stylebox_override(
 		"panel",
@@ -848,6 +849,14 @@ func _build_skill_tooltip() -> void:
 	_tip_desc_lbl.add_theme_color_override("font_color", KTTheme.COL_TEXT)
 	vb.add_child(_tip_desc_lbl)
 
+	# Rule keywords mentioned in the description, as glossary chips
+	_tip_rules_flow = HFlowContainer.new()
+	_tip_rules_flow.add_theme_constant_override("h_separation", 4)
+	_tip_rules_flow.add_theme_constant_override("v_separation", 3)
+	vb.add_child(_tip_rules_flow)
+
+
+var _tip_rules_flow: HFlowContainer
 
 func _show_skill_tooltip(slot: KTWidgets.SkillSlot) -> void:
 	if _skill_tooltip == null or slot == null:
@@ -855,6 +864,16 @@ func _show_skill_tooltip(slot: KTWidgets.SkillSlot) -> void:
 	_tip_title_lbl.text = slot.full_title
 	_tip_meta_lbl.text = "[%s] · %d AP" % [slot.hotkey_str, slot.ap_cost] if slot.ap_cost > 0 else "[%s]" % slot.hotkey_str
 	_tip_desc_lbl.text = slot.desc_text
+	for c in _tip_rules_flow.get_children():
+		c.queue_free()
+	var found := KTGlossary.find_in_text(slot.full_title + " " + slot.desc_text)
+	_tip_rules_flow.visible = not found.is_empty()
+	for e in found:
+		var chip := KTRuleChip.new()
+		chip.setup(str(e["name"]), Color(0, 0, 0, 0), 11)
+		_tip_rules_flow.add_child(chip)
+	# The tooltip itself must accept the mouse so chips inside it can be hovered/clicked
+	_skill_tooltip.mouse_filter = Control.MOUSE_FILTER_PASS if not found.is_empty() else Control.MOUSE_FILTER_IGNORE
 	_skill_tooltip.reset_size()
 	_skill_tooltip.visible = true
 	var gp: Vector2 = slot.global_position
@@ -2015,35 +2034,22 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 
 	_skill_bar_panel.reset_size()
 
-	# 3. Floating Sci-Fi Weapon Cards Strip above Hotbar when Shoot Mode is Armed!
+	# 3. Weapon cards above the hotbar when Shoot Mode is armed. Each card: name + stat line + keyword chips
+	#    (hover a chip for the rule's effect, click for the rulebook text).
 	if _killzone.interaction_mode == "shoot" and not usable_ranged.is_empty():
 		_weapon_strip.visible = true
 		for wi in range(usable_ranged.size()):
 			var w: Dictionary = usable_ranged[wi]
 			var is_sel_w: bool = (wi == _selected_weapon_idx)
-			var wb := Button.new()
-			wb.custom_minimum_size = Vector2(174, 48)
-			var compact_wname: String = str(w["name"]).replace("爆矢狙击步枪", "狙击步枪")
-			var kw_arr: PackedStringArray = PackedStringArray()
-			for kw in w.get("keywords", []):
-				kw_arr.append(str(kw))
-			var kw_txt: String = "·".join(kw_arr) if not kw_arr.is_empty() else "常规弹药"
-			wb.text = "%s%s\n%d骰 · %d+命中 · %d/%d★ (%s)" % [
-				"▶ " if is_sel_w else "", compact_wname,
-				int(w["attacks"]), int(w["hit"]), int(w["normal_dmg"]), int(w["crit_dmg"]),
-				kw_txt.substr(0, 12)
-			]
-			wb.add_theme_font_size_override("font_size", 11)
-			wb.tooltip_text = "%s — %s" % [str(w["name"]), str(w["profile"])]
-			KTTheme.apply_accent_button(wb, KTTheme.COL_GOLD_BRIGHT if is_sel_w else fcol, 0.34 if is_sel_w else 0.16)
-			KTWidgets.attach_button_juice(wb, 1.05)
 			var idx_w: int = wi
-			wb.pressed.connect(func():
+			var card := KTWidgets.WeaponCard.new()
+			card.setup(w, is_sel_w, fcol)
+			card.selected.connect(func():
 				_selected_weapon_idx = idx_w
 				_killzone.start_shoot_mode(uid, usable_ranged[idx_w])
 				_refresh_all_ui()
 			)
-			_weapon_hb.add_child(wb)
+			_weapon_hb.add_child(card)
 		_weapon_strip.reset_size()
 	else:
 		_weapon_strip.visible = false

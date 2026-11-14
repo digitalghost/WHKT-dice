@@ -1496,6 +1496,22 @@ func _draw_projected_hud() -> void:
 			if not _cam.is_position_behind(wr):
 				_draw_pill_2d(_cam.unproject_position(wr) + Vector2(0.0, -10.0), _dice_3d.right_bay_label, KTTheme.COL_EMERALD if _dice_3d.active_mode == "shooting" else KTTheme.COL_NURGLE, 12, 0.92)
 
+		# Rule badges floating above dice the last rule touched (rise + fade)
+		for bd in _dice_3d.get_die_badges():
+			var bw: Vector3 = bd["wpos"]
+			if _cam.is_position_behind(bw):
+				continue
+			var rise: float = float(bd["rise"])
+			var sp_b := _cam.unproject_position(bw) + Vector2(0.0, -14.0 * rise)
+			var bc: Color = bd["col"]
+			var ba: float = float(bd["alpha"])
+			var btxt := str(bd["text"])
+			var ts_b := font.get_string_size(btxt, HORIZONTAL_ALIGNMENT_LEFT, -1, 12)
+			var br_b := Rect2(sp_b.x - ts_b.x * 0.5 - 7.0, sp_b.y - 10.0, ts_b.x + 14.0, 20.0)
+			_hud_overlay.draw_rect(br_b, Color(0.02, 0.025, 0.04, 0.92 * ba), true)
+			_hud_overlay.draw_rect(br_b, Color(bc.r, bc.g, bc.b, ba), false, 1.6)
+			_hud_overlay.draw_string(font, Vector2(br_b.position.x, br_b.position.y + 14.5), btxt, HORIZONTAL_ALIGNMENT_CENTER, br_b.size.x, 12, Color(bc.r, bc.g, bc.b, ba).lightened(0.3))
+
 		for dt in _dice_3d.get_active_dice_hud_tags():
 			var dw: Vector3 = dt["wpos"]
 			if _cam.is_position_behind(dw):

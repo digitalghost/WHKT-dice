@@ -377,6 +377,74 @@ class SkillSlot extends Control:
 
 
 # ==============================================================================
+# 2b. WEAPON CARD (name + stat line + rule-keyword chips) for the shoot-mode strip
+# ==============================================================================
+
+class WeaponCard extends PanelContainer:
+	signal selected()
+
+	var weapon: Dictionary = {}
+	var is_sel: bool = false
+	var accent: Color = KTTheme.COL_IMPERIAL
+
+	func setup(w: Dictionary, p_sel: bool, p_accent: Color) -> void:
+		weapon = w
+		is_sel = p_sel
+		accent = p_accent
+		mouse_filter = Control.MOUSE_FILTER_STOP
+		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		custom_minimum_size = Vector2(200, 0)
+		var rim := KTTheme.COL_GOLD_BRIGHT if is_sel else Color(accent.r, accent.g, accent.b, 0.7)
+		var bg := Color(0.09, 0.075, 0.03, 0.96) if is_sel else Color(0.035, 0.042, 0.062, 0.94)
+		add_theme_stylebox_override("panel", KTTheme.make_panel_style(bg, rim, 7, 2 if is_sel else 1, 8, is_sel, KTTheme.COL_GOLD_BRIGHT))
+
+		for c in get_children():
+			c.queue_free()
+		var vb := VBoxContainer.new()
+		vb.add_theme_constant_override("separation", 3)
+		vb.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(vb)
+
+		var hdr := HBoxContainer.new()
+		hdr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		vb.add_child(hdr)
+		var name_l := Label.new()
+		name_l.text = ("▶ " if is_sel else "") + str(w["name"]).replace("爆矢狙击步枪", "狙击步枪")
+		name_l.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		name_l.add_theme_font_size_override("font_size", 13)
+		name_l.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT if is_sel else KTTheme.COL_TEXT)
+		name_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		hdr.add_child(name_l)
+
+		var stat_l := Label.new()
+		stat_l.text = "%dA · %d+ · %d/%d★" % [int(w["attacks"]), int(w["hit"]), int(w["normal_dmg"]), int(w["crit_dmg"])]
+		stat_l.add_theme_font_size_override("font_size", 12)
+		stat_l.add_theme_color_override("font_color", KTTheme.COL_BRASS.lightened(0.15))
+		stat_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		vb.add_child(stat_l)
+
+		var kws: Array = w.get("keywords", [])
+		if kws.is_empty():
+			var none_l := Label.new()
+			none_l.text = "常规弹药"
+			none_l.add_theme_font_size_override("font_size", 10)
+			none_l.add_theme_color_override("font_color", KTTheme.COL_MUTED)
+			vb.add_child(none_l)
+		else:
+			vb.add_child(KTRuleChip.make_row(kws, Color(0, 0, 0, 0), 10))
+
+	func _gui_input(ev: InputEvent) -> void:
+		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+			accept_event()
+			KTSfx.play("ui_click", -4.0, 0.04)
+			selected.emit()
+
+	func _notification(what: int) -> void:
+		if what == NOTIFICATION_MOUSE_ENTER:
+			KTSfx.play_hover()
+
+
+# ==============================================================================
 # 3. PLAYABLE TACTICAL STRATAGEM CARD (Fan / Lift-on-Hover Card Hand!)
 # ==============================================================================
 class StratagemCard extends Control:

@@ -712,6 +712,39 @@ func update_selection_highlight(selected_pool: String, selected_idx: int) -> voi
 		e["selected"] = (str(e["pool"]) == selected_pool and int(e["idx"]) == selected_idx)
 
 
+## Rule-trigger badge on a die: a short text ("严重 ↑★", "恼人韧性 −1") drawn by the 2D HUD above the
+## die for `dur` seconds while the die itself pulses in `col`. Several badges may stack on one die.
+## `pool` + `idx` identify the die; idx = -1 badges every die in the pool (e.g. 重型遮挡).
+var _die_badges: Array[Dictionary] = []
+
+func flash_rule_on_dice(pool: String, idx: int, text: String, col: Color, dur: float = 1.6) -> void:
+	for e in _dice_entries:
+		if str(e["pool"]) != pool:
+			continue
+		if idx >= 0 and int(e["idx"]) != idx:
+			continue
+		e["rule_flash_t"] = 1.0
+		e["rule_flash_col"] = col
+		_die_badges.append({"pool": pool, "idx": int(e["idx"]), "text": text, "col": col, "t": 0.0, "dur": dur})
+
+
+func get_die_badges() -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	for b in _die_badges:
+		for e in _dice_entries:
+			if str(e["pool"]) == str(b["pool"]) and int(e["idx"]) == int(b["idx"]):
+				var holder: Node3D = e["node"]
+				if is_instance_valid(holder) and holder.visible:
+					out.append({
+						"wpos": holder.global_position + Vector3(0.0, DIE_SIZE * 0.95, 0.0),
+						"text": str(b["text"]), "col": b["col"],
+						"alpha": 1.0 - clampf((float(b["t"]) - float(b["dur"]) * 0.6) / (float(b["dur"]) * 0.4), 0.0, 1.0),
+						"rise": clampf(float(b["t"]) / 0.35, 0.0, 1.0),
+					})
+				break
+	return out
+
+
 # --- C. MELEE ALTERNATING DUEL DICE (Dual Bay + Physical Strike/Parry Clash!) ---
 func sync_melee_dice(session: Dictionary, animate_fresh: bool = false, instant: bool = false) -> void:
 	clear_active_roll()
@@ -846,10 +879,19 @@ func _process(delta: float) -> void:
 	position = position.lerp(_target_tray_pos, clampf(delta * 10.0, 0.0, 1.0))
 	rotation.y = lerp_angle(rotation.y, _target_tray_yaw, clampf(delta * 10.0, 0.0, 1.0))
 
+	var bi := _die_badges.size() - 1
+	while bi >= 0:
+		_die_badges[bi]["t"] = float(_die_badges[bi]["t"]) + delta
+		if float(_die_badges[bi]["t"]) >= float(_die_badges[bi]["dur"]):
+			_die_badges.remove_at(bi)
+		bi -= 1
+
 	for e in _dice_entries:
 		var holder: Node3D = e["node"]
 		if not is_instance_valid(holder):
 			continue
+		if e.has("rule_flash_t") and float(e["rule_flash_t"]) > 0.0:
+			e["rule_flash_t"] = maxf(0.0, float(e["rule_flash_t"]) - delta * 1.6)
 		if float(e["delay"]) > 0.0:
 			e["delay"] = maxf(0.0, float(e["delay"]) - delta)
 			holder.visible = false
@@ -957,7 +999,13 @@ func _apply_entry_pose(e: Dictionary) -> void:
 
 		var kind: String = str(e["kind"])
 		var pulse: float = 0.5 + 0.5 * sin(_pulse_time * 6.0)
-		if sel:
+		var rf: float = float(e.get("rule_flash_t", 0.0))
+		if rf > 0.01:
+			# Rule just touched this die: lift it and flood the halo with the rule colour
+			var rc: Color = e.get("rule_flash_col", Color(1, 1, 1))
+			holder.position.y += 0.22 * rf
+			rmat.albedo_color = Color(rc.r, rc.g, rc.b, 0.55 + 0.45 * rf)
+		elif sel:
 			rmat.albedo_color = Color(1.0, 0.96, 0.78, 0.95)
 		elif hov_t > 0.05:
 			rmat.albedo_color = Color(1.0, 0.88, 0.42, 0.75 * hov_t)

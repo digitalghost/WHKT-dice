@@ -5,6 +5,16 @@ extends RefCounted
 ## resolver with full Angels of Death (IMP-AOD) and Plague Marines (CHAOS-PM) hooks.
 
 
+## Structured rule-trigger events, appended alongside `resolution_log` strings so the UI can play a
+## timeline (one beat per rule) and highlight the dice each rule touched.
+## ev = { "rule": "严重", "text": "...", "pool": "atk_dice"|"def_dice"|"", "dice": [idx...], "kind": "upgrade|convert|reroll|block|damage|status|info" }
+static func _log_event(session: Dictionary, rule: String, text: String, pool: String = "", dice: Array = [], kind: String = "info") -> void:
+	(session["resolution_log"] as Array).append(text)
+	if not session.has("rule_events"):
+		session["rule_events"] = []
+	session["rule_events"].append({"rule": rule, "text": text, "pool": pool, "dice": dice, "kind": kind})
+
+
 static func _roll_d6(rng: RandomNumberGenerator) -> int:
 	return rng.randi_range(1, 6)
 
@@ -203,7 +213,7 @@ static func reroll_shooting_die(session: Dictionary, pool_key: String, die_idx: 
 		var old_v := int(d["val"])
 		d["val"] = _roll_d6(rng)
 		d["rerolled"] = true
-		session["resolution_log"].append("⚡ 指挥重掷 (1CP)：%d → %d" % [old_v, int(d["val"])])
+		_log_event(session, "指挥重掷", "⚡ 指挥重掷 (1CP)：%d → %d" % [old_v, int(d["val"])], "", [], "reroll")
 		return {"ok": true, "msg": "指挥重掷完成"}
 
 	if mode == "balanced" and pool_key == "atk_dice":
@@ -213,7 +223,7 @@ static func reroll_shooting_die(session: Dictionary, pool_key: String, die_idx: 
 		d["val"] = _roll_d6(rng)
 		d["rerolled"] = true
 		session["balanced_used"] = true
-		session["resolution_log"].append("⚖️ 平衡重掷：%d → %d" % [old_b, int(d["val"])])
+		_log_event(session, "平衡", "⚖️ 平衡重掷：%d → %d" % [old_b, int(d["val"])], "", [], "reroll")
 		return {"ok": true, "msg": "平衡重掷完成"}
 
 	if mode == "ceaseless" and pool_key == "atk_dice":
@@ -227,7 +237,7 @@ static func reroll_shooting_die(session: Dictionary, pool_key: String, die_idx: 
 				item["rerolled"] = true
 				changed += 1
 		session["ceaseless_used"] = true
-		session["resolution_log"].append("♻️ 无休重掷全部点数 %d（共 %d 枚）" % [target_face, changed])
+		_log_event(session, "无休", "♻️ 无休重掷全部点数 %d（共 %d 枚）" % [target_face, changed], "", [], "reroll")
 		return {"ok": true, "msg": "无休重掷完成"}
 
 	return {"ok": false, "msg": "未知重掷类型"}
@@ -266,7 +276,7 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 		failures -= 2
 		retained_from_fail += 1
 		att_side["purity_used_tp"] = true
-		session["resolution_log"].append("📜 纯洁印章自动生效：舍弃 2 枚失败骰，保底转化 1 枚普通命中！")
+		_log_event(session, "纯洁印章", "📜 纯洁印章自动生效：舍弃 2 枚失败骰，保底转化 1 枚普通命中！", "", [], "convert")
 
 	if obscured:
 		# KT3 Obscured: All crits become normals; Severe/Rending/Punishing cannot trigger; discard 1 success!
@@ -274,7 +284,7 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 		natural_crits = 0
 		if total_norm > 0:
 			total_norm -= 1
-			session["resolution_log"].append("🌫️ 重型遮挡生效：暴击全部降为普通成功，并额外舍弃 1 枚命中！")
+			_log_event(session, "重型遮挡", "🌫️ 重型遮挡生效：暴击全部降为普通成功，并额外舍弃 1 枚命中！", "", [], "block")
 		session["retained_atk"] = {"crits": 0, "normals": total_norm, "devastating_mw": 0}
 	else:
 		# Severe: if 0 crits and >=1 rolled normal, upgrade 1 normal -> crit (disables Punishing/Rending)
@@ -283,24 +293,24 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 			rolled_normals -= 1
 			natural_crits += 1
 			used_severe = true
-			session["resolution_log"].append("🔥 【严重】词条触发：1 枚普通命中升格为暴击！")
+			_log_event(session, "严重", "🔥 【严重】词条触发：1 枚普通命中升格为暴击！", "", [], "upgrade")
 
 		if not used_severe:
 			# Punishing: if >=1 crit and >=1 fail, convert 1 fail -> retained_from_fail (Audit Fix #3: cannot chain into Rending!)
 			if bool(rules.get("punishing", false)) and natural_crits > 0 and failures > 0:
 				failures -= 1
 				retained_from_fail += 1
-				session["resolution_log"].append("🔨 【重击】词条触发：1 枚失败转化为普通命中！")
+				_log_event(session, "重击", "🔨 【重击】词条触发：1 枚失败转化为普通命中！", "", [], "convert")
 			# Rending: if >=1 crit and >=1 rolled_normal, upgrade 1 rolled_normal -> crit!
 			if bool(rules.get("rending", false)) and natural_crits > 0 and rolled_normals > 0:
 				rolled_normals -= 1
 				natural_crits += 1
-				session["resolution_log"].append("⚡ 【撕裂】词条触发：1 枚自然普通命中升格为暴击！")
+				_log_event(session, "撕裂", "⚡ 【撕裂】词条触发：1 枚自然普通命中升格为暴击！", "", [], "upgrade")
 
 		var dev_x := int(rules.get("devastating", 0))
 		var dev_mw := natural_crits * dev_x
 		if dev_mw > 0:
-			session["resolution_log"].append("💥 【毁灭 %d】爆发：立即造成 %d 点致命伤害！" % [dev_x, dev_mw])
+			_log_event(session, "毁灭", "💥 【毁灭 %d】爆发：立即造成 %d 点致命伤害！" % [dev_x, dev_mw], "", [], "damage")
 
 		session["retained_atk"] = {
 			"crits": natural_crits,
@@ -313,7 +323,7 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 	if int(session["retained_atk"]["crits"]) > 0:
 		piercing = maxi(piercing, int(rules.get("piercing_crits", 0)))
 	if piercing > 0:
-		session["resolution_log"].append("🎯 穿甲生效：防守方减少 %d 枚防御骰！" % piercing)
+		_log_event(session, "穿刺", "🎯 穿甲生效：防守方减少 %d 枚防御骰！" % piercing, "", [], "block")
 
 	var def_total := maxi(0, 3 - piercing)
 	var auto_def_n := 0
@@ -373,13 +383,13 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 	if def_side["active_ploys"].has("不屈不挠") and def_fails >= 2:
 		def_fails -= 2
 		def_norms += 1
-		session["resolution_log"].append("🛡️ 不屈不挠生效：防守方将 2 枚失败骰转化为 1 枚普通豁免！")
+		_log_event(session, "不屈不挠", "🛡️ 不屈不挠生效：防守方将 2 枚失败骰转化为 1 枚普通豁免！", "", [], "convert")
 
 	# Angels of Death Firefight Ploy: Transhuman Physiology (超人体格) if applied
 	if bool(session["transhuman_used"]) and def_norms > 0:
 		def_norms -= 1
 		def_crits += 1
-		session["resolution_log"].append("🧬 超人体格生效：1 枚普通豁免升格为暴击豁免！")
+		_log_event(session, "超人体格", "🧬 超人体格生效：1 枚普通豁免升格为暴击豁免！", "", [], "upgrade")
 
 	var atk_crits := int(session["retained_atk"]["crits"])
 	var atk_norms := int(session["retained_atk"]["normals"])
@@ -420,7 +430,7 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 		# Space Marine Captain: Iron Halo (钢铁光环) ignores first Normal attack die once per battle!
 		if str(defender["op_id"]) == "aod_captain" and not bool(defender.get("iron_halo_used", false)):
 			defender["iron_halo_used"] = true
-			session["resolution_log"].append("✨ 钢铁光环触发！星际战士连长完全免疫了本次普通攻击骰伤害！")
+			_log_event(session, "钢铁光环", "✨ 钢铁光环触发！星际战士连长完全免疫了本次普通攻击骰伤害！", "", [], "block")
 			continue
 		total_dealt += _apply_damage_instance(defender, n_dmg, true, def_side, state, session, rng)
 
@@ -428,14 +438,14 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 	if total_dealt > 0 and bool(session["rules"].get("poison", false)) and str(defender["team_id"]) != "CHAOS-PM":
 		if not bool(defender.get("poisoned", false)):
 			defender["poisoned"] = true
-			session["resolution_log"].append("☣️ 【毒素】感染！【%s】获得纳垢毒素指示物！" % str(defender["name"]))
+			_log_event(session, "毒素", "☣️ 【毒素】感染！【%s】获得纳垢毒素指示物！" % str(defender["name"]), "", [], "status")
 
 	# Stun weapon rule on Crit hit (晕眩)
 	if int(session["retained_atk"]["crits"]) > 0 and bool(session["rules"].get("stun", false)) and not defender["incapacitated"]:
 		if not has_chapter_tactic(def_side, defender, "resolute"):
 			defender["apl_mod"] = -1
 			defender["stun_skip_current_end"] = (str(state.get("active_op_uid", "")) == str(defender["uid"]))
-			session["resolution_log"].append("💫 【晕眩】暴击触发！【%s】APL -1！" % str(defender["name"]))
+			_log_event(session, "晕眩", "💫 【晕眩】暴击触发！【%s】APL -1！" % str(defender["name"]), "", [], "status")
 
 	# Hot weapon rule check (过热)
 	if bool(session["rules"].get("hot", false)) and not attacker["incapacitated"]:
@@ -444,17 +454,17 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 			var self_dmg := hot_roll * 2
 			attacker["wounds_cur"] = maxi(0, int(attacker["wounds_cur"]) - self_dmg)
 			session["hot_self_dmg"] = self_dmg
-			session["resolution_log"].append("⚠️ 等离子【过热】检定掷出 %d！%s 遭受 %d 点反噬灼伤！" % [hot_roll, str(attacker["name"]), self_dmg])
+			_log_event(session, "过热", "⚠️ 等离子【过热】检定掷出 %d！%s 遭受 %d 点反噬灼伤！" % [hot_roll, str(attacker["name"]), self_dmg], "", [], "damage")
 			if int(attacker["wounds_cur"]) <= 0:
 				attacker["incapacitated"] = true
-				session["resolution_log"].append("💀 【%s】因等离子过热阵亡离场！" % str(attacker["name"]))
+				_log_event(session, "击杀", "💀 【%s】因等离子过热阵亡离场！" % str(attacker["name"]), "", [], "damage")
 		else:
-			session["resolution_log"].append("✅ 等离子【过热】检定通过（掷出 %d）" % hot_roll)
+			_log_event(session, "过热", "✅ 等离子【过热】检定通过（掷出 %d）" % hot_roll, "", [], "damage")
 
 	session["total_damage_dealt"] = total_dealt
 	session["step"] = "resolved"
 	if defender["incapacitated"]:
-		session["resolution_log"].append("💀 【%s】耐伤归零，已被击杀残废！" % str(defender["name"]))
+		_log_event(session, "击杀", "💀 【%s】耐伤归零，已被击杀残废！" % str(defender["name"]), "", [], "damage")
 
 
 static func _apply_damage_instance(
@@ -474,13 +484,13 @@ static func _apply_damage_instance(
 	if is_attack_die and str(target["team_id"]) == "CHAOS-PM" and dmg >= 3:
 		if bool(target.get("auto_resilient_active", false)):
 			dmg = maxi(2, dmg - 1)
-			session["resolution_log"].append("🦠 恶心韧性生效：免掷直接减免 1 点伤害（%d → %d）" % [raw_dmg, dmg])
+			_log_event(session, "恶心韧性", "🦠 恶心韧性生效：免掷直接减免 1 点伤害（%d → %d）" % [raw_dmg, dmg], "", [], "block")
 		else:
 			var fnp := _roll_d6(rng)
 			session["fnp_rolls"].append(fnp)
 			if fnp >= 4:
 				dmg -= 1
-				session["resolution_log"].append("🦠 恼人韧性检定 %d (4+成功)：减免 1 点伤害（%d → %d）" % [fnp, raw_dmg, dmg])
+				_log_event(session, "恼人韧性", "🦠 恼人韧性检定 %d (4+成功)：减免 1 点伤害（%d → %d）" % [fnp, raw_dmg, dmg], "", [], "block")
 
 	var before := int(target["wounds_cur"])
 	target["wounds_cur"] = maxi(0, before - dmg)
@@ -497,7 +507,7 @@ static func _apply_damage_instance(
 					if can_heal > 0:
 						op["wounds_cur"] = int(op["wounds_cur"]) + can_heal
 						op["blessing_healed_tp"] = healed_tp + can_heal
-						session["resolution_log"].append("💚 慈父赐福：瘟疫勇士吸收疫病恢复 +%d 耐伤！" % can_heal)
+						_log_event(session, "慈父赐福", "💚 慈父赐福：瘟疫勇士吸收疫病恢复 +%d 耐伤！" % can_heal, "", [], "status")
 
 	if int(target["wounds_cur"]) <= 0:
 		target["incapacitated"] = true
@@ -719,13 +729,13 @@ static func execute_melee_step(
 			session[shock_key] = true
 			if int(opp_pool["normals"]) > 0:
 				opp_pool["normals"] = int(opp_pool["normals"]) - 1
-				session["resolution_log"].append("⚡ 【震荡】生效：震碎了【%s】的 1 枚普通成功骰！" % str(target["name"]))
+				_log_event(session, "震荡", "⚡ 【震荡】生效：震碎了【%s】的 1 枚普通成功骰！" % str(target["name"]), "", [], "block")
 			elif int(opp_pool["crits"]) > 0:
 				opp_pool["crits"] = int(opp_pool["crits"]) - 1
-				session["resolution_log"].append("⚡ 【震荡】生效：震碎了【%s】的 1 枚暴击骰！" % str(target["name"]))
+				_log_event(session, "震荡", "⚡ 【震荡】生效：震碎了【%s】的 1 枚暴击骰！" % str(target["name"]), "", [], "block")
 
 		var dealt := _apply_damage_instance(target, dmg, true, target_side, state, session, rng)
-		session["resolution_log"].append("🗡️ 【%s】暴击出击！对【%s】造成 %d 点伤害！" % [str(actor["name"]), str(target["name"]), dealt])
+		_log_event(session, "出击", "🗡️ 【%s】暴击出击！对【%s】造成 %d 点伤害！" % [str(actor["name"]), str(target["name"]), dealt], "", [], "damage")
 		_apply_melee_post_hit_effects(actor, target, my_pool, opp_pool, dealt, true, state, session)
 
 	elif action_type == "strike_norm":
@@ -743,10 +753,10 @@ static func execute_melee_step(
 		var dealt_n := 0
 		if str(target["op_id"]) == "aod_captain" and not bool(target.get("iron_halo_used", false)):
 			target["iron_halo_used"] = true
-			session["resolution_log"].append("✨ 钢铁光环触发！星际战士连长免疫了本次普通近战伤害！")
+			_log_event(session, "钢铁光环", "✨ 钢铁光环触发！星际战士连长免疫了本次普通近战伤害！", "", [], "block")
 		else:
 			dealt_n = _apply_damage_instance(target, dmg_n, true, target_side, state, session, rng)
-			session["resolution_log"].append("⚔️ 【%s】普通出击！对【%s】造成 %d 点伤害！" % [str(actor["name"]), str(target["name"]), dealt_n])
+			_log_event(session, "出击", "⚔️ 【%s】普通出击！对【%s】造成 %d 点伤害！" % [str(actor["name"]), str(target["name"]), dealt_n], "", [], "damage")
 		_apply_melee_post_hit_effects(actor, target, my_pool, opp_pool, dealt_n, false, state, session)
 
 	elif action_type == "parry_crit":
@@ -757,10 +767,10 @@ static func execute_melee_step(
 		my_pool["crits"] = int(my_pool["crits"]) - 1
 		if int(opp_pool["crits"]) > 0:
 			opp_pool["crits"] = int(opp_pool["crits"]) - 1
-			session["resolution_log"].append("🛡️ 【%s】以暴击格挡了对手的 1 枚暴击骰！" % str(actor["name"]))
+			_log_event(session, "格挡", "🛡️ 【%s】以暴击格挡了对手的 1 枚暴击骰！" % str(actor["name"]), "", [], "block")
 		else:
 			opp_pool["normals"] = int(opp_pool["normals"]) - 1
-			session["resolution_log"].append("🛡️ 【%s】以暴击格挡了对手的 1 枚普通成功骰！" % str(actor["name"]))
+			_log_event(session, "格挡", "🛡️ 【%s】以暴击格挡了对手的 1 枚普通成功骰！" % str(actor["name"]), "", [], "block")
 
 	elif action_type == "parry_norm":
 		if int(my_pool["normals"]) <= 0:
@@ -773,10 +783,10 @@ static func execute_melee_step(
 		my_pool["normals"] = int(my_pool["normals"]) - 1
 		if can_parry_crit:
 			opp_pool["crits"] = int(opp_pool["crits"]) - 1
-			session["resolution_log"].append("🤺 【决斗家】绝技！【%s】用普通成功格挡了对手的暴击骰！" % str(actor["name"]))
+			_log_event(session, "决斗家", "🤺 【决斗家】绝技！【%s】用普通成功格挡了对手的暴击骰！" % str(actor["name"]), "", [], "block")
 		else:
 			opp_pool["normals"] = int(opp_pool["normals"]) - 1
-			session["resolution_log"].append("🛡️ 【%s】格挡了对手的 1 枚普通成功骰！" % str(actor["name"]))
+			_log_event(session, "格挡", "🛡️ 【%s】格挡了对手的 1 枚普通成功骰！" % str(actor["name"]), "", [], "block")
 	else:
 		return {"ok": false, "msg": "未知近战动作"}
 
@@ -797,12 +807,12 @@ static func _apply_melee_post_hit_effects(
 	if dealt > 0 and bool(my_pool["rules"].get("poison", false)) and str(target["team_id"]) != "CHAOS-PM":
 		if not bool(target.get("poisoned", false)):
 			target["poisoned"] = true
-			session["resolution_log"].append("☣️ 【%s】感染纳垢毒素！" % str(target["name"]))
+			_log_event(session, "毒素", "☣️ 【%s】感染纳垢毒素！" % str(target["name"]), "", [], "status")
 
 	if is_crit and bool(my_pool["rules"].get("stun", false)) and not target["incapacitated"] and not bool(opp_pool["resolute"]):
 		target["apl_mod"] = -1
 		target["stun_skip_current_end"] = (str(state.get("active_op_uid", "")) == str(target["uid"]))
-		session["resolution_log"].append("💫 【晕眩】生效：【%s】APL -1！" % str(target["name"]))
+		_log_event(session, "晕眩", "💫 【晕眩】生效：【%s】APL -1！" % str(target["name"]), "", [], "status")
 
 
 static func _advance_melee_turn(session: Dictionary, state: Dictionary) -> void:
@@ -810,16 +820,16 @@ static func _advance_melee_turn(session: Dictionary, state: Dictionary) -> void:
 	var def := _find_op(state, str(session["defender_uid"]))
 	if att.is_empty() or def.is_empty() or bool(att["incapacitated"]) or bool(def["incapacitated"]):
 		if not att.is_empty() and bool(att["incapacitated"]):
-			session["resolution_log"].append("💀 【%s】在近战中倒下！" % str(att["name"]))
+			_log_event(session, "击杀", "💀 【%s】在近战中倒下！" % str(att["name"]), "", [], "damage")
 		if not def.is_empty() and bool(def["incapacitated"]):
-			session["resolution_log"].append("💀 【%s】被近战斩杀！" % str(def["name"]))
+			_log_event(session, "击杀", "💀 【%s】被近战斩杀！" % str(def["name"]), "", [], "damage")
 		session["step"] = "resolved"
 		return
 
 	var att_left := int(session["att"]["crits"]) + int(session["att"]["normals"])
 	var def_left := int(session["def"]["crits"]) + int(session["def"]["normals"])
 	if att_left <= 0 and def_left <= 0:
-		session["resolution_log"].append("⚔️ 双方攻击骰全部结算完毕，近战结束。")
+		_log_event(session, "结算", "⚔️ 双方攻击骰全部结算完毕，近战结束。", "", [], "info")
 		session["step"] = "resolved"
 		return
 

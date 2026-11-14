@@ -33,6 +33,14 @@ var _ticker_lbl: Label
 var _action_bar: HBoxContainer
 var _fx_overlay: Control
 
+# Rule timeline: one row per structured rule event (session["rule_events"]), revealed one beat at
+# a time. Beat length comes from KTSettings "combat/rule_step_pause" (0 = everything at once).
+var _timeline_vb: VBoxContainer
+var _timeline_panel: PanelContainer
+var _timeline_shown: int = 0
+var _timeline_timer: float = 0.0
+var _timeline_playing: bool = false
+
 var _selected_pool: String = ""
 var _selected_die_idx: int = -1
 var _ai_timer: Timer
@@ -118,20 +126,26 @@ func _ready() -> void:
 	hint_hk.add_theme_color_override("font_color", KTTheme.COL_MUTED)
 	hdr_hb.add_child(hint_hk)
 
-	# Row 2: Crisp 1-Line Live Tabletop Roll Ticker
-	var ticker_panel := PanelContainer.new()
-	ticker_panel.add_theme_stylebox_override(
+	# Row 2: Rule timeline (replaces the one-line ticker). Each row = icon · rule chip · what it did.
+	_timeline_panel = PanelContainer.new()
+	_timeline_panel.add_theme_stylebox_override(
 		"panel",
-		KTTheme.make_panel_style(Color(0.018, 0.024, 0.038, 0.90), Color(0.24, 0.28, 0.36, 0.65), 6, 1, 5)
+		KTTheme.make_panel_style(Color(0.018, 0.024, 0.038, 0.90), Color(0.24, 0.28, 0.36, 0.65), 6, 1, 6)
 	)
-	root_vb.add_child(ticker_panel)
+	_timeline_panel.custom_minimum_size = Vector2(0, 26)
+	root_vb.add_child(_timeline_panel)
 
+	_timeline_vb = VBoxContainer.new()
+	_timeline_vb.add_theme_constant_override("separation", 2)
+	_timeline_panel.add_child(_timeline_vb)
+
+	# Ticker label kept as the timeline's "empty state" hint row
 	_ticker_lbl = Label.new()
 	_ticker_lbl.clip_text = true
-	_ticker_lbl.custom_minimum_size = Vector2(0, 20)
+	_ticker_lbl.custom_minimum_size = Vector2(0, 18)
 	_ticker_lbl.add_theme_font_size_override("font_size", 12)
-	_ticker_lbl.add_theme_color_override("font_color", KTTheme.COL_TEXT)
-	ticker_panel.add_child(_ticker_lbl)
+	_ticker_lbl.add_theme_color_override("font_color", KTTheme.COL_MUTED)
+	_timeline_vb.add_child(_ticker_lbl)
 
 	# Row 3: Action Blades Bar
 	_action_bar = HBoxContainer.new()
@@ -200,6 +214,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if not visible:
 		return
+	_advance_rule_timeline(delta)
 	var dirty := false
 	var i := _ui_sparks.size() - 1
 	while i >= 0:
@@ -369,6 +384,7 @@ func open_shooting(eng: KTEngine, sess: Dictionary, auto_fast_for_ai: bool = fal
 	visible = true
 	play_dice_sfx()
 	_layout_cmd_panel_for_mode(false)
+	_reset_rule_timeline()
 	_spawn_ui_burst(KTTheme.COL_GOLD_BRIGHT, 20)
 
 	var anim_pool: String = "atk_dice"
@@ -398,6 +414,7 @@ func open_melee(eng: KTEngine, sess: Dictionary) -> void:
 	visible = true
 	play_dice_sfx()
 	_layout_cmd_panel_for_mode(false)
+	_reset_rule_timeline()
 	_spawn_ui_burst(KTTheme.COL_CRIMSON, 24)
 	if _killzone != null and _killzone.get_dice_3d() != null:
 		_killzone.get_dice_3d().sync_melee_dice(session, true, false)
@@ -508,16 +525,149 @@ func _rebuild_ui() -> void:
 		_build_melee_ui(att, def)
 
 	_animate_next_roll = false
+	_sync_rule_timeline()
 
-	# Latest Combat Event in Compact 1-Line Ticker
-	var log_arr: Array = session.get("resolution_log", [])
-	if log_arr.is_empty():
-		if _modal_mode == "shooting":
-			_ticker_lbl.text = "👆 直接左键点击桌面天鹅绒骰盘中的 3D 骰子（或上方微章）可选中重掷，按 [Space] 推进！"
-		else:
-			_ticker_lbl.text = "⚔️ 观察桌面左右骰池，点击下方招式按钮触发 3D 骰子挥砍撞击与格挡弹反！"
+
+# ------------------------------------------------------------------------------
+# RULE TIMELINE
+# ------------------------------------------------------------------------------
+
+const _EVENT_KIND_COL := {
+	"upgrade": Color(1.0, 0.84, 0.30), "convert": Color(0.42, 0.86, 1.0), "reroll": Color(0.30, 0.88, 0.60),
+	"block": Color(0.56, 0.72, 1.0), "damage": Color(1.0, 0.40, 0.34), "status": Color(0.80, 0.52, 1.0), "info": Color(0.64, 0.68, 0.74),
+}
+
+
+func _reset_rule_timeline() -> void:
+	_timeline_shown = 0
+	_timeline_timer = 0.0
+	_timeline_playing = false
+	for c in _timeline_vb.get_children():
+		if c != _ticker_lbl:
+			c.queue_free()
+	_ticker_lbl.visible = true
+	if _modal_mode == "shooting":
+		_ticker_lbl.text = "👆 点击桌面 3D 骰子选中后可重掷 · 规则触发会逐条显示在这里"
 	else:
-		_ticker_lbl.text = "▸ " + str(log_arr[log_arr.size() - 1])
+		_ticker_lbl.text = "⚔️ 点击下方招式按钮出击 / 招架 · 规则触发会逐条显示在这里"
+
+
+## Called from _rebuild_ui. Reveals rule_events[_timeline_shown:] one beat at a time; while the
+## timeline is still playing the primary CTA buttons are disabled so the player sees every rule land.
+func _sync_rule_timeline() -> void:
+	var events: Array = session.get("rule_events", [])
+	if events.size() < _timeline_shown:
+		_reset_rule_timeline()
+	if events.size() > _timeline_shown and not _timeline_playing:
+		_timeline_playing = true
+		_timeline_timer = 0.0
+	_set_cta_enabled(not _timeline_playing)
+
+
+func _advance_rule_timeline(delta: float) -> void:
+	if not _timeline_playing:
+		return
+	var events: Array = session.get("rule_events", [])
+	var pause := KTSettings.rule_step_pause()
+	_timeline_timer -= delta
+	while _timeline_shown < events.size() and (_timeline_timer <= 0.0 or pause <= 0.0):
+		_append_timeline_row(events[_timeline_shown])
+		_timeline_shown += 1
+		_timeline_timer = pause
+	if _timeline_shown >= events.size():
+		_timeline_playing = false
+		_set_cta_enabled(true)
+
+
+func _append_timeline_row(ev: Dictionary) -> void:
+	_ticker_lbl.visible = false
+	var rule := str(ev.get("rule", ""))
+	var kind := str(ev.get("kind", "info"))
+	var col: Color = _EVENT_KIND_COL.get(kind, KTTheme.COL_MUTED)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	_timeline_vb.add_child(row)
+
+	var dot := Label.new()
+	dot.text = "▸"
+	dot.add_theme_font_size_override("font_size", 12)
+	dot.add_theme_color_override("font_color", col)
+	row.add_child(dot)
+
+	var text := str(ev.get("text", ""))
+	if not rule.is_empty() and KTGlossary.has(rule):
+		var chip := KTRuleChip.new()
+		chip.setup(rule, col, 11)
+		row.add_child(chip)
+		# strip the rule name / 【】 from the message to avoid saying it twice
+		text = text.replace("【%s】" % rule, "").replace(rule + "：", "").replace(rule + ":", "").replace(rule, "").strip_edges()
+		text = text.trim_prefix("词条触发：").trim_prefix("生效：").trim_prefix("触发！").strip_edges()
+
+	var lbl := Label.new()
+	lbl.text = text
+	lbl.clip_text = true
+	lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	lbl.add_theme_font_size_override("font_size", 12)
+	lbl.add_theme_color_override("font_color", KTTheme.COL_TEXT if kind != "info" else KTTheme.COL_MUTED)
+	row.add_child(lbl)
+
+	# Keep the panel to the last 4 rows
+	var rows := _timeline_vb.get_children().filter(func(c): return c != _ticker_lbl)
+	while rows.size() > 4:
+		(rows.pop_front() as Node).queue_free()
+
+	# Fade/slide in
+	row.modulate.a = 0.0
+	var tw := row.create_tween()
+	tw.tween_property(row, "modulate:a", 1.0, 0.18)
+
+	# Dice feedback: flash the pool the rule touched, with a badge
+	if _killzone != null and _killzone.get_dice_3d() != null:
+		var d3 := _killzone.get_dice_3d()
+		var pool := str(ev.get("pool", ""))
+		var dice: Array = ev.get("dice", [])
+		if pool.is_empty():
+			pool = _guess_pool_for_event(ev)
+		if not pool.is_empty():
+			var badge := rule if not rule.is_empty() else kind
+			if dice.is_empty():
+				d3.flash_rule_on_dice(pool, -1, badge, col, 1.4)
+			else:
+				for di in dice:
+					d3.flash_rule_on_dice(pool, int(di), badge, col, 1.6)
+		if kind in ["upgrade", "convert"]:
+			KTSfx.play("crit_chime", -8.0, 0.05)
+		elif kind == "block":
+			KTSfx.play("parry", -10.0, 0.08)
+		elif kind == "reroll":
+			KTSfx.play("dice_clack", -7.0, 0.1)
+
+
+## Rule events from the engine don't yet carry dice indices for everything; map rule -> pool by name.
+func _guess_pool_for_event(ev: Dictionary) -> String:
+	var rule := str(ev.get("rule", ""))
+	if _modal_mode == "melee":
+		return ""
+	match rule:
+		"严重", "撕裂", "重击", "纯洁印章", "重型遮挡", "毁灭", "平衡", "指挥重掷", "无休":
+			return "atk_dice"
+		"不屈不挠", "超人体格", "穿刺", "恼人韧性", "恶心韧性", "钢铁光环":
+			return "def_dice"
+	return ""
+
+
+func _set_cta_enabled(enabled: bool) -> void:
+	for c in _action_bar.get_children():
+		if c is Button:
+			var b := c as Button
+			if b.has_meta("locked_by_timeline"):
+				if enabled:
+					b.disabled = bool(b.get_meta("was_disabled", false))
+					b.remove_meta("locked_by_timeline")
+			elif not enabled:
+				b.set_meta("was_disabled", b.disabled)
+				b.set_meta("locked_by_timeline", true)
+				b.disabled = true
 
 
 func _build_initiative_ui() -> void:
@@ -626,14 +776,23 @@ func _update_top_vs_banner(att: Dictionary, def: Dictionary) -> void:
 		chips.add_theme_constant_override("v_separation", 2)
 		mid_vb.add_child(chips)
 
+		# Active modifiers as glossary chips: hover = one-line effect, click = full rule text.
+		# Tag strings look like "神射手: 精准+1 & 严重"; the chip shows the source rule (before ':')
+		# and the popover explains it, so the player learns *why* the dice changed.
+		var tag_sets: Array = []
 		if is_melee:
-			for t1 in (session["att"] as Dictionary).get("tags", []):
-				chips.add_child(KTTheme.make_chip(str(t1), KTTheme.COL_IMPERIAL))
-			for t2 in (session["def"] as Dictionary).get("tags", []):
-				chips.add_child(KTTheme.make_chip(str(t2), KTTheme.COL_NURGLE))
+			tag_sets.append([(session["att"] as Dictionary).get("tags", []), KTTheme.COL_IMPERIAL if str(att["side"]) == "A" else KTTheme.COL_NURGLE])
+			tag_sets.append([(session["def"] as Dictionary).get("tags", []), KTTheme.COL_IMPERIAL if str(def["side"]) == "A" else KTTheme.COL_NURGLE])
 		else:
-			for m in session.get("mod_tags", []):
-				chips.add_child(KTTheme.make_chip(str(m), KTTheme.COL_GOLD_BRIGHT))
+			tag_sets.append([session.get("mod_tags", []), Color(0, 0, 0, 0)])
+		for ts in tag_sets:
+			for t in ts[0]:
+				var raw := str(t)
+				var src := raw.split(":")[0].split("：")[0].strip_edges()
+				var chip := KTRuleChip.new()
+				chip.setup(src if KTGlossary.has(src) else raw, ts[1], 11)
+				chip.tooltip_text = raw
+				chips.add_child(chip)
 
 		var right_d := _build_vs_wing(def, def_sub, false)
 		_def_hp_bar = right_d["bar"]
