@@ -20,6 +20,46 @@ const COL_MUTED := Color(0.64, 0.68, 0.74, 1.0)
 
 static var _cached_theme: Theme = null
 static var _cjk_font: SystemFont = null
+static var _display_font: Font = null
+
+# --- Type scale (px). Three roles only: display (banner/title), heading (panel titles), body/caption. ---
+const FS_DISPLAY := 34
+const FS_HEADING := 16
+const FS_BODY := 13
+const FS_CAPTION := 11
+
+
+## Display font for Latin/numeric titles (Teko, condensed). Chinese glyphs fall back to the CJK font
+## automatically because the FontVariation chains them.
+static func get_display_font() -> Font:
+	if _display_font != null:
+		return _display_font
+	var teko_path := "res://assets/fonts/teko_variable.ttf"
+	if ResourceLoader.exists(teko_path):
+		var fv := FontVariation.new()
+		fv.base_font = load(teko_path)
+		fv.fallbacks = [get_cjk_font()]
+		fv.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"): 600}
+		_display_font = fv
+	else:
+		_display_font = get_cjk_font()
+	return _display_font
+
+
+## Three panel tiers so the eye can rank information:
+##   "primary"  thick gold frame + glow       : the one thing you act on now (hotbar, combat console)
+##   "floating" thin brass, translucent       : context HUD (hero card, tooltips)
+##   "tag"      no border, dark pill          : labels, counters
+static func panel(tier: String, accent: Color = COL_GOLD) -> StyleBoxFlat:
+	match tier:
+		"primary":
+			return make_panel_style(Color(0.030, 0.036, 0.052, 0.95), accent, 10, 2, 10, true, accent.lightened(0.2))
+		"floating":
+			return make_panel_style(Color(0.030, 0.036, 0.052, 0.86), Color(accent.r, accent.g, accent.b, 0.55), 8, 1, 8)
+		_:
+			var sb := make_panel_style(Color(0.02, 0.025, 0.04, 0.80), Color(0, 0, 0, 0), 6, 0, 6)
+			sb.shadow_size = 0
+			return sb
 
 
 static func get_cjk_font() -> SystemFont:

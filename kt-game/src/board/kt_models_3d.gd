@@ -395,6 +395,8 @@ static func build_tabletop_base(
 	overlay_mi.material_override = mat_overlay
 	overlay_mi.position = Vector3(0.0, 0.006, 0.0)
 	overlay_mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	overlay_mi.set_meta("kt_grid_overlay", true)
+	overlay_mi.visible = bool(KTSettings.get_value("hud/show_inch_grid"))
 	parent.add_child(overlay_mi)
 
 	# Solid Side Skirt under the Battlemat (`y = -0.08..0.0`? Keep top at `-0.015` so never coplanar with PlaneMesh!)

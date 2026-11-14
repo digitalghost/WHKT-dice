@@ -53,6 +53,7 @@ var _hero_hp_lbl: Label
 var _hero_ap_strip: ApDiamondStrip
 var _hero_order_btn: Button
 var _hero_card_btn: Button
+var _hero_abilities_flow: HFlowContainer
 var _hero_uid: String = ""
 
 var _skill_bar_panel: PanelContainer
@@ -107,49 +108,28 @@ class ScorePipStrip extends Control:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		queue_redraw()
 
+	# Compact numeric readout. The pips/diamonds are gone: CP chips and the VP rail on the table
+	# are the primary display now; this is just the quick-glance number in the display face.
 	func _draw() -> void:
 		var font: Font = KTTheme.get_cjk_font()
+		var dfont: Font = KTTheme.get_display_font()
 		var fcol: Color = KTTheme.COL_IMPERIAL.lightened(0.28) if is_left_team else KTTheme.COL_NURGLE.lightened(0.24)
-
-		# Top Row: VP Text + Glowing VP Hex/Circle Gems
-		var vp_str: String = "VP %d" % vp_val
-		var cp_str: String = "CP %d" % cp_val
+		var vp_num := str(vp_val)
+		var cp_num := str(cp_val)
+		var align := HORIZONTAL_ALIGNMENT_LEFT if is_left_team else HORIZONTAL_ALIGNMENT_RIGHT
+		var x0 := 0.0
+		var w := size.x
+		# "VP" small caps + big number, then "CP" + number, as two tight groups
 		if is_left_team:
-			draw_string(font, Vector2(0.0, 14.0), vp_str, HORIZONTAL_ALIGNMENT_LEFT, 48.0, 13, KTTheme.COL_GOLD_BRIGHT)
-			for i in range(6):
-				var gx: float = 52.0 + float(i) * 14.0
-				var lit: bool = i < vp_val
-				draw_circle(Vector2(gx, 9.5), 4.6, KTTheme.COL_GOLD_BRIGHT if lit else Color(0.16, 0.20, 0.28, 0.85))
-				if lit:
-					draw_circle(Vector2(gx, 9.5), 2.1, Color(1.0, 0.98, 0.82))
-			draw_string(font, Vector2(0.0, 30.0), cp_str, HORIZONTAL_ALIGNMENT_LEFT, 48.0, 12, fcol)
-			for j in range(maxi(4, mini(cp_val, 7))):
-				var dx: float = 52.0 + float(j) * 13.5
-				var dy: float = 25.5
-				var d_lit: bool = j < cp_val
-				var dc: Color = fcol if d_lit else Color(0.16, 0.20, 0.28, 0.8)
-				var r: float = 4.2
-				draw_colored_polygon(PackedVector2Array([
-					Vector2(dx, dy - r), Vector2(dx + r, dy), Vector2(dx, dy + r), Vector2(dx - r, dy)
-				]), dc)
+			draw_string(font, Vector2(x0, 12.0), "VP", HORIZONTAL_ALIGNMENT_LEFT, 24.0, 10, KTTheme.COL_MUTED)
+			draw_string(dfont, Vector2(x0 + 22.0, 24.0), vp_num, HORIZONTAL_ALIGNMENT_LEFT, 30.0, 26, KTTheme.COL_GOLD_BRIGHT)
+			draw_string(font, Vector2(x0 + 58.0, 12.0), "CP", HORIZONTAL_ALIGNMENT_LEFT, 24.0, 10, KTTheme.COL_MUTED)
+			draw_string(dfont, Vector2(x0 + 80.0, 24.0), cp_num, HORIZONTAL_ALIGNMENT_LEFT, 30.0, 26, fcol)
 		else:
-			draw_string(font, Vector2(size.x - 46.0, 14.0), vp_str, HORIZONTAL_ALIGNMENT_RIGHT, 46.0, 13, KTTheme.COL_GOLD_BRIGHT)
-			for i in range(6):
-				var gx_r: float = size.x - 54.0 - float(i) * 14.0
-				var lit_r: bool = i < vp_val
-				draw_circle(Vector2(gx_r, 9.5), 4.6, KTTheme.COL_GOLD_BRIGHT if lit_r else Color(0.16, 0.20, 0.28, 0.85))
-				if lit_r:
-					draw_circle(Vector2(gx_r, 9.5), 2.1, Color(1.0, 0.98, 0.82))
-			draw_string(font, Vector2(size.x - 46.0, 30.0), cp_str, HORIZONTAL_ALIGNMENT_RIGHT, 46.0, 12, fcol)
-			for j in range(maxi(4, mini(cp_val, 7))):
-				var dx_r: float = size.x - 54.0 - float(j) * 13.5
-				var dy_r: float = 25.5
-				var d_lit_r: bool = j < cp_val
-				var dc_r: Color = fcol if d_lit_r else Color(0.16, 0.20, 0.28, 0.8)
-				var r2: float = 4.2
-				draw_colored_polygon(PackedVector2Array([
-					Vector2(dx_r, dy_r - r2), Vector2(dx_r + r2, dy_r), Vector2(dx_r, dy_r + r2), Vector2(dx_r - r2, dy_r)
-				]), dc_r)
+			draw_string(dfont, Vector2(w - 110.0, 24.0), cp_num, HORIZONTAL_ALIGNMENT_RIGHT, 30.0, 26, fcol)
+			draw_string(font, Vector2(w - 78.0, 12.0), "CP", HORIZONTAL_ALIGNMENT_LEFT, 24.0, 10, KTTheme.COL_MUTED)
+			draw_string(dfont, Vector2(w - 52.0, 24.0), vp_num, HORIZONTAL_ALIGNMENT_RIGHT, 30.0, 26, KTTheme.COL_GOLD_BRIGHT)
+			draw_string(font, Vector2(w - 20.0, 12.0), "VP", HORIZONTAL_ALIGNMENT_LEFT, 24.0, 10, KTTheme.COL_MUTED)
 
 
 class ApDiamondStrip extends Control:
@@ -291,7 +271,7 @@ func _on_viewport_resized() -> void:
 		_killzone.target_pitch_deg = 31.0
 		_killzone.cam_pitch_deg = 31.0
 	else:
-		var avail := Rect2(198.0, 70.0, maxf(640.0, vp.x - 396.0), maxf(420.0, vp.y - 208.0))
+		var avail := Rect2(198.0, 56.0, maxf(640.0, vp.x - 396.0), maxf(420.0, vp.y - 216.0))
 		_killzone.fit_board_to_rect(avail, true)
 
 
@@ -382,102 +362,100 @@ func _unhandled_input(event: InputEvent) -> void:
 # FLOATING VIDEO-GAME HUD CONSTRUCTION
 # ==============================================================================
 
+## Top bar (route B): one slim strip. CP / VP / TP numbers now live on the physical table
+## (KTTableProps3D), so the strip only carries what has no physical form: faction crests with
+## active-ploy chips, the phase medallion, and the rulebook buttons. Score pips stay as a compact
+## readout for players who don't want to pan the camera to the table edge.
 func _build_top_broadcast_crest() -> void:
 	_top_crest = PanelContainer.new()
 	_top_crest.anchor_left = 0.5
 	_top_crest.anchor_right = 0.5
 	_top_crest.anchor_top = 0.0
 	_top_crest.anchor_bottom = 0.0
-	_top_crest.offset_left = -420.0
-	_top_crest.offset_right = 420.0
-	_top_crest.offset_top = 8.0
-	_top_crest.offset_bottom = 58.0
-	_top_crest.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.030, 0.038, 0.060, 0.93), KTTheme.COL_GOLD, 12, 2, 8, true, KTTheme.COL_GOLD_BRIGHT)
-	)
+	_top_crest.offset_left = -400.0
+	_top_crest.offset_right = 400.0
+	_top_crest.offset_top = 6.0
+	_top_crest.offset_bottom = 44.0
+	_top_crest.clip_contents = true
+	_top_crest.add_theme_stylebox_override("panel", KTTheme.panel("floating", KTTheme.COL_BRASS))
 	add_child(_top_crest)
 
 	var hb := HBoxContainer.new()
-	hb.add_theme_constant_override("separation", 8)
+	hb.add_theme_constant_override("separation", 10)
+	hb.alignment = BoxContainer.ALIGNMENT_CENTER
 	_top_crest.add_child(hb)
 
-	# --- Left Wing: Angels of Death ---
-	var crest_a := TextureRect.new()
-	crest_a.texture = KTData.load_tex("res://assets/ui/team_mark_imp_aod.png")
-	crest_a.custom_minimum_size = Vector2(32, 32)
-	crest_a.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	crest_a.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	# --- Left: Angels of Death crest (click = rulebook) + ploy chips + pips ---
+	var crest_a := _make_crest_button("res://assets/ui/team_mark_imp_aod.png", "死亡天使 — 阵营规则与计谋原卡 [F1]", KTTheme.COL_IMPERIAL, func(): _card_lightbox.show_team_rulebook("IMP-AOD"))
 	hb.add_child(crest_a)
 
 	_team_a_pips = ScorePipStrip.new()
 	_team_a_pips.setup(0, 3, true)
+	_team_a_pips.custom_minimum_size = Vector2(128, 30)
 	hb.add_child(_team_a_pips)
-
-	var btn_rules_a := Button.new()
-	btn_rules_a.text = "帝国卡"
-	btn_rules_a.tooltip_text = "[F1] 查阅死亡天使阵营规则原卡"
-	KTTheme.apply_accent_button(btn_rules_a, KTTheme.COL_IMPERIAL, 0.22)
-	KTWidgets.attach_button_juice(btn_rules_a, 1.06, "card_lift")
-	btn_rules_a.pressed.connect(func(): _card_lightbox.show_team_rulebook("IMP-AOD"))
-	hb.add_child(btn_rules_a)
 
 	_team_a_ploys_box = HBoxContainer.new()
 	_team_a_ploys_box.add_theme_constant_override("separation", 4)
 	_team_a_ploys_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	hb.add_child(_team_a_ploys_box)
 
-	# --- Center Medallion: Turning Point & Phase Crest ---
+	# --- Centre: phase medallion (TP + phase + acting side) ---
 	var center_med := PanelContainer.new()
-	center_med.custom_minimum_size = Vector2(208, 36)
-	center_med.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.08, 0.065, 0.03, 0.96), KTTheme.COL_GOLD_BRIGHT, 8, 1, 5, true)
-	)
+	center_med.custom_minimum_size = Vector2(216, 30)
+	center_med.add_theme_stylebox_override("panel", KTTheme.panel("primary", KTTheme.COL_GOLD))
 	hb.add_child(center_med)
 
-	var cm_vb := VBoxContainer.new()
-	cm_vb.alignment = BoxContainer.ALIGNMENT_CENTER
-	cm_vb.add_theme_constant_override("separation", 0)
-	center_med.add_child(cm_vb)
+	var cm_hb := HBoxContainer.new()
+	cm_hb.alignment = BoxContainer.ALIGNMENT_CENTER
+	cm_hb.add_theme_constant_override("separation", 8)
+	center_med.add_child(cm_hb)
 
 	_tp_title_lbl = Label.new()
-	_tp_title_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_tp_title_lbl.add_theme_font_size_override("font_size", 13)
+	_tp_title_lbl.add_theme_font_override("font", KTTheme.get_display_font())
+	_tp_title_lbl.add_theme_font_size_override("font_size", 22)
 	_tp_title_lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
-	cm_vb.add_child(_tp_title_lbl)
+	cm_hb.add_child(_tp_title_lbl)
+
+	var sep := ColorRect.new()
+	sep.custom_minimum_size = Vector2(1, 16)
+	sep.color = Color(KTTheme.COL_BRASS.r, KTTheme.COL_BRASS.g, KTTheme.COL_BRASS.b, 0.6)
+	cm_hb.add_child(sep)
 
 	_phase_sub_lbl = Label.new()
-	_phase_sub_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_phase_sub_lbl.add_theme_font_size_override("font_size", 11)
+	_phase_sub_lbl.add_theme_font_size_override("font_size", KTTheme.FS_BODY)
 	_phase_sub_lbl.add_theme_color_override("font_color", KTTheme.COL_TEXT)
-	cm_vb.add_child(_phase_sub_lbl)
+	cm_hb.add_child(_phase_sub_lbl)
 
-	# --- Right Wing: Plague Marines ---
+	# --- Right: ploy chips + pips + Plague Marines crest ---
 	_team_b_ploys_box = HBoxContainer.new()
 	_team_b_ploys_box.alignment = BoxContainer.ALIGNMENT_END
 	_team_b_ploys_box.add_theme_constant_override("separation", 4)
 	_team_b_ploys_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	hb.add_child(_team_b_ploys_box)
 
-	var btn_rules_b := Button.new()
-	btn_rules_b.text = "纳垢卡"
-	btn_rules_b.tooltip_text = "[F2] 查阅瘟疫战士阵营规则原卡"
-	KTTheme.apply_accent_button(btn_rules_b, KTTheme.COL_NURGLE, 0.22)
-	KTWidgets.attach_button_juice(btn_rules_b, 1.06, "card_lift")
-	btn_rules_b.pressed.connect(func(): _card_lightbox.show_team_rulebook("CHAOS-PM"))
-	hb.add_child(btn_rules_b)
-
 	_team_b_pips = ScorePipStrip.new()
 	_team_b_pips.setup(0, 3, false)
+	_team_b_pips.custom_minimum_size = Vector2(128, 30)
 	hb.add_child(_team_b_pips)
 
-	var crest_b := TextureRect.new()
-	crest_b.texture = KTData.load_tex("res://assets/ui/team_mark_chaos_pm.png")
-	crest_b.custom_minimum_size = Vector2(32, 32)
-	crest_b.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	crest_b.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	var crest_b := _make_crest_button("res://assets/ui/team_mark_chaos_pm.png", "瘟疫战士 — 阵营规则与计谋原卡 [F2]", KTTheme.COL_NURGLE, func(): _card_lightbox.show_team_rulebook("CHAOS-PM"))
 	hb.add_child(crest_b)
+
+
+func _make_crest_button(tex_path: String, tip: String, accent: Color, on_press: Callable) -> Button:
+	var b := Button.new()
+	b.custom_minimum_size = Vector2(34, 30)
+	b.tooltip_text = tip
+	b.icon = KTData.load_tex(tex_path)
+	b.expand_icon = true
+	b.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	b.flat = true
+	b.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+	b.add_theme_stylebox_override("hover", KTTheme.make_btn_style(Color(accent.r * 0.25, accent.g * 0.25, accent.b * 0.25, 0.9), accent, 6, 2, 2, true))
+	b.add_theme_stylebox_override("pressed", KTTheme.make_btn_style(Color(accent.r * 0.4, accent.g * 0.4, accent.b * 0.4, 1.0), accent, 6, 2, 2, true))
+	KTWidgets.attach_button_juice(b, 1.1, "card_lift")
+	b.pressed.connect(on_press)
+	return b
 
 
 func _build_sys_micro_toolbar() -> void:
@@ -486,14 +464,11 @@ func _build_sys_micro_toolbar() -> void:
 	_sys_bar.anchor_right = 1.0
 	_sys_bar.anchor_top = 0.0
 	_sys_bar.anchor_bottom = 0.0
-	_sys_bar.offset_left = -400.0
-	_sys_bar.offset_right = -10.0
-	_sys_bar.offset_top = 10.0
-	_sys_bar.offset_bottom = 50.0
-	_sys_bar.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.032, 0.040, 0.062, 0.90), KTTheme.COL_BRASS, 10, 1, 5)
-	)
+	_sys_bar.offset_left = -342.0
+	_sys_bar.offset_right = -8.0
+	_sys_bar.offset_top = 8.0
+	_sys_bar.offset_bottom = 44.0
+	_sys_bar.add_theme_stylebox_override("panel", KTTheme.panel("tag"))
 	add_child(_sys_bar)
 
 	var hb := HBoxContainer.new()
@@ -501,59 +476,39 @@ func _build_sys_micro_toolbar() -> void:
 	hb.add_theme_constant_override("separation", 4)
 	_sys_bar.add_child(hb)
 
+	# Icon-only system buttons. Camera orbit lives on Q/E + right-drag; the two orbit buttons stay for
+	# mouse-only players but as glyphs. Everything is 28px tall so the strip reads as one quiet row.
 	var specs: Array[Dictionary] = [
-		{"t": "⟲Q", "tip": "左旋视角 35° [Q / 右键拖拽]", "cb": func(): _killzone.orbit_by(-35.0)},
-		{"t": "等距", "tip": "标准 2.55D 等距视角 [F]", "cb": func(): _killzone.set_camera_angle_preset("iso")},
-		{"t": "低角", "tip": "微缩模型低角特写", "cb": func(): _killzone.set_camera_angle_preset("low")},
-		{"t": "E⟳", "tip": "右旋视角 35° [E]", "cb": func(): _killzone.orbit_by(35.0)},
+		{"t": "⟲", "tip": "左旋视角 [Q / 右键拖拽]", "cb": func(): _killzone.orbit_by(-35.0)},
+		{"t": "◈", "tip": "等距俯视 [F]", "cb": func(): _killzone.set_camera_angle_preset("iso")},
+		{"t": "◢", "tip": "低角特写", "cb": func(): _killzone.set_camera_angle_preset("low")},
+		{"t": "⟳", "tip": "右旋视角 [E]", "cb": func(): _killzone.orbit_by(35.0)},
+		{"t": "↶", "tip": "撤回上一步 [Z]", "cb": _on_undo_pressed, "undo": true},
+		{"t": "≣", "tip": "战报", "cb": func(): _log_drawer.visible = not _log_drawer.visible},
+		{"t": "?", "tip": "热键与规则指南", "cb": func(): _help_modal.visible = true},
+		{"t": "⚙", "tip": "设置", "cb": func(): _open_settings()},
+		{"t": "☰", "tip": "返回主菜单", "cb": func():
+			_title_overlay.visible = true
+			_on_viewport_resized()
+			_refresh_all_ui()},
 	]
 	for sp in specs:
 		var b := Button.new()
 		b.text = str(sp["t"])
 		b.tooltip_text = str(sp["tip"])
-		b.add_theme_font_size_override("font_size", 11)
-		KTWidgets.attach_button_juice(b, 1.07)
+		b.custom_minimum_size = Vector2(30, 28)
+		b.add_theme_font_size_override("font_size", 14)
+		b.add_theme_stylebox_override("normal", KTTheme.make_btn_style(Color(0.08, 0.09, 0.12, 0.85), Color(KTTheme.COL_BRASS.r, KTTheme.COL_BRASS.g, KTTheme.COL_BRASS.b, 0.45), 5, 6, 3))
+		KTWidgets.attach_button_juice(b, 1.1)
 		var cb_fn: Callable = sp["cb"]
 		b.pressed.connect(cb_fn)
 		hb.add_child(b)
-
-	_undo_btn = Button.new()
-	_undo_btn.text = "↶"
-	_undo_btn.add_theme_font_size_override("font_size", 11)
-	_undo_btn.tooltip_text = "撤回上一步行动 [Z]"
-	KTWidgets.attach_button_juice(_undo_btn, 1.08)
-	_undo_btn.pressed.connect(_on_undo_pressed)
-	hb.add_child(_undo_btn)
-
-	var btn_log := Button.new()
-	btn_log.text = "战报"
-	btn_log.add_theme_font_size_override("font_size", 11)
-	btn_log.tooltip_text = "展开/收起战斗战报"
-	KTWidgets.attach_button_juice(btn_log, 1.08)
-	btn_log.pressed.connect(func(): _log_drawer.visible = not _log_drawer.visible)
-	hb.add_child(btn_log)
-
-	var btn_help := Button.new()
-	btn_help.text = "指南"
-	btn_help.add_theme_font_size_override("font_size", 11)
-	btn_help.tooltip_text = "热键与规则指南"
-	KTWidgets.attach_button_juice(btn_help, 1.08)
-	btn_help.pressed.connect(func(): _help_modal.visible = true)
-	hb.add_child(btn_help)
-
-	var btn_menu := Button.new()
-	btn_menu.text = "菜单"
-	btn_menu.add_theme_font_size_override("font_size", 11)
-	btn_menu.tooltip_text = "返回战术主菜单"
-	KTWidgets.attach_button_juice(btn_menu, 1.08)
-	btn_menu.pressed.connect(func():
-		_title_overlay.visible = true
-		_on_viewport_resized()
-		_refresh_all_ui()
-	)
-	hb.add_child(btn_menu)
+		if bool(sp.get("undo", false)):
+			_undo_btn = b
 
 
+## Guidance line: sits just under the top strip, no border, fades in only when the text changes
+## and then settles to ~70% so it reads as a whisper rather than a second header.
 func _build_tactical_pill() -> void:
 	_tactical_pill = PanelContainer.new()
 	_tactical_pill.anchor_left = 0.5
@@ -562,13 +517,10 @@ func _build_tactical_pill() -> void:
 	_tactical_pill.anchor_bottom = 0.0
 	_tactical_pill.offset_left = -330.0
 	_tactical_pill.offset_right = 330.0
-	_tactical_pill.offset_top = 62.0
-	_tactical_pill.offset_bottom = 90.0
+	_tactical_pill.offset_top = 52.0
+	_tactical_pill.offset_bottom = 76.0
 	_tactical_pill.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_tactical_pill.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.025, 0.032, 0.050, 0.78), Color(0.55, 0.46, 0.24, 0.65), 12, 1, 5)
-	)
+	_tactical_pill.add_theme_stylebox_override("panel", KTTheme.panel("tag"))
 	add_child(_tactical_pill)
 
 	var hb := HBoxContainer.new()
@@ -579,8 +531,8 @@ func _build_tactical_pill() -> void:
 
 	_guide_lbl = Label.new()
 	_guide_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_guide_lbl.add_theme_font_size_override("font_size", 12)
-	_guide_lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	_guide_lbl.add_theme_font_size_override("font_size", KTTheme.FS_CAPTION)
+	_guide_lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT.lerp(KTTheme.COL_TEXT, 0.35))
 	hb.add_child(_guide_lbl)
 
 	_hover_lbl = Label.new()
@@ -598,8 +550,8 @@ func _build_edge_squad_medallions() -> void:
 	_left_squad_box.anchor_bottom = 0.0
 	_left_squad_box.offset_left = 10.0
 	_left_squad_box.offset_right = 198.0
-	_left_squad_box.offset_top = 74.0
-	_left_squad_box.offset_bottom = 390.0
+	_left_squad_box.offset_top = 80.0
+	_left_squad_box.offset_bottom = 396.0
 	_left_squad_box.add_theme_constant_override("separation", 5)
 	_left_squad_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_left_squad_box)
@@ -611,8 +563,8 @@ func _build_edge_squad_medallions() -> void:
 	_right_squad_box.anchor_bottom = 0.0
 	_right_squad_box.offset_left = -198.0
 	_right_squad_box.offset_right = -10.0
-	_right_squad_box.offset_top = 74.0
-	_right_squad_box.offset_bottom = 390.0
+	_right_squad_box.offset_top = 80.0
+	_right_squad_box.offset_bottom = 396.0
 	_right_squad_box.add_theme_constant_override("separation", 5)
 	_right_squad_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_right_squad_box)
@@ -624,15 +576,14 @@ func _build_hero_unit_console() -> void:
 	_hero_panel.anchor_right = 0.0
 	_hero_panel.anchor_top = 1.0
 	_hero_panel.anchor_bottom = 1.0
+	# Hero card and hotbar form ONE bottom console: hero on the left (floating tier), hotbar
+	# immediately to its right (primary tier) sharing the same baseline and height.
 	_hero_panel.offset_left = 14.0
-	_hero_panel.offset_right = 376.0
-	_hero_panel.offset_top = -148.0
-	_hero_panel.offset_bottom = -14.0
+	_hero_panel.offset_right = 356.0
+	_hero_panel.offset_top = -150.0
+	_hero_panel.offset_bottom = -12.0
 	_hero_panel.visible = false
-	_hero_panel.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.032, 0.042, 0.066, 0.94), KTTheme.COL_GOLD, 12, 2, 10, true, KTTheme.COL_GOLD_BRIGHT)
-	)
+	_hero_panel.add_theme_stylebox_override("panel", KTTheme.panel("floating", KTTheme.COL_BRASS))
 	add_child(_hero_panel)
 
 	var hb := HBoxContainer.new()
@@ -641,7 +592,7 @@ func _build_hero_unit_console() -> void:
 
 	# Sculpted Standee Bust Frame
 	var port_frame := PanelContainer.new()
-	port_frame.custom_minimum_size = Vector2(84, 108)
+	port_frame.custom_minimum_size = Vector2(76, 92)
 	port_frame.add_theme_stylebox_override(
 		"panel",
 		KTTheme.make_panel_style(Color(0.06, 0.08, 0.12, 0.96), KTTheme.COL_BRASS, 8, 1, 3)
@@ -649,7 +600,7 @@ func _build_hero_unit_console() -> void:
 	hb.add_child(port_frame)
 
 	var port_stack := Control.new()
-	port_stack.custom_minimum_size = Vector2(76, 100)
+	port_stack.custom_minimum_size = Vector2(68, 84)
 	port_frame.add_child(port_stack)
 
 	_hero_portrait = TextureRect.new()
@@ -682,13 +633,14 @@ func _build_hero_unit_console() -> void:
 
 	_hero_name_lbl = Label.new()
 	_hero_name_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_hero_name_lbl.add_theme_font_size_override("font_size", 15)
+	_hero_name_lbl.add_theme_font_size_override("font_size", KTTheme.FS_HEADING)
 	_hero_name_lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
 	_hero_name_lbl.clip_text = true
 	top_r.add_child(_hero_name_lbl)
 
 	_hero_hp_lbl = Label.new()
-	_hero_hp_lbl.add_theme_font_size_override("font_size", 12)
+	_hero_hp_lbl.add_theme_font_override("font", KTTheme.get_display_font())
+	_hero_hp_lbl.add_theme_font_size_override("font_size", 20)
 	_hero_hp_lbl.add_theme_color_override("font_color", KTTheme.COL_EMERALD.lightened(0.2))
 	top_r.add_child(_hero_hp_lbl)
 
@@ -710,6 +662,12 @@ func _build_hero_unit_console() -> void:
 	_hero_stat_lbl.add_theme_font_size_override("font_size", 11)
 	_hero_stat_lbl.add_theme_color_override("font_color", KTTheme.COL_MUTED)
 	mid_r.add_child(_hero_stat_lbl)
+
+	# Ability chips: faction/operative rules as glossary chips (hover = effect, click = rule text)
+	_hero_abilities_flow = HFlowContainer.new()
+	_hero_abilities_flow.add_theme_constant_override("h_separation", 4)
+	_hero_abilities_flow.add_theme_constant_override("v_separation", 2)
+	vb.add_child(_hero_abilities_flow)
 
 	var bot_r := HBoxContainer.new()
 	bot_r.add_theme_constant_override("separation", 6)
@@ -743,20 +701,17 @@ func _build_hero_unit_console() -> void:
 
 func _build_skill_hotbar() -> void:
 	_skill_bar_panel = PanelContainer.new()
-	_skill_bar_panel.anchor_left = 0.5
-	_skill_bar_panel.anchor_right = 0.5
+	_skill_bar_panel.anchor_left = 0.0
+	_skill_bar_panel.anchor_right = 0.0
 	_skill_bar_panel.anchor_top = 1.0
 	_skill_bar_panel.anchor_bottom = 1.0
-	_skill_bar_panel.offset_left = -320.0
-	_skill_bar_panel.offset_right = 320.0
-	_skill_bar_panel.offset_top = -108.0
+	_skill_bar_panel.offset_left = 364.0
+	_skill_bar_panel.offset_right = 1060.0
+	_skill_bar_panel.offset_top = -150.0
 	_skill_bar_panel.offset_bottom = -12.0
-	_skill_bar_panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_skill_bar_panel.grow_horizontal = Control.GROW_DIRECTION_END
 	_skill_bar_panel.visible = false
-	_skill_bar_panel.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.028, 0.036, 0.056, 0.93), KTTheme.COL_GOLD, 12, 2, 7, true, KTTheme.COL_GOLD_BRIGHT)
-	)
+	_skill_bar_panel.add_theme_stylebox_override("panel", KTTheme.panel("primary", KTTheme.COL_GOLD))
 	add_child(_skill_bar_panel)
 
 	_skill_bar_hb = HBoxContainer.new()
@@ -767,20 +722,18 @@ func _build_skill_hotbar() -> void:
 
 func _build_weapon_cards_strip() -> void:
 	_weapon_strip = PanelContainer.new()
-	_weapon_strip.anchor_left = 0.5
-	_weapon_strip.anchor_right = 0.5
+	# Weapon cards pop up directly above the hotbar's shoot slot, like a drawer sliding out of it.
+	_weapon_strip.anchor_left = 0.0
+	_weapon_strip.anchor_right = 0.0
 	_weapon_strip.anchor_top = 1.0
 	_weapon_strip.anchor_bottom = 1.0
-	_weapon_strip.offset_left = -310.0
-	_weapon_strip.offset_right = 310.0
-	_weapon_strip.offset_top = -176.0
-	_weapon_strip.offset_bottom = -114.0
-	_weapon_strip.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_weapon_strip.offset_left = 364.0
+	_weapon_strip.offset_right = 1060.0
+	_weapon_strip.offset_top = -248.0
+	_weapon_strip.offset_bottom = -156.0
+	_weapon_strip.grow_horizontal = Control.GROW_DIRECTION_END
 	_weapon_strip.visible = false
-	_weapon_strip.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.032, 0.042, 0.066, 0.94), KTTheme.COL_GOLD_BRIGHT, 10, 1, 6)
-	)
+	_weapon_strip.add_theme_stylebox_override("panel", KTTheme.panel("floating", KTTheme.COL_CRIMSON))
 	add_child(_weapon_strip)
 
 	_weapon_hb = HBoxContainer.new()
@@ -1293,6 +1246,107 @@ func _build_title_team_card(team_id: String, is_aod: bool) -> PanelContainer:
 	return p
 
 
+## Settings sheet: the handful of KTSettings keys, each with a plain control. Opened from ⚙.
+var _settings_modal: Control = null
+
+func _open_settings() -> void:
+	if _settings_modal == null:
+		_settings_modal = Control.new()
+		_settings_modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		_settings_modal.z_index = 150
+		add_child(_settings_modal)
+
+		var bg := ColorRect.new()
+		bg.color = Color(0.02, 0.025, 0.035, 0.80)
+		bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		bg.gui_input.connect(func(ev: InputEvent):
+			if ev is InputEventMouseButton and ev.pressed:
+				_settings_modal.visible = false
+		)
+		_settings_modal.add_child(bg)
+
+		var center := CenterContainer.new()
+		center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_settings_modal.add_child(center)
+
+		var card := PanelContainer.new()
+		card.custom_minimum_size = Vector2(520, 0)
+		card.add_theme_stylebox_override("panel", KTTheme.panel("primary", KTTheme.COL_GOLD))
+		center.add_child(card)
+
+		var vb := VBoxContainer.new()
+		vb.add_theme_constant_override("separation", 14)
+		card.add_child(vb)
+
+		var hdr := Label.new()
+		hdr.text = "设置"
+		hdr.add_theme_font_override("font", KTTheme.get_display_font())
+		hdr.add_theme_font_size_override("font_size", KTTheme.FS_DISPLAY)
+		hdr.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+		vb.add_child(hdr)
+
+		# Rule step pause
+		var row1 := _settings_row(vb, "结算时每条规则停留", "骰子落定后，每条触发的规则依次显示并高亮对应骰子。0 为全部一次显示。")
+		var pause_opt := OptionButton.new()
+		for v in [0.0, 0.15, 0.3, 0.5, 0.8]:
+			pause_opt.add_item(("关闭" if v == 0.0 else "%.2f 秒" % v).replace(".00", "").replace("0 秒", " 秒"), int(v * 100))
+		var cur_p := int(round(KTSettings.rule_step_pause() * 100.0))
+		for i in range(pause_opt.item_count):
+			if pause_opt.get_item_id(i) == cur_p:
+				pause_opt.select(i)
+		pause_opt.item_selected.connect(func(i: int): KTSettings.set_value("combat/rule_step_pause", float(pause_opt.get_item_id(i)) / 100.0))
+		row1.add_child(pause_opt)
+
+		# Kill cam
+		var row2 := _settings_row(vb, "击杀慢放镜头", "特工阵亡时短暂慢放并推近。")
+		var kc := CheckButton.new()
+		kc.button_pressed = bool(KTSettings.get_value("combat/kill_cam"))
+		kc.toggled.connect(func(on: bool): KTSettings.set_value("combat/kill_cam", on))
+		row2.add_child(kc)
+
+		# Inch grid
+		var row3 := _settings_row(vb, "显示英寸格线", "桌面上的 1\" 战术格与 6\" 铜线。")
+		var grid := CheckButton.new()
+		grid.button_pressed = bool(KTSettings.get_value("hud/show_inch_grid"))
+		grid.toggled.connect(func(on: bool):
+			KTSettings.set_value("hud/show_inch_grid", on)
+			_killzone.set_grid_visible(on)
+		)
+		row3.add_child(grid)
+
+		var ok := Button.new()
+		ok.text = "完成"
+		KTTheme.apply_accent_button(ok, KTTheme.COL_GOLD_BRIGHT, 0.30)
+		KTWidgets.attach_button_juice(ok, 1.04)
+		ok.pressed.connect(func(): _settings_modal.visible = false)
+		vb.add_child(ok)
+	_settings_modal.visible = true
+	move_child(_settings_modal, get_child_count() - 1)
+
+
+func _settings_row(parent: Control, title: String, hint: String) -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 12)
+	parent.add_child(row)
+	var tv := VBoxContainer.new()
+	tv.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	tv.add_theme_constant_override("separation", 1)
+	row.add_child(tv)
+	var t := Label.new()
+	t.text = title
+	t.add_theme_font_size_override("font_size", KTTheme.FS_HEADING)
+	t.add_theme_color_override("font_color", KTTheme.COL_TEXT)
+	tv.add_child(t)
+	var h := Label.new()
+	h.text = hint
+	h.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	h.add_theme_font_size_override("font_size", KTTheme.FS_CAPTION)
+	h.add_theme_color_override("font_color", KTTheme.COL_MUTED)
+	tv.add_child(h)
+	return row
+
+
 func _build_help_modal() -> void:
 	_help_modal = Control.new()
 	_help_modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -1490,9 +1544,10 @@ func _refresh_all_ui() -> void:
 		"FIREFIGHT": "交战阶段 · " + turn_name,
 		"GAME_OVER": "战局终了",
 	}.get(phase, phase))
-	_tp_title_lbl.text = "⚜️ 转折点 TP %d / 4" % tp
+	_tp_title_lbl.text = "TP %d/4" % tp
 	_phase_sub_lbl.text = phase_cn
 	_undo_btn.disabled = not engine.can_undo()
+	_killzone.sync_table_props()
 
 	var phase_sig: String = "%d_%s" % [tp, phase]
 	if phase_sig != _last_phase_sig:
@@ -1895,6 +1950,24 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 	var ap_base: int = int(op["apl_base"])
 	_hero_ap_strip.setup(ap_left, ap_base)
 	_hero_stat_lbl.text = "移 %.0f\" · 防 %d+" % [engine.get_effective_move_inches(op, "reposition"), int(op["save"])]
+
+	# Abilities as rule chips (skip the shared faction rule "阿斯塔特" to save space; it's on the crest)
+	for c in _hero_abilities_flow.get_children():
+		c.queue_free()
+	var ab_names: Array = []
+	for ab in op.get("abilities", []):
+		var nm := str(ab.get("name", "")) if ab is Dictionary else str(ab)
+		if not nm.is_empty() and nm != "阿斯塔特" and not ab_names.has(nm):
+			ab_names.append(nm)
+	if bool(op["poisoned"]):
+		ab_names.append("毒素指示物")
+	if int(op["wounds_cur"]) * 2 < int(op["wounds_max"]):
+		ab_names.append("受创")
+	for nm in ab_names.slice(0, 4):
+		var chip := KTRuleChip.new()
+		chip.setup(str(nm), Color(0, 0, 0, 0), 10)
+		_hero_abilities_flow.add_child(chip)
+	_hero_abilities_flow.visible = not ab_names.is_empty()
 
 	var can_flip_order: bool = op["actions_taken"].is_empty() and not bool(engine.state["active_is_counteract"])
 	_hero_order_btn.disabled = not can_flip_order

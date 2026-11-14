@@ -44,6 +44,7 @@ var _static_map_root: Node3D
 var _ops_root: Node3D
 var _vfx: KTVfx3D
 var _dice_3d: KTDice3D
+var _table_props: KTTableProps3D = null
 var _imm_lines: ImmediateMesh
 var _imm_tris: ImmediateMesh
 var _mat_lines: StandardMaterial3D
@@ -324,6 +325,12 @@ func _rebuild_3d_map_if_needed() -> void:
 	var bh := float(map_d["height"])
 	Models3D.build_tabletop_base(_static_map_root, bw, bh, _bg_tex, map_d["drop_zone_a"], map_d["drop_zone_b"])
 
+	# Physical bookkeeping on the apron: CP chip stacks, VP track, TP block, datacard mats
+	if _table_props == null or not is_instance_valid(_table_props):
+		_table_props = KTTableProps3D.new()
+		_world_root.add_child(_table_props)
+	_table_props.build(bw, bh)
+
 	for t in map_d["terrains"]:
 		Models3D.build_terrain_piece(_static_map_root, t, bw, bh)
 
@@ -430,10 +437,13 @@ func fit_board_to_rect(_view_rect: Rect2, instant: bool = false) -> void:
 
 
 func reset_isometric_view(instant: bool = false) -> void:
-	target_focus = Vector3(-1.3, 0.6, 2.1)
+	# Focus a little south of centre and pull back slightly so the near apron (VP rail, TP block,
+	# CP chips, datacard mat) is in frame under the board: the table is part of the picture.
+	# Nudged east so the right-hand apron (CP chips, datacard, VP rail, TP block) stays in frame.
+	target_focus = Vector3(1.4, 0.5, 2.6)
 	target_yaw_deg = -24.0
-	target_pitch_deg = 41.0
-	target_dist = 56.5
+	target_pitch_deg = 43.0
+	target_dist = 61.0
 	if instant:
 		cam_focus = target_focus
 		cam_yaw_deg = target_yaw_deg
@@ -574,6 +584,40 @@ func trigger_shake(amount: float = 7.0) -> void:
 	_shake_strength = maxf(_shake_strength, amount)
 
 
+func get_table_props() -> KTTableProps3D:
+	return _table_props
+
+
+var _grid_overlay_mi: MeshInstance3D = null
+
+func set_grid_visible(on: bool) -> void:
+	if _grid_overlay_mi == null or not is_instance_valid(_grid_overlay_mi):
+		for c in _static_map_root.get_children():
+			if c is MeshInstance3D and c.has_meta("kt_grid_overlay"):
+				_grid_overlay_mi = c
+				break
+	if _grid_overlay_mi != null:
+		_grid_overlay_mi.visible = on
+
+
+## Push CP / VP / TP and the active datacards onto the physical table props.
+func sync_table_props() -> void:
+	if engine == null or engine.state.is_empty() or _table_props == null:
+		return
+	var cp := {}
+	var vp := {}
+	var cards := {}
+	for side in ["A", "B"]:
+		cp[side] = int(engine.state["sides"][side]["cp"])
+		vp[side] = engine.get_total_vp(side)
+	var act := engine.get_op(str(engine.state.get("active_op_uid", "")))
+	if not act.is_empty():
+		var card_paths: Array = act.get("cards", [])
+		var tex: Texture2D = KTData.load_tex(str(card_paths[0])) if not card_paths.is_empty() else null
+		cards[str(act["side"])] = {"tex": tex, "name": str(act["name"])}
+	_table_props.sync(cp, vp, int(engine.state.get("tp", 1)), cards)
+
+
 func get_dice_3d() -> KTDice3D:
 	return _dice_3d
 
@@ -629,9 +673,7 @@ func clear_transient_combat_fx() -> void:
 func restore_post_combat_camera() -> void:
 	if _dice_3d != null:
 		_dice_3d.place_tray_idle(false)
-	target_focus = Vector3(-1.3, 0.6, 2.1)
-	target_dist = 56.5
-	target_pitch_deg = 41.0
+	reset_isometric_view(false)
 
 
 func play_ranged_salvo_vfx(att_uid: String, def_uid: String, weapon: Dictionary) -> void:
@@ -765,6 +807,8 @@ const KILL_CAM_DUR: float = 0.9
 func _start_kill_cam(victim_uid: String) -> void:
 	var v := engine.get_op(victim_uid)
 	if v.is_empty():
+		return
+	if not bool(KTSettings.get_value("combat/kill_cam")):
 		return
 	_kill_cam_t = KILL_CAM_DUR
 	Engine.time_scale = 0.35
@@ -1310,15 +1354,24 @@ func _draw_projected_hud() -> void:
 			_hud_overlay.draw_rect(Rect2(pad_v, 0, 18.0, vp_sz.y), Color(0.01, 0.014, 0.024, alpha_v), true)
 			_hud_overlay.draw_rect(Rect2(vp_sz.x - pad_v - 18.0, 0, 18.0, vp_sz.y), Color(0.01, 0.014, 0.024, alpha_v), true)
 
-	# 1. Vantage Stronghold 2nd-Floor Elevation Labels (+3.5")
+	# 1. Vantage deck labels: only while moving (when the climb matters) or when an operative stands up there.
+	var show_vantage_tags := interaction_mode == "move"
 	for t in engine.state["map"]["terrains"]:
 		if str(t["kind"]) == "vantage":
 			var rect: Rect2 = t["rect"]
 			var elev := float(t["elevation"])
+			var occupied := false
+			if not show_vantage_tags:
+				for op_v in engine.state["operatives"]:
+					if not bool(op_v["incapacitated"]) and rect.has_point(op_v["pos"]):
+						occupied = true
+						break
+			if not (show_vantage_tags or occupied):
+				continue
 			var corner_3d := inches_to_world(Vector2(rect.position.x + 0.9, rect.position.y + 0.45), elev + 0.35)
 			if not _cam.is_position_behind(corner_3d):
 				var sp := _cam.unproject_position(corner_3d)
-				_draw_pill_2d(sp, "▲ 二层制高点 (+%.1f\")" % elev, KTTheme.COL_GOLD_BRIGHT, 12, 0.86)
+				_draw_pill_2d(sp, "▲ +%.1f\"" % elev, KTTheme.COL_GOLD_BRIGHT, 11, 0.70)
 
 	# 2. Objective Control Beacons
 	for obj in engine.state["map"]["objectives"]:
@@ -1336,12 +1389,19 @@ func _draw_projected_hud() -> void:
 			col = KTTheme.COL_IMPERIAL
 		elif ctrl == "B" or (ctrl == "" and sec == "B"):
 			col = KTTheme.COL_NURGLE
-		var tag := "%s%s  APL %d:%d" % [
-			oid.replace("obj_", "信标#"),
-			"★" if not sec.is_empty() else "",
-			int(st["apl_a"]), int(st["apl_b"])
-		]
-		_draw_pill_2d(sp_o, tag, col, 12, 0.85)
+		# Objective marker: a numbered disc in the controller's colour. The APL tug-of-war shows only
+		# when someone is actually contesting it; a secured flag shows as a small star.
+		var num := oid.replace("obj_", "")
+		var contested := int(st["apl_a"]) > 0 or int(st["apl_b"]) > 0
+		var rad := 11.0
+		_hud_overlay.draw_circle(sp_o, rad + 1.5, Color(0, 0, 0, 0.7))
+		_hud_overlay.draw_circle(sp_o, rad, Color(col.r * 0.25, col.g * 0.25, col.b * 0.25, 0.92))
+		_hud_overlay.draw_arc(sp_o, rad, 0.0, TAU, 32, col, 1.6, true)
+		_hud_overlay.draw_string(font, sp_o + Vector2(-rad, 5.0), num, HORIZONTAL_ALIGNMENT_CENTER, rad * 2.0, 12, col.lightened(0.35))
+		if not sec.is_empty():
+			_hud_overlay.draw_string(font, sp_o + Vector2(rad - 2.0, -rad + 4.0), "★", HORIZONTAL_ALIGNMENT_LEFT, -1, 10, KTTheme.COL_GOLD_BRIGHT)
+		if contested:
+			_draw_pill_2d(sp_o + Vector2(0.0, 20.0), "APL %d : %d" % [int(st["apl_a"]), int(st["apl_b"])], col, 11, 0.80)
 
 	# 3. Operative Nameplates, HP Bars, Order Icons & Elevation Badges!
 	var active_uid := str(engine.state.get("active_op_uid", ""))
