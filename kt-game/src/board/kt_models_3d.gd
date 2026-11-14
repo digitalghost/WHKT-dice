@@ -53,6 +53,58 @@ static func make_pbr(
 	return m
 
 
+static var _tex_mat_cache: Dictionary = {}
+
+
+## Textured PBR material from the CC0 ambientCG sets in assets/textures (see LICENSE.md there).
+## `tint` multiplies albedo so one texture set can serve several colour variants; `uv_scale` is
+## in repeats per world unit (1 unit = 1 inch), so 0.5 means the texture tiles every 2".
+static func make_textured_pbr(
+	set_name: String,
+	tint: Color = Color(1, 1, 1),
+	uv_scale: float = 0.5,
+	roughness_mul: float = 1.0,
+	metallic_override: float = -1.0
+) -> StandardMaterial3D:
+	var key := "%s|%s|%.3f|%.2f|%.2f" % [set_name, tint.to_html(false), uv_scale, roughness_mul, metallic_override]
+	if _tex_mat_cache.has(key):
+		return _tex_mat_cache[key]
+	var base := "res://assets/textures/%s_" % set_name
+	var m := StandardMaterial3D.new()
+	m.albedo_color = tint
+	m.albedo_texture = KTData.load_tex(base + "albedo.jpg")
+	var nrm := KTData.load_tex(base + "normal.jpg")
+	if nrm != null:
+		m.normal_enabled = true
+		m.normal_texture = nrm
+		m.normal_scale = 1.0
+	var rgh := KTData.load_tex(base + "rough.jpg")
+	if rgh != null:
+		m.roughness_texture = rgh
+		m.roughness_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_RED
+	m.roughness = clampf(roughness_mul, 0.0, 1.0)
+	var mtl := KTData.load_tex(base + "metal.jpg")
+	if metallic_override >= 0.0:
+		m.metallic = metallic_override
+	elif mtl != null:
+		m.metallic = 1.0
+		m.metallic_texture = mtl
+		m.metallic_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_RED
+	else:
+		m.metallic = 0.05
+	var ao := KTData.load_tex(base + "ao.jpg")
+	if ao != null:
+		m.ao_enabled = true
+		m.ao_texture = ao
+		m.ao_texture_channel = BaseMaterial3D.TEXTURE_CHANNEL_RED
+	m.uv1_scale = Vector3(uv_scale, uv_scale, uv_scale)
+	m.uv1_triplanar = true
+	m.uv1_world_triplanar = true
+	m.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	_tex_mat_cache[key] = m
+	return m
+
+
 static func make_holo(col: Color, alpha: float = 0.45, energy: float = 1.6, prio: int = 1) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -240,75 +292,49 @@ static func _get_battlemat_tex(width_in: float, height_in: float, dz_a: Rect2, d
 	var ppi := 32 # 960 x 704 crisp tactical battlemat with mipmaps -> ZERO Z-fighting!
 	var tex_w := int(width_in * float(ppi))
 	var tex_h := int(height_in * float(ppi))
+	# Transparent tactical overlay: drawn on top of the textured flagstone ground.
 	var img := Image.create(tex_w, tex_h, true, Image.FORMAT_RGBA8)
+	img.fill(Color(0.0, 0.0, 0.0, 0.0))
 
-	# 1. Base Sector Imperialis dark ferrocrete stone
-	img.fill(Color(0.098, 0.108, 0.128, 1.0))
-
-	# 2. Architectural stone plaza slabs with recessed dark mortar seams
-	for tx in range(-2, 3):
-		for tz in [-1, 1]:
-			var cx_in: float = width_in * 0.5 + float(tx) * 5.6
-			var cz_in: float = height_in * 0.5 + float(tz) * 5.2
-			var groove_r := Rect2i(
-				int((cx_in - 2.4) * ppi), int((cz_in - 2.2) * ppi),
-				int(4.8 * ppi), int(4.4 * ppi)
-			).intersection(Rect2i(0, 0, tex_w, tex_h))
-			var slab_r := Rect2i(
-				int((cx_in - 2.25) * ppi), int((cz_in - 2.05) * ppi),
-				int(4.5 * ppi), int(4.1 * ppi)
-			).intersection(Rect2i(0, 0, tex_w, tex_h))
-			img.fill_rect(groove_r, Color(0.068, 0.076, 0.092, 1.0))
-			img.fill_rect(slab_r, Color(0.124, 0.136, 0.160, 1.0))
-
-	# 3. Central Imperial Iron Roadway & Recessed Brass Trim
+	# 1. Central roadway: a slightly darker translucent band with brass edge trims
 	var road_y0 := int((height_in * 0.5 - 1.9) * ppi)
 	var road_h := int(3.8 * ppi)
-	img.fill_rect(Rect2i(int(0.3 * ppi), road_y0, int((width_in - 0.6) * ppi), road_h), Color(0.082, 0.092, 0.112, 1.0))
-	img.fill_rect(Rect2i(int(0.4 * ppi), road_y0, int((width_in - 0.8) * ppi), 3), Color(0.56, 0.43, 0.20, 1.0))
-	img.fill_rect(Rect2i(int(0.4 * ppi), road_y0 + road_h - 3, int((width_in - 0.8) * ppi), 3), Color(0.56, 0.43, 0.20, 1.0))
+	img.fill_rect(Rect2i(int(0.3 * ppi), road_y0, int((width_in - 0.6) * ppi), road_h), Color(0.02, 0.02, 0.03, 0.28))
+	img.fill_rect(Rect2i(int(0.4 * ppi), road_y0, int((width_in - 0.8) * ppi), 3), Color(0.56, 0.43, 0.20, 0.85))
+	img.fill_rect(Rect2i(int(0.4 * ppi), road_y0 + road_h - 3, int((width_in - 0.8) * ppi), 3), Color(0.56, 0.43, 0.20, 0.85))
 
-	# 4. Deployment Zone Tints (North = Nurgle Green, South = Imperial Blue) — baked cleanly into battlemat!
+	# 2. Deployment zone tints (North = Nurgle green, South = Imperial blue)
 	var rect_b := Rect2i(int(dz_b.position.x * ppi), int(dz_b.position.y * ppi), int(dz_b.size.x * ppi), int(dz_b.size.y * ppi)).intersection(Rect2i(0, 0, tex_w, tex_h))
-	for y in range(rect_b.position.y, rect_b.end.y):
-		for x in range(rect_b.position.x, rect_b.end.x):
-			var base_c := img.get_pixel(x, y)
-			img.set_pixel(x, y, base_c.lerp(Color(0.28, 0.50, 0.14, 1.0), 0.24))
-
+	img.fill_rect(rect_b, Color(0.30, 0.56, 0.14, 0.11))
 	var rect_a := Rect2i(int(dz_a.position.x * ppi), int(dz_a.position.y * ppi), int(dz_a.size.x * ppi), int(dz_a.size.y * ppi)).intersection(Rect2i(0, 0, tex_w, tex_h))
-	for y in range(rect_a.position.y, rect_a.end.y):
-		for x in range(rect_a.position.x, rect_a.end.x):
-			var base_c := img.get_pixel(x, y)
-			img.set_pixel(x, y, base_c.lerp(Color(0.14, 0.38, 0.78, 1.0), 0.26))
+	img.fill_rect(rect_a, Color(0.14, 0.40, 0.84, 0.12))
 
-	# 5. Subtle 1-Inch Tactical Grid & 6-Inch Brass Lines (anti-aliased, zero flicker!)
+	# 3. 1" tactical grid (faint) & 6" brass lines (stronger) — kept visible on purpose: still a tabletop game
 	for ix in range(1, int(width_in)):
 		var px_x := ix * ppi
 		var is_maj: bool = (ix % 6 == 0)
-		var gcol := Color(0.62, 0.49, 0.24, 1.0) if is_maj else Color(0.22, 0.26, 0.33, 1.0)
-		var blend_w: float = 0.55 if is_maj else 0.28
+		var gcol := Color(0.72, 0.56, 0.26, 0.70) if is_maj else Color(0.80, 0.84, 0.92, 0.16)
 		var half_t: int = 1 if is_maj else 0
 		for dx in range(-half_t, half_t + 1):
 			var xx := clampi(px_x + dx, 0, tex_w - 1)
 			for y in range(tex_h):
-				img.set_pixel(xx, y, img.get_pixel(xx, y).lerp(gcol, blend_w))
+				img.set_pixel(xx, y, img.get_pixel(xx, y).blend(gcol))
 
 	for iz in range(1, int(height_in)):
 		var px_y := iz * ppi
 		var is_maj_z: bool = (iz == 11)
-		var gcol_z := Color(0.66, 0.52, 0.25, 1.0) if is_maj_z else Color(0.22, 0.26, 0.33, 1.0)
-		var blend_z: float = 0.60 if is_maj_z else 0.28
+		var gcol_z := Color(0.76, 0.60, 0.28, 0.80) if is_maj_z else Color(0.80, 0.84, 0.92, 0.16)
 		var half_tz: int = 1 if is_maj_z else 0
 		for dy in range(-half_tz, half_tz + 1):
 			var yy := clampi(px_y + dy, 0, tex_h - 1)
 			for x in range(tex_w):
-				img.set_pixel(x, yy, img.get_pixel(x, yy).lerp(gcol_z, blend_z))
+				img.set_pixel(x, yy, img.get_pixel(x, yy).blend(gcol_z))
 
-	# Crisp Deployment Zone Boundary Lines
+	# 4. Crisp deployment zone boundary lines
 	var dz_b_line_y := clampi(int(dz_b.end.y * ppi), 1, tex_h - 3)
-	img.fill_rect(Rect2i(0, dz_b_line_y - 1, tex_w, 3), Color(0.48, 0.80, 0.22, 1.0))
+	img.fill_rect(Rect2i(0, dz_b_line_y - 1, tex_w, 3), Color(0.48, 0.80, 0.22, 0.95))
 	var dz_a_line_y := clampi(int(dz_a.position.y * ppi), 1, tex_h - 3)
-	img.fill_rect(Rect2i(0, dz_a_line_y - 1, tex_w, 3), Color(0.26, 0.62, 0.98, 1.0))
+	img.fill_rect(Rect2i(0, dz_a_line_y - 1, tex_w, 3), Color(0.26, 0.62, 0.98, 0.95))
 
 	img.generate_mipmaps()
 	_cached_battlemat_tex = ImageTexture.create_from_image(img)
@@ -323,9 +349,9 @@ static func build_tabletop_base(
 	dz_a: Rect2,
 	dz_b: Rect2
 ) -> void:
-	var mat_desk := make_pbr(Color(0.032, 0.036, 0.046), 0.25, 0.72)
+	var mat_desk := make_pbr(Color(0.060, 0.052, 0.046), 0.10, 0.88)   # dark hobby-table felt
 	var mat_desk_trim := make_pbr(Color(0.36, 0.28, 0.15), 0.72, 0.42)
-	var mat_plinth := make_pbr(Color(0.048, 0.055, 0.068), 0.45, 0.54)
+	var mat_plinth := make_textured_pbr("gunmetal", Color(0.40, 0.42, 0.46), 0.6, 0.9)
 	var mat_brass_rim := make_pbr(Color(0.70, 0.53, 0.24), 0.80, 0.36)
 
 	# Extended Wargaming Table Surface surrounding the Killzone Battlemat (top = -0.24, Trim top = -0.30)
@@ -338,21 +364,38 @@ static func build_tabletop_base(
 	add_box(parent, Vector3(0.0, -0.82, 0.0), Vector3(width_in + 1.9, 1.32, height_in + 1.9), mat_plinth)
 	add_box(parent, Vector3(0.0, -0.22, 0.0), Vector3(width_in + 0.62, 0.30, height_in + 0.62), mat_brass_rim)
 
-	# Single Solid Opaque PBR Battlemat Surface (top = 0.000, ZERO coplanar overlaps, ZERO Z-fighting!)
-	var mat_battlemat := StandardMaterial3D.new()
-	mat_battlemat.albedo_texture = _get_battlemat_tex(width_in, height_in, dz_a, dz_b)
-	mat_battlemat.metallic = 0.08
-	mat_battlemat.roughness = 0.88
-	mat_battlemat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-	mat_battlemat.uv1_scale = Vector3(1.0, 1.0, 1.0)
+	# Battlemat = textured ruined flagstone ground (top = 0.000) + a separate translucent tactical
+	# overlay plane carrying the 1" grid, 6" brass lines, deployment zones and the central roadway.
+	# The grid stays visible (this is still a tabletop game) but now sits ON a surface instead of BEING it.
+	var mat_ground := make_textured_pbr("flagstone", Color(0.46, 0.47, 0.50), 0.5, 1.0, 0.0)
+	mat_ground.uv1_triplanar = false
+	mat_ground.uv1_world_triplanar = false
+	mat_ground.uv1_scale = Vector3(width_in * 0.5, height_in * 0.5, 1.0)
 
 	var mat_plane := PlaneMesh.new()
 	mat_plane.size = Vector2(width_in, height_in)
 	var ground_mi := MeshInstance3D.new()
 	ground_mi.mesh = mat_plane
-	ground_mi.material_override = mat_battlemat
+	ground_mi.material_override = mat_ground
 	ground_mi.position = Vector3(0.0, 0.0, 0.0)
 	parent.add_child(ground_mi)
+
+	var mat_overlay := StandardMaterial3D.new()
+	mat_overlay.albedo_texture = _get_battlemat_tex(width_in, height_in, dz_a, dz_b)
+	mat_overlay.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat_overlay.depth_draw_mode = BaseMaterial3D.DEPTH_DRAW_DISABLED
+	mat_overlay.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat_overlay.cull_mode = BaseMaterial3D.CULL_DISABLED
+	mat_overlay.render_priority = -1
+	mat_overlay.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	var overlay_plane := PlaneMesh.new()
+	overlay_plane.size = Vector2(width_in, height_in)
+	var overlay_mi := MeshInstance3D.new()
+	overlay_mi.mesh = overlay_plane
+	overlay_mi.material_override = mat_overlay
+	overlay_mi.position = Vector3(0.0, 0.006, 0.0)
+	overlay_mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(overlay_mi)
 
 	# Solid Side Skirt under the Battlemat (`y = -0.08..0.0`? Keep top at `-0.015` so never coplanar with PlaneMesh!)
 	add_box(parent, Vector3(0.0, -0.05, 0.0), Vector3(width_in, 0.07, height_in), mat_plinth)
@@ -383,14 +426,28 @@ static func build_terrain_piece(
 	var sx: float = rect.size.x
 	var sz: float = rect.size.y
 
-	var mat_ferrocrete := make_pbr(Color(0.21, 0.23, 0.26), 0.22, 0.78)
-	var mat_dark_steel := make_pbr(Color(0.12, 0.135, 0.165), 0.75, 0.40)
-	var mat_deck_plate := make_pbr(Color(0.20, 0.23, 0.27), 0.68, 0.44)
+	# Painted-terrain look: real surface textures, colour-coded trims kept but muted so they read as
+	# painted hazard markings on a hobby table rather than plastic block tops.
+	var mat_ferrocrete := make_textured_pbr("ferrocrete", Color(0.86, 0.80, 0.72), 0.55, 1.0, 0.0)
+	var mat_dark_steel := make_textured_pbr("gunmetal", Color(0.66, 0.66, 0.68), 0.80, 0.85, 0.55)
+	var mat_deck_plate := make_textured_pbr("deckplate", Color(0.92, 0.88, 0.82), 0.42, 0.95, 0.30)
 	var mat_brass := make_pbr(Color(0.75, 0.57, 0.26), 0.86, 0.32)
-	var mat_hazard := make_pbr(Color(0.84, 0.62, 0.20), 0.48, 0.44)
-	var mat_heavy_trim := make_pbr(Color(0.58, 0.22, 0.16), 0.45, 0.52)
-	var mat_ruin_stone := make_pbr(Color(0.24, 0.25, 0.28), 0.16, 0.84)
-	var mat_violet_trim := make_pbr(Color(0.48, 0.38, 0.62), 0.55, 0.44)
+	var mat_hazard := make_textured_pbr("rust", Color(1.0, 0.78, 0.30), 0.9, 1.0, 0.2)
+	var mat_heavy_trim := make_textured_pbr("rust", Color(0.80, 0.34, 0.24), 0.9, 1.0, 0.2)
+	var mat_ruin_stone := make_textured_pbr("rubble_rock", Color(1.0, 0.96, 0.90), 0.45, 1.0, 0.0)
+	var mat_violet_trim := make_textured_pbr("rust", Color(0.62, 0.50, 0.80), 0.9, 1.0, 0.2)
+	var mat_rubble := make_textured_pbr("rubble_rock", Color(0.92, 0.90, 0.86), 1.2, 1.0, 0.0)
+
+	# Scatter debris around the footprint so pieces feel bedded into the battlefield
+	var rng := RandomNumberGenerator.new()
+	rng.seed = hash(str(t.get("id", "")))
+	var debris_n: int = 4 + int(sx * sz * 0.35)
+	for _i in range(mini(debris_n, 14)):
+		var ang: float = rng.randf() * TAU
+		var dist: float = rng.randf_range(0.15, 0.55)
+		var dp := Vector3(cos(ang) * (sx * 0.5 + dist), 0.0, sin(ang) * (sz * 0.5 + dist))
+		var dsz := Vector3(rng.randf_range(0.18, 0.46), rng.randf_range(0.08, 0.20), rng.randf_range(0.16, 0.40))
+		add_box(root, dp + Vector3(0.0, dsz.y * 0.5 - 0.01, 0.0), dsz, mat_rubble, Vector3(rng.randf_range(-8, 8), rng.randf() * 360.0, rng.randf_range(-8, 8)))
 
 	if kind == "vantage":
 		var deck_thick := 0.28
@@ -556,7 +613,9 @@ static func build_operative_miniature(op: Dictionary) -> Dictionary:
 	var order_mat := make_holo(Color(0.25, 0.68, 1.0), 0.92, 2.2, 3)
 	var order_cone := add_cone(body_pivot, Vector3(0.0, base_h + 0.09, base_r * 0.80), 0.13, 0.24, order_mat, Vector3(90.0, 0.0, 0.0))
 
-	# --- 2. Octopath Traveler Style 2D Character Standee (360° Billboard + 3D Shadow!) ---
+	# --- 2. Acrylic Standee Token (printed card between two acrylic sheets, slotted into the base) ---
+	# The token turns to face the camera around Y (done manually each frame in killzone_view so that
+	# the tilt pivot below can still add recoil / topple rotation), but stays standing upright.
 	var standee_path := str(op.get("standee", ""))
 	var tex: Texture2D = KTData.load_tex(standee_path)
 	if tex == null:
@@ -566,51 +625,114 @@ static func build_operative_miniature(op: Dictionary) -> Dictionary:
 	standee_holder.position = Vector3(0.0, base_h + 0.02, 0.0)
 	root.add_child(standee_holder)
 
-	var tex_aspect: float = 2.15
+	# Tilt pivot: receives hit recoil (lean back) and death (topple over) animations.
+	var tilt_pivot := Node3D.new()
+	standee_holder.add_child(tilt_pivot)
+
+	var tex_aspect: float = 1.0
 	if tex != null and tex.get_height() > 0:
 		tex_aspect = float(tex.get_width()) / float(tex.get_height())
-	var quad_h: float = 1.48 if base_r >= 0.70 else 1.38
-	var quad_w: float = clampf(quad_h * tex_aspect, 1.60, 3.28)
+	var token_h: float = 1.72 if base_r >= 0.70 else 1.58
+	var token_w: float = token_h * tex_aspect
+	var token_thick := 0.045
 
+	# Printed face (front & back share the same artwork)
 	var qm := QuadMesh.new()
-	qm.size = Vector2(quad_w, quad_h)
-	# Pivot right at the bottom pedestal clasp so the standee stays welded to the exact
-	# center of the 3D miniature base at EVERY 360° yaw & tilt angle!
-	qm.center_offset = Vector3(0.0, quad_h * 0.486, 0.0)
+	qm.size = Vector2(token_w, token_h)
+	qm.center_offset = Vector3(0.0, token_h * 0.5 - 0.10, 0.0) # peg sinks ~0.10 into the base
 
 	var smat := StandardMaterial3D.new()
 	smat.albedo_texture = tex
-	smat.albedo_color = Color(0.86, 0.87, 0.90, 1.0)
+	smat.albedo_color = Color(0.92, 0.93, 0.95, 1.0)
 	smat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-	smat.alpha_scissor_threshold = 0.42
+	smat.alpha_scissor_threshold = 0.40
 	smat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	smat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
-	# Full camera-facing billboard: from ANY 360° horizontal orbit or pitch angle, you ALWAYS see
-	# the crisp front of the character standee, AND in the directional shadow pass it casts a real 3D silhouette shadow!
-	smat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
-	smat.billboard_keep_scale = true
-	smat.roughness = 0.90
-	smat.metallic = 0.0
-	# Balanced backlight + subtle self-illumination keeps painted Eavy-Metal colors deep and rich without overexposure!
+	smat.roughness = 0.22
+	smat.metallic = 0.05
+	smat.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
 	smat.backlight_enabled = true
-	smat.backlight = Color(0.36, 0.36, 0.40)
+	smat.backlight = Color(0.30, 0.30, 0.34)
 	if tex != null:
 		smat.emission_enabled = true
 		smat.emission_texture = tex
-		smat.emission_energy_multiplier = 0.10
+		smat.emission_energy_multiplier = 0.08
 
 	var standee_mi := MeshInstance3D.new()
 	standee_mi.mesh = qm
 	standee_mi.material_override = smat
 	standee_mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_DOUBLE_SIDED
-	standee_holder.add_child(standee_mi)
+	tilt_pivot.add_child(standee_mi)
+
+	# Acrylic edge: a thin dark box slightly behind the face gives the token visible thickness
+	# and a solid silhouette for shadows. It also Y-billboards (same material flag) so it stays aligned.
+	var edge_mat := StandardMaterial3D.new()
+	edge_mat.albedo_color = Color(0.05, 0.055, 0.07, 0.85)
+	edge_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	edge_mat.roughness = 0.15
+	edge_mat.metallic = 0.1
+	var edge_qm := QuadMesh.new()
+	edge_qm.size = Vector2(token_w * 0.985, token_h * 0.985)
+	edge_qm.center_offset = Vector3(0.0, token_h * 0.5 - 0.10, -token_thick)
+	var edge_mi := MeshInstance3D.new()
+	edge_mi.mesh = edge_qm
+	edge_mi.material_override = edge_mat
+	edge_mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	tilt_pivot.add_child(edge_mi)
+
+	# Name plate rendered in-engine on the token's bottom band
+	# Plate text = short role (e.g. "连长"), not the full operative name: at table distance a 7-glyph
+	# name is unreadable on a 1.7" token, and the full name already lives in the floating HUD tag.
+	var name_lbl := Label3D.new()
+	var role_txt := str(op.get("role", ""))
+	name_lbl.text = role_txt if not role_txt.is_empty() else str(op.get("name", ""))
+	name_lbl.font = KTTheme.get_cjk_font()
+	# Large glyphs at a small pixel_size: same world size, far sharper when seen from table distance.
+	name_lbl.font_size = 128
+	name_lbl.pixel_size = 0.0020
+	name_lbl.outline_size = 18
+	name_lbl.autowrap_mode = TextServer.AUTOWRAP_OFF
+	name_lbl.width = token_w / 0.0020 * 0.90
+	name_lbl.modulate = Color(0.96, 0.92, 0.80)
+	name_lbl.outline_modulate = Color(0.05, 0.05, 0.07)
+	name_lbl.billboard = BaseMaterial3D.BILLBOARD_DISABLED
+	name_lbl.no_depth_test = false
+	name_lbl.double_sided = true
+	name_lbl.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	name_lbl.render_priority = 2
+	# Texture layout (560x560): body = 516px (peg 44 below), frame 22, plate band 84 above the frame.
+	# Label3D's local Y grows upward while texture rows grow downward, so measure from the bottom.
+	var plate_center_from_bottom_px: float = 44.0 + 22.0 + 84.0 * 0.5
+	name_lbl.position = Vector3(0.0, token_h * (plate_center_from_bottom_px / 560.0) - 0.10, 0.004)
+	tilt_pivot.add_child(name_lbl)
+
+	# Soft contact shadow disc under the token so it reads as sitting on the base
+	var contact_mat := StandardMaterial3D.new()
+	contact_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	contact_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	contact_mat.albedo_texture = get_soft_particle_tex()
+	contact_mat.albedo_color = Color(0.0, 0.0, 0.0, 0.55)
+	contact_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var contact_qm := QuadMesh.new()
+	contact_qm.size = Vector2(base_r * 1.5, base_r * 0.9)
+	var contact_mi := MeshInstance3D.new()
+	contact_mi.mesh = contact_qm
+	contact_mi.material_override = contact_mat
+	contact_mi.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+	contact_mi.position = Vector3(0.0, base_h + 0.052, 0.0)
+	contact_mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	root.add_child(contact_mi)
 
 	return {
 		"root": root,
 		"pivot": body_pivot,
 		"standee_holder": standee_holder,
+		"tilt_pivot": tilt_pivot,
 		"standee_mesh": standee_mi,
 		"standee_mat": smat,
+		"edge_mat": edge_mat,
+		"name_label": name_lbl,
+		"token_h": token_h,
 		"rim_mat": rim_mat,
 		"faction_ring": faction_ring,
 		"sel_ring": sel_ring,

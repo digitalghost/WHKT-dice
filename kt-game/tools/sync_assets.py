@@ -15,7 +15,7 @@ import os
 import re
 import shutil
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter
 
 KT_GAME_ROOT = Path(__file__).resolve().parent.parent
 REPO_ROOT = KT_GAME_ROOT.parent
@@ -397,75 +397,148 @@ def extract_clean_miniature(card_path: Path) -> Image.Image:
     return out.crop(bbox) if bbox else out
 
 
+# Acrylic standee token canvas (portrait orientation). The name plate is NOT baked in;
+# killzone_view renders it with Label3D so fonts/localisation stay consistent in-engine.
+TOKEN_W = 560
+TOKEN_H = 560
+TOKEN_CORNER = 34
+TOKEN_FRAME = 22          # outer faction frame thickness
+TOKEN_PLATE_H = 84        # bottom plate band reserved for the Label3D name
+TOKEN_PEG_H = 44          # tab that slots into the 3D base
+
+
+def _rounded_mask(size: tuple[int, int], radius: int, inset: int = 0) -> Image.Image:
+    ss = 2
+    m = Image.new("L", (size[0] * ss, size[1] * ss), 0)
+    ImageDraw.Draw(m).rounded_rectangle(
+        (inset * ss, inset * ss, size[0] * ss - 1 - inset * ss, size[1] * ss - 1 - inset * ss),
+        radius=radius * ss, fill=255,
+    )
+    return m.resize(size, Image.Resampling.LANCZOS)
+
+
+def _vertical_gradient(size: tuple[int, int], top: tuple, bottom: tuple) -> Image.Image:
+    w, h = size
+    strip = Image.new("RGBA", (1, h))
+    sp = strip.load()
+    for y in range(h):
+        t = y / max(1, h - 1)
+        sp[0, y] = tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(4))
+    return strip.resize((w, h), Image.Resampling.BILINEAR)
+
+
 def make_hd2d_standee(card_path: Path, out_path: Path, team_id: str) -> None:
     """
-    Generates a tightly-framed, torso-centered Octopath-style HD-2D Character Standee PNG
-    with consistent heroic miniature stature, crisp dark silhouette ink border,
-    subtle faction rim light, and bevelled brass standee pedestal clasp at the bottom.
+    Generates a portrait-orientation acrylic standee token (480x600):
+    faction-coloured bevelled frame, dark smoked-glass backdrop with a radial glow,
+    the datacard bust centred inside, a bottom plate band left empty for the in-engine
+    Label3D name, and a short peg at the very bottom that sits inside the 3D base.
     """
     out_path.parent.mkdir(parents=True, exist_ok=True)
     cut = extract_clean_miniature(card_path)
     is_imp = team_id.startswith("IMP")
-    rim_col = (120, 188, 255) if is_imp else (168, 232, 96)
-    brass = (208, 168, 86) if is_imp else (164, 140, 78)
 
-    # Preserve uniform GW miniature helmet/torso scale (~336px tall), allowing wide weapons up to 980px!
-    ratio = min(980.0 / max(1, cut.width), 336.0 / max(1, cut.height))
-    nw = max(1, int(cut.width * ratio))
-    nh = max(1, int(cut.height * ratio))
+    frame_col = (74, 128, 214, 255) if is_imp else (112, 160, 54, 255)
+    frame_hi = (142, 190, 255, 255) if is_imp else (176, 226, 104, 255)
+    frame_lo = (28, 58, 118, 255) if is_imp else (48, 78, 24, 255)
+    glow_col = (60, 110, 200) if is_imp else (96, 150, 48)
+    plate_col = (16, 18, 24, 255)
+    brass = (196, 158, 82, 255)
+
+    W, H = TOKEN_W, TOKEN_H
+    body_h = H - TOKEN_PEG_H
+    canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+
+    # --- 1. Outer bevelled frame (gradient so it reads as thick acrylic edge) ---
+    frame = _vertical_gradient((W, body_h), frame_hi, frame_lo)
+    canvas.paste(frame, (0, 0), _rounded_mask((W, body_h), TOKEN_CORNER))
+    mid = Image.new("RGBA", (W, body_h), frame_col)
+    canvas.paste(mid, (0, 0), _rounded_mask((W, body_h), TOKEN_CORNER - 4, inset=5))
+
+    # --- 2. Smoked-glass interior with radial faction glow behind the bust ---
+    ix0, iy0 = TOKEN_FRAME, TOKEN_FRAME
+    iw, ih = W - TOKEN_FRAME * 2, body_h - TOKEN_FRAME * 2
+    inner = _vertical_gradient((iw, ih), (44, 50, 64, 255), (18, 20, 28, 255))
+    glow = Image.new("RGBA", (iw, ih), (0, 0, 0, 0))
+    gp = glow.load()
+    gcx, gcy = iw * 0.5, ih * 0.42
+    grad_r = ih * 0.55
+    for y in range(ih):
+        for x in range(iw):
+            d = ((x - gcx) ** 2 + (y - gcy) ** 2) ** 0.5 / grad_r
+            a = max(0.0, 1.0 - d)
+            a = a * a
+            gp[x, y] = (*glow_col, int(150 * a))
+    inner.alpha_composite(glow)
+    # fine horizontal scanlines for a holo-print feel
+    sl = inner.load()
+    for y in range(0, ih, 4):
+        for x in range(iw):
+            r, g, b, a = sl[x, y]
+            sl[x, y] = (max(0, r - 10), max(0, g - 10), max(0, b - 10), a)
+    canvas.paste(inner, (ix0, iy0), _rounded_mask((iw, ih), TOKEN_CORNER - TOKEN_FRAME))
+
+    # --- 3. Bust, scaled to fit the picture area above the plate band ---
+    pic_top = iy0 + 10
+    pic_bot = body_h - TOKEN_FRAME - TOKEN_PLATE_H
+    pic_h = pic_bot - pic_top
+    pic_w = iw - 16
+    # Fill the picture area by height; very wide busts (long rifles) may overflow sideways and get clipped
+    # by the inner glass mask, which reads naturally as the weapon leaving the frame.
+    ratio = min((pic_h * 1.08) / max(1, cut.height), (pic_w * 1.45) / max(1, cut.width))
+    nw, nh = max(1, int(cut.width * ratio)), max(1, int(cut.height * ratio))
     fig = cut.resize((nw, nh), Image.Resampling.LANCZOS)
-
-    # Measure torso horizontal center of mass so the figure stands centered on its 3D round base!
+    # Centre on the torso mass rather than the bounding box so helmets line up across the roster
     fpx = fig.load()
-    mass_xs = [x for x in range(nw) for y in range(int(nh * 0.25), int(nh * 0.88), 2) if fpx[x, y][3] > 128]
-    mass_cx = (sum(mass_xs) // len(mass_xs)) if mass_xs else (nw // 2)
+    mass_xs = [x for x in range(nw) for y in range(int(nh * 0.2), int(nh * 0.9), 3) if fpx[x, y][3] > 128]
+    mass_cx = (sum(mass_xs) // len(mass_xs)) if mass_xs else nw // 2
+    fx = W // 2 - mass_cx
+    fy = pic_bot - nh + 4  # bust sits on the plate band like a cut-out standing in a holder
 
-    half_span = max(mass_cx, nw - mass_cx) + 20
-    cw_canvas = max(420, half_span * 2)
-    fy = 14
-    ped_y_top = fy + nh - 6
-    ped_y_bot = ped_y_top + 30
-    ch_canvas = ped_y_bot + 6
-    fx = (cw_canvas // 2) - mass_cx
-
-    pad = Image.new("RGBA", (cw_canvas, ch_canvas), (0, 0, 0, 0))
+    pad = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     pad.paste(fig, (fx, fy))
+    glass_clip = Image.new("L", (W, H), 0)
+    glass_clip.paste(_rounded_mask((iw, pic_bot - iy0), TOKEN_CORNER - TOKEN_FRAME), (ix0, iy0))
+    pad.putalpha(ImageChops.multiply(pad.getchannel("A"), glass_clip))
     pa = pad.getchannel("A")
-
-    canvas = Image.new("RGBA", (cw_canvas, ch_canvas), (0, 0, 0, 0))
-    outer_a = pa.filter(ImageFilter.MaxFilter(13))
-    mid_a = pa.filter(ImageFilter.MaxFilter(5))
-    canvas.paste(Image.new("RGBA", (cw_canvas, ch_canvas), (10, 11, 15, 255)), (0, 0), outer_a)
-    canvas.paste(Image.new("RGBA", (cw_canvas, ch_canvas), (*rim_col, 200)), (0, 0), mid_a)
+    ink = Image.new("RGBA", (W, H), (6, 7, 10, 230))
+    canvas.paste(ink, (0, 0), pa.filter(ImageFilter.MaxFilter(7)))
+    rim = Image.new("RGBA", (W, H), (*frame_hi[:3], 170))
+    canvas.paste(rim, (0, 0), pa.filter(ImageFilter.MaxFilter(3)))
     canvas.alpha_composite(pad)
 
-    ppx = pad.load()
-    bot_xs = [x for x in range(cw_canvas) for y in range(max(0, fy + nh - 14), fy + nh) if ppx[x, y][3] > 128]
-    x_left = min(bot_xs) if bot_xs else (cw_canvas // 2 - 120)
-    x_right = max(bot_xs) if bot_xs else (cw_canvas // 2 + 120)
-    # Clamp pedestal clasp to torso/base width so outstretched weapon tips don't stretch the base clasp!
-    max_clasp_half = int(nh * 0.72)
-    x_left = max(x_left, (cw_canvas // 2) - max_clasp_half)
-    x_right = min(x_right, (cw_canvas // 2) + max_clasp_half)
-    if x_right - x_left < 160:
-        x_left = (cw_canvas // 2) - 80
-        x_right = (cw_canvas // 2) + 80
+    # --- 4. Bottom plate band (empty; Label3D draws the name) with brass divider ---
+    plate_y0 = pic_bot
+    inner_mask = Image.new("L", (W, H), 0)
+    inner_mask.paste(_rounded_mask((iw, ih), TOKEN_CORNER - TOKEN_FRAME), (ix0, iy0))
+    band_mask = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(band_mask).rectangle((0, plate_y0, W, body_h), fill=255)
+    plate_mask = ImageChops.multiply(inner_mask, band_mask)
+    plate_img = Image.new("RGBA", (W, H), plate_col)
+    ImageDraw.Draw(plate_img).rectangle((ix0 + 18, plate_y0, ix0 + iw - 19, plate_y0 + 3), fill=brass)
+    canvas.paste(plate_img, (0, 0), plate_mask)
 
-    clasp = Image.new("RGBA", (cw_canvas, ch_canvas), (0, 0, 0, 0))
-    cd = ImageDraw.Draw(clasp)
-    cd.polygon([
-        (x_left - 8, ped_y_top), (x_right + 8, ped_y_top),
-        (x_right - 14, ped_y_bot), (x_left + 14, ped_y_bot),
-    ], fill=(10, 12, 16, 255))
-    cd.polygon([
-        (x_left - 3, ped_y_top + 4), (x_right + 3, ped_y_top + 4),
-        (x_right - 17, ped_y_bot - 5), (x_left + 17, ped_y_bot - 5),
-    ], fill=(*brass, 255))
-    cd.polygon([
-        (x_left + 4, ped_y_top + 8), (x_right - 4, ped_y_top + 8),
-        (x_right - 21, ped_y_bot - 9), (x_left + 21, ped_y_bot - 9),
-    ], fill=(24, 27, 34, 255))
-    canvas.alpha_composite(clasp)
+    # --- 5. Peg that slots into the 3D base ---
+    peg_w = 150
+    px0 = W // 2 - peg_w // 2
+    d = ImageDraw.Draw(canvas)
+    d.polygon([
+        (px0, body_h - 2), (px0 + peg_w, body_h - 2),
+        (px0 + peg_w - 16, H - 1), (px0 + 16, H - 1),
+    ], fill=(12, 13, 18, 255))
+    d.polygon([
+        (px0 + 6, body_h - 2), (px0 + peg_w - 6, body_h - 2),
+        (px0 + peg_w - 20, H - 7), (px0 + 20, H - 7),
+    ], fill=brass)
+
+    # --- 6. Glossy acrylic highlight sweep across the top-left ---
+    gloss = Image.new("RGBA", (W, body_h), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(gloss)
+    gd.polygon([(20, 18), (W * 0.62, 18), (W * 0.30, body_h * 0.46), (20, body_h * 0.36)], fill=(255, 255, 255, 22))
+    gloss_masked = Image.new("RGBA", (W, body_h), (0, 0, 0, 0))
+    gloss_masked.paste(gloss, (0, 0), _rounded_mask((W, body_h), TOKEN_CORNER - 2, inset=3))
+    canvas.alpha_composite(gloss_masked, (0, 0))
+
     canvas.save(out_path, "PNG")
 
 

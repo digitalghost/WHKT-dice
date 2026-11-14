@@ -74,6 +74,8 @@ var _visual_pos_3d: Dictionary = {}   # uid -> Vector3 (world X, elevation Y, wo
 var _visual_facing_y: Dictionary = {} # uid -> float radians
 var _op_lunge_offset: Dictionary = {} # uid -> Vector3 combat lunge/recoil offset
 var _op_hit_flash: Dictionary = {}    # uid -> float [0..1] hit flash intensity
+var _op_fall_t: Dictionary = {}       # uid -> float [0..1] topple animation progress for incapacitated tokens
+var _fallen_markers: Dictionary = {}  # uid -> Node3D casualty marker left on the battlemat
 var _tracers_3d: Array[Dictionary] = []
 var _float_texts_3d: Array[Dictionary] = []
 var _pulse_time: float = 0.0
@@ -126,11 +128,30 @@ func _build_3d_viewport() -> void:
 	# 1. HD-2D (Octopath Traveler Style) Atmospheric Environment (ACES + Warm HDR Bloom + SSAO)
 	var we := WorldEnvironment.new()
 	var env := Environment.new()
-	env.background_mode = Environment.BG_COLOR
-	env.background_color = Color(0.025, 0.030, 0.044)
+	# Dim hobby-room backdrop instead of pure black space: a warm-grey horizon gradient plus
+	# distance fog so the table edge dissolves into the room rather than ending at a hard line.
+	var sky_mat := ProceduralSkyMaterial.new()
+	sky_mat.sky_top_color = Color(0.030, 0.032, 0.042)
+	sky_mat.sky_horizon_color = Color(0.11, 0.095, 0.085)
+	sky_mat.sky_curve = 0.22
+	sky_mat.ground_bottom_color = Color(0.020, 0.018, 0.016)
+	sky_mat.ground_horizon_color = Color(0.09, 0.08, 0.07)
+	sky_mat.ground_curve = 0.08
+	sky_mat.sun_angle_max = 0.0
+	sky_mat.use_debanding = true
+	var sky := Sky.new()
+	sky.sky_material = sky_mat
+	env.background_mode = Environment.BG_SKY
+	env.sky = sky
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.42, 0.48, 0.62)
-	env.ambient_light_energy = 0.60
+	env.ambient_light_color = Color(0.42, 0.46, 0.58)
+	env.ambient_light_energy = 0.58
+	env.fog_enabled = true
+	env.fog_mode = Environment.FOG_MODE_EXPONENTIAL
+	env.fog_light_color = Color(0.085, 0.078, 0.074)
+	env.fog_density = 0.0085
+	env.fog_sky_affect = 0.35
+	env.fog_aerial_perspective = 0.25
 	env.tonemap_mode = Environment.TONE_MAPPER_ACES
 	env.tonemap_exposure = 0.94
 	env.glow_enabled = true
@@ -166,8 +187,8 @@ func _build_3d_viewport() -> void:
 
 	var fill := DirectionalLight3D.new()
 	fill.rotation_degrees = Vector3(-36.0, 146.0, 0.0)
-	fill.light_color = Color(0.38, 0.60, 0.96)
-	fill.light_energy = 0.36
+	fill.light_color = Color(0.58, 0.66, 0.84)
+	fill.light_energy = 0.26
 	fill.shadow_enabled = false
 	_world_root.add_child(fill)
 
@@ -320,6 +341,11 @@ func _rebuild_3d_operatives() -> void:
 	_visual_facing_y.clear()
 	_op_lunge_offset.clear()
 	_op_hit_flash.clear()
+	_op_fall_t.clear()
+	for m in _fallen_markers.values():
+		if is_instance_valid(m):
+			(m as Node).queue_free()
+	_fallen_markers.clear()
 
 	if engine == null or engine.state.is_empty():
 		return
@@ -341,6 +367,41 @@ func _rebuild_3d_operatives() -> void:
 		var init_yaw: float = PI if str(op["side"]) == "A" else 0.0
 		_visual_facing_y[uid] = init_yaw
 		(built["pivot"] as Node3D).rotation.y = init_yaw
+
+
+func _spawn_fallen_marker(uid: String, wpos: Vector3) -> void:
+	# Casualty token: a flat faction-coloured disc with a skull glyph, left where the operative fell.
+	_clear_fallen_marker(uid)
+	var op := engine.get_op(uid) if engine != null else {}
+	var is_aod: bool = (not op.is_empty()) and str(op["side"]) == "A"
+	var fac_col := Color(0.24, 0.52, 0.90) if is_aod else Color(0.50, 0.74, 0.22)
+	var marker := Node3D.new()
+	marker.position = Vector3(wpos.x, wpos.y, wpos.z)
+	_ops_root.add_child(marker)
+	var disc_mat := Models3D.make_pbr(Color(0.07, 0.075, 0.09), 0.35, 0.6)
+	Models3D.add_cyl(marker, Vector3(0.0, 0.03, 0.0), 0.62, 0.58, 0.06, disc_mat, Vector3.ZERO, 24)
+	Models3D.add_torus(marker, Vector3(0.0, 0.06, 0.0), 0.50, 0.58, Models3D.make_pbr(fac_col.darkened(0.35), 0.6, 0.4))
+	var skull := Label3D.new()
+	skull.text = "☠"
+	skull.font = font
+	skull.font_size = 96
+	skull.pixel_size = 0.0075
+	skull.modulate = fac_col.lightened(0.25)
+	skull.outline_size = 8
+	skull.outline_modulate = Color(0.02, 0.02, 0.03)
+	skull.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+	skull.position = Vector3(0.0, 0.075, 0.0)
+	skull.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	marker.add_child(skull)
+	_fallen_markers[uid] = marker
+
+
+func _clear_fallen_marker(uid: String) -> void:
+	if _fallen_markers.has(uid):
+		var m: Node = _fallen_markers[uid]
+		if is_instance_valid(m):
+			m.queue_free()
+		_fallen_markers.erase(uid)
 
 
 func sync_visual_positions(instant: bool = false) -> void:
@@ -798,9 +859,36 @@ func _update_3d_entities(delta: float) -> void:
 		var root_n: Node3D = node_d["root"]
 		var pivot_n: Node3D = node_d["pivot"]
 
+		var tilt_n: Node3D = node_d.get("tilt_pivot", null)
 		if bool(op["incapacitated"]):
-			root_n.visible = false
+			# Topple animation: the acrylic token falls over backwards and sinks into the base,
+			# then the whole miniature fades out and is hidden. Undo brings it straight back.
+			var fall_t: float = float(_op_fall_t.get(uid, 0.0))
+			if fall_t >= 1.0:
+				root_n.visible = false
+				continue
+			if fall_t <= 0.0 and root_n.visible:
+				_spawn_fallen_marker(uid, root_n.position)
+			fall_t = minf(1.0, fall_t + delta * 1.35)
+			_op_fall_t[uid] = fall_t
+			root_n.visible = true
+			if tilt_n != null:
+				var k: float = clampf(fall_t * 1.6, 0.0, 1.0)
+				var ease_k: float = 1.0 - pow(1.0 - k, 3.0)
+				tilt_n.rotation_degrees.x = -92.0 * ease_k
+				tilt_n.position.y = -0.04 * ease_k
+			var fade: float = clampf((fall_t - 0.55) / 0.45, 0.0, 1.0)
+			var smat_f: StandardMaterial3D = node_d["standee_mat"]
+			smat_f.albedo_color = Color(0.5, 0.5, 0.55, 1.0).lerp(Color(0.2, 0.2, 0.22, 1.0), fade)
+			smat_f.alpha_scissor_threshold = lerpf(0.40, 1.0, fade)
 			continue
+		if _op_fall_t.has(uid):
+			_op_fall_t.erase(uid)
+			if tilt_n != null:
+				tilt_n.rotation_degrees = Vector3.ZERO
+				tilt_n.position = Vector3.ZERO
+			(node_d["standee_mat"] as StandardMaterial3D).alpha_scissor_threshold = 0.40
+			_clear_fallen_marker(uid)
 		root_n.visible = true
 
 		var target_in: Vector2 = op["pos"]
@@ -838,19 +926,31 @@ func _update_3d_entities(delta: float) -> void:
 			var bob: float = 0.045 * sin(_pulse_time * 5.0) if uid == active_uid else 0.0
 			root_n.position = target_w + Vector3(0.0, bob, 0.0) + lunge_v
 
-		# Subtle HD-2D Standee Breathing Scale & Hit-Flash Shader Feedback!
+		# Acrylic token feedback: idle sway (a standee never sits perfectly still on a table),
+		# hit recoil tilts it back and flashes the print, active operative gets a slow "picked up" lift.
 		if node_d.has("standee_holder") and node_d.has("standee_mat"):
 			var sh: Node3D = node_d["standee_holder"]
 			var smat_op: StandardMaterial3D = node_d["standee_mat"]
-			var breath: float = (0.026 * sin(_pulse_time * 4.6)) if (uid == active_uid) else (0.010 * sin(_pulse_time * 2.6 + float(uid.hash() % 7)))
-			sh.scale = Vector3(1.0 + breath, 1.0 - breath * 0.65, 1.0)
-			var ready_tint := Color(0.88, 0.89, 0.92, 1.0) if (bool(op["ready"]) or uid == active_uid) else Color(0.60, 0.63, 0.70, 1.0)
+			var phase_off: float = float(uid.hash() % 13) * 0.5
+			var sway_deg: float = (1.6 * sin(_pulse_time * 1.7 + phase_off)) if (uid == active_uid) else (0.7 * sin(_pulse_time * 1.1 + phase_off))
+			var recoil_deg: float = -22.0 * flash_v * flash_v
+			if tilt_n != null:
+				tilt_n.rotation_degrees.x = recoil_deg
+				tilt_n.rotation_degrees.z = sway_deg
+			var lift: float = (0.05 + 0.03 * sin(_pulse_time * 2.4)) if (uid == active_uid) else 0.0
+			sh.position.y = 0.22 + lift
+			# Face the camera around Y only (upright acrylic standee). Done here instead of a material
+			# billboard flag so the tilt pivot's recoil/topple rotations compose correctly on top.
+			var to_cam := _cam.global_position - sh.global_position
+			if Vector2(to_cam.x, to_cam.z).length_squared() > 0.0001:
+				sh.global_rotation = Vector3(0.0, atan2(to_cam.x, to_cam.z), 0.0)
+			var ready_tint := Color(0.92, 0.93, 0.95, 1.0) if (bool(op["ready"]) or uid == active_uid) else Color(0.62, 0.64, 0.70, 1.0)
 			if flash_v > 0.01:
-				smat_op.albedo_color = ready_tint.lerp(Color(1.0, 0.42, 0.42, 1.0), flash_v * 0.75)
-				smat_op.emission_energy_multiplier = 0.24 + flash_v * 2.2
+				smat_op.albedo_color = ready_tint.lerp(Color(1.0, 0.36, 0.30, 1.0), flash_v * 0.8)
+				smat_op.emission_energy_multiplier = 0.2 + flash_v * 2.6
 			else:
 				smat_op.albedo_color = ready_tint
-				smat_op.emission_energy_multiplier = 0.18 if (uid == active_uid or uid == hovered_uid) else 0.09
+				smat_op.emission_energy_multiplier = 0.16 if (uid == active_uid or uid == hovered_uid) else 0.08
 
 		# If aiming at hovered enemy in shoot mode, smoothly face hovered enemy!
 		if uid == selected_uid and interaction_mode == "shoot" and not hovered_uid.is_empty():
