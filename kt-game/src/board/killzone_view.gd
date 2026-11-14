@@ -684,6 +684,8 @@ func play_ranged_resolution_vfx(
 		_op_hit_flash[def_uid] = 1.0
 		trigger_shake(9.5 if killed else 5.5)
 		spawn_floating_text(def["pos"], ("💀 毁灭击杀! -%d" % dmg) if killed else ("💥 -%d 耐伤!" % dmg), KTTheme.COL_CRIMSON if killed else KTTheme.COL_GOLD_BRIGHT)
+		if killed:
+			_start_kill_cam(def_uid)
 	else:
 		KTSfx.play("parry", -4.0, 0.06)
 		_op_hit_flash[def_uid] = 0.55
@@ -750,6 +752,25 @@ func play_melee_step_vfx(
 		trigger_shake(10.0 if killed else (7.0 if is_crit else 4.8))
 		var msg := ("💀 斩杀! -%d" % dmg_dealt) if killed else (("⚡ 暴击 -%d!" % dmg_dealt) if is_crit else ("⚔️ 出击 -%d" % dmg_dealt))
 		spawn_floating_text(target["pos"], msg, KTTheme.COL_CRIMSON if killed else (KTTheme.COL_GOLD_BRIGHT if is_crit else KTTheme.COL_TEXT))
+		if killed:
+			_start_kill_cam(target_uid)
+
+
+## Kill cam: brief slow-motion + punch-in on the fallen operative, then release.
+## Engine.time_scale is restored by _process once the timer runs out, so it is safe even if the
+## combat modal closes mid-effect.
+var _kill_cam_t: float = 0.0
+const KILL_CAM_DUR: float = 0.9
+
+func _start_kill_cam(victim_uid: String) -> void:
+	var v := engine.get_op(victim_uid)
+	if v.is_empty():
+		return
+	_kill_cam_t = KILL_CAM_DUR
+	Engine.time_scale = 0.35
+	var wv := inches_to_world(v["pos"], elevation_at_inches(v["pos"]) + 0.9)
+	target_focus = target_focus.lerp(wv, 0.55)
+	target_dist = maxf(24.0, target_dist * 0.78)
 
 
 # ==============================================================================
@@ -758,6 +779,17 @@ func play_melee_step_vfx(
 
 func _process(delta: float) -> void:
 	_pulse_time += delta
+
+	if _kill_cam_t > 0.0:
+		# Count down in real time so slow-mo doesn't stretch itself
+		_kill_cam_t -= delta / maxf(0.05, Engine.time_scale)
+		if _kill_cam_t <= 0.0:
+			_kill_cam_t = 0.0
+			Engine.time_scale = 1.0
+		else:
+			# Ease back toward normal speed over the second half
+			var k: float = clampf(1.0 - _kill_cam_t / KILL_CAM_DUR, 0.0, 1.0)
+			Engine.time_scale = lerpf(0.35, 1.0, clampf((k - 0.45) / 0.55, 0.0, 1.0))
 
 	# Keyboard Orbit (Q / E) & Pan (WASD / Arrows)
 	if Input.is_key_pressed(KEY_Q):
@@ -1066,6 +1098,30 @@ func _rebuild_3d_tactical_overlays() -> void:
 	if interaction_mode == "move":
 		var op := engine.get_op(selected_uid)
 		if not op.is_empty():
+			# Reachable-range disc: translucent faction-coloured floor disc of radius = move allowance,
+			# so the player sees "how far" at a glance before dragging the ruler (ruler still shows exact inches).
+			var reach_in: float = engine.get_effective_move_inches(op, move_action_kind)
+			var op_pos: Vector2 = op["pos"]
+			var oy := elevation_at_inches(op_pos) + 0.045
+			var oc := inches_to_world(op_pos, oy)
+			var rcol_f := KTTheme.COL_GOLD_BRIGHT if move_action_kind == "charge" else (KTTheme.COL_EMERALD if move_action_kind == "dash" else KTTheme.COL_IMPERIAL if str(op["side"]) == "A" else KTTheme.COL_NURGLE)
+			var fill_c := Color(rcol_f.r, rcol_f.g, rcol_f.b, 0.10)
+			var segs_r := 56
+			for si in range(segs_r):
+				var a0: float = TAU * float(si) / float(segs_r)
+				var a1: float = TAU * float(si + 1) / float(segs_r)
+				var p0 := oc + Vector3(cos(a0) * reach_in, 0.0, sin(a0) * reach_in)
+				var p1 := oc + Vector3(cos(a1) * reach_in, 0.0, sin(a1) * reach_in)
+				tri_pts.append(oc); tri_cols.append(fill_c)
+				tri_pts.append(p1); tri_cols.append(fill_c)
+				tri_pts.append(p0); tri_cols.append(fill_c)
+			add_ring_3d.call(oc, reach_in, rcol_f, 0.08, 64)
+			# Dashed inner inch rings every 2" for scale reading
+			var ring_r := 2.0
+			while ring_r < reach_in - 0.1:
+				add_ring_3d.call(oc, ring_r, Color(rcol_f.r, rcol_f.g, rcol_f.b, 0.35), 0.02, 48)
+				ring_r += 2.0
+
 			for other in engine.state["operatives"]:
 				if other["incapacitated"] or other["side"] == op["side"]:
 					continue

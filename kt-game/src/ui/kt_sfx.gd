@@ -50,8 +50,10 @@ func _ready() -> void:
 		add_child(p)
 		_players.append(p)
 
-	if ResourceLoader.exists("res://assets/audio/dice_roll.mp3"):
-		_clips["dice_roll"] = load("res://assets/audio/dice_roll.mp3")
+	for dice_path in ["res://assets/audio/dice_roll.ogg", "res://assets/audio/dice_roll.mp3"]:
+		if ResourceLoader.exists(dice_path):
+			_clips["dice_roll"] = load(dice_path)
+			break
 
 	_clips["ui_hover"] = _synth_clip(0.032, 1)    # Crisp vox micro-tick
 	_clips["ui_click"] = _synth_clip(0.075, 2)    # Metallic armor latch click
@@ -66,6 +68,35 @@ func _ready() -> void:
 	_clips["phase_horn"] = _synth_clip(0.48, 11)  # Deep Gothic brass chord
 	_clips["dice_clack"] = _synth_clip(0.058, 12) # Tactile bone/ivory D6 felt-brass clack
 	_clips["crit_chime"] = _synth_clip(0.28, 13)  # Golden Crit 6 harmonic chime
+
+	# Recorded CC0 samples (assets/audio/LICENSE.md) override the procedural fallbacks when present,
+	# so the synth clips still cover a fresh checkout before `sync_assets.py` / asset download ran.
+	for clip_name in ["bolter", "sniper", "explosion", "kill_boom", "parry", "slash", "dice_clack",
+			"phase_horn", "ui_click", "card_lift", "move_confirm"]:
+		var p := "res://assets/audio/sfx_%s.ogg" % clip_name
+		if ResourceLoader.exists(p):
+			_clips[clip_name] = load(p)
+
+	_start_ambience()
+
+
+## Low-volume looping room-tone / machine hum under the whole match. Kept very quiet so it reads
+## as "the table is in a place" rather than as music; replace `amb_loop.ogg` for a real score.
+var _amb_player: AudioStreamPlayer = null
+
+func _start_ambience() -> void:
+	var p := "res://assets/audio/amb_loop.ogg"
+	if not ResourceLoader.exists(p):
+		return
+	var stream: AudioStream = load(p)
+	if stream is AudioStreamOggVorbis:
+		(stream as AudioStreamOggVorbis).loop = true
+	_amb_player = AudioStreamPlayer.new()
+	_amb_player.stream = stream
+	_amb_player.volume_db = -22.0
+	_amb_player.autoplay = true
+	add_child(_amb_player)
+	_amb_player.play()
 
 
 func _play_internal(clip_name: String, vol_db: float, pitch_jitter: float) -> void:

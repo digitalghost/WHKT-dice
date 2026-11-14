@@ -6,8 +6,9 @@
 assets/cards/
 assets/portraits/
 assets/ui/
-assets/audio/
 assets/fonts/
+# Audio: only dice_roll.* is synced from ../app; the CC0 sfx/ambience and their LICENSE are tracked.
+assets/audio/dice_roll.*
 
 # Export builds & test screenshots
 build/
