@@ -379,7 +379,10 @@ func clear_active_roll() -> void:
 func place_tray_idle(instant: bool = false) -> void:
 	clear_active_roll()
 	_divider_mi.visible = true
-	_target_tray_pos = Vector3(11.6, -0.24, 16.6)
+	# Idle: parked on the table apron, well clear of the 30"x22" killzone and the bottom HUD.
+	# Only a sliver of the brass rim stays visible at the default camera so the player still
+	# knows the tray is "on the table"; a roll slides it in to the action.
+	_target_tray_pos = Vector3(26.0, -0.24, 20.4)
 	_target_tray_yaw = 0.0
 	if instant:
 		position = _target_tray_pos

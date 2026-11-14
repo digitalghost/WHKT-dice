@@ -1160,8 +1160,12 @@ func _rebuild_3d_tactical_overlays() -> void:
 				var def_feet := inches_to_world(def_in, def_y + 0.06)
 				var def_r := float(def["base_radius"])
 
+				var is_hov: bool = (hovered_uid == def_uid)
 				if not bool(ev["valid"]):
-					add_seg.call(att_eye, def_chest, Color(0.55, 0.60, 0.68, 0.30))
+					# Unselectable targets: faint grey ring; the blocked sightline only when hovered.
+					add_ring_3d.call(def_feet, def_r + 0.18, Color(0.55, 0.60, 0.68), 0.22 if is_hov else 0.10, 32)
+					if is_hov:
+						add_seg.call(att_eye, def_chest, Color(0.55, 0.60, 0.68, 0.45))
 					continue
 
 				var bcol := KTTheme.COL_EMERALD
@@ -1170,10 +1174,14 @@ func _rebuild_3d_tactical_overlays() -> void:
 				elif str(ev["cover"]) != "none":
 					bcol = KTTheme.COL_GOLD_BRIGHT
 
-				var is_hov: bool = (hovered_uid == def_uid)
+				# Non-hovered valid targets get ONLY a colour-coded ring (green exposed / gold cover /
+				# violet obscured). The full sightline + cover cone appears for the hovered target alone,
+				# so the board reads like a tabletop with one laser pointer instead of a web of lasers.
+				add_ring_3d.call(def_feet, def_r + 0.18, bcol, 0.34 if is_hov else 0.20, 32)
+				if not is_hov:
+					continue
 				add_seg.call(att_eye, def_chest, bcol.lightened(0.25))
-				add_ribbon_3d.call(att_eye, def_chest, 0.095 if is_hov else 0.055, Color(bcol.r, bcol.g, bcol.b, 0.90 if is_hov else 0.62))
-				add_ring_3d.call(def_feet, def_r + 0.18, bcol, 0.28 if is_hov else 0.14, 32)
+				add_ribbon_3d.call(att_eye, def_chest, 0.095, Color(bcol.r, bcol.g, bcol.b, 0.90))
 
 				# Draw 3D Volumetric Outer-Tangent Cover Cone when hovered!
 				if is_hov:
@@ -1295,8 +1303,32 @@ func _draw_projected_hud() -> void:
 		var fcol := KTTheme.COL_IMPERIAL if is_a else KTTheme.COL_NURGLE
 		var is_active := (uid == active_uid)
 		var is_ready := bool(op["ready"])
-		var short_name := str(op["name"]).replace("仲裁者", "").replace("瘟疫战士", "瘟疫")
+		var is_focus := is_active or uid == hovered_uid or uid == selected_uid
 		var z_h := elevation_at_inches(op["pos"])
+		var hp_ratio := clampf(float(op["wounds_cur"]) / float(maxi(1, int(op["wounds_max"]))), 0.0, 1.0)
+		var hp_col := KTTheme.COL_EMERALD if hp_ratio >= 0.5 else (KTTheme.COL_GOLD_BRIGHT if hp_ratio >= 0.28 else KTTheme.COL_CRIMSON)
+		var otex := _get_order_tex(str(op["order"]), is_ready or is_active)
+
+		if not is_focus:
+			# Compact tag: order icon + HP bar + status glyphs. The token itself already shows the role name.
+			var cw := 58.0
+			var cr := Rect2(sp_op.x - cw * 0.5, sp_op.y - 14.0, cw, 14.0)
+			_hud_overlay.draw_rect(Rect2(cr.position.x - 1, cr.position.y - 1, cr.size.x + 2, cr.size.y + 2), Color(0, 0, 0, 0.55), true)
+			_hud_overlay.draw_rect(cr, Color(0.032, 0.042, 0.065, 0.78 if is_ready else 0.55), true)
+			_hud_overlay.draw_rect(cr, fcol if is_ready else fcol.darkened(0.45), false, 1.0)
+			if otex != null:
+				_hud_overlay.draw_texture_rect(otex, Rect2(cr.position.x + 1.0, cr.position.y + 1.0, 12.0, 12.0), false)
+			var bar_x := cr.position.x + 15.0
+			var bar_w := cr.end.x - 3.0 - bar_x
+			_hud_overlay.draw_rect(Rect2(bar_x, cr.position.y + 5.0, bar_w, 4.0), Color(0.1, 0.1, 0.12, 0.9), true)
+			_hud_overlay.draw_rect(Rect2(bar_x, cr.position.y + 5.0, bar_w * hp_ratio, 4.0), hp_col, true)
+			var glyphs := ("☣" if bool(op["poisoned"]) else "") + ("⚡" if int(op["apl_mod"]) < 0 else "") + ("▲" if z_h >= 2.0 else "")
+			if not glyphs.is_empty():
+				_hud_overlay.draw_string(font, Vector2(cr.end.x + 2.0, cr.position.y + 11.0), glyphs, HORIZONTAL_ALIGNMENT_LEFT, -1, 10, KTTheme.COL_GOLD_BRIGHT)
+			continue
+
+		# Focused (active / hovered / selected): full nameplate with name, wounds and AP gems.
+		var short_name := str(op["name"]).replace("仲裁者", "").replace("瘟疫战士", "瘟疫")
 		var elev_badge := " ▲2F" if z_h >= 2.0 else ""
 		var status_ico := (" ☣" if bool(op["poisoned"]) else "") + (" ⚡" if int(op["apl_mod"]) < 0 else "")
 		var txt := "%s%s %d/%d%s" % [short_name, elev_badge, int(op["wounds_cur"]), int(op["wounds_max"]), status_ico]
@@ -1306,20 +1338,14 @@ func _draw_projected_hud() -> void:
 		var pr := Rect2(sp_op.x - pw * 0.5, sp_op.y - 22.0, pw, 22.0)
 
 		_hud_overlay.draw_rect(Rect2(pr.position.x - 1, pr.position.y - 1, pr.size.x + 2, pr.size.y + 2), Color(0, 0, 0, 0.65), true)
-		_hud_overlay.draw_rect(pr, Color(0.032, 0.042, 0.065, 0.90 if (is_ready or is_active) else 0.66), true)
+		_hud_overlay.draw_rect(pr, Color(0.032, 0.042, 0.065, 0.92), true)
 		_hud_overlay.draw_rect(Rect2(pr.position.x, pr.position.y, 3.0, pr.size.y), KTTheme.COL_GOLD_BRIGHT if is_active else fcol, true)
 		_hud_overlay.draw_rect(pr, KTTheme.COL_GOLD_BRIGHT if is_active else fcol, false, 1.8 if is_active else 1.1)
 
-		# Order Token Mini Icon on Left of Nameplate
-		var otex := _get_order_tex(str(op["order"]), is_ready or is_active)
 		if otex != null:
 			_hud_overlay.draw_texture_rect(otex, Rect2(pr.position.x + 3.0, pr.position.y + 2.0, 18.0, 18.0), false)
 
-		_hud_overlay.draw_string(font, Vector2(pr.position.x + 22.0, pr.position.y + 15.0), txt, HORIZONTAL_ALIGNMENT_CENTER, pw - 24.0, 12, KTTheme.COL_TEXT if (is_ready or is_active) else KTTheme.COL_MUTED)
-
-		# Crisp HP Bar along bottom of nameplate
-		var hp_ratio := clampf(float(op["wounds_cur"]) / float(maxi(1, int(op["wounds_max"]))), 0.0, 1.0)
-		var hp_col := KTTheme.COL_EMERALD if hp_ratio >= 0.5 else (KTTheme.COL_GOLD_BRIGHT if hp_ratio >= 0.28 else KTTheme.COL_CRIMSON)
+		_hud_overlay.draw_string(font, Vector2(pr.position.x + 22.0, pr.position.y + 15.0), txt, HORIZONTAL_ALIGNMENT_CENTER, pw - 24.0, 12, KTTheme.COL_TEXT)
 		_hud_overlay.draw_rect(Rect2(pr.position.x + 2, pr.end.y - 3.0, (pw - 4) * hp_ratio, 2.2), hp_col, true)
 
 		if is_active:
@@ -1364,9 +1390,11 @@ func _draw_projected_hud() -> void:
 				continue
 			var sp_d := _cam.unproject_position(w_def) + Vector2(0.0, -28.0)
 			var sp_body := _cam.unproject_position(w_body)
+			# Text callouts only for the hovered target; everyone else is described by ring colour.
+			if hovered_uid != def_uid:
+				continue
 			if not bool(ev["valid"]):
-				if hovered_uid == def_uid:
-					_draw_pill_2d(sp_d, "🔒 " + str(ev["reason"]), Color(0.68, 0.70, 0.75), 13, 0.94)
+				_draw_pill_2d(sp_d, "🔒 " + str(ev["reason"]), Color(0.68, 0.70, 0.75), 13, 0.94)
 				continue
 			var bcol := KTTheme.COL_EMERALD
 			var st_txt := "🎯 暴露"
@@ -1379,10 +1407,7 @@ func _draw_projected_hud() -> void:
 			if int(ev.get("vantage_accurate", 0)) > 0:
 				st_txt += " · ▲精准+%d" % int(ev["vantage_accurate"])
 			_draw_pill_2d(sp_d, "%s · %.1f\"" % [st_txt, float(ev["distance"])], bcol, 12, 0.92)
-
-			# Animated XCOM-style Rotating Target-Lock Crosshair & Floating Shot Forecast Card on Hovered Target!
-			if hovered_uid == def_uid:
-				_draw_target_lock_reticle(sp_body, bcol, active_shoot_weapon, ev)
+			_draw_target_lock_reticle(sp_body, bcol, active_shoot_weapon, ev)
 
 	# 5b. Fight Mode Animated Melee Lock Reticle!
 	elif interaction_mode == "fight" and not hovered_uid.is_empty():

@@ -31,6 +31,7 @@ var _hover_lbl: Label
 var _hover_text_cache: String = ""
 
 # Dramatic Phase Transition Banner
+const PHASE_TOAST_DUR: float = 2.1
 var _phase_toast: PanelContainer
 var _phase_toast_lbl: Label
 var _phase_toast_timer: float = 0.0
@@ -267,7 +268,13 @@ func _process(delta: float) -> void:
 		if _phase_toast_timer <= 0.0:
 			_phase_toast.visible = false
 		else:
-			_phase_toast.modulate.a = clampf(_phase_toast_timer / 0.45, 0.0, 1.0)
+			# Sweep in (first 0.35s): the label slides from the left edge to centre with ease-out.
+			var elapsed: float = PHASE_TOAST_DUR - _phase_toast_timer
+			var sweep: float = clampf(elapsed / 0.35, 0.0, 1.0)
+			var ease_s: float = 1.0 - pow(1.0 - sweep, 3.0)
+			var vpw: float = get_viewport_rect().size.x
+			_phase_toast_lbl.position.x = lerpf(-vpw * 0.6, 0.0, ease_s)
+			_phase_toast.modulate.a = minf(clampf(_phase_toast_timer / 0.45, 0.0, 1.0), clampf(elapsed / 0.15, 0.0, 1.0))
 
 
 func _on_viewport_resized() -> void:
@@ -479,7 +486,7 @@ func _build_sys_micro_toolbar() -> void:
 	_sys_bar.anchor_right = 1.0
 	_sys_bar.anchor_top = 0.0
 	_sys_bar.anchor_bottom = 0.0
-	_sys_bar.offset_left = -362.0
+	_sys_bar.offset_left = -400.0
 	_sys_bar.offset_right = -10.0
 	_sys_bar.offset_top = 10.0
 	_sys_bar.offset_bottom = 50.0
@@ -865,26 +872,37 @@ func _hide_skill_tooltip() -> void:
 
 
 func _build_phase_toast() -> void:
+	# Cinematic phase banner: a full-width dark band with gold rules that sweeps in from the left,
+	# holds, then fades. Replaces the old static pill so phase changes feel like a cut-scene beat.
 	_phase_toast = PanelContainer.new()
-	_phase_toast.anchor_left = 0.5
-	_phase_toast.anchor_right = 0.5
-	_phase_toast.offset_left = -260
-	_phase_toast.offset_right = 260
-	_phase_toast.offset_top = 100
-	_phase_toast.offset_bottom = 144
+	_phase_toast.anchor_left = 0.0
+	_phase_toast.anchor_right = 1.0
+	_phase_toast.anchor_top = 0.5
+	_phase_toast.anchor_bottom = 0.5
+	_phase_toast.offset_left = 0
+	_phase_toast.offset_right = 0
+	_phase_toast.offset_top = -150
+	_phase_toast.offset_bottom = -78
 	_phase_toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_phase_toast.visible = false
-	_phase_toast.add_theme_stylebox_override(
-		"panel",
-		KTTheme.make_panel_style(Color(0.06, 0.045, 0.030, 0.94), KTTheme.COL_GOLD_BRIGHT, 10, 2, 10, true)
-	)
+	var band := StyleBoxFlat.new()
+	band.bg_color = Color(0.03, 0.025, 0.02, 0.88)
+	band.border_color = KTTheme.COL_GOLD_BRIGHT
+	band.border_width_top = 2
+	band.border_width_bottom = 2
+	band.content_margin_top = 10
+	band.content_margin_bottom = 10
+	_phase_toast.add_theme_stylebox_override("panel", band)
 	add_child(_phase_toast)
 
 	_phase_toast_lbl = Label.new()
 	_phase_toast_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_phase_toast_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_phase_toast_lbl.add_theme_font_size_override("font_size", 17)
+	_phase_toast_lbl.add_theme_font_size_override("font_size", 30)
 	_phase_toast_lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	_phase_toast_lbl.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.8))
+	_phase_toast_lbl.add_theme_constant_override("shadow_offset_x", 2)
+	_phase_toast_lbl.add_theme_constant_override("shadow_offset_y", 2)
 	_phase_toast.add_child(_phase_toast_lbl)
 
 
@@ -1360,10 +1378,13 @@ func _refresh_all_ui() -> void:
 		_sys_bar.visible = not on_title
 	if _tactical_pill != null:
 		_tactical_pill.visible = hud_vis
+	# Only the acting side's roster is docked on screen; the opponent is read off the board itself
+	# (tokens + compact tags). In hotseat the roster swaps sides with the turn.
+	var roster_side: String = str(engine.state.get("turn_side", "A")) if not engine.state.is_empty() else "A"
 	if _left_squad_box != null:
-		_left_squad_box.visible = hud_vis
+		_left_squad_box.visible = hud_vis and roster_side == "A"
 	if _right_squad_box != null:
-		_right_squad_box.visible = hud_vis
+		_right_squad_box.visible = hud_vis and roster_side == "B"
 	if _killzone != null:
 		_killzone.set_hud_labels_visible(not on_title)
 	if on_title:
@@ -1433,8 +1454,8 @@ func _refresh_all_ui() -> void:
 			KTSfx.play("phase_horn", -8.0, 0.04)
 			_phase_toast_lbl.text = "⚜️  第 %d 转折点  ·  %s  ⚜️" % [tp, phase_cn]
 			_phase_toast.visible = true
-			_phase_toast.modulate.a = 1.0
-			_phase_toast_timer = 1.65
+			_phase_toast.modulate.a = 0.0
+			_phase_toast_timer = PHASE_TOAST_DUR
 
 	# 2. Update Persistent Left/Right Squad Medallions (even during combat so trauma bars stay synced!)
 	_sync_edge_squad_medallions()
@@ -1603,6 +1624,7 @@ func _rebuild_bottom_game_hud() -> void:
 			_context_hb.add_child(ai_pill)
 		else:
 			var fcol: Color = KTTheme.COL_IMPERIAL if turn_s == "A" else KTTheme.COL_NURGLE
+			var deal_i := 0
 			for opt_v in engine.get_strategic_ploy_options(turn_s):
 				var opt: Dictionary = opt_v
 				var used_flag: bool = bool(opt["used"])
@@ -1616,8 +1638,11 @@ func _rebuild_bottom_game_hud() -> void:
 					"%d CP" % cost_i,
 					fcol,
 					dis_flag,
-					used_flag
+					used_flag,
+					deal_i,
+					"战略计谋"
 				)
+				deal_i += 1
 				var oid: String = str(opt["id"])
 				scard.played.connect(func():
 					engine.use_strategic_ploy(turn_s, oid)

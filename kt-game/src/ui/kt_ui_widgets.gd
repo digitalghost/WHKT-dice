@@ -392,16 +392,27 @@ class StratagemCard extends Control:
 	var _hover_t: float = 0.0
 	var _is_hov: bool = false
 
-	func setup(p_title: String, p_desc: String, p_cost: String, p_col: Color, p_disabled: bool, p_used: bool = false) -> void:
+	# Deal-in animation: card rises from below the hand with a slight fan tilt, staggered by index.
+	var _deal_t: float = 0.0
+	var _deal_delay: float = 0.0
+	var _crest_tex: Texture2D = null
+	var _kind_str: String = "战略计谋"
+
+	func setup(p_title: String, p_desc: String, p_cost: String, p_col: Color, p_disabled: bool, p_used: bool = false, p_deal_index: int = 0, p_kind: String = "战略计谋") -> void:
 		title_str = p_title
 		desc_str = p_desc
 		cost_str = p_cost
 		accent_col = p_col
 		disabled = p_disabled
 		active_used = p_used
-		custom_minimum_size = Vector2(184, 126)
+		_kind_str = p_kind
+		_deal_delay = 0.045 * float(p_deal_index)
+		var is_imp: bool = p_col.is_equal_approx(KTTheme.COL_IMPERIAL)
+		_crest_tex = KTData.load_tex("res://assets/ui/team_mark_imp_aod.png" if is_imp else "res://assets/ui/team_mark_chaos_pm.png")
+		custom_minimum_size = Vector2(176, 150)
 		mouse_default_cursor_shape = Control.CURSOR_ARROW if disabled else Control.CURSOR_POINTING_HAND
 		tooltip_text = p_title + "\n" + p_desc
+		pivot_offset = Vector2(88.0, 150.0)
 		queue_redraw()
 
 	func _notification(what: int) -> void:
@@ -420,49 +431,78 @@ class StratagemCard extends Control:
 				played.emit()
 
 	func _process(delta: float) -> void:
+		var dirty := false
+		if _deal_t < 1.0:
+			if _deal_delay > 0.0:
+				_deal_delay -= delta
+			else:
+				_deal_t = minf(1.0, _deal_t + delta * 6.0)
+			# Container owns `position`, so animate only what it doesn't: alpha, tilt and scale about the bottom pivot.
+			var e: float = 1.0 - pow(1.0 - _deal_t, 3.0)
+			modulate.a = e
+			rotation = deg_to_rad(-9.0 * (1.0 - e))
+			scale = Vector2.ONE * lerpf(0.82, 1.0, e)
+			dirty = true
 		var target_h: float = 1.0 if (_is_hov and not disabled) else 0.0
 		if absf(_hover_t - target_h) > 0.002:
 			_hover_t = move_toward(_hover_t, target_h, delta * 9.0)
+			dirty = true
+		if dirty:
 			queue_redraw()
 
 	func _draw() -> void:
 		var font: Font = KTTheme.get_cjk_font()
-		var lift_y: float = -18.0 * _hover_t
-		var r := Rect2(2.0, 20.0 + lift_y, size.x - 4.0, size.y - 22.0)
+		var lift_y: float = -16.0 * _hover_t
+		var r := Rect2(2.0, 14.0 + lift_y, size.x - 4.0, size.y - 16.0)
 
+		# Glow halo when hovered / played
 		if _hover_t > 0.02 or active_used:
-			KTWidgets.draw_chamfer_rect(self, r.grow(4.0), 11.0, Color(accent_col.r, accent_col.g, accent_col.b, 0.28 * maxf(_hover_t, 0.6 if active_used else 0.0)), Color(0, 0, 0, 0), 0.0)
+			KTWidgets.draw_chamfer_rect(self, r.grow(5.0), 8.0, Color(accent_col.r, accent_col.g, accent_col.b, 0.30 * maxf(_hover_t, 0.6 if active_used else 0.0)), Color(0, 0, 0, 0), 0.0)
 
-		var bg := Color(0.055, 0.068, 0.095, 0.95)
+		# Card stock: parchment-dark gradient like a printed KT24 ploy card
+		var bg_top := Color(0.14, 0.145, 0.16, 0.97)
+		var bg_bot := Color(0.075, 0.08, 0.095, 0.97)
 		if active_used:
-			bg = Color(accent_col.r * 0.22, accent_col.g * 0.22, accent_col.b * 0.22, 0.96)
+			bg_top = Color(accent_col.r * 0.30, accent_col.g * 0.30, accent_col.b * 0.30, 0.97)
+			bg_bot = Color(accent_col.r * 0.16, accent_col.g * 0.16, accent_col.b * 0.16, 0.97)
 		elif disabled:
-			bg = Color(0.04, 0.045, 0.058, 0.76)
-
+			bg_top = Color(0.07, 0.072, 0.08, 0.80)
+			bg_bot = Color(0.045, 0.047, 0.055, 0.80)
 		var border_c := KTTheme.COL_GOLD_BRIGHT if (_hover_t > 0.45 or active_used) else (Color(0.26, 0.29, 0.35, 0.6) if disabled else accent_col)
-		KTWidgets.draw_chamfer_rect(self, r, 9.0, bg, border_c, 2.2 if _hover_t > 0.3 else 1.5)
+		KTWidgets.draw_chamfer_rect(self, r, 6.0, bg_bot, border_c, 2.4 if _hover_t > 0.3 else 1.6)
+		draw_rect(Rect2(r.position.x + 2.0, r.position.y + 2.0, r.size.x - 4.0, r.size.y * 0.45), Color(bg_top.r, bg_top.g, bg_top.b, 0.55), true)
 
-		# Header Banner + CP Gem
-		var hdr_r := Rect2(r.position.x + 3.0, r.position.y + 3.0, r.size.x - 6.0, 26.0)
-		draw_rect(hdr_r, Color(accent_col.r * 0.32, accent_col.g * 0.32, accent_col.b * 0.32, 0.62 if not disabled else 0.22), true)
+		# Faction crest watermark behind the text
+		if _crest_tex != null:
+			var cs := minf(r.size.x, r.size.y) * 0.72
+			var crest_r := Rect2(r.get_center() - Vector2(cs * 0.5, cs * 0.5 - 10.0), Vector2(cs, cs))
+			draw_texture_rect(_crest_tex, crest_r, false, Color(1, 1, 1, 0.10 if not disabled else 0.05))
 
-		var cp_r := Rect2(hdr_r.position.x + 4.0, hdr_r.position.y + 3.0, 38.0, 20.0)
-		KTWidgets.draw_chamfer_rect(self, cp_r, 4.0, Color(0.03, 0.04, 0.06, 0.92), KTTheme.COL_GOLD_BRIGHT if not disabled else KTTheme.COL_MUTED, 1.2)
-		draw_string(font, Vector2(cp_r.position.x, cp_r.position.y + 14.5), cost_str, HORIZONTAL_ALIGNMENT_CENTER, cp_r.size.x, 11, KTTheme.COL_GOLD_BRIGHT if not disabled else KTTheme.COL_MUTED)
+		# Header: faction-colour band with kind label + CP gem
+		var hdr_r := Rect2(r.position.x + 2.0, r.position.y + 2.0, r.size.x - 4.0, 22.0)
+		draw_rect(hdr_r, Color(accent_col.r * 0.55, accent_col.g * 0.55, accent_col.b * 0.55, 0.85 if not disabled else 0.30), true)
+		draw_string(font, Vector2(hdr_r.position.x + 8.0, hdr_r.position.y + 15.5), _kind_str, HORIZONTAL_ALIGNMENT_LEFT, hdr_r.size.x - 50.0, 10, Color(1, 1, 1, 0.85 if not disabled else 0.45))
 
+		var cp_r := Rect2(hdr_r.end.x - 42.0, hdr_r.position.y + 2.0, 38.0, 18.0)
+		KTWidgets.draw_chamfer_rect(self, cp_r, 3.0, Color(0.03, 0.04, 0.06, 0.95), KTTheme.COL_GOLD_BRIGHT if not disabled else KTTheme.COL_MUTED, 1.2)
+		draw_string(font, Vector2(cp_r.position.x, cp_r.position.y + 13.5), cost_str, HORIZONTAL_ALIGNMENT_CENTER, cp_r.size.x, 11, KTTheme.COL_GOLD_BRIGHT if not disabled else KTTheme.COL_MUTED)
+
+		# Title: bold, on a thin brass rule
 		var t_col := KTTheme.COL_GOLD_BRIGHT if _hover_t > 0.3 else (KTTheme.COL_MUTED if disabled else KTTheme.COL_TEXT)
-		draw_string(font, Vector2(cp_r.end.x + 6.0, hdr_r.position.y + 17.5), title_str, HORIZONTAL_ALIGNMENT_LEFT, hdr_r.size.x - 48.0, 12, t_col)
+		var title_y := hdr_r.end.y + 20.0
+		draw_string(font, Vector2(r.position.x + 8.0, title_y), title_str, HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 16.0, 13, t_col)
+		draw_rect(Rect2(r.position.x + 8.0, title_y + 5.0, r.size.x - 16.0, 1.0), Color(KTTheme.COL_BRASS.r, KTTheme.COL_BRASS.g, KTTheme.COL_BRASS.b, 0.7 if not disabled else 0.3), true)
 
-		# Multiline rule summary
+		# Rule text
 		draw_multiline_string(
 			font,
-			Vector2(r.position.x + 9.0, hdr_r.end.y + 16.0),
+			Vector2(r.position.x + 8.0, title_y + 22.0),
 			desc_str,
 			HORIZONTAL_ALIGNMENT_LEFT,
-			r.size.x - 18.0,
+			r.size.x - 16.0,
 			11,
-			3,
-			KTTheme.COL_TEXT.darkened(0.12) if not disabled else KTTheme.COL_MUTED.darkened(0.2)
+			4,
+			KTTheme.COL_TEXT.darkened(0.10) if not disabled else KTTheme.COL_MUTED.darkened(0.2)
 		)
 
 
