@@ -1,0 +1,15 @@
+# Godot 4+ local cache & imports
+.godot/
+*.translation
+
+# Synced binary assets & generated data (regenerated via `python3 tools/sync_assets.py`)
+assets/cards/
+assets/portraits/
+assets/ui/
+assets/audio/
+assets/fonts/
+
+# Export builds & test screenshots
+build/
+exports/
+.DS_Store

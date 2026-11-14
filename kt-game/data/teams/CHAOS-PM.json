@@ -1,0 +1,1379 @@
+{
+  "team_id": "CHAOS-PM",
+  "name": "瘟疫战士",
+  "name_en": "Plague Marines",
+  "subtitle": "混沌 · 阿斯塔特叛军 · 7 种成员",
+  "archetypes": [
+    "安全保护",
+    "搜索与摧毁"
+  ],
+  "composition_hint": "选择 1 名瘟疫战士勇士，再从掷弹兵、斗士、重炮手、持徽手、恶瘟投放者和士兵中选择 5 名；每种特工最多 1 名。",
+  "canonical_roster": [
+    "pm_champion",
+    "pm_bombardier",
+    "pm_fighter",
+    "pm_heavy_gunner",
+    "pm_icon_bearer",
+    "pm_plaguecaster"
+  ],
+  "operatives": [
+    {
+      "id": "pm_champion",
+      "name": "瘟疫战士勇士",
+      "role": "领袖",
+      "apl": 3,
+      "move_inches": 5.0,
+      "save": 3,
+      "wounds": 15,
+      "base_mm": 32,
+      "base_radius_inches": 0.6299,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "领袖",
+        "勇士"
+      ],
+      "portrait": "res://assets/portraits/pm_champion.png",
+      "standee": "res://assets/standees/pm_champion.png",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-01-特工-瘟疫战士勇士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_champion_plasma_standard",
+          "name": "等离子手枪（标准）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/5 · 范围 8\"、穿刺 1",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 5,
+          "keywords": [
+            "范围 8\"",
+            "穿刺 1"
+          ],
+          "rules": {
+            "range": 8.0,
+            "lethal": 6,
+            "piercing": 1,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_champion_plasma_super",
+          "name": "等离子手枪（过载）",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 8\"、过热、致命 5+、穿刺 1",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 4,
+          "crit_dmg": 5,
+          "keywords": [
+            "范围 8\"",
+            "过热",
+            "致命 5+",
+            "穿刺 1"
+          ],
+          "rules": {
+            "range": 8.0,
+            "lethal": 5,
+            "piercing": 1,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": true,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_champion_plague_sword",
+          "name": "瘟疫之剑",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 严重、毒素、剧毒",
+          "attacks": 5,
+          "hit": 3,
+          "normal_dmg": 4,
+          "crit_dmg": 5,
+          "keywords": [
+            "严重",
+            "毒素",
+            "剧毒"
+          ],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": true,
+            "toxic": true
+          }
+        }
+      ],
+      "default_weapon_ids": [
+        "pm_champion_plasma_standard",
+        "pm_champion_plasma_super",
+        "pm_champion_plague_sword"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_blessing",
+          "name": "慈父赐福",
+          "ap": null,
+          "text": "7 英寸内带有己方毒素标识的敌人损失耐伤时，该特工恢复等量已损耐伤；每个转折点最多恢复 3 点，且该特工必须仍在场。"
+        }
+      ]
+    },
+    {
+      "id": "pm_bombardier",
+      "name": "瘟疫战士掷弹兵",
+      "role": "专家",
+      "apl": 3,
+      "move_inches": 5.0,
+      "save": 3,
+      "wounds": 14,
+      "base_mm": 32,
+      "base_radius_inches": 0.6299,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "掷弹兵"
+      ],
+      "portrait": "res://assets/portraits/pm_bombardier.png",
+      "standee": "res://assets/standees/pm_bombardier.png",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-02-特工-瘟疫战士掷弹兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_bombardier_boltgun",
+          "name": "爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_bombardier_blight_grenade",
+          "name": "疫病手雷",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 2/4 · 范围 6\"、爆炸 2\"、集中、严重、毒素、剧毒",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 2,
+          "crit_dmg": 4,
+          "keywords": [
+            "范围 6\"",
+            "爆炸 2\"",
+            "集中",
+            "严重",
+            "毒素",
+            "剧毒"
+          ],
+          "rules": {
+            "range": 6.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 2.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": true,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": true,
+            "toxic": true
+          }
+        },
+        {
+          "id": "pm_bombardier_krak",
+          "name": "穿甲手雷",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 4/5 · 范围 6\"、穿刺 1、集中",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 4,
+          "crit_dmg": 5,
+          "keywords": [
+            "范围 6\"",
+            "穿刺 1",
+            "集中"
+          ],
+          "rules": {
+            "range": 6.0,
+            "lethal": 6,
+            "piercing": 1,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": true,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_bombardier_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        }
+      ],
+      "default_weapon_ids": [
+        "pm_bombardier_boltgun",
+        "pm_bombardier_blight_grenade",
+        "pm_bombardier_krak",
+        "pm_bombardier_fists"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_grenadier",
+          "name": "掷弹兵",
+          "ap": null,
+          "text": "可使用疫病与穿甲手雷，不占用队伍装备的有限次数；使用时命中属性改善 1，疫病手雷同时获得“剧毒”。"
+        }
+      ]
+    },
+    {
+      "id": "pm_fighter",
+      "name": "瘟疫战士斗士",
+      "role": "斗士",
+      "apl": 3,
+      "move_inches": 5.0,
+      "save": 3,
+      "wounds": 14,
+      "base_mm": 32,
+      "base_radius_inches": 0.6299,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "斗士"
+      ],
+      "portrait": "res://assets/portraits/pm_fighter.png",
+      "standee": "res://assets/standees/pm_fighter.png",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-03-特工-瘟疫战士斗士-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_fighter_flail",
+          "name": "腐蚀连枷",
+          "kind": "melee",
+          "profile": "5A · 3+ · 4/5 · 残暴、严重、震荡、毒素",
+          "attacks": 5,
+          "hit": 3,
+          "normal_dmg": 4,
+          "crit_dmg": 5,
+          "keywords": [
+            "残暴",
+            "严重",
+            "震荡",
+            "毒素"
+          ],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": true,
+            "shock": true,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": true,
+            "toxic": false
+          }
+        }
+      ],
+      "default_weapon_ids": [
+        "pm_fighter_flail"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_flail",
+          "name": "连枷",
+          "ap": 1,
+          "text": "对 2 英寸内其他每名可见特工分别造成 D3+2 伤害；若敌人对应的 D3 为 3，还获得己方毒素标识。按阿斯塔特限制视为战斗行动，隐匿命令下不能执行。"
+        }
+      ]
+    },
+    {
+      "id": "pm_heavy_gunner",
+      "name": "瘟疫战士重炮手",
+      "role": "重炮手",
+      "apl": 3,
+      "move_inches": 5.0,
+      "save": 3,
+      "wounds": 14,
+      "base_mm": 32,
+      "base_radius_inches": 0.6299,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "重炮手"
+      ],
+      "portrait": "res://assets/portraits/pm_heavy_gunner.png",
+      "standee": "res://assets/standees/pm_heavy_gunner.png",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-04-特工-瘟疫战士重炮手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_heavy_gunner_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [
+            "范围 8\""
+          ],
+          "rules": {
+            "range": 8.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_heavy_gunner_plague_spewer",
+          "name": "瘟疫喷吐炮",
+          "kind": "ranged",
+          "profile": "5A · 2+ · 3/3 · 范围 7\"、集中、严重、洪流 2\"、毒素",
+          "attacks": 5,
+          "hit": 2,
+          "normal_dmg": 3,
+          "crit_dmg": 3,
+          "keywords": [
+            "范围 7\"",
+            "集中",
+            "严重",
+            "洪流 2\"",
+            "毒素"
+          ],
+          "rules": {
+            "range": 7.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 2.0,
+            "accurate": 0,
+            "saturate": true,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": true,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_heavy_gunner_fists",
+          "name": "双拳",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        }
+      ],
+      "default_weapon_ids": [
+        "pm_heavy_gunner_bolt_pistol",
+        "pm_heavy_gunner_plague_spewer",
+        "pm_heavy_gunner_fists"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        }
+      ]
+    },
+    {
+      "id": "pm_icon_bearer",
+      "name": "瘟疫战士持徽手",
+      "role": "持徽手",
+      "apl": 3,
+      "move_inches": 5.0,
+      "save": 3,
+      "wounds": 14,
+      "base_mm": 32,
+      "base_radius_inches": 0.6299,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "持徽手"
+      ],
+      "portrait": "res://assets/portraits/pm_icon_bearer.png",
+      "standee": "res://assets/standees/pm_icon_bearer.png",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-05-特工-瘟疫战士持徽手-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_icon_bearer_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [
+            "范围 8\""
+          ],
+          "rules": {
+            "range": 8.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_icon_bearer_plague_knife",
+          "name": "瘟疫匕首",
+          "kind": "melee",
+          "profile": "5A · 3+ · 3/4 · 严重、毒素",
+          "attacks": 5,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [
+            "严重",
+            "毒素"
+          ],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": true,
+            "toxic": false
+          }
+        }
+      ],
+      "default_weapon_ids": [
+        "pm_icon_bearer_bolt_pistol",
+        "pm_icon_bearer_plague_knife"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_icon_bearer",
+          "name": "持徽手",
+          "ap": null,
+          "text": "判断标识控制权时，该特工的 APL 视为加 1；这不是属性修改，可与其他效果叠加。"
+        },
+        {
+          "id": "pm_icon_contagion",
+          "name": "传染圣像",
+          "ap": null,
+          "text": "该特工位于对手领地内时，“传染”战略计谋花费 0CP。"
+        }
+      ]
+    },
+    {
+      "id": "pm_plaguecaster",
+      "name": "恶瘟投放者",
+      "role": "灵能者",
+      "apl": 3,
+      "move_inches": 5.0,
+      "save": 3,
+      "wounds": 14,
+      "base_mm": 32,
+      "base_radius_inches": 0.6299,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "恶瘟投放者"
+      ],
+      "portrait": "res://assets/portraits/pm_plaguecaster.png",
+      "standee": "res://assets/standees/pm_plaguecaster.png",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-06-特工-恶瘟投放者-数据卡.png",
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-07-特工能力-恶瘟投放者-能力卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_plaguecaster_entropy",
+          "name": "衰败术",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/7 · 灵能、范围 7\"、集中、严重、毒素",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 7,
+          "keywords": [
+            "灵能",
+            "范围 7\"",
+            "集中",
+            "严重",
+            "毒素"
+          ],
+          "rules": {
+            "range": 7.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": true,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": true,
+            "poison": true,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_plaguecaster_plague_wind",
+          "name": "瘟疫之风",
+          "kind": "ranged",
+          "profile": "6A · 3+ · 2/3 · 灵能、集中、严重、洪流 1\"、毒素",
+          "attacks": 6,
+          "hit": 3,
+          "normal_dmg": 2,
+          "crit_dmg": 3,
+          "keywords": [
+            "灵能",
+            "集中",
+            "严重",
+            "洪流 1\"",
+            "毒素"
+          ],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 1.0,
+            "accurate": 0,
+            "saturate": true,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": true,
+            "poison": true,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_plaguecaster_staff",
+          "name": "腐化法杖",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4 · 灵能、严重、震荡、晕眩、毒素",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [
+            "灵能",
+            "严重",
+            "震荡",
+            "晕眩",
+            "毒素"
+          ],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": true,
+            "stun": true,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": true,
+            "poison": true,
+            "toxic": false
+          }
+        }
+      ],
+      "default_weapon_ids": [
+        "pm_plaguecaster_entropy",
+        "pm_plaguecaster_plague_wind",
+        "pm_plaguecaster_staff"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_miasma",
+          "name": "有毒瘴气",
+          "ap": 1,
+          "text": "灵能。选择 7 英寸内可见的敌方特工或该特工的有效目标：目标获得己方毒素标识；若已有标识，则改为造成 3 点伤害。处于敌方控制范围内时不能执行。"
+        },
+        {
+          "id": "pm_vitality",
+          "name": "腐烂活力",
+          "ap": 1,
+          "text": "灵能。选择 3 英寸内可见的友方特工并掷 2D6：总和为 7 时恢复最多 7 点耐伤，否则按较高的一枚 D6 恢复。每个转折点一次，处于敌方控制范围内时不能执行。"
+        }
+      ]
+    },
+    {
+      "id": "pm_warrior",
+      "name": "瘟疫战士士兵",
+      "role": "战士",
+      "apl": 3,
+      "move_inches": 5.0,
+      "save": 3,
+      "wounds": 14,
+      "base_mm": 32,
+      "base_radius_inches": 0.6299,
+      "keywords": [
+        "瘟疫战士",
+        "混沌",
+        "阿斯塔特异端",
+        "灵能者",
+        "士兵"
+      ],
+      "portrait": "res://assets/portraits/pm_warrior.png",
+      "standee": "res://assets/standees/pm_warrior.png",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--01-08-特工-瘟疫战士士兵-数据卡.png"
+      ],
+      "weapons": [
+        {
+          "id": "pm_warrior_boltgun",
+          "name": "爆矢枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 剧毒",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [
+            "剧毒"
+          ],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": true
+          }
+        },
+        {
+          "id": "pm_warrior_plague_knife",
+          "name": "瘟疫匕首",
+          "kind": "melee",
+          "profile": "4A · 3+ · 3/4 · 严重、毒素",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [
+            "严重",
+            "毒素"
+          ],
+          "rules": {
+            "range": 0.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": true,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": true,
+            "toxic": false
+          }
+        },
+        {
+          "id": "pm_warrior_bolt_pistol",
+          "name": "爆矢手枪",
+          "kind": "ranged",
+          "profile": "4A · 3+ · 3/4 · 范围 8\"",
+          "attacks": 4,
+          "hit": 3,
+          "normal_dmg": 3,
+          "crit_dmg": 4,
+          "keywords": [
+            "范围 8\""
+          ],
+          "rules": {
+            "range": 8.0,
+            "lethal": 6,
+            "piercing": 0,
+            "piercing_crits": 0,
+            "devastating": 0,
+            "blast": 0.0,
+            "torrent": 0.0,
+            "accurate": 0,
+            "saturate": false,
+            "balanced": false,
+            "ceaseless": false,
+            "relentless": false,
+            "rending": false,
+            "punishing": false,
+            "severe": false,
+            "hot": false,
+            "brutal": false,
+            "shock": false,
+            "stun": false,
+            "silent": false,
+            "seek_light": false,
+            "seek": false,
+            "heavy": false,
+            "heavy_dash_only": false,
+            "psychic": false,
+            "poison": false,
+            "toxic": false
+          }
+        }
+      ],
+      "default_weapon_ids": [
+        "pm_warrior_boltgun",
+        "pm_warrior_plague_knife"
+      ],
+      "abilities": [
+        {
+          "id": "pm_astartes",
+          "name": "阿斯塔特",
+          "ap": null,
+          "text": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_resilient",
+          "name": "恼人韧性",
+          "ap": null,
+          "text": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+          "factionRule": true
+        },
+        {
+          "id": "pm_fortitude",
+          "name": "排斥韧性",
+          "ap": null,
+          "text": "敌人射击该特工时，其防御骰结果 5+ 视为暴击。"
+        }
+      ]
+    }
+  ],
+  "weapon_rules": [
+    {
+      "name": "毒素",
+      "text": "瘟疫战士规则：这件武器以任意成功造成伤害后，目标获得毒素标识；带标识的特工激活时受到 1 点伤害。"
+    },
+    {
+      "name": "剧毒",
+      "text": "瘟疫战士规则：若目标在行动开始时已有己方毒素标识，这件武器的普通和暴击伤害都加 1。"
+    }
+  ],
+  "rule_entries": [
+    {
+      "id": "CHAOS-PM-composition",
+      "category": "编成与武器选择",
+      "title": "瘟疫战士杀戮小队",
+      "body": "原型：安全保护，搜索与摧毁\n\n特工\n↘ 1 名瘟疫战士勇士特工\n↘ 5 名瘟疫战士特工，从以下列表中选择：\n• 掷弹兵\n• 斗士\n• 重炮手\n• 持徽手\n• 恶瘟投放者\n• 士兵\n\n您的杀戮小队只能包含上述每种特工一次。\n\n纳垢的圣数为 7，徽记则为 3。他的腐败将从这些数字中流出。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--09-小队选择-瘟疫战士杀戮小队.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-astartes",
+      "category": "阵营完整规则",
+      "title": "阿斯塔特",
+      "body": "这些经受了基因强化的超人们的存在意义只有一个：战争。\n\n在每一名己方瘟疫战士特工的激活期间，特工可以执行两次近战行动或者两次射击行动。如果选择执行两次射击行动，那么其中至少有一次必须选择使用一件爆矢手枪、爆矢枪或灵能武器进行攻击。您在每一次激活中不能多次选择同一件灵能远程武器。\n\n每一名己方瘟疫战士特工可以进行反应，无论其拥有的命令。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--10-阵营规则-阿斯塔特.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-poison",
+      "category": "阵营完整规则",
+      "title": "毒素",
+      "body": "纳垢能够制造各种被亚空间腐蚀的剧毒、毒液、病毒和灵魂上的疾病，能够超越一切自然的抵抗力和医疗措施。\n\n本杀戮小队中特工装备的一些武器拥有“毒素”武器规则。\n\n*毒素：在结算成功骰子步骤中，如果您使用任意成功造成了任何伤害，那么成为该武器攻击目标的特工（己方瘟疫战士特工除外）在流程结束时获得一枚己方毒素指示物（如果特工还没有获得毒素指示物）。每当一名拥有己方毒素指示物的特工被激活时，对其造成 1 点伤害。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--11-阵营规则-毒素.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-dc",
+      "category": "阵营完整规则",
+      "title": "恼人韧性",
+      "body": "纳垢的信徒拥有抵御枪弹和剑刃的极度韧性，他们的躯体因死亡、腐败和疾病而变得肿胀。\n\n每当一枚攻击骰对一名己方瘟疫战士特工造成 3 点或更多伤害时，掷一枚 D6：若结果为 4+，那么那次造成的伤害减少 1 点。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--12-阵营规则-恼人韧性.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-S-contagion",
+      "category": "战略计谋",
+      "title": "传染",
+      "body": "瘟疫战士浑身上下都流淌着病毒，他们的可怕躯体能够散发出一种腐败的毒烟，抽走敌人的活力。\n对于以下任意情况，一名敌方特工的移动属性减少 2\"， 其武器的命中属性弱化 1（不与受创的情况累计）：\n• 当一名敌方特工拥有己方毒素标识，且位于己方瘟疫战士特工 3\" 内并对其可见。\n• 当一名敌方特工位于己方瘟疫战士持徽手特工 3\" 内并对其可见。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--13-战略计谋-传染.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-S-ploddingdeath",
+      "category": "战略计谋",
+      "title": "慢步死亡",
+      "body": "瘟疫战士在战争中有条不紊并且绝不退缩，以绝不动摇的决心缓缓前行并进行射击。\n\n每当一名己方瘟疫战士特工在移动没有超过 3\" 的激活中进行射击或近战，或者进行反击时，其武器拥有“无休”武器规则。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--14-战略计谋-慢步死亡.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-S-cloudofflies",
+      "category": "战略计谋",
+      "title": "飞蝇云",
+      "body": "恶心、肥大的蝇群遮挡着瘟疫战士们的前进路线并阻挡敌人的射击。\n\n将一枚己方飞蝇群标识放置在杀戮区中。每当一名特工对一个位于其 3\" 外的己方瘟疫战士特工进行射击时，如果那名己方特工完全位于标识的 1\" 内，那么那个己方特工被遮挡。在下一个战略阶段的就绪步骤中，将标识移除。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--15-战略计谋-飞蝇云.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-S-nurglings",
+      "category": "战略计谋",
+      "title": "纳垢灵",
+      "body": "纳垢灵是最小的纳垢恶魔，他们邪恶又调皮，在使用充斥病毒的尖牙利爪骚扰敌人时咯咯大笑。\n\n选择一名位于己方瘟疫战士特工 3\" 内的敌方特工，或者一名拥有己方毒素指示物且位于己方瘟疫战士特工 7\" 内的敌方特工。直到被选择特工的下一次激活结束前，其 APL 属性减少 1 点。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--16-战略计谋-纳垢灵.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-T-virulentpoison",
+      "category": "交战计谋",
+      "title": "致命毒素",
+      "body": "最为强大的纳垢瘟疫能够在空气中迅速传递，穿透密封的防护服和过滤面罩。\n在一名己方瘟疫战士特工的激活或反应期间，在其执行一次行动之前或之后使用本交战计谋。\n一个位于那名特工 3\" 内，或者位于其 7\" 内且可见的敌方特工获得一枚己方毒素指示物（如果特工还没有己方毒素指示物)。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--17-交战计谋-致命毒素.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-T-poisonousdemise",
+      "category": "交战计谋",
+      "title": "剧毒破灭",
+      "body": "瘟疫战士的身体内充斥着无数种毒素和病毒。在死亡之后，他们的肿胀躯体可能会爆裂，将其中的可怕瘟疫散布至周边。\n\n在一名己方瘟疫战士特工被残废时，在将其移出杀戮区前使用本交战计谋。每一个位于那名特工 3\" 内且可见的敌方特工获得一枚己方毒素指示物（如果特工还没有己方毒素指示物）；对每一名已经拥有己方毒素指示物的敌方特工（包括在这次行动中获得指示物的特工）造成 1 点伤害。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--18-交战计谋-剧毒破灭.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-T-disgustinglyresilient",
+      "category": "交战计谋",
+      "title": "恶心韧性",
+      "body": "通过自愿接受慈父的各种疫病之礼，一些战士会变得更加坚韧。\n\n在一枚攻击骰子对一名己方瘟疫战士特工造成伤害时使用本交战计谋。直到那次激活或反应结束前，在为那名特工结算“恼人韧性”规则时，总是将造成的伤害减少 1 点（最低降至 2 点），您不需要进行掷骰。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--19-交战计谋-恶心韧性.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-T-cursesofrot",
+      "category": "交战计谋",
+      "title": "腐烂诅咒",
+      "body": "要与瘟疫战士展开近战决斗就意味着要将自己暴露在衰败的病毒和蚀魂的腐败之中。\n\n在一名己方瘟疫战士特工对一名位于其 3\" 内的敌方特工进行近战或射击时（如果那名敌方特工拥有己方毒素指示物，则是 7\" 内），在您的对手掷出攻击或防御骰后使用本交战计谋。对手每掷出一个 3，便对那名敌方特工造成 1 点伤害，那一次掷骰结果不能被作为成功保留，并且不能被重掷。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--20-交战计谋-腐烂诅咒.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-EQ-bell",
+      "category": "阵营装备",
+      "title": "瘟疫之钟",
+      "body": "在瘟疫之钟响起时，腐败的能量将充斥死亡守卫的全身，将他们的不洁防御能力提升至惊人的级别。\n\n您可以忽略任何己方死亡守卫特工因受创而导致的属性变化（包括武器数据）。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--21-阵营装备-瘟疫之钟.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-EQ-blightgrenade",
+      "category": "阵营装备",
+      "title": "疫病手雷",
+      "body": "这些装置中存在着各种爆炸物、尖锐金属碎片和致命的病毒，任何在爆炸后存活下来的不幸之徒都将受到感染。\n己方瘟疫战士特工拥有以下远程武器（您不能在战斗中使用本武器超过两次)：\n名称攻击命中伤害\n疫病手雷  4  4+  2/4\n武器规则范围6\"、爆炸2\"、集中、严重、毒素*",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--22-阵营装备-疫病手雷.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-EQ-plagueammo",
+      "category": "阵营装备",
+      "title": "瘟疫弹药",
+      "body": "这些弹药之中流淌着毒素，任何被击中的目标都将染上致命的病毒。\n\n己方瘟疫战士特工的爆矢枪和爆矢手枪拥有“毒素”和“严重”武器规则。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--23-阵营装备-瘟疫弹药.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-EQ-ventilator",
+      "category": "阵营装备",
+      "title": "排毒口",
+      "body": "在激活了动力护甲上的排放口后，瘟疫战士们能够释放出大量令人窒息的毒雾。\n每当一名位于己方瘟疫战士特工 3\" 内被激活时：\n• 若那名敌方特工没有一枚己方毒素指示物，掷一枚 D3：若结果为 3，则它获得一枚。\n• 若那名敌方特工拥有一枚己方毒素指示物，则它受到 D3 点伤害（而不是 1 点）。",
+      "cards": [
+        "res://assets/cards/CHAOS-PM/CHAOS-PM--24-阵营装备-排毒口.png"
+      ]
+    },
+    {
+      "id": "CHAOS-PM-errata",
+      "category": "勘误与问答",
+      "title": "更新日志（2026 年 4 月）",
+      "body": "勘误（2026 年 4 月）\n• 重炮手和士兵特工，武器列表：增加“爆矢手枪”武器。\n\n先前的勘误\n• 勇士特工，慈父的祝福：“每当一名位于该特工 7\" 内且拥有己方毒素指示物的敌方特工失去一点或更多耐伤时，该特工回复相当于那次失去耐伤数量的耐伤（在每个转折点中最多回复 3 点失去的耐伤，并且只有在该特工没有被残废时生效）。”\n• 恶瘟投放者特工，腐烂活力行动条件：“特工不能在敌方特工的控制范围内执行此行动，或者在每个转折点中执行本行动超过一次。”\n• 斗士特工，连枷挥打行动效果第二句：“为每一个特工分别进行掷骰：如果是敌方特工，并且 D3 的掷骰结果为 3，那么那名敌方特工还会获得一枚己方毒素指示物（如果特工还没有指示物）。”\n• 持徽手特工，传疫徽记：“每当该特工位于对手的领地内时，“传染”战略计谋消耗 0CP。”\n• 阵营规则，阿斯塔特：第一段第三句改为“您在每一次激活中不能多次选择同一件灵能远程武器。”\n• 阵营规则，毒素：成为该武器攻击目标的特工（己方瘟疫战士特工除外）在流程结束时会获得一枚己方毒素指示物。\n• 阵营装备，排毒口：改为当前卡面全文（D3 结果为 3 获得指示物；已有指示物则受到 D3 点伤害而不是 1 点）。\n• 交战计谋，剧毒破灭：第一句末尾添加“在一名己方瘟疫战士特工被残废时，在将其移出杀戮区前使用本交战计谋。”\n• 交战计谋，腐烂诅咒：第二段改为“对手每掷出一个 3，便对那名敌方特工造成 1 点伤害，那一次掷骰结果不能被作为成功保留，并且不能被重掷。”\n• 交战计谋，致命毒素：增加“掷 2D6：如果结果为 7+……”的第二个可选效果（见该计谋条目）。\n• 战略计谋，飞蝇云：“（……）如果那名己方特工完全位于标识的 1\" 内，那么那个己方特工被遮挡。”\n• 战略计谋，传染：删除第一点“当一名敌方特工位于己方瘟疫战士特工的控制范围内。”",
+      "cards": []
+    }
+  ]
+}
