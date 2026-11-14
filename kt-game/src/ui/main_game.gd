@@ -1105,8 +1105,7 @@ func _build_title_overlay() -> void:
 	KTTheme.apply_accent_button(btn_start, KTTheme.COL_GOLD_BRIGHT, 0.36)
 	KTWidgets.attach_button_juice(btn_start, 1.04, "phase_horn")
 	btn_start.pressed.connect(func():
-		_title_overlay.visible = false
-		_start_new_battle()
+		_play_deploy_transition()
 	)
 	launch_row.add_child(btn_start)
 
@@ -1339,6 +1338,34 @@ func _build_help_modal() -> void:
 # GAMEPLAY ORCHESTRATION & DYNAMIC VIDEO-GAME HUD REFRESH
 # ==============================================================================
 
+## Deploy transition: the menu blade slides off-screen left while the camera swoops from the
+## slow menu orbit down to the battle isometric view, then the HUD fades in. Gives "pressing start"
+## a cinematic beat instead of a hard cut.
+var _deploy_fade: ColorRect = null
+
+func _play_deploy_transition() -> void:
+	if _deploy_fade == null:
+		_deploy_fade = ColorRect.new()
+		_deploy_fade.color = Color(0, 0, 0, 0)
+		_deploy_fade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		_deploy_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(_deploy_fade)
+	_deploy_fade.visible = true
+	move_child(_deploy_fade, get_child_count() - 1)
+	var tw := create_tween()
+	tw.set_parallel(false)
+	# Slide the left blade out and dim
+	tw.tween_property(_title_overlay, "position:x", -720.0, 0.32).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	tw.parallel().tween_property(_deploy_fade, "color:a", 0.85, 0.32)
+	tw.tween_callback(func():
+		_title_overlay.visible = false
+		_title_overlay.position.x = 0.0
+		_start_new_battle()
+	)
+	tw.tween_property(_deploy_fade, "color:a", 0.0, 0.55).set_ease(Tween.EASE_OUT)
+	tw.tween_callback(func(): _deploy_fade.visible = false)
+
+
 func _start_new_battle() -> void:
 	_ai_timer.stop()
 	_hide_skill_tooltip()
@@ -1350,7 +1377,8 @@ func _start_new_battle() -> void:
 
 	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic)
 	_killzone.bind_engine(engine)
-	_killzone.reset_isometric_view(true)
+	# Camera swoops from wherever the menu orbit left it into the isometric battle view.
+	_killzone.reset_isometric_view(false)
 	_on_viewport_resized()
 	_refresh_all_ui()
 
