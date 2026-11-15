@@ -585,6 +585,83 @@ static func build_terrain_model(parent: Node3D, v: Dictionary, board_w: float, b
 	return root
 
 
+## ------------------------------------------------------------------------------------------
+## UNIVERSAL EQUIPMENT 3D MODELS (assets/equipment/manifest.json)
+## ------------------------------------------------------------------------------------------
+static var _equip_manifest: Dictionary = {}
+static var _equip_loaded: bool = false
+static var _equip_mesh_cache: Dictionary = {}
+
+
+static func _equip_entry(kind: String) -> Dictionary:
+	if not _equip_loaded:
+		_equip_loaded = true
+		var p: String = "res://assets/equipment/manifest.json"
+		if FileAccess.file_exists(p):
+			var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(p))
+			if typeof(parsed) == TYPE_DICTIONARY:
+				_equip_manifest = parsed as Dictionary
+	var entry: Variant = _equip_manifest.get(kind, {})
+	if typeof(entry) == TYPE_DICTIONARY:
+		return entry as Dictionary
+	return {}
+
+
+## kind: "light_barricade" | "heavy_barricade" | "mine"
+## 在 parent 下创建模型：底面贴 y=0，水平包围盒中心对齐 pos_3d，统一缩放使网格 X 向长度 == long_inches。
+## rot90=true 时绕 Y 转 90°（长边改为沿世界 Z）。失败（缺文件）返回 null。
+static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3, long_inches: float, rot90: bool) -> Node3D:
+	var e: Dictionary = _equip_entry(kind)
+	if e.is_empty():
+		return null
+	var mesh_path: String = str(e.get("mesh", ""))
+	if mesh_path.is_empty() or not ResourceLoader.exists(mesh_path):
+		return null
+	var mesh: Mesh = _equip_mesh_cache.get(mesh_path, null) as Mesh
+	if mesh == null:
+		mesh = load(mesh_path) as Mesh
+		if mesh == null:
+			return null
+		_equip_mesh_cache[mesh_path] = mesh
+	var diff_path: String = str(e.get("diffuse", ""))
+	var tex: Texture2D = KTData.load_tex(diff_path) if not diff_path.is_empty() else null
+	if tex == null:
+		return null
+
+	var bmin: Array = e["bbox_min"]
+	var bmax: Array = e["bbox_max"]
+	var min_x: float = float(bmin[0])
+	var min_y: float = float(bmin[1])
+	var min_z: float = float(bmin[2])
+	var max_x: float = float(bmax[0])
+	var max_z: float = float(bmax[2])
+	var span_x: float = max_x - min_x
+	if span_x <= 0.0001:
+		return null
+	var s: float = long_inches / span_x
+	var cx: float = (min_x + max_x) * 0.5
+	var cz: float = (min_z + max_z) * 0.5
+
+	var root: Node3D = Node3D.new()
+	root.position = pos_3d
+	root.rotation_degrees.y = 90.0 if rot90 else 0.0
+	parent.add_child(root)
+
+	var mi: MeshInstance3D = MeshInstance3D.new()
+	mi.mesh = mesh
+	mi.scale = Vector3.ONE * s
+	mi.position = Vector3(-cx * s, -min_y * s, -cz * s)
+	var mat: StandardMaterial3D = StandardMaterial3D.new()
+	mat.albedo_texture = tex
+	mat.roughness = 0.85
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	root.add_child(mi)
+	return root
+
+
 static func build_terrain_piece(
 	parent: Node3D,
 	t: Dictionary,
@@ -724,22 +801,57 @@ static func build_terrain_piece(
 	return root
 
 
+static var _obj_marker_mesh: Mesh = null
+
+
 static func build_objective_beacon(parent: Node3D, pos_3d: Vector3) -> Dictionary:
-	var root := Node3D.new()
+	var root: Node3D = Node3D.new()
 	root.position = pos_3d
 	parent.add_child(root)
 
-	var mat_pad := make_pbr(Color(0.12, 0.14, 0.18), 0.78, 0.32)
-	var mat_brass := make_pbr(Color(0.85, 0.68, 0.30), 0.86, 0.28)
-	var ring_mat := make_holo(Color(0.88, 0.72, 0.32), 0.48, 1.8, 0)
-	var spire_mat := make_holo(Color(0.95, 0.80, 0.35), 0.78, 2.5, 2)
+	var ring_mat: StandardMaterial3D = make_holo(Color(0.88, 0.72, 0.32), 0.48, 1.8, 0)
+	var spire_mat: StandardMaterial3D = make_holo(Color(0.95, 0.80, 0.35), 0.78, 2.5, 2)
 
-	add_cyl(root, Vector3(0.0, 0.04, 0.0), 0.787, 0.70, 0.10, mat_pad, Vector3.ZERO, 28)
-	add_torus(root, Vector3(0.0, 0.07, 0.0), 0.66, 0.76, mat_brass)
-	add_cyl(root, Vector3(0.0, 0.19, 0.0), 0.22, 0.12, 0.28, mat_brass, Vector3.ZERO, 16)
-	var orb := add_sphere(root, Vector3(0.0, 0.52, 0.0), 0.14, spire_mat)
-	var holo_cone := add_cone(root, Vector3(0.0, 0.85, 0.0), 0.28, 0.55, ring_mat, Vector3(180.0, 0.0, 0.0), 0.02)
-	var ctrl_ring := add_torus(root, Vector3(0.0, 0.05, 0.0), 1.73, 1.80, ring_mat)
+	var obj_mesh_path: String = "res://assets/markers/objective/mesh.obj"
+	var obj_diff_path: String = "res://assets/markers/objective/diffuse.png"
+	var obj_mesh: Mesh = _obj_marker_mesh
+	if obj_mesh == null and ResourceLoader.exists(obj_mesh_path):
+		obj_mesh = load(obj_mesh_path) as Mesh
+		_obj_marker_mesh = obj_mesh
+	var obj_tex: Texture2D = KTData.load_tex(obj_diff_path)
+	var built_model: bool = false
+	if obj_mesh != null and obj_tex != null:
+		var aabb: AABB = obj_mesh.get_aabb()
+		var horiz_diam: float = maxf(aabb.size.x, aabb.size.z)
+		if horiz_diam > 0.0001:
+			var s: float = 1.575 / horiz_diam
+			var cx: float = aabb.position.x + aabb.size.x * 0.5
+			var cz: float = aabb.position.z + aabb.size.z * 0.5
+			var mi: MeshInstance3D = MeshInstance3D.new()
+			mi.mesh = obj_mesh
+			mi.scale = Vector3.ONE * s
+			mi.position = Vector3(-cx * s, 0.02 - aabb.position.y * s, -cz * s)
+			var mat_obj: StandardMaterial3D = StandardMaterial3D.new()
+			mat_obj.albedo_texture = obj_tex
+			mat_obj.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+			mat_obj.alpha_scissor_threshold = 0.5
+			mat_obj.cull_mode = BaseMaterial3D.CULL_DISABLED
+			mat_obj.roughness = 0.85
+			mat_obj.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+			mi.material_override = mat_obj
+			root.add_child(mi)
+			built_model = true
+
+	if not built_model:
+		var mat_pad: StandardMaterial3D = make_pbr(Color(0.12, 0.14, 0.18), 0.78, 0.32)
+		var mat_brass: StandardMaterial3D = make_pbr(Color(0.85, 0.68, 0.30), 0.86, 0.28)
+		add_cyl(root, Vector3(0.0, 0.04, 0.0), 0.787, 0.70, 0.10, mat_pad, Vector3.ZERO, 28)
+		add_torus(root, Vector3(0.0, 0.07, 0.0), 0.66, 0.76, mat_brass)
+		add_cyl(root, Vector3(0.0, 0.19, 0.0), 0.22, 0.12, 0.28, mat_brass, Vector3.ZERO, 16)
+
+	var orb: MeshInstance3D = add_sphere(root, Vector3(0.0, 0.52, 0.0), 0.09, spire_mat)
+	var holo_cone: MeshInstance3D = add_cone(root, Vector3(0.0, 0.85, 0.0), 0.28, 0.55, ring_mat, Vector3(180.0, 0.0, 0.0), 0.02)
+	var ctrl_ring: MeshInstance3D = add_torus(root, Vector3(0.0, 0.05, 0.0), 1.73, 1.80, ring_mat)
 
 	return {
 		"root": root,

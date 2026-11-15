@@ -82,6 +82,8 @@ var _float_texts_3d: Array[Dictionary] = []
 var _pulse_time: float = 0.0
 var _shake_strength: float = 0.0
 var _built_map_id: String = ""
+var _mine_nodes: Array[Node3D] = []
+var _mine_key: String = ""
 
 var _bg_tex: Texture2D = null
 
@@ -342,9 +344,19 @@ func _rebuild_3d_map_if_needed() -> void:
 		var node := Models3D.build_terrain_model(_static_map_root, v, bw, bh)
 		if node != null:
 			modelled_parents[str(v["piece_slug"])] = true
-	for t in map_d["terrains"]:
+	for t_v in map_d["terrains"]:
+		var t: Dictionary = t_v
 		if modelled_parents.has(str(t.get("parent", ""))):
 			continue
+		if bool(t.get("equipment", false)):
+			var eq_kind: String = "light_barricade" if str(t["kind"]) == "light" else "heavy_barricade"
+			var rect: Rect2 = t["rect"]
+			var long_inches: float = maxf(rect.size.x, rect.size.y)
+			var rot90: bool = rect.size.y > rect.size.x
+			var c_in: Vector2 = rect.get_center()
+			var eq_pos: Vector3 = Vector3(c_in.x - bw * 0.5, 0.0, c_in.y - bh * 0.5)
+			if Models3D.build_equipment_model(_static_map_root, eq_kind, eq_pos, long_inches, rot90) != null:
+				continue
 		Models3D.build_terrain_piece(_static_map_root, t, bw, bh)
 
 	for obj in map_d["objectives"]:
@@ -1185,7 +1197,41 @@ func _update_3d_entities(delta: float) -> void:
 # 3D IMMEDIATEMESH TACTICAL OVERLAYS (RULER + CLIMB + 3D LASERS + COVER CONE)
 # ==============================================================================
 
+func _sync_mine_models() -> void:
+	if _world_root == null:
+		return
+	var parts: PackedStringArray = PackedStringArray()
+	var mine_positions: Array[Vector2] = []
+	if engine != null and not engine.state.is_empty():
+		var markers: Array = engine.state.get("eq_markers", [])
+		for m_v in markers:
+			var m: Dictionary = m_v
+			if str(m.get("kind", "")) == "mine":
+				var pos: Vector2 = m["pos"]
+				parts.append("%.3f,%.3f" % [pos.x, pos.y])
+				mine_positions.append(pos)
+	var key: String = ";".join(parts)
+	if key == _mine_key:
+		return
+	_mine_key = key
+	for n in _mine_nodes:
+		if is_instance_valid(n):
+			n.queue_free()
+	_mine_nodes.clear()
+	for pos in mine_positions:
+		var node: Node3D = Models3D.build_equipment_model(
+			_world_root,
+			"mine",
+			inches_to_world(pos, elevation_at_inches(pos) + 0.01),
+			KTEngine.MINE_RADIUS * 2.0,
+			false
+		)
+		if node != null:
+			_mine_nodes.append(node)
+
+
 func _rebuild_3d_tactical_overlays() -> void:
+	_sync_mine_models()
 	_imm_lines.clear_surfaces()
 	_imm_tris.clear_surfaces()
 	if engine == null or engine.state.is_empty():
@@ -1264,11 +1310,10 @@ func _rebuild_3d_tactical_overlays() -> void:
 			add_ring_3d.call(gw, float(dop["base_radius"]), gcol, 0.35, 36)
 			add_ring_3d.call(gw + Vector3(0.0, 1.55, 0.0), float(dop["base_radius"]) * 0.5, Color(gcol.r, gcol.g, gcol.b, 0.6), 0.12, 24)
 
-	# 1c. Equipment markers (mines): the token plus its 1" trigger radius
+	# 1c. Equipment markers (mines): 1" trigger radius ring around the 3D mine model
 	for eq_m in engine.state.get("eq_markers", []):
 		var eq_mp: Vector2 = eq_m["pos"]
 		var eq_mw := inches_to_world(eq_mp, elevation_at_inches(eq_mp) + 0.06)
-		add_ring_3d.call(eq_mw, KTEngine.MINE_RADIUS, KTTheme.COL_CRIMSON, 0.55, 20)
 		add_ring_3d.call(eq_mw, KTEngine.MINE_RADIUS + 1.0, Color(KTTheme.COL_CRIMSON.r, KTTheme.COL_CRIMSON.g, KTTheme.COL_CRIMSON.b, 0.45), 0.0, 32)
 
 	# 1d. EQUIPMENT SET-UP MODE: legal zone tint + ghost footprint at the cursor (green legal / red illegal)
