@@ -15,6 +15,7 @@ const DEFAULTS := {
 	"audio/ambience_db": -22.0,
 	"hud/show_inch_grid": true,
 	"hud/compact_tags": true,
+	"board/mini_style": "model",         # "model" = painted 3D miniature, "standee" = acrylic card token
 }
 
 

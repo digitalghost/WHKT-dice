@@ -1,0 +1,133 @@
+{
+  "source": "TTS mod 3336372255 (KT3 operatives) — geometry & diffuse only; no text/rules taken",
+  "minis": {
+    "aod_captain": {
+      "mesh": "res://assets/minis/aod_captain/mini.obj",
+      "diffuse": "res://assets/minis/aod_captain/diffuse.jpg",
+      "base_mm": 40,
+      "child_rot_y": 136.0167,
+      "child_pos_y": 0.1274,
+      "child_scale": 1.0
+    },
+    "aod_grenadier": {
+      "mesh": "res://assets/minis/aod_grenadier/mini.obj",
+      "diffuse": "res://assets/minis/aod_grenadier/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 29.6881,
+      "child_pos_y": 0.1166,
+      "child_scale": 1.0
+    },
+    "aod_sniper": {
+      "mesh": "res://assets/minis/aod_sniper/mini.obj",
+      "diffuse": "res://assets/minis/aod_sniper/diffuse.jpg",
+      "base_mm": 40,
+      "child_rot_y": 136.0167,
+      "child_pos_y": 0.1274,
+      "child_scale": 1.0
+    },
+    "aod_heavy_gunner": {
+      "mesh": "res://assets/minis/aod_heavy_gunner/mini.obj",
+      "diffuse": "res://assets/minis/aod_heavy_gunner/diffuse.jpg",
+      "base_mm": 40,
+      "child_rot_y": 136.0167,
+      "child_pos_y": 0.1274,
+      "child_scale": 1.0
+    },
+    "aod_gunner": {
+      "mesh": "res://assets/minis/aod_gunner/mini.obj",
+      "diffuse": "res://assets/minis/aod_gunner/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 330.0021,
+      "child_pos_y": 0.116,
+      "child_scale": 1.0
+    },
+    "aod_assault_warrior": {
+      "mesh": "res://assets/minis/aod_assault_warrior/mini.obj",
+      "diffuse": "res://assets/minis/aod_assault_warrior/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 299.9898,
+      "child_pos_y": 0.106,
+      "child_scale": 1.0
+    },
+    "aod_assault_sergeant": {
+      "mesh": "res://assets/minis/aod_assault_sergeant/mini.obj",
+      "diffuse": "res://assets/minis/aod_assault_sergeant/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 194.987,
+      "child_pos_y": 0.125,
+      "child_scale": 1.0
+    },
+    "aod_sergeant": {
+      "mesh": "res://assets/minis/aod_sergeant/mini.obj",
+      "diffuse": "res://assets/minis/aod_sergeant/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 29.9981,
+      "child_pos_y": 0.1089,
+      "child_scale": 1.0
+    },
+    "aod_warrior": {
+      "mesh": "res://assets/minis/aod_warrior/mini.obj",
+      "diffuse": "res://assets/minis/aod_warrior/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 164.9935,
+      "child_pos_y": 0.1115,
+      "child_scale": 1.0
+    },
+    "pm_champion": {
+      "mesh": "res://assets/minis/pm_champion/mini.obj",
+      "diffuse": "res://assets/minis/pm_champion/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 285.0057,
+      "child_pos_y": -0.0251,
+      "child_scale": 1.0
+    },
+    "pm_bombardier": {
+      "mesh": "res://assets/minis/pm_bombardier/mini.obj",
+      "diffuse": "res://assets/minis/pm_bombardier/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 179.9458,
+      "child_pos_y": -0.0295,
+      "child_scale": 1.0
+    },
+    "pm_fighter": {
+      "mesh": "res://assets/minis/pm_fighter/mini.obj",
+      "diffuse": "res://assets/minis/pm_fighter/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 0.0065,
+      "child_pos_y": -0.0282,
+      "child_scale": 1.0
+    },
+    "pm_heavy_gunner": {
+      "mesh": "res://assets/minis/pm_heavy_gunner/mini.obj",
+      "diffuse": "res://assets/minis/pm_heavy_gunner/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 149.9655,
+      "child_pos_y": -0.0399,
+      "child_scale": 1.0
+    },
+    "pm_icon_bearer": {
+      "mesh": "res://assets/minis/pm_icon_bearer/mini.obj",
+      "diffuse": "res://assets/minis/pm_icon_bearer/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 0.0007,
+      "child_pos_y": -0.0418,
+      "child_scale": 1.0
+    },
+    "pm_plaguecaster": {
+      "mesh": "res://assets/minis/pm_plaguecaster/mini.obj",
+      "diffuse": "res://assets/minis/pm_plaguecaster/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 314.9992,
+      "child_pos_y": -0.0153,
+      "child_scale": 1.0
+    },
+    "pm_warrior": {
+      "mesh": "res://assets/minis/pm_warrior/mini.obj",
+      "diffuse": "res://assets/minis/pm_warrior/diffuse.jpg",
+      "base_mm": 32,
+      "child_rot_y": 0.0005,
+      "child_pos_y": -0.0233,
+      "child_scale": 1.0
+    }
+  }
+}

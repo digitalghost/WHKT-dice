@@ -628,6 +628,12 @@ func get_table_props() -> KTTableProps3D:
 	return _table_props
 
 
+## Rebuild all operative nodes (used when the mini style setting changes mid-match).
+func rebuild_operatives() -> void:
+	_rebuild_3d_operatives()
+	sync_visual_positions(true)
+
+
 var _grid_overlay_mi: MeshInstance3D = null
 
 func set_grid_visible(on: bool) -> void:
@@ -996,14 +1002,16 @@ func _update_3d_entities(delta: float) -> void:
 			var fade: float = clampf((fall_t - 0.55) / 0.45, 0.0, 1.0)
 			var smat_f: StandardMaterial3D = node_d["standee_mat"]
 			smat_f.albedo_color = Color(0.5, 0.5, 0.55, 1.0).lerp(Color(0.2, 0.2, 0.22, 1.0), fade)
-			smat_f.alpha_scissor_threshold = lerpf(0.40, 1.0, fade)
+			if not bool(node_d.get("is_model", false)):
+				smat_f.alpha_scissor_threshold = lerpf(0.40, 1.0, fade)
 			continue
 		if _op_fall_t.has(uid):
 			_op_fall_t.erase(uid)
 			if tilt_n != null:
 				tilt_n.rotation_degrees = Vector3.ZERO
 				tilt_n.position = Vector3.ZERO
-			(node_d["standee_mat"] as StandardMaterial3D).alpha_scissor_threshold = 0.40
+			if not bool(node_d.get("is_model", false)):
+				(node_d["standee_mat"] as StandardMaterial3D).alpha_scissor_threshold = 0.40
 			_clear_fallen_marker(uid)
 		root_n.visible = true
 
@@ -1055,18 +1063,26 @@ func _update_3d_entities(delta: float) -> void:
 				tilt_n.rotation_degrees.z = sway_deg
 			var lift: float = (0.05 + 0.03 * sin(_pulse_time * 2.4)) if (uid == active_uid) else 0.0
 			sh.position.y = 0.22 + lift
-			# Face the camera around Y only (upright acrylic standee). Done here instead of a material
-			# billboard flag so the tilt pivot's recoil/topple rotations compose correctly on top.
-			var to_cam := _cam.global_position - sh.global_position
-			if Vector2(to_cam.x, to_cam.z).length_squared() > 0.0001:
-				sh.global_rotation = Vector3(0.0, atan2(to_cam.x, to_cam.z), 0.0)
+			var is_model: bool = bool(node_d.get("is_model", false))
+			if not is_model:
+				# Acrylic standee: face the camera around Y only. Done here instead of a material
+				# billboard flag so the tilt pivot's recoil/topple rotations compose correctly on top.
+				var to_cam := _cam.global_position - sh.global_position
+				if Vector2(to_cam.x, to_cam.z).length_squared() > 0.0001:
+					sh.global_rotation = Vector3(0.0, atan2(to_cam.x, to_cam.z), 0.0)
+			else:
+				# Painted mini: no sway (a real model doesn't wobble); keep recoil only
+				tilt_n.rotation_degrees.z = 0.0
 			var ready_tint := Color(0.92, 0.93, 0.95, 1.0) if (bool(op["ready"]) or uid == active_uid) else Color(0.62, 0.64, 0.70, 1.0)
+			if is_model:
+				# Material base colour already carries the brightness lift; tint only dims spent operatives
+				ready_tint = Color(1.25, 1.23, 1.20, 1.0) if (bool(op["ready"]) or uid == active_uid) else Color(0.85, 0.85, 0.88, 1.0)
 			if flash_v > 0.01:
 				smat_op.albedo_color = ready_tint.lerp(Color(1.0, 0.36, 0.30, 1.0), flash_v * 0.8)
 				smat_op.emission_energy_multiplier = 0.2 + flash_v * 2.6
 			else:
 				smat_op.albedo_color = ready_tint
-				smat_op.emission_energy_multiplier = 0.16 if (uid == active_uid or uid == hovered_uid) else 0.08
+				smat_op.emission_energy_multiplier = (0.16 if (uid == active_uid or uid == hovered_uid) else 0.08) if not is_model else (0.10 if (uid == active_uid or uid == hovered_uid) else 0.0)
 
 		# If aiming at hovered enemy in shoot mode, smoothly face hovered enemy!
 		if uid == selected_uid and interaction_mode == "shoot" and not hovered_uid.is_empty():

@@ -430,6 +430,96 @@ static func build_tabletop_base(
 			add_cyl(parent, Vector3(cx, 0.06, cz), 0.38, 0.28, 0.28, mat_brass_rim)
 
 
+## ------------------------------------------------------------------------------------------
+## PAINTED 3D MINIATURES (assets/minis/manifest.json, geometry + diffuse only from the TTS pack)
+## ------------------------------------------------------------------------------------------
+static var _minis_manifest: Dictionary = {}
+static var _minis_loaded: bool = false
+static var _mini_mesh_cache: Dictionary = {}
+
+
+static func _mini_entry(op_id: String) -> Dictionary:
+	if not _minis_loaded:
+		_minis_loaded = true
+		var p := "res://assets/minis/manifest.json"
+		if FileAccess.file_exists(p):
+			var parsed = JSON.parse_string(FileAccess.get_file_as_string(p))
+			if typeof(parsed) == TYPE_DICTIONARY:
+				_minis_manifest = parsed.get("minis", {})
+	return _minis_manifest.get(op_id, {})
+
+
+## Builds the painted miniature on top of the sculpted base. Returns {} when no model exists for
+## this operative (caller falls back to the acrylic standee). Dictionary keys mirror the standee
+## path: "standee_holder" (lift/breath), "tilt_pivot" (recoil/topple), "standee_mat" (hit flash).
+static func _build_painted_mini(root: Node3D, body_pivot: Node3D, op: Dictionary, base_r: float, base_h: float) -> Dictionary:
+	var e := _mini_entry(str(op.get("op_id", "")))
+	if e.is_empty():
+		return {}
+	var mesh_path := str(e.get("mesh", ""))
+	if mesh_path.is_empty() or not ResourceLoader.exists(mesh_path):
+		return {}
+	var mesh: Mesh = _mini_mesh_cache.get(mesh_path, null)
+	if mesh == null:
+		mesh = load(mesh_path) as Mesh
+		if mesh == null:
+			return {}
+		_mini_mesh_cache[mesh_path] = mesh
+
+	# Holder sits on the base top; facing follows body_pivot (so the mini turns toward its target
+	# like the order cone does) instead of billboarding to the camera.
+	var holder := Node3D.new()
+	holder.position = Vector3(0.0, base_h + 0.02, 0.0)
+	body_pivot.add_child(holder)
+	var tilt := Node3D.new()
+	holder.add_child(tilt)
+
+	# TTS places the child mesh with its own yaw relative to the base; the mesh's -Z is "forward" in
+	# Blender exports, Godot's forward is also -Z, so apply the TTS child yaw directly. Scale the model
+	# so its base footprint matches the operative's rule base_radius (minis were sculpted for their
+	# own base size; small drift is normal).
+	var child_rot := float(e.get("child_rot_y", 0.0))
+	var mi := MeshInstance3D.new()
+	mi.mesh = mesh
+	var aabb := mesh.get_aabb()
+	# Lift so the lowest vertex touches the base top (some exports start at y≈0.13)
+	mi.position = Vector3(0.0, -aabb.position.y, 0.0)
+	mi.rotation_degrees = Vector3(0.0, child_rot, 0.0)
+	var mat := StandardMaterial3D.new()
+	var tex: Texture2D = KTData.load_tex(str(e.get("diffuse", "")))
+	if tex != null:
+		mat.albedo_texture = tex
+		# TTS diffuse maps are authored for a brighter scene; lift them so painted colours read
+		# under our dim gothic lighting instead of going to charcoal.
+		mat.albedo_color = Color(1.25, 1.23, 1.20)
+	else:
+		mat.albedo_color = Color(0.5, 0.5, 0.55)
+	mat.roughness = 0.58
+	mat.metallic = 0.06
+	mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	# Emission channel is what killzone_view drives for hit-flash / highlight (same as the standee)
+	mat.emission_enabled = true
+	mat.emission = Color(1, 1, 1)
+	mat.emission_texture = tex
+	mat.emission_energy_multiplier = 0.0
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	tilt.add_child(mi)
+
+	return {
+		"root": root,
+		"pivot": body_pivot,
+		"standee_holder": holder,
+		"tilt_pivot": tilt,
+		"standee_mesh": mi,
+		"standee_mat": mat,
+		"edge_mat": null,
+		"name_label": null,
+		"token_h": aabb.size.y,
+		"is_model": true,
+	}
+
+
 ## Real terrain model from the official Volkus set (assets/terrain/volkus/<slug>/model_00_root_mesh.obj
 ## + diffuse). `v` is one entry of map["visuals"]: pos_in (board inches), rot_y_deg, scale.
 ## Returns null when the mesh is missing so the caller can fall back to the procedural block.
@@ -684,7 +774,22 @@ static func build_operative_miniature(op: Dictionary) -> Dictionary:
 	var order_mat := make_holo(Color(0.25, 0.68, 1.0), 0.92, 2.2, 3)
 	var order_cone := add_cone(body_pivot, Vector3(0.0, base_h + 0.09, base_r * 0.80), 0.13, 0.24, order_mat, Vector3(90.0, 0.0, 0.0))
 
-	# --- 2. Acrylic Standee Token (printed card between two acrylic sheets, slotted into the base) ---
+	# --- 2a. Painted 3D miniature (assets/minis/<op_id>/mini.obj) when available and selected ---
+	# Returns the same dictionary shape as the standee path so killzone_view's animation code
+	# (standee_holder lift, tilt_pivot recoil/topple, standee_mat flash) keeps working unchanged.
+	var want_model: bool = str(KTSettings.get_value("board/mini_style")) == "model"
+	if want_model:
+		var mini := _build_painted_mini(root, body_pivot, op, base_r, base_h)
+		if not mini.is_empty():
+			mini["rim_mat"] = rim_mat
+			mini["faction_ring"] = faction_ring
+			mini["sel_ring"] = sel_ring
+			mini["sel_mat"] = sel_mat
+			mini["order_mat"] = order_mat
+			mini["order_cone"] = order_cone
+			return mini
+
+	# --- 2b. Acrylic Standee Token (printed card between two acrylic sheets, slotted into the base) ---
 	# The token turns to face the camera around Y (done manually each frame in killzone_view so that
 	# the tilt pivot below can still add recoil / topple rotation), but stays standing upright.
 	var standee_path := str(op.get("standee", ""))

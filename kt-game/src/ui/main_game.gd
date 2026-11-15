@@ -1352,6 +1352,18 @@ func _open_settings() -> void:
 		kc.toggled.connect(func(on: bool): KTSettings.set_value("combat/kill_cam", on))
 		row2.add_child(kc)
 
+		# Miniature style
+		var row_m := _settings_row(vb, "棋子表现", "3D 涂装模型（官方造型）或亚克力立牌（卡图胸像）。切换后重开一局生效。")
+		var mini_opt := OptionButton.new()
+		mini_opt.add_item("3D 涂装模型", 0)
+		mini_opt.add_item("亚克力立牌", 1)
+		mini_opt.select(0 if str(KTSettings.get_value("board/mini_style")) == "model" else 1)
+		mini_opt.item_selected.connect(func(i: int):
+			KTSettings.set_value("board/mini_style", "model" if i == 0 else "standee")
+			_killzone.rebuild_operatives()
+		)
+		row_m.add_child(mini_opt)
+
 		# Inch grid
 		var row3 := _settings_row(vb, "显示英寸格线", "桌面上的 1\" 战术格与 6\" 铜线。")
 		var grid := CheckButton.new()
