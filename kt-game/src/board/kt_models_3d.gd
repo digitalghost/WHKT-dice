@@ -9,6 +9,8 @@ extends RefCounted
 
 static var _cached_soft_dot_tex: ImageTexture = null
 static var _cached_battlemat_tex: ImageTexture = null
+## Set by killzone_view before build_tabletop_base(): res:// path of the map's official mat image.
+static var _battlefield_mat_path: String = ""
 
 
 static func get_soft_particle_tex() -> ImageTexture:
@@ -367,10 +369,28 @@ static func build_tabletop_base(
 	# Battlemat = textured ruined flagstone ground (top = 0.000) + a separate translucent tactical
 	# overlay plane carrying the 1" grid, 6" brass lines, deployment zones and the central roadway.
 	# The grid stays visible (this is still a tabletop game) but now sits ON a surface instead of BEING it.
-	var mat_ground := make_textured_pbr("flagstone", Color(0.46, 0.47, 0.50), 0.5, 1.0, 0.0)
-	mat_ground.uv1_triplanar = false
-	mat_ground.uv1_world_triplanar = false
-	mat_ground.uv1_scale = Vector3(width_in * 0.5, height_in * 0.5, 1.0)
+	# Ground: the official Volkus battlefield mat when present (one image covering the 30x22 board),
+	# else the generic tiled flagstone.
+	var mat_ground: StandardMaterial3D
+	var official_mat: Texture2D = KTData.load_tex(str(_battlefield_mat_path)) if not _battlefield_mat_path.is_empty() else null
+	if official_mat != null:
+		mat_ground = StandardMaterial3D.new()
+		mat_ground.albedo_texture = official_mat
+		mat_ground.albedo_color = Color(0.86, 0.86, 0.86)
+		mat_ground.roughness = 0.92
+		mat_ground.metallic = 0.0
+		mat_ground.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		# PlaneMesh UVs run 0..1 across; the mat image is already the full board, so no tiling.
+		# Checked against the map-4 rule rects: the mat's printed rubble heaps line up with the
+		# terrain only when the image is flipped left-right (the mat is authored in TTS's mirrored
+		# frame, like the layout JSON). Flip U.
+		mat_ground.uv1_scale = Vector3(-1.0, 1.0, 1.0)
+		mat_ground.uv1_offset = Vector3(1.0, 0.0, 0.0)
+	else:
+		mat_ground = make_textured_pbr("flagstone", Color(0.46, 0.47, 0.50), 0.5, 1.0, 0.0)
+		mat_ground.uv1_triplanar = false
+		mat_ground.uv1_world_triplanar = false
+		mat_ground.uv1_scale = Vector3(width_in * 0.5, height_in * 0.5, 1.0)
 
 	var mat_plane := PlaneMesh.new()
 	mat_plane.size = Vector2(width_in, height_in)
@@ -408,6 +428,55 @@ static func build_tabletop_base(
 			var cx: float = sx * (width_in * 0.5 + 0.55)
 			var cz: float = sz * (height_in * 0.5 + 0.55)
 			add_cyl(parent, Vector3(cx, 0.06, cz), 0.38, 0.28, 0.28, mat_brass_rim)
+
+
+## Real terrain model from the official Volkus set (assets/terrain/volkus/<slug>/model_00_root_mesh.obj
+## + diffuse). `v` is one entry of map["visuals"]: pos_in (board inches), rot_y_deg, scale.
+## Returns null when the mesh is missing so the caller can fall back to the procedural block.
+static var _terrain_mesh_cache: Dictionary = {}
+
+static func build_terrain_model(parent: Node3D, v: Dictionary, board_w: float, board_h: float) -> Node3D:
+	var mesh_path := str(v.get("mesh", ""))
+	if mesh_path.is_empty() or not ResourceLoader.exists(mesh_path):
+		return null
+	var mesh: Mesh = _terrain_mesh_cache.get(mesh_path, null)
+	if mesh == null:
+		mesh = load(mesh_path) as Mesh
+		if mesh == null:
+			return null
+		_terrain_mesh_cache[mesh_path] = mesh
+
+	var root := Node3D.new()
+	var p_in: Vector2 = v["pos_in"]
+	root.position = Vector3(p_in.x - board_w * 0.5, 0.0, p_in.y - board_h * 0.5)
+	# TTS scene is mirrored in X vs the printed maps (see tools/build_volkus_map.py). The build
+	# script applies R(−θ) then mirrors X. Godot composes scale then rotation (T·R·S), and a
+	# mirror flips the rotation sense, so the equivalent here is scale.x = −s with rotation.y = +θ.
+	# Verified on the L-shaped large_ruin: this combination overlays its rule rectangles exactly.
+	var s := float(v.get("scale", 1.0))
+	root.scale = Vector3(-s, s, s)
+	root.rotation_degrees = Vector3(0.0, float(v.get("rot_y_deg", 0.0)), 0.0)
+	parent.add_child(root)
+
+	var mi := MeshInstance3D.new()
+	mi.mesh = mesh
+	var mat := StandardMaterial3D.new()
+	var diff := str(v.get("diffuse", ""))
+	var tex: Texture2D = KTData.load_tex(diff) if not diff.is_empty() else null
+	if tex != null:
+		mat.albedo_texture = tex
+		mat.albedo_color = Color(0.92, 0.90, 0.88)
+	else:
+		mat.albedo_color = Color(0.42, 0.42, 0.45)
+	mat.roughness = 0.88
+	mat.metallic = 0.02
+	# Mirrored scale flips winding; render both faces so walls don't vanish from inside.
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	mi.material_override = mat
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	root.add_child(mi)
+	return root
 
 
 static func build_terrain_piece(

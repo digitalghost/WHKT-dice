@@ -332,6 +332,8 @@ func _rebuild_3d_map_if_needed() -> void:
 
 	var bw := float(map_d["width"])
 	var bh := float(map_d["height"])
+	Models3D._battlefield_mat_path = str(map_d.get("battlefield_mat", ""))
+	Models3D._cached_battlemat_tex = null  # deployment zones differ per map; rebuild the overlay
 	Models3D.build_tabletop_base(_static_map_root, bw, bh, _bg_tex, map_d["drop_zone_a"], map_d["drop_zone_b"])
 
 	# Physical bookkeeping on the apron: CP chip stacks, VP track, TP block, datacard mats
@@ -340,7 +342,17 @@ func _rebuild_3d_map_if_needed() -> void:
 		_world_root.add_child(_table_props)
 	_table_props.build(bw, bh)
 
+	# Terrain: official 3D models where the map provides them; rule rectangles are only drawn as
+	# procedural blocks for pieces that have no model (asset-bundle-only rubble / fire steps).
+	var visuals: Array = map_d.get("visuals", [])
+	var modelled_parents := {}
+	for v in visuals:
+		var node := Models3D.build_terrain_model(_static_map_root, v, bw, bh)
+		if node != null:
+			modelled_parents[str(v["piece_slug"])] = true
 	for t in map_d["terrains"]:
+		if modelled_parents.has(str(t.get("parent", ""))):
+			continue
 		Models3D.build_terrain_piece(_static_map_root, t, bw, bh)
 
 	for obj in map_d["objectives"]:
@@ -1550,6 +1562,12 @@ func _draw_projected_hud() -> void:
 				st_txt = "🛡️ 掩护"
 			if int(ev.get("vantage_accurate", 0)) > 0:
 				st_txt += " · ▲精准+%d" % int(ev["vantage_accurate"])
+			# Make the rule visible: a Conceal-order target is only legal because it has NO cover
+			# (rules p.? 射击 2.选择有效目标). Say so, or players read it as "conceal does nothing".
+			if str(def.get("order", "")) == "conceal":
+				st_txt = "隐匿·无掩护 → 可选" if str(ev["cover"]) == "none" else "隐匿·制高点破隐 → 可选"
+				if bool(ev["obscured"]):
+					st_txt += " · 遮挡"
 			_draw_pill_2d(sp_d, "%s · %.1f\"" % [st_txt, float(ev["distance"])], bcol, 12, 0.92)
 			_draw_target_lock_reticle(sp_body, bcol, active_shoot_weapon, ev)
 

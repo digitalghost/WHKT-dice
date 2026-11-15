@@ -22,7 +22,7 @@ func start_match(
 	aod_secondary: String = "dueller"
 ) -> void:
 	undo_stack.clear()
-	var map_data := KTData.create_volkus_killzone()
+	var map_data := KTData.load_map(KTData.DEFAULT_MAP_ID)
 	var aod_team := KTData.get_team("IMP-AOD")
 	var pm_team := KTData.get_team("CHAOS-PM")
 
