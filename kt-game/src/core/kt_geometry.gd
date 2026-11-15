@@ -11,6 +11,9 @@ const CONTROL_RANGE_INCHES: float = 1.0
 const COVER_PROXIMITY_INCHES: float = 1.0
 const OBSCURED_BUFFER_INCHES: float = 1.0
 const CLOSE_QUARTERS_REVEAL_INCHES: float = 2.0
+# 3D visibility: a 28-32mm infantry model stands ~1.6" tall; eye line ~1.4" above its base.
+const MODEL_HEIGHT_INCHES: float = 1.6
+const EYE_HEIGHT_INCHES: float = 1.4
 
 
 static func edge_distance(pos_a: Vector2, r_a: float, pos_b: Vector2, r_b: float) -> float:
@@ -237,28 +240,111 @@ static func has_visibility(
 	z_b: float,
 	terrains: Array
 ) -> bool:
-	# Check if at least one sightline from attacker base perimeter/center reaches target base
-	# without hitting tall solid heavy_wall terrain that exceeds both elevations.
+	## Core rules p.29 "可见": draw a 1mm line from the operative's head to any part of the target;
+	## the target is visible if any such line is unbroken. In 3D: a solid heavy piece blocks the line
+	## only where the line passes *below* the piece's top. We sample three sightlines across the
+	## bases and, for each, test every heavy piece whose footprint the 2D line crosses, comparing the
+	## line's height at the crossing against the piece height.
+	##
+	## Heights: eye level is EYE_HEIGHT_INCHES above the base elevation; the target counts as the
+	## full model (0 .. MODEL_HEIGHT_INCHES above its base), so a shooter can see the top of a model
+	## poking over a low wall exactly as the rulebook example shows (p.29, model half behind ruins).
+	## Light terrain never blocks visibility (it only gives cover). Vantage decks the shooter or
+	## target is standing ON are ignored (校注 p.25: 脚下的制高点楼板 is not an obstruction to them).
 	var dir := (pos_b - pos_a).normalized()
 	if dir.length_squared() < 0.001:
 		return true
 	var perp := Vector2(-dir.y, dir.x)
 	var a_pts := [pos_a, pos_a + perp * (r_a * 0.8), pos_a - perp * (r_a * 0.8)]
 	var b_pts := [pos_b, pos_b + perp * (r_b * 0.8), pos_b - perp * (r_b * 0.8)]
+	var eye_a: float = z_a + EYE_HEIGHT_INCHES
+	var top_b: float = z_b + MODEL_HEIGHT_INCHES
 
 	for pa in a_pts:
 		for pb in b_pts:
 			var blocked := false
 			for t in terrains:
-				if bool(t.get("blocks_los_ground", false)):
-					var wall_h := float(t.get("elevation", 4.0))
-					# Solid tall wall blocks visibility unless both are elevated above it
-					if maxf(z_a, z_b) + 1.2 < wall_h and segment_intersects_rect(pa, pb, t["rect"]):
-						blocked = true
-						break
+				var tk := str(t.get("kind", ""))
+				if tk == "light":
+					continue
+				var rect: Rect2 = t["rect"]
+				if not segment_intersects_rect(pa, pb, rect):
+					continue
+				var wall_h := float(t.get("elevation", 4.0))
+				if tk == "vantage":
+					# Standing on it: not an obstruction. Otherwise its deck is a solid slab at `elevation`
+					# (walls under the deck are modelled as separate heavy pieces in the map data).
+					if rect.has_point(pos_a) or rect.has_point(pos_b):
+						continue
+				# Where along the line (t in 0..1) it enters / leaves the piece footprint
+				var hit_t := _segment_rect_entry_t(pa, pb, rect)
+				if hit_t < 0.0:
+					continue
+				var t_exit := _segment_rect_exit_t(pa, pb, rect)
+				# Sightline from eye to the HIGHEST point of the target model. Seeing any part is enough
+				# for visibility, so only this top line matters: if it stays below the wall top across the
+				# whole crossing, the piece blocks this sightline.
+				var h_entry_top: float = lerpf(eye_a, top_b, hit_t)
+				var h_exit_top: float = lerpf(eye_a, top_b, t_exit)
+				if maxf(h_entry_top, h_exit_top) < wall_h - 0.05:
+					blocked = true
+					break
 			if not blocked:
 				return true
 	return false
+
+
+## Parametric t (0..1) along pa->pb where the segment first enters `rect`, or -1 if it never does.
+static func _segment_rect_entry_t(pa: Vector2, pb: Vector2, rect: Rect2) -> float:
+	var d := pb - pa
+	var t0 := 0.0
+	var t1 := 1.0
+	for axis in range(2):
+		var p0 := pa[axis]
+		var dd := d[axis]
+		var lo := rect.position[axis]
+		var hi := rect.end[axis]
+		if absf(dd) < 1e-6:
+			if p0 < lo or p0 > hi:
+				return -1.0
+			continue
+		var ta := (lo - p0) / dd
+		var tb := (hi - p0) / dd
+		if ta > tb:
+			var tmp := ta
+			ta = tb
+			tb = tmp
+		t0 = maxf(t0, ta)
+		t1 = minf(t1, tb)
+		if t0 > t1:
+			return -1.0
+	return t0
+
+
+static func _segment_rect_exit_t(pa: Vector2, pb: Vector2, rect: Rect2) -> float:
+	var d := pb - pa
+	var t0 := 0.0
+	var t1 := 1.0
+	for axis in range(2):
+		var p0 := pa[axis]
+		var dd := d[axis]
+		var lo := rect.position[axis]
+		var hi := rect.end[axis]
+		if absf(dd) < 1e-6:
+			if p0 < lo or p0 > hi:
+				return -1.0
+			continue
+		var ta := (lo - p0) / dd
+		var tb := (hi - p0) / dd
+		if ta > tb:
+			var tmp := ta
+			ta = tb
+			tb = tmp
+		t0 = maxf(t0, ta)
+		t1 = minf(t1, tb)
+		if t0 > t1:
+			return -1.0
+	return t1
 
 
 static func get_cover_cone(attacker_pos: Vector2, defender_pos: Vector2, defender_radius: float) -> Dictionary:

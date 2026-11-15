@@ -90,6 +90,29 @@ func _test_geometry_movement_and_los() -> void:
 	var ev_vant_engage: Dictionary = KTGeometry.evaluate_shot(sniper, target, mortis_sniper, eng.state)
 	_assert_true(bool(ev_vant_engage["valid"]) and int(ev_vant_engage["vantage_accurate"]) == 1, "Vantage grants Accurate 1 against Engage target")
 
+	# 6. 3D visibility: a 2.2" heavy_low ruin wall (`heavy_mid_west` x 10.6..11.9, y 8.2..11.4) between
+	#    two ground-level operatives blocks line of sight (both eye 1.4" and model top 1.6" < 2.2").
+	var ters: Array = eng.state["map"]["terrains"]
+	var los_blocked := KTGeometry.has_visibility(Vector2(5.0, 9.8), 0.63, 0.0, Vector2(15.0, 9.8), 0.63, 0.0, ters)
+	_assert_true(not los_blocked, "2.2\" heavy ruin wall blocks ground-to-ground visibility")
+	#    From the +3.5" vantage deck (eye at 4.9") the same wall does not block.
+	var los_from_deck := KTGeometry.has_visibility(Vector2(6.6, 15.7), 0.63, 3.5, Vector2(15.0, 9.8), 0.63, 0.0, ters)
+	_assert_true(los_from_deck, "Vantage shooter sees over a 2.2\" ruin wall")
+	#    A 1" light barricade never blocks visibility.
+	var los_light := KTGeometry.has_visibility(Vector2(15.0, 19.0), 0.63, 0.0, Vector2(15.0, 10.0), 0.63, 0.0, ters)
+	_assert_true(los_light, "Light barricade does not block visibility")
+	#    Concealed target standing 2.5" behind the ruin wall (no cover, no LoS) is NOT a valid target.
+	var pm_fighter: Dictionary = _find_by_op_id(eng, "pm_fighter")
+	var aod_gunner: Dictionary = _find_by_op_id(eng, "aod_gunner")
+	aod_gunner["pos"] = Vector2(5.0, 9.8)
+	aod_gunner["order"] = "engage"
+	pm_fighter["pos"] = Vector2(14.4, 9.8)
+	pm_fighter["order"] = "conceal"
+	var g_w: Array = eng.get_usable_ranged_weapons(aod_gunner)
+	if not g_w.is_empty():
+		var ev_hidden: Dictionary = KTGeometry.evaluate_shot(aod_gunner, pm_fighter, g_w[0], eng.state)
+		_assert_true(not bool(ev_hidden["valid"]) and not bool(ev_hidden["visible"]), "Concealed operative fully behind a 2.2\" wall is not visible, so not a valid target")
+
 
 func _test_combat_audit_fixes_and_factions() -> void:
 	var eng := KTEngine.new(202)
