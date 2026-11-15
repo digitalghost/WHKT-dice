@@ -1599,6 +1599,7 @@ func _refresh_all_ui() -> void:
 	var turn_side: String = str(engine.state["turn_side"])
 	var turn_name: String = str(engine.state["sides"][turn_side]["name"])
 	var phase_cn: String = str({
+		"DEPLOY": "部署阶段 · " + (str(engine.state["sides"][engine.deploy_side()]["name"]) if not engine.deploy_side().is_empty() else ""),
 		"INITIATIVE": "先攻权对抗",
 		"STRATEGY": "战略阶段 · " + turn_name,
 		"FIREFIGHT": "交战阶段 · " + turn_name,
