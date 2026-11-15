@@ -523,6 +523,9 @@ static func _apply_damage_instance(
 
 	if int(target["wounds_cur"]) <= 0:
 		target["incapacitated"] = true
+		# Remembered for tac ops that care who made the kill (主宰 / 击溃)
+		var att_uid := str(session.get("attacker_uid", ""))
+		target["killed_by"] = str(session.get("defender_uid", "")) if str(target["uid"]) == att_uid else att_uid
 	return lost
 
 

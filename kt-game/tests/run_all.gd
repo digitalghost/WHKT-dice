@@ -18,6 +18,7 @@ func _init() -> void:
 	_test_kill_op_and_wipeout()
 	_test_initiative_cards_and_primary_op()
 	_test_equipment()
+	_test_tac_ops()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -376,7 +377,10 @@ func _test_equipment() -> void:
 	_assert_true(str(eng.state["phase"]) == "EQUIP", "Equipment stays secret until both players have chosen")
 	es = eng.setup_side()
 	eng.confirm_equipment(es, picks[es])
-	_assert_true(str(eng.state["phase"]) == "DEPLOY", "Both equipment choices revealed -> DEPLOY")
+	_assert_true(str(eng.state["phase"]) == "TACOP", "Both equipment choices revealed -> TACOP (secret tac op, p.106)")
+	while str(eng.state["phase"]) == "TACOP":
+		eng.choose_tac_op(eng.setup_side(), "dominate")
+	_assert_true(str(eng.state["phase"]) == "DEPLOY", "Both tac ops chosen -> DEPLOY")
 	var sb: Dictionary = eng.state["sides"]["B"]
 	_assert_true(not bool(sb["has_plague_bell"]) and not KTCombat.has_equipment(eng.state["sides"]["A"], "auspex"), "Unselected equipment has no effect (no Plague Bell, no Auspex)")
 	var carriers := 0
@@ -408,3 +412,105 @@ func _test_equipment() -> void:
 			if str(w["id"]) == KTEngine.EQ_BLIGHT_GRENADE_ID:
 				left += 1
 	_assert_true(left == 0, "After 2 uses nobody has Blight grenades any more")
+
+
+func _tac_match(seed_v: int, tac_a: String, tac_b: String) -> KTEngine:
+	var eng := KTEngine.new(seed_v)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	eng.choose_drop_zone(false)
+	while str(eng.state["phase"]) == "SELECT":
+		var sd := eng.setup_side()
+		eng.confirm_roster(sd, eng.default_roster(sd))
+	while str(eng.state["phase"]) == "EQUIP":
+		eng.confirm_equipment(eng.setup_side(), [])
+	while str(eng.state["phase"]) == "TACOP":
+		var ts := eng.setup_side()
+		eng.choose_tac_op(ts, tac_a if ts == "A" else tac_b)
+	eng.auto_deploy_all()
+	eng.auto_initiative()
+	return eng
+
+
+func _side_ops(eng: KTEngine, side_id: String) -> Array:
+	var res: Array = []
+	for op in eng.state["operatives"]:
+		if str(op["side"]) == side_id:
+			res.append(op)
+	return res
+
+
+func _test_tac_ops() -> void:
+	var e0 := KTEngine.new(808)
+	e0.start_match("hotseat", "A", "dueller", "hardy")
+	e0.auto_setup()
+	_assert_true(e0.tac_op_options("A").size() == 6, "Tac ops: 2 archetypes x 3 = 6 options (p.106)")
+	_assert_true(e0.tac_op_of("A") == "dominate" and str(e0.state["phase"]) == "DEPLOY", "auto_setup picks a default tac op and reaches DEPLOY")
+	var e1 := KTEngine.new(809)
+	e1.start_match("hotseat", "A", "dueller", "hardy")
+	e1.choose_drop_zone(false)
+	while str(e1.state["phase"]) == "SELECT":
+		e1.confirm_roster(e1.setup_side(), e1.default_roster(e1.setup_side()))
+	while str(e1.state["phase"]) == "EQUIP":
+		e1.confirm_equipment(e1.setup_side(), [])
+	_assert_true(not bool(e1.choose_tac_op(e1.setup_side(), "flank")["ok"]), "Tac op of another archetype is rejected")
+	_assert_true(not bool(e1.choose_tac_op(e1.setup_side(), "plant_banner")["ok"]), "Not-yet-implemented tac op cannot be picked")
+
+	# 主宰 (A) vs 殉道者 (B)
+	var eng := _tac_match(810, "dominate", "martyrs")
+	var a_ops := _side_ops(eng, "A")
+	var b_ops := _side_ops(eng, "B")
+	var obj: Dictionary = eng.state["map"]["objectives"][0]
+	var oid := str(obj["id"])
+	b_ops[0]["pos"] = obj["pos"]
+	b_ops[0]["wounds_cur"] = 0
+	b_ops[0]["incapacitated"] = true
+	b_ops[0]["killed_by"] = str(a_ops[0]["uid"])
+	eng.recalculate_objectives_and_kills()
+	var exp_tok := 2 if int(b_ops[0]["wounds_max"]) >= 12 else 1
+	_assert_true(int(a_ops[0].get("dominate_tokens", 0)) == exp_tok, "Dominate: killer gains a token (two vs a 12+ wound operative, V11.5)")
+	_assert_true(int(eng.state["objectives_state"][oid].get("martyr_B", 0)) == 1, "Martyrs: operative incapacitated while contesting leaves a marker")
+	eng.recalculate_objectives_and_kills()
+	_assert_true(int(a_ops[0]["dominate_tokens"]) == exp_tok, "Casualties are only processed once")
+	eng.state["tp"] = 2
+	eng._score_tac_op_end_of_tp()
+	_assert_true(int(eng.state["sides"]["A"]["vp_tac"]) == 0, "Dominate does not score before the end of TP3")
+	_assert_true(int(eng.state["sides"]["B"]["vp_tac"]) == 0, "Martyrs: no VP while nobody contests the objective")
+	b_ops[1]["pos"] = obj["pos"]
+	eng.recalculate_objectives_and_kills()
+	eng.state["tp"] = 3
+	eng._score_tac_op_end_of_tp()
+	_assert_true(int(eng.state["sides"]["A"]["vp_tac"]) == exp_tok and int(a_ops[0]["dominate_tokens"]) == 0, "Dominate: end of TP3 removes tokens for 1VP each")
+	_assert_true(int(eng.state["sides"]["B"]["vp_tac"]) == 2 and int(eng.state["objectives_state"][oid]["martyr_B"]) == 0, "Martyrs: marker on a controlled objective is worth 2VP")
+
+	# 特使 (A) vs 击溃 (B)
+	var e2 := _tac_match(811, "envoy", "rout")
+	a_ops = _side_ops(e2, "A")
+	b_ops = _side_ops(e2, "B")
+	e2.state["tp"] = 2
+	e2.state["phase"] = "STRATEGY"
+	e2.state["turn_side"] = "A"
+	var dz_a: Rect2 = e2.state["map"]["drop_zone_a"]
+	var dz_b: Rect2 = e2.state["map"]["drop_zone_b"]
+	b_ops[0]["pos"] = dz_a.get_center()
+	a_ops[5]["wounds_cur"] = 0
+	a_ops[5]["incapacitated"] = true
+	a_ops[5]["killed_by"] = str(b_ops[0]["uid"])
+	e2.recalculate_objectives_and_kills()
+	_assert_true(int(e2.state["sides"]["B"]["vp_tac"]) == (2 if int(a_ops[5]["wounds_max"]) >= 12 else 1), "Rout: kill made within 6\" of the enemy drop zone scores (2VP vs 12+ wounds)")
+	_assert_true(e2.can_choose_envoy("A"), "Envoy can be named as a strategic gambit from TP2")
+	var env_uid := str(a_ops[0]["uid"])
+	_assert_true(bool(e2.choose_envoy("A", env_uid)["ok"]) and str(e2.state["turn_side"]) == "B", "Naming the Envoy uses the strategic gambit")
+	for b in b_ops:
+		b["pos"] = Vector2(-99.0, -99.0)
+	a_ops[0]["pos"] = dz_b.get_center()
+	e2._score_tac_op_end_of_tp()
+	_assert_true(int(e2.state["sides"]["A"]["vp_tac"]) == 2, "Envoy wholly in enemy territory, unhurt this TP = 2VP")
+	e2.state["tp"] = 3
+	e2.state["turn_side"] = "A"
+	_assert_true(not bool(e2.choose_envoy("A", env_uid)["ok"]), "Last turning point's Envoy cannot be named again")
+	e2.choose_envoy("A", str(a_ops[1]["uid"]))
+	a_ops[1]["pos"] = dz_b.get_center()
+	a_ops[1]["wounds_cur"] = int(a_ops[1]["wounds_cur"]) - 1
+	e2.recalculate_objectives_and_kills()
+	e2._score_tac_op_end_of_tp()
+	_assert_true(int(e2.state["sides"]["A"]["vp_tac"]) == 3, "Damaged Envoy scores only 1VP")

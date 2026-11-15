@@ -1624,6 +1624,7 @@ func _refresh_all_ui() -> void:
 		"DROPZONE": "战前 · 选择降落区",
 		"SELECT": "战前 · 选择特工",
 		"EQUIP": "战前 · 选择装备",
+		"TACOP": "战前 · 选择战术行动",
 		"DEPLOY": "部署阶段 · " + (str(engine.state["sides"][engine.deploy_side()]["name"]) if not engine.deploy_side().is_empty() else ""),
 		"INITIATIVE": "先攻权对抗",
 		"STRATEGY": "战略阶段 · " + turn_name,
@@ -1691,6 +1692,12 @@ func _update_tactical_pill() -> void:
 			_guide_lbl.text = "🤖 【%s】正在秘密选择装备…" % str(engine.state["sides"][eqs]["name"])
 		else:
 			_guide_lbl.text = "🎒 【%s】秘密选择最多 4 件装备选项（每种限一次），双方选定后同时揭示" % str(engine.state["sides"][eqs]["name"])
+	elif phase == "TACOP":
+		var tcs := engine.setup_side()
+		if engine.is_ai_turn():
+			_guide_lbl.text = "🤖 【%s】正在秘密选择战术行动 op…" % str(engine.state["sides"][tcs]["name"])
+		else:
+			_guide_lbl.text = "🂡 【%s】根据小队原型秘密选择一个战术行动 op（悬停看卡面全文）" % str(engine.state["sides"][tcs]["name"])
 	elif phase == "DEPLOY":
 		var ds := engine.deploy_side()
 		var dname := str(engine.state["sides"][ds]["name"]) if not ds.is_empty() else ""
@@ -1820,6 +1827,9 @@ func _rebuild_bottom_game_hud() -> void:
 	elif phase == "EQUIP":
 		_build_equip_select()
 
+	elif phase == "TACOP":
+		_build_tacop_choice()
+
 	elif phase == "DEPLOY":
 		_build_deploy_cards()
 
@@ -1851,6 +1861,8 @@ func _rebuild_bottom_game_hud() -> void:
 		else:
 			var fcol: Color = KTTheme.COL_IMPERIAL if turn_s == "A" else KTTheme.COL_NURGLE
 			var deal_i := 0
+			if engine.can_choose_envoy(turn_s):
+				_build_envoy_choice(turn_s)
 			for opt_v in engine.get_strategic_ploy_options(turn_s):
 				var opt: Dictionary = opt_v
 				var used_flag: bool = bool(opt["used"])
@@ -1975,11 +1987,10 @@ func _build_primary_op_choice(side: String) -> void:
 	var hb := HBoxContainer.new()
 	hb.add_theme_constant_override("separation", 12)
 	vb.add_child(hb)
-	# Tac ops are not implemented yet, so that op can never score: keep it visible but unselectable.
 	for opt in [
 		["key", "关键行动 op", "通过执行任务行动和控制\n目标标识来获得 VP", true],
 		["kill", "击杀行动 op", "通过使敌方特工残废\n来获得 VP", true],
-		["tac", "战术行动 op", "（战术行动尚未实装，\n暂不可选）", false],
+		["tac", "战术行动 op", "通过战前秘密选定的\n战术行动 op 获得 VP", true],
 	]:
 		var op_id: String = str(opt[0])
 		var b := Button.new()
@@ -2020,6 +2031,87 @@ func _build_dropzone_choice() -> void:
 			_refresh_all_ui()
 		)
 		_context_hb.add_child(b)
+
+
+## Rulebook p.106: each player secretly selects one tac op from their kill team's archetypes.
+func _build_tacop_choice() -> void:
+	var side: String = engine.setup_side()
+	var sname: String = str(engine.state["sides"][side]["name"])
+	if engine.is_ai_turn():
+		_setup_wait_pill("🤖 【%s】正在秘密选择战术行动 op…" % sname)
+		return
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+	var pnl := PanelContainer.new()
+	pnl.size_flags_vertical = Control.SIZE_SHRINK_END
+	pnl.add_theme_stylebox_override("panel", KTTheme.panel("floating", acc))
+	_context_hb.add_child(pnl)
+	var vb := VBoxContainer.new()
+	vb.add_theme_constant_override("separation", 6)
+	pnl.add_child(vb)
+	var info := Label.new()
+	info.text = "【%s】秘密选择 1 个战术行动 op  ·  每个行动 op 最多 6VP  ·  悬停看公开时机与规则全文" % sname
+	info.add_theme_font_size_override("font_size", 14)
+	info.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	vb.add_child(info)
+	var cards := HBoxContainer.new()
+	cards.add_theme_constant_override("separation", 8)
+	vb.add_child(cards)
+	for t_v in engine.tac_op_options(side):
+		var t: Dictionary = t_v
+		var tid: String = str(t["id"])
+		var ready: bool = bool(t["implemented"])
+		var b := Button.new()
+		b.text = "%s · %s\n%s" % [str(t["name"]), str(t["archetype"]), str(t["scoring"]) if ready else "（尚未实装，暂不可选）"]
+		b.tooltip_text = "公开时机：%s\n\n%s\n\nVP 结算：%s" % [str(t["reveal"]), str(t["rule"]), str(t["scoring"])]
+		b.custom_minimum_size = Vector2(208, 124)
+		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		b.add_theme_font_size_override("font_size", 12)
+		b.disabled = not ready
+		KTTheme.apply_accent_button(b, acc, 0.28)
+		KTWidgets.attach_button_juice(b, 1.03, "order_servo")
+		b.pressed.connect(func():
+			var res: Dictionary = engine.choose_tac_op(side, tid)
+			if not bool(res.get("ok", false)):
+				_killzone.spawn_floating_text(Vector2(15.0, 11.0), str(res.get("msg", "")), KTTheme.COL_CRIMSON)
+			_refresh_all_ui()
+		)
+		cards.add_child(b)
+
+
+## 特使 tac op: as a strategic gambit, name one operative as this turning point's Envoy.
+func _build_envoy_choice(side: String) -> void:
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+	var pnl := PanelContainer.new()
+	pnl.size_flags_vertical = Control.SIZE_SHRINK_END
+	pnl.add_theme_stylebox_override("panel", KTTheme.panel("floating", acc))
+	_context_hb.add_child(pnl)
+	var vb := VBoxContainer.new()
+	vb.add_theme_constant_override("separation", 4)
+	pnl.add_child(vb)
+	var hdr := Label.new()
+	hdr.text = "🕊️ 战略计划 · 指定特使"
+	hdr.tooltip_text = str(KTEngine.tac_op_info("envoy").get("scoring", ""))
+	hdr.mouse_filter = Control.MOUSE_FILTER_STOP
+	hdr.add_theme_font_size_override("font_size", 13)
+	hdr.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	vb.add_child(hdr)
+	var grid := GridContainer.new()
+	grid.columns = 2
+	vb.add_child(grid)
+	for c_v in engine.envoy_candidates(side):
+		var c: Dictionary = c_v
+		var cuid: String = str(c["uid"])
+		var b := Button.new()
+		b.text = str(c["role"]) if not str(c["role"]).is_empty() else str(c["name"])
+		b.tooltip_text = str(c["name"])
+		b.custom_minimum_size = Vector2(96, 26)
+		b.add_theme_font_size_override("font_size", 12)
+		KTTheme.apply_accent_button(b, acc, 0.26)
+		b.pressed.connect(func():
+			engine.choose_envoy(side, cuid)
+			_refresh_all_ui()
+		)
+		grid.add_child(b)
 
 
 ## Rulebook p.106: each player secretly selects up to 4 equipment options (each at most once).
@@ -2830,6 +2922,12 @@ func _run_ai_step() -> void:
 		_refresh_all_ui()
 		return
 
+	if phase == "TACOP":
+		var tc_side: String = engine.setup_side()
+		engine.choose_tac_op(tc_side, engine.default_tac_op(tc_side))
+		_refresh_all_ui()
+		return
+
 	if phase == "DEPLOY":
 		var res_d: Dictionary = engine.ai_deploy_next()
 		if bool(res_d.get("ok", false)):
@@ -2846,6 +2944,8 @@ func _run_ai_step() -> void:
 		var dec: Dictionary = KTAI.decide_strategy_step(engine, ai_side)
 		if str(dec["action"]) == "primary":
 			engine.choose_primary_op(ai_side, str(dec["op"]))
+		elif str(dec["action"]) == "envoy":
+			engine.choose_envoy(ai_side, str(dec["uid"]))
 		elif str(dec["action"]) == "ploy":
 			engine.use_strategic_ploy(ai_side, str(dec["id"]))
 		else:
@@ -2943,6 +3043,14 @@ func _run_autotest_screenshot_tour() -> void:
 	_phase_toast.visible = false
 	await get_tree().create_timer(0.24).timeout
 	_save_vp_png(out_dir + "/00b_equipment_select.png")
+	while str(engine.state["phase"]) == "EQUIP":
+		var eqs_t: String = engine.setup_side()
+		engine.confirm_equipment(eqs_t, engine.default_equipment(eqs_t))
+	engine.state["setup"]["tac_side"] = str(engine.state["human_side"])
+	_refresh_all_ui()
+	_phase_toast.visible = false
+	await get_tree().create_timer(0.24).timeout
+	_save_vp_png(out_dir + "/00c_tac_op_select.png")
 	engine.auto_setup()
 	# Capture the deployment phase with half the teams placed, then auto-complete it
 	for _i in range(6):

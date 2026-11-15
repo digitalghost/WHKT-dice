@@ -19,6 +19,19 @@ static func decide_strategy_step(engine: KTEngine, side_id: String) -> Dictionar
 	if engine.needs_primary_op(side_id):
 		return {"action": "primary", "op": "kill" if str(s["team_id"]) == "IMP-AOD" else "key"}
 
+	# 特使 tac op: name the operative that is deepest towards the enemy drop zone
+	if engine.can_choose_envoy(side_id):
+		var enemy_dz: Rect2 = engine.state["map"]["drop_zone_b"] if side_id == "A" else engine.state["map"]["drop_zone_a"]
+		var best_uid := ""
+		var best_d := 999.0
+		for cand in engine.envoy_candidates(side_id):
+			var d := (cand["pos"] as Vector2).distance_to(enemy_dz.get_center())
+			if d < best_d:
+				best_d = d
+				best_uid = str(cand["uid"])
+		if not best_uid.is_empty():
+			return {"action": "envoy", "uid": best_uid}
+
 	# Smart CP budgeting: Use 1~2 impactful ploys per TP while keeping >=1 CP for Command Reroll / Firefight!
 	for opt in options:
 		if bool(opt["used"]):

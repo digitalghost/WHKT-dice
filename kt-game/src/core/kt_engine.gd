@@ -133,6 +133,8 @@ func setup_side() -> String:
 		return str(state["setup"]["select_side"])
 	if ph == "EQUIP":
 		return str(state["setup"]["equip_side"])
+	if ph == "TACOP":
+		return str(state["setup"]["tac_side"])
 	return ""
 
 
@@ -267,8 +269,261 @@ func confirm_equipment(side_id: String, ids: Array) -> Dictionary:
 				if (state["setup"]["equipment"][sid] as Array).has(str(e["id"])):
 					names.append(str(e["title"]).get_slice("（", 0))
 			add_log("🎒 揭示装备 ·【%s】：%s" % [str(state["sides"][sid]["name"]), "无" if names.is_empty() else "、".join(names)])
+		# p.106: next, each player secretly selects a tac op from their kill team's archetypes
+		state["phase"] = "TACOP"
+		var tac_first := str(state["setup"]["first_side"])
+		state["setup"]["tac_side"] = tac_first
+		state["turn_side"] = tac_first
+	return {"ok": true, "msg": ""}
+
+
+# ==============================================================================
+# TAC OPS (rulebook p.106 / p.109). Card text lives in data/core/tac_ops.json.
+# ==============================================================================
+
+static var _tac_catalog: Array = []
+
+
+static func tac_op_catalog() -> Array:
+	if _tac_catalog.is_empty():
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://data/core/tac_ops.json"))
+		if typeof(parsed) == TYPE_DICTIONARY:
+			_tac_catalog = parsed.get("tac_ops", [])
+	return _tac_catalog
+
+
+static func tac_op_info(tac_id: String) -> Dictionary:
+	for t in tac_op_catalog():
+		if str(t["id"]) == tac_id:
+			return t
+	return {}
+
+
+## Tac ops a side may pick: those of its kill team's archetypes (p.106).
+func tac_op_options(side_id: String) -> Array:
+	var res: Array = []
+	var arch: Array = (_teams.get(side_id, {}) as Dictionary).get("archetypes", [])
+	for t in tac_op_catalog():
+		if arch.has(str(t["archetype"])):
+			res.append(t)
+	return res
+
+
+func default_tac_op(side_id: String) -> String:
+	var first_ok := ""
+	for t in tac_op_options(side_id):
+		if not bool(t["implemented"]):
+			continue
+		if str(t["id"]) == "dominate":
+			return "dominate"
+		if first_ok.is_empty():
+			first_ok = str(t["id"])
+	return first_ok
+
+
+func tac_op_of(side_id: String) -> String:
+	return str(state["sides"][side_id].get("tac_op", ""))
+
+
+func choose_tac_op(side_id: String, tac_id: String) -> Dictionary:
+	if str(state["phase"]) != "TACOP" or side_id != setup_side():
+		return {"ok": false, "msg": "现在不是该方选择战术行动 op"}
+	var info := {}
+	for t in tac_op_options(side_id):
+		if str(t["id"]) == tac_id:
+			info = t
+	if info.is_empty():
+		return {"ok": false, "msg": "该战术行动 op 不属于本小队的原型"}
+	if not bool(info["implemented"]):
+		return {"ok": false, "msg": "该战术行动 op 尚未实装"}
+	push_undo()
+	state["sides"][side_id]["tac_op"] = tac_id
+	state["sides"][side_id]["tac_revealed"] = false
+	add_log("🂡 【%s】秘密选定了战术行动 op。" % str(state["sides"][side_id]["name"]))
+	var other := "B" if side_id == "A" else "A"
+	if tac_op_of(other).is_empty():
+		state["setup"]["tac_side"] = other
+		state["turn_side"] = other
+	else:
 		_begin_deploy()
 	return {"ok": true, "msg": ""}
+
+
+func _tac_reveal(side_id: String) -> void:
+	var ss: Dictionary = state["sides"][side_id]
+	if bool(ss.get("tac_revealed", false)):
+		return
+	ss["tac_revealed"] = true
+	add_log("🂡 【%s】揭示战术行动 op《%s》！" % [str(ss["name"]), str(tac_op_info(tac_op_of(side_id)).get("name", ""))])
+
+
+## Score tac op VP (max 6 per op, p.106; `tp_cap` = the card's per-turning-point cap, 0 = none).
+func _tac_gain(side_id: String, n: int, tp_cap: int, why: String) -> int:
+	var ss: Dictionary = state["sides"][side_id]
+	var gain := mini(n, 6 - int(ss["vp_tac"]))
+	if tp_cap > 0:
+		gain = mini(gain, tp_cap - int(ss.get("tac_tp_gain", 0)))
+	if gain <= 0:
+		return 0
+	_tac_reveal(side_id)
+	ss["vp_tac"] = int(ss["vp_tac"]) + gain
+	ss["tac_tp_gain"] = int(ss.get("tac_tp_gain", 0)) + gain
+	add_log("🏅 【%s】战术行动《%s》+%d VP：%s" % [str(ss["name"]), str(tac_op_info(tac_op_of(side_id)).get("name", "")), gain, why])
+	return gain
+
+
+func _tac_new_tp() -> void:
+	for sid in ["A", "B"]:
+		state["sides"][sid]["tac_tp_gain"] = 0
+	for op in state["operatives"]:
+		op["damaged_tp"] = false
+		op["wounds_seen"] = int(op["wounds_cur"])
+
+
+func _op_contests_objective(op: Dictionary, obj: Dictionary) -> bool:
+	var p: Vector2 = op["pos"]
+	var opos: Vector2 = obj["pos"]
+	var z_op := KTGeometry.elevation_at(p, state["map"]["terrains"])
+	return p.distance_to(opos) - float(op["base_radius"]) <= 1.787 and absf(z_op) <= 2.0
+
+
+static func _dist_to_rect(p: Vector2, r: Rect2) -> float:
+	var dx := maxf(maxf(r.position.x - p.x, 0.0), p.x - r.end.x)
+	var dy := maxf(maxf(r.position.y - p.y, 0.0), p.y - r.end.y)
+	return Vector2(dx, dy).length()
+
+
+func _wholly_in_enemy_territory(op: Dictionary) -> bool:
+	var own: Rect2 = state["map"]["drop_zone_a"] if str(op["side"]) == "A" else state["map"]["drop_zone_b"]
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	var c := own.get_center()
+	var pp: Vector2 = op["pos"]
+	var r := float(op["base_radius"])
+	if own.size.x >= own.size.y:
+		return (pp.y - r >= h * 0.5) if c.y < h * 0.5 else (pp.y + r <= h * 0.5)
+	return (pp.x - r >= w * 0.5) if c.x < w * 0.5 else (pp.x + r <= w * 0.5)
+
+
+## Called from recalculate_objectives_and_kills(): tracks damage taken this TP and resolves every
+## newly incapacitated operative once for the tac ops that react to kills.
+func _process_casualties() -> void:
+	var tp := int(state["tp"])
+	for op in state["operatives"]:
+		if int(op["wounds_cur"]) < int(op.get("wounds_seen", int(op["wounds_max"]))):
+			op["damaged_tp"] = true
+		op["wounds_seen"] = int(op["wounds_cur"])
+		if not op["incapacitated"] or bool(op.get("casualty_done", false)):
+			continue
+		op["casualty_done"] = true
+		if not bool(op.get("deployed", true)):
+			continue
+		var v_side := str(op["side"])
+		var k_side := "B" if v_side == "A" else "A"
+		var tough: bool = int(op["wounds_max"]) >= 12
+
+		# 殉道者: a friendly operative incapacitated while contesting an objective leaves a marker there
+		if tac_op_of(v_side) == "martyrs":
+			for obj in state["map"]["objectives"]:
+				if _op_contests_objective(op, obj):
+					var ost: Dictionary = state["objectives_state"][str(obj["id"])]
+					ost["martyr_" + v_side] = int(ost.get("martyr_" + v_side, 0)) + 1
+					_tac_reveal(v_side)
+					add_log("🕯️ 【%s】在争夺【%s】时倒下：该目标获得 1 枚殉道者标记。" % [str(op["name"]), str(obj["name"])])
+
+		var killer := get_op(str(op.get("killed_by", "")))
+		if killer.is_empty() or str(killer["side"]) != k_side:
+			continue
+		# 主宰: the killer gains a Dominate token (two if the victim has 12+ wounds, V11.5 errata)
+		if tac_op_of(k_side) == "dominate":
+			killer["dominate_tokens"] = int(killer.get("dominate_tokens", 0)) + (2 if tough else 1)
+			_tac_reveal(k_side)
+			add_log("👁️ 【%s】获得 %d 枚主宰标记。" % [str(killer["name"]), 2 if tough else 1])
+		# 击溃: kill made by a friendly operative within 6" of the enemy drop zone
+		if tac_op_of(k_side) == "rout" and tp >= 2:
+			var enemy_dz: Rect2 = state["map"]["drop_zone_a"] if v_side == "A" else state["map"]["drop_zone_b"]
+			if _dist_to_rect(killer["pos"], enemy_dz) - float(killer["base_radius"]) <= 6.0:
+				_tac_gain(k_side, 2 if tough else 1, 2, "在敌方降落区 6\" 内击杀【%s】" % str(op["name"]))
+
+
+## 特使 (strategic gambit): may this side name an Envoy now?
+func can_choose_envoy(side_id: String) -> bool:
+	if str(state.get("phase", "")) != "STRATEGY" or str(state["turn_side"]) != side_id or tac_op_of(side_id) != "envoy":
+		return false
+	var tp := int(state["tp"])
+	if tp < 2 or int(state["sides"][side_id].get("envoy_tp", 0)) == tp:
+		return false
+	return not envoy_candidates(side_id).is_empty()
+
+
+func envoy_candidates(side_id: String) -> Array[Dictionary]:
+	var res: Array[Dictionary] = []
+	var ss: Dictionary = state["sides"][side_id]
+	var prev := str(ss.get("envoy_uid", "")) if int(ss.get("envoy_tp", 0)) == int(state["tp"]) - 1 else ""
+	for op in state["operatives"]:
+		if str(op["side"]) == side_id and not op["incapacitated"] and str(op["uid"]) != prev:
+			res.append(op)
+	return res
+
+
+func choose_envoy(side_id: String, uid: String) -> Dictionary:
+	if not can_choose_envoy(side_id):
+		return {"ok": false, "msg": "现在不能指定特使"}
+	var pick := {}
+	for op in envoy_candidates(side_id):
+		if str(op["uid"]) == uid:
+			pick = op
+	if pick.is_empty():
+		return {"ok": false, "msg": "不能选择该特工作为特使（上一转折点的特使不能连任）"}
+	push_undo()
+	var ss: Dictionary = state["sides"][side_id]
+	ss["envoy_uid"] = uid
+	ss["envoy_tp"] = int(state["tp"])
+	_tac_reveal(side_id)
+	add_log("🕊️ 【%s】指定【%s】为本转折点的特使。" % [str(ss["name"]), str(pick["name"])])
+	state["consecutive_strategy_passes"] = 0
+	state["turn_side"] = "B" if side_id == "A" else "A"
+	return {"ok": true}
+
+
+func _score_tac_op_end_of_tp() -> void:
+	var tp := int(state["tp"])
+	for sid in ["A", "B"]:
+		var ss: Dictionary = state["sides"][sid]
+		var tac := tac_op_of(sid)
+		if tac == "dominate" and tp >= 3:
+			# Remove tokens from friendly operatives that are not incapacitated: 1VP each, max 3 per TP
+			var room := mini(3, 6 - int(ss["vp_tac"]))
+			var removed := 0
+			for op in state["operatives"]:
+				if str(op["side"]) != sid or op["incapacitated"]:
+					continue
+				var take := mini(int(op.get("dominate_tokens", 0)), room - removed)
+				if take > 0:
+					op["dominate_tokens"] = int(op["dominate_tokens"]) - take
+					removed += take
+			if removed > 0:
+				_tac_gain(sid, removed, 3, "移除 %d 枚主宰标记" % removed)
+		elif tac == "martyrs" and tp >= 2:
+			# Remove markers from objectives friendly operatives contest: 1VP each, 2VP if also controlled
+			var key: String = "martyr_" + str(sid)
+			var apl_key := "apl_a" if sid == "A" else "apl_b"
+			var left := mini(2, 6 - int(ss["vp_tac"]))
+			for want in [2, 1]:
+				for oid in state["objectives_state"].keys():
+					var ost: Dictionary = state["objectives_state"][oid]
+					var worth := 2 if str(ost["controlled_by"]) == sid else 1
+					while left > 0 and worth == want and int(ost.get(key, 0)) > 0 and int(ost[apl_key]) > 0:
+						ost[key] = int(ost[key]) - 1
+						left -= _tac_gain(sid, mini(worth, left), 2, "移除【%s】上的殉道者标记" % str(oid).to_upper())
+		elif tac == "envoy" and tp >= 2 and int(ss.get("envoy_tp", 0)) == tp:
+			var env := get_op(str(ss.get("envoy_uid", "")))
+			if not env.is_empty() and not env["incapacitated"] and _wholly_in_enemy_territory(env) \
+					and KTGeometry.is_in_enemy_control_range(env, env["pos"], state).is_empty():
+				var unhurt: bool = not bool(env.get("damaged_tp", false))
+				_tac_gain(sid, 2 if unhurt else 1, 0, "特使【%s】完全位于敌方领地%s" % [str(env["name"]), "且本转折点未受伤害" if unhurt else ""])
+		if tp >= 4 and not tac.is_empty() and not bool(ss.get("tac_revealed", false)):
+			_tac_reveal(sid)
 
 
 const EQ_BLIGHT_GRENADE_ID := "eq_blight_grenade"
@@ -368,6 +623,11 @@ func auto_setup() -> void:
 		guard += 1
 		var es := setup_side()
 		confirm_equipment(es, default_equipment(es))
+	guard = 0
+	while str(state["phase"]) == "TACOP" and guard < 4:
+		guard += 1
+		var ts := setup_side()
+		choose_tac_op(ts, default_tac_op(ts))
 
 
 func _in_enemy_territory(op: Dictionary) -> bool:
@@ -628,7 +888,7 @@ func is_ai_turn() -> bool:
 	var phase := str(state.get("phase", ""))
 	if phase == "DEPLOY":
 		return deploy_side() != str(state["human_side"])
-	if phase in ["DROPZONE", "SELECT", "EQUIP"]:
+	if phase in ["DROPZONE", "SELECT", "EQUIP", "TACOP"]:
 		return setup_side() != str(state["human_side"])
 	if phase == "GAME_OVER":
 		return false
@@ -814,6 +1074,7 @@ func _resolve_initiative() -> void:
 		state["sides"][sid]["heroic_used_tp"] = false
 
 	state["markers"].clear()
+	_tac_new_tp()
 	for op in state["operatives"]:
 		if not op["incapacitated"]:
 			op["ready"] = true
@@ -1419,6 +1680,7 @@ func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 					other["poisoned"] = true
 				if int(other["wounds_cur"]) <= 0:
 					other["incapacitated"] = true
+					other["killed_by"] = str(op["uid"])
 				hit_any += 1
 				add_log("⛓️ 腐蚀连枷横扫命中【%s】，造成 %d 点伤害！" % [str(other["name"]), dmg])
 		if hit_any == 0:
@@ -1443,6 +1705,7 @@ func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 			best["wounds_cur"] = maxi(0, int(best["wounds_cur"]) - 3)
 			if int(best["wounds_cur"]) <= 0:
 				best["incapacitated"] = true
+				best["killed_by"] = str(op["uid"])
 			add_log("☠️ 【恶瘟投放者】释放有毒瘴气：引爆【%s】体内毒素造成 3 点真实伤害！" % str(best["name"]))
 		else:
 			best["poisoned"] = true
@@ -1608,6 +1871,7 @@ func pass_counteract(side_id: String) -> void:
 
 
 func recalculate_objectives_and_kills() -> void:
+	_process_casualties()
 	var terrains: Array = state["map"]["terrains"]
 	for obj in state["map"]["objectives"]:
 		var oid := str(obj["id"])
@@ -1735,6 +1999,7 @@ func _score_key_op_end_of_tp() -> void:
 func _finish_turning_point() -> void:
 	recalculate_objectives_and_kills()
 	_score_key_op_end_of_tp()
+	_score_tac_op_end_of_tp()
 	var tp := int(state["tp"])
 	if tp >= 4:
 		# End of battle Kill Grade superiority +1 VP & Primary Op bonus!
