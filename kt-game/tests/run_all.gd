@@ -14,6 +14,7 @@ func _init() -> void:
 	_test_combat_audit_fixes_and_factions()
 	_test_engine_flow_undo_and_ai()
 	_test_deployment_phase()
+	_test_prebattle_setup()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -215,7 +216,8 @@ func _test_engine_flow_undo_and_ai() -> void:
 func _test_deployment_phase() -> void:
 	var eng := KTEngine.new(303)
 	eng.start_match("hotseat", "A", "dueller", "hardy")
-	_assert_true(str(eng.state["phase"]) == "DEPLOY", "Match starts in DEPLOY phase (rulebook p.105 step 3)")
+	eng.auto_setup() # drop-zone choice + operative selection with defaults
+	_assert_true(str(eng.state["phase"]) == "DEPLOY", "after setup the match is in DEPLOY (rulebook p.105 step 3)")
 	var first := eng.deploy_side()
 	_assert_true(first in ["A", "B"], "Pre-battle roll-off picks a deploying side")
 	var groups: Array = eng.state["deploy"]["groups"][first]
@@ -249,3 +251,31 @@ func _test_deployment_phase() -> void:
 		if not z.has_point(op["pos"]):
 			all_in = false
 	_assert_true(all_in, "Every operative ends inside its own drop zone")
+
+
+func _test_prebattle_setup() -> void:
+	var eng := KTEngine.new(404)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	_assert_true(str(eng.state["phase"]) == "DROPZONE", "Match starts with the drop-zone choice (p.105 step 1)")
+	_assert_true(not bool(eng.roll_initiative()["ok"]), "Initiative cannot be rolled before setup is done")
+	_assert_true(eng.setup_side() in ["A", "B"], "Roll-off winner chooses the drop zone")
+	var aod: Dictionary = KTData.get_team("IMP-AOD")
+	var bad: Array = ["aod_captain", "aod_captain", "aod_grenadier", "aod_sniper", "aod_gunner", "aod_heavy_gunner"]
+	_assert_true(not bool(KTEngine.validate_roster(aod, bad)["ok"]), "Two leaders is an illegal roster")
+	var two_warriors: Array = ["aod_captain", "aod_assault_warrior", "aod_warrior", "aod_grenadier", "aod_sniper", "aod_gunner"]
+	_assert_true(bool(KTEngine.validate_roster(aod, two_warriors)["ok"]), "Angels of Death may take duplicate warriors")
+	var pm: Dictionary = KTData.get_team("CHAOS-PM")
+	var pm_dup: Array = ["pm_champion", "pm_warrior", "pm_warrior", "pm_fighter", "pm_bombardier", "pm_heavy_gunner"]
+	_assert_true(not bool(KTEngine.validate_roster(pm, pm_dup)["ok"]), "Plague Marines may not duplicate operatives")
+	var short_roster: Array = ["aod_captain", "aod_grenadier", "aod_sniper", "aod_gunner", "aod_heavy_gunner"]
+	_assert_true(not bool(KTEngine.validate_roster(aod, short_roster)["ok"]), "Roster must contain exactly 6 operatives")
+	var zone_before: Vector2 = (eng.state["map"]["drop_zone_a"] as Rect2).position
+	eng.choose_drop_zone(true)
+	_assert_true(str(eng.state["phase"]) == "SELECT", "Choosing a drop zone advances to operative selection")
+	_assert_true((eng.state["map"]["drop_zone_a"] as Rect2).position != zone_before, "Taking the other zone swaps the two zones")
+	var sel := eng.setup_side()
+	eng.confirm_roster(sel, eng.default_roster(sel))
+	_assert_true(str(eng.state["phase"]) == "SELECT", "The other side still has to pick its team")
+	eng.auto_setup()
+	_assert_true(str(eng.state["phase"]) == "DEPLOY", "Both teams confirmed -> DEPLOY")
+	_assert_true(eng.state["operatives"].size() == 12, "12 operatives spawned from the chosen rosters")

@@ -225,6 +225,7 @@ func _ready() -> void:
 
 	# Initialize background demo match so 3D diorama is alive on the open right half of the Main Menu!
 	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic)
+	engine.auto_deploy_all() # menu backdrop only: skip the interactive pre-battle steps
 	_killzone.bind_engine(engine)
 	call_deferred("_on_viewport_resized")
 	_refresh_all_ui()
@@ -310,7 +311,22 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		var phase: String = str(engine.state["phase"])
 		if kc == KEY_SPACE:
-			if phase == "INITIATIVE":
+			if phase == "DROPZONE":
+				accept_event()
+				engine.choose_drop_zone(false)
+				_refresh_all_ui()
+				return
+			elif phase == "SELECT":
+				accept_event()
+				var sd: String = engine.setup_side()
+				var res_s: Dictionary = engine.confirm_roster(sd, _roster_pick if (_roster_pick_side == sd and not _roster_pick.is_empty()) else engine.default_roster(sd))
+				if bool(res_s.get("ok", false)):
+					_roster_pick_side = ""
+				else:
+					_killzone.spawn_floating_text(Vector2(15.0, 11.0), str(res_s.get("msg", "")), KTTheme.COL_CRIMSON)
+				_refresh_all_ui()
+				return
+			elif phase == "INITIATIVE":
 				accept_event()
 				KTSfx.play("phase_horn", -5.0, 0.03)
 				var res_i: Dictionary = engine.roll_initiative()
@@ -767,7 +783,7 @@ func _build_context_stage() -> void:
 	_context_stage.anchor_bottom = 1.0
 	_context_stage.offset_left = -560.0
 	_context_stage.offset_right = 560.0
-	_context_stage.offset_top = -158.0
+	_context_stage.offset_top = -176.0
 	_context_stage.offset_bottom = -12.0
 	_context_stage.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_context_stage)
@@ -1599,6 +1615,8 @@ func _refresh_all_ui() -> void:
 	var turn_side: String = str(engine.state["turn_side"])
 	var turn_name: String = str(engine.state["sides"][turn_side]["name"])
 	var phase_cn: String = str({
+		"DROPZONE": "战前 · 选择降落区",
+		"SELECT": "战前 · 选择特工",
 		"DEPLOY": "部署阶段 · " + (str(engine.state["sides"][engine.deploy_side()]["name"]) if not engine.deploy_side().is_empty() else ""),
 		"INITIATIVE": "先攻权对抗",
 		"STRATEGY": "战略阶段 · " + turn_name,
@@ -1648,7 +1666,19 @@ func _refresh_all_ui() -> void:
 
 func _update_tactical_pill() -> void:
 	var phase: String = str(engine.state["phase"])
-	if phase == "DEPLOY":
+	if phase == "DROPZONE":
+		var zs := engine.setup_side()
+		if engine.is_ai_turn():
+			_guide_lbl.text = "🤖 【%s】赢得战前拼骰，正在选择降落区…" % str(engine.state["sides"][zs]["name"])
+		else:
+			_guide_lbl.text = "🧭 【%s】赢得战前拼骰（%d : %d）：选择一个降落区，对手使用另一个" % [str(engine.state["sides"][zs]["name"]), int(engine.state["setup"]["roll_a"]), int(engine.state["setup"]["roll_b"])]
+	elif phase == "SELECT":
+		var ss := engine.setup_side()
+		if engine.is_ai_turn():
+			_guide_lbl.text = "🤖 【%s】正在秘密选择出战特工…" % str(engine.state["sides"][ss]["name"])
+		else:
+			_guide_lbl.text = "📋 【%s】选择 6 名出战特工：左键加入 / 取消，右键移除，然后确认" % str(engine.state["sides"][ss]["name"])
+	elif phase == "DEPLOY":
 		var ds := engine.deploy_side()
 		var dname := str(engine.state["sides"][ds]["name"]) if not ds.is_empty() else ""
 		if engine.is_ai_turn():
@@ -1766,7 +1796,13 @@ func _rebuild_bottom_game_hud() -> void:
 	_weapon_strip.visible = false
 	_context_stage.visible = true
 
-	if phase == "DEPLOY":
+	if phase == "DROPZONE":
+		_build_dropzone_choice()
+
+	elif phase == "SELECT":
+		_build_roster_select()
+
+	elif phase == "DEPLOY":
 		_build_deploy_cards()
 
 	elif phase == "INITIATIVE":
@@ -1867,6 +1903,167 @@ func _rebuild_bottom_game_hud() -> void:
 		KTWidgets.attach_button_juice(btn_again, 1.06, "phase_horn")
 		btn_again.pressed.connect(func(): _start_new_battle())
 		ohb.add_child(btn_again)
+
+
+func _setup_wait_pill(msg: String) -> void:
+	var wait_p := PanelContainer.new()
+	wait_p.size_flags_vertical = Control.SIZE_SHRINK_END
+	wait_p.add_theme_stylebox_override("panel", KTTheme.panel("floating", KTTheme.COL_NURGLE))
+	var wl := Label.new()
+	wl.text = msg
+	wl.add_theme_font_size_override("font_size", 16)
+	wl.add_theme_color_override("font_color", KTTheme.COL_NURGLE.lightened(0.26))
+	wait_p.add_child(wl)
+	_context_hb.add_child(wait_p)
+
+
+## Human-readable edge name of a drop zone rectangle on the 30x22 board.
+func _zone_label(dz: Rect2) -> String:
+	var w: float = float(engine.state["map"]["width"])
+	var h: float = float(engine.state["map"]["height"])
+	if dz.size.x >= dz.size.y:
+		return "北侧" if dz.get_center().y < h * 0.5 else "南侧"
+	return "西侧" if dz.get_center().x < w * 0.5 else "东侧"
+
+
+## Rulebook p.105 step 1: the pre-battle roll-off winner picks a drop zone; the opponent takes the other.
+func _build_dropzone_choice() -> void:
+	var side: String = engine.setup_side()
+	if engine.is_ai_turn():
+		_setup_wait_pill("🤖 【%s】正在选择降落区…" % str(engine.state["sides"][side]["name"]))
+		return
+	var own_rect: Rect2 = engine.state["map"]["drop_zone_a"] if side == "A" else engine.state["map"]["drop_zone_b"]
+	var other_rect: Rect2 = engine.state["map"]["drop_zone_b"] if side == "A" else engine.state["map"]["drop_zone_a"]
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+	for opt in [[own_rect, false], [other_rect, true]]:
+		var rect: Rect2 = opt[0]
+		var swap: bool = opt[1]
+		var b := Button.new()
+		b.text = "🧭 选择%s降落区\n%.0f\" × %.0f\"" % [_zone_label(rect), rect.size.x, rect.size.y]
+		b.custom_minimum_size = Vector2(230, 72)
+		b.size_flags_vertical = Control.SIZE_SHRINK_END
+		b.add_theme_font_size_override("font_size", 15)
+		KTTheme.apply_accent_button(b, acc, 0.30)
+		KTWidgets.attach_button_juice(b, 1.05, "order_servo")
+		b.pressed.connect(func():
+			engine.choose_drop_zone(swap)
+			_refresh_all_ui()
+		)
+		_context_hb.add_child(b)
+
+
+## Rulebook p.105 step 2: each player secretly selects operatives per the team's selection rules.
+var _roster_pick: Array = []
+var _roster_pick_side: String = ""
+
+func _build_roster_select() -> void:
+	var side: String = engine.setup_side()
+	var sname: String = str(engine.state["sides"][side]["name"])
+	if engine.is_ai_turn():
+		_setup_wait_pill("🤖 【%s】正在秘密选择出战特工…" % sname)
+		return
+	if _roster_pick_side != side:
+		_roster_pick = engine.default_roster(side)
+		_roster_pick_side = side
+	var team: Dictionary = KTData.get_team(str(engine.state["sides"][side]["team_id"]))
+	var chk: Dictionary = KTEngine.validate_roster(team, _roster_pick)
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+
+	var roster_panel := PanelContainer.new()
+	roster_panel.size_flags_vertical = Control.SIZE_SHRINK_END
+	roster_panel.add_theme_stylebox_override("panel", KTTheme.panel("floating", acc))
+	_context_hb.add_child(roster_panel)
+	var root_vb := VBoxContainer.new()
+	root_vb.add_theme_constant_override("separation", 6)
+	roster_panel.add_child(root_vb)
+
+	var hdr := HBoxContainer.new()
+	hdr.add_theme_constant_override("separation", 12)
+	root_vb.add_child(hdr)
+	var info := Label.new()
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	info.text = "【%s】出战特工 %d / 6  ·  %s" % [sname, _roster_pick.size(), ("✓ 编成合法" if bool(chk["ok"]) else str(chk["reason"]))]
+	info.add_theme_font_size_override("font_size", 14)
+	info.add_theme_color_override("font_color", KTTheme.COL_EMERALD.lightened(0.2) if bool(chk["ok"]) else KTTheme.COL_GOLD_BRIGHT)
+	hdr.add_child(info)
+	var ok_b := Button.new()
+	ok_b.text = "✓ 确认出战"
+	ok_b.disabled = not bool(chk["ok"])
+	KTTheme.apply_accent_button(ok_b, KTTheme.COL_EMERALD, 0.34)
+	KTWidgets.attach_button_juice(ok_b, 1.05, "phase_horn")
+	ok_b.pressed.connect(func():
+		var res: Dictionary = engine.confirm_roster(side, _roster_pick)
+		if bool(res.get("ok", false)):
+			_roster_pick_side = ""
+		_refresh_all_ui()
+	)
+	hdr.add_child(ok_b)
+
+	var cards := HBoxContainer.new()
+	cards.add_theme_constant_override("separation", 6)
+	root_vb.add_child(cards)
+	for tpl_v in engine.roster_pool(side):
+		var tpl: Dictionary = tpl_v
+		var oid: String = str(tpl["id"])
+		var cnt: int = _roster_pick.count(oid)
+		var dup_ok: bool = KTEngine.roster_allows_duplicate(team, tpl)
+		var card := PanelContainer.new()
+		card.custom_minimum_size = Vector2(104, 90)
+		card.mouse_filter = Control.MOUSE_FILTER_STOP
+		card.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		card.tooltip_text = "%s（%s）\nAPL %d · 移动 %.0f\" · 豁免 %d+ · 耐伤 %d%s" % [
+			str(tpl["name"]), str(tpl["role"]), int(tpl["apl"]), float(tpl["move_inches"]), int(tpl["save"]), int(tpl["wounds"]),
+			"\n可重复选择" if dup_ok else ""]
+		card.add_theme_stylebox_override("panel", KTTheme.panel("primary" if cnt > 0 else "floating", KTTheme.COL_GOLD_BRIGHT if cnt > 0 else acc))
+		if cnt == 0:
+			card.modulate = Color(0.72, 0.72, 0.76)
+		cards.add_child(card)
+
+		var cv := VBoxContainer.new()
+		cv.add_theme_constant_override("separation", 2)
+		cv.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		card.add_child(cv)
+		var pr := TextureRect.new()
+		pr.texture = KTData.load_tex(str(tpl.get("portrait", "")))
+		pr.custom_minimum_size = Vector2(0, 44)
+		pr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		pr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		pr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cv.add_child(pr)
+		var nl := Label.new()
+		nl.text = str(tpl["role"]) + ("  ×%d" % cnt if cnt > 1 else ("  ✓" if cnt == 1 else ""))
+		nl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		nl.add_theme_font_size_override("font_size", 12)
+		nl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT if cnt > 0 else KTTheme.COL_TEXT)
+		nl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cv.add_child(nl)
+		var sub := Label.new()
+		sub.text = str(tpl["name"]).replace("星际战士", "").replace("仲裁者", "").replace("瘟疫战士", "")
+		sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		sub.clip_text = true
+		sub.add_theme_font_size_override("font_size", 10)
+		sub.add_theme_color_override("font_color", KTTheme.COL_MUTED)
+		sub.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cv.add_child(sub)
+
+		card.gui_input.connect(func(ev: InputEvent):
+			if not (ev is InputEventMouseButton and ev.pressed):
+				return
+			if ev.button_index == MOUSE_BUTTON_RIGHT:
+				if _roster_pick.has(oid):
+					_roster_pick.erase(oid)
+			elif ev.button_index == MOUSE_BUTTON_LEFT:
+				if _roster_pick.has(oid) and not dup_ok:
+					_roster_pick.erase(oid)
+				elif _roster_pick.size() < 6:
+					_roster_pick.append(oid)
+				else:
+					return
+			else:
+				return
+			KTSfx.play("card_lift", -6.0, 0.05)
+			_refresh_all_ui()
+		)
 
 
 ## Deployment hand: one card per undeployed operative of the deploying side. Click a card to pick
@@ -2479,6 +2676,18 @@ func _run_ai_step() -> void:
 	var ai_side: String = str(engine.state["turn_side"])
 	var phase: String = str(engine.state["phase"])
 
+	if phase == "DROPZONE":
+		# AI keeps the zone the map assigns it (both are mirror images on the official layouts)
+		engine.choose_drop_zone(false)
+		_refresh_all_ui()
+		return
+
+	if phase == "SELECT":
+		var sel_side: String = engine.setup_side()
+		engine.confirm_roster(sel_side, engine.default_roster(sel_side))
+		_refresh_all_ui()
+		return
+
 	if phase == "DEPLOY":
 		var res_d: Dictionary = engine.ai_deploy_next()
 		if bool(res_d.get("ok", false)):
@@ -2571,6 +2780,13 @@ func _run_autotest_screenshot_tour() -> void:
 	_sel_mode = "hotseat"
 	_title_overlay.visible = false
 	_start_new_battle()
+	# Pre-battle step 2 capture: operative selection hand
+	engine.choose_drop_zone(false)
+	_refresh_all_ui()
+	_phase_toast.visible = false
+	await get_tree().create_timer(0.24).timeout
+	_save_vp_png(out_dir + "/00a_roster_select.png")
+	engine.auto_setup()
 	# Capture the deployment phase with half the teams placed, then auto-complete it
 	for _i in range(6):
 		engine.ai_deploy_next()

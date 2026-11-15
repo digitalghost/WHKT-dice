@@ -86,21 +86,137 @@ func start_match(
 		"log": [],
 	}
 
-	_spawn_roster("A", aod_team, map_data["spawn_a"])
-	_spawn_roster("B", pm_team, map_data["spawn_b"])
+	_teams = {"A": aod_team, "B": pm_team}
+	_roster_override = {}
 
-	# Rulebook p.105 "3.部署特工": pre-battle roll-off decides who deploys first; players then
-	# alternate placing thirds of their team (rounded up, larger groups first: 6 -> 2/2/2, 7 -> 3/2/2)
-	# fully inside their own drop zone with a Conceal order. Operatives start off-table.
-	for op in state["operatives"]:
-		op["deployed"] = false
-		op["pos"] = Vector2(-99.0, -99.0)
+	# Rulebook p.105 "1.设置战斗": pre-battle roll-off (ties re-rolled). The winner has the pre-battle
+	# initiative: they choose a drop zone (the opponent takes the other) and deploy first.
 	var pre_a := rng.randi_range(1, 6)
 	var pre_b := rng.randi_range(1, 6)
-	while pre_a == pre_b: # pre-battle roll-off ties are re-rolled (校注 p.105)
+	while pre_a == pre_b:
 		pre_a = rng.randi_range(1, 6)
 		pre_b = rng.randi_range(1, 6)
 	var first := "A" if pre_a > pre_b else "B"
+	state["phase"] = "DROPZONE"
+	state["setup"] = {
+		"first_side": first, "roll_a": pre_a, "roll_b": pre_b,
+		"select_side": first,
+		"rosters": {"A": [], "B": []},
+	}
+	state["turn_side"] = first
+	# The side WITHOUT pre-battle initiative wins a tied TP1 initiative roll (校注 p.106)
+	state["initiative_side"] = first
+	recalculate_objectives_and_kills()
+	add_log("⚔️ 战局开启：杀戮区·沃库斯 ·【死亡天使】迎战【瘟疫战士】！")
+	add_log("🎲 战前拼骰 %d : %d → 【%s】取得战前先手：先选择降落区。" % [pre_a, pre_b, str(state["sides"][first]["name"])])
+
+
+# ==============================================================================
+# PRE-BATTLE SETUP: drop zone choice -> operative selection -> deployment
+# ==============================================================================
+
+var _teams: Dictionary = {}
+var _roster_override: Dictionary = {}
+
+
+## Side that must act now during DROPZONE / SELECT ("" otherwise).
+func setup_side() -> String:
+	var ph := str(state.get("phase", ""))
+	if ph == "DROPZONE":
+		return str(state["setup"]["first_side"])
+	if ph == "SELECT":
+		return str(state["setup"]["select_side"])
+	return ""
+
+
+## The pre-battle initiative holder picks a drop zone. `take_other` = true swaps the two zones
+## (map data assigns zone A to side A by default).
+func choose_drop_zone(take_other: bool) -> Dictionary:
+	if str(state["phase"]) != "DROPZONE":
+		return {"ok": false}
+	push_undo()
+	var first := str(state["setup"]["first_side"])
+	if take_other:
+		var tmp: Rect2 = state["map"]["drop_zone_a"]
+		state["map"]["drop_zone_a"] = state["map"]["drop_zone_b"]
+		state["map"]["drop_zone_b"] = tmp
+		# New id so the board view rebuilds its zone overlay
+		state["map"]["id"] = str(state["map"]["id"]) + "_swapped"
+	state["phase"] = "SELECT"
+	state["turn_side"] = first
+	add_log("🧭 【%s】选定降落区。双方秘密选择出战特工。" % str(state["sides"][first]["name"]))
+	return {"ok": true}
+
+
+func default_roster(side_id: String) -> Array:
+	var team: Dictionary = _teams.get(side_id, {})
+	return (team.get("canonical_roster", []) as Array).duplicate()
+
+
+func roster_pool(side_id: String) -> Array:
+	return (_teams.get(side_id, {}) as Dictionary).get("operatives", [])
+
+
+## Only Angels of Death warriors may be taken more than once (team composition rules).
+static func roster_allows_duplicate(team: Dictionary, tpl: Dictionary) -> bool:
+	return str(team.get("team_id", "")) == "IMP-AOD" and str(tpl.get("role", "")) == "战士"
+
+
+## Team selection rules (from each team's 编成 card): exactly 6 operatives, exactly 1 leader,
+## every non-repeatable operative at most once.
+static func validate_roster(team: Dictionary, ids: Array) -> Dictionary:
+	var by_id := {}
+	for o in team.get("operatives", []):
+		by_id[str(o["id"])] = o
+	if ids.size() != 6:
+		return {"ok": false, "reason": "需要正好 6 名特工（当前 %d 名）" % ids.size()}
+	var leaders := 0
+	var counts := {}
+	for id_v in ids:
+		var id := str(id_v)
+		if not by_id.has(id):
+			return {"ok": false, "reason": "未知特工"}
+		counts[id] = int(counts.get(id, 0)) + 1
+		if str(by_id[id].get("role", "")) == "领袖":
+			leaders += 1
+	if leaders != 1:
+		return {"ok": false, "reason": "必须正好选择 1 名领袖（当前 %d 名）" % leaders}
+	for id in counts.keys():
+		if int(counts[id]) > 1 and not roster_allows_duplicate(team, by_id[id]):
+			return {"ok": false, "reason": "【%s】最多选择 1 名" % str(by_id[id]["name"])}
+	return {"ok": true, "reason": ""}
+
+
+func confirm_roster(side_id: String, ids: Array) -> Dictionary:
+	if str(state["phase"]) != "SELECT" or side_id != setup_side():
+		return {"ok": false, "msg": "现在不是该方选择特工"}
+	var chk := validate_roster(_teams[side_id], ids)
+	if not bool(chk["ok"]):
+		return {"ok": false, "msg": str(chk["reason"])}
+	push_undo()
+	state["setup"]["rosters"][side_id] = ids.duplicate()
+	var other := "B" if side_id == "A" else "A"
+	if (state["setup"]["rosters"][other] as Array).is_empty():
+		state["setup"]["select_side"] = other
+		state["turn_side"] = other
+		add_log("📋 【%s】已选定出战特工（暂不公开）。" % str(state["sides"][side_id]["name"]))
+	else:
+		add_log("📋 双方同时揭示出战特工。")
+		_begin_deploy()
+	return {"ok": true, "msg": ""}
+
+
+## Rulebook p.106 "3.部署特工": players alternate placing thirds of their team (rounded up, larger
+## groups first: 6 -> 2/2/2, 7 -> 3/2/2) fully inside their own drop zone with a Conceal order.
+func _begin_deploy() -> void:
+	_roster_override = state["setup"]["rosters"]
+	state["operatives"].clear()
+	_spawn_roster("A", _teams["A"], state["map"]["spawn_a"])
+	_spawn_roster("B", _teams["B"], state["map"]["spawn_b"])
+	for op in state["operatives"]:
+		op["deployed"] = false
+		op["pos"] = Vector2(-99.0, -99.0)
+	var first := str(state["setup"]["first_side"])
 	state["phase"] = "DEPLOY"
 	state["deploy"] = {
 		"first_side": first,
@@ -110,11 +226,30 @@ func start_match(
 		"placed_in_group": {"A": 0, "B": 0},
 	}
 	state["turn_side"] = first
-	# The loser of the pre-battle roll-off wins ties on the TP1 initiative roll (校注 p.105)
-	state["initiative_side"] = first
 	recalculate_objectives_and_kills()
-	add_log("⚔️ 战局开启：杀戮区·沃库斯 ·【死亡天使】迎战【瘟疫战士】！")
-	add_log("🎲 战前拼骰 %d : %d → 【%s】取得部署先手，双方轮流部署特工（每次 1/3 小队，须完全位于己方降落区内并持隐匿命令）。" % [pre_a, pre_b, str(state["sides"][first]["name"])])
+	add_log("📍 【%s】先部署。双方轮流部署特工（每次 1/3 小队，须完全位于己方降落区内并持隐匿命令）。" % str(state["sides"][first]["name"]))
+
+
+## Run drop-zone choice and operative selection with defaults for whoever has not acted yet.
+func auto_setup() -> void:
+	if str(state["phase"]) == "DROPZONE":
+		choose_drop_zone(false)
+	var guard := 0
+	while str(state["phase"]) == "SELECT" and guard < 4:
+		guard += 1
+		var sd := setup_side()
+		confirm_roster(sd, default_roster(sd))
+
+
+func _in_enemy_territory(op: Dictionary) -> bool:
+	var own: Rect2 = state["map"]["drop_zone_a"] if str(op["side"]) == "A" else state["map"]["drop_zone_b"]
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	var c := own.get_center()
+	var pp: Vector2 = op["pos"]
+	if own.size.x >= own.size.y:
+		return (pp.y > h * 0.5) if c.y < h * 0.5 else (pp.y < h * 0.5)
+	return (pp.x > w * 0.5) if c.x < w * 0.5 else (pp.x < w * 0.5)
 
 
 func _count_side_ops(side_id: String) -> int:
@@ -217,6 +352,7 @@ func deploy_operative(uid: String, pos: Vector2) -> Dictionary:
 
 ## Complete the whole deployment with the AI placer for both sides (tests, screenshots, quick-start).
 func auto_deploy_all() -> void:
+	auto_setup()
 	var guard := 0
 	while str(state["phase"]) == "DEPLOY" and guard < 64:
 		guard += 1
@@ -261,6 +397,9 @@ func ai_deploy_next() -> Dictionary:
 
 func _spawn_roster(side_id: String, team_data: Dictionary, spawns: Array) -> void:
 	var roster_ids: Array = team_data.get("canonical_roster", [])
+	var picked: Array = _roster_override.get(side_id, [])
+	if not picked.is_empty():
+		roster_ids = picked
 	var ops_by_id := {}
 	for o in team_data.get("operatives", []):
 		ops_by_id[o["id"]] = o
@@ -360,6 +499,8 @@ func is_ai_turn() -> bool:
 	var phase := str(state.get("phase", ""))
 	if phase == "DEPLOY":
 		return deploy_side() != str(state["human_side"])
+	if phase in ["DROPZONE", "SELECT"]:
+		return setup_side() != str(state["human_side"])
 	if phase in ["INITIATIVE", "GAME_OVER"]:
 		return false
 	var ai_side := "B" if str(state["human_side"]) == "A" else "A"
@@ -501,7 +642,7 @@ func get_strategic_ploy_options(side_id: String) -> Array[Dictionary]:
 		# CHAOS-PM Strategic Ploys
 		var free_contagion := false
 		for op in state["operatives"]:
-			if not op["incapacitated"] and str(op["op_id"]) == "pm_icon_bearer" and float(op["pos"].y) > 11.0:
+			if not op["incapacitated"] and str(op["op_id"]) == "pm_icon_bearer" and _in_enemy_territory(op):
 				free_contagion = true
 				break
 		out.append({
@@ -573,12 +714,16 @@ func use_strategic_ploy(side_id: String, option_id: String) -> Dictionary:
 	elif option_id == "doctrine_assault":
 		side_state["combat_doctrine"] = "assault"
 	elif option_id == "cloud_of_flies":
-		# Place Cloud of Flies at forward-most ready Plague Marine
-		var anchor := Vector2(15.0, 5.0)
-		var best_y := -1.0
+		# Place Cloud of Flies at the Plague Marine that has advanced furthest from its own zone
+		var own_dz: Rect2 = state["map"]["drop_zone_a"] if side_id == "A" else state["map"]["drop_zone_b"]
+		var anchor := Vector2(15.0, 11.0)
+		var best_d := -1.0
 		for op in state["operatives"]:
-			if not op["incapacitated"] and str(op["side"]) == side_id and float(op["pos"].y) > best_y:
-				best_y = float(op["pos"].y)
+			if op["incapacitated"] or str(op["side"]) != side_id:
+				continue
+			var d := (op["pos"] as Vector2).distance_to(own_dz.get_center())
+			if d > best_d:
+				best_d = d
 				anchor = op["pos"]
 		state["markers"].append({"kind": "cloud_of_flies", "side": side_id, "pos": anchor, "name": "飞蝇云"})
 	elif option_id == "nurglings":
