@@ -546,6 +546,7 @@ func _apply_camera_transform() -> void:
 func clear_interaction() -> void:
 	interaction_mode = "idle"
 	deploy_uid = ""
+	eq_deploy_kind = ""
 	move_waypoints.clear()
 	active_shoot_weapon = {}
 	cached_shot_evals.clear()
@@ -561,6 +562,18 @@ func start_deploy_mode(uid: String) -> void:
 	interaction_mode = "deploy"
 	deploy_uid = uid
 	selected_uid = uid
+
+
+## Pre-battle equipment set-up: the chosen item follows the cursor as a ghost footprint; left-click
+## on a legal spot emits equipment_spot_clicked.
+signal equipment_spot_clicked(kind: String, pos_in: Vector2, rot: bool)
+var eq_deploy_kind: String = ""
+var eq_deploy_rot: bool = false
+
+func start_eq_deploy_mode(kind: String) -> void:
+	clear_interaction()
+	interaction_mode = "eq_deploy"
+	eq_deploy_kind = kind
 
 
 func start_move_mode(uid: String, move_kind: String) -> void:
@@ -1230,6 +1243,47 @@ func _rebuild_3d_tactical_overlays() -> void:
 			var gw := inches_to_world(hovered_board_inches, 0.06)
 			add_ring_3d.call(gw, float(dop["base_radius"]), gcol, 0.35, 36)
 			add_ring_3d.call(gw + Vector3(0.0, 1.55, 0.0), float(dop["base_radius"]) * 0.5, Color(gcol.r, gcol.g, gcol.b, 0.6), 0.12, 24)
+
+	# 1c. Equipment markers (mines): the token plus its 1" trigger radius
+	for eq_m in engine.state.get("eq_markers", []):
+		var eq_mp: Vector2 = eq_m["pos"]
+		var eq_mw := inches_to_world(eq_mp, elevation_at_inches(eq_mp) + 0.06)
+		add_ring_3d.call(eq_mw, KTEngine.MINE_RADIUS, KTTheme.COL_CRIMSON, 0.55, 20)
+		add_ring_3d.call(eq_mw, KTEngine.MINE_RADIUS + 1.0, Color(KTTheme.COL_CRIMSON.r, KTTheme.COL_CRIMSON.g, KTTheme.COL_CRIMSON.b, 0.45), 0.0, 32)
+
+	# 1d. EQUIPMENT SET-UP MODE: legal zone tint + ghost footprint at the cursor (green legal / red illegal)
+	if interaction_mode == "eq_deploy" and not eq_deploy_kind.is_empty() and not engine.eq_deploy_side().is_empty():
+		var eq_side: String = engine.eq_deploy_side()
+		var eq_zone: Rect2 = engine.equipment_zone(eq_side, eq_deploy_kind)
+		var eq_zcol: Color = KTTheme.COL_IMPERIAL if eq_side == "A" else KTTheme.COL_NURGLE
+		var eq_c: Array[Vector3] = [
+			inches_to_world(eq_zone.position, 0.05),
+			inches_to_world(eq_zone.position + Vector2(eq_zone.size.x, 0.0), 0.05),
+			inches_to_world(eq_zone.end, 0.05),
+			inches_to_world(eq_zone.position + Vector2(0.0, eq_zone.size.y), 0.05),
+		]
+		var eq_fill := Color(eq_zcol.r, eq_zcol.g, eq_zcol.b, 0.07 + 0.03 * sin(_pulse_time * 3.0))
+		for eq_i in [0, 1, 2, 0, 2, 3]:
+			tri_pts.append(eq_c[eq_i])
+			tri_cols.append(eq_fill)
+		for eq_e in range(4):
+			add_seg.call(eq_c[eq_e], eq_c[(eq_e + 1) % 4], eq_zcol)
+		var eq_ok: bool = bool(engine.validate_equipment_pos(eq_side, eq_deploy_kind, hovered_board_inches, eq_deploy_rot)["ok"])
+		var eq_gcol: Color = KTTheme.COL_EMERALD if eq_ok else KTTheme.COL_CRIMSON
+		if eq_deploy_kind == "mine":
+			var eq_gw := inches_to_world(hovered_board_inches, 0.06)
+			add_ring_3d.call(eq_gw, KTEngine.MINE_RADIUS, eq_gcol, 0.4, 24)
+			add_ring_3d.call(eq_gw, KTEngine.MINE_RADIUS + 1.0, Color(eq_gcol.r, eq_gcol.g, eq_gcol.b, 0.5), 0.0, 32)
+		else:
+			var eq_r: Rect2 = KTEngine.equipment_rect(eq_deploy_kind, hovered_board_inches, eq_deploy_rot)
+			var eq_h: float = KTEngine.equipment_height(eq_deploy_kind)
+			var eq_xy: Array[Vector2] = [eq_r.position, eq_r.position + Vector2(eq_r.size.x, 0.0), eq_r.end, eq_r.position + Vector2(0.0, eq_r.size.y)]
+			for eq_j in range(4):
+				var eq_a: Vector2 = eq_xy[eq_j]
+				var eq_b: Vector2 = eq_xy[(eq_j + 1) % 4]
+				add_seg.call(inches_to_world(eq_a, 0.06), inches_to_world(eq_b, 0.06), eq_gcol)
+				add_seg.call(inches_to_world(eq_a, eq_h), inches_to_world(eq_b, eq_h), eq_gcol)
+				add_seg.call(inches_to_world(eq_a, 0.06), inches_to_world(eq_a, eq_h), eq_gcol)
 
 	# 2. MOVE MODE: 3D Enemy Engagement Rings + Elevation-Climbing 3D Ruler + Ghost Landing Hologram!
 	if interaction_mode == "move":
@@ -1937,6 +1991,14 @@ func _handle_left_click(screen_pos: Vector2, shift_held: bool) -> void:
 				move_waypoints.append(hovered_board_inches)
 		elif bool(chk["ok"]):
 			ground_move_committed.emit(pts)
+		return
+
+	if interaction_mode == "eq_deploy":
+		var eq_click_side: String = engine.eq_deploy_side()
+		if not eq_click_side.is_empty() and bool(engine.validate_equipment_pos(eq_click_side, eq_deploy_kind, hovered_board_inches, eq_deploy_rot)["ok"]):
+			equipment_spot_clicked.emit(eq_deploy_kind, hovered_board_inches, eq_deploy_rot)
+		else:
+			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if interaction_mode == "deploy":

@@ -181,6 +181,7 @@ func _ready() -> void:
 	_killzone.fight_target_clicked.connect(_on_board_fight_target_clicked)
 	_killzone.hover_info_changed.connect(_on_board_hover_changed)
 	_killzone.deploy_spot_clicked.connect(_on_board_deploy_spot_clicked)
+	_killzone.equipment_spot_clicked.connect(_on_board_equipment_spot_clicked)
 	_killzone.cancel_interaction_requested.connect(func():
 		_hide_skill_tooltip()
 		_refresh_all_ui()
@@ -310,6 +311,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 
 		var phase: String = str(engine.state["phase"])
+		if kc == KEY_R and phase == "EQDEPLOY" and _killzone.interaction_mode == "eq_deploy":
+			accept_event()
+			_killzone.eq_deploy_rot = not _killzone.eq_deploy_rot
+			return
 		if kc == KEY_SPACE:
 			if phase == "DROPZONE":
 				accept_event()
@@ -1625,6 +1630,7 @@ func _refresh_all_ui() -> void:
 		"SELECT": "战前 · 选择特工",
 		"EQUIP": "战前 · 选择装备",
 		"TACOP": "战前 · 选择战术行动",
+		"EQDEPLOY": "战前 · 部署装备",
 		"DEPLOY": "部署阶段 · " + (str(engine.state["sides"][engine.deploy_side()]["name"]) if not engine.deploy_side().is_empty() else ""),
 		"INITIATIVE": "先攻权对抗",
 		"STRATEGY": "战略阶段 · " + turn_name,
@@ -1698,6 +1704,15 @@ func _update_tactical_pill() -> void:
 			_guide_lbl.text = "🤖 【%s】正在秘密选择战术行动 op…" % str(engine.state["sides"][tcs]["name"])
 		else:
 			_guide_lbl.text = "🂡 【%s】根据小队原型秘密选择一个战术行动 op（悬停看卡面全文）" % str(engine.state["sides"][tcs]["name"])
+	elif phase == "EQDEPLOY":
+		var eds := engine.eq_deploy_side()
+		var edname := str(engine.state["sides"][eds]["name"]) if not eds.is_empty() else ""
+		if engine.is_ai_turn():
+			_guide_lbl.text = "🤖 【%s】正在部署装备…" % edname
+		elif _killzone.interaction_mode == "eq_deploy":
+			_guide_lbl.text = "🧱 在高亮区域内点击放置【%s】｜ [R] 旋转 90° ｜ 右键取消" % KTEngine.equipment_item_name(_killzone.eq_deploy_kind)
+		else:
+			_guide_lbl.text = "🧱 【%s】部署战前装备：双方轮流、每次一件（还剩 %d 件）" % [edname, engine.eq_pending(eds).size()]
 	elif phase == "DEPLOY":
 		var ds := engine.deploy_side()
 		var dname := str(engine.state["sides"][ds]["name"]) if not ds.is_empty() else ""
@@ -1829,6 +1844,9 @@ func _rebuild_bottom_game_hud() -> void:
 
 	elif phase == "TACOP":
 		_build_tacop_choice()
+
+	elif phase == "EQDEPLOY":
+		_build_eq_deploy_cards()
 
 	elif phase == "DEPLOY":
 		_build_deploy_cards()
@@ -2140,7 +2158,7 @@ func _build_equip_select() -> void:
 	vb.add_child(hdr)
 	var info := Label.new()
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	info.text = "【%s】装备 %d / 4  ·  点击切换，悬停看原文  ·  通用装备（掩体 / 爬梯 / 地雷等）尚未实装" % [sname, _equip_pick.size()]
+	info.text = "【%s】装备 %d / 4  ·  点击切换，悬停看原文  ·  下排为通用装备（灰色尚未实装）" % [sname, _equip_pick.size()]
 	info.add_theme_font_size_override("font_size", 14)
 	info.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
 	hdr.add_child(info)
@@ -2178,6 +2196,31 @@ func _build_equip_select() -> void:
 			_refresh_all_ui()
 		)
 		cards.add_child(b)
+
+	# Universal equipment (rulebook p.98-103): any kill team may take these
+	var uni_row := HBoxContainer.new()
+	uni_row.add_theme_constant_override("separation", 6)
+	vb.add_child(uni_row)
+	for u_v in KTEngine.universal_equipment_options():
+		var u: Dictionary = u_v
+		var u_id: String = str(u["id"])
+		var u_ready: bool = bool(u["implemented"])
+		var u_picked: bool = _equip_pick.has(u_id)
+		var ub := Button.new()
+		ub.text = "%s%s" % ["✓ " if u_picked else "", str(u["title"])]
+		ub.tooltip_text = str(u["body"]) + ("" if u_ready else "\n\n（尚未实装，暂不可选）")
+		ub.custom_minimum_size = Vector2(104, 34)
+		ub.add_theme_font_size_override("font_size", 12)
+		ub.disabled = not u_ready
+		KTTheme.apply_accent_button(ub, KTTheme.COL_GOLD_BRIGHT if u_picked else acc, 0.34 if u_picked else 0.16)
+		ub.pressed.connect(func():
+			if _equip_pick.has(u_id):
+				_equip_pick.erase(u_id)
+			elif _equip_pick.size() < 4:
+				_equip_pick.append(u_id)
+			_refresh_all_ui()
+		)
+		uni_row.add_child(ub)
 
 
 ## Rulebook p.105 step 2: each player secretly selects operatives per the team's selection rules.
@@ -2360,6 +2403,66 @@ func _build_deploy_cards() -> void:
 	hint.add_theme_font_size_override("font_size", 13)
 	hint.add_theme_color_override("font_color", c_acc.lightened(0.3))
 	_context_hb.add_child(hint)
+
+
+## Rulebook p.106 step 3: starting with the initiative player, players alternate setting up one
+## item of pre-battle equipment at a time (before operatives are deployed).
+func _build_eq_deploy_cards() -> void:
+	var side: String = engine.eq_deploy_side()
+	if side.is_empty():
+		return
+	if engine.is_ai_turn():
+		_setup_wait_pill("🤖 【%s】正在部署装备…" % str(engine.state["sides"][side]["name"]))
+		return
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+	var picked: String = _killzone.eq_deploy_kind if _killzone.interaction_mode == "eq_deploy" else ""
+	var counts := {}
+	for k in engine.eq_pending(side):
+		counts[k] = int(counts.get(k, 0)) + 1
+	for k_v in counts.keys():
+		var kind: String = str(k_v)
+		var is_picked: bool = kind == picked
+		var b := Button.new()
+		b.text = "🧱 %s ×%d\n%s" % [KTEngine.equipment_item_name(kind), int(counts[k_v]), "▶ 在棋盘上点击放置" if is_picked else "点击选择"]
+		b.custom_minimum_size = Vector2(190, 72)
+		b.size_flags_vertical = Control.SIZE_SHRINK_END
+		b.add_theme_font_size_override("font_size", 14)
+		KTTheme.apply_accent_button(b, KTTheme.COL_GOLD_BRIGHT if is_picked else acc, 0.34 if is_picked else 0.22)
+		KTWidgets.attach_button_juice(b, 1.04, "card_lift")
+		b.pressed.connect(func():
+			_killzone.start_eq_deploy_mode(kind)
+			_refresh_all_ui()
+		)
+		_context_hb.add_child(b)
+	var rot_b := Button.new()
+	rot_b.text = "⟳ 旋转 90°\n[R]"
+	rot_b.custom_minimum_size = Vector2(110, 72)
+	rot_b.size_flags_vertical = Control.SIZE_SHRINK_END
+	rot_b.disabled = picked.is_empty() or picked == "mine"
+	KTTheme.apply_accent_button(rot_b, acc, 0.20)
+	rot_b.pressed.connect(func(): _killzone.eq_deploy_rot = not _killzone.eq_deploy_rot)
+	_context_hb.add_child(rot_b)
+	var skip_b := Button.new()
+	skip_b.text = "✕ 不部署\n剩余装备"
+	skip_b.custom_minimum_size = Vector2(110, 72)
+	skip_b.size_flags_vertical = Control.SIZE_SHRINK_END
+	KTTheme.apply_accent_button(skip_b, KTTheme.COL_CRIMSON, 0.20)
+	skip_b.pressed.connect(func():
+		_killzone.clear_interaction()
+		engine.skip_equipment_deploy(side)
+		_refresh_all_ui()
+	)
+	_context_hb.add_child(skip_b)
+
+
+func _on_board_equipment_spot_clicked(kind: String, pos_in: Vector2, rot: bool) -> void:
+	var res: Dictionary = engine.deploy_equipment(engine.eq_deploy_side(), kind, pos_in, rot)
+	if bool(res.get("ok", false)):
+		KTSfx.play("move_confirm", -5.0, 0.04)
+		_killzone.clear_interaction()
+	else:
+		_killzone.spawn_floating_text(pos_in, str(res.get("msg", "")), KTTheme.COL_CRIMSON)
+	_refresh_all_ui()
 
 
 func _on_board_deploy_spot_clicked(uid: String, pos_in: Vector2) -> void:
@@ -2928,6 +3031,12 @@ func _run_ai_step() -> void:
 		_refresh_all_ui()
 		return
 
+	if phase == "EQDEPLOY":
+		if bool(engine.ai_eq_deploy_next().get("ok", false)):
+			KTSfx.play("move_confirm", -8.0, 0.05)
+		_refresh_all_ui()
+		return
+
 	if phase == "DEPLOY":
 		var res_d: Dictionary = engine.ai_deploy_next()
 		if bool(res_d.get("ok", false)):
@@ -3045,13 +3154,35 @@ func _run_autotest_screenshot_tour() -> void:
 	_save_vp_png(out_dir + "/00b_equipment_select.png")
 	while str(engine.state["phase"]) == "EQUIP":
 		var eqs_t: String = engine.setup_side()
-		engine.confirm_equipment(eqs_t, engine.default_equipment(eqs_t))
+		var eq_ids: Array = engine.default_equipment(eqs_t)
+		if eqs_t == str(engine.state["human_side"]):
+			eq_ids = [eq_ids[0], "UNI-EQ-lightbarricades", "UNI-EQ-heavybarricade", "UNI-EQ-mines"]
+		engine.confirm_equipment(eqs_t, eq_ids)
 	engine.state["setup"]["tac_side"] = str(engine.state["human_side"])
 	_refresh_all_ui()
 	_phase_toast.visible = false
 	await get_tree().create_timer(0.24).timeout
 	_save_vp_png(out_dir + "/00c_tac_op_select.png")
 	engine.auto_setup()
+	if str(engine.state["phase"]) == "EQDEPLOY":
+		engine.ai_eq_deploy_next()
+		engine.ai_eq_deploy_next()
+		var eq_s: String = engine.eq_deploy_side()
+		if not eq_s.is_empty() and not engine.eq_pending(eq_s).is_empty():
+			var eq_k: String = str(engine.eq_pending(eq_s)[0])
+			var eq_spot: Dictionary = engine.ai_equipment_spot(eq_s, eq_k)
+			_killzone.start_eq_deploy_mode(eq_k)
+			_killzone.eq_deploy_rot = bool(eq_spot.get("rot", false))
+			_killzone.hovered_board_inches = eq_spot.get("pos", Vector2(15.0, 11.0))
+		_refresh_all_ui()
+		_phase_toast.visible = false
+		await get_tree().create_timer(0.3).timeout
+		_save_vp_png(out_dir + "/00d_equipment_deploy.png")
+		_killzone.clear_interaction()
+		while str(engine.state["phase"]) == "EQDEPLOY":
+			if not bool(engine.ai_eq_deploy_next().get("ok", false)):
+				break
+		_refresh_all_ui()
 	# Capture the deployment phase with half the teams placed, then auto-complete it
 	for _i in range(6):
 		engine.ai_deploy_next()

@@ -19,6 +19,7 @@ func _init() -> void:
 	_test_initiative_cards_and_primary_op()
 	_test_equipment()
 	_test_tac_ops()
+	_test_universal_equipment()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -514,3 +515,49 @@ func _test_tac_ops() -> void:
 	e2.recalculate_objectives_and_kills()
 	e2._score_tac_op_end_of_tp()
 	_assert_true(int(e2.state["sides"]["A"]["vp_tac"]) == 3, "Damaged Envoy scores only 1VP")
+
+
+func _test_universal_equipment() -> void:
+	var eng := KTEngine.new(909)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	eng.choose_drop_zone(false)
+	while str(eng.state["phase"]) == "SELECT":
+		eng.confirm_roster(eng.setup_side(), eng.default_roster(eng.setup_side()))
+	_assert_true(KTEngine.universal_equipment_options().size() == 9, "Universal equipment catalogue lists 9 rulebook options (p.98-103)")
+	_assert_true(not bool(eng.confirm_equipment(eng.setup_side(), ["UNI-EQ-ladders"])["ok"]), "Not-yet-implemented universal equipment cannot be selected")
+	var picks := {"A": ["UNI-EQ-lightbarricades", "UNI-EQ-mines"], "B": ["UNI-EQ-heavybarricade"]}
+	while str(eng.state["phase"]) == "EQUIP":
+		var es := eng.setup_side()
+		eng.confirm_equipment(es, picks[es])
+	eng.auto_setup()
+	_assert_true(str(eng.state["phase"]) == "EQDEPLOY", "Pre-battle equipment is set up before operatives (p.106 step 3)")
+	var first := str(eng.state["setup"]["first_side"])
+	_assert_true(eng.eq_deploy_side() == first and eng.eq_pending("A").size() == 3 and eng.eq_pending("B").size() == 1, "Initiative player sets up first; 2 light barricades + 1 mine vs 1 heavy barricade")
+	var enemy_dz: Rect2 = eng.state["map"]["drop_zone_b"] if first == "A" else eng.state["map"]["drop_zone_a"]
+	var k0 := str(eng.eq_pending(first)[0])
+	_assert_true(not bool(eng.validate_equipment_pos(first, k0, enemy_dz.get_center(), false)["ok"]), "Equipment cannot be set up outside own territory")
+	var n_terr: int = (eng.state["map"]["terrains"] as Array).size()
+	var order: Array = []
+	var guard := 0
+	while str(eng.state["phase"]) == "EQDEPLOY" and guard < 12:
+		guard += 1
+		order.append(eng.eq_deploy_side())
+		eng.ai_eq_deploy_next()
+	_assert_true(order.size() == 4 and str(order[0]) == first and str(order[1]) != first, "Players alternate one item at a time")
+	_assert_true(str(eng.state["phase"]) == "DEPLOY", "All equipment set up -> operatives DEPLOY")
+	_assert_true((eng.state["map"]["terrains"] as Array).size() == n_terr + 3 and (eng.state["eq_markers"] as Array).size() == 1, "Barricades become terrain (2 light + 1 heavy), the mine a marker")
+	var zones_ok := true
+	for t in eng.state["map"]["terrains"]:
+		if bool(t.get("equipment", false)):
+			var kind := "light_barricade" if str(t["kind"]) == "light" else "heavy_barricade"
+			if not eng.equipment_zone(str(t["side"]), kind).encloses(t["rect"]):
+				zones_ok = false
+	_assert_true(zones_ok, "Light barricades wholly in own territory, heavy barricade wholly within 4\" of own drop zone")
+	eng.auto_deploy_all()
+	_assert_true(str(eng.state["phase"]) == "INITIATIVE" and (eng.state["eq_markers"] as Array).size() == 1, "Operatives deploy around the equipment without setting the mine off")
+	var mine: Dictionary = eng.state["eq_markers"][0]
+	var victim: Dictionary = eng.state["operatives"][0]
+	var hp := int(victim["wounds_cur"])
+	_assert_true(eng._mine_check(victim, (mine["pos"] as Vector2) + Vector2(0.9, 0.0)), "Mine goes off the first time it is within an operative's control range")
+	var lost := hp - int(victim["wounds_cur"])
+	_assert_true(lost >= 4 and lost <= 6 and (eng.state["eq_markers"] as Array).is_empty(), "Mine inflicts D3+3 damage and is removed")

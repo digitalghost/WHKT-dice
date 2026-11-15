@@ -247,6 +247,9 @@ func confirm_equipment(side_id: String, ids: Array) -> Dictionary:
 	var known := {}
 	for e in equipment_options(side_id):
 		known[str(e["id"])] = true
+	for u in universal_equipment_options():
+		if bool(u["implemented"]):
+			known[str(u["id"])] = true
 	var seen := {}
 	for i in ids:
 		if not known.has(str(i)):
@@ -268,6 +271,9 @@ func confirm_equipment(side_id: String, ids: Array) -> Dictionary:
 			for e in equipment_options(sid):
 				if (state["setup"]["equipment"][sid] as Array).has(str(e["id"])):
 					names.append(str(e["title"]).get_slice("（", 0))
+			for u in universal_equipment_options():
+				if (state["setup"]["equipment"][sid] as Array).has(str(u["id"])):
+					names.append(str(u["title"]))
 			add_log("🎒 揭示装备 ·【%s】：%s" % [str(state["sides"][sid]["name"]), "无" if names.is_empty() else "、".join(names)])
 		# p.106: next, each player secretly selects a tac op from their kill team's archetypes
 		state["phase"] = "TACOP"
@@ -526,6 +532,280 @@ func _score_tac_op_end_of_tp() -> void:
 			_tac_reveal(sid)
 
 
+# ==============================================================================
+# UNIVERSAL EQUIPMENT (rulebook p.98-103) + pre-battle equipment set-up (p.106 step 3:
+# starting with the initiative player, players alternate setting up ONE item at a time).
+# Option text lives in data/core/universal_equipment.json.
+# ==============================================================================
+
+static var _uni_catalog: Array = []
+
+const MINE_RADIUS := 0.4
+## Selected option id -> items to set up before the battle.
+const EQ_DEPLOYABLES := {
+	"UNI-EQ-lightbarricades": {"kind": "light_barricade", "count": 2},
+	"UNI-EQ-heavybarricade": {"kind": "heavy_barricade", "count": 1},
+	"UNI-EQ-mines": {"kind": "mine", "count": 1},
+}
+## Footprints in inches (校注 p.100-101: 2.0x0.3x1.0 / 1.5x0.7x1.9; mine = 20mm marker).
+const EQ_ITEM_SPECS := {
+	"light_barricade": {"name": "轻型掩体", "size": Vector2(2.0, 0.3), "terrain": "light", "height": 1.0},
+	"heavy_barricade": {"name": "重型掩体", "size": Vector2(1.5, 0.7), "terrain": "heavy_low", "height": 1.9},
+	"mine": {"name": "地雷", "size": Vector2(0.8, 0.8), "terrain": "", "height": 0.0},
+}
+
+
+static func universal_equipment_options() -> Array:
+	if _uni_catalog.is_empty():
+		var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://data/core/universal_equipment.json"))
+		if typeof(parsed) == TYPE_DICTIONARY:
+			_uni_catalog = parsed.get("options", [])
+	return _uni_catalog
+
+
+static func equipment_item_name(kind: String) -> String:
+	return str(EQ_ITEM_SPECS[kind]["name"])
+
+
+static func equipment_height(kind: String) -> float:
+	return float(EQ_ITEM_SPECS[kind]["height"])
+
+
+## Axis-aligned footprint centred on `pos`; `rot` turns it 90 degrees.
+static func equipment_rect(kind: String, pos: Vector2, rot: bool) -> Rect2:
+	var sz: Vector2 = EQ_ITEM_SPECS[kind]["size"]
+	if rot:
+		sz = Vector2(sz.y, sz.x)
+	return Rect2(pos - sz * 0.5, sz)
+
+
+func eq_deploy_side() -> String:
+	return str(state.get("eq_deploy", {}).get("turn_side", ""))
+
+
+func eq_pending(side_id: String) -> Array:
+	return state.get("eq_deploy", {}).get("pending", {}).get(side_id, [])
+
+
+## A side's territory: its half of the killzone.
+func territory_rect(side_id: String) -> Rect2:
+	var own: Rect2 = state["map"]["drop_zone_a"] if side_id == "A" else state["map"]["drop_zone_b"]
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	var c := own.get_center()
+	if own.size.x >= own.size.y:
+		return Rect2(0.0, 0.0, w, h * 0.5) if c.y < h * 0.5 else Rect2(0.0, h * 0.5, w, h * 0.5)
+	return Rect2(0.0, 0.0, w * 0.5, h) if c.x < w * 0.5 else Rect2(w * 0.5, 0.0, w * 0.5, h)
+
+
+## Area an item must be wholly inside: own territory, or within 4" of own drop zone (heavy barricade).
+func equipment_zone(side_id: String, kind: String) -> Rect2:
+	if kind == "heavy_barricade":
+		var own: Rect2 = state["map"]["drop_zone_a"] if side_id == "A" else state["map"]["drop_zone_b"]
+		return own.grow(4.0).intersection(Rect2(0.0, 0.0, float(state["map"]["width"]), float(state["map"]["height"])))
+	return territory_rect(side_id)
+
+
+func validate_equipment_pos(side_id: String, kind: String, pos: Vector2, rot: bool) -> Dictionary:
+	if not EQ_ITEM_SPECS.has(kind):
+		return {"ok": false, "reason": "未知装备"}
+	var rect := equipment_rect(kind, pos, rot)
+	if not equipment_zone(side_id, kind).encloses(rect):
+		return {"ok": false, "reason": "必须完全位于己方降落区 4\" 内" if kind == "heavy_barricade" else "必须完全位于己方领地内"}
+	for obj in state["map"]["objectives"]:
+		var o_pos: Vector2 = obj["pos"]
+		if kind == "mine":
+			if o_pos.distance_to(pos) - MINE_RADIUS - 0.79 < 2.0:
+				return {"ok": false, "reason": "地雷须位于其他标识 2\" 外"}
+		elif KTGeometry.point_to_rect_distance(o_pos, rect) < 0.79:
+			return {"ok": false, "reason": "不能压住目标标识"}
+	for t in state["map"]["terrains"]:
+		var tr: Rect2 = t["rect"]
+		if kind == "mine":
+			if KTGeometry.is_impassable_terrain(t) and KTGeometry.circle_intersects_rect(pos, MINE_RADIUS, tr):
+				return {"ok": false, "reason": "不能放在地形上"}
+		else:
+			if rect.intersects(tr):
+				return {"ok": false, "reason": "须放在杀戮区地面上，不能与地形重叠"}
+			if bool(t.get("equipment", false)) and rect.grow(2.0).intersects(tr):
+				return {"ok": false, "reason": "须位于其他装备地形 2\" 外"}
+	if kind == "mine":
+		for m in state.get("eq_markers", []):
+			if (m["pos"] as Vector2).distance_to(pos) - 2.0 * MINE_RADIUS < 2.0:
+				return {"ok": false, "reason": "地雷须位于其他标识 2\" 外"}
+	return {"ok": true, "reason": ""}
+
+
+## Called at the end of _begin_deploy(): if anybody took equipment that is set up before the battle,
+## the EQDEPLOY phase runs before operatives are deployed.
+func _begin_equipment_deploy() -> void:
+	var pending := {"A": [], "B": []}
+	var has_any := false
+	for sid in ["A", "B"]:
+		for eid in state["setup"]["equipment"][sid]:
+			if EQ_DEPLOYABLES.has(str(eid)):
+				var dd: Dictionary = EQ_DEPLOYABLES[str(eid)]
+				for _i in range(int(dd["count"])):
+					(pending[sid] as Array).append(str(dd["kind"]))
+					has_any = true
+	if not has_any:
+		return
+	var first := str(state["setup"]["first_side"])
+	var turn := first if not (pending[first] as Array).is_empty() else ("B" if first == "A" else "A")
+	state["phase"] = "EQDEPLOY"
+	state["eq_deploy"] = {"turn_side": turn, "pending": pending, "placed": 0}
+	state["turn_side"] = turn
+	add_log("🧱 部署特工之前，双方从【%s】开始轮流部署战前装备（每次一件）。" % str(state["sides"][turn]["name"]))
+
+
+func deploy_equipment(side_id: String, kind: String, pos: Vector2, rot: bool) -> Dictionary:
+	if str(state["phase"]) != "EQDEPLOY" or side_id != eq_deploy_side():
+		return {"ok": false, "msg": "现在不是该方部署装备"}
+	if not eq_pending(side_id).has(kind):
+		return {"ok": false, "msg": "没有待部署的这件装备"}
+	var chk := validate_equipment_pos(side_id, kind, pos, rot)
+	if not bool(chk["ok"]):
+		return {"ok": false, "msg": str(chk["reason"])}
+	push_undo()
+	var d: Dictionary = state["eq_deploy"]
+	(d["pending"][side_id] as Array).erase(kind)
+	var spec: Dictionary = EQ_ITEM_SPECS[kind]
+	if kind == "mine":
+		if not state.has("eq_markers"):
+			state["eq_markers"] = []
+		state["eq_markers"].append({"kind": "mine", "side": side_id, "pos": pos})
+	else:
+		state["map"]["terrains"].append({
+			"id": "eq_%s_%s_%d" % [side_id, kind, int(d["placed"])],
+			"name": str(spec["name"]),
+			"kind": str(spec["terrain"]),
+			"elevation": float(spec["height"]),
+			"blocks_los_ground": kind == "heavy_barricade",
+			"rect": equipment_rect(kind, pos, rot),
+			"parent": "",
+			"equipment": true,
+			"side": side_id,
+		})
+		# New id so the board view rebuilds its terrain
+		state["map"]["id"] = str(state["map"]["id"]) + "+eq"
+	d["placed"] = int(d["placed"]) + 1
+	add_log("🧱 【%s】部署【%s】于 (%.1f\", %.1f\")。" % [str(state["sides"][side_id]["name"]), str(spec["name"]), pos.x, pos.y])
+	_eq_advance(side_id)
+	return {"ok": true, "msg": ""}
+
+
+## Setting equipment up is optional ("您可以"): discard whatever this side has left.
+func skip_equipment_deploy(side_id: String) -> Dictionary:
+	if str(state["phase"]) != "EQDEPLOY" or side_id != eq_deploy_side():
+		return {"ok": false, "msg": "现在不是该方部署装备"}
+	push_undo()
+	(state["eq_deploy"]["pending"][side_id] as Array).clear()
+	add_log("🧱 【%s】放弃部署剩余装备。" % str(state["sides"][side_id]["name"]))
+	_eq_advance(side_id)
+	return {"ok": true, "msg": ""}
+
+
+func _eq_advance(side_id: String) -> void:
+	var other := "B" if side_id == "A" else "A"
+	var d: Dictionary = state["eq_deploy"]
+	if not (d["pending"][other] as Array).is_empty():
+		d["turn_side"] = other
+	elif (d["pending"][side_id] as Array).is_empty():
+		state.erase("eq_deploy")
+		state["phase"] = "DEPLOY"
+		state["turn_side"] = str(state["deploy"]["turn_side"])
+		add_log("📍 装备部署完毕。【%s】先部署特工。" % str(state["sides"][state["turn_side"]]["name"]))
+		return
+	state["turn_side"] = str(d["turn_side"])
+
+
+## AI placement: barricades just in front of own drop zone (parallel to it), the mine a little further out.
+func ai_equipment_spot(side_id: String, kind: String) -> Dictionary:
+	var own: Rect2 = state["map"]["drop_zone_a"] if side_id == "A" else state["map"]["drop_zone_b"]
+	var horizontal := own.size.x >= own.size.y
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	var c := own.get_center()
+	var inward := 1.0
+	var edge := 0.0
+	if horizontal:
+		inward = 1.0 if c.y < h * 0.5 else -1.0
+		edge = own.end.y if inward > 0.0 else own.position.y
+	else:
+		inward = 1.0 if c.x < w * 0.5 else -1.0
+		edge = own.end.x if inward > 0.0 else own.position.x
+	var depth := 2.6 if kind == "mine" else 1.2
+	var rot := not horizontal
+	var long_len := own.size.x if horizontal else own.size.y
+	var n_done := int(state.get("eq_deploy", {}).get("placed", 0))
+	for attempt in range(80):
+		var frac := fposmod(0.5 + 0.21 * float(n_done) + 0.137 * float(attempt), 1.0)
+		var along := 1.5 + frac * (long_len - 3.0)
+		var dd := depth + 0.4 * float(attempt % 4)
+		var cand := Vector2(own.position.x + along, edge + inward * dd) if horizontal else Vector2(edge + inward * dd, own.position.y + along)
+		if bool(validate_equipment_pos(side_id, kind, cand, rot)["ok"]):
+			return {"ok": true, "pos": cand, "rot": rot}
+	return {"ok": false}
+
+
+func ai_eq_deploy_next() -> Dictionary:
+	var side := eq_deploy_side()
+	if side.is_empty() or str(state["phase"]) != "EQDEPLOY":
+		return {"ok": false}
+	var pend := eq_pending(side)
+	if pend.is_empty():
+		return {"ok": false}
+	var kind := str(pend[0])
+	var spot := ai_equipment_spot(side, kind)
+	if not bool(spot["ok"]):
+		push_undo()
+		pend.erase(kind)
+		add_log("🧱 【%s】找不到合法位置，放弃部署【%s】。" % [str(state["sides"][side]["name"]), equipment_item_name(kind)])
+		_eq_advance(side)
+		return {"ok": true, "skipped": true}
+	return deploy_equipment(side, kind, spot["pos"], bool(spot["rot"]))
+
+
+## 地雷: the first time the marker is within an operative's control range (1", visible; friend or
+## foe), remove it and inflict D3+3 damage on that operative. Returns true if a mine went off.
+func _mine_check(op: Dictionary, pos: Vector2) -> bool:
+	var marks: Array = state.get("eq_markers", [])
+	var terrains: Array = state["map"]["terrains"]
+	var z := KTGeometry.elevation_at(pos, terrains)
+	for i in range(marks.size()):
+		var m: Dictionary = marks[i]
+		if str(m["kind"]) != "mine":
+			continue
+		var mp: Vector2 = m["pos"]
+		if KTGeometry.in_control_range_at(pos, float(op["base_radius"]), z, mp, MINE_RADIUS, 0.0, terrains):
+			marks.remove_at(i)
+			var dmg := rng.randi_range(1, 3) + 3
+			op["wounds_cur"] = maxi(0, int(op["wounds_cur"]) - dmg)
+			add_log("💥 【%s】触发地雷，受到 D3+3 = %d 点伤害（剩余 %d/%d）！" % [str(op["name"]), dmg, int(op["wounds_cur"]), int(op["wounds_max"])])
+			if int(op["wounds_cur"]) <= 0:
+				op["incapacitated"] = true
+				add_log("💀 【%s】被地雷炸倒！" % str(op["name"]))
+			return true
+	return false
+
+
+## Walk a move path; mines go off where the operative first comes within range. Returns where the
+## operative ends up (the blast point if it was incapacitated on the way).
+func _walk_through_mines(op: Dictionary, waypoints: Array[Vector2]) -> Vector2:
+	var last: Vector2 = waypoints[waypoints.size() - 1]
+	if (state.get("eq_markers", []) as Array).is_empty():
+		return last
+	for i in range(1, waypoints.size()):
+		var a: Vector2 = waypoints[i - 1]
+		var b: Vector2 = waypoints[i]
+		var steps := maxi(1, int(ceil(a.distance_to(b) / 0.25)))
+		for s in range(1, steps + 1):
+			var p := a.lerp(b, float(s) / float(steps))
+			if _mine_check(op, p) and op["incapacitated"]:
+				return p
+	return last
+
+
 const EQ_BLIGHT_GRENADE_ID := "eq_blight_grenade"
 
 
@@ -607,6 +887,7 @@ func _begin_deploy() -> void:
 	state["turn_side"] = first
 	recalculate_objectives_and_kills()
 	add_log("📍 【%s】先部署。双方轮流部署特工（每次 1/3 小队，须完全位于己方降落区内并持隐匿命令）。" % str(state["sides"][first]["name"]))
+	_begin_equipment_deploy()
 
 
 ## Run drop-zone choice and operative selection with defaults for whoever has not acted yet.
@@ -716,6 +997,7 @@ func deploy_operative(uid: String, pos: Vector2) -> Dictionary:
 	op["pos"] = pos
 	op["deployed"] = true
 	op["order"] = "conceal"
+	_mine_check(op, pos)
 	var d: Dictionary = state["deploy"]
 	d["placed_in_group"][side] = int(d["placed_in_group"][side]) + 1
 	add_log("📍 【%s】部署【%s】于降落区 (%.1f\", %.1f\")，隐匿命令。" % [str(state["sides"][side]["name"]), str(op["name"]), pos.x, pos.y])
@@ -742,6 +1024,11 @@ func deploy_operative(uid: String, pos: Vector2) -> Dictionary:
 ## Complete the whole deployment with the AI placer for both sides (tests, screenshots, quick-start).
 func auto_deploy_all() -> void:
 	auto_setup()
+	var eq_guard := 0
+	while str(state["phase"]) == "EQDEPLOY" and eq_guard < 32:
+		eq_guard += 1
+		if not bool(ai_eq_deploy_next().get("ok", false)):
+			break
 	var guard := 0
 	while str(state["phase"]) == "DEPLOY" and guard < 64:
 		guard += 1
@@ -888,6 +1175,8 @@ func is_ai_turn() -> bool:
 	var phase := str(state.get("phase", ""))
 	if phase == "DEPLOY":
 		return deploy_side() != str(state["human_side"])
+	if phase == "EQDEPLOY":
+		return eq_deploy_side() != str(state["human_side"])
 	if phase in ["DROPZONE", "SELECT", "EQUIP", "TACOP"]:
 		return setup_side() != str(state["human_side"])
 	if phase == "GAME_OVER":
@@ -1587,7 +1876,7 @@ func execute_move(uid: String, action_kind: String, waypoints: Array[Vector2]) -
 	push_undo()
 	var cost_ap := int(acts[action_kind]["cost"])
 	op["ap_left"] = int(op["ap_left"]) - cost_ap
-	op["pos"] = waypoints[waypoints.size() - 1]
+	op["pos"] = _walk_through_mines(op, waypoints)
 	op["moved_distance_tp"] = float(op["moved_distance_tp"]) + float(check["cost"])
 	if action_kind in ["reposition", "charge", "fall_back"]:
 		op["moved_reposition_or_charge"] = true
@@ -1597,6 +1886,14 @@ func execute_move(uid: String, action_kind: String, waypoints: Array[Vector2]) -
 
 	var label_map := {"reposition": "转移", "dash": "冲刺", "charge": "冲锋", "fall_back": "后撤"}
 	add_log("🏃 【%s】执行【%s】推进 %.1f\"" % [str(op["name"]), label_map.get(action_kind, action_kind), float(check["cost"])])
+	if op["incapacitated"]:
+		# Blown up by a mine on the way
+		op["ready"] = false
+		state["active_op_uid"] = ""
+		state["active_is_counteract"] = false
+		recalculate_objectives_and_kills()
+		_advance_firefight_turn(str(op["side"]))
+		return {"ok": true, "mine": true}
 	recalculate_objectives_and_kills()
 	_check_auto_end_counteract(op)
 	return {"ok": true}
