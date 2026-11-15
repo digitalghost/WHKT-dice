@@ -158,6 +158,11 @@ static func create_shooting_session(
 		})
 
 	# Defender traits
+	var def_save := int(defender["save"])
+	if bool(shot_eval.get("protective", false)):
+		def_save = maxi(2, def_save - 1)
+		mod_tags.append("保护: 豁免+1")
+
 	var def_crit_save := 6
 	if has_chapter_tactic(def_side, defender, "hardy") or str(defender["op_id"]) == "pm_warrior":
 		def_crit_save = 5
@@ -168,6 +173,10 @@ static func create_shooting_session(
 	if stealthy and cover_mode == "standard" and int(shot_eval.get("vantage_accurate", 0)) == 0:
 		cover_mode = "stealth_upgraded"
 		mod_tags.append("隐匿战术: 掩护升为暴击豁免")
+
+	var ammo_reroll: bool = int(attacker.get("ammo_resupply_tp", 0)) == int(state.get("tp", 1)) and not str(weapon.get("id", "")).begins_with("eq_")
+	if ammo_reroll:
+		mod_tags.append("弹药储备: 可重掷 1 枚攻击骰")
 
 	var session := {
 		"kind": "shooting",
@@ -184,7 +193,7 @@ static func create_shooting_session(
 		"crit_dmg": crit_dmg,
 		"obscured": bool(shot_eval.get("obscured", false)),
 		"cover_mode": cover_mode,
-		"def_save": int(defender["save"]),
+		"def_save": def_save,
 		"def_crit_save": def_crit_save,
 		"auto_attack_normals": auto_normals,
 		"atk_dice": atk_dice,
@@ -193,6 +202,8 @@ static func create_shooting_session(
 		"auto_def_crits": 0,
 		"balanced_used": false,
 		"ceaseless_used": false,
+		"ammo_reroll": ammo_reroll,
+		"ammo_reroll_used": false,
 		"purity_seal_used": false,
 		"transhuman_used": false,
 		"indomitus_used": false,
@@ -237,6 +248,16 @@ static func reroll_shooting_die(session: Dictionary, pool_key: String, die_idx: 
 		session["balanced_used"] = true
 		_log_event(session, "平衡", "⚖️ 平衡重掷：%d → %d" % [old_b, int(d["val"])], "", [], "reroll")
 		return {"ok": true, "msg": "平衡重掷完成"}
+
+	if mode == "ammo" and pool_key == "atk_dice":
+		if not bool(session.get("ammo_reroll", false)) or bool(session.get("ammo_reroll_used", false)):
+			return {"ok": false, "msg": "当前不可使用【弹药储备】重掷"}
+		var old_a := int(d["val"])
+		d["val"] = _roll_d6(rng)
+		d["rerolled"] = true
+		session["ammo_reroll_used"] = true
+		_log_event(session, "弹药储备", "📦 弹药储备重掷：%d → %d" % [old_a, int(d["val"])], "", [], "reroll")
+		return {"ok": true, "msg": "弹药储备重掷完成"}
 
 	if mode == "ceaseless" and pool_key == "atk_dice":
 		if not bool(session["rules"].get("ceaseless", false)) or bool(session["ceaseless_used"]):

@@ -20,6 +20,7 @@ func _init() -> void:
 	_test_equipment()
 	_test_tac_ops()
 	_test_universal_equipment()
+	_test_universal_equipment_deployables()
 	_test_all_official_maps()
 
 	print("------------------------------------------------")
@@ -576,8 +577,8 @@ func _test_universal_equipment() -> void:
 	eng.choose_drop_zone(false)
 	while str(eng.state["phase"]) == "SELECT":
 		eng.confirm_roster(eng.setup_side(), eng.default_roster(eng.setup_side()))
-	_assert_true(KTEngine.universal_equipment_options().size() == 9, "Universal equipment catalogue lists 9 rulebook options (p.98-103)")
-	_assert_true(not bool(eng.confirm_equipment(eng.setup_side(), ["UNI-EQ-ladders"])["ok"]), "Not-yet-implemented universal equipment cannot be selected")
+	_assert_true(KTEngine.universal_equipment_options().size() == 11, "Universal equipment catalogue lists 11 rulebook options (p.98-103)")
+	_assert_true(not bool(eng.confirm_equipment(eng.setup_side(), ["UNI-EQ-nope"])["ok"]), "Unknown universal equipment is rejected")
 	var picks := {"A": ["UNI-EQ-lightbarricades", "UNI-EQ-mines"], "B": ["UNI-EQ-heavybarricade"]}
 	while str(eng.state["phase"]) == "EQUIP":
 		var es := eng.setup_side()
@@ -614,3 +615,295 @@ func _test_universal_equipment() -> void:
 	_assert_true(eng._mine_check(victim, (mine["pos"] as Vector2) + Vector2(0.9, 0.0)), "Mine goes off the first time it is within an operative's control range")
 	var lost := hp - int(victim["wounds_cur"])
 	_assert_true(lost >= 4 and lost <= 6 and (eng.state["eq_markers"] as Array).is_empty(), "Mine inflicts D3+3 damage and is removed")
+
+
+func _test_universal_equipment_deployables() -> void:
+	# 1. Pre-battle pending item counts for all 5 new deployable equipment options (ladder x2, others x1)
+	var e_pend := KTEngine.new(950)
+	e_pend.start_match("hotseat", "A", "dueller", "hardy")
+	e_pend.choose_drop_zone(false)
+	while str(e_pend.state["phase"]) == "SELECT":
+		var sd := e_pend.setup_side()
+		e_pend.confirm_roster(sd, e_pend.default_roster(sd))
+	var picks5 := {
+		"A": ["UNI-EQ-ammocache", "UNI-EQ-razorwire", "UNI-EQ-comms", "UNI-EQ-ladders"],
+		"B": ["UNI-EQ-portablebarricade"],
+	}
+	while str(e_pend.state["phase"]) == "EQUIP":
+		var es := e_pend.setup_side()
+		e_pend.confirm_equipment(es, picks5[es])
+	e_pend.auto_setup()
+	var pend_a: Array = e_pend.eq_pending("A")
+	var pend_b: Array = e_pend.eq_pending("B")
+	_assert_true(
+		str(e_pend.state["phase"]) == "EQDEPLOY" and pend_a.size() == 5 and pend_a.count("ladder") == 2 and pend_b == ["portable_barricade"],
+		"Selecting the 5 new universal equipment options queues expected eq_pending counts (2 ladders)"
+	)
+
+	# 2. Ladder placement validation & Comms marker deployment
+	_assert_true(
+		not bool(e_pend.validate_equipment_pos("A", "ladder", Vector2(2.0, 15.0), false)["ok"]),
+		"Ladder deployment in open ground far from tall terrain is rejected"
+	)
+	_assert_true(
+		bool(e_pend.validate_equipment_pos("A", "ladder", Vector2(7.0, 15.3), false)["ok"]),
+		"Ladder deployment within 0.35\" outside a >=2\" vantage edge is accepted"
+	)
+	if e_pend.eq_deploy_side() == "B":
+		e_pend.ai_eq_deploy_next()
+	var comms_res: Dictionary = e_pend.deploy_equipment("A", "comms", Vector2(9.5, 13.0), false)
+	var has_comms := false
+	for m in e_pend.state.get("eq_markers", []):
+		if str(m.get("kind", "")) == "comms" and str(m.get("side", "")) == "A":
+			has_comms = true
+	_assert_true(bool(comms_res["ok"]) and has_comms, "Comms device deploys into eq_markers")
+	if e_pend.eq_deploy_side() == "B" and not e_pend.eq_pending("B").is_empty():
+		e_pend.ai_eq_deploy_next()
+	var lad1_res: Dictionary = e_pend.deploy_equipment("A", "ladder", Vector2(7.0, 15.3), false)
+	_assert_true(
+		bool(lad1_res["ok"]) and not bool(e_pend.validate_equipment_pos("A", "ladder", Vector2(8.0, 15.3), false)["ok"]),
+		"Second ladder within 2\" of an existing ladder is rejected"
+	)
+
+	# 3. Light terrain (+2\"), Razor Wire (+3\", visibility, impassable stand), and Ladder (-1\" climb)
+	var eng := KTEngine.new(951)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	eng.auto_deploy_all()
+	eng.auto_initiative()
+	eng.choose_primary_op(str(eng.state["turn_side"]), "kill")
+	eng.choose_primary_op(str(eng.state["turn_side"]), "key")
+	eng.pass_strategy(str(eng.state["turn_side"]))
+	eng.pass_strategy(str(eng.state["turn_side"]))
+
+	# Park all operatives out of the test corridor (x ~ 9.5, y ~ 6..15)
+	for idx in range(eng.state["operatives"].size()):
+		var o: Dictionary = eng.state["operatives"][idx]
+		o["pos"] = Vector2(1.2 + 0.9 * float(idx % 3), 20.5 if str(o["side"]) == "A" else 1.5)
+
+	var a_ops := _side_ops(eng, "A")
+	var b_ops := _side_ops(eng, "B")
+	var mover: Dictionary = a_ops[0]
+	var terrains: Array = eng.state["map"]["terrains"]
+
+	# Ladder climb discount onto large_ruin_deck_3 (Rect2(4.5, 15.5, 6.5, 4.0), +3.0\") on Map 4
+	mover["pos"] = Vector2(7.0, 14.5)
+	var climb_pts: Array[Vector2] = [Vector2(7.0, 14.5), Vector2(7.0, 16.5)]
+	eng.state["eq_markers"] = []
+	var res_no_lad: Dictionary = KTGeometry.validate_move_path(climb_pts, mover, "reposition", 6.0, eng.state)
+	eng.state["eq_markers"] = [{"kind": "ladder", "side": "B", "pos": Vector2(7.0, 15.3)}]
+	var res_lad: Dictionary = KTGeometry.validate_move_path(climb_pts, mover, "reposition", 6.0, eng.state)
+	_assert_true(
+		bool(res_lad["ok"]) and absf(float(res_no_lad["cost"]) - float(res_lad["cost"]) - 1.0) < 0.05,
+		"Ladder outside vantage edge reduces climb path cost by 1\" for either side"
+	)
+
+	# Keep only large_ruin_deck_3 while testing synthetic equipment terrain pieces in an open corridor
+	var saved_terrains: Array = terrains.duplicate(true)
+	terrains.clear()
+	for st in saved_terrains:
+		if str(st.get("id", "")) == "large_ruin_deck_3":
+			terrains.append(st)
+
+	# Light terrain crossing: 4\" horizontal + 2\" minimum climb = 6\"
+	var test_light := {
+		"id": "test_light_eq",
+		"name": "轻型掩体",
+		"kind": "light",
+		"elevation": 1.0,
+		"rect": KTEngine.equipment_rect("light_barricade", Vector2(15.0, 10.0), false),
+		"equipment": true,
+		"side": "A",
+	}
+	terrains.append(test_light)
+	mover["pos"] = Vector2(15.0, 8.0)
+	var cross_pts: Array[Vector2] = [Vector2(15.0, 8.0), Vector2(15.0, 12.0)]
+	var res_light: Dictionary = KTGeometry.validate_move_path(cross_pts, mover, "reposition", 8.0, eng.state)
+	_assert_true(
+		bool(res_light["ok"]) and absf(float(res_light["cost"]) - 6.0) < 0.08,
+		"Traversing light terrain costs straight-line distance + 2\""
+	)
+	terrains.erase(test_light)
+
+	# Razor wire crossing: 4\" horizontal + 2\" climb + 1\" Obstructing = 7\"; does not block LoS; cannot stand on it
+	var test_rw := {
+		"id": "test_rw_eq",
+		"name": "铁丝网",
+		"kind": "razor_wire",
+		"elevation": 1.5,
+		"rect": KTEngine.equipment_rect("razor_wire", Vector2(15.0, 10.0), false),
+		"equipment": true,
+		"side": "A",
+	}
+	terrains.append(test_rw)
+	var res_rw: Dictionary = KTGeometry.validate_move_path(cross_pts, mover, "reposition", 8.0, eng.state)
+	_assert_true(
+		bool(res_rw["ok"]) and absf(float(res_rw["cost"]) - 7.0) < 0.08,
+		"Traversing razor wire costs straight-line distance + 3\""
+	)
+	_assert_true(
+		KTGeometry.has_visibility(Vector2(15.0, 8.0), 0.63, 0.0, Vector2(15.0, 12.0), 0.63, 0.0, terrains),
+		"Razor wire does not block visibility"
+	)
+	_assert_true(
+		not bool(KTGeometry.is_valid_stand_pos(Vector2(15.0, 10.0), float(mover["base_radius"]), str(mover["uid"]), eng.state)["ok"]),
+		"Operative cannot stand on razor wire"
+	)
+	mover["pos"] = Vector2(15.0, 10.8)
+	mover["order"] = "engage"
+	var shooter_b: Dictionary = b_ops[0]
+	shooter_b["pos"] = Vector2(15.0, 7.0)
+	shooter_b["order"] = "engage"
+	var b_gun: Dictionary = eng.get_usable_ranged_weapons(shooter_b)[0]
+	var ev_rw: Dictionary = KTGeometry.evaluate_shot(shooter_b, mover, b_gun, eng.state)
+	_assert_true(
+		bool(ev_rw["valid"]) and str(ev_rw["cover"]) == "none" and not bool(ev_rw["obscured"]),
+		"Razor wire is Exposed and grants neither cover nor obscured"
+	)
+	terrains.erase(test_rw)
+
+	# 4. Ammo Cache: 0AP eq_resupply, once per TP per marker, enemy marker rejected, ammo_reroll on datacard weapons
+	eng.state["eq_markers"] = [
+		{"kind": "ammo_cache", "side": "A", "pos": Vector2(9.5, 14.0)},
+		{"kind": "ammo_cache", "side": "B", "pos": Vector2(9.5, 6.0)},
+	]
+	var op_a1: Dictionary = a_ops[0]
+	var op_a2: Dictionary = a_ops[1]
+	op_a1["pos"] = Vector2(9.5, 6.8)
+	_assert_true(
+		not bool(eng.execute_unique_action(str(op_a1["uid"]), "eq_resupply")["ok"]),
+		"Operative cannot use an enemy ammo cache"
+	)
+	op_a1["pos"] = Vector2(9.5, 14.8)
+	op_a1["ap_left"] = 3
+	var sup_ok: Dictionary = eng.execute_unique_action(str(op_a1["uid"]), "eq_resupply")
+	_assert_true(
+		bool(sup_ok["ok"]) and int(op_a1["ap_left"]) == 3,
+		"Friendly controlled ammo cache allows eq_resupply without spending AP"
+	)
+	op_a2["pos"] = Vector2(10.2, 14.0)
+	_assert_true(
+		not bool(eng.execute_unique_action(str(op_a2["uid"]), "eq_resupply")["ok"]),
+		"Second operative cannot reuse the same ammo cache in the same turning point"
+	)
+	op_a1["order"] = "engage"
+	shooter_b["pos"] = Vector2(9.5, 10.5)
+	shooter_b["order"] = "engage"
+	var a1_gun: Dictionary = eng.get_usable_ranged_weapons(op_a1)[0]
+	var ev_ammo: Dictionary = KTGeometry.evaluate_shot(op_a1, shooter_b, a1_gun, eng.state)
+	var sess_ammo: Dictionary = KTCombat.create_shooting_session(op_a1, shooter_b, a1_gun, ev_ammo, eng.state, eng.rng)
+	_assert_true(
+		bool(sess_ammo["ammo_reroll"]) and not bool(sess_ammo["ammo_reroll_used"]),
+		"Shooting session after eq_resupply sets ammo_reroll == true for datacard weapons"
+	)
+	var rr1: Dictionary = KTCombat.reroll_shooting_die(sess_ammo, "atk_dice", 0, "ammo", eng.state, eng.rng)
+	var rr2: Dictionary = KTCombat.reroll_shooting_die(sess_ammo, "atk_dice", 1, "ammo", eng.state, eng.rng)
+	_assert_true(
+		bool(rr1["ok"]) and bool(sess_ammo["ammo_reroll_used"]) and not bool(rr2["ok"]),
+		"Ammo reroll rerolls at most one attack die per shooting session"
+	)
+	var eq_weapon: Dictionary = a1_gun.duplicate(true)
+	eq_weapon["id"] = "eq_frag_grenade"
+	var sess_eq_w: Dictionary = KTCombat.create_shooting_session(op_a1, shooter_b, eq_weapon, ev_ammo, eng.state, eng.rng)
+	_assert_true(
+		not bool(sess_eq_w["ammo_reroll"]),
+		"Equipment weapons (id starting with eq_) do not gain ammo_reroll"
+	)
+
+	# 5. Portable Barricade: contact-only cover, protective save +1, Move With Barricade (Reposition - 2\", no climb, redeploy)
+	eng.state["eq_markers"] = []
+	var pb_entry := {
+		"id": "test_portable_eq",
+		"name": "可移动掩体",
+		"kind": "light",
+		"elevation": 1.6,
+		"blocks_los_ground": false,
+		"rect": KTEngine.equipment_rect("portable_barricade", Vector2(9.5, 12.5), false),
+		"parent": "",
+		"equipment": true,
+		"portable": true,
+		"side": "A",
+	}
+	terrains.append(pb_entry)
+	var r_a1 := float(op_a1["base_radius"])
+	shooter_b["pos"] = Vector2(9.5, 7.5)
+	shooter_b["order"] = "engage"
+	var plain_gun := {
+		"id": "test_bolter",
+		"name": "爆矢枪",
+		"kind": "ranged",
+		"attacks": 4,
+		"hit": 3,
+		"normal_dmg": 3,
+		"crit_dmg": 4,
+		"rules": {},
+	}
+	# Contact: dist_def_to_terr = 0.1 <= 0.2
+	op_a1["pos"] = Vector2(9.5, 12.5 + 0.35 + r_a1 + 0.1)
+	op_a1["order"] = "engage"
+	var ev_pb_contact: Dictionary = KTGeometry.evaluate_shot(shooter_b, op_a1, plain_gun, eng.state)
+	_assert_true(
+		str(ev_pb_contact["cover"]) == "standard" and bool(ev_pb_contact["protective"]),
+		"Portable barricade grants cover and protective == true when operative is in contact"
+	)
+	var sess_pb: Dictionary = KTCombat.create_shooting_session(shooter_b, op_a1, plain_gun, ev_pb_contact, eng.state, eng.rng)
+	_assert_true(
+		int(sess_pb["def_save"]) == maxi(2, int(op_a1["save"]) - 1),
+		"Protective rule improves defender save by 1 (max 2+)"
+	)
+	# Step back to 0.6\" from barricade: no longer in contact -> no cover
+	op_a1["pos"] = Vector2(9.5, 12.5 + 0.35 + r_a1 + 0.6)
+	var ev_pb_far: Dictionary = KTGeometry.evaluate_shot(shooter_b, op_a1, plain_gun, eng.state)
+	_assert_true(
+		str(ev_pb_far["cover"]) == "none" and not bool(ev_pb_far["protective"]),
+		"Portable barricade no longer grants cover once operative is 0.6\" away"
+	)
+
+	# Activate op_a1 in contact and execute Move With Barricade
+	shooter_b["pos"] = Vector2(28.0, 2.0)
+	op_a1["pos"] = Vector2(9.5, 12.5 + 0.35 + r_a1 + 0.1)
+	op_a1["ready"] = true
+	eng.state["turn_side"] = "A"
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.activate_operative(str(op_a1["uid"]), "engage")
+	_assert_true(
+		absf(eng.get_effective_move_inches(op_a1, "barricade_move") - (eng.get_effective_move_inches(op_a1, "reposition") - 2.0)) < 0.01,
+		"Move With Barricade max distance equals Reposition distance minus 2\""
+	)
+	var bad_climb_pts: Array[Vector2] = [op_a1["pos"] as Vector2, Vector2(7.0, 16.5)]
+	_assert_true(
+		not bool(eng.execute_move(str(op_a1["uid"]), "barricade_move", bad_climb_pts)["ok"]),
+		"Move With Barricade rejects paths that climb to a different elevation"
+	)
+	var dst_pb: Vector2 = (op_a1["pos"] as Vector2) + Vector2(0.0, -2.0)
+	var bm_pts: Array[Vector2] = [op_a1["pos"] as Vector2, dst_pb]
+	var bm_res: Dictionary = eng.execute_move(str(op_a1["uid"]), "barricade_move", bm_pts)
+	var expected_pb_center := dst_pb + Vector2(0.0, -1.0) * (r_a1 + 0.4)
+	var pb_followed := false
+	for t in eng.state["map"]["terrains"]:
+		if str(t.get("id", "")) == "test_portable_eq":
+			var tr: Rect2 = t["rect"]
+			if tr.get_center().distance_to(expected_pb_center) < 0.05:
+				pb_followed = true
+	_assert_true(
+		bool(bm_res["ok"]) and pb_followed,
+		"Move With Barricade moves the portable barricade rect to the new front position"
+	)
+	# Next activation: moving the portable barricade right up to the board edge removes it instead of redeploying out of bounds
+	op_a1["pos"] = Vector2(15.0, 1.5)
+	pb_entry["rect"] = KTEngine.equipment_rect("portable_barricade", Vector2(15.0, 1.5 - r_a1 - 0.4), false)
+	op_a1["ready"] = true
+	eng.state["turn_side"] = "A"
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.activate_operative(str(op_a1["uid"]), "engage")
+	var edge_dst := Vector2(15.0, r_a1 + 0.1)
+	var bm_edge: Dictionary = eng.execute_move(str(op_a1["uid"]), "barricade_move", [op_a1["pos"] as Vector2, edge_dst])
+	var pb_still_on_board := false
+	for t in eng.state["map"]["terrains"]:
+		if str(t.get("id", "")) == "test_portable_eq":
+			pb_still_on_board = true
+	_assert_true(
+		bool(bm_edge["ok"]) and not pb_still_on_board,
+		"Portable barricade is removed from killzone when its new placement would go out of bounds"
+	)

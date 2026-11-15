@@ -106,7 +106,12 @@ static func status_token_tex(kind: String, side: String) -> Texture2D:
 		"injured":
 			return KTData.load_tex(TOKEN_DIR + ("wound_blue.png" if side == "A" else "wound_red.png"))
 		"poison":
-			return KTData.load_tex(TOKEN_DIR + ("status_skull_red.png" if side == "A" else "status_skull_blue.png"))
+			# The Plague Marines' own Poison token (only they hand these out)
+			return KTData.load_tex(TOKEN_DIR + "pm_poison.png")
+		"dominate":
+			return KTData.load_tex(TOKEN_DIR + ("status_alert_blue.png" if side == "A" else "status_alert_red.png"))
+		"envoy":
+			return KTData.load_tex(TOKEN_DIR + ("banner_blue.png" if side == "A" else "banner_red.png"))
 		"apl_minus":
 			return KTData.load_tex(TOKEN_DIR + "apl_minus.png")
 		"apl_plus":
@@ -115,7 +120,7 @@ static func status_token_tex(kind: String, side: String) -> Texture2D:
 			return null
 
 
-## 返回 Array[String]，元素取自 "injured","poison","apl_minus","apl_plus"
+## 返回 Array[String]，元素取自 "injured","poison","apl_minus","apl_plus","dominate"(主宰标记),"envoy"(本转折点的特使)
 static func status_kinds_for(op: Dictionary) -> Array[String]:
 	var kinds: Array[String] = []
 	if int(op["wounds_cur"]) * 2 < int(op["wounds_max"]):
@@ -127,6 +132,10 @@ static func status_kinds_for(op: Dictionary) -> Array[String]:
 		kinds.append("apl_minus")
 	elif apl_mod > 0:
 		kinds.append("apl_plus")
+	if int(op.get("dominate_tokens", 0)) > 0:
+		kinds.append("dominate")
+	if bool(op.get("is_envoy", false)):
+		kinds.append("envoy")
 	return kinds
 
 

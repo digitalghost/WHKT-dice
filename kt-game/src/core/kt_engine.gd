@@ -383,6 +383,7 @@ func _tac_new_tp() -> void:
 	for sid in ["A", "B"]:
 		state["sides"][sid]["tac_tp_gain"] = 0
 	for op in state["operatives"]:
+		op["is_envoy"] = false
 		op["damaged_tp"] = false
 		op["wounds_seen"] = int(op["wounds_cur"])
 
@@ -486,6 +487,9 @@ func choose_envoy(side_id: String, uid: String) -> Dictionary:
 	var ss: Dictionary = state["sides"][side_id]
 	ss["envoy_uid"] = uid
 	ss["envoy_tp"] = int(state["tp"])
+	for e_op in state["operatives"]:
+		if str(e_op["side"]) == side_id:
+			e_op["is_envoy"] = str(e_op["uid"]) == uid
 	_tac_reveal(side_id)
 	add_log("🕊️ 【%s】指定【%s】为本转折点的特使。" % [str(ss["name"]), str(pick["name"])])
 	state["consecutive_strategy_passes"] = 0
@@ -544,15 +548,25 @@ static var _uni_catalog: Array = []
 const MINE_RADIUS := 0.4
 ## Selected option id -> items to set up before the battle.
 const EQ_DEPLOYABLES := {
+	"UNI-EQ-ammocache": {"kind": "ammo_cache", "count": 1},
+	"UNI-EQ-razorwire": {"kind": "razor_wire", "count": 1},
+	"UNI-EQ-comms": {"kind": "comms", "count": 1},
+	"UNI-EQ-mines": {"kind": "mine", "count": 1},
 	"UNI-EQ-lightbarricades": {"kind": "light_barricade", "count": 2},
 	"UNI-EQ-heavybarricade": {"kind": "heavy_barricade", "count": 1},
-	"UNI-EQ-mines": {"kind": "mine", "count": 1},
+	"UNI-EQ-ladders": {"kind": "ladder", "count": 2},
+	"UNI-EQ-portablebarricade": {"kind": "portable_barricade", "count": 1},
 }
-## Footprints in inches (校注 p.100-101: 2.0x0.3x1.0 / 1.5x0.7x1.9; mine = 20mm marker).
+## Footprints in inches (校注 p.98-102; markers = 20mm circle with MINE_RADIUS).
 const EQ_ITEM_SPECS := {
+	"ammo_cache": {"name": "弹药储备", "size": Vector2(0.8, 0.8), "terrain": "", "height": 0.0},
+	"razor_wire": {"name": "铁丝网", "size": Vector2(2.9, 0.6), "terrain": "razor_wire", "height": 1.5},
+	"comms": {"name": "通讯装置", "size": Vector2(0.8, 0.8), "terrain": "", "height": 0.0},
+	"mine": {"name": "地雷", "size": Vector2(0.8, 0.8), "terrain": "", "height": 0.0},
 	"light_barricade": {"name": "轻型掩体", "size": Vector2(2.0, 0.3), "terrain": "light", "height": 1.0},
 	"heavy_barricade": {"name": "重型掩体", "size": Vector2(1.5, 0.7), "terrain": "heavy_low", "height": 1.9},
-	"mine": {"name": "地雷", "size": Vector2(0.8, 0.8), "terrain": "", "height": 0.0},
+	"ladder": {"name": "爬梯", "size": Vector2(0.8, 0.8), "terrain": "", "height": 0.0},
+	"portable_barricade": {"name": "可移动掩体", "size": Vector2(1.0, 0.7), "terrain": "light", "height": 1.6},
 }
 
 
@@ -610,6 +624,8 @@ func equipment_zone(side_id: String, kind: String) -> Rect2:
 func validate_equipment_pos(side_id: String, kind: String, pos: Vector2, rot: bool) -> Dictionary:
 	if not EQ_ITEM_SPECS.has(kind):
 		return {"ok": false, "reason": "未知装备"}
+	var spec: Dictionary = EQ_ITEM_SPECS[kind]
+	var is_marker: bool = str(spec["terrain"]) == ""
 	var rect := equipment_rect(kind, pos, rot)
 	if not equipment_zone(side_id, kind).encloses(rect):
 		return {"ok": false, "reason": "必须完全位于己方降落区 4\" 内" if kind == "heavy_barricade" else "必须完全位于己方领地内"}
@@ -618,11 +634,24 @@ func validate_equipment_pos(side_id: String, kind: String, pos: Vector2, rot: bo
 		if kind == "mine":
 			if o_pos.distance_to(pos) - MINE_RADIUS - 0.79 < 2.0:
 				return {"ok": false, "reason": "地雷须位于其他标识 2\" 外"}
+		elif is_marker:
+			if o_pos.distance_to(pos) < MINE_RADIUS + 0.79:
+				return {"ok": false, "reason": "不能压住目标标识"}
 		elif KTGeometry.point_to_rect_distance(o_pos, rect) < 0.79:
 			return {"ok": false, "reason": "不能压住目标标识"}
+	var near_climbable := false
 	for t in state["map"]["terrains"]:
 		var tr: Rect2 = t["rect"]
-		if kind == "mine":
+		var tk := str(t.get("kind", ""))
+		if kind == "ladder":
+			if (tk == "vantage" or KTGeometry.is_impassable_terrain(t)) and tr.has_point(pos):
+				return {"ok": false, "reason": "爬梯不能放在制高点或不可通行地形内部"}
+			if bool(t.get("equipment", false)) and KTGeometry.point_to_rect_distance(pos, tr) - MINE_RADIUS < 2.0:
+				return {"ok": false, "reason": "爬梯须位于其他装备地形 2\" 外"}
+			if tk in ["heavy_wall", "vantage"] and float(t.get("elevation", 0.0)) >= 2.0:
+				if KTGeometry.point_to_rect_distance(pos, tr) <= 0.35:
+					near_climbable = true
+		elif is_marker:
 			if KTGeometry.is_impassable_terrain(t) and KTGeometry.circle_intersects_rect(pos, MINE_RADIUS, tr):
 				return {"ok": false, "reason": "不能放在地形上"}
 		else:
@@ -630,10 +659,20 @@ func validate_equipment_pos(side_id: String, kind: String, pos: Vector2, rot: bo
 				return {"ok": false, "reason": "须放在杀戮区地面上，不能与地形重叠"}
 			if bool(t.get("equipment", false)) and rect.grow(2.0).intersects(tr):
 				return {"ok": false, "reason": "须位于其他装备地形 2\" 外"}
-	if kind == "mine":
+	if kind == "ladder" and not near_climbable:
+		return {"ok": false, "reason": "爬梯须靠在至少 2\" 高的重型墙体或制高点地形旁"}
+	if is_marker:
 		for m in state.get("eq_markers", []):
-			if (m["pos"] as Vector2).distance_to(pos) - 2.0 * MINE_RADIUS < 2.0:
-				return {"ok": false, "reason": "地雷须位于其他标识 2\" 外"}
+			var mp: Vector2 = m["pos"]
+			var mk := str(m.get("kind", ""))
+			if kind == "mine":
+				if mp.distance_to(pos) - 2.0 * MINE_RADIUS < 2.0:
+					return {"ok": false, "reason": "地雷须位于其他标识 2\" 外"}
+			elif kind == "ladder" and mk == "ladder":
+				if mp.distance_to(pos) - 2.0 * MINE_RADIUS < 2.0:
+					return {"ok": false, "reason": "爬梯须位于其他爬梯 2\" 外"}
+			if mp.distance_to(pos) < 2.0 * MINE_RADIUS:
+				return {"ok": false, "reason": "不能与其他标识重叠"}
 	return {"ok": true, "reason": ""}
 
 
@@ -671,12 +710,12 @@ func deploy_equipment(side_id: String, kind: String, pos: Vector2, rot: bool) ->
 	var d: Dictionary = state["eq_deploy"]
 	(d["pending"][side_id] as Array).erase(kind)
 	var spec: Dictionary = EQ_ITEM_SPECS[kind]
-	if kind == "mine":
+	if str(spec["terrain"]) == "":
 		if not state.has("eq_markers"):
 			state["eq_markers"] = []
-		state["eq_markers"].append({"kind": "mine", "side": side_id, "pos": pos})
+		state["eq_markers"].append({"kind": kind, "side": side_id, "pos": pos})
 	else:
-		state["map"]["terrains"].append({
+		var terr_entry := {
 			"id": "eq_%s_%s_%d" % [side_id, kind, int(d["placed"])],
 			"name": str(spec["name"]),
 			"kind": str(spec["terrain"]),
@@ -686,7 +725,10 @@ func deploy_equipment(side_id: String, kind: String, pos: Vector2, rot: bool) ->
 			"parent": "",
 			"equipment": true,
 			"side": side_id,
-		})
+		}
+		if kind == "portable_barricade":
+			terr_entry["portable"] = true
+		state["map"]["terrains"].append(terr_entry)
 		# New id so the board view rebuilds its terrain
 		state["map"]["id"] = str(state["map"]["id"]) + "+eq"
 	d["placed"] = int(d["placed"]) + 1
@@ -808,6 +850,67 @@ func _walk_through_mines(op: Dictionary, waypoints: Array[Vector2]) -> Vector2:
 			if _mine_check(op, p) and op["incapacitated"]:
 				return p
 	return last
+
+
+func _find_contact_portable_barricade_idx(op: Dictionary) -> int:
+	var terrains: Array = state["map"]["terrains"]
+	var op_pos: Vector2 = op["pos"]
+	var r := float(op["base_radius"])
+	var best_idx := -1
+	var best_d := 999.0
+	for i in range(terrains.size()):
+		var t: Dictionary = terrains[i]
+		if not bool(t.get("portable", false)):
+			continue
+		var d := KTGeometry.point_to_rect_distance(op_pos, t["rect"]) - r
+		if d <= 0.25 and d < best_d:
+			best_d = d
+			best_idx = i
+	return best_idx
+
+
+func _has_deployed_ammo_cache(side_id: String) -> bool:
+	for m in state.get("eq_markers", []):
+		if str(m.get("kind", "")) == "ammo_cache" and str(m.get("side", "")) == side_id:
+			return true
+	return false
+
+
+func _find_usable_ammo_cache(op: Dictionary) -> Dictionary:
+	if not KTGeometry.is_in_enemy_control_range(op, op["pos"], state).is_empty():
+		return {}
+	var terrains: Array = state["map"]["terrains"]
+	var op_pos: Vector2 = op["pos"]
+	var op_r := float(op["base_radius"])
+	var op_z := KTGeometry.elevation_at(op_pos, terrains)
+	var tp := int(state["tp"])
+	var side_id := str(op["side"])
+	for m in state.get("eq_markers", []):
+		var md: Dictionary = m
+		if str(md.get("kind", "")) != "ammo_cache" or str(md.get("side", "")) != side_id:
+			continue
+		if int(md.get("used_tp", 0)) == tp:
+			continue
+		var mp: Vector2 = md["pos"]
+		var mz := KTGeometry.elevation_at(mp, terrains)
+		if not KTGeometry.in_control_range_at(op_pos, op_r, op_z, mp, MINE_RADIUS, mz, terrains):
+			continue
+		var friendly_apl := 0
+		var enemy_apl := 0
+		for other in state["operatives"]:
+			if other["incapacitated"]:
+				continue
+			var o_pos: Vector2 = other["pos"]
+			var o_r := float(other["base_radius"])
+			var o_z := KTGeometry.elevation_at(o_pos, terrains)
+			if KTGeometry.in_control_range_at(o_pos, o_r, o_z, mp, MINE_RADIUS, mz, terrains):
+				if str(other["side"]) == side_id:
+					friendly_apl += maxi(1, int(other["apl_base"]) + int(other.get("apl_mod", 0)))
+				else:
+					enemy_apl += maxi(1, int(other["apl_base"]) + int(other.get("apl_mod", 0)))
+		if friendly_apl > enemy_apl:
+			return md
+	return {}
 
 
 const EQ_BLIGHT_GRENADE_ID := "eq_blight_grenade"
@@ -1720,6 +1823,8 @@ func set_active_order(order_str: String) -> void:
 
 
 func get_effective_move_inches(op: Dictionary, action_kind: String) -> float:
+	if action_kind == "barricade_move":
+		return maxf(0.0, get_effective_move_inches(op, "reposition") - 2.0)
 	if bool(state.get("active_is_counteract", false)):
 		return 2.0 # KT24 Counteract move cap is 2"!
 	if action_kind == "dash":
@@ -1793,11 +1898,31 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 				secure_obj_id = oid
 				break
 
+	var pb_idx := _find_contact_portable_barricade_idx(op)
+	var can_barricade_move := ap >= 1 and not engaged and not move_blocked and not bool(state["active_is_counteract"]) and pb_idx >= 0
+	var barricade_reason := "携可移动掩体推进 %.0f\"" % get_effective_move_inches(op, "barricade_move")
+	if not can_barricade_move:
+		if pb_idx < 0:
+			barricade_reason = "需与可移动掩体接触"
+		elif engaged:
+			barricade_reason = "处于敌方 1\" 控制范围内，无法执行与掩体移动"
+		elif bool(state["active_is_counteract"]):
+			barricade_reason = "反应激活中不能执行与掩体移动"
+		elif move_blocked:
+			barricade_reason = "本次激活已执行过移动行动"
+		else:
+			barricade_reason = "AP 不足"
+
 	return {
 		"reposition": {
 			"enabled": ap >= 1 and not move_blocked and not engaged,
 			"cost": 1,
 			"reason": "常规移动 %.0f\"" % get_effective_move_inches(op, "reposition") if not engaged else "被敌方近战锁定，请后撤"
+		},
+		"barricade_move": {
+			"enabled": can_barricade_move,
+			"cost": 1,
+			"reason": barricade_reason
 		},
 		"dash": {
 			"enabled": ap >= 1 and not dash_blocked and not engaged and not bool(state["active_is_counteract"]),
@@ -1870,26 +1995,87 @@ func execute_move(uid: String, action_kind: String, waypoints: Array[Vector2]) -
 	if not acts.has(action_kind) or not bool(acts[action_kind]["enabled"]):
 		return {"ok": false, "msg": "当前无法执行该移动"}
 
+	var terrains: Array = state["map"]["terrains"]
+	var removed_pb_idx := -1
+	var removed_barricade: Dictionary = {}
+	if action_kind == "barricade_move":
+		removed_pb_idx = _find_contact_portable_barricade_idx(op)
+		if removed_pb_idx < 0:
+			return {"ok": false, "msg": "需与可移动掩体接触"}
+		removed_barricade = terrains[removed_pb_idx]
+		terrains.remove_at(removed_pb_idx)
+		if waypoints.size() >= 2:
+			var start_z := KTGeometry.elevation_at(waypoints[0], terrains)
+			for wp in waypoints:
+				if not is_equal_approx(KTGeometry.elevation_at(wp, terrains), start_z):
+					terrains.insert(removed_pb_idx, removed_barricade)
+					return {"ok": false, "msg": "与掩体移动时不能攀爬"}
+
 	var side_state: Dictionary = state["sides"][op["side"]]
 	var mobile := KTCombat.has_chapter_tactic(side_state, op, "mobile")
 	var max_m := get_effective_move_inches(op, action_kind)
-	var check := KTGeometry.validate_move_path(waypoints, op, action_kind, max_m, state, mobile)
+	var validate_kind := "reposition" if action_kind == "barricade_move" else action_kind
+	var check := KTGeometry.validate_move_path(waypoints, op, validate_kind, max_m, state, mobile)
+	if removed_pb_idx >= 0:
+		terrains.insert(removed_pb_idx, removed_barricade)
 	if not bool(check["ok"]):
 		return {"ok": false, "msg": str(check["reason"])}
+	if action_kind == "barricade_move":
+		# "不能攀爬、跳落或者跳跃": any surcharge over the plain path length means something was climbed over
+		var plain_len := 0.0
+		for wi in range(waypoints.size() - 1):
+			plain_len += waypoints[wi].distance_to(waypoints[wi + 1])
+		if float(check["cost"]) > plain_len + 0.05:
+			return {"ok": false, "msg": "与掩体移动时不能攀爬或翻越地形"}
 
 	push_undo()
+	if removed_pb_idx >= 0:
+		(state["map"]["terrains"] as Array).remove_at(removed_pb_idx)
 	var cost_ap := int(acts[action_kind]["cost"])
 	op["ap_left"] = int(op["ap_left"]) - cost_ap
 	op["pos"] = _walk_through_mines(op, waypoints)
 	op["moved_distance_tp"] = float(op["moved_distance_tp"]) + float(check["cost"])
-	if action_kind in ["reposition", "charge", "fall_back"]:
+	if action_kind in ["reposition", "charge", "fall_back", "barricade_move"]:
 		op["moved_reposition_or_charge"] = true
 	if action_kind == "charge":
 		op["charged_this_tp"] = true
+	if action_kind == "barricade_move":
+		op["actions_taken"].append("reposition")
 	op["actions_taken"].append(action_kind)
 
-	var label_map := {"reposition": "转移", "dash": "冲刺", "charge": "冲锋", "fall_back": "后撤"}
+	var label_map := {"reposition": "转移", "dash": "冲刺", "charge": "冲锋", "fall_back": "后撤", "barricade_move": "与掩体移动"}
 	add_log("🏃 【%s】执行【%s】推进 %.1f\"" % [str(op["name"]), label_map.get(action_kind, action_kind), float(check["cost"])])
+	if action_kind == "barricade_move":
+		var cur_terrains: Array = state["map"]["terrains"]
+		var dir := Vector2(0.0, -1.0)
+		for wi in range(waypoints.size() - 1, 0, -1):
+			var seg := waypoints[wi] - waypoints[wi - 1]
+			if seg.length_squared() > 1e-6:
+				dir = seg.normalized()
+				break
+		var end_pos: Vector2 = op["pos"]
+		var r := float(op["base_radius"])
+		var center := end_pos + dir * (r + 0.4)
+		var rot := absf(dir.x) > absf(dir.y)
+		var new_rect := equipment_rect("portable_barricade", center, rot)
+		var board_rect := Rect2(0.0, 0.0, float(state["map"]["width"]), float(state["map"]["height"]))
+		var can_redeploy := board_rect.encloses(new_rect)
+		if can_redeploy:
+			for t in cur_terrains:
+				var tr: Rect2 = t["rect"]
+				if new_rect.intersects(tr):
+					can_redeploy = false
+					break
+				if bool(t.get("equipment", false)) and new_rect.grow(2.0).intersects(tr):
+					can_redeploy = false
+					break
+		if can_redeploy and not bool(op["incapacitated"]):
+			removed_barricade["rect"] = new_rect
+			cur_terrains.append(removed_barricade)
+			add_log("🧱 【%s】重新部署可移动掩体于 (%.1f\", %.1f\")。" % [str(op["name"]), center.x, center.y])
+		else:
+			add_log("🧱 可移动掩体在新位置无法合法部署，已从杀戮区移除。")
+		state["map"]["id"] = str(state["map"]["id"]) + "+bm"
 	if op["incapacitated"]:
 		# Blown up by a mine on the way
 		op["ready"] = false
@@ -1952,6 +2138,14 @@ func get_unique_actions(op: Dictionary) -> Array[Dictionary]:
 			"enabled": ap >= 1 and not engaged and not bool(op["vitality_used_tp"]),
 			"desc": "为 3\" 内受伤最重的友军掷 2D6 恢复耐伤（和为圣数 7 时怒回 7 血！）"
 		})
+	if _has_deployed_ammo_cache(str(op["side"])):
+		var usable_cache := _find_usable_ammo_cache(op)
+		out.append({
+			"id": "eq_resupply",
+			"name": "补充弹药 (0AP)",
+			"enabled": not usable_cache.is_empty(),
+			"desc": "控制一枚本转折点尚未使用的己方弹药储备：直到下个转折点开始，使用数据卡武器射击时可重掷 1 枚攻击骰。"
+		})
 	return out
 
 
@@ -1959,6 +2153,19 @@ func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 	var op := get_op(uid)
 	if op.is_empty():
 		return {"ok": false, "msg": "无效特工"}
+	if ability_id == "eq_resupply":
+		var cache := _find_usable_ammo_cache(op)
+		if cache.is_empty():
+			return {"ok": false, "msg": "需不在敌方控制范围内，且控制一枚本转折点未使用的己方弹药储备标识"}
+		push_undo()
+		op["actions_taken"].append(ability_id)
+		var tp := int(state["tp"])
+		cache["used_tp"] = tp
+		op["ammo_resupply_tp"] = tp
+		add_log("📦 【%s】执行【补充弹药】(0AP)：本转折点使用数据卡武器射击可重掷 1 枚攻击骰！" % str(op["name"]))
+		recalculate_objectives_and_kills()
+		_check_auto_end_counteract(op)
+		return {"ok": true}
 	push_undo()
 	op["ap_left"] = int(op["ap_left"]) - 1
 	op["actions_taken"].append(ability_id)

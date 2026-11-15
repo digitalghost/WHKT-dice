@@ -32,7 +32,7 @@ static func elevation_at(pos: Vector2, terrains: Array) -> float:
 
 static func is_impassable_terrain(t: Dictionary) -> bool:
 	var k := str(t.get("kind", ""))
-	return k == "heavy_wall" or k == "heavy_low" or k == "light"
+	return k == "heavy_wall" or k == "heavy_low" or k == "light" or k == "razor_wire"
 
 
 static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
@@ -65,6 +65,15 @@ static func point_to_rect_distance(pt: Vector2, rect: Rect2) -> float:
 	var cx := clampf(pt.x, rect.position.x, rect.position.x + rect.size.x)
 	var cy := clampf(pt.y, rect.position.y, rect.position.y + rect.size.y)
 	return pt.distance_to(Vector2(cx, cy))
+
+
+static func point_to_segment_distance(pt: Vector2, a: Vector2, b: Vector2) -> float:
+	var ab := b - a
+	var len_sq := ab.length_squared()
+	if len_sq < 1e-6:
+		return pt.distance_to(a)
+	var t := clampf((pt - a).dot(ab) / len_sq, 0.0, 1.0)
+	return pt.distance_to(a + ab * t)
 
 
 static func in_control_range_at(
@@ -147,6 +156,8 @@ static func validate_move_path(
 
 	var total_cost: float = 0.0
 	var prev_z := elevation_at(start_pos, terrains)
+	var eq_markers: Array = state.get("eq_markers", [])
+	var used_ladder := false
 
 	for i in range(waypoints.size() - 1):
 		var a: Vector2 = waypoints[i]
@@ -158,6 +169,7 @@ static func validate_move_path(
 		# Sample along segment for Heavy wall collision & enemy control range checks
 		var steps := maxi(4, int(ceil(seg_len / 0.25)))
 		var crossed_light := false
+		var crossed_razor := false
 		for s in range(1, steps + 1):
 			var t_ratio := float(s) / float(steps)
 			var sample := a.lerp(b, t_ratio)
@@ -174,6 +186,9 @@ static func validate_move_path(
 				elif tk == "light":
 					if circle_intersects_rect(sample, r * 0.6, terr["rect"]):
 						crossed_light = true
+				elif tk == "razor_wire":
+					if circle_intersects_rect(sample, r * 0.6, terr["rect"]):
+						crossed_razor = true
 
 			if action_kind in ["reposition", "dash"]:
 				var near_enemies := is_in_enemy_control_range(op, sample, state)
@@ -188,11 +203,22 @@ static func validate_move_path(
 		var next_z := elevation_at(b, terrains)
 		var climb_penalty: float = 0.0
 		if next_z > prev_z + 0.5:
-			# Climbing onto Vantage (+3.5" -> 2.0" vertical climb surcharge in KT3 simplified ramp/wall)
+			# Climbing onto Vantage (+3.5" -> 2.0" vertical climb surcharge in KT3 simplified ramp/wall; 1.0" with ladder)
 			climb_penalty = 2.0
+			if not used_ladder:
+				for m in eq_markers:
+					if str(m.get("kind", "")) == "ladder":
+						var mp: Vector2 = m["pos"]
+						if point_to_segment_distance(mp, a, b) <= r + CONTROL_RANGE_INCHES + 0.4:
+							climb_penalty = 1.0
+							used_ladder = true
+							break
+		elif crossed_razor:
+			# Climbing over razor wire: minimum 2" vertical climb + 1" Obstructing (阻挡) = +3"
+			climb_penalty = 3.0
 		elif crossed_light:
-			# Traversing a light barricade costs +1"
-			climb_penalty = 1.0
+			# Climbing over light terrain: minimum 2" vertical climb distance
+			climb_penalty = 2.0
 
 		total_cost += seg_len + climb_penalty
 		prev_z = next_z
@@ -265,7 +291,7 @@ static func has_visibility(
 			var blocked := false
 			for t in terrains:
 				var tk := str(t.get("kind", ""))
-				if tk == "light":
+				if tk == "light" or tk == "razor_wire":
 					continue
 				var rect: Rect2 = t["rect"]
 				if not segment_intersects_rect(pa, pb, rect):
@@ -396,6 +422,7 @@ static func evaluate_shot(
 		"visible": false,
 		"cover": "none",          # "none" | "standard" | "improved"
 		"cover_terrain_type": "", # "" | "light" | "heavy"
+		"protective": false,
 		"obscured": false,
 		"vantage_accurate": 0,
 		"cone": cone,
@@ -444,6 +471,7 @@ static func evaluate_shot(
 
 	var has_light_cover := false
 	var has_heavy_cover := false
+	var has_protective_cover := false
 	var is_obscured := false
 
 	# Within 2" close quarters: targets do NOT gain cover!
@@ -467,12 +495,16 @@ static func evaluate_shot(
 		var dist_def_to_terr := point_to_rect_distance(pos_d, rect) - r_d
 		var dist_att_to_terr := point_to_rect_distance(pos_a, rect) - r_a
 
-		# Cover check: Defender is within 1" of terrain crossed by cover lines, and attacker is further away
-		if not close_quarters and dist_def_to_terr <= COVER_PROXIMITY_INCHES + 0.05 and dist_att_to_terr > 0.35:
+		# Cover check: Defender is within 1" of terrain crossed by cover lines (<= 0.2" contact for portable barricade), and attacker is further away
+		var is_portable := bool(t.get("portable", false))
+		var cover_prox := 0.2 if is_portable else (COVER_PROXIMITY_INCHES + 0.05)
+		if not close_quarters and dist_def_to_terr <= cover_prox and dist_att_to_terr > 0.35:
 			if tk in ["heavy_wall", "heavy_low", "vantage"]:
 				has_heavy_cover = true
 			elif tk == "light":
 				has_light_cover = true
+				if is_portable:
+					has_protective_cover = true
 
 		# Obscured check: Heavy terrain crossed > 1" from BOTH attacker and defender
 		if tk in ["heavy_wall", "heavy_low"]:
@@ -505,6 +537,9 @@ static func evaluate_shot(
 	elif has_light_cover:
 		out["cover"] = "standard"
 		out["cover_terrain_type"] = "light"
+	if has_protective_cover and str(out["cover"]) != "none":
+		out["protective"] = true
+		(out["tags"] as Array).append("保护: 豁免+1")
 
 	# 4. Conceal Order Target Legality & Vantage Interaction
 	var def_concealed := str(defender.get("order", "conceal")) == "conceal"

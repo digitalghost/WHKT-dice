@@ -1197,6 +1197,47 @@ func _update_3d_entities(delta: float) -> void:
 # 3D IMMEDIATEMESH TACTICAL OVERLAYS (RULER + CLIMB + 3D LASERS + COVER CONE)
 # ==============================================================================
 
+var _flat_marker_nodes: Array[Node3D] = []
+var _flat_marker_key: String = ""
+
+## Flat cardboard tokens lying on the table for things that are markers in the rules:
+## the Plague Marines' Cloud of Flies marker and Martyrs tac-op markers on objectives.
+func _sync_flat_marker_tokens() -> void:
+	if _world_root == null or engine == null or engine.state.is_empty():
+		return
+	var items: Array[Dictionary] = []
+	for m_v in engine.state.get("markers", []):
+		var m: Dictionary = m_v
+		if str(m.get("kind", "")) == "cloud_of_flies":
+			items.append({"tex": "pm_flies", "pos": m["pos"], "size": 1.57})
+	for obj_v in engine.state["map"]["objectives"]:
+		var obj: Dictionary = obj_v
+		var ost: Dictionary = engine.state["objectives_state"].get(str(obj["id"]), {})
+		var slot := 0
+		for sid in ["A", "B"]:
+			for _i in range(int(ost.get("martyr_" + sid, 0))):
+				var ang: float = -0.6 + 0.75 * float(slot)
+				var o_pos: Vector2 = obj["pos"]
+				items.append({"tex": "status_cross_blue" if sid == "A" else "status_cross_red", "pos": o_pos + Vector2(cos(ang), sin(ang)) * 1.25, "size": 0.7})
+				slot += 1
+	var parts := PackedStringArray()
+	for it in items:
+		var ip: Vector2 = it["pos"]
+		parts.append("%s@%.2f,%.2f" % [str(it["tex"]), ip.x, ip.y])
+	var key: String = ";".join(parts)
+	if key == _flat_marker_key:
+		return
+	_flat_marker_key = key
+	for n in _flat_marker_nodes:
+		if is_instance_valid(n):
+			n.queue_free()
+	_flat_marker_nodes.clear()
+	for it in items:
+		var p_in: Vector2 = it["pos"]
+		var tok: Dictionary = Models3D.add_flat_token(_world_root, inches_to_world(p_in, elevation_at_inches(p_in) + 0.04), float(it["size"]), KTData.load_tex(KTTheme.TOKEN_DIR + str(it["tex"]) + ".png"))
+		_flat_marker_nodes.append(tok["mesh"] as Node3D)
+
+
 func _sync_mine_models() -> void:
 	if _world_root == null:
 		return
@@ -1232,6 +1273,7 @@ func _sync_mine_models() -> void:
 
 func _rebuild_3d_tactical_overlays() -> void:
 	_sync_mine_models()
+	_sync_flat_marker_tokens()
 	_imm_lines.clear_surfaces()
 	_imm_tris.clear_surfaces()
 	if engine == null or engine.state.is_empty():

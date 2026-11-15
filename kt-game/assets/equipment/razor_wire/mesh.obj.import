@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bxh13siq1yddc"
+path="res://.godot/imported/mesh.obj-d6c1d20feadc6aa2a8ec07eb71b7053c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/mesh.obj-d6c1d20feadc6aa2a8ec07eb71b7053c.mesh"]
+
+source_file="res://assets/equipment/razor_wire/mesh.obj"
+dest_files=["res://.godot/imported/mesh.obj-d6c1d20feadc6aa2a8ec07eb71b7053c.mesh", "res://.godot/imported/mesh.obj-d6c1d20feadc6aa2a8ec07eb71b7053c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
