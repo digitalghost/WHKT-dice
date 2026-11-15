@@ -111,7 +111,28 @@ static func get_ploys(team_id: String, category: String) -> Array[Dictionary]:
 ## tools/build_volkus_map.py from the terrain meshes). Falls back to the hand-built layout when the
 ## JSON is missing so a bare checkout still runs.
 const DEFAULT_MAP_ID := "volkus_25_04"
+const MAP_IDS: Array[String] = ["volkus_25_01", "volkus_25_02", "volkus_25_03", "volkus_25_04", "volkus_25_05", "volkus_25_06"]
 static var _map_cache: Dictionary = {}
+
+
+## 开局界面按钮上显示的短名，例如 "地图 1"
+static func map_short_label(map_id: String) -> String:
+	if not MAP_IDS.has(map_id):
+		return map_id
+	var num: int = int(map_id.right(2))
+	return "地图 %d" % num
+
+
+## 一句话说明，地图 1-3 返回 "降落区：东/西两侧短边 6\" 纵深"，地图 4-6 返回 "降落区：南/北两侧长边 3\" 纵深"
+static func map_deploy_hint(map_id: String) -> String:
+	if not MAP_IDS.has(map_id):
+		return ""
+	var num: int = int(map_id.right(2))
+	if num >= 1 and num <= 3:
+		return "降落区：东/西两侧短边 6\" 纵深"
+	if num >= 4 and num <= 6:
+		return "降落区：南/北两侧长边 3\" 纵深"
+	return ""
 
 
 static func load_map(map_id: String) -> Dictionary:

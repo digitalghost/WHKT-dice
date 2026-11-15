@@ -1,0 +1,1232 @@
+{
+ "id": "volkus_25_03",
+ "name": "杀戮区：沃库斯 · 认证行动 2025 地图 3",
+ "source": "认证行动任务包 2025 · 杀戮区：沃库斯 (地形编号 A–N 几何取自 TTS 模组模型，规则文字以官方规则书为准)",
+ "width": 30.0,
+ "height": 22.0,
+ "drop_zone_a": [
+  0.0,
+  0.0,
+  6.0,
+  22.0
+ ],
+ "drop_zone_b": [
+  24.0,
+  0.0,
+  6.0,
+  22.0
+ ],
+ "spawn_a": [
+  [
+   2.95,
+   1.85
+  ],
+  [
+   2.95,
+   5.45
+  ],
+  [
+   2.95,
+   9.15
+  ],
+  [
+   2.95,
+   12.85
+  ],
+  [
+   2.95,
+   16.45
+  ],
+  [
+   2.95,
+   20.15
+  ]
+ ],
+ "spawn_b": [
+  [
+   26.95,
+   1.85
+  ],
+  [
+   26.95,
+   5.45
+  ],
+  [
+   26.95,
+   9.15
+  ],
+  [
+   26.95,
+   12.85
+  ],
+  [
+   26.95,
+   16.45
+  ],
+  [
+   26.95,
+   20.15
+  ]
+ ],
+ "objectives": [
+  {
+   "id": "obj_1",
+   "name": "1号目标标识",
+   "pos": [
+    18.8,
+    18.18
+   ]
+  },
+  {
+   "id": "obj_2",
+   "name": "2号目标标识",
+   "pos": [
+    15.0,
+    11.0
+   ]
+  },
+  {
+   "id": "obj_3",
+   "name": "3号目标标识",
+   "pos": [
+    11.19,
+    2.85
+   ]
+  }
+ ],
+ "terrains": [
+  {
+   "id": "large_ruin_wall_0",
+   "name": "大型废墟·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    11.0,
+    3.5,
+    4.5,
+    0.5
+   ],
+   "parent": "large_ruin"
+  },
+  {
+   "id": "large_ruin_wall_1",
+   "name": "大型废墟·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    14.5,
+    3.0,
+    1.0,
+    0.5
+   ],
+   "parent": "large_ruin"
+  },
+  {
+   "id": "large_ruin_wall_2",
+   "name": "大型废墟·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    14.5,
+    4.0,
+    1.0,
+    6.0
+   ],
+   "parent": "large_ruin"
+  },
+  {
+   "id": "large_ruin_deck_3",
+   "name": "大型废墟·二层制高点",
+   "kind": "vantage",
+   "elevation": 3.0,
+   "rect": [
+    11.5,
+    3.5,
+    4.0,
+    5.5
+   ],
+   "parent": "large_ruin"
+  },
+  {
+   "id": "large_ruin_upper_4",
+   "name": "大型废墟·二层墙垛",
+   "kind": "light",
+   "elevation": 4.58,
+   "blocks_los_ground": false,
+   "rect": [
+    12.0,
+    3.5,
+    3.5,
+    0.5
+   ],
+   "parent": "large_ruin"
+  },
+  {
+   "id": "large_ruin_upper_5",
+   "name": "大型废墟·二层墙垛",
+   "kind": "light",
+   "elevation": 4.58,
+   "blocks_los_ground": false,
+   "rect": [
+    14.5,
+    3.0,
+    1.0,
+    0.5
+   ],
+   "parent": "large_ruin"
+  },
+  {
+   "id": "large_ruin_upper_6",
+   "name": "大型废墟·二层墙垛",
+   "kind": "light",
+   "elevation": 4.58,
+   "blocks_los_ground": false,
+   "rect": [
+    14.5,
+    4.0,
+    1.0,
+    5.0
+   ],
+   "parent": "large_ruin"
+  },
+  {
+   "id": "heavy_rubble_7",
+   "name": "重型瓦砾",
+   "kind": "heavy_low",
+   "elevation": 1.6,
+   "blocks_los_ground": false,
+   "rect": [
+    17.4,
+    11.97,
+    2.09,
+    2.86
+   ],
+   "parent": "heavy_rubble"
+  },
+  {
+   "id": "small_ruin_8",
+   "name": "小型废墟",
+   "kind": "heavy_wall",
+   "elevation": 2.21,
+   "blocks_los_ground": true,
+   "rect": [
+    5.5,
+    4.0,
+    1.0,
+    5.0
+   ],
+   "parent": "small_ruin"
+  },
+  {
+   "id": "small_ruin_9",
+   "name": "小型废墟",
+   "kind": "heavy_wall",
+   "elevation": 2.21,
+   "blocks_los_ground": true,
+   "rect": [
+    6.5,
+    4.5,
+    1.0,
+    0.5
+   ],
+   "parent": "small_ruin"
+  },
+  {
+   "id": "fire_steps_10",
+   "name": "射击踏台",
+   "kind": "vantage",
+   "elevation": 0.5,
+   "blocks_los_ground": false,
+   "rect": [
+    11.36,
+    18.34,
+    2.3,
+    1.9
+   ],
+   "parent": "fire_steps"
+  },
+  {
+   "id": "small_ruin_02_11",
+   "name": "小型废墟",
+   "kind": "heavy_wall",
+   "elevation": 2.95,
+   "blocks_los_ground": true,
+   "rect": [
+    21.5,
+    11.5,
+    3.0,
+    1.0
+   ],
+   "parent": "small_ruin_02"
+  },
+  {
+   "id": "small_ruin_02_12",
+   "name": "小型废墟",
+   "kind": "heavy_wall",
+   "elevation": 2.95,
+   "blocks_los_ground": true,
+   "rect": [
+    23.5,
+    12.5,
+    1.0,
+    5.0
+   ],
+   "parent": "small_ruin_02"
+  },
+  {
+   "id": "fire_steps_02_13",
+   "name": "射击踏台",
+   "kind": "vantage",
+   "elevation": 0.5,
+   "blocks_los_ground": false,
+   "rect": [
+    5.92,
+    17.1,
+    2.09,
+    2.53
+   ],
+   "parent": "fire_steps_02"
+  },
+  {
+   "id": "fire_steps_03_14",
+   "name": "射击踏台",
+   "kind": "vantage",
+   "elevation": 0.5,
+   "blocks_los_ground": false,
+   "rect": [
+    18.5,
+    2.0,
+    2.5,
+    2.5
+   ],
+   "parent": "fire_steps_03"
+  },
+  {
+   "id": "light_rubble_15",
+   "name": "轻型瓦砾",
+   "kind": "light",
+   "elevation": 0.95,
+   "blocks_los_ground": false,
+   "rect": [
+    11.4,
+    0.0,
+    1.95,
+    3.33
+   ],
+   "parent": "light_rubble"
+  },
+  {
+   "id": "heavy_rubble_02_16",
+   "name": "重型瓦砾",
+   "kind": "heavy_low",
+   "elevation": 1.6,
+   "blocks_los_ground": false,
+   "rect": [
+    8.45,
+    5.96,
+    2.18,
+    2.99
+   ],
+   "parent": "heavy_rubble_02"
+  },
+  {
+   "id": "stronghold_wall_17",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    5.5,
+    18.0,
+    1.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_18",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    12.0,
+    8.0,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_19",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    12.5,
+    3.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_20",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    13.0,
+    1.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_21",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    13.5,
+    1.0,
+    4.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_22",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    18.5,
+    0.5,
+    1.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_23",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    6.5,
+    19.5,
+    7.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_24",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    7.0,
+    19.0,
+    2.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_25",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    10.5,
+    12.5,
+    4.0,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_26",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    10.5,
+    19.0,
+    2.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_27",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    12.5,
+    13.0,
+    1.5,
+    1.0
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_28",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    13.0,
+    14.0,
+    1.0,
+    4.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_wall_29",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    13.5,
+    18.5,
+    0.5,
+    1.0
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_deck_30",
+   "name": "堡垒·二层制高点",
+   "kind": "vantage",
+   "elevation": 3.0,
+   "rect": [
+    6.0,
+    12.0,
+    8.0,
+    3.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_31",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    12.0,
+    4.0,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_32",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    12.5,
+    3.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_33",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    13.0,
+    3.0,
+    1.0
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_34",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    6.0,
+    14.0,
+    1.0,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_35",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    10.5,
+    12.0,
+    3.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_36",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    10.5,
+    12.5,
+    2.5,
+    0.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_37",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    13.0,
+    13.5,
+    1.0,
+    1.5
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_upper_38",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 7.31,
+   "blocks_los_ground": true,
+   "rect": [
+    13.5,
+    12.5,
+    0.5,
+    1.0
+   ],
+   "parent": "stronghold"
+  },
+  {
+   "id": "stronghold_02_wall_39",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    17.5,
+    2.0,
+    6.5,
+    0.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_40",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    17.5,
+    2.5,
+    1.5,
+    2.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_41",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    17.5,
+    5.0,
+    1.5,
+    2.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_42",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    17.5,
+    7.5,
+    2.0,
+    1.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_43",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    18.0,
+    4.5,
+    1.0,
+    0.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_44",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    18.0,
+    7.0,
+    1.0,
+    0.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_45",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    18.0,
+    9.0,
+    6.0,
+    1.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_46",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    19.0,
+    3.0,
+    0.5,
+    1.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_47",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    19.0,
+    5.5,
+    0.5,
+    1.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_48",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    19.5,
+    2.5,
+    4.5,
+    0.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_49",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    19.5,
+    8.5,
+    2.0,
+    0.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_50",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    23.0,
+    4.5,
+    1.0,
+    0.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_51",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    23.0,
+    6.5,
+    1.5,
+    0.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_52",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    23.0,
+    8.0,
+    1.0,
+    1.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_53",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    23.5,
+    3.0,
+    0.5,
+    1.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_54",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    23.5,
+    5.0,
+    0.5,
+    1.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_wall_55",
+   "name": "堡垒·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    23.5,
+    7.0,
+    0.5,
+    1.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_deck_56",
+   "name": "堡垒·二层制高点",
+   "kind": "vantage",
+   "elevation": 3.0,
+   "rect": [
+    18.0,
+    4.0,
+    6.0,
+    6.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_upper_57",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 6.07,
+   "blocks_los_ground": true,
+   "rect": [
+    18.0,
+    5.5,
+    1.0,
+    4.5
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "stronghold_02_upper_58",
+   "name": "堡垒·二层墙垛",
+   "kind": "heavy_wall",
+   "elevation": 6.07,
+   "blocks_los_ground": true,
+   "rect": [
+    19.0,
+    9.0,
+    3.5,
+    1.0
+   ],
+   "parent": "stronghold_02"
+  },
+  {
+   "id": "light_rubble_02_59",
+   "name": "轻型瓦砾",
+   "kind": "light",
+   "elevation": 1.08,
+   "blocks_los_ground": false,
+   "rect": [
+    9.0,
+    15.0,
+    2.0,
+    2.5
+   ],
+   "parent": "light_rubble_02"
+  },
+  {
+   "id": "light_rubble_02_60",
+   "name": "轻型瓦砾",
+   "kind": "light",
+   "elevation": 1.08,
+   "blocks_los_ground": false,
+   "rect": [
+    9.5,
+    14.5,
+    1.0,
+    0.5
+   ],
+   "parent": "light_rubble_02"
+  },
+  {
+   "id": "light_rubble_02_61",
+   "name": "轻型瓦砾",
+   "kind": "light",
+   "elevation": 1.08,
+   "blocks_los_ground": false,
+   "rect": [
+    9.5,
+    17.5,
+    1.5,
+    0.5
+   ],
+   "parent": "light_rubble_02"
+  },
+  {
+   "id": "large_ruin_02_wall_62",
+   "name": "大型废墟·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    16.5,
+    16.5,
+    1.0,
+    4.0
+   ],
+   "parent": "large_ruin_02"
+  },
+  {
+   "id": "large_ruin_02_wall_63",
+   "name": "大型废墟·底层墙体",
+   "kind": "heavy_wall",
+   "elevation": 3.0,
+   "blocks_los_ground": true,
+   "rect": [
+    17.5,
+    19.5,
+    5.0,
+    1.0
+   ],
+   "parent": "large_ruin_02"
+  },
+  {
+   "id": "large_ruin_02_deck_64",
+   "name": "大型废墟·二层制高点",
+   "kind": "vantage",
+   "elevation": 3.0,
+   "rect": [
+    16.5,
+    16.5,
+    5.5,
+    4.0
+   ],
+   "parent": "large_ruin_02"
+  },
+  {
+   "id": "large_ruin_02_upper_65",
+   "name": "大型废墟·二层墙垛",
+   "kind": "light",
+   "elevation": 4.7,
+   "blocks_los_ground": false,
+   "rect": [
+    16.5,
+    16.5,
+    1.0,
+    4.0
+   ],
+   "parent": "large_ruin_02"
+  },
+  {
+   "id": "large_ruin_02_upper_66",
+   "name": "大型废墟·二层墙垛",
+   "kind": "light",
+   "elevation": 4.7,
+   "blocks_los_ground": false,
+   "rect": [
+    17.5,
+    19.5,
+    5.0,
+    0.5
+   ],
+   "parent": "large_ruin_02"
+  },
+  {
+   "id": "large_ruin_02_upper_67",
+   "name": "大型废墟·二层墙垛",
+   "kind": "light",
+   "elevation": 4.7,
+   "blocks_los_ground": false,
+   "rect": [
+    17.5,
+    20.0,
+    4.5,
+    0.5
+   ],
+   "parent": "large_ruin_02"
+  },
+  {
+   "id": "light_rubble_03_68",
+   "name": "轻型瓦砾",
+   "kind": "light",
+   "elevation": 0.95,
+   "blocks_los_ground": false,
+   "rect": [
+    18.29,
+    15.59,
+    3.33,
+    1.95
+   ],
+   "parent": "light_rubble_03"
+  }
+ ],
+ "visuals": [
+  {
+   "piece_slug": "large_ruin",
+   "family": "large_ruin",
+   "mesh": "res://assets/terrain/volkus/large_ruin/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/large_ruin/model_00_root_diffuse.jpg",
+   "pos_in": [
+    13.804,
+    6.232
+   ],
+   "rot_y_deg": 0.02,
+   "scale": 1.13
+  },
+  {
+   "piece_slug": "heavy_rubble",
+   "family": "heavy_rubble",
+   "mesh": "",
+   "diffuse": "",
+   "pos_in": [
+    18.442,
+    13.402
+   ],
+   "rot_y_deg": 270.01,
+   "scale": 1.1
+  },
+  {
+   "piece_slug": "small_ruin",
+   "family": "small_ruin",
+   "mesh": "res://assets/terrain/volkus/small_ruin/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/small_ruin/model_00_root_diffuse.jpg",
+   "pos_in": [
+    6.604,
+    6.897
+   ],
+   "rot_y_deg": 269.98,
+   "scale": 1.25
+  },
+  {
+   "piece_slug": "fire_steps",
+   "family": "fire_steps",
+   "mesh": "",
+   "diffuse": "",
+   "pos_in": [
+    12.512,
+    19.287
+   ],
+   "rot_y_deg": 317.72,
+   "scale": 1.0
+  },
+  {
+   "piece_slug": "small_ruin_02",
+   "family": "small_ruin",
+   "mesh": "res://assets/terrain/volkus/small_ruin_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/small_ruin_02/model_00_root_diffuse.jpg",
+   "pos_in": [
+    22.931,
+    14.583
+   ],
+   "rot_y_deg": 269.99,
+   "scale": 1.18
+  },
+  {
+   "piece_slug": "fire_steps_02",
+   "family": "fire_steps",
+   "mesh": "",
+   "diffuse": "",
+   "pos_in": [
+    6.961,
+    18.362
+   ],
+   "rot_y_deg": 262.83,
+   "scale": 1.1
+  },
+  {
+   "piece_slug": "fire_steps_03",
+   "family": "fire_steps",
+   "mesh": "res://assets/terrain/volkus/fire_steps_03/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/fire_steps_03/model_00_root_diffuse.jpg",
+   "pos_in": [
+    17.819,
+    3.526
+   ],
+   "rot_y_deg": 136.75,
+   "scale": 1.0
+  },
+  {
+   "piece_slug": "light_rubble",
+   "family": "light_rubble",
+   "mesh": "",
+   "diffuse": "",
+   "pos_in": [
+    12.374,
+    1.213
+   ],
+   "rot_y_deg": 90.01,
+   "scale": 1.15
+  },
+  {
+   "piece_slug": "heavy_rubble_02",
+   "family": "heavy_rubble",
+   "mesh": "",
+   "diffuse": "",
+   "pos_in": [
+    9.544,
+    7.453
+   ],
+   "rot_y_deg": 269.99,
+   "scale": 1.15
+  },
+  {
+   "piece_slug": "stronghold",
+   "family": "stronghold",
+   "mesh": "res://assets/terrain/volkus/stronghold/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/stronghold/model_00_root_diffuse.jpg",
+   "pos_in": [
+    9.973,
+    15.963
+   ],
+   "rot_y_deg": 89.99,
+   "scale": 1.0
+  },
+  {
+   "piece_slug": "stronghold_02",
+   "family": "stronghold",
+   "mesh": "res://assets/terrain/volkus/stronghold_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/stronghold_02/model_00_root_diffuse.jpg",
+   "pos_in": [
+    20.974,
+    6.031
+   ],
+   "rot_y_deg": 180.01,
+   "scale": 1.02
+  },
+  {
+   "piece_slug": "light_rubble_02",
+   "family": "light_rubble",
+   "mesh": "res://assets/terrain/volkus/light_rubble_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/light_rubble_02/model_00_root_diffuse.jpg",
+   "pos_in": [
+    10.05,
+    16.315
+   ],
+   "rot_y_deg": 89.99,
+   "scale": 1.15
+  },
+  {
+   "piece_slug": "large_ruin_02",
+   "family": "large_ruin",
+   "mesh": "res://assets/terrain/volkus/large_ruin_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/large_ruin_02/model_00_root_diffuse.jpg",
+   "pos_in": [
+    18.558,
+    17.897
+   ],
+   "rot_y_deg": 0.02,
+   "scale": 1.13
+  },
+  {
+   "piece_slug": "light_rubble_03",
+   "family": "light_rubble",
+   "mesh": "",
+   "diffuse": "",
+   "pos_in": [
+    19.959,
+    16.565
+   ],
+   "rot_y_deg": 179.99,
+   "scale": 1.15
+  }
+ ],
+ "battlefield_mat": "res://assets/terrain/volkus/battlefield_mat_02.jpg"
+}

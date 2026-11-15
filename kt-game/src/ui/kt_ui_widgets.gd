@@ -42,6 +42,10 @@ static func draw_chamfer_rect(
 	border_col: Color,
 	border_w: float = 1.8
 ) -> void:
+	# Controls can be drawn once before their first layout pass (size 0): a collapsed
+	# rect makes a degenerate polygon and Godot logs "triangulation failed".
+	if r.size.x < 1.0 or r.size.y < 1.0:
+		return
 	var c: float = minf(cut, minf(r.size.x, r.size.y) * 0.35)
 	var pts := PackedVector2Array([
 		Vector2(r.position.x + c, r.position.y),

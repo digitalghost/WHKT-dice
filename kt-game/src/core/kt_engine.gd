@@ -19,10 +19,11 @@ func start_match(
 	mode: String = "ai", # "ai" | "hotseat"
 	human_side: String = "A",
 	aod_primary: String = "sharpshooter",
-	aod_secondary: String = "dueller"
+	aod_secondary: String = "dueller",
+	map_id: String = KTData.DEFAULT_MAP_ID
 ) -> void:
 	undo_stack.clear()
-	var map_data := KTData.load_map(KTData.DEFAULT_MAP_ID)
+	var map_data := KTData.load_map(map_id)
 	var aod_team := KTData.get_team("IMP-AOD")
 	var pm_team := KTData.get_team("CHAOS-PM")
 
@@ -777,7 +778,10 @@ func _mine_check(op: Dictionary, pos: Vector2) -> bool:
 		if str(m["kind"]) != "mine":
 			continue
 		var mp: Vector2 = m["pos"]
-		if KTGeometry.in_control_range_at(pos, float(op["base_radius"]), z, mp, MINE_RADIUS, 0.0, terrains):
+		# The marker lies on whatever floor it was set up on (a mine inside a vantage footprint sits
+		# on the deck, exactly as an operative standing there would).
+		var mz := KTGeometry.elevation_at(mp, terrains)
+		if KTGeometry.in_control_range_at(pos, float(op["base_radius"]), z, mp, MINE_RADIUS, mz, terrains):
 			marks.remove_at(i)
 			var dmg := rng.randi_range(1, 3) + 3
 			op["wounds_cur"] = maxi(0, int(op["wounds_cur"]) - dmg)

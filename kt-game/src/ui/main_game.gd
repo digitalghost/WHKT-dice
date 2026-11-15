@@ -86,6 +86,9 @@ var _sel_mode: String = "ai"
 var _sel_human_side: String = "A"
 var _sel_primary_tactic: String = "sharpshooter"
 var _sel_secondary_tactic: String = "dueller"
+var _sel_map_id: String = KTData.DEFAULT_MAP_ID
+## True once a real battle was started; the title-screen map picker must not wipe it (▶ 继续战局).
+var _battle_in_progress: bool = false
 
 # Pending weapon selection for active operative
 var _selected_weapon_idx: int = 0
@@ -212,6 +215,13 @@ func _ready() -> void:
 	_card_lightbox = CardLightbox.new()
 	add_child(_card_lightbox)
 
+	for arg in OS.get_cmdline_user_args():
+		var arg_s: String = str(arg)
+		if arg_s.begins_with("--map="):
+			var mid: String = arg_s.substr(6)
+			if KTData.MAP_IDS.has(mid):
+				_sel_map_id = mid
+
 	_build_help_modal()
 	_build_title_overlay()
 
@@ -225,11 +235,8 @@ func _ready() -> void:
 	resized.connect(_on_viewport_resized)
 
 	# Initialize background demo match so 3D diorama is alive on the open right half of the Main Menu!
-	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic)
-	engine.auto_deploy_all() # menu backdrop only: skip the interactive pre-battle steps
-	_killzone.bind_engine(engine)
+	_restart_menu_backdrop()
 	call_deferred("_on_viewport_resized")
-	_refresh_all_ui()
 
 	var args := OS.get_cmdline_user_args()
 	if args.has("--autotest-screenshots"):
@@ -1037,7 +1044,7 @@ func _build_title_overlay() -> void:
 	_title_overlay.add_child(stage_badge)
 
 	var sb_lbl := Label.new()
-	sb_lbl.text = "🗺️ 实时演算战区：沃库斯废墟 (30\"×22\") · 双层帝国堡垒制高点 (+3.5\")"
+	sb_lbl.text = "🗺️ 实时演算战区：沃库斯 (30\"×22\") · 认证行动 2025 官方地图 1–6"
 	sb_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	sb_lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	sb_lbl.add_theme_font_size_override("font_size", 12)
@@ -1137,6 +1144,57 @@ func _build_title_overlay() -> void:
 	cfg_hb.add_child(btn_side_a)
 	cfg_hb.add_child(btn_side_b)
 	refresh_cfg_btns.call()
+
+	# Killzone Map Selector (Approved Ops 2025 · Volkus)
+	var map_vb := VBoxContainer.new()
+	map_vb.add_theme_constant_override("separation", 5)
+	vb.add_child(map_vb)
+
+	var map_hdr_lbl := Label.new()
+	map_hdr_lbl.text = "🗺️ 选择杀戮区地图（认证行动 2025 · 沃库斯）"
+	map_hdr_lbl.add_theme_font_size_override("font_size", 13)
+	map_hdr_lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	map_vb.add_child(map_hdr_lbl)
+
+	var map_hb := HBoxContainer.new()
+	map_hb.add_theme_constant_override("separation", 6)
+	map_vb.add_child(map_hb)
+
+	var map_hint_lbl := Label.new()
+	map_hint_lbl.add_theme_font_size_override("font_size", 12)
+	map_hint_lbl.add_theme_color_override("font_color", KTTheme.COL_MUTED)
+	map_vb.add_child(map_hint_lbl)
+
+	var map_btns: Dictionary = {}
+	var refresh_map_btns := func() -> void:
+		for mid_k in map_btns.keys():
+			var mid_s: String = str(mid_k)
+			var mb_item: Button = map_btns[mid_k]
+			var is_sel: bool = (mid_s == _sel_map_id)
+			var short_lbl: String = KTData.map_short_label(mid_s)
+			mb_item.text = ("✓ " + short_lbl) if is_sel else short_lbl
+			KTTheme.apply_accent_button(mb_item, KTTheme.COL_GOLD_BRIGHT if is_sel else KTTheme.COL_MUTED, 0.30 if is_sel else 0.14)
+		var hint: String = KTData.map_deploy_hint(_sel_map_id)
+		if _battle_in_progress and _sel_map_id != str(engine.state["map"].get("id", "")):
+			hint += " · 新开一局后生效，当前战局不受影响"
+		map_hint_lbl.text = hint
+
+	for mid in KTData.MAP_IDS:
+		var mid_str: String = str(mid)
+		var mbtn := Button.new()
+		mbtn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		mbtn.custom_minimum_size = Vector2(0, 34)
+		mbtn.add_theme_font_size_override("font_size", 12)
+		KTWidgets.attach_button_juice(mbtn, 1.05)
+		mbtn.pressed.connect(func() -> void:
+			_sel_map_id = mid_str
+			refresh_map_btns.call()
+			if not _battle_in_progress:
+				_restart_menu_backdrop()
+		)
+		map_btns[mid_str] = mbtn
+		map_hb.add_child(mbtn)
+	refresh_map_btns.call()
 
 	# Heroic Launch Blade Row
 	var launch_row := HBoxContainer.new()
@@ -1526,6 +1584,15 @@ func _play_deploy_transition() -> void:
 	tw.tween_callback(func(): _deploy_fade.visible = false)
 
 
+## Menu backdrop only: a throw-away match on the selected map so the 3D diorama behind the title
+## screen is alive. Skips the interactive pre-battle steps.
+func _restart_menu_backdrop() -> void:
+	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic, _sel_map_id)
+	engine.auto_deploy_all()
+	_killzone.bind_engine(engine)
+	_refresh_all_ui()
+
+
 func _start_new_battle() -> void:
 	_ai_timer.stop()
 	_hide_skill_tooltip()
@@ -1535,7 +1602,8 @@ func _start_new_battle() -> void:
 			(m as Control).queue_free()
 	_medallions_by_uid.clear()
 
-	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic)
+	_battle_in_progress = true
+	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic, _sel_map_id)
 	_killzone.bind_engine(engine)
 	# Camera swoops from wherever the menu orbit left it into the isometric battle view.
 	_killzone.reset_isometric_view(false)
@@ -3240,10 +3308,14 @@ func _run_autotest_screenshot_tour() -> void:
 	_phase_toast.visible = false
 	var first_op: Dictionary = engine.state["operatives"][0]
 	var cap_uid: String = str(first_op["uid"])
+	# Map 4: stand just north of the SW large ruin (deck Rect2(4.5, 15.5, 6.5, 4.0), open to the
+	# north) and aim the ruler onto the deck: 3" along the ground + 2" climb.
+	first_op["pos"] = Vector2(7.0, 13.6)
+	_killzone.sync_visual_positions(true)
 	engine.activate_operative(cap_uid, "engage")
 	_killzone.start_move_mode(cap_uid, "reposition")
-	_killzone.hovered_board_inches = Vector2(5.4, 16.6)
-	_killzone.target_focus = _killzone.inches_to_world(Vector2(8.2, 15.6), 1.3)
+	_killzone.hovered_board_inches = Vector2(7.0, 16.6)
+	_killzone.target_focus = _killzone.inches_to_world(Vector2(7.4, 15.4), 1.3)
 	_killzone.target_yaw_deg = 142.0
 	_killzone.target_pitch_deg = 31.0
 	_killzone.target_dist = 31.0
@@ -3276,7 +3348,7 @@ func _run_autotest_screenshot_tour() -> void:
 		var oid: String = str(op["op_id"])
 		if oid == "aod_sniper":
 			sniper_uid = str(op["uid"])
-			op["pos"] = Vector2(8.1, 15.2)
+			op["pos"] = Vector2(25.0, 5.0) # NE large ruin deck (+3.0"), map 4
 		elif oid in ["aod_assault_warrior", "aod_assault_sergeant"] and assault_uid.is_empty():
 			assault_uid = str(op["uid"])
 		elif str(op["side"]) == "B":
@@ -3285,13 +3357,13 @@ func _run_autotest_screenshot_tour() -> void:
 				pm_fighter_uid = str(op["uid"])
 			if pm_count == 1:
 				pm_enemy_uid = str(op["uid"])
-				op["pos"] = Vector2(6.2, 8.6)
+				op["pos"] = Vector2(23.6, 10.7) # behind light rubble (x 23..25, y 6.5..10): standard cover
 				op["order"] = "engage"
 			elif pm_count == 2:
-				op["pos"] = Vector2(14.5, 11.0)
+				op["pos"] = Vector2(22.6, 13.4)
 				op["order"] = "engage"
 			elif pm_count == 3:
-				op["pos"] = Vector2(12.5, 5.2)
+				op["pos"] = Vector2(19.0, 5.5)
 				op["order"] = "engage"
 	if assault_uid.is_empty():
 		assault_uid = cap_uid
@@ -3365,8 +3437,8 @@ func _run_autotest_screenshot_tour() -> void:
 	att_m["ready"] = true
 	att_m["ap_left"] = 3
 	att_m["actions_taken"] = []
-	att_m["pos"] = Vector2(12.2, 12.6)
-	def_m["pos"] = Vector2(13.2, 12.2)
+	att_m["pos"] = Vector2(10.6, 12.0) # open ground west of the central stronghold, map 4
+	def_m["pos"] = Vector2(12.0, 11.7)
 	_killzone.sync_visual_positions(true)
 	engine.state["turn_side"] = "A"
 	engine.activate_operative(assault_uid, "engage")

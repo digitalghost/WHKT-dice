@@ -20,6 +20,7 @@ func _init() -> void:
 	_test_equipment()
 	_test_tac_ops()
 	_test_universal_equipment()
+	_test_all_official_maps()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -60,23 +61,28 @@ func _test_geometry_movement_and_los() -> void:
 	eng.auto_deploy_all()
 	var cap: Dictionary = _find_by_op_id(eng, "aod_captain")
 
-	# 1. Straight path through impassable Heavy wall (`small_ruin_02_12`: Rect2(12.5, 18.5, 6.0, 1.0)) should fail
-	cap["pos"] = Vector2(15.2, 20.8)
-	var blocked_pts: Array[Vector2] = [Vector2(15.2, 20.8), Vector2(15.2, 16.8)]
+	# Coordinates below are for official map 4 (data/maps/volkus_25_04.json) as rebuilt by
+	# tools/build_volkus_map.py after its conventions were fitted to the printed map tiles.
+	# 1. Straight path through the north small ruin's Heavy wall (`small_ruin_02`, Rect2(11.0, 2.5, 6.0, 1.0)) should fail
+	cap["pos"] = Vector2(14.0, 1.2)
+	for o in eng.state["operatives"]:
+		if str(o["side"]) != str(cap["side"]):
+			o["pos"] = Vector2(28.0 + 0.01 * float(str(o["uid"]).length()), 21.0) # keep enemies out of control range
+	var blocked_pts: Array[Vector2] = [Vector2(14.0, 1.2), Vector2(14.0, 5.5)]
 	var res_blk: Dictionary = KTGeometry.validate_move_path(blocked_pts, cap, "reposition", 6.0, eng.state)
-	_assert_true(not bool(res_blk["ok"]), "Heavy wall blocks straight walk-through")
+	_assert_true(not bool(res_blk["ok"]) and str(res_blk["reason"]).contains("地形"), "Heavy wall blocks straight walk-through")
 
-	# 2. Climbing onto SW Vantage deck (`large_ruin_02_deck_71`: Rect2(0.0, 16.0, 6.0, 3.5), +3.0") adds +2" climb cost
-	cap["pos"] = Vector2(2.5, 15.0) # Just north of SW Vantage deck (open side)
-	var climb_pts: Array[Vector2] = [Vector2(2.5, 15.0), Vector2(2.5, 17.0)] # 2" horizontal + 2" climb = 4"
+	# 2. Climbing onto the SW large ruin's Vantage deck (`large_ruin_deck`: Rect2(4.5, 15.5, 6.5, 4.0), +3.0") adds +2" climb cost
+	cap["pos"] = Vector2(7.0, 14.5) # just north of the deck (open side)
+	var climb_pts: Array[Vector2] = [Vector2(7.0, 14.5), Vector2(7.0, 16.5)] # 2" horizontal + 2" climb = 4"
 	var res_clb: Dictionary = KTGeometry.validate_move_path(climb_pts, cap, "reposition", 6.0, eng.state)
 	_assert_true(bool(res_clb["ok"]) and absf(float(res_clb["cost"]) - 4.0) < 0.15, "Vantage +2\" climb cost calculated accurately")
 
-	# 3. Concealed target behind Light Rubble (`light_rubble_18`: Rect2(24.21, 7.29, 3.33, 1.95), h=0.95") vs Ground shooter (Mortis profile) -> untargetable!
+	# 3. Concealed target behind Light Rubble (`light_rubble_03`: Rect2(24.31, 11.33, 3.33, 1.95), h=0.95") vs Ground shooter (Mortis profile) -> untargetable!
 	var sniper: Dictionary = _find_by_op_id(eng, "aod_sniper")
 	var target: Dictionary = _find_by_op_id(eng, "pm_champion")
-	sniper["pos"] = Vector2(20.0, 8.2)
-	target["pos"] = Vector2(28.4, 8.2)
+	sniper["pos"] = Vector2(26.0, 7.5)
+	target["pos"] = Vector2(26.0, 14.1)
 	target["order"] = "conceal"
 	var exec_sniper: Dictionary = sniper["weapons"][1]   # Executioner (Seek Light + Saturate)
 	var mortis_sniper: Dictionary = sniper["weapons"][3] # Mortis (Piercing 1 + Devastating 3, no Seek Light)
@@ -87,9 +93,10 @@ func _test_geometry_movement_and_los() -> void:
 	var ev_seek: Dictionary = KTGeometry.evaluate_shot(sniper, target, exec_sniper, eng.state)
 	_assert_true(bool(ev_seek["valid"]), "Executioner Seek Light breaks Light-Cover Conceal from ground")
 
-	# 4. Move Sniper onto NE Vantage (`large_ruin_deck_4`, +3.0", at x=22.0, y=5.0) shooting Concealed target behind `light_rubble_18` (x=26.0, y=10.0) with Mortis
-	sniper["pos"] = Vector2(22.0, 5.0)
-	target["pos"] = Vector2(26.0, 10.0)
+	# 4. Move Sniper onto the NE large ruin's Vantage deck (`large_ruin_02_deck`: Rect2(22.5, 2.5, 6.0, 3.5), +3.0") shooting a
+	#    Concealed target behind `light_rubble_02` (x 23..25, y 6.5..10) with Mortis
+	sniper["pos"] = Vector2(25.0, 5.0)
+	target["pos"] = Vector2(23.6, 10.7)
 	var ev_vant_conceal: Dictionary = KTGeometry.evaluate_shot(sniper, target, mortis_sniper, eng.state)
 	_assert_true(bool(ev_vant_conceal["valid"]) and str(ev_vant_conceal["cover"]) == "improved", "Vantage breaks Light-Cover Conceal and grants defender Improved Cover")
 
@@ -98,16 +105,16 @@ func _test_geometry_movement_and_los() -> void:
 	var ev_vant_engage: Dictionary = KTGeometry.evaluate_shot(sniper, target, mortis_sniper, eng.state)
 	_assert_true(bool(ev_vant_engage["valid"]) and int(ev_vant_engage["vantage_accurate"]) == 1, "Vantage grants Accurate 1 against Engage target")
 
-	# 6. 3D visibility: a 2.21" heavy ruin wall (`small_ruin_9` x 2.5..7.5, y 2.5..3.5) between
+	# 6. 3D visibility: the SE small ruin's 2.21" heavy wall (`small_ruin`, Rect2(23.0, 18.5, 4.0, 1.0)) between
 	#    two ground-level operatives blocks line of sight (both eye 1.4" and model top 1.6" < 2.21").
 	var ters: Array = eng.state["map"]["terrains"]
-	var los_blocked := KTGeometry.has_visibility(Vector2(3.8, 1.4), 0.63, 0.0, Vector2(3.8, 6.0), 0.63, 0.0, ters)
+	var los_blocked := KTGeometry.has_visibility(Vector2(25.0, 17.3), 0.63, 0.0, Vector2(25.0, 20.8), 0.63, 0.0, ters)
 	_assert_true(not los_blocked, "2.2\" heavy ruin wall blocks ground-to-ground visibility")
-	#    From the +3.0" vantage deck (`stronghold_deck_33`, eye at 4.4") the same wall does not block.
-	var los_from_deck := KTGeometry.has_visibility(Vector2(14.2, 8.0), 0.63, 3.0, Vector2(3.8, 1.4), 0.63, 0.0, ters)
+	#    From +3.0" up (eye at 4.4") the same wall does not block.
+	var los_from_deck := KTGeometry.has_visibility(Vector2(25.0, 15.5), 0.63, 3.0, Vector2(25.0, 20.8), 0.63, 0.0, ters)
 	_assert_true(los_from_deck, "Vantage shooter sees over a 2.2\" ruin wall")
-	#    A ~1" light rubble (`light_rubble_18`, h=0.95") never blocks visibility.
-	var los_light := KTGeometry.has_visibility(Vector2(20.0, 8.2), 0.63, 0.0, Vector2(28.4, 8.2), 0.63, 0.0, ters)
+	#    A ~1" light rubble (`light_rubble_03`, h=0.95") never blocks visibility.
+	var los_light := KTGeometry.has_visibility(Vector2(26.0, 7.5), 0.63, 0.0, Vector2(26.0, 14.1), 0.63, 0.0, ters)
 	_assert_true(los_light, "Light barricade does not block visibility")
 	#    Concealed target standing 2.5" behind the ruin wall (no cover, no LoS) is NOT a valid target.
 	var pm_fighter: Dictionary = _find_by_op_id(eng, "pm_fighter")
@@ -515,6 +522,52 @@ func _test_tac_ops() -> void:
 	e2.recalculate_objectives_and_kills()
 	e2._score_tac_op_end_of_tp()
 	_assert_true(int(e2.state["sides"]["A"]["vp_tac"]) == 3, "Damaged Envoy scores only 1VP")
+
+
+func _test_all_official_maps() -> void:
+	_assert_true(KTData.MAP_IDS.size() == 6, "All six Approved Ops 2025 Volkus maps are listed")
+	var all_ok := true
+	var zones_ok := true
+	var spawns_ok := true
+	var deploy_ok := true
+	for map_id in KTData.MAP_IDS:
+		var num := int(map_id.right(2))
+		var eng := KTEngine.new(300 + num)
+		eng.start_match("hotseat", "A", "dueller", "hardy", map_id)
+		var m: Dictionary = eng.state["map"]
+		if str(m.get("id", "")) != map_id or (m["objectives"] as Array).size() != 3 or (m["visuals"] as Array).size() != 14:
+			all_ok = false
+		# Rulebook: maps 1-3 deploy in 6" strips on the short edges, maps 4-6 in 3" strips on the long edges.
+		var dz_a: Rect2 = m["drop_zone_a"]
+		var dz_b: Rect2 = m["drop_zone_b"]
+		var want := Vector2(6.0, 22.0) if num <= 3 else Vector2(30.0, 3.0)
+		if not dz_a.size.is_equal_approx(want) or not dz_b.size.is_equal_approx(want) or dz_a.intersects(dz_b):
+			zones_ok = false
+		for t in m["terrains"]:
+			var tr: Rect2 = t["rect"]
+			if tr.position.x < -0.01 or tr.position.y < -0.01 or tr.end.x > 30.01 or tr.end.y > 22.01:
+				all_ok = false
+		for key in ["spawn_a", "spawn_b"]:
+			var dz: Rect2 = dz_a if key == "spawn_a" else dz_b
+			for sp in m[key]:
+				var spv: Vector2 = sp
+				if not dz.grow(-0.79).has_point(spv):
+					spawns_ok = false
+				for t in m["terrains"]:
+					if KTGeometry.circle_intersects_rect(spv, 0.79, t["rect"]):
+						spawns_ok = false
+		eng.auto_deploy_all()
+		if str(eng.state["phase"]) != "INITIATIVE":
+			deploy_ok = false
+		for o in eng.state["operatives"]:
+			var own: Rect2 = eng.state["map"]["drop_zone_a"] if str(o["side"]) == "A" else eng.state["map"]["drop_zone_b"]
+			var opos: Vector2 = o["pos"]
+			if not bool(o.get("deployed", false)) or not own.has_point(opos):
+				deploy_ok = false
+	_assert_true(all_ok, "Every official map loads with 3 objectives, 14 terrain pieces and all rule rects on the board")
+	_assert_true(zones_ok, "Maps 1-3 use 6\" short-edge drop zones, maps 4-6 use 3\" long-edge drop zones")
+	_assert_true(spawns_ok, "Default spawn spots sit in the drop zone clear of all terrain on every map")
+	_assert_true(deploy_ok, "Both kill teams can fully deploy inside their drop zones on every map")
 
 
 func _test_universal_equipment() -> void:

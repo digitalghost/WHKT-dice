@@ -534,12 +534,11 @@ static func build_terrain_model(parent: Node3D, v: Dictionary, board_w: float, b
 	var root := Node3D.new()
 	var p_in: Vector2 = v["pos_in"]
 	root.position = Vector3(p_in.x - board_w * 0.5, 0.0, p_in.y - board_h * 0.5)
-	# TTS scene is mirrored in X vs the printed maps (see tools/build_volkus_map.py). The build
-	# script applies R(−θ) then mirrors X. Godot composes scale then rotation (T·R·S), and a
-	# mirror flips the rotation sense, so the equivalent here is scale.x = −s with rotation.y = +θ.
-	# Verified on the L-shaped large_ruin: this combination overlays its rule rectangles exactly.
+	# rot_y_deg is the ready-to-use Godot yaw computed by tools/build_volkus_map.py (see its
+	# "Coordinate conventions" block, fitted against the six official 2025 map tiles). The piece is
+	# not mirrored, so the scale stays positive and the mesh matches its rule rectangles.
 	var s := float(v.get("scale", 1.0))
-	root.scale = Vector3(-s, s, s)
+	root.scale = Vector3(s, s, s)
 	root.rotation_degrees = Vector3(0.0, float(v.get("rot_y_deg", 0.0)), 0.0)
 	parent.add_child(root)
 
@@ -555,7 +554,7 @@ static func build_terrain_model(parent: Node3D, v: Dictionary, board_w: float, b
 		mat.albedo_color = Color(0.42, 0.42, 0.45)
 	mat.roughness = 0.88
 	mat.metallic = 0.02
-	# Mirrored scale flips winding; render both faces so walls don't vanish from inside.
+	# Ruin walls are single-sided shells: render both faces so they don't vanish from inside.
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	mi.material_override = mat
