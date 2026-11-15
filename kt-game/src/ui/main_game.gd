@@ -185,6 +185,8 @@ func _ready() -> void:
 	_killzone.hover_info_changed.connect(_on_board_hover_changed)
 	_killzone.deploy_spot_clicked.connect(_on_board_deploy_spot_clicked)
 	_killzone.equipment_spot_clicked.connect(_on_board_equipment_spot_clicked)
+	_killzone.point_picked.connect(_on_board_point_picked)
+	_killzone.enemy_picked.connect(_on_board_enemy_picked)
 	_killzone.cancel_interaction_requested.connect(func():
 		_hide_skill_tooltip()
 		_refresh_all_ui()
@@ -320,7 +322,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		var phase: String = str(engine.state["phase"])
 		if kc == KEY_R and phase == "EQDEPLOY" and _killzone.interaction_mode == "eq_deploy":
 			accept_event()
-			_killzone.eq_deploy_rot = not _killzone.eq_deploy_rot
+			var r_spec: Dictionary = KTEngine.EQ_ITEM_SPECS.get(_killzone.eq_deploy_kind, {})
+			if str(r_spec.get("terrain", "")) != "":
+				_killzone.eq_deploy_rot = not _killzone.eq_deploy_rot
 			return
 		if kc == KEY_SPACE:
 			if phase == "DROPZONE":
@@ -341,8 +345,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif phase == "EQUIP":
 				accept_event()
 				var es_k: String = engine.setup_side()
-				if bool(engine.confirm_equipment(es_k, _equip_pick if _equip_pick_side == es_k else engine.default_equipment(es_k)).get("ok", false)):
+				var use_pick: Array = _equip_pick if _equip_pick_side == es_k else engine.default_equipment(es_k)
+				var use_opts: Dictionary = _equip_opts if _equip_pick_side == es_k else {}
+				if bool(engine.confirm_equipment(es_k, use_pick, use_opts).get("ok", false)):
 					_equip_pick_side = ""
+					_equip_opts = {}
 				_refresh_all_ui()
 				return
 			elif phase == "INITIATIVE":
@@ -810,6 +817,7 @@ func _build_context_stage() -> void:
 
 	_context_hb = HBoxContainer.new()
 	_context_hb.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_context_hb.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	_context_hb.alignment = BoxContainer.ALIGNMENT_CENTER
 	_context_hb.add_theme_constant_override("separation", 10)
 	_context_hb.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -868,7 +876,10 @@ func _show_skill_tooltip(slot: KTWidgets.SkillSlot) -> void:
 	if _skill_tooltip == null or slot == null:
 		return
 	_tip_title_lbl.text = slot.full_title
-	_tip_meta_lbl.text = "[%s] · %d AP" % [slot.hotkey_str, slot.ap_cost] if slot.ap_cost > 0 else "[%s]" % slot.hotkey_str
+	if slot.hotkey_str.is_empty():
+		_tip_meta_lbl.text = "%d AP" % slot.ap_cost
+	else:
+		_tip_meta_lbl.text = "[%s] · %d AP" % [slot.hotkey_str, slot.ap_cost] if slot.ap_cost > 0 else "[%s]" % slot.hotkey_str
 	_tip_desc_lbl.text = slot.desc_text
 	for c in _tip_rules_flow.get_children():
 		c.queue_free()
@@ -1812,6 +1823,10 @@ func _update_tactical_pill() -> void:
 			_guide_lbl.text = "🎯 悬停敌军查看锁定命中率与掩护锥，左键点击有效目标开火 ｜ 右键取消"
 		elif _killzone.interaction_mode == "fight":
 			_guide_lbl.text = "⚔️ 点击近战控制区内的敌方棋子展开白刃格斗 ｜ 右键取消"
+		elif _killzone.interaction_mode == "pick_point":
+			_guide_lbl.text = "💨 在 6\" 内可见位置点击放置烟雾手雷 ｜ 右键取消"
+		elif _killzone.interaction_mode == "pick_enemy":
+			_guide_lbl.text = "💫 点击 6\" 内可见的敌方特工投掷震荡手雷 ｜ 右键取消"
 		else:
 			var aop: Dictionary = engine.get_op(str(engine.state["active_op_uid"]))
 			_guide_lbl.text = "⚡ 【%s】听候指令 — 按 [1]~[9] 触发技能槽，[Space] 结束激活" % str(aop.get("name", ""))
@@ -2204,6 +2219,7 @@ func _build_envoy_choice(side: String) -> void:
 ## Rulebook p.106: each player secretly selects up to 4 equipment options (each at most once).
 var _equip_pick: Array = []
 var _equip_pick_side: String = ""
+var _equip_opts: Dictionary = {}
 
 func _build_equip_select() -> void:
 	var side: String = engine.setup_side()
@@ -2214,6 +2230,7 @@ func _build_equip_select() -> void:
 	if _equip_pick_side != side:
 		_equip_pick = engine.default_equipment(side)
 		_equip_pick_side = side
+		_equip_opts = {}
 	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
 	var pnl := PanelContainer.new()
 	pnl.size_flags_vertical = Control.SIZE_SHRINK_END
@@ -2227,7 +2244,7 @@ func _build_equip_select() -> void:
 	vb.add_child(hdr)
 	var info := Label.new()
 	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	info.text = "【%s】装备 %d / 4  ·  点击切换，悬停看原文  ·  下排为通用装备（灰色尚未实装）" % [sname, _equip_pick.size()]
+	info.text = "【%s】装备 %d / 4  ·  点击切换，悬停看原文  ·  下排为通用装备" % [sname, _equip_pick.size()]
 	info.add_theme_font_size_override("font_size", 14)
 	info.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
 	hdr.add_child(info)
@@ -2236,8 +2253,9 @@ func _build_equip_select() -> void:
 	KTTheme.apply_accent_button(ok_b, KTTheme.COL_EMERALD, 0.34)
 	KTWidgets.attach_button_juice(ok_b, 1.05, "phase_horn")
 	ok_b.pressed.connect(func():
-		if bool(engine.confirm_equipment(side, _equip_pick).get("ok", false)):
+		if bool(engine.confirm_equipment(side, _equip_pick, _equip_opts).get("ok", false)):
 			_equip_pick_side = ""
+			_equip_opts = {}
 		_refresh_all_ui()
 	)
 	hdr.add_child(ok_b)
@@ -2267,8 +2285,10 @@ func _build_equip_select() -> void:
 		cards.add_child(b)
 
 	# Universal equipment (rulebook p.98-103): any kill team may take these
-	var uni_row := HBoxContainer.new()
-	uni_row.add_theme_constant_override("separation", 6)
+	var uni_row := HFlowContainer.new()
+	uni_row.custom_minimum_size = Vector2(968, 0)
+	uni_row.add_theme_constant_override("h_separation", 6)
+	uni_row.add_theme_constant_override("v_separation", 6)
 	vb.add_child(uni_row)
 	for u_v in KTEngine.universal_equipment_options():
 		var u: Dictionary = u_v
@@ -2277,7 +2297,7 @@ func _build_equip_select() -> void:
 		var u_picked: bool = _equip_pick.has(u_id)
 		var ub := Button.new()
 		ub.text = "%s%s" % ["✓ " if u_picked else "", str(u["title"])]
-		ub.tooltip_text = str(u["body"]) + ("" if u_ready else "\n\n（尚未实装，暂不可选）")
+		ub.tooltip_text = str(u["body"])
 		ub.custom_minimum_size = Vector2(104, 34)
 		ub.add_theme_font_size_override("font_size", 12)
 		ub.disabled = not u_ready
@@ -2290,6 +2310,53 @@ func _build_equip_select() -> void:
 			_refresh_all_ui()
 		)
 		uni_row.add_child(ub)
+
+	var has_util: bool = _equip_pick.has("UNI-EQ-utilitygrenades")
+	var has_exp: bool = _equip_pick.has("UNI-EQ-explosivegrenades")
+	if has_util or has_exp:
+		var gren_row := HBoxContainer.new()
+		gren_row.add_theme_constant_override("separation", 8)
+		vb.add_child(gren_row)
+		if has_util:
+			var cur_u: String = str(_equip_opts.get("utility", "mix"))
+			var lbl_u: String = "烟雾×1 + 震荡×1"
+			var next_u: String = "stun2"
+			if cur_u == "smoke2":
+				lbl_u = "烟雾×2"
+				next_u = "mix"
+			elif cur_u == "stun2":
+				lbl_u = "震荡×2"
+				next_u = "smoke2"
+			var bu := Button.new()
+			bu.text = "💨 功能型手雷组合：%s（点击切换）" % lbl_u
+			bu.custom_minimum_size = Vector2(280, 32)
+			bu.add_theme_font_size_override("font_size", 12)
+			KTTheme.apply_accent_button(bu, KTTheme.COL_GOLD_BRIGHT, 0.26)
+			bu.pressed.connect(func():
+				_equip_opts["utility"] = next_u
+				_refresh_all_ui()
+			)
+			gren_row.add_child(bu)
+		if has_exp:
+			var cur_e: String = str(_equip_opts.get("explosive", "mix"))
+			var lbl_e: String = "破片×1 + 穿甲×1"
+			var next_e: String = "krak2"
+			if cur_e == "frag2":
+				lbl_e = "破片×2"
+				next_e = "mix"
+			elif cur_e == "krak2":
+				lbl_e = "穿甲×2"
+				next_e = "frag2"
+			var be := Button.new()
+			be.text = "💥 爆破型手雷组合：%s（点击切换）" % lbl_e
+			be.custom_minimum_size = Vector2(280, 32)
+			be.add_theme_font_size_override("font_size", 12)
+			KTTheme.apply_accent_button(be, KTTheme.COL_GOLD_BRIGHT, 0.26)
+			be.pressed.connect(func():
+				_equip_opts["explosive"] = next_e
+				_refresh_all_ui()
+			)
+			gren_row.add_child(be)
 
 
 ## Rulebook p.105 step 2: each player secretly selects operatives per the team's selection rules.
@@ -2507,7 +2574,8 @@ func _build_eq_deploy_cards() -> void:
 	rot_b.text = "⟳ 旋转 90°\n[R]"
 	rot_b.custom_minimum_size = Vector2(110, 72)
 	rot_b.size_flags_vertical = Control.SIZE_SHRINK_END
-	rot_b.disabled = picked.is_empty() or picked == "mine"
+	var picked_spec: Dictionary = KTEngine.EQ_ITEM_SPECS.get(picked, {})
+	rot_b.disabled = picked.is_empty() or str(picked_spec.get("terrain", "")) == ""
 	KTTheme.apply_accent_button(rot_b, acc, 0.20)
 	rot_b.pressed.connect(func(): _killzone.eq_deploy_rot = not _killzone.eq_deploy_rot)
 	_context_hb.add_child(rot_b)
@@ -2708,7 +2776,18 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 	var ap_left: int = int(op["ap_left"])
 	var ap_base: int = int(op["apl_base"])
 	_hero_ap_strip.setup(ap_left, ap_base)
-	_hero_stat_lbl.text = "移 %.0f\" · 防 %d+" % [engine.get_effective_move_inches(op, "reposition"), int(op["save"])]
+	var stat_txt: String = "移 %.0f\" · 防 %d+" % [engine.get_effective_move_inches(op, "reposition"), int(op["save"])]
+	var op_side_s: String = str(op["side"])
+	var g_parts: PackedStringArray = PackedStringArray()
+	var g_defs: Array = [["frag", "破"], ["krak", "穿"], ["smoke", "烟"], ["stun", "震"]]
+	for gd_v in g_defs:
+		var gd: Array = gd_v
+		var g_cnt: int = engine.grenades_left(op_side_s, str(gd[0]))
+		if g_cnt > 0:
+			g_parts.append("%s%d" % [str(gd[1]), g_cnt])
+	if not g_parts.is_empty():
+		stat_txt += " · 雷 " + " ".join(g_parts)
+	_hero_stat_lbl.text = stat_txt
 
 	# Abilities as rule chips (skip the shared faction rule "阿斯塔特" to save space; it's on the crest)
 	for c in _hero_abilities_flow.get_children():
@@ -2751,6 +2830,21 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 	_add_hotbar_move_slot(uid, "dash", "冲刺", "高速冲刺 (Dash · 3\")", KEY_2, "2", acts["dash"], Color(0.24, 0.78, 0.95))
 	_add_hotbar_move_slot(uid, "charge", "冲锋", "突击冲锋 (Charge)", KEY_3, "3", acts["charge"], Color(0.96, 0.55, 0.18))
 	_add_hotbar_move_slot(uid, "fall_back", "后撤", "脱离近战 (Fall Back)", KEY_4, "4", acts["fall_back"], KTTheme.COL_VIOLET)
+	if acts.has("barricade_move"):
+		var bm_info: Dictionary = acts["barricade_move"]
+		if bool(bm_info["enabled"]):
+			var bm_armed: bool = (_killzone.interaction_mode == "move" and _killzone.move_action_kind == "barricade_move")
+			var slot_bm := _make_skill_slot(
+				"reposition", "携盾", "与掩体移动 (1AP)", str(bm_info["reason"]),
+				"", 1, Color(0.32, 0.72, 0.92), false, bm_armed, 0
+			)
+			slot_bm.triggered.connect(func():
+				if bm_armed:
+					_killzone.clear_interaction()
+				else:
+					_killzone.start_move_mode(uid, "barricade_move")
+				_refresh_all_ui()
+			)
 
 	# [5] Shoot Slot
 	var shoot_info: Dictionary = acts["shoot"]
@@ -2811,16 +2905,38 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 	var u_idx: int = 0
 	for ua_v in engine.get_unique_actions(op):
 		var ua: Dictionary = ua_v
-		var hk_num: String = str(8 + u_idx)
-		var kc_u: int = KEY_8 if u_idx == 0 else KEY_9
-		var short_u: String = str(ua["name"]).split("(")[0].split("（")[0].strip_edges().substr(0, 4)
-		var slot_u := _make_skill_slot(
-			"unique", short_u, str(ua["name"]), str(ua["desc"]),
-			hk_num, int(ua.get("cost", 1)), KTTheme.COL_VIOLET, not bool(ua["enabled"]), false, kc_u
-		)
 		var ab_id: String = str(ua["id"])
 		var ab_nm: String = str(ua["name"])
+		var hk_num: String = "8" if u_idx == 0 else ("9" if u_idx == 1 else "")
+		var kc_u: int = KEY_8 if u_idx == 0 else (KEY_9 if u_idx == 1 else 0)
+		var u_cost: int = 0 if ab_id == "eq_resupply" else int(ua.get("cost", 1))
+		var needs_pt: bool = bool(ua.get("needs_point", false))
+		var needs_tgt: bool = bool(ua.get("needs_target", false))
+		var u_armed: bool = (needs_pt and _killzone.interaction_mode == "pick_point") or (needs_tgt and _killzone.interaction_mode == "pick_enemy")
+		var short_u: String = ab_nm.split("(")[0].split("（")[0].strip_edges().substr(0, 4)
+		var slot_u := _make_skill_slot(
+			"unique", short_u, ab_nm, str(ua["desc"]),
+			hk_num, u_cost, KTTheme.COL_VIOLET, not bool(ua["enabled"]), u_armed, kc_u
+		)
 		slot_u.triggered.connect(func():
+			if needs_pt:
+				if u_armed:
+					_killzone.clear_interaction()
+				else:
+					_killzone.start_pick_point_mode(uid)
+				_refresh_all_ui()
+				return
+			if needs_tgt:
+				if u_armed:
+					_killzone.clear_interaction()
+				else:
+					var cur_op: Dictionary = engine.get_op(uid)
+					var t_uids: Array = []
+					for st_op in engine.stun_targets(cur_op):
+						t_uids.append(str(st_op["uid"]))
+					_killzone.start_pick_enemy_mode(uid, t_uids)
+				_refresh_all_ui()
+				return
 			var res: Dictionary = engine.execute_unique_action(uid, ab_id)
 			if not bool(res["ok"]):
 				_killzone.spawn_floating_text(op["pos"], str(res.get("msg", "")), KTTheme.COL_CRIMSON)
@@ -2975,6 +3091,41 @@ func _on_board_move_committed(waypoints: Array[Vector2]) -> void:
 	if bool(res["ok"]):
 		KTSfx.play("move_confirm", -4.0, 0.05)
 		_killzone.clear_interaction()
+	elif not waypoints.is_empty() and not str(res.get("msg", "")).is_empty():
+		_killzone.spawn_floating_text(waypoints[-1], str(res.get("msg", "")), KTTheme.COL_CRIMSON)
+	_refresh_all_ui()
+
+
+func _on_board_point_picked(uid: String, pos_in: Vector2) -> void:
+	var res: Dictionary = engine.use_smoke_grenade(uid, pos_in)
+	if bool(res.get("ok", false)):
+		_killzone.clear_interaction()
+		KTSfx.play("order_servo", -3.5, 0.05)
+		_killzone.spawn_floating_text(pos_in, "💨 烟雾手雷", KTTheme.COL_TEXT)
+	else:
+		_killzone.spawn_floating_text(pos_in, str(res.get("msg", "")), KTTheme.COL_CRIMSON)
+	_refresh_all_ui()
+
+
+func _on_board_enemy_picked(uid: String, target_uid: String) -> void:
+	var res: Dictionary = engine.use_stun_grenade(uid, target_uid)
+	if bool(res.get("ok", false)):
+		_killzone.clear_interaction()
+		KTSfx.play("order_servo", -3.5, 0.05)
+		var rolls: Array = res.get("rolls", [])
+		for r_v in rolls:
+			var r_d: Dictionary = r_v
+			var v_op: Dictionary = engine.get_op(str(r_d["uid"]))
+			if v_op.is_empty():
+				continue
+			var roll_i: int = int(r_d["roll"])
+			var stunned: bool = bool(r_d["stunned"])
+			var txt: String = ("💫 震荡 %d：APL-1" % roll_i) if stunned else ("震荡 %d：无效" % roll_i)
+			_killzone.spawn_floating_text(v_op["pos"], txt, KTTheme.COL_GOLD_BRIGHT if stunned else KTTheme.COL_MUTED)
+	else:
+		var t_op: Dictionary = engine.get_op(target_uid)
+		var f_pos: Vector2 = t_op["pos"] if not t_op.is_empty() else Vector2(15.0, 11.0)
+		_killzone.spawn_floating_text(f_pos, str(res.get("msg", "")), KTTheme.COL_CRIMSON)
 	_refresh_all_ui()
 
 
@@ -3229,9 +3380,11 @@ func _run_autotest_screenshot_tour() -> void:
 	_save_vp_png(out_dir + "/00b_equipment_select.png")
 	while str(engine.state["phase"]) == "EQUIP":
 		var eqs_t: String = engine.setup_side()
-		var eq_ids: Array = engine.default_equipment(eqs_t)
+		var eq_ids: Array = []
 		if eqs_t == str(engine.state["human_side"]):
-			eq_ids = [eq_ids[0], "UNI-EQ-lightbarricades", "UNI-EQ-heavybarricade", "UNI-EQ-mines"]
+			eq_ids = ["UNI-EQ-razorwire", "UNI-EQ-portablebarricade", "UNI-EQ-ammocache", "UNI-EQ-utilitygrenades"]
+		else:
+			eq_ids = ["UNI-EQ-lightbarricades", "UNI-EQ-heavybarricade", "UNI-EQ-mines", "UNI-EQ-explosivegrenades"]
 		engine.confirm_equipment(eqs_t, eq_ids)
 	engine.state["setup"]["tac_side"] = str(engine.state["human_side"])
 	_refresh_all_ui()
@@ -3293,6 +3446,9 @@ func _run_autotest_screenshot_tour() -> void:
 	engine.choose_primary_op("A", "kill")
 	engine.choose_primary_op("B", "key")
 	engine.state["turn_side"] = "A"
+	if not engine.state.has("eq_markers"):
+		engine.state["eq_markers"] = []
+	(engine.state["eq_markers"] as Array).append({"kind": "smoke", "side": "A", "pos": Vector2(20.0, 17.5), "tp_placed": 1, "acts_left": -1})
 	_refresh_all_ui()
 	_phase_toast.visible = false
 	await get_tree().process_frame

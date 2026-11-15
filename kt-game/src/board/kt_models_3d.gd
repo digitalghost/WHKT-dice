@@ -607,7 +607,7 @@ static func _equip_entry(kind: String) -> Dictionary:
 	return {}
 
 
-## kind: "light_barricade" | "heavy_barricade" | "mine"
+## kind: "light_barricade" | "heavy_barricade" | "mine" | "ammo_cache" | "razor_wire" | "comms" | "ladder" | "portable_barricade" | "smoke"
 ## 在 parent 下创建模型：底面贴 y=0，水平包围盒中心对齐 pos_3d，统一缩放使网格 X 向长度 == long_inches。
 ## rot90=true 时绕 Y 转 90°（长边改为沿世界 Z）。失败（缺文件）返回 null。
 static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3, long_inches: float, rot90: bool) -> Node3D:
@@ -659,6 +659,24 @@ static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3,
 	mi.material_override = mat
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
 	root.add_child(mi)
+
+	if kind == "smoke":
+		var cyl_mesh: CylinderMesh = CylinderMesh.new()
+		cyl_mesh.top_radius = 1.4
+		cyl_mesh.bottom_radius = 1.4
+		cyl_mesh.height = 2.6
+		var cyl_mat: StandardMaterial3D = StandardMaterial3D.new()
+		cyl_mat.albedo_color = Color(0.82, 0.84, 0.86, 0.22)
+		cyl_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		cyl_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		cyl_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+		var cyl_mi: MeshInstance3D = MeshInstance3D.new()
+		cyl_mi.mesh = cyl_mesh
+		cyl_mi.position = Vector3(0.0, 1.3, 0.0)
+		cyl_mi.material_override = cyl_mat
+		cyl_mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		root.add_child(cyl_mi)
+
 	return root
 
 

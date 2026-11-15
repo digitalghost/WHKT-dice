@@ -13,6 +13,8 @@ signal operative_clicked(uid: String)
 signal ground_move_committed(waypoints: Array[Vector2])
 signal shoot_target_clicked(defender_uid: String, shot_eval: Dictionary)
 signal fight_target_clicked(defender_uid: String)
+signal point_picked(uid: String, pos_in: Vector2)
+signal enemy_picked(uid: String, target_uid: String)
 signal tabletop_die_clicked(pool_key: String, die_idx: int)
 signal hover_info_changed(info_text: String)
 signal cancel_interaction_requested()
@@ -82,8 +84,8 @@ var _float_texts_3d: Array[Dictionary] = []
 var _pulse_time: float = 0.0
 var _shake_strength: float = 0.0
 var _built_map_id: String = ""
-var _mine_nodes: Array[Node3D] = []
-var _mine_key: String = ""
+var _eq_marker_nodes: Array[Node3D] = []
+var _eq_marker_key: String = ""
 
 var _bg_tex: Texture2D = null
 
@@ -349,7 +351,14 @@ func _rebuild_3d_map_if_needed() -> void:
 		if modelled_parents.has(str(t.get("parent", ""))):
 			continue
 		if bool(t.get("equipment", false)):
-			var eq_kind: String = "light_barricade" if str(t["kind"]) == "light" else "heavy_barricade"
+			var t_kind: String = str(t["kind"])
+			var eq_kind: String = "heavy_barricade"
+			if t_kind == "razor_wire":
+				eq_kind = "razor_wire"
+			elif bool(t.get("portable", false)):
+				eq_kind = "portable_barricade"
+			elif t_kind == "light":
+				eq_kind = "light_barricade"
 			var rect: Rect2 = t["rect"]
 			var long_inches: float = maxf(rect.size.x, rect.size.y)
 			var rot90: bool = rect.size.y > rect.size.x
@@ -551,6 +560,8 @@ func clear_interaction() -> void:
 	interaction_mode = "idle"
 	deploy_uid = ""
 	eq_deploy_kind = ""
+	pick_uid = ""
+	pick_enemy_uids.clear()
 	move_waypoints.clear()
 	active_shoot_weapon = {}
 	cached_shot_evals.clear()
@@ -616,6 +627,56 @@ func start_fight_mode(uid: String) -> void:
 	move_waypoints.clear()
 	active_shoot_weapon = {}
 	cached_shot_evals.clear()
+
+
+var pick_uid: String = ""
+var pick_enemy_uids: Array[String] = []
+
+func start_pick_point_mode(uid: String) -> void:
+	clear_interaction()
+	selected_uid = uid
+	pick_uid = uid
+	interaction_mode = "pick_point"
+
+
+func start_pick_enemy_mode(uid: String, target_uids: Array) -> void:
+	clear_interaction()
+	selected_uid = uid
+	pick_uid = uid
+	for u_v in target_uids:
+		pick_enemy_uids.append(str(u_v))
+	interaction_mode = "pick_enemy"
+
+
+func _validate_move_preview(pts: Array[Vector2], op: Dictionary) -> Dictionary:
+	var side_st: Dictionary = engine.state["sides"][op["side"]]
+	var mob: bool = KTCombat.has_chapter_tactic(side_st, op, "mobile")
+	var max_m: float = engine.get_effective_move_inches(op, move_action_kind)
+	var val_kind: String = "reposition" if move_action_kind == "barricade_move" else move_action_kind
+	var terrains: Array = engine.state["map"]["terrains"]
+	var removed_pb_idx: int = -1
+	var removed_barricade: Dictionary = {}
+	if move_action_kind == "barricade_move":
+		removed_pb_idx = engine._find_contact_portable_barricade_idx(op)
+		if removed_pb_idx >= 0:
+			removed_barricade = terrains[removed_pb_idx]
+			terrains.remove_at(removed_pb_idx)
+			if pts.size() >= 2:
+				var start_z: float = KTGeometry.elevation_at(pts[0], terrains)
+				for wp in pts:
+					if not is_equal_approx(KTGeometry.elevation_at(wp, terrains), start_z):
+						terrains.insert(removed_pb_idx, removed_barricade)
+						return {"ok": false, "cost": 0.0, "reason": "与掩体移动时不能攀爬"}
+	var chk: Dictionary = KTGeometry.validate_move_path(pts, op, val_kind, max_m, engine.state, mob)
+	if removed_pb_idx >= 0:
+		terrains.insert(removed_pb_idx, removed_barricade)
+	if bool(chk["ok"]) and move_action_kind == "barricade_move":
+		var plain_len: float = 0.0
+		for wi in range(pts.size() - 1):
+			plain_len += pts[wi].distance_to(pts[wi + 1])
+		if float(chk["cost"]) > plain_len + 0.05:
+			return {"ok": false, "cost": float(chk["cost"]), "reason": "与掩体移动时不能攀爬或翻越地形"}
+	return chk
 
 
 func spawn_tracer(from_in: Vector2, to_in: Vector2, col: Color) -> void:
@@ -1238,41 +1299,57 @@ func _sync_flat_marker_tokens() -> void:
 		_flat_marker_nodes.append(tok["mesh"] as Node3D)
 
 
-func _sync_mine_models() -> void:
+func _sync_eq_marker_models() -> void:
 	if _world_root == null:
 		return
 	var parts: PackedStringArray = PackedStringArray()
-	var mine_positions: Array[Vector2] = []
+	var marker_items: Array[Dictionary] = []
 	if engine != null and not engine.state.is_empty():
 		var markers: Array = engine.state.get("eq_markers", [])
 		for m_v in markers:
 			var m: Dictionary = m_v
-			if str(m.get("kind", "")) == "mine":
-				var pos: Vector2 = m["pos"]
-				parts.append("%.3f,%.3f" % [pos.x, pos.y])
-				mine_positions.append(pos)
+			var mk: String = str(m.get("kind", ""))
+			var pos: Vector2 = m["pos"]
+			parts.append("%s@%.3f,%.3f" % [mk, pos.x, pos.y])
+			marker_items.append({"kind": mk, "pos": pos})
 	var key: String = ";".join(parts)
-	if key == _mine_key:
+	if key == _eq_marker_key:
 		return
-	_mine_key = key
-	for n in _mine_nodes:
+	_eq_marker_key = key
+	for n in _eq_marker_nodes:
 		if is_instance_valid(n):
 			n.queue_free()
-	_mine_nodes.clear()
-	for pos in mine_positions:
+	_eq_marker_nodes.clear()
+	for it in marker_items:
+		var mk: String = str(it["kind"])
+		var pos: Vector2 = it["pos"]
+		var long_in: float = 0.0
+		match mk:
+			"mine":
+				long_in = KTEngine.MINE_RADIUS * 2.0
+			"ammo_cache":
+				long_in = 0.86
+			"comms":
+				long_in = 0.49
+			"ladder":
+				long_in = 0.75
+			"smoke":
+				long_in = 0.49
+			_:
+				continue
 		var node: Node3D = Models3D.build_equipment_model(
 			_world_root,
-			"mine",
+			mk,
 			inches_to_world(pos, elevation_at_inches(pos) + 0.01),
-			KTEngine.MINE_RADIUS * 2.0,
+			long_in,
 			false
 		)
 		if node != null:
-			_mine_nodes.append(node)
+			_eq_marker_nodes.append(node)
 
 
 func _rebuild_3d_tactical_overlays() -> void:
-	_sync_mine_models()
+	_sync_eq_marker_models()
 	_sync_flat_marker_tokens()
 	_imm_lines.clear_surfaces()
 	_imm_tris.clear_surfaces()
@@ -1352,11 +1429,16 @@ func _rebuild_3d_tactical_overlays() -> void:
 			add_ring_3d.call(gw, float(dop["base_radius"]), gcol, 0.35, 36)
 			add_ring_3d.call(gw + Vector3(0.0, 1.55, 0.0), float(dop["base_radius"]) * 0.5, Color(gcol.r, gcol.g, gcol.b, 0.6), 0.12, 24)
 
-	# 1c. Equipment markers (mines): 1" trigger radius ring around the 3D mine model
-	for eq_m in engine.state.get("eq_markers", []):
+	# 1c. Equipment markers: 1" trigger radius ring around mines; 1.4" radius ring around smoke
+	for eq_mv in engine.state.get("eq_markers", []):
+		var eq_m: Dictionary = eq_mv
+		var eq_mk: String = str(eq_m.get("kind", ""))
 		var eq_mp: Vector2 = eq_m["pos"]
 		var eq_mw := inches_to_world(eq_mp, elevation_at_inches(eq_mp) + 0.06)
-		add_ring_3d.call(eq_mw, KTEngine.MINE_RADIUS + 1.0, Color(KTTheme.COL_CRIMSON.r, KTTheme.COL_CRIMSON.g, KTTheme.COL_CRIMSON.b, 0.45), 0.0, 32)
+		if eq_mk == "mine":
+			add_ring_3d.call(eq_mw, KTEngine.MINE_RADIUS + 1.0, Color(KTTheme.COL_CRIMSON.r, KTTheme.COL_CRIMSON.g, KTTheme.COL_CRIMSON.b, 0.45), 0.0, 32)
+		elif eq_mk == "smoke":
+			add_ring_3d.call(eq_mw, 1.4, Color(0.82, 0.84, 0.86, 0.65), 0.0, 36)
 
 	# 1d. EQUIPMENT SET-UP MODE: legal zone tint + ghost footprint at the cursor (green legal / red illegal)
 	if interaction_mode == "eq_deploy" and not eq_deploy_kind.is_empty() and not engine.eq_deploy_side().is_empty():
@@ -1377,10 +1459,13 @@ func _rebuild_3d_tactical_overlays() -> void:
 			add_seg.call(eq_c[eq_e], eq_c[(eq_e + 1) % 4], eq_zcol)
 		var eq_ok: bool = bool(engine.validate_equipment_pos(eq_side, eq_deploy_kind, hovered_board_inches, eq_deploy_rot)["ok"])
 		var eq_gcol: Color = KTTheme.COL_EMERALD if eq_ok else KTTheme.COL_CRIMSON
-		if eq_deploy_kind == "mine":
-			var eq_gw := inches_to_world(hovered_board_inches, 0.06)
+		var eq_spec: Dictionary = KTEngine.EQ_ITEM_SPECS.get(eq_deploy_kind, {})
+		var eq_is_marker: bool = str(eq_spec.get("terrain", "")) == ""
+		if eq_is_marker:
+			var eq_gw := inches_to_world(hovered_board_inches, elevation_at_inches(hovered_board_inches) + 0.06)
 			add_ring_3d.call(eq_gw, KTEngine.MINE_RADIUS, eq_gcol, 0.4, 24)
-			add_ring_3d.call(eq_gw, KTEngine.MINE_RADIUS + 1.0, Color(eq_gcol.r, eq_gcol.g, eq_gcol.b, 0.5), 0.0, 32)
+			if eq_deploy_kind == "mine":
+				add_ring_3d.call(eq_gw, KTEngine.MINE_RADIUS + 1.0, Color(eq_gcol.r, eq_gcol.g, eq_gcol.b, 0.5), 0.0, 32)
 		else:
 			var eq_r: Rect2 = KTEngine.equipment_rect(eq_deploy_kind, hovered_board_inches, eq_deploy_rot)
 			var eq_h: float = KTEngine.equipment_height(eq_deploy_kind)
@@ -1431,11 +1516,8 @@ func _rebuild_3d_tactical_overlays() -> void:
 
 			var preview_pts: Array[Vector2] = move_waypoints.duplicate()
 			preview_pts.append(hovered_board_inches)
-			var side_state: Dictionary = engine.state["sides"][op["side"]]
-			var mobile := KTCombat.has_chapter_tactic(side_state, op, "mobile")
-			var max_m := engine.get_effective_move_inches(op, move_action_kind)
-			var chk := KTGeometry.validate_move_path(preview_pts, op, move_action_kind, max_m, engine.state, mobile)
-			var ok := bool(chk["ok"])
+			var chk: Dictionary = _validate_move_preview(preview_pts, op)
+			var ok: bool = bool(chk["ok"])
 			var lcol := KTTheme.COL_EMERALD if ok else KTTheme.COL_CRIMSON
 
 			for idx in range(preview_pts.size() - 1):
@@ -1482,7 +1564,7 @@ func _rebuild_3d_tactical_overlays() -> void:
 				add_seg.call(end_w + rim_p, end_w + rim_p * 0.7 + Vector3(0.0, 1.55, 0.0), Color(lcol.r, lcol.g, lcol.b, 0.65))
 
 			# 3D Ghost Sightlines from Landing Elevation Chest Height!
-			if ok and move_action_kind in ["reposition", "dash"]:
+			if ok and move_action_kind in ["reposition", "dash", "barricade_move"]:
 				var usable := engine.get_usable_ranged_weapons(op)
 				if not usable.is_empty():
 					var w0: Dictionary = usable[0]
@@ -1558,6 +1640,33 @@ func _rebuild_3d_tactical_overlays() -> void:
 				var ep2: Vector2 = enemy["pos"]
 				var ef2 := inches_to_world(ep2, elevation_at_inches(ep2) + 0.06)
 				add_ring_3d.call(ef2, float(enemy["base_radius"]) + 0.22, KTTheme.COL_CRIMSON, 0.30, 32)
+
+	# 4b. PICK POINT MODE (Smoke Grenade): 6" range ring + 1.4" smoke area ring at cursor
+	elif interaction_mode == "pick_point":
+		var op_pp: Dictionary = engine.get_op(pick_uid)
+		if not op_pp.is_empty():
+			var pp_origin: Vector2 = op_pp["pos"]
+			var pp_ow := inches_to_world(pp_origin, elevation_at_inches(pp_origin) + 0.05)
+			var pp_fcol: Color = KTTheme.COL_IMPERIAL if str(op_pp["side"]) == "A" else KTTheme.COL_NURGLE
+			add_ring_3d.call(pp_ow, 6.0 + float(op_pp["base_radius"]), Color(pp_fcol.r, pp_fcol.g, pp_fcol.b, 0.45), 0.04, 56)
+			var pp_chk: Dictionary = engine.validate_smoke_pos(op_pp, hovered_board_inches)
+			var pp_ok: bool = bool(pp_chk["ok"])
+			var pp_col: Color = KTTheme.COL_EMERALD if pp_ok else KTTheme.COL_CRIMSON
+			var pp_hw := inches_to_world(hovered_board_inches, elevation_at_inches(hovered_board_inches) + 0.06)
+			add_ring_3d.call(pp_hw, 1.4, pp_col, 0.20, 40)
+
+	# 4c. PICK ENEMY MODE (Stun Grenade): gold candidate rings + 1" splash ring on hover
+	elif interaction_mode == "pick_enemy":
+		for t_uid in pick_enemy_uids:
+			var top: Dictionary = engine.get_op(t_uid)
+			if top.is_empty() or bool(top["incapacitated"]):
+				continue
+			var tp_in: Vector2 = top["pos"]
+			var tw := inches_to_world(tp_in, elevation_at_inches(tp_in) + 0.06)
+			var tr_base: float = float(top["base_radius"])
+			add_ring_3d.call(tw, tr_base + 0.20, KTTheme.COL_GOLD_BRIGHT, 0.30, 32)
+			if hovered_uid == t_uid:
+				add_ring_3d.call(tw, tr_base + 1.0, Color(KTTheme.COL_GOLD_BRIGHT.r, KTTheme.COL_GOLD_BRIGHT.g, KTTheme.COL_GOLD_BRIGHT.b, 0.65), 0.10, 40)
 
 	# 5. Active 3D Weapon Bolt / Plasma Tracers!
 	for tr in _tracers_3d:
@@ -1743,11 +1852,9 @@ func _draw_projected_hud() -> void:
 		if not op_m.is_empty():
 			var pts_m: Array[Vector2] = move_waypoints.duplicate()
 			pts_m.append(hovered_board_inches)
-			var side_st: Dictionary = engine.state["sides"][op_m["side"]]
-			var mob := KTCombat.has_chapter_tactic(side_st, op_m, "mobile")
 			var max_m := engine.get_effective_move_inches(op_m, move_action_kind)
-			var chk := KTGeometry.validate_move_path(pts_m, op_m, move_action_kind, max_m, engine.state, mob)
-			var ok_m := bool(chk["ok"])
+			var chk: Dictionary = _validate_move_preview(pts_m, op_m)
+			var ok_m: bool = bool(chk["ok"])
 			var end_y := elevation_at_inches(hovered_board_inches)
 			var start_y := elevation_at_inches(op_m["pos"])
 			var climb_note := " [▲攀爬二层 +2\"]" if end_y > start_y + 0.5 else ""
@@ -2096,10 +2203,7 @@ func _handle_left_click(screen_pos: Vector2, shift_held: bool) -> void:
 			return
 		var pts: Array[Vector2] = move_waypoints.duplicate()
 		pts.append(hovered_board_inches)
-		var side_st: Dictionary = engine.state["sides"][op["side"]]
-		var mobile := KTCombat.has_chapter_tactic(side_st, op, "mobile")
-		var max_m := engine.get_effective_move_inches(op, move_action_kind)
-		var chk := KTGeometry.validate_move_path(pts, op, move_action_kind, max_m, engine.state, mobile)
+		var chk: Dictionary = _validate_move_preview(pts, op)
 		if shift_held:
 			if move_waypoints[-1].distance_to(hovered_board_inches) >= 0.4:
 				move_waypoints.append(hovered_board_inches)
@@ -2139,6 +2243,21 @@ func _handle_left_click(screen_pos: Vector2, shift_held: bool) -> void:
 				var z_d := elevation_at_inches(def["pos"])
 				if KTGeometry.in_control_range_at(att["pos"], float(att["base_radius"]), z_a, def["pos"], float(def["base_radius"]), z_d, engine.state["map"]["terrains"]):
 					fight_target_clicked.emit(clicked_op_uid)
+		return
+
+	if interaction_mode == "pick_point":
+		var op_pp: Dictionary = engine.get_op(pick_uid)
+		if not op_pp.is_empty() and bool(engine.validate_smoke_pos(op_pp, hovered_board_inches)["ok"]):
+			point_picked.emit(pick_uid, hovered_board_inches)
+		else:
+			KTSfx.play("ui_hover", -14.0, 0.2)
+		return
+
+	if interaction_mode == "pick_enemy":
+		if not clicked_op_uid.is_empty() and pick_enemy_uids.has(clicked_op_uid):
+			enemy_picked.emit(pick_uid, clicked_op_uid)
+		else:
+			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if not clicked_op_uid.is_empty():

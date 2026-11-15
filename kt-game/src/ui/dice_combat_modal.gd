@@ -653,7 +653,7 @@ func _guess_pool_for_event(ev: Dictionary) -> String:
 	if _modal_mode == "melee":
 		return ""
 	match rule:
-		"严重", "撕裂", "重击", "纯洁印章", "重型遮挡", "毁灭", "平衡", "指挥重掷", "无休":
+		"严重", "撕裂", "重击", "纯洁印章", "重型遮挡", "毁灭", "平衡", "弹药储备", "指挥重掷", "无休":
 			return "atk_dice"
 		"不屈不挠", "超人体格", "穿刺", "恼人韧性", "恶心韧性", "钢铁光环":
 			return "def_dice"
@@ -1024,6 +1024,26 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 				_rebuild_ui()
 			)
 			_action_bar.add_child(b_bal)
+
+		var ammo_avail: bool = bool(session.get("ammo_reroll", false)) and not bool(session.get("ammo_reroll_used", false))
+		if ammo_avail:
+			var b_ammo := Button.new()
+			b_ammo.text = "📦 弹药储备重掷"
+			b_ammo.disabled = _selected_die_idx < 0
+			KTTheme.apply_accent_button(b_ammo, KTTheme.COL_EMERALD)
+			KTWidgets.attach_button_juice(b_ammo)
+			b_ammo.pressed.connect(func():
+				var r_idx_a := _selected_die_idx
+				KTCombat.reroll_shooting_die(session, "atk_dice", r_idx_a, "ammo", engine.state, engine.rng)
+				_selected_pool = ""
+				_selected_die_idx = -1
+				play_dice_sfx()
+				if _killzone != null and _killzone.get_dice_3d() != null:
+					_killzone.get_dice_3d().sync_shooting_dice(session, "", -1, "atk_dice", r_idx_a, false)
+				_spawn_ui_burst(KTTheme.COL_EMERALD, 18)
+				_rebuild_ui()
+			)
+			_action_bar.add_child(b_ammo)
 
 		var att_cp := int(engine.state["sides"][att["side"]]["cp"])
 		var b_cp := Button.new()
