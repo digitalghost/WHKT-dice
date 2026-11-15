@@ -216,6 +216,7 @@ func _begin_deploy() -> void:
 	for op in state["operatives"]:
 		op["deployed"] = false
 		op["pos"] = Vector2(-99.0, -99.0)
+	state["start_counts"] = {"A": _count_side_ops("A"), "B": _count_side_ops("B")}
 	var first := str(state["setup"]["first_side"])
 	state["phase"] = "DEPLOY"
 	state["deploy"] = {
@@ -1341,7 +1342,11 @@ func recalculate_objectives_and_kills() -> void:
 		else:
 			state["objectives_state"][oid]["controlled_by"] = ""
 
-	# Kill Op Grade for 6-operative teams: each enemy incapacitated = 1 Kill Grade = 1 VP (max 6)!
+	# Kill Op (rulebook p.107): each new Kill Grade is worth 1 VP; grade thresholds depend on how
+	# many operatives the ENEMY started with. Track starting counts once.
+	# start_counts is written once by _begin_deploy(); before that there are no operatives yet.
+	if not state.has("start_counts"):
+		return
 	var dead_a := 0
 	var dead_b := 0
 	for op in state["operatives"]:
@@ -1350,14 +1355,51 @@ func recalculate_objectives_and_kills() -> void:
 				dead_a += 1
 			else:
 				dead_b += 1
-	state["sides"]["A"]["vp_kill"] = mini(6, dead_b)
-	state["sides"]["B"]["vp_kill"] = mini(6, dead_a)
+	# kill_bonus = the end-of-battle "+1 VP if your Kill Grade is higher" (set in _finish_turning_point)
+	state["sides"]["A"]["vp_kill"] = kill_op_vp(dead_b, int(state["start_counts"]["B"])) + int(state["sides"]["A"].get("kill_bonus", 0))
+	state["sides"]["B"]["vp_kill"] = kill_op_vp(dead_a, int(state["start_counts"]["A"])) + int(state["sides"]["B"].get("kill_bonus", 0))
 
-	# Instant wipeout check
-	if dead_a >= 6 or dead_b >= 6:
-		_score_key_op_end_of_tp()
-		state["phase"] = "GAME_OVER"
-		add_log("🏆 一方小队全灭！战斗结束！")
+	# Wipeout does NOT end the battle (p.107 "5.结束战斗"): the surviving side plays out the
+	# remaining turning points. Only the 4th TP ends the game.
+	if dead_a >= int(state["start_counts"]["A"]) or dead_b >= int(state["start_counts"]["B"]):
+		if not bool(state.get("wipeout_logged", false)):
+			state["wipeout_logged"] = true
+			add_log("💀 一方小队已被打光——战斗仍将继续至四个转折点结束。")
+
+
+## Kill Op VP for `kills` enemy operatives down, given the enemy's starting count (rulebook p.107 table).
+## Thresholds are the cumulative kills needed to reach Kill Grade 1..5.
+const KILL_GRADE_TABLE := {
+	5:  [1, 2, 3, 4, 5],
+	6:  [1, 2, 4, 5, 6],
+	7:  [1, 3, 4, 6, 7],
+	8:  [2, 3, 5, 6, 8],
+	9:  [2, 4, 5, 7, 9],
+	10: [2, 4, 6, 8, 10],
+	11: [2, 4, 7, 9, 11],
+	12: [2, 5, 7, 10, 12],
+	13: [3, 5, 8, 10, 13],
+	14: [3, 6, 8, 11, 14],
+}
+
+
+static func kill_op_vp(kills: int, enemy_start: int) -> int:
+	var row: Array = KILL_GRADE_TABLE.get(clampi(enemy_start, 5, 14), KILL_GRADE_TABLE[6])
+	var vp := 0
+	for t in row:
+		if kills >= int(t):
+			vp += 1
+	return vp
+
+
+## Kill Grade 0..5 for the given kill count (used by the end-of-battle +1 VP comparison).
+static func kill_op_grade(kills: int, enemy_start: int) -> int:
+	var row: Array = KILL_GRADE_TABLE.get(clampi(enemy_start, 5, 14), KILL_GRADE_TABLE[6])
+	var g := 0
+	for t in row:
+		if kills >= int(t):
+			g += 1
+	return g
 
 
 func _score_key_op_end_of_tp() -> void:
@@ -1395,10 +1437,19 @@ func _finish_turning_point() -> void:
 	var tp := int(state["tp"])
 	if tp >= 4:
 		# End of battle Kill Grade superiority +1 VP & Primary Op bonus!
-		if int(state["sides"]["A"]["vp_kill"]) > int(state["sides"]["B"]["vp_kill"]):
-			state["sides"]["A"]["vp_kill"] = mini(6, int(state["sides"]["A"]["vp_kill"]) + 1)
-		elif int(state["sides"]["B"]["vp_kill"]) > int(state["sides"]["A"]["vp_kill"]):
-			state["sides"]["B"]["vp_kill"] = mini(6, int(state["sides"]["B"]["vp_kill"]) + 1)
+		var dead_kills: Dictionary = {"A": 0, "B": 0}
+		for op in state["operatives"]:
+			if op["incapacitated"]:
+				dead_kills[str(op["side"])] = int(dead_kills[str(op["side"])]) + 1
+		var grade_a := kill_op_grade(int(dead_kills["B"]), int(state["start_counts"]["B"]))
+		var grade_b := kill_op_grade(int(dead_kills["A"]), int(state["start_counts"]["A"]))
+		if grade_a > grade_b:
+			state["sides"]["A"]["kill_bonus"] = 1
+			add_log("🏅 【死亡天使】击杀等级 %d 高于对手，+1 VP！" % grade_a)
+		elif grade_b > grade_a:
+			state["sides"]["B"]["kill_bonus"] = 1
+			add_log("🏅 【瘟疫战士】击杀等级 %d 高于对手，+1 VP！" % grade_b)
+		recalculate_objectives_and_kills()
 		state["phase"] = "GAME_OVER"
 		add_log("🏁 第 4 转折点结束！全场战斗结算完成！")
 	else:

@@ -15,6 +15,7 @@ func _init() -> void:
 	_test_engine_flow_undo_and_ai()
 	_test_deployment_phase()
 	_test_prebattle_setup()
+	_test_kill_op_and_wipeout()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -279,3 +280,22 @@ func _test_prebattle_setup() -> void:
 	eng.auto_setup()
 	_assert_true(str(eng.state["phase"]) == "DEPLOY", "Both teams confirmed -> DEPLOY")
 	_assert_true(eng.state["operatives"].size() == 12, "12 operatives spawned from the chosen rosters")
+
+
+func _test_kill_op_and_wipeout() -> void:
+	# Rulebook p.107 Kill Grade table, enemy starting with 6 operatives: thresholds 1/2/4/5/6
+	_assert_true(KTEngine.kill_op_vp(0, 6) == 0, "Kill op: 0 kills of 6 = 0 VP")
+	_assert_true(KTEngine.kill_op_vp(1, 6) == 1 and KTEngine.kill_op_vp(2, 6) == 2, "Kill op: 1 and 2 kills of 6 = 1 and 2 VP")
+	_assert_true(KTEngine.kill_op_vp(3, 6) == 2, "Kill op: 3 kills of 6 is still Kill Grade 2 (table skips to 4)")
+	_assert_true(KTEngine.kill_op_vp(4, 6) == 3 and KTEngine.kill_op_vp(6, 6) == 5, "Kill op: 4 kills = 3 VP, wipe = 5 VP")
+	_assert_true(KTEngine.kill_op_vp(4, 11) == 2 and KTEngine.kill_op_vp(11, 11) == 5, "Kill op: 11-operative row (2/4/7/9/11)")
+	var eng := KTEngine.new(505)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	eng.auto_deploy_all()
+	eng.roll_initiative()
+	for op in eng.state["operatives"]:
+		if str(op["side"]) == "B":
+			op["incapacitated"] = true
+	eng.recalculate_objectives_and_kills()
+	_assert_true(str(eng.state["phase"]) != "GAME_OVER", "Wiping out a team does NOT end the battle (p.107)")
+	_assert_true(int(eng.state["sides"]["A"]["vp_kill"]) == 5, "Wipeout of a 6-operative team scores 5 Kill VP before the end-of-battle bonus")
