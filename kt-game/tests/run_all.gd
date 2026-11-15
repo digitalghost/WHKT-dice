@@ -13,6 +13,7 @@ func _init() -> void:
 	_test_geometry_movement_and_los()
 	_test_combat_audit_fixes_and_factions()
 	_test_engine_flow_undo_and_ai()
+	_test_deployment_phase()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -50,6 +51,7 @@ func _test_data_loading() -> void:
 func _test_geometry_movement_and_los() -> void:
 	var eng := KTEngine.new(101)
 	eng.start_match("hotseat", "A", "dueller", "hardy")
+	eng.auto_deploy_all()
 	var cap: Dictionary = _find_by_op_id(eng, "aod_captain")
 
 	# 1. Straight path through impassable Heavy wall (`small_ruin_02_12`: Rect2(12.5, 18.5, 6.0, 1.0)) should fail
@@ -117,6 +119,7 @@ func _test_geometry_movement_and_los() -> void:
 func _test_combat_audit_fixes_and_factions() -> void:
 	var eng := KTEngine.new(202)
 	eng.start_match("hotseat", "A", "stealthy", "sharpshooter")
+	eng.auto_deploy_all()
 	var att: Dictionary = _find_by_op_id(eng, "aod_heavy_gunner")
 	var def: Dictionary = _find_by_op_id(eng, "pm_fighter")
 	att["pos"] = Vector2(15.0, 16.0)
@@ -184,6 +187,7 @@ func _test_combat_audit_fixes_and_factions() -> void:
 func _test_engine_flow_undo_and_ai() -> void:
 	var eng := KTEngine.new(303)
 	eng.start_match("ai", "A", "dueller", "hardy")
+	eng.auto_deploy_all()
 	eng.roll_initiative()
 	_assert_true(str(eng.state["phase"]) == "STRATEGY", "Initiative roll transitions to STRATEGY")
 
@@ -206,3 +210,42 @@ func _test_engine_flow_undo_and_ai() -> void:
 	var ai_op: Dictionary = eng.get_op(str(ai_pick["uid"]))
 	var ai_step: Dictionary = KTAI.decide_next_operative_action(eng, ai_op)
 	_assert_true(ai_step.has("kind"), "AI tactical action planner returns valid action dictionary")
+
+
+func _test_deployment_phase() -> void:
+	var eng := KTEngine.new(303)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	_assert_true(str(eng.state["phase"]) == "DEPLOY", "Match starts in DEPLOY phase (rulebook p.105 step 3)")
+	var first := eng.deploy_side()
+	_assert_true(first in ["A", "B"], "Pre-battle roll-off picks a deploying side")
+	var groups: Array = eng.state["deploy"]["groups"][first]
+	_assert_true(groups == [2, 2, 2], "6-operative team deploys in thirds 2/2/2")
+	# Illegal: outside own drop zone
+	var op0: Dictionary = eng.undeployed_ops(first)[0]
+	var far := Vector2(15.0, 11.0)
+	_assert_true(not bool(eng.deploy_operative(str(op0["uid"]), far)["ok"]), "Cannot deploy outside own drop zone")
+	# Legal: inside zone, then the turn passes after the group is full
+	var dz: Rect2 = eng.state["map"]["drop_zone_a"] if first == "A" else eng.state["map"]["drop_zone_b"]
+	var r := float(op0["base_radius"])
+	var spots: Array[Vector2] = []
+	var x := dz.position.x + r + 0.6
+	while spots.size() < 2 and x < dz.end.x - r:
+		var cand := Vector2(x, dz.get_center().y)
+		if bool(eng.validate_deploy_pos(op0, cand)["ok"]):
+			spots.append(cand)
+		x += 1.6
+	_assert_true(spots.size() == 2, "Found two legal deployment spots in the drop zone")
+	var ops := eng.undeployed_ops(first)
+	eng.deploy_operative(str(ops[0]["uid"]), spots[0])
+	_assert_true(eng.deploy_side() == first, "Turn stays with the same side until the group is complete")
+	eng.deploy_operative(str(ops[1]["uid"]), spots[1])
+	_assert_true(eng.deploy_side() != first, "After a full group the other side deploys")
+	_assert_true(str(ops[0]["order"]) == "conceal" and bool(ops[0]["deployed"]), "Deployed operative has Conceal order")
+	eng.auto_deploy_all()
+	_assert_true(str(eng.state["phase"]) == "INITIATIVE", "All operatives deployed -> INITIATIVE")
+	var all_in := true
+	for op in eng.state["operatives"]:
+		var z: Rect2 = eng.state["map"]["drop_zone_a"] if str(op["side"]) == "A" else eng.state["map"]["drop_zone_b"]
+		if not z.has_point(op["pos"]):
+			all_in = false
+	_assert_true(all_in, "Every operative ends inside its own drop zone")

@@ -88,8 +88,175 @@ func start_match(
 
 	_spawn_roster("A", aod_team, map_data["spawn_a"])
 	_spawn_roster("B", pm_team, map_data["spawn_b"])
+
+	# Rulebook p.105 "3.部署特工": pre-battle roll-off decides who deploys first; players then
+	# alternate placing thirds of their team (rounded up, larger groups first: 6 -> 2/2/2, 7 -> 3/2/2)
+	# fully inside their own drop zone with a Conceal order. Operatives start off-table.
+	for op in state["operatives"]:
+		op["deployed"] = false
+		op["pos"] = Vector2(-99.0, -99.0)
+	var pre_a := rng.randi_range(1, 6)
+	var pre_b := rng.randi_range(1, 6)
+	while pre_a == pre_b: # pre-battle roll-off ties are re-rolled (校注 p.105)
+		pre_a = rng.randi_range(1, 6)
+		pre_b = rng.randi_range(1, 6)
+	var first := "A" if pre_a > pre_b else "B"
+	state["phase"] = "DEPLOY"
+	state["deploy"] = {
+		"first_side": first,
+		"turn_side": first,
+		"groups": {"A": _deploy_groups(_count_side_ops("A")), "B": _deploy_groups(_count_side_ops("B"))},
+		"group_idx": {"A": 0, "B": 0},
+		"placed_in_group": {"A": 0, "B": 0},
+	}
+	state["turn_side"] = first
+	# The loser of the pre-battle roll-off wins ties on the TP1 initiative roll (校注 p.105)
+	state["initiative_side"] = first
 	recalculate_objectives_and_kills()
-	add_log("⚔️ 战局开启：沃库斯废墟 ·【死亡天使】迎战【瘟疫战士】！请投掷第 1 转折点先手骰。")
+	add_log("⚔️ 战局开启：杀戮区·沃库斯 ·【死亡天使】迎战【瘟疫战士】！")
+	add_log("🎲 战前拼骰 %d : %d → 【%s】取得部署先手，双方轮流部署特工（每次 1/3 小队，须完全位于己方降落区内并持隐匿命令）。" % [pre_a, pre_b, str(state["sides"][first]["name"])])
+
+
+func _count_side_ops(side_id: String) -> int:
+	var n := 0
+	for op in state["operatives"]:
+		if str(op["side"]) == side_id:
+			n += 1
+	return n
+
+
+## Split n operatives into three groups, as even as possible, earlier groups larger (WCW FAQ).
+static func _deploy_groups(n: int) -> Array[int]:
+	var base := int(n / 3)
+	var rem := n % 3
+	var out: Array[int] = []
+	for i in range(3):
+		out.append(base + (1 if i < rem else 0))
+	return out
+
+
+# ==============================================================================
+# PHASE 0: DEPLOYMENT (alternating thirds into own drop zone, Conceal order)
+# ==============================================================================
+
+func deploy_side() -> String:
+	return str(state.get("deploy", {}).get("turn_side", ""))
+
+
+func deploy_remaining_in_group(side_id: String) -> int:
+	var d: Dictionary = state.get("deploy", {})
+	if d.is_empty():
+		return 0
+	var gi := int(d["group_idx"][side_id])
+	var groups: Array = d["groups"][side_id]
+	if gi >= groups.size():
+		return 0
+	return int(groups[gi]) - int(d["placed_in_group"][side_id])
+
+
+func undeployed_ops(side_id: String) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	for op in state["operatives"]:
+		if str(op["side"]) == side_id and not bool(op.get("deployed", false)):
+			out.append(op)
+	return out
+
+
+## Legal spot check for a deployment: base fully inside the side's drop zone, on the ground floor,
+## not overlapping terrain or other operatives.
+func validate_deploy_pos(op: Dictionary, pos: Vector2) -> Dictionary:
+	var dz: Rect2 = state["map"]["drop_zone_a"] if str(op["side"]) == "A" else state["map"]["drop_zone_b"]
+	var r := float(op["base_radius"])
+	var inner := Rect2(dz.position + Vector2(r, r), dz.size - Vector2(2.0 * r, 2.0 * r))
+	if not inner.has_point(pos):
+		return {"ok": false, "reason": "底座必须完全位于己方降落区内"}
+	var stand := KTGeometry.is_valid_stand_pos(pos, r, str(op["uid"]), state)
+	if not bool(stand["ok"]):
+		return {"ok": false, "reason": str(stand.get("reason", "该位置被地形或其他特工占据"))}
+	return {"ok": true, "reason": ""}
+
+
+func deploy_operative(uid: String, pos: Vector2) -> Dictionary:
+	if str(state["phase"]) != "DEPLOY":
+		return {"ok": false, "msg": "当前不是部署阶段"}
+	var op := get_op(uid)
+	if op.is_empty() or bool(op.get("deployed", false)):
+		return {"ok": false, "msg": "该特工已部署"}
+	var side := str(op["side"])
+	if side != deploy_side():
+		return {"ok": false, "msg": "现在由对方部署"}
+	var chk := validate_deploy_pos(op, pos)
+	if not bool(chk["ok"]):
+		return {"ok": false, "msg": str(chk["reason"])}
+	push_undo()
+	op["pos"] = pos
+	op["deployed"] = true
+	op["order"] = "conceal"
+	var d: Dictionary = state["deploy"]
+	d["placed_in_group"][side] = int(d["placed_in_group"][side]) + 1
+	add_log("📍 【%s】部署【%s】于降落区 (%.1f\", %.1f\")，隐匿命令。" % [str(state["sides"][side]["name"]), str(op["name"]), pos.x, pos.y])
+
+	# Group complete -> hand over to the other side (if they still have operatives to place)
+	if deploy_remaining_in_group(side) <= 0:
+		d["group_idx"][side] = int(d["group_idx"][side]) + 1
+		d["placed_in_group"][side] = 0
+		var other := "B" if side == "A" else "A"
+		if not undeployed_ops(other).is_empty():
+			d["turn_side"] = other
+		elif undeployed_ops(side).is_empty():
+			d["turn_side"] = ""
+	state["turn_side"] = str(d["turn_side"]) if not str(d["turn_side"]).is_empty() else state["turn_side"]
+
+	if undeployed_ops("A").is_empty() and undeployed_ops("B").is_empty():
+		state["phase"] = "INITIATIVE"
+		state.erase("deploy")
+		recalculate_objectives_and_kills()
+		add_log("✅ 双方部署完毕。请投掷第 1 转折点先手骰。")
+	return {"ok": true, "msg": ""}
+
+
+## Complete the whole deployment with the AI placer for both sides (tests, screenshots, quick-start).
+func auto_deploy_all() -> void:
+	var guard := 0
+	while str(state["phase"]) == "DEPLOY" and guard < 64:
+		guard += 1
+		if not bool(ai_deploy_next().get("ok", false)):
+			break
+
+
+## AI deployment: pick a clear spot in own drop zone, spread along it, snipers/gunners toward the
+## middle so they get early sightlines, melee toward the flanks closer to objectives.
+func ai_deploy_next() -> Dictionary:
+	var side := deploy_side()
+	if side.is_empty():
+		return {"ok": false}
+	var pending := undeployed_ops(side)
+	if pending.is_empty():
+		return {"ok": false}
+	var op: Dictionary = pending[0]
+	var dz: Rect2 = state["map"]["drop_zone_a"] if side == "A" else state["map"]["drop_zone_b"]
+	var r := float(op["base_radius"])
+	var placed_n := _count_side_ops(side) - pending.size()
+	var total := _count_side_ops(side)
+	var horizontal := dz.size.x >= dz.size.y
+	var best := Vector2.ZERO
+	var found := false
+	# Spread candidates along the zone's long axis; probe outward from the ideal slot
+	var frac := (float(placed_n) + 0.5) / float(maxi(1, total))
+	for attempt in range(40):
+		var jitter := float(attempt) * 0.35 * (1.0 if attempt % 2 == 0 else -1.0)
+		var along := frac * (dz.size.x if horizontal else dz.size.y) + jitter
+		var across := (dz.size.y if horizontal else dz.size.x) * (0.5 + 0.25 * sin(float(attempt) * 1.7))
+		var cand := dz.position + (Vector2(along, across) if horizontal else Vector2(across, along))
+		cand.x = clampf(cand.x, dz.position.x + r + 0.05, dz.end.x - r - 0.05)
+		cand.y = clampf(cand.y, dz.position.y + r + 0.05, dz.end.y - r - 0.05)
+		if bool(validate_deploy_pos(op, cand)["ok"]):
+			best = cand
+			found = true
+			break
+	if not found:
+		return {"ok": false}
+	return deploy_operative(str(op["uid"]), best)
 
 
 func _spawn_roster(side_id: String, team_data: Dictionary, spawns: Array) -> void:
@@ -191,6 +358,8 @@ func is_ai_turn() -> bool:
 	if str(state.get("mode", "ai")) != "ai":
 		return false
 	var phase := str(state.get("phase", ""))
+	if phase == "DEPLOY":
+		return deploy_side() != str(state["human_side"])
 	if phase in ["INITIATIVE", "GAME_OVER"]:
 		return false
 	var ai_side := "B" if str(state["human_side"]) == "A" else "A"

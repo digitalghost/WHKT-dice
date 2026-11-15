@@ -144,24 +144,31 @@ func _build_3d_viewport() -> void:
 	sky.sky_material = sky_mat
 	env.background_mode = Environment.BG_SKY
 	env.sky = sky
+	# Lighting goal: a hobby table under a ceiling lamp. Everything on the board must be readable
+	# from every camera angle (no black models, no black ruin interiors). So: a bright neutral
+	# ambient floor, one high key light for shape, one soft fill from the opposite side, and no
+	# point lights on the terrain (braziers used to leave half the board in their shadow).
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.42, 0.46, 0.58)
-	env.ambient_light_energy = 0.58
+	env.ambient_light_color = Color(0.70, 0.72, 0.78)
+	env.ambient_light_energy = 1.05
 	env.fog_enabled = true
 	env.fog_mode = Environment.FOG_MODE_EXPONENTIAL
 	env.fog_light_color = Color(0.085, 0.078, 0.074)
-	env.fog_density = 0.0085
+	env.fog_density = 0.0055
 	env.fog_sky_affect = 0.35
-	env.fog_aerial_perspective = 0.25
+	env.fog_aerial_perspective = 0.15
 	env.tonemap_mode = Environment.TONE_MAPPER_ACES
-	env.tonemap_exposure = 0.94
+	env.tonemap_exposure = 1.18
 	env.glow_enabled = true
-	env.glow_intensity = 0.58
-	env.glow_bloom = 0.03
-	env.glow_hdr_threshold = 1.22
+	env.glow_intensity = 0.42
+	env.glow_bloom = 0.02
+	env.glow_hdr_threshold = 1.35
 	env.ssao_enabled = true
-	env.ssao_radius = 0.85
-	env.ssao_intensity = 0.95
+	env.ssao_radius = 0.70
+	env.ssao_intensity = 0.70
+	# Contact-shadow softness so SSAO doesn't black out mini feet / ruin corners
+	env.ssao_power = 1.3
+	env.ssao_light_affect = 0.25
 	we.environment = env
 
 	# Subtle HD-2D Diorama Tilt-Shift Far Depth-of-Field!
@@ -174,41 +181,34 @@ func _build_3d_viewport() -> void:
 	_world_root.add_child(we)
 
 	# 2. Key Warm Golden Sunlight (Stable 2-Split Shadows + Clean Bias -> Zero Shadow Shimmer!)
+	# Key: steep (-62°) so ruin walls don't throw long black bands across the board; warm white.
 	var sun := DirectionalLight3D.new()
-	sun.rotation_degrees = Vector3(-48.0, -34.0, 0.0)
-	sun.light_color = Color(1.0, 0.93, 0.80)
-	sun.light_energy = 1.24
+	sun.rotation_degrees = Vector3(-62.0, -28.0, 0.0)
+	sun.light_color = Color(1.0, 0.96, 0.90)
+	sun.light_energy = 1.45
 	sun.shadow_enabled = true
-	sun.shadow_opacity = 0.80
+	sun.shadow_opacity = 0.55
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 	sun.directional_shadow_max_distance = 86.0
 	sun.shadow_bias = 0.04
 	sun.shadow_normal_bias = 1.4
 	_world_root.add_child(sun)
 
+	# Fill from the opposite side, cooler and softer, no shadows: lifts whatever the key leaves dark.
 	var fill := DirectionalLight3D.new()
-	fill.rotation_degrees = Vector3(-36.0, 146.0, 0.0)
-	fill.light_color = Color(0.58, 0.66, 0.84)
-	fill.light_energy = 0.26
+	fill.rotation_degrees = Vector3(-40.0, 150.0, 0.0)
+	fill.light_color = Color(0.80, 0.86, 1.0)
+	fill.light_energy = 0.55
 	fill.shadow_enabled = false
 	_world_root.add_child(fill)
 
-	# Central Shrine Warm Spotlight Accent
-	var center_omni := OmniLight3D.new()
-	center_omni.position = Vector3(0.0, 6.5, 0.0)
-	center_omni.light_color = Color(1.0, 0.80, 0.44)
-	center_omni.light_energy = 0.45
-
-	# Reading lamp over the right-hand apron so the CP chips / datacard / VP rail aren't in the dark
-	var apron_lamp := OmniLight3D.new()
-	apron_lamp.position = Vector3(21.0, 7.0, 4.0)
-	apron_lamp.light_color = Color(1.0, 0.92, 0.78)
-	apron_lamp.light_energy = 0.9
-	apron_lamp.omni_range = 16.0
-	apron_lamp.shadow_enabled = false
-	_world_root.add_child(apron_lamp)
-	center_omni.omni_range = 19.0
-	_world_root.add_child(center_omni)
+	# Low rim from the camera side so model silhouettes separate from the dark mat.
+	var rim := DirectionalLight3D.new()
+	rim.rotation_degrees = Vector3(-18.0, 40.0, 0.0)
+	rim.light_color = Color(1.0, 0.98, 0.94)
+	rim.light_energy = 0.30
+	rim.shadow_enabled = false
+	_world_root.add_child(rim)
 
 	# 3. 2.55D Telephoto Isometric Camera Rig
 	_cam_pivot = Node3D.new()
@@ -545,9 +545,22 @@ func _apply_camera_transform() -> void:
 
 func clear_interaction() -> void:
 	interaction_mode = "idle"
+	deploy_uid = ""
 	move_waypoints.clear()
 	active_shoot_weapon = {}
 	cached_shot_evals.clear()
+
+
+## Deployment placement: the chosen (still off-table) operative follows the cursor as a ghost inside
+## its drop zone; left-click on a legal spot emits deploy_spot_clicked.
+signal deploy_spot_clicked(uid: String, pos_in: Vector2)
+var deploy_uid: String = ""
+
+func start_deploy_mode(uid: String) -> void:
+	clear_interaction()
+	interaction_mode = "deploy"
+	deploy_uid = uid
+	selected_uid = uid
 
 
 func start_move_mode(uid: String, move_kind: String) -> void:
@@ -982,6 +995,9 @@ func _update_3d_entities(delta: float) -> void:
 		var pivot_n: Node3D = node_d["pivot"]
 
 		var tilt_n: Node3D = node_d.get("tilt_pivot", null)
+		if not bool(op.get("deployed", true)):
+			root_n.visible = false
+			continue
 		if bool(op["incapacitated"]):
 			# Topple animation: the acrylic token falls over backwards and sinks into the base,
 			# then the whole miniature fades out and is hidden. Undo brings it straight back.
@@ -1193,6 +1209,27 @@ func _rebuild_3d_tactical_overlays() -> void:
 			var mp: Vector2 = m["pos"]
 			var mw := inches_to_world(mp, elevation_at_inches(mp) + 0.06)
 			add_ring_3d.call(mw, 1.6, KTTheme.COL_NURGLE, 0.16, 36)
+
+	# 1b. DEPLOY MODE: highlight own drop zone, ghost base ring at the cursor (green legal / red illegal)
+	if interaction_mode == "deploy":
+		var dop := engine.get_op(deploy_uid)
+		if not dop.is_empty():
+			var dz: Rect2 = engine.state["map"]["drop_zone_a"] if str(dop["side"]) == "A" else engine.state["map"]["drop_zone_b"]
+			var zcol := KTTheme.COL_IMPERIAL if str(dop["side"]) == "A" else KTTheme.COL_NURGLE
+			var p0 := inches_to_world(dz.position, 0.05)
+			var p1 := inches_to_world(dz.position + Vector2(dz.size.x, 0.0), 0.05)
+			var p2 := inches_to_world(dz.end, 0.05)
+			var p3 := inches_to_world(dz.position + Vector2(0.0, dz.size.y), 0.05)
+			var zfill := Color(zcol.r, zcol.g, zcol.b, 0.10 + 0.05 * sin(_pulse_time * 3.0))
+			tri_pts.append(p0); tri_cols.append(zfill); tri_pts.append(p1); tri_cols.append(zfill); tri_pts.append(p2); tri_cols.append(zfill)
+			tri_pts.append(p0); tri_cols.append(zfill); tri_pts.append(p2); tri_cols.append(zfill); tri_pts.append(p3); tri_cols.append(zfill)
+			for seg in [[p0, p1], [p1, p2], [p2, p3], [p3, p0]]:
+				add_seg.call(seg[0], seg[1], zcol)
+			var ok := bool(engine.validate_deploy_pos(dop, hovered_board_inches)["ok"])
+			var gcol := KTTheme.COL_EMERALD if ok else KTTheme.COL_CRIMSON
+			var gw := inches_to_world(hovered_board_inches, 0.06)
+			add_ring_3d.call(gw, float(dop["base_radius"]), gcol, 0.35, 36)
+			add_ring_3d.call(gw + Vector3(0.0, 1.55, 0.0), float(dop["base_radius"]) * 0.5, Color(gcol.r, gcol.g, gcol.b, 0.6), 0.12, 24)
 
 	# 2. MOVE MODE: 3D Enemy Engagement Rings + Elevation-Climbing 3D Ruler + Ghost Landing Hologram!
 	if interaction_mode == "move":
@@ -1462,7 +1499,7 @@ func _draw_projected_hud() -> void:
 	# 3. Operative Nameplates, HP Bars, Order Icons & Elevation Badges!
 	var active_uid := str(engine.state.get("active_op_uid", ""))
 	for op in engine.state["operatives"]:
-		if op["incapacitated"]:
+		if op["incapacitated"] or not bool(op.get("deployed", true)):
 			continue
 		var uid := str(op["uid"])
 		var w_feet: Vector3 = _visual_pos_3d.get(uid, inches_to_world(op["pos"], elevation_at_inches(op["pos"])))
@@ -1750,7 +1787,7 @@ func _ray_pick_operative(screen_pos: Vector2) -> String:
 	var best_t := 9999.0
 
 	for op in engine.state["operatives"]:
-		if op["incapacitated"]:
+		if op["incapacitated"] or not bool(op.get("deployed", true)):
 			continue
 		var uid := str(op["uid"])
 		var base_w: Vector3 = _visual_pos_3d.get(uid, inches_to_world(op["pos"], elevation_at_inches(op["pos"])))
@@ -1900,6 +1937,14 @@ func _handle_left_click(screen_pos: Vector2, shift_held: bool) -> void:
 				move_waypoints.append(hovered_board_inches)
 		elif bool(chk["ok"]):
 			ground_move_committed.emit(pts)
+		return
+
+	if interaction_mode == "deploy":
+		var dop := engine.get_op(deploy_uid)
+		if not dop.is_empty() and bool(engine.validate_deploy_pos(dop, hovered_board_inches)["ok"]):
+			deploy_spot_clicked.emit(deploy_uid, hovered_board_inches)
+		else:
+			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if interaction_mode == "shoot":

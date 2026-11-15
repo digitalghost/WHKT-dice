@@ -180,6 +180,7 @@ func _ready() -> void:
 	_killzone.shoot_target_clicked.connect(_on_board_shoot_target_clicked)
 	_killzone.fight_target_clicked.connect(_on_board_fight_target_clicked)
 	_killzone.hover_info_changed.connect(_on_board_hover_changed)
+	_killzone.deploy_spot_clicked.connect(_on_board_deploy_spot_clicked)
 	_killzone.cancel_interaction_requested.connect(func():
 		_hide_skill_tooltip()
 		_refresh_all_ui()
@@ -1646,7 +1647,16 @@ func _refresh_all_ui() -> void:
 
 func _update_tactical_pill() -> void:
 	var phase: String = str(engine.state["phase"])
-	if phase == "INITIATIVE":
+	if phase == "DEPLOY":
+		var ds := engine.deploy_side()
+		var dname := str(engine.state["sides"][ds]["name"]) if not ds.is_empty() else ""
+		if engine.is_ai_turn():
+			_guide_lbl.text = "🤖 【%s】正在部署特工…" % dname
+		elif _killzone.interaction_mode == "deploy":
+			_guide_lbl.text = "📍 在己方降落区内点击落点部署（本组还需 %d 名）｜ 右键取消" % engine.deploy_remaining_in_group(ds)
+		else:
+			_guide_lbl.text = "📍 【%s】部署：点击下方待部署特工，再在降落区内选落点（本组 %d 名）" % [dname, engine.deploy_remaining_in_group(ds)]
+	elif phase == "INITIATIVE":
 		_guide_lbl.text = "🎲 投掷转折点先攻权骰 [Space] — 决定先后手并领取命令点 CP"
 	elif phase == "STRATEGY":
 		if engine.is_ai_turn():
@@ -1755,7 +1765,10 @@ func _rebuild_bottom_game_hud() -> void:
 	_weapon_strip.visible = false
 	_context_stage.visible = true
 
-	if phase == "INITIATIVE":
+	if phase == "DEPLOY":
+		_build_deploy_cards()
+
+	elif phase == "INITIATIVE":
 		var roll_btn := Button.new()
 		roll_btn.text = "🎲  投掷第 %d 转折点先攻权对抗骰  [Space]" % int(engine.state["tp"])
 		roll_btn.custom_minimum_size = Vector2(450, 62)
@@ -1853,6 +1866,85 @@ func _rebuild_bottom_game_hud() -> void:
 		KTWidgets.attach_button_juice(btn_again, 1.06, "phase_horn")
 		btn_again.pressed.connect(func(): _start_new_battle())
 		ohb.add_child(btn_again)
+
+
+## Deployment hand: one card per undeployed operative of the deploying side. Click a card to pick
+## it up, then click a legal spot in the drop zone. Alternates sides automatically per the engine.
+func _build_deploy_cards() -> void:
+	var ds: String = engine.deploy_side()
+	if ds.is_empty():
+		return
+	var sname: String = str(engine.state["sides"][ds]["name"])
+	if engine.is_ai_turn():
+		var wait_p := PanelContainer.new()
+		wait_p.size_flags_vertical = Control.SIZE_SHRINK_END
+		wait_p.add_theme_stylebox_override("panel", KTTheme.panel("floating", KTTheme.COL_NURGLE))
+		var wl := Label.new()
+		wl.text = "🤖 【%s】正在部署特工…" % sname
+		wl.add_theme_font_size_override("font_size", 16)
+		wl.add_theme_color_override("font_color", KTTheme.COL_NURGLE.lightened(0.26))
+		wait_p.add_child(wl)
+		_context_hb.add_child(wait_p)
+		return
+
+	var c_acc: Color = KTTheme.COL_IMPERIAL if ds == "A" else KTTheme.COL_NURGLE
+	var picked: String = _killzone.deploy_uid if _killzone.interaction_mode == "deploy" else ""
+	for op in engine.undeployed_ops(ds):
+		var uid: String = str(op["uid"])
+		var is_picked: bool = uid == picked
+		var card := PanelContainer.new()
+		card.custom_minimum_size = Vector2(132, 96)
+		card.size_flags_vertical = Control.SIZE_SHRINK_END
+		card.mouse_filter = Control.MOUSE_FILTER_STOP
+		card.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+		card.add_theme_stylebox_override("panel", KTTheme.panel("primary" if is_picked else "floating", KTTheme.COL_GOLD_BRIGHT if is_picked else c_acc))
+		_context_hb.add_child(card)
+
+		var cv := VBoxContainer.new()
+		cv.add_theme_constant_override("separation", 4)
+		cv.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		card.add_child(cv)
+
+		var pr := TextureRect.new()
+		pr.texture = KTData.load_tex(str(op.get("portrait", "")))
+		pr.custom_minimum_size = Vector2(0, 48)
+		pr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		pr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		pr.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cv.add_child(pr)
+
+		var nl := Label.new()
+		nl.text = str(op.get("role", op["name"]))
+		nl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		nl.add_theme_font_size_override("font_size", 12)
+		nl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT if is_picked else KTTheme.COL_TEXT)
+		nl.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		cv.add_child(nl)
+
+		card.gui_input.connect(func(ev: InputEvent):
+			if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+				KTSfx.play("card_lift", -5.0, 0.05)
+				_killzone.start_deploy_mode(uid)
+				_refresh_all_ui()
+		)
+
+	var hint := Label.new()
+	hint.text = "本组还需部署 %d 名" % engine.deploy_remaining_in_group(ds)
+	hint.size_flags_vertical = Control.SIZE_SHRINK_END
+	hint.add_theme_font_size_override("font_size", 13)
+	hint.add_theme_color_override("font_color", c_acc.lightened(0.3))
+	_context_hb.add_child(hint)
+
+
+func _on_board_deploy_spot_clicked(uid: String, pos_in: Vector2) -> void:
+	var res: Dictionary = engine.deploy_operative(uid, pos_in)
+	if bool(res.get("ok", false)):
+		KTSfx.play("move_confirm", -5.0, 0.04)
+		_killzone.clear_interaction()
+		_killzone.sync_visual_positions(true)
+	else:
+		_killzone.spawn_floating_text(pos_in, str(res.get("msg", "")), KTTheme.COL_CRIMSON)
+	_refresh_all_ui()
 
 
 func _build_firefight_ready_cards() -> void:
@@ -2386,6 +2478,13 @@ func _run_ai_step() -> void:
 	var ai_side: String = str(engine.state["turn_side"])
 	var phase: String = str(engine.state["phase"])
 
+	if phase == "DEPLOY":
+		var res_d: Dictionary = engine.ai_deploy_next()
+		if bool(res_d.get("ok", false)):
+			KTSfx.play("move_confirm", -8.0, 0.05)
+		_refresh_all_ui()
+		return
+
 	if phase == "STRATEGY":
 		var dec: Dictionary = KTAI.decide_strategy_step(engine, ai_side)
 		if str(dec["action"]) == "ploy":
@@ -2471,6 +2570,16 @@ func _run_autotest_screenshot_tour() -> void:
 	_sel_mode = "hotseat"
 	_title_overlay.visible = false
 	_start_new_battle()
+	# Capture the deployment phase with half the teams placed, then auto-complete it
+	for _i in range(6):
+		engine.ai_deploy_next()
+	_refresh_all_ui()
+	_phase_toast.visible = false
+	await get_tree().create_timer(0.24).timeout
+	_save_vp_png(out_dir + "/00_deployment.png")
+	while str(engine.state["phase"]) == "DEPLOY":
+		if not bool(engine.ai_deploy_next().get("ok", false)):
+			break
 	var init_res: Dictionary = engine.roll_initiative()
 	init_res["roll_a"] = 6
 	init_res["roll_b"] = 3

@@ -231,22 +231,17 @@ static func add_torus(
 	return mi
 
 
-static func add_flaming_brazier(parent: Node3D, pos: Vector3, fire_col: Color, light_range: float = 4.6) -> void:
+## Decorative brazier: emissive coals + flame particles only. No point light: braziers used to be
+## the main lighting and left everything outside their radius black. Scene lighting now comes
+## from the directional rig in killzone_view.
+static func add_flaming_brazier(parent: Node3D, pos: Vector3, fire_col: Color, _light_range: float = 4.6) -> void:
 	var mat_iron := make_pbr(Color(0.11, 0.12, 0.15), 0.78, 0.42)
 	var mat_brass := make_pbr(Color(0.76, 0.58, 0.26), 0.86, 0.30)
-	var mat_coal := make_pbr(fire_col, 0.1, 0.3, fire_col, 2.2)
+	var mat_coal := make_pbr(fire_col, 0.1, 0.3, fire_col, 1.6)
 
 	add_cyl(parent, pos + Vector3(0.0, 0.12, 0.0), 0.10, 0.18, 0.24, mat_iron, Vector3.ZERO, 12)
 	add_torus(parent, pos + Vector3(0.0, 0.24, 0.0), 0.13, 0.20, mat_brass)
 	add_sphere(parent, pos + Vector3(0.0, 0.24, 0.0), 0.13, mat_coal, Vector3(1.0, 0.55, 1.0))
-
-	# HD-2D Warm Flickering Point Light (balanced so nearby standees never wash out!)
-	var omni := OmniLight3D.new()
-	omni.position = pos + Vector3(0.0, 0.52, 0.0)
-	omni.light_color = fire_col.lightened(0.12)
-	omni.light_energy = 0.58
-	omni.omni_range = light_range
-	parent.add_child(omni)
 
 	# Continuous 3D Flame & Rising Sparks Particle Emitter!
 	var cp := CPUParticles3D.new()
