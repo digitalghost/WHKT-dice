@@ -14,3 +14,8 @@ assets/audio/dice_roll.*
 build/
 exports/
 .DS_Store
+
+# External source libraries (TTS mod unpack, 6 GB) and the raw UI art drop. Only the
+# game-ready subset in assets/ui_kit is tracked.
+external-assets/
+docs/ui_assets/

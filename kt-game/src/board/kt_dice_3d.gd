@@ -67,6 +67,32 @@ func _build_sculpted_tray() -> void:
 	KTModels3D.add_box(self, Vector3(0.0, 0.07, 0.0), Vector3(TRAY_W, 0.14, TRAY_D), mat_iron)
 
 	# Recessed Dual-Bay Velvet Felt Surface (y = FELT_Y = 0.16, strictly above 0.14 -> zero Z-fighting!)
+	# With the UI kit: two real velvet textures (red left bay, green right bay); else the procedural felt.
+	var vel_red := KTTheme.kit_tex("tex_velvet_red")
+	var vel_green := KTTheme.kit_tex("tex_velvet_green")
+	if vel_red != null and vel_green != null:
+		for bay in [["L", vel_red, -1.0], ["R", vel_green, 1.0]]:
+			var vm := StandardMaterial3D.new()
+			vm.albedo_texture = bay[1]
+			vm.albedo_color = Color(0.82, 0.82, 0.82)
+			vm.roughness = 0.95
+			vm.metallic = 0.0
+			vm.uv1_scale = Vector3(1.6, 1.0, 1.0)
+			vm.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+			var bpm := PlaneMesh.new()
+			bpm.size = Vector2((TRAY_W - 0.88) * 0.5 - 0.10, TRAY_D - 0.88)
+			var bmi := MeshInstance3D.new()
+			bmi.mesh = bpm
+			bmi.material_override = vm
+			bmi.position = Vector3(float(bay[2]) * ((TRAY_W - 0.88) * 0.25 + 0.05), FELT_Y, 0.0)
+			add_child(bmi)
+		# Brass brushed texture on the rim when available
+		var brass_tex := KTTheme.kit_tex("tex_brass_brushed")
+		if brass_tex != null:
+			mat_brass.albedo_texture = brass_tex
+			mat_brass.albedo_color = Color(0.95, 0.90, 0.80)
+			mat_brass.uv1_triplanar = true
+			mat_brass.uv1_scale = Vector3(0.5, 0.5, 0.5)
 	var mat_felt := StandardMaterial3D.new()
 	mat_felt.albedo_texture = _get_tray_felt_tex()
 	mat_felt.roughness = 0.92
@@ -77,7 +103,7 @@ func _build_sculpted_tray() -> void:
 	var felt_mi := MeshInstance3D.new()
 	felt_mi.mesh = pm
 	felt_mi.material_override = mat_felt
-	felt_mi.position = Vector3(0.0, FELT_Y, 0.0)
+	felt_mi.position = Vector3(0.0, FELT_Y - (0.004 if (vel_red != null and vel_green != null) else 0.0), 0.0)
 	add_child(felt_mi)
 
 	# Four Bevelled Gothic Brass & Dark-Iron Walls (height = 0.64)
@@ -177,10 +203,52 @@ func _get_body_mat(theme_id: String) -> StandardMaterial3D:
 	return m
 
 
+## Kit die-face sheets (assets/ui_kit/die_faces_<theme>.png, 6 x 256px cells). Returns a per-face
+## AtlasTexture or null when the sheet is missing (then the procedural painter below is used).
+static var _kit_face_sheets: Dictionary = {}
+
+func _kit_face_tex(theme_id: String, face_val: int) -> Texture2D:
+	var sheet_name: String = str({"imperial": "die_faces_imperial", "nurgle": "die_faces_nurgle", "attack": "die_faces_attack"}.get(theme_id, ""))
+	if sheet_name.is_empty():
+		return null
+	if not _kit_face_sheets.has(sheet_name):
+		_kit_face_sheets[sheet_name] = KTTheme.kit_tex(sheet_name)
+	var sheet: Texture2D = _kit_face_sheets[sheet_name]
+	if sheet == null:
+		return null
+	# 3D materials sample the full texture, so AtlasTexture regions are ignored: crop the cell
+	# into its own ImageTexture (with mipmaps) once and cache it.
+	var cache_key := "%s_%d" % [sheet_name, face_val]
+	if _kit_face_sheets.has(cache_key):
+		return _kit_face_sheets[cache_key]
+	var src_img := sheet.get_image()
+	if src_img == null:
+		return null
+	var cell := src_img.get_height()
+	var sub := src_img.get_region(Rect2i(cell * (face_val - 1), 0, cell, cell))
+	sub.generate_mipmaps()
+	var tex := ImageTexture.create_from_image(sub)
+	_kit_face_sheets[cache_key] = tex
+	return tex
+
+
 func _get_face_mat(theme_id: String, face_val: int) -> StandardMaterial3D:
 	var key: String = "%s_%d" % [theme_id, face_val]
 	if _face_mats.has(key):
 		return _face_mats[key]
+
+	var kit_tex := _kit_face_tex(theme_id, face_val)
+	if kit_tex != null:
+		var kmat := StandardMaterial3D.new()
+		kmat.albedo_texture = kit_tex
+		kmat.roughness = 0.22
+		kmat.metallic = 0.10
+		kmat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		kmat.emission_enabled = true
+		kmat.emission_texture = kit_tex
+		kmat.emission_energy_multiplier = 0.40 if face_val == 6 else 0.16
+		_face_mats[key] = kmat
+		return kmat
 
 	var sz: int = 192
 	var img := Image.create(sz, sz, true, Image.FORMAT_RGBA8)
@@ -623,8 +691,8 @@ func sync_shooting_dice(
 
 	var hit_req: int = int(session["effective_hit"])
 	var save_req: int = int(session["def_save"])
-	left_bay_label = "🔴 攻击骰 (%d+命中)" % hit_req
-	right_bay_label = "🛡️ 防御骰 (%d+豁免)" % save_req if step != "attack_reroll" else "🛡️ 待投防御骰"
+	left_bay_label = "攻击骰 · %d+ 命中" % hit_req
+	right_bay_label = ("防御骰 · %d+ 豁免" % save_req) if step != "attack_reroll" else "待投防御骰"
 
 	# Left Bay: Attack Dice (+ Accurate auto-hit cubes if any)
 	var atk_dice: Array = session.get("atk_dice", [])
@@ -757,8 +825,8 @@ func sync_melee_dice(session: Dictionary, animate_fresh: bool = false, instant: 
 	var att_p: Dictionary = session["att"]
 	var def_p: Dictionary = session["def"]
 	var att_imp: bool = str(session["attacker_side"]) == "A"
-	left_bay_label = "⚔️ 攻方骰池 (%d★/%d●)" % [int(att_p["crits"]), int(att_p["normals"])]
-	right_bay_label = "🛡️ 守方骰池 (%d★/%d●)" % [int(def_p["crits"]), int(def_p["normals"])]
+	left_bay_label = "攻方骰池  %d★ / %d●" % [int(att_p["crits"]), int(att_p["normals"])]
+	right_bay_label = "守方骰池  %d★ / %d●" % [int(def_p["crits"]), int(def_p["normals"])]
 
 	_populate_melee_bay(att_p, true, "imperial" if att_imp else "nurgle", "melee_att", animate_fresh and not instant)
 	_populate_melee_bay(def_p, false, "nurgle" if att_imp else "imperial", "melee_def", animate_fresh and not instant)

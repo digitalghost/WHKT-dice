@@ -24,9 +24,10 @@ func _ready() -> void:
 	z_index = 200
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	custom_minimum_size = Vector2(300, 0)
+	var kit_sb: StyleBox = KTTheme.kit_panel("panel_glossary", 12)
 	add_theme_stylebox_override(
 		"panel",
-		KTTheme.make_panel_style(Color(0.035, 0.040, 0.055, 0.97), KTTheme.COL_GOLD, 8, 1, 12, true, KTTheme.COL_GOLD_BRIGHT)
+		kit_sb if kit_sb != null else KTTheme.make_panel_style(Color(0.035, 0.040, 0.055, 0.97), KTTheme.COL_GOLD, 8, 1, 12, true, KTTheme.COL_GOLD_BRIGHT)
 	)
 
 	var vb := VBoxContainer.new()

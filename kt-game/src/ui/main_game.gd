@@ -402,7 +402,9 @@ func _build_top_broadcast_crest() -> void:
 	# --- Centre: phase medallion (TP + phase + acting side) ---
 	var center_med := PanelContainer.new()
 	center_med.custom_minimum_size = Vector2(216, 30)
-	center_med.add_theme_stylebox_override("panel", KTTheme.panel("primary", KTTheme.COL_GOLD))
+	# The primary kit frame has 64px corner ornaments; at 30px tall they collide with the text, so the
+	# medallion uses the slimmer floating frame with a gold tint instead.
+	center_med.add_theme_stylebox_override("panel", KTTheme.panel("floating", KTTheme.COL_GOLD_BRIGHT))
 	hb.add_child(center_med)
 
 	var cm_hb := HBoxContainer.new()
@@ -479,26 +481,35 @@ func _build_sys_micro_toolbar() -> void:
 	# Icon-only system buttons. Camera orbit lives on Q/E + right-drag; the two orbit buttons stay for
 	# mouse-only players but as glyphs. Everything is 28px tall so the strip reads as one quiet row.
 	var specs: Array[Dictionary] = [
-		{"t": "⟲", "tip": "左旋视角 [Q / 右键拖拽]", "cb": func(): _killzone.orbit_by(-35.0)},
-		{"t": "◈", "tip": "等距俯视 [F]", "cb": func(): _killzone.set_camera_angle_preset("iso")},
-		{"t": "◢", "tip": "低角特写", "cb": func(): _killzone.set_camera_angle_preset("low")},
-		{"t": "⟳", "tip": "右旋视角 [E]", "cb": func(): _killzone.orbit_by(35.0)},
-		{"t": "↶", "tip": "撤回上一步 [Z]", "cb": _on_undo_pressed, "undo": true},
-		{"t": "≣", "tip": "战报", "cb": func(): _log_drawer.visible = not _log_drawer.visible},
-		{"t": "?", "tip": "热键与规则指南", "cb": func(): _help_modal.visible = true},
-		{"t": "⚙", "tip": "设置", "cb": func(): _open_settings()},
-		{"t": "☰", "tip": "返回主菜单", "cb": func():
+		{"t": "⟲", "ico": "sys_orbit_left", "tip": "左旋视角 [Q / 右键拖拽]", "cb": func(): _killzone.orbit_by(-35.0)},
+		{"t": "◈", "ico": "sys_cam_iso", "tip": "等距俯视 [F]", "cb": func(): _killzone.set_camera_angle_preset("iso")},
+		{"t": "◢", "ico": "sys_cam_low", "tip": "低角特写", "cb": func(): _killzone.set_camera_angle_preset("low")},
+		{"t": "⟳", "ico": "sys_orbit_right", "tip": "右旋视角 [E]", "cb": func(): _killzone.orbit_by(35.0)},
+		{"t": "↶", "ico": "sys_undo", "tip": "撤回上一步 [Z]", "cb": _on_undo_pressed, "undo": true},
+		{"t": "≣", "ico": "sys_log", "tip": "战报", "cb": func(): _log_drawer.visible = not _log_drawer.visible},
+		{"t": "?", "ico": "sys_help", "tip": "热键与规则指南", "cb": func(): _help_modal.visible = true},
+		{"t": "⚙", "ico": "sys_settings", "tip": "设置", "cb": func(): _open_settings()},
+		{"t": "☰", "ico": "sys_menu", "tip": "返回主菜单", "cb": func():
 			_title_overlay.visible = true
 			_on_viewport_resized()
 			_refresh_all_ui()},
 	]
 	for sp in specs:
 		var b := Button.new()
-		b.text = str(sp["t"])
+		var ico_tex := KTTheme.kit_tex_scaled(str(sp["ico"]), 20)
+		if ico_tex != null:
+			b.icon = ico_tex
+			b.expand_icon = false
+			b.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			b.add_theme_color_override("icon_normal_color", Color(0.88, 0.90, 0.95))
+			b.add_theme_color_override("icon_hover_color", KTTheme.COL_GOLD_BRIGHT)
+		else:
+			b.text = str(sp["t"])
+			b.add_theme_font_size_override("font_size", 14)
 		b.tooltip_text = str(sp["tip"])
 		b.custom_minimum_size = Vector2(30, 28)
-		b.add_theme_font_size_override("font_size", 14)
-		b.add_theme_stylebox_override("normal", KTTheme.make_btn_style(Color(0.08, 0.09, 0.12, 0.85), Color(KTTheme.COL_BRASS.r, KTTheme.COL_BRASS.g, KTTheme.COL_BRASS.b, 0.45), 5, 6, 3))
+		var kb := KTTheme.kit_button("normal", 5, 3)
+		b.add_theme_stylebox_override("normal", kb if kb != null else KTTheme.make_btn_style(Color(0.08, 0.09, 0.12, 0.85), Color(KTTheme.COL_BRASS.r, KTTheme.COL_BRASS.g, KTTheme.COL_BRASS.b, 0.45), 5, 6, 3))
 		KTWidgets.attach_button_juice(b, 1.1)
 		var cb_fn: Callable = sp["cb"]
 		b.pressed.connect(cb_fn)
@@ -688,7 +699,12 @@ func _build_hero_unit_console() -> void:
 	bot_r.add_child(_hero_order_btn)
 
 	_hero_card_btn = Button.new()
-	_hero_card_btn.text = "📖原卡[Tab]"
+	var card_ico := KTTheme.kit_tex_scaled("icon_card", 16)
+	if card_ico != null:
+		_hero_card_btn.icon = card_ico
+		_hero_card_btn.text = "原卡 [Tab]"
+	else:
+		_hero_card_btn.text = "📖原卡[Tab]"
 	_hero_card_btn.add_theme_font_size_override("font_size", 11)
 	KTWidgets.attach_button_juice(_hero_card_btn, 1.05, "card_lift")
 	_hero_card_btn.pressed.connect(func():
@@ -857,14 +873,29 @@ func _build_phase_toast() -> void:
 	_phase_toast.offset_bottom = -78
 	_phase_toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_phase_toast.visible = false
-	var band := StyleBoxFlat.new()
-	band.bg_color = Color(0.03, 0.025, 0.02, 0.88)
-	band.border_color = KTTheme.COL_GOLD_BRIGHT
-	band.border_width_top = 2
-	band.border_width_bottom = 2
-	band.content_margin_top = 10
-	band.content_margin_bottom = 10
-	_phase_toast.add_theme_stylebox_override("panel", band)
+	var banner_tex := KTTheme.kit_tex("banner_phase")
+	if banner_tex != null:
+		# Kit banner: 2048x512 with alpha fade at both ends; stretch only the centre so the fades stay crisp
+		var sbt := StyleBoxTexture.new()
+		sbt.texture = banner_tex
+		sbt.texture_margin_left = 512
+		sbt.texture_margin_right = 512
+		sbt.texture_margin_top = 0
+		sbt.texture_margin_bottom = 0
+		sbt.content_margin_top = 10
+		sbt.content_margin_bottom = 10
+		_phase_toast.add_theme_stylebox_override("panel", sbt)
+		_phase_toast.offset_top = -170
+		_phase_toast.offset_bottom = -58
+	else:
+		var band := StyleBoxFlat.new()
+		band.bg_color = Color(0.03, 0.025, 0.02, 0.88)
+		band.border_color = KTTheme.COL_GOLD_BRIGHT
+		band.border_width_top = 2
+		band.border_width_bottom = 2
+		band.content_margin_top = 10
+		band.content_margin_bottom = 10
+		_phase_toast.add_theme_stylebox_override("panel", band)
 	add_child(_phase_toast)
 
 	_phase_toast_lbl = Label.new()
@@ -929,6 +960,19 @@ func _build_title_overlay() -> void:
 	_title_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(_title_overlay)
 
+	# Kit keyart behind the whole title screen (the live 3D diorama still renders beneath, so keep it
+	# at partial alpha: the art sets the mood, the table shows through on the right).
+	var keyart := KTTheme.kit_tex("title_keyart")
+	if keyart != null:
+		var ka := TextureRect.new()
+		ka.texture = keyart
+		ka.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		ka.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		ka.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+		ka.modulate = Color(1, 1, 1, 0.94)
+		ka.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_title_overlay.add_child(ka)
+
 	# Left-only dark command scrim so the entire Right 58% of the screen showcases
 	# the live orbiting 3D HD-2D Volkus Killzone Diorama completely unobstructed!
 	var left_blade := PanelContainer.new()
@@ -940,9 +984,10 @@ func _build_title_overlay() -> void:
 	left_blade.offset_right = 668.0
 	left_blade.offset_top = 22.0
 	left_blade.offset_bottom = -22.0
+	var blade_sb: StyleBox = KTTheme.kit_panel("panel_primary", 18)
 	left_blade.add_theme_stylebox_override(
 		"panel",
-		KTTheme.make_panel_style(Color(0.028, 0.036, 0.058, 0.93), KTTheme.COL_GOLD, 14, 2, 18, true, KTTheme.COL_GOLD_BRIGHT)
+		blade_sb if blade_sb != null else KTTheme.make_panel_style(Color(0.028, 0.036, 0.058, 0.93), KTTheme.COL_GOLD, 14, 2, 18, true, KTTheme.COL_GOLD_BRIGHT)
 	)
 	_title_overlay.add_child(left_blade)
 
@@ -981,8 +1026,9 @@ func _build_title_overlay() -> void:
 	vb.add_child(skull_row)
 
 	var skull := TextureRect.new()
-	skull.texture = KTData.load_tex("res://assets/ui/header_winged_skull.png")
-	skull.custom_minimum_size = Vector2(108, 44)
+	var emblem := KTTheme.kit_tex("title_emblem")
+	skull.texture = emblem if emblem != null else KTData.load_tex("res://assets/ui/header_winged_skull.png")
+	skull.custom_minimum_size = Vector2(72, 72) if emblem != null else Vector2(108, 44)
 	skull.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	skull.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	skull_row.add_child(skull)
@@ -1106,10 +1152,11 @@ func _build_title_team_card(team_id: String, is_aod: bool) -> PanelContainer:
 	p.add_child(stack)
 
 	var splash := TextureRect.new()
-	splash.texture = KTData.load_tex("res://assets/ui/kt_aod.png" if is_aod else "res://assets/ui/kt_pm.png")
+	var kit_splash := KTTheme.kit_tex("splash_imperial" if is_aod else "splash_nurgle")
+	splash.texture = kit_splash if kit_splash != null else KTData.load_tex("res://assets/ui/kt_aod.png" if is_aod else "res://assets/ui/kt_pm.png")
 	splash.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	splash.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	splash.modulate = Color(1.0, 1.0, 1.0, 0.22)
+	splash.modulate = Color(1.0, 1.0, 1.0, 0.34 if kit_splash != null else 0.22)
 	splash.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	stack.add_child(splash)
 
@@ -1874,7 +1921,10 @@ func _build_firefight_ready_cards() -> void:
 			cv.add_child(ord_btns)
 
 			var b_con := Button.new()
-			b_con.text = "🔵隐匿"
+			b_con.text = "隐匿"
+			var con_ico := KTTheme.kit_tex_scaled("status_conceal", 16)
+			if con_ico != null:
+				b_con.icon = con_ico
 			b_con.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_con.add_theme_font_size_override("font_size", 11)
 			b_con.tooltip_text = "以【隐匿】姿态激活：依托掩体免疫远程锁定"
@@ -1888,7 +1938,10 @@ func _build_firefight_ready_cards() -> void:
 			ord_btns.add_child(b_con)
 
 			var b_eng := Button.new()
-			b_eng.text = "🟠交战"
+			b_eng.text = "交战"
+			var eng_ico := KTTheme.kit_tex_scaled("status_engage", 16)
+			if eng_ico != null:
+				b_eng.icon = eng_ico
 			b_eng.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_eng.add_theme_font_size_override("font_size", 11)
 			b_eng.tooltip_text = "以【交战】姿态激活：自由开火与冲锋搏杀"
@@ -1971,11 +2024,14 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 
 	var can_flip_order: bool = op["actions_taken"].is_empty() and not bool(engine.state["active_is_counteract"])
 	_hero_order_btn.disabled = not can_flip_order
+	var ord_ico := KTTheme.kit_tex_scaled("status_" + ord_str, 18)
+	_hero_order_btn.icon = ord_ico
+	var ico_prefix := "" if ord_ico != null else ("🔵 " if ord_str == "conceal" else "🟠 ")
 	if ord_str == "conceal":
-		_hero_order_btn.text = "🔵 隐匿姿态 [C切换]" if can_flip_order else "🔵 隐匿姿态 (已锁定)"
+		_hero_order_btn.text = ico_prefix + ("隐匿姿态 [C切换]" if can_flip_order else "隐匿姿态 (已锁定)")
 		KTTheme.apply_accent_button(_hero_order_btn, KTTheme.COL_IMPERIAL, 0.30 if can_flip_order else 0.14)
 	else:
-		_hero_order_btn.text = "🟠 交战姿态 [C切换]" if can_flip_order else "🟠 交战姿态 (已锁定)"
+		_hero_order_btn.text = ico_prefix + ("交战姿态 [C切换]" if can_flip_order else "交战姿态 (已锁定)")
 		KTTheme.apply_accent_button(_hero_order_btn, Color(0.95, 0.52, 0.18), 0.32 if can_flip_order else 0.14)
 
 	# 2. Bottom-Center Octagonal Skill Hotbar (`[1]`..`[9]` + `[Space]`)

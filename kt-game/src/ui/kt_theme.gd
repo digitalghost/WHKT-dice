@@ -46,11 +46,106 @@ static func get_display_font() -> Font:
 	return _display_font
 
 
+## ------------------------------------------------------------------------------------------
+## UI KIT (assets/ui_kit): nine-slice panels, buttons, icons generated from docs/UI_ART_BRIEF.md.
+## Every accessor falls back to the procedural StyleBoxFlat / vector icon when the file is missing,
+## so a fresh checkout without the kit still runs.
+## ------------------------------------------------------------------------------------------
+const UI_KIT_DIR := "res://assets/ui_kit/"
+static var _kit_tex_cache: Dictionary = {}
+static var _kit_checked: bool = false
+static var _kit_present: bool = false
+
+
+static func kit_available() -> bool:
+	if not _kit_checked:
+		_kit_checked = true
+		_kit_present = ResourceLoader.exists(UI_KIT_DIR + "panel_primary.png")
+	return _kit_present
+
+
+static func kit_tex(name: String) -> Texture2D:
+	if _kit_tex_cache.has(name):
+		return _kit_tex_cache[name]
+	var p := UI_KIT_DIR + name + ".png"
+	var t: Texture2D = KTData.load_tex(p) if ResourceLoader.exists(p) or FileAccess.file_exists(ProjectSettings.globalize_path(p)) else null
+	_kit_tex_cache[name] = t
+	return t
+
+
+## A kit icon pre-shrunk to `px` with a Lanczos filter and cached. Buttons draw their icon at native
+## size, and a 256px source squeezed to 20px by the GPU looks like a smudge; a proper downscale
+## keeps the 10px strokes crisp.
+static func kit_tex_scaled(name: String, px: int) -> Texture2D:
+	var key := "%s@%d" % [name, px]
+	if _kit_tex_cache.has(key):
+		return _kit_tex_cache[key]
+	var src := kit_tex(name)
+	if src == null or src.get_image() == null:
+		_kit_tex_cache[key] = null
+		return null
+	var img := src.get_image().duplicate()
+	img.resize(px, px, Image.INTERPOLATE_LANCZOS)
+	var t := ImageTexture.create_from_image(img)
+	_kit_tex_cache[key] = t
+	return t
+
+
+## Nine-slice StyleBoxTexture from a 512x512 kit panel. The kit art's frame + corner ornaments live
+## in the outer 64px; we pre-shrink the whole texture to 256px so those become 32px on screen,
+## which fits a 40px-tall HUD strip without the frame swallowing the content.
+## `tint` multiplies the texture (faction-coloured variants of the neutral panel); `pad` is the content margin.
+static var _kit_panel_tex_cache: Dictionary = {}
+
+static func kit_panel(name: String, pad: int = 10, tint: Color = Color(1, 1, 1, 1), margin: int = 32) -> StyleBox:
+	var tex: Texture2D = _kit_panel_tex_cache.get(name, null)
+	if tex == null:
+		var src := kit_tex(name)
+		if src == null or src.get_image() == null:
+			return null
+		var img := src.get_image().duplicate()
+		img.resize(256, 256, Image.INTERPOLATE_LANCZOS)
+		tex = ImageTexture.create_from_image(img)
+		_kit_panel_tex_cache[name] = tex
+	var sb := StyleBoxTexture.new()
+	sb.texture = tex
+	sb.texture_margin_left = margin
+	sb.texture_margin_right = margin
+	sb.texture_margin_top = margin
+	sb.texture_margin_bottom = margin
+	sb.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+	sb.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+	sb.content_margin_left = pad
+	sb.content_margin_right = pad
+	sb.content_margin_top = pad
+	sb.content_margin_bottom = pad
+	sb.modulate_color = tint
+	return sb
+
+
 ## Three panel tiers so the eye can rank information:
 ##   "primary"  thick gold frame + glow       : the one thing you act on now (hotbar, combat console)
 ##   "floating" thin brass, translucent       : context HUD (hero card, tooltips)
 ##   "tag"      no border, dark pill          : labels, counters
-static func panel(tier: String, accent: Color = COL_GOLD) -> StyleBoxFlat:
+## With the UI kit present these map to panel_primary / panel_floating / panel_tag textures.
+## `accent` tints the kit texture slightly toward a faction colour; alpha of the tint is ignored.
+static func panel(tier: String, accent: Color = COL_GOLD) -> StyleBox:
+	if kit_available():
+		var tint := Color(1, 1, 1, 1)
+		if not accent.is_equal_approx(COL_GOLD) and not accent.is_equal_approx(COL_BRASS):
+			# Push the neutral brass frame toward the faction accent without killing the art
+			tint = Color(1, 1, 1, 1).lerp(accent.lightened(0.35), 0.35)
+			tint.a = 1.0
+		match tier:
+			"primary":
+				var p := kit_panel("panel_primary", 10, tint)
+				if p != null: return p
+			"floating":
+				var f := kit_panel("panel_floating", 8, tint)
+				if f != null: return f
+			_:
+				var t := kit_panel("panel_tag", 6, Color(1, 1, 1, 1), 20)
+				if t != null: return t
 	match tier:
 		"primary":
 			return make_panel_style(Color(0.030, 0.036, 0.052, 0.95), accent, 10, 2, 10, true, accent.lightened(0.2))
@@ -60,6 +155,30 @@ static func panel(tier: String, accent: Color = COL_GOLD) -> StyleBoxFlat:
 			var sb := make_panel_style(Color(0.02, 0.025, 0.04, 0.80), Color(0, 0, 0, 0), 6, 0, 6)
 			sb.shadow_size = 0
 			return sb
+
+
+## Kit button styleboxes (normal/hover/pressed/danger) or null when the kit is absent.
+static func kit_button(state: String, pad_h: int = 12, pad_v: int = 7) -> StyleBox:
+	var name := "btn_" + state
+	var tex := kit_tex(name)
+	if tex == null:
+		return null
+	# Buttons are small; shrink the 512 source to 128 so the 1px hairline + bevel stay ~1-2px on screen
+	var small: Texture2D = _kit_panel_tex_cache.get(name + "@btn", null)
+	if small == null:
+		var img := tex.get_image().duplicate()
+		img.resize(128, 128, Image.INTERPOLATE_LANCZOS)
+		small = ImageTexture.create_from_image(img)
+		_kit_panel_tex_cache[name + "@btn"] = small
+	var sb := StyleBoxTexture.new()
+	sb.texture = small
+	for side in ["left", "right", "top", "bottom"]:
+		sb.set("texture_margin_" + side, 12)
+	sb.content_margin_left = pad_h
+	sb.content_margin_right = pad_h
+	sb.content_margin_top = pad_v
+	sb.content_margin_bottom = pad_v
+	return sb
 
 
 static func get_cjk_font() -> SystemFont:
@@ -93,12 +212,18 @@ static func build_global_theme() -> Theme:
 	th.set_color("font_color", "Label", COL_TEXT)
 	th.set_color("font_color", "RichTextLabel", COL_TEXT)
 
-	# Chamfered Grimdark Tactical Buttons
-	th.set_stylebox("normal", "Button", make_btn_style(Color(0.11, 0.135, 0.185, 0.95), COL_BRASS_DIM))
-	th.set_stylebox("hover", "Button", make_btn_style(Color(0.18, 0.22, 0.29, 0.98), COL_GOLD_BRIGHT, 6, 12, 7, true))
-	th.set_stylebox("pressed", "Button", make_btn_style(Color(0.28, 0.22, 0.11, 1.0), COL_GOLD_BRIGHT, 6, 12, 7, true))
-	th.set_stylebox("disabled", "Button", make_btn_style(Color(0.065, 0.075, 0.095, 0.62), Color(0.22, 0.25, 0.30, 0.42)))
-	th.set_stylebox("focus", "Button", make_btn_style(Color(0.15, 0.185, 0.25, 0.98), COL_BRASS))
+	# Chamfered Grimdark Tactical Buttons (kit textures when present, procedural otherwise)
+	var b_norm: StyleBox = kit_button("normal")
+	var b_hov: StyleBox = kit_button("hover")
+	var b_prs: StyleBox = kit_button("pressed")
+	th.set_stylebox("normal", "Button", b_norm if b_norm != null else make_btn_style(Color(0.11, 0.135, 0.185, 0.95), COL_BRASS_DIM))
+	th.set_stylebox("hover", "Button", b_hov if b_hov != null else make_btn_style(Color(0.18, 0.22, 0.29, 0.98), COL_GOLD_BRIGHT, 6, 12, 7, true))
+	th.set_stylebox("pressed", "Button", b_prs if b_prs != null else make_btn_style(Color(0.28, 0.22, 0.11, 1.0), COL_GOLD_BRIGHT, 6, 12, 7, true))
+	var b_dis: StyleBox = kit_button("normal")
+	if b_dis != null:
+		(b_dis as StyleBoxTexture).modulate_color = Color(0.55, 0.55, 0.58, 0.7)
+	th.set_stylebox("disabled", "Button", b_dis if b_dis != null else make_btn_style(Color(0.065, 0.075, 0.095, 0.62), Color(0.22, 0.25, 0.30, 0.42)))
+	th.set_stylebox("focus", "Button", b_hov if b_hov != null else make_btn_style(Color(0.15, 0.185, 0.25, 0.98), COL_BRASS))
 	th.set_color("font_color", "Button", COL_TEXT)
 	th.set_color("font_hover_color", "Button", COL_GOLD_BRIGHT)
 	th.set_color("font_pressed_color", "Button", COL_GOLD_BRIGHT)

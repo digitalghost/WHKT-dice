@@ -362,12 +362,20 @@ class SkillSlot extends Control:
 				dc + Vector2(0, -dr), dc + Vector2(dr, 0), dc + Vector2(0, dr), dc + Vector2(-dr, 0)
 			]), dcol)
 
-		# Bespoke Vector Tactical Icon (Center)
+		# Icon (Center): kit bitmap when available, procedural vector otherwise
 		var ico_col := Color(0.38, 0.41, 0.48, 0.58) if disabled else accent_col.lightened(0.28 + 0.20 * _hover_t)
 		if active_armed:
 			var pulse_w: float = 0.5 + 0.5 * sin(_pulse_t * 6.5)
 			ico_col = KTTheme.COL_GOLD_BRIGHT.lightened(0.18 * pulse_w)
-		KTWidgets.draw_tactical_icon(self, Vector2(card_r.get_center().x, card_r.position.y + 37.0), 14.5 + 1.2 * _hover_t, icon_id, ico_col)
+		var ico_c := Vector2(card_r.get_center().x, card_r.position.y + 37.0)
+		var ico_tex := KTTheme.kit_tex_scaled("icon_" + icon_id, 44)
+		if ico_tex != null:
+			var isz: float = 40.0 + 3.0 * _hover_t
+			# Kit icons are already brass-coloured; modulate only for disabled / armed states
+			var mod := Color(0.45, 0.47, 0.52, 0.55) if disabled else (Color(1.0, 1.0, 1.0, 1.0) if not active_armed else Color(1.0, 1.0, 0.85, 1.0))
+			draw_texture_rect(ico_tex, Rect2(ico_c - Vector2(isz, isz) * 0.5, Vector2(isz, isz)), false, mod)
+		else:
+			KTWidgets.draw_tactical_icon(self, ico_c, 14.5 + 1.2 * _hover_t, icon_id, ico_col)
 
 		# Bottom Name Strip
 		var strip_r := Rect2(card_r.position.x + 3.0, card_r.end.y - 20.0, card_r.size.x - 6.0, 17.0)
@@ -537,8 +545,17 @@ class StratagemCard extends Control:
 			bg_top = Color(0.07, 0.072, 0.08, 0.80)
 			bg_bot = Color(0.045, 0.047, 0.055, 0.80)
 		var border_c := KTTheme.COL_GOLD_BRIGHT if (_hover_t > 0.45 or active_used) else (Color(0.26, 0.29, 0.35, 0.6) if disabled else accent_col)
-		KTWidgets.draw_chamfer_rect(self, r, 6.0, bg_bot, border_c, 2.4 if _hover_t > 0.3 else 1.6)
-		draw_rect(Rect2(r.position.x + 2.0, r.position.y + 2.0, r.size.x - 4.0, r.size.y * 0.45), Color(bg_top.r, bg_top.g, bg_top.b, 0.55), true)
+		var stock := KTTheme.kit_tex("panel_card_stock")
+		if stock != null:
+			# Kit card stock (gunmetal brushed, brass inset) as the card body; draw via a nine-slice so the
+			# brushed grain doesn't stretch. Tint for disabled / played states.
+			var sb := KTTheme.kit_panel("panel_card_stock", 0) as StyleBoxTexture
+			sb.modulate_color = Color(0.5, 0.5, 0.55, 0.85) if disabled else (Color(1.0, 1.0, 1.0, 1.0).lerp(accent_col.lightened(0.3), 0.35) if active_used else Color(1, 1, 1, 1))
+			sb.draw(get_canvas_item(), r)
+			KTWidgets.draw_chamfer_rect(self, r, 6.0, Color(0, 0, 0, 0), border_c, 2.4 if _hover_t > 0.3 else 1.4)
+		else:
+			KTWidgets.draw_chamfer_rect(self, r, 6.0, bg_bot, border_c, 2.4 if _hover_t > 0.3 else 1.6)
+			draw_rect(Rect2(r.position.x + 2.0, r.position.y + 2.0, r.size.x - 4.0, r.size.y * 0.45), Color(bg_top.r, bg_top.g, bg_top.b, 0.55), true)
 
 		# Faction crest watermark behind the text
 		if _crest_tex != null:

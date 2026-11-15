@@ -396,6 +396,25 @@ func _spawn_fallen_marker(uid: String, wpos: Vector3) -> void:
 	_ops_root.add_child(marker)
 	var disc_mat := Models3D.make_pbr(Color(0.07, 0.075, 0.09), 0.35, 0.6)
 	Models3D.add_cyl(marker, Vector3(0.0, 0.03, 0.0), 0.62, 0.58, 0.06, disc_mat, Vector3.ZERO, 24)
+	var cas_tex := KTTheme.kit_tex("marker_casualty")
+	if cas_tex != null:
+		# Kit casualty token printed on the disc top, tinted to the faction
+		var cm := StandardMaterial3D.new()
+		cm.albedo_texture = cas_tex
+		cm.albedo_color = fac_col.lightened(0.45)
+		cm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+		cm.alpha_scissor_threshold = 0.5
+		cm.roughness = 0.5
+		var cq := QuadMesh.new()
+		cq.size = Vector2(1.24, 1.24)
+		var cmi := MeshInstance3D.new()
+		cmi.mesh = cq
+		cmi.material_override = cm
+		cmi.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+		cmi.position = Vector3(0.0, 0.065, 0.0)
+		marker.add_child(cmi)
+		_fallen_markers[uid] = marker
+		return
 	Models3D.add_torus(marker, Vector3(0.0, 0.06, 0.0), 0.50, 0.58, Models3D.make_pbr(fac_col.darkened(0.35), 0.6, 0.4))
 	var skull := Label3D.new()
 	skull.text = "☠"

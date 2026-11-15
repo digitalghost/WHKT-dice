@@ -21,6 +21,9 @@ var _chip_nodes: Dictionary = {}   # side -> Array[MeshInstance3D]
 var _vp_markers: Dictionary = {}   # side -> Node3D
 var _vp_target_x: Dictionary = {}  # side -> float
 var _tp_lbl: Label3D
+var _tp_face_mat: StandardMaterial3D = null
+var _tp_sheet: Texture2D = null
+var _tp_face_cells: Array[Texture2D] = []
 var _card_mats: Dictionary = {}    # side -> {root, sprite, name_lbl}
 var _mat_chip_a: StandardMaterial3D
 var _mat_chip_b: StandardMaterial3D
@@ -46,6 +49,20 @@ func build(board_w: float, board_h: float) -> void:
 	_mat_chip_b = KTModels3D.make_pbr(Color(0.42, 0.60, 0.18), 0.30, 0.35)
 	_mat_brass = KTModels3D.make_pbr(Color(0.74, 0.56, 0.26), 0.86, 0.32)
 	_mat_wood = KTModels3D.make_textured_pbr("rust", Color(0.55, 0.38, 0.22), 0.8, 1.0, 0.0)
+	# UI kit overrides: real wood / brass textures and printed chip tops
+	var wood_tex := KTTheme.kit_tex("tex_wood_dark")
+	if wood_tex != null:
+		_mat_wood = StandardMaterial3D.new()
+		_mat_wood.albedo_texture = wood_tex
+		_mat_wood.roughness = 0.7
+		_mat_wood.uv1_triplanar = true
+		_mat_wood.uv1_scale = Vector3(0.6, 0.6, 0.6)
+	var brass_tex := KTTheme.kit_tex("tex_brass_brushed")
+	if brass_tex != null:
+		_mat_brass.albedo_texture = brass_tex
+		_mat_brass.albedo_color = Color(0.95, 0.90, 0.80)
+		_mat_brass.uv1_triplanar = true
+		_mat_brass.uv1_scale = Vector3(0.6, 0.6, 0.6)
 
 	var hw := board_w * 0.5
 	var hh := board_h * 0.5
@@ -99,13 +116,30 @@ func _build_side(side: String, origin: Vector3, yaw: float) -> void:
 	var mat_root := Node3D.new()
 	mat_root.position = Vector3(-4.1, 0.0, 0.0)
 	root.add_child(mat_root)
-	var leather := KTModels3D.make_textured_pbr("rust", Color(0.30, 0.24, 0.20), 1.2, 1.0, 0.0)
-	KTModels3D.add_box(mat_root, Vector3(0.0, 0.02, 0.0), Vector3(4.8, 0.04, 3.2), leather)
-	KTModels3D.add_box(mat_root, Vector3(0.0, 0.035, 0.0), Vector3(4.5, 0.012, 2.9), _mat_brass)
-	KTModels3D.add_box(mat_root, Vector3(0.0, 0.045, 0.0), Vector3(4.4, 0.012, 2.8), leather)
-	for sx in [-1.0, 1.0]:
-		for sz in [-1.0, 1.0]:
-			KTModels3D.add_box(mat_root, Vector3(sx * 2.15, 0.05, sz * 1.4), Vector3(0.28, 0.02, 0.28), _mat_brass)
+	var mat_tex := KTTheme.kit_tex("mat_datacard")
+	if mat_tex != null:
+		# Printed leather mat (kit art, 1024x768 -> 4.8" x 3.6")
+		var mmat := StandardMaterial3D.new()
+		mmat.albedo_texture = mat_tex
+		mmat.roughness = 0.85
+		mmat.metallic = 0.05
+		var mq := QuadMesh.new()
+		mq.size = Vector2(4.8, 3.6)
+		var mmi := MeshInstance3D.new()
+		mmi.mesh = mq
+		mmi.material_override = mmat
+		mmi.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+		mmi.position = Vector3(0.0, 0.04, 0.0)
+		mat_root.add_child(mmi)
+		KTModels3D.add_box(mat_root, Vector3(0.0, 0.02, 0.0), Vector3(4.8, 0.035, 3.6), KTModels3D.make_pbr(Color(0.10, 0.08, 0.07), 0.05, 0.9))
+	else:
+		var leather := KTModels3D.make_textured_pbr("rust", Color(0.30, 0.24, 0.20), 1.2, 1.0, 0.0)
+		KTModels3D.add_box(mat_root, Vector3(0.0, 0.02, 0.0), Vector3(4.8, 0.04, 3.2), leather)
+		KTModels3D.add_box(mat_root, Vector3(0.0, 0.035, 0.0), Vector3(4.5, 0.012, 2.9), _mat_brass)
+		KTModels3D.add_box(mat_root, Vector3(0.0, 0.045, 0.0), Vector3(4.4, 0.012, 2.8), leather)
+		for sx in [-1.0, 1.0]:
+			for sz in [-1.0, 1.0]:
+				KTModels3D.add_box(mat_root, Vector3(sx * 2.15, 0.05, sz * 1.4), Vector3(0.28, 0.02, 0.28), _mat_brass)
 
 	var card := Sprite3D.new()
 	# Datacards are 947x545 px -> ~4.3" x 2.5" on the table, inside the 4.6 x 3.1 mat.
@@ -203,6 +237,29 @@ func _build_tp_block(origin: Vector3) -> void:
 	add_child(root)
 	KTModels3D.add_box(root, Vector3(0.0, 0.45, 0.0), Vector3(1.6, 0.9, 1.6), _mat_wood)
 	KTModels3D.add_box(root, Vector3(0.0, 0.905, 0.0), Vector3(1.3, 0.02, 1.3), _mat_brass)
+	# Kit: engraved Roman numeral face plate (block_tp_faces.png, 4 cells). Shown instead of Label3D.
+	# 3D materials ignore AtlasTexture regions, so the four cells are pre-cropped into ImageTextures.
+	var tp_sheet := KTTheme.kit_tex("block_tp_faces")
+	if tp_sheet != null and tp_sheet.get_image() != null:
+		var src := tp_sheet.get_image()
+		var cell := src.get_height()
+		_tp_face_cells.clear()
+		for i in range(4):
+			var sub := src.get_region(Rect2i(cell * i, 0, cell, cell))
+			sub.generate_mipmaps()
+			_tp_face_cells.append(ImageTexture.create_from_image(sub))
+		_tp_face_mat = StandardMaterial3D.new()
+		_tp_face_mat.albedo_texture = _tp_face_cells[0]
+		_tp_face_mat.roughness = 0.6
+		var fq := QuadMesh.new()
+		fq.size = Vector2(1.3, 1.3)
+		var fmi := MeshInstance3D.new()
+		fmi.mesh = fq
+		fmi.material_override = _tp_face_mat
+		fmi.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+		fmi.position = Vector3(0.0, 0.92, 0.0)
+		root.add_child(fmi)
+		_tp_sheet = tp_sheet
 	_tp_lbl = Label3D.new()
 	_tp_lbl.text = "TP 1"
 	_tp_lbl.font = _font
@@ -247,16 +304,37 @@ func sync(cp: Dictionary, vp: Dictionary, tp: int, active_cards: Dictionary) -> 
 				el.visible = false
 	if _tp_lbl != null:
 		_tp_lbl.text = "TP %d" % tp
+		_tp_lbl.visible = _tp_sheet == null
+	if _tp_face_mat != null and not _tp_face_cells.is_empty():
+		_tp_face_mat.albedo_texture = _tp_face_cells[clampi(tp, 1, 4) - 1]
 
 
 func _sync_chips(side: String, count: int) -> void:
 	var arr: Array = _chip_nodes[side]
 	var root: Node3D = _side_roots[side]
 	var mm := _mat_chip_a if side == "A" else _mat_chip_b
+	var chip_tex := KTTheme.kit_tex("chip_cp_imperial" if side == "A" else "chip_cp_nurgle")
 	while arr.size() < count:
 		var i := arr.size()
 		var chip := KTModels3D.add_cyl(root, Vector3(0.0, 0.06 + float(i) * CHIP_H + 1.4, 0.0), CHIP_R, CHIP_R, CHIP_H * 0.9, mm, Vector3(0.0, float(i) * 23.0, 0.0), 24)
-		KTModels3D.add_torus(chip, Vector3(0.0, CHIP_H * 0.46, 0.0), CHIP_R * 0.62, CHIP_R * 0.74, _mat_brass)
+		if chip_tex != null:
+			# Printed chip face on top (kit art), body stays enamel-coloured
+			var face_mat := StandardMaterial3D.new()
+			face_mat.albedo_texture = chip_tex
+			face_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+			face_mat.alpha_scissor_threshold = 0.5
+			face_mat.roughness = 0.35
+			face_mat.metallic = 0.3
+			var fq := QuadMesh.new()
+			fq.size = Vector2(CHIP_R * 2.0, CHIP_R * 2.0)
+			var fmi := MeshInstance3D.new()
+			fmi.mesh = fq
+			fmi.material_override = face_mat
+			fmi.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+			fmi.position = Vector3(0.0, CHIP_H * 0.46, 0.0)
+			chip.add_child(fmi)
+		else:
+			KTModels3D.add_torus(chip, Vector3(0.0, CHIP_H * 0.46, 0.0), CHIP_R * 0.62, CHIP_R * 0.74, _mat_brass)
 		chip.set_meta("target_y", 0.06 + float(i) * CHIP_H)
 		arr.append(chip)
 	while arr.size() > count:
