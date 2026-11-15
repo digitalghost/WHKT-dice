@@ -329,15 +329,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif phase == "INITIATIVE":
 				accept_event()
 				KTSfx.play("phase_horn", -5.0, 0.03)
-				var res_i: Dictionary = engine.roll_initiative()
-				if bool(res_i.get("ok", false)):
-					_dice_modal.open_initiative(engine, res_i, false)
-				_refresh_all_ui()
+				_roll_or_resume_initiative()
 				return
 			elif phase == "STRATEGY":
 				accept_event()
 				KTSfx.play("ui_click", -4.0, 0.04)
-				engine.pass_strategy(str(engine.state["turn_side"]))
+				var res_p: Dictionary = engine.pass_strategy(str(engine.state["turn_side"]))
+				if not bool(res_p.get("ok", false)):
+					_killzone.spawn_floating_text(Vector2(15.0, 11.0), str(res_p.get("msg", "")), KTTheme.COL_CRIMSON)
 				_refresh_all_ui()
 				return
 			elif phase == "FIREFIGHT" and not str(engine.state["active_op_uid"]).is_empty():
@@ -1692,6 +1691,8 @@ func _update_tactical_pill() -> void:
 	elif phase == "STRATEGY":
 		if engine.is_ai_turn():
 			_guide_lbl.text = "🤖 敌方统帅正在检视战略计谋手牌…"
+		elif engine.needs_primary_op(str(engine.state["turn_side"])):
+			_guide_lbl.text = "🂠 第一转折点战略计划：秘密选择你的主要行动 op（战斗结束时揭示，额外获得该行动 VP 的一半）"
 		else:
 			_guide_lbl.text = "🃏 悬停抽选下方【战略计谋卡】打出，或按 [Space] 进入交战"
 	elif phase == "FIREFIGHT":
@@ -1807,18 +1808,13 @@ func _rebuild_bottom_game_hud() -> void:
 
 	elif phase == "INITIATIVE":
 		var roll_btn := Button.new()
-		roll_btn.text = "🎲  投掷第 %d 转折点先攻权对抗骰  [Space]" % int(engine.state["tp"])
+		roll_btn.text = ("🎴  继续第 %d 转折点先手权卡步骤  [Space]" if engine.init_pending() else "🎲  投掷第 %d 转折点先攻权对抗骰  [Space]") % int(engine.state["tp"])
 		roll_btn.custom_minimum_size = Vector2(450, 62)
 		roll_btn.size_flags_vertical = Control.SIZE_SHRINK_END
 		roll_btn.add_theme_font_size_override("font_size", 18)
 		KTTheme.apply_accent_button(roll_btn, KTTheme.COL_GOLD_BRIGHT, 0.36)
 		KTWidgets.attach_button_juice(roll_btn, 1.05, "phase_horn")
-		roll_btn.pressed.connect(func():
-			var res_i: Dictionary = engine.roll_initiative()
-			if bool(res_i.get("ok", false)):
-				_dice_modal.open_initiative(engine, res_i, false)
-			_refresh_all_ui()
-		)
+		roll_btn.pressed.connect(_roll_or_resume_initiative)
 		_context_hb.add_child(roll_btn)
 
 	elif phase == "STRATEGY":
@@ -1833,6 +1829,8 @@ func _rebuild_bottom_game_hud() -> void:
 			al.add_theme_color_override("font_color", KTTheme.COL_NURGLE.lightened(0.28))
 			ai_pill.add_child(al)
 			_context_hb.add_child(ai_pill)
+		elif engine.needs_primary_op(turn_s):
+			_build_primary_op_choice(turn_s)
 		else:
 			var fcol: Color = KTTheme.COL_IMPERIAL if turn_s == "A" else KTTheme.COL_NURGLE
 			var deal_i := 0
@@ -1891,7 +1889,11 @@ func _rebuild_bottom_game_hud() -> void:
 		over_panel.add_child(ohb)
 
 		var sum_l := Label.new()
-		sum_l.text = "🏆 终局战果：死亡天使 %d VP  vs  瘟疫战士 %d VP" % [engine.get_total_vp("A"), engine.get_total_vp("B")]
+		sum_l.text = "🏆 终局战果：死亡天使 %d VP  vs  瘟疫战士 %d VP\n🂠 揭示主要行动 op：死亡天使【%s】+%d VP ｜ 瘟疫战士【%s】+%d VP" % [
+			engine.get_total_vp("A"), engine.get_total_vp("B"),
+			str(KTEngine.PRIMARY_OP_NAMES.get(str(engine.state["sides"]["A"]["primary_op"]), "未选择")), engine.primary_bonus("A"),
+			str(KTEngine.PRIMARY_OP_NAMES.get(str(engine.state["sides"]["B"]["primary_op"]), "未选择")), engine.primary_bonus("B"),
+		]
 		sum_l.add_theme_font_size_override("font_size", 20)
 		sum_l.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
 		ohb.add_child(sum_l)
@@ -1924,6 +1926,57 @@ func _zone_label(dz: Rect2) -> String:
 	if dz.size.x >= dz.size.y:
 		return "北侧" if dz.get_center().y < h * 0.5 else "南侧"
 	return "西侧" if dz.get_center().x < w * 0.5 else "东侧"
+
+
+## Roll the TP initiative dice, or reopen the roll-off panel if the initiative-card step is still open.
+func _roll_or_resume_initiative() -> void:
+	if engine.init_pending():
+		var st: Dictionary = engine.state["init"]
+		_dice_modal.open_initiative(engine, {"roll_a": int(st["roll"]["A"]), "roll_b": int(st["roll"]["B"]), "winner": engine.init_leader()}, false)
+	else:
+		var res_i: Dictionary = engine.roll_initiative()
+		if bool(res_i.get("ok", false)):
+			_dice_modal.open_initiative(engine, res_i, false)
+	_refresh_all_ui()
+
+
+## Rulebook p.106: in TP1, as a strategic gambit, each player secretly picks their Primary Op.
+func _build_primary_op_choice(side: String) -> void:
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+	var pnl := PanelContainer.new()
+	pnl.size_flags_vertical = Control.SIZE_SHRINK_END
+	pnl.add_theme_stylebox_override("panel", KTTheme.panel("floating", acc))
+	_context_hb.add_child(pnl)
+	var vb := VBoxContainer.new()
+	vb.add_theme_constant_override("separation", 8)
+	pnl.add_child(vb)
+	var hdr := Label.new()
+	hdr.text = "🂠 【%s】秘密选择主要行动 op  ·  战斗结束时揭示，额外获得该行动 op 所得 VP 的一半（向上取整）" % str(engine.state["sides"][side]["name"])
+	hdr.add_theme_font_size_override("font_size", 14)
+	hdr.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	vb.add_child(hdr)
+	var hb := HBoxContainer.new()
+	hb.add_theme_constant_override("separation", 12)
+	vb.add_child(hb)
+	# Tac ops are not implemented yet, so that op can never score: keep it visible but unselectable.
+	for opt in [
+		["key", "关键行动 op", "通过执行任务行动和控制\n目标标识来获得 VP", true],
+		["kill", "击杀行动 op", "通过使敌方特工残废\n来获得 VP", true],
+		["tac", "战术行动 op", "（战术行动尚未实装，\n暂不可选）", false],
+	]:
+		var op_id: String = str(opt[0])
+		var b := Button.new()
+		b.text = "%s\n%s" % [str(opt[1]), str(opt[2])]
+		b.custom_minimum_size = Vector2(236, 84)
+		b.add_theme_font_size_override("font_size", 14)
+		b.disabled = not bool(opt[3])
+		KTTheme.apply_accent_button(b, acc, 0.30)
+		KTWidgets.attach_button_juice(b, 1.04, "order_servo")
+		b.pressed.connect(func():
+			engine.choose_primary_op(side, op_id)
+			_refresh_all_ui()
+		)
+		hb.add_child(b)
 
 
 ## Rulebook p.105 step 1: the pre-battle roll-off winner picks a drop zone; the opponent takes the other.
@@ -2695,9 +2748,16 @@ func _run_ai_step() -> void:
 		_refresh_all_ui()
 		return
 
+	if phase == "INITIATIVE":
+		# AI owes an initiative-card decision but the roll-off panel is closed (e.g. after an undo)
+		_roll_or_resume_initiative()
+		return
+
 	if phase == "STRATEGY":
 		var dec: Dictionary = KTAI.decide_strategy_step(engine, ai_side)
-		if str(dec["action"]) == "ploy":
+		if str(dec["action"]) == "primary":
+			engine.choose_primary_op(ai_side, str(dec["op"]))
+		elif str(dec["action"]) == "ploy":
 			engine.use_strategic_ploy(ai_side, str(dec["id"]))
 		else:
 			engine.pass_strategy(ai_side)
@@ -2797,10 +2857,13 @@ func _run_autotest_screenshot_tour() -> void:
 	while str(engine.state["phase"]) == "DEPLOY":
 		if not bool(engine.ai_deploy_next().get("ok", false)):
 			break
-	var init_res: Dictionary = engine.roll_initiative()
+	var init_res: Dictionary = engine.auto_initiative()
 	init_res["roll_a"] = 6
 	init_res["roll_b"] = 3
 	init_res["winner"] = "A"
+	engine.state["init"]["roll"] = {"A": 6, "B": 3}
+	engine.state["init"]["mod"] = {"A": 0, "B": 0}
+	engine.state["init"]["winner"] = "A"
 	engine.state["initiative_side"] = "A"
 	engine.state["turn_side"] = "A"
 	_dice_modal.open_initiative(engine, init_res, true)
@@ -2813,6 +2876,13 @@ func _run_autotest_screenshot_tour() -> void:
 	_dice_modal.visible = false
 	_on_initiative_modal_finished()
 	_killzone.reset_isometric_view(true)
+	_phase_toast.visible = false
+	await get_tree().create_timer(0.24).timeout
+	_save_vp_png(out_dir + "/02a_primary_op.png")
+	engine.choose_primary_op("A", "kill")
+	engine.choose_primary_op("B", "key")
+	engine.state["turn_side"] = "A"
+	_refresh_all_ui()
 	_phase_toast.visible = false
 	await get_tree().process_frame
 	for ch in _context_hb.get_children():

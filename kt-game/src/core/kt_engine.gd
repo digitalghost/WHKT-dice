@@ -52,7 +52,8 @@ func start_match(
 				"vp_key": 0,
 				"vp_kill": 0,
 				"vp_tac": 0,
-				"primary_op": "kill",
+				"primary_op": "", # secretly chosen in TP1 as a strategic gambit (p.106): "key" | "kill" | "tac"
+				"init_cards": [], # initiative cards held: 0 = re-roll, 1/2/3 = +N/-N
 				"primary_tactic": aod_primary,
 				"secondary_tactic": aod_secondary,
 				"temp_tactic": "",
@@ -71,7 +72,8 @@ func start_match(
 				"vp_key": 0,
 				"vp_kill": 0,
 				"vp_tac": 0,
-				"primary_op": "key",
+				"primary_op": "",
+				"init_cards": [],
 				"primary_tactic": "",
 				"secondary_tactic": "",
 				"temp_tactic": "",
@@ -144,7 +146,10 @@ func choose_drop_zone(take_other: bool) -> Dictionary:
 		state["map"]["id"] = str(state["map"]["id"]) + "_swapped"
 	state["phase"] = "SELECT"
 	state["turn_side"] = first
-	add_log("🧭 【%s】选定降落区。双方秘密选择出战特工。" % str(state["sides"][first]["name"]))
+	# p.105: the opponent takes the other drop zone and gains the Re-roll initiative card
+	var second := "B" if first == "A" else "A"
+	state["sides"][second]["init_cards"] = [INIT_CARD_REROLL]
+	add_log("🧭 【%s】选定降落区；【%s】获得重投先手权卡。双方秘密选择出战特工。" % [str(state["sides"][first]["name"]), str(state["sides"][second]["name"])])
 	return {"ok": true}
 
 
@@ -502,8 +507,10 @@ func is_ai_turn() -> bool:
 		return deploy_side() != str(state["human_side"])
 	if phase in ["DROPZONE", "SELECT"]:
 		return setup_side() != str(state["human_side"])
-	if phase in ["INITIATIVE", "GAME_OVER"]:
+	if phase == "GAME_OVER":
 		return false
+	if phase == "INITIATIVE":
+		return init_pending() and str(state["init"]["turn"]) != str(state["human_side"])
 	var ai_side := "B" if str(state["human_side"]) == "A" else "A"
 	return str(state.get("turn_side", "")) == ai_side
 
@@ -526,34 +533,147 @@ func add_log(msg: String) -> void:
 # PHASE 1: INITIATIVE & READY STEP
 # ==============================================================================
 
+const INIT_CARD_REROLL := 0
+
+
+## True between the initiative roll and the end of the initiative-card step (p.106 step 4).
+func init_pending() -> bool:
+	return str(state.get("phase", "")) == "INITIATIVE" and state.has("init") and not bool(state["init"].get("resolved", true))
+
+
+## A side's current roll-off result including card modifiers (may exceed 6 or drop below 1).
+func init_value(side_id: String) -> int:
+	return int(state["init"]["roll"][side_id]) + int(state["init"]["mod"][side_id])
+
+
+## Side currently winning the roll-off. Ties are NOT re-rolled: the player who does not
+## currently have initiative wins (in TP1: the player without the pre-battle initiative).
+func init_leader() -> String:
+	var va := init_value("A")
+	var vb := init_value("B")
+	if va > vb:
+		return "A"
+	if vb > va:
+		return "B"
+	return "B" if str(state["initiative_side"]) == "A" else "A"
+
+
 func roll_initiative() -> Dictionary:
-	if str(state["phase"]) != "INITIATIVE":
+	if str(state["phase"]) != "INITIATIVE" or init_pending():
 		return {"ok": false}
 	push_undo()
 
-	var tp := int(state["tp"])
 	var ra := rng.randi_range(1, 6)
 	var rb := rng.randi_range(1, 6)
 	state["sides"]["A"]["init_roll"] = ra
 	state["sides"]["B"]["init_roll"] = rb
+	state["init"] = {"resolved": false, "roll": {"A": ra, "B": rb}, "mod": {"A": 0, "B": 0}, "passes": 0, "turn": "", "winner": ""}
+	add_log("🎲 TP%d 先手权拼骰：死亡天使 [%d] vs 瘟疫战士 [%d]。" % [int(state["tp"]), ra, rb])
 
-	var winner := "A"
-	if ra > rb:
-		winner = "A"
-	elif rb > ra:
-		winner = "B"
+	# Starting with the loser of the roll-off, players alternate playing an initiative card or passing.
+	var lead := init_leader()
+	var loser := "B" if lead == "A" else "A"
+	var lead_cards: Array = state["sides"][lead]["init_cards"]
+	var loser_cards: Array = state["sides"][loser]["init_cards"]
+	if lead_cards.is_empty() and loser_cards.is_empty():
+		_resolve_initiative()
+	elif loser_cards.is_empty():
+		state["init"]["passes"] = 1
+		state["init"]["turn"] = lead
+		state["turn_side"] = lead
 	else:
-		# Tie-breaker: player who did NOT have initiative last TP wins!
-		winner = "B" if str(state["initiative_side"]) == "A" else "A"
+		state["init"]["turn"] = loser
+		state["turn_side"] = loser
+	return {"ok": true, "roll_a": ra, "roll_b": rb, "winner": init_leader() if init_pending() else str(state["init"]["winner"]), "pending": init_pending()}
+
+
+## Play an initiative card. `card` 0 = re-roll (the new result overrides every earlier modifier);
+## 1/2/3 = modify own result by +N (sign >= 0) or -N (sign < 0).
+func init_play_card(side_id: String, card: int, sign: int = 1) -> Dictionary:
+	if not init_pending() or str(state["init"]["turn"]) != side_id:
+		return {"ok": false, "msg": "当前不是该方使用先手权卡的时机"}
+	if not (state["sides"][side_id]["init_cards"] as Array).has(card):
+		return {"ok": false, "msg": "没有这张先手权卡"}
+	push_undo()
+	(state["sides"][side_id]["init_cards"] as Array).erase(card)
+	var sname := str(state["sides"][side_id]["name"])
+	if card == INIT_CARD_REROLL:
+		var r := rng.randi_range(1, 6)
+		state["init"]["roll"][side_id] = r
+		state["init"]["mod"][side_id] = 0
+		state["sides"][side_id]["init_roll"] = r
+		add_log("🔁 【%s】打出重投先手权卡 → 新结果 [%d]。" % [sname, r])
+	else:
+		var delta := card if sign >= 0 else -card
+		state["init"]["mod"][side_id] = int(state["init"]["mod"][side_id]) + delta
+		add_log("🎴 【%s】打出 %+d 先手权卡 → 结果修正为 [%d]。" % [sname, delta, init_value(side_id)])
+	state["init"]["passes"] = 0
+	_init_advance(side_id)
+	return {"ok": true, "reroll": card == INIT_CARD_REROLL}
+
+
+func init_pass(side_id: String) -> Dictionary:
+	if not init_pending() or str(state["init"]["turn"]) != side_id:
+		return {"ok": false, "msg": "当前不是该方行动"}
+	push_undo()
+	state["init"]["passes"] = int(state["init"]["passes"]) + 1
+	if int(state["init"]["passes"]) >= 2:
+		_resolve_initiative()
+	else:
+		_init_advance(side_id)
+	return {"ok": true}
+
+
+## Hand the card step to the opponent; a player holding no cards can only pass.
+func _init_advance(side_id: String) -> void:
+	var other := "B" if side_id == "A" else "A"
+	if (state["sides"][other]["init_cards"] as Array).is_empty():
+		state["init"]["passes"] = int(state["init"]["passes"]) + 1
+		if int(state["init"]["passes"]) >= 2 or (state["sides"][side_id]["init_cards"] as Array).is_empty():
+			_resolve_initiative()
+			return
+		state["init"]["turn"] = side_id
+		state["turn_side"] = side_id
+	else:
+		state["init"]["turn"] = other
+		state["turn_side"] = other
+
+
+## Roll + both players pass on initiative cards (tests, scripted flows).
+func auto_initiative() -> Dictionary:
+	var res := roll_initiative()
+	while init_pending():
+		init_pass(str(state["init"]["turn"]))
+	if bool(res.get("ok", false)):
+		res["winner"] = str(state["init"]["winner"])
+	return res
+
+
+func _resolve_initiative() -> void:
+	var tp := int(state["tp"])
+	var ra := init_value("A")
+	var rb := init_value("B")
+	# The roll-off winner decides who has initiative; here the winner always takes it.
+	var winner := init_leader()
+	state["init"]["resolved"] = true
+	state["init"]["winner"] = winner
+
+	# Except in TP4, the LOSER of the roll-off gains the initiative card numbered after this TP.
+	var card_note := ""
+	if tp < 4:
+		var card_side := "B" if winner == "A" else "A"
+		(state["sides"][card_side]["init_cards"] as Array).append(tp)
+		card_note = "【%s】获得 +%d/-%d 先手权卡。" % [str(state["sides"][card_side]["name"]), tp, tp]
 
 	state["initiative_side"] = winner
 	state["turn_side"] = winner
 	state["consecutive_strategy_passes"] = 0
 
-	# KT24 CP Gain: TP1 both gain +2CP (total 4CP); TP2+ initiative gains +1CP, non-initiative gains +2CP!
+	# Ready step (rulebook p.8): each player gains 1CP; after TP1 the player WITHOUT initiative gains 2CP instead.
+	# (The 2CP from pre-battle setup, p.106, are the starting CP.)
 	if tp == 1:
-		state["sides"]["A"]["cp"] = int(state["sides"]["A"]["cp"]) + 2
-		state["sides"]["B"]["cp"] = int(state["sides"]["B"]["cp"]) + 2
+		state["sides"]["A"]["cp"] = int(state["sides"]["A"]["cp"]) + 1
+		state["sides"]["B"]["cp"] = int(state["sides"]["B"]["cp"]) + 1
 	else:
 		var loser := "B" if winner == "A" else "A"
 		state["sides"][winner]["cp"] = int(state["sides"][winner]["cp"]) + 1
@@ -584,8 +704,7 @@ func roll_initiative() -> Dictionary:
 
 	state["phase"] = "STRATEGY"
 	var win_name := str(state["sides"][winner]["name"])
-	add_log("🎲 先手权拼骰：死亡天使 [%d] vs 瘟疫战士 [%d] → 【%s】夺得 TP%d 先手权！进入战略阶段。" % [ra, rb, win_name, tp])
-	return {"ok": true, "roll_a": ra, "roll_b": rb, "winner": winner}
+	add_log("🎲 先手权结算：死亡天使 [%d] vs 瘟疫战士 [%d] → 【%s】夺得 TP%d 先手权！%s进入战略阶段。" % [ra, rb, win_name, tp, card_note])
 
 
 # ==============================================================================
@@ -758,9 +877,48 @@ func _find_nurgling_victim(pm_side: String) -> Dictionary:
 	return best
 
 
+const PRIMARY_OP_NAMES := {"key": "关键行动", "kill": "击杀行动", "tac": "战术行动"}
+
+
+## Rulebook p.106: in TP1, as a strategic gambit, each player secretly picks one of the three ops
+## as their Primary Op. Revealed at the end of the battle for bonus VP (half of that op, rounded up).
+func needs_primary_op(side_id: String) -> bool:
+	return str(state.get("phase", "")) == "STRATEGY" and int(state["tp"]) == 1 and str(state["sides"][side_id]["primary_op"]).is_empty()
+
+
+func choose_primary_op(side_id: String, op_id: String) -> Dictionary:
+	if str(state["phase"]) != "STRATEGY" or str(state["turn_side"]) != side_id:
+		return {"ok": false, "msg": "当前不是该方行动"}
+	if not needs_primary_op(side_id):
+		return {"ok": false, "msg": "主要行动 op 只能在第一转折点选择一次"}
+	if not PRIMARY_OP_NAMES.has(op_id):
+		return {"ok": false, "msg": "未知的行动 op"}
+	push_undo()
+	state["sides"][side_id]["primary_op"] = op_id
+	add_log("🂠 【%s】秘密选定了主要行动 op（战斗结束时揭示）。" % str(state["sides"][side_id]["name"]))
+	state["consecutive_strategy_passes"] = 0
+	state["turn_side"] = "B" if side_id == "A" else "A"
+	return {"ok": true}
+
+
+## VP a side has scored from one op ("key" | "kill" | "tac").
+func op_vp(side_id: String, op_id: String) -> int:
+	return int(state["sides"][side_id].get("vp_" + op_id, 0))
+
+
+## End-of-battle Primary Op bonus: half the VP scored from that op, rounded up.
+func primary_bonus(side_id: String) -> int:
+	var prim := str(state["sides"][side_id]["primary_op"])
+	if prim.is_empty():
+		return 0
+	return int((op_vp(side_id, prim) + 1) / 2)
+
+
 func pass_strategy(side_id: String) -> Dictionary:
 	if str(state["phase"]) != "STRATEGY" or str(state["turn_side"]) != side_id:
 		return {"ok": false, "msg": "当前不是该方行动"}
+	if needs_primary_op(side_id):
+		return {"ok": false, "msg": "第一转折点须先秘密选择主要行动 op（规则 p.106）"}
 	push_undo()
 	var sname := str(state["sides"][side_id]["name"])
 	state["consecutive_strategy_passes"] = int(state["consecutive_strategy_passes"]) + 1
@@ -1462,6 +1620,5 @@ func get_total_vp(side_id: String) -> int:
 	var s: Dictionary = state["sides"][side_id]
 	var base_vp := int(s["vp_key"]) + int(s["vp_kill"]) + int(s["vp_tac"])
 	if str(state["phase"]) == "GAME_OVER":
-		var prim_val := int(s["vp_kill"]) if str(s["primary_op"]) == "kill" else int(s["vp_key"])
-		base_vp += int((prim_val + 1) / 2)
+		base_vp += primary_bonus(side_id)
 	return base_vp

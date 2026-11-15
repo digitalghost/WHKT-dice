@@ -14,6 +14,11 @@ static func decide_strategy_step(engine: KTEngine, side_id: String) -> Dictionar
 	var tp := int(engine.state["tp"])
 	var options := engine.get_strategic_ploy_options(side_id)
 
+	# TP1: the Primary Op must be chosen as a strategic gambit (p.106). Tac ops are not modelled yet,
+	# so elite teams back their kill op and the rest their key op.
+	if engine.needs_primary_op(side_id):
+		return {"action": "primary", "op": "kill" if str(s["team_id"]) == "IMP-AOD" else "key"}
+
 	# Smart CP budgeting: Use 1~2 impactful ploys per TP while keeping >=1 CP for Command Reroll / Firefight!
 	for opt in options:
 		if bool(opt["used"]):
@@ -27,6 +32,26 @@ static func decide_strategy_step(engine: KTEngine, side_id: String) -> Dictionar
 				return {"action": "ploy", "id": oid}
 			if tp >= 2 and oid in ["contagion", "plodding_death", "doctrine_tactical", "doctrine_assault"]:
 				return {"action": "ploy", "id": oid}
+	return {"action": "pass"}
+
+
+## Initiative-card step (p.106): when losing the roll-off, spend the smallest modifier that flips it,
+## otherwise re-roll a poor die; never spend cards while already winning.
+static func decide_initiative_card(engine: KTEngine, side_id: String) -> Dictionary:
+	if engine.init_leader() == side_id:
+		return {"action": "pass"}
+	var cards: Array = (engine.state["sides"][side_id]["init_cards"] as Array).duplicate()
+	cards.sort()
+	var opp := "B" if side_id == "A" else "A"
+	var tie_wins := str(engine.state["initiative_side"]) != side_id
+	for c in cards:
+		if int(c) == KTEngine.INIT_CARD_REROLL:
+			continue
+		var v := engine.init_value(side_id) + int(c)
+		if v > engine.init_value(opp) or (v == engine.init_value(opp) and tie_wins):
+			return {"action": "card", "card": int(c), "sign": 1}
+	if cards.has(KTEngine.INIT_CARD_REROLL) and int(engine.state["init"]["roll"][side_id]) <= 3:
+		return {"action": "card", "card": KTEngine.INIT_CARD_REROLL, "sign": 1}
 	return {"action": "pass"}
 
 

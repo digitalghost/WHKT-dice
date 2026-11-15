@@ -16,6 +16,7 @@ func _init() -> void:
 	_test_deployment_phase()
 	_test_prebattle_setup()
 	_test_kill_op_and_wipeout()
+	_test_initiative_cards_and_primary_op()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -190,7 +191,7 @@ func _test_engine_flow_undo_and_ai() -> void:
 	var eng := KTEngine.new(303)
 	eng.start_match("ai", "A", "dueller", "hardy")
 	eng.auto_deploy_all()
-	eng.roll_initiative()
+	eng.auto_initiative()
 	_assert_true(str(eng.state["phase"]) == "STRATEGY", "Initiative roll transitions to STRATEGY")
 
 	var cp_before := int(eng.state["sides"]["A"]["cp"])
@@ -203,8 +204,12 @@ func _test_engine_flow_undo_and_ai() -> void:
 	_assert_true(undone and int(eng.state["sides"]["A"]["cp"]) == cp_before, "Undo snapshot cleanly restores full game state")
 
 	# Simulate AI decision functions without crashing
+	_assert_true(not bool(eng.pass_strategy("A")["ok"]), "TP1: cannot pass before secretly choosing a Primary Op (p.106)")
+	eng.choose_primary_op("A", "kill")
+	eng.choose_primary_op("B", "key")
 	eng.pass_strategy("A")
 	eng.pass_strategy("B")
+	_assert_true(str(eng.state["phase"]) == "FIREFIGHT", "Both Primary Ops chosen + two passes -> FIREFIGHT")
 	eng.state["turn_side"] = "B"
 	var ai_pick: Dictionary = KTAI.pick_operative_to_activate(eng, "B")
 	_assert_true(not ai_pick.is_empty(), "AI selects operative and order in Firefight phase")
@@ -292,10 +297,62 @@ func _test_kill_op_and_wipeout() -> void:
 	var eng := KTEngine.new(505)
 	eng.start_match("hotseat", "A", "dueller", "hardy")
 	eng.auto_deploy_all()
-	eng.roll_initiative()
+	eng.auto_initiative()
 	for op in eng.state["operatives"]:
 		if str(op["side"]) == "B":
 			op["incapacitated"] = true
 	eng.recalculate_objectives_and_kills()
 	_assert_true(str(eng.state["phase"]) != "GAME_OVER", "Wiping out a team does NOT end the battle (p.107)")
 	_assert_true(int(eng.state["sides"]["A"]["vp_kill"]) == 5, "Wipeout of a 6-operative team scores 5 Kill VP before the end-of-battle bonus")
+
+
+func _test_initiative_cards_and_primary_op() -> void:
+	var eng := KTEngine.new(606)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	var first := str(eng.state["setup"]["first_side"])
+	var second := "B" if first == "A" else "A"
+	eng.auto_deploy_all()
+	_assert_true((eng.state["sides"][second]["init_cards"] as Array) == [0] and (eng.state["sides"][first]["init_cards"] as Array).is_empty(), "Only the player WITHOUT pre-battle initiative holds the Re-roll card (p.105)")
+	_assert_true(int(eng.state["sides"]["A"]["cp"]) == 2, "Each player starts with 2CP (p.106)")
+
+	var res := eng.roll_initiative()
+	_assert_true(bool(res["ok"]) and eng.init_pending() and str(eng.state["phase"]) == "INITIATIVE", "Initiative roll opens the initiative-card step")
+	# Force a tie: not re-rolled, the player without (pre-battle) initiative wins
+	eng.state["init"]["roll"] = {"A": 4, "B": 4}
+	_assert_true(eng.init_leader() == second, "Tied TP1 roll-off: player without pre-battle initiative wins")
+	# Modifier cards may push the result above 6
+	eng.state["init"]["roll"] = {"A": 5, "B": 6}
+	eng.state["sides"]["A"]["init_cards"] = [2]
+	eng.state["sides"]["B"]["init_cards"] = []
+	eng.state["init"]["turn"] = "A"
+	eng.state["init"]["passes"] = 0
+	_assert_true(KTAI.decide_initiative_card(eng, "A").get("card", -1) == 2, "AI spends a modifier card that flips a losing roll-off")
+	eng.init_play_card("A", 2, 1)
+	_assert_true(eng.init_value("A") == 7 and str(eng.state["init"]["winner"]) == "A", "5 with +2 card = 7 beats a 6 (results may exceed 6)")
+	_assert_true(str(eng.state["phase"]) == "STRATEGY" and str(eng.state["initiative_side"]) == "A", "Card step ends -> winner has initiative, STRATEGY")
+	_assert_true((eng.state["sides"]["B"]["init_cards"] as Array) == [1], "TP1 roll-off loser gains the +1/-1 card")
+	_assert_true(int(eng.state["sides"]["A"]["cp"]) == 3 and int(eng.state["sides"]["B"]["cp"]) == 3, "TP1 Ready step: each player gains 1CP (2 -> 3)")
+
+	# Re-roll overrides earlier modifiers
+	var e2 := KTEngine.new(607)
+	e2.start_match("hotseat", "A", "dueller", "hardy")
+	e2.auto_deploy_all()
+	e2.roll_initiative()
+	e2.state["sides"]["A"]["init_cards"] = [0, 3]
+	e2.state["sides"]["B"]["init_cards"] = [1]
+	e2.state["init"]["turn"] = "A"
+	e2.init_play_card("A", 3, -1)
+	_assert_true(int(e2.state["init"]["mod"]["A"]) == -3 and str(e2.state["init"]["turn"]) == "B", "-3 card lowers the result; opponent acts next")
+	e2.init_pass("B")
+	e2.init_play_card("A", 0)
+	_assert_true(int(e2.state["init"]["mod"]["A"]) == 0, "Re-roll card overrides all earlier modifiers")
+
+	# Primary Op: bonus = half of that op's VP, rounded up, only at the end of the battle
+	eng.choose_primary_op(str(eng.state["turn_side"]), "kill")
+	eng.choose_primary_op(str(eng.state["turn_side"]), "key")
+	_assert_true(not bool(eng.choose_primary_op(str(eng.state["turn_side"]), "tac")["ok"]), "Primary Op can only be chosen once")
+	var kill_side := "A" if str(eng.state["sides"]["A"]["primary_op"]) == "kill" else "B"
+	eng.state["sides"][kill_side]["vp_kill"] = 3
+	_assert_true(eng.get_total_vp(kill_side) == 3, "Primary Op bonus is not counted before the battle ends")
+	eng.state["phase"] = "GAME_OVER"
+	_assert_true(eng.get_total_vp(kill_side) == 3 + 2, "Primary Op bonus = ceil(3 / 2) = 2 VP at the end of the battle")

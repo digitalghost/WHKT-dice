@@ -370,6 +370,7 @@ func open_initiative(eng: KTEngine, init_res: Dictionary, instant: bool = false)
 		)
 	_spawn_ui_burst(KTTheme.COL_GOLD_BRIGHT, 22)
 	_rebuild_ui()
+	_schedule_ai_initiative_if_needed()
 
 
 func open_shooting(eng: KTEngine, sess: Dictionary, auto_fast_for_ai: bool = false) -> void:
@@ -493,6 +494,9 @@ func _schedule_ai_melee_if_needed() -> void:
 
 
 func _on_ai_combat_step() -> void:
+	if visible and _modal_mode == "initiative":
+		_on_ai_initiative_step()
+		return
 	if not visible or _modal_mode != "melee" or str(session.get("step", "")) != "duel":
 		return
 	var choice := KTCombat.choose_ai_melee_action(session, engine.state)
@@ -670,15 +674,42 @@ func _set_cta_enabled(enabled: bool) -> void:
 				b.disabled = true
 
 
+func _init_card_name(c: int) -> String:
+	return "重投" if c == KTEngine.INIT_CARD_REROLL else "+%d/-%d" % [c, c]
+
+
+func _init_hand_text(side_id: String) -> String:
+	var names := PackedStringArray()
+	for c in engine.state["sides"][side_id].get("init_cards", []):
+		names.append(_init_card_name(int(c)))
+	return "无" if names.is_empty() else "、".join(names)
+
+
+func _init_score_text(side_id: String, fallback: int) -> String:
+	if not engine.state.has("init"):
+		return "%d 点" % fallback
+	var m: int = int(engine.state["init"]["mod"][side_id])
+	if m == 0:
+		return "%d 点" % engine.init_value(side_id)
+	return "%d%+d=%d 点" % [int(engine.state["init"]["roll"][side_id]), m, engine.init_value(side_id)]
+
+
+## Rulebook p.106 step 4: roll-off, then (starting with the loser) players alternate playing an
+## initiative card or passing until both pass in succession.
 func _build_initiative_ui() -> void:
 	var tp: int = int(engine.state.get("tp", 1))
-	var ra: int = int(_init_result.get("roll_a", 4))
-	var rb: int = int(_init_result.get("roll_b", 3))
+	var pending: bool = engine.init_pending()
 	var win: String = str(_init_result.get("winner", "A"))
+	if engine.state.has("init"):
+		win = engine.init_leader() if pending else str(engine.state["init"]["winner"])
 	var win_name: String = "死亡天使 (帝国)" if win == "A" else "瘟疫战士 (纳垢)"
+	var star: String = "★暂时领先" if pending else "★夺得先手"
+	var sa: String = _init_score_text("A", int(_init_result.get("roll_a", 4)))
+	var sb: String = _init_score_text("B", int(_init_result.get("roll_b", 3)))
 
-	if _last_vs_key != "init_%d_%d_%d" % [tp, ra, rb]:
-		_last_vs_key = "init_%d_%d_%d" % [tp, ra, rb]
+	var vs_key: String = "init_%d_%s_%s_%s_%s" % [tp, sa, sb, win, str(pending)]
+	if _last_vs_key != vs_key:
+		_last_vs_key = vs_key
 		for c in _top_vs_hb.get_children():
 			c.queue_free()
 
@@ -690,7 +721,7 @@ func _build_initiative_ui() -> void:
 		_top_vs_hb.add_child(crest_a)
 
 		var lbl_a := Label.new()
-		lbl_a.text = "死亡天使  [%d 点]%s" % [ra, " ★夺得先手" if win == "A" else ""]
+		lbl_a.text = "死亡天使  [%s]%s" % [sa, (" " + star) if win == "A" else ""]
 		lbl_a.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		lbl_a.add_theme_font_size_override("font_size", 17)
 		lbl_a.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT if win == "A" else KTTheme.COL_IMPERIAL.lightened(0.28))
@@ -703,7 +734,7 @@ func _build_initiative_ui() -> void:
 		_top_vs_hb.add_child(mid_l)
 
 		var lbl_b := Label.new()
-		lbl_b.text = "%s[%d 点]  瘟疫战士" % ["★夺得先手 " if win == "B" else "", rb]
+		lbl_b.text = "%s[%s]  瘟疫战士" % [(star + " ") if win == "B" else "", sb]
 		lbl_b.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		lbl_b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		lbl_b.add_theme_font_size_override("font_size", 17)
@@ -717,8 +748,42 @@ func _build_initiative_ui() -> void:
 		crest_b.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		_top_vs_hb.add_child(crest_b)
 
+	var hands: String = "先手权卡 — 死亡天使：%s ｜ 瘟疫战士：%s" % [_init_hand_text("A"), _init_hand_text("B")]
+	if pending:
+		var t: String = str(engine.state["init"]["turn"])
+		var t_name: String = str(engine.state["sides"][t]["name"])
+		_phase_lbl.text = "第 %d 转折点 · 先手权卡步骤" % tp
+		_ticker_lbl.text = "🎴 轮到【%s】：打出一张先手权卡或让过（双方连续让过后结算，平手不重投）\n%s" % [t_name, hands]
+		if _is_side_ai(t):
+			var wait_l := Label.new()
+			wait_l.text = "🤖 【%s】正在考虑先手权卡…" % t_name
+			wait_l.add_theme_font_size_override("font_size", 15)
+			wait_l.add_theme_color_override("font_color", KTTheme.COL_NURGLE.lightened(0.28))
+			_action_bar.add_child(wait_l)
+			return
+		var cards: Array = (engine.state["sides"][t]["init_cards"] as Array).duplicate()
+		cards.sort()
+		for c_v in cards:
+			var c: int = int(c_v)
+			if c == KTEngine.INIT_CARD_REROLL:
+				_add_init_card_button("🔁 重投卡", t, c, 1)
+			else:
+				_add_init_card_button("🎴 +%d" % c, t, c, 1)
+				_add_init_card_button("🎴 -%d" % c, t, c, -1)
+		var btn_pass := Button.new()
+		btn_pass.text = "⏭ 让过 [Space]"
+		btn_pass.custom_minimum_size = Vector2(150, 38)
+		KTTheme.apply_accent_button(btn_pass, KTTheme.COL_GOLD_BRIGHT, 0.36)
+		KTWidgets.attach_button_juice(btn_pass)
+		btn_pass.pressed.connect(func():
+			if bool(engine.init_pass(t).get("ok", false)):
+				_after_init_step(false)
+		)
+		_action_bar.add_child(btn_pass)
+		return
+
 	_phase_lbl.text = "第 %d 转折点 · 桌面先攻权拼骰" % tp
-	_ticker_lbl.text = "🎲 帝国蓝骰 [%d] vs 纳垢绿骰 [%d]  ➔  【%s】夺得先攻权并补充命令点 CP！" % [ra, rb, win_name]
+	_ticker_lbl.text = "🎲 帝国蓝骰 [%s] vs 纳垢绿骰 [%s]  ➔  【%s】夺得先攻权并补充命令点 CP！\n%s" % [sa, sb, win_name, hands]
 
 	var btn_go := Button.new()
 	btn_go.text = "✓ 确认桌面结果 · 进入战略阶段 [Space]"
@@ -730,6 +795,51 @@ func _build_initiative_ui() -> void:
 		initiative_finished.emit()
 	)
 	_action_bar.add_child(btn_go)
+
+
+func _add_init_card_button(text: String, side_id: String, card: int, sign_i: int) -> void:
+	var b := Button.new()
+	b.text = text
+	b.custom_minimum_size = Vector2(104, 38)
+	KTTheme.apply_accent_button(b, KTTheme.COL_IMPERIAL if side_id == "A" else KTTheme.COL_NURGLE, 0.32)
+	KTWidgets.attach_button_juice(b)
+	b.pressed.connect(func():
+		var res: Dictionary = engine.init_play_card(side_id, card, sign_i)
+		if bool(res.get("ok", false)):
+			_after_init_step(bool(res.get("reroll", false)))
+	)
+	_action_bar.add_child(b)
+
+
+func _after_init_step(rerolled: bool) -> void:
+	if rerolled and _killzone != null:
+		play_dice_sfx()
+		var st: Dictionary = engine.state["init"]
+		var lead: String = engine.init_leader() if engine.init_pending() else str(st["winner"])
+		_killzone.frame_initiative_dice_roll(int(st["roll"]["A"]), int(st["roll"]["B"]), lead, false)
+	_rebuild_ui()
+	_schedule_ai_initiative_if_needed()
+
+
+func _schedule_ai_initiative_if_needed() -> void:
+	if visible and _modal_mode == "initiative" and engine.init_pending() and _is_side_ai(str(engine.state["init"]["turn"])):
+		_ai_timer.start(0.9)
+
+
+func _on_ai_initiative_step() -> void:
+	if not engine.init_pending():
+		return
+	var t: String = str(engine.state["init"]["turn"])
+	if not _is_side_ai(t):
+		return
+	var dec: Dictionary = KTAI.decide_initiative_card(engine, t)
+	var rerolled := false
+	if str(dec["action"]) == "card":
+		var res: Dictionary = engine.init_play_card(t, int(dec["card"]), int(dec["sign"]))
+		rerolled = bool(res.get("reroll", false))
+	else:
+		engine.init_pass(t)
+	_after_init_step(rerolled)
 
 
 func _update_top_vs_banner(att: Dictionary, def: Dictionary) -> void:
