@@ -231,7 +231,13 @@ static func _find_best_advance_path(engine: KTEngine, op: Dictionary, move_kind:
 			best_obj_d = d
 			target_goal = obj["pos"]
 
-	if start.distance_to(target_goal) <= 1.1 and str(engine.state["objectives_state"].get("obj_2", {}).get("controlled_by", "")) == str(op["side"]):
+	# Already standing on the chosen objective and holding it: no need to move.
+	var goal_id := ""
+	for obj in engine.state["map"]["objectives"]:
+		if (obj["pos"] as Vector2).distance_to(target_goal) < 0.01:
+			goal_id = str(obj["id"])
+			break
+	if start.distance_to(target_goal) <= 1.1 and not goal_id.is_empty() and str(engine.state["objectives_state"].get(goal_id, {}).get("controlled_by", "")) == str(op["side"]):
 		return []
 
 	var best_pts: Array[Vector2] = []

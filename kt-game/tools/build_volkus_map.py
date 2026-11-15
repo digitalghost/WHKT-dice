@@ -178,8 +178,11 @@ DEPLOY = {
     "volkus_25_04": {
         "drop_zone_a": [0.0, BOARD_H - 3.0, BOARD_W, 3.0],
         "drop_zone_b": [0.0, 0.0, BOARD_W, 3.0],
-        "spawn_a": [[5.4, 20.0], [8.6, 20.2], [13.5, 20.0], [16.8, 20.2], [21.2, 20.0], [24.6, 20.2]],
-        "spawn_b": [[5.4, 2.0], [9.2, 1.8], [13.6, 2.0], [16.8, 1.8], [21.6, 2.0], [24.6, 1.8]],
+        # Map 4 has large ruin C (x 0-6) and small ruin F (x 12.5-18.5) inside the south strip, and
+        # small ruin E (x 2.5-7.5), heavy rubble (x 12-15) and large ruin D (x 18.5-25) inside the north
+        # strip. Spots below are all ≥0.8" clear of every rule rectangle (checked by build output).
+        "spawn_a": [[7.6, 20.6], [9.6, 20.6], [11.3, 20.6], [19.6, 20.6], [22.4, 20.6], [26.4, 20.6]],
+        "spawn_b": [[9.0, 1.4], [10.6, 1.4], [16.4, 1.4], [26.6, 1.4], [28.2, 1.4], [1.2, 1.4]],
     },
 }
 
