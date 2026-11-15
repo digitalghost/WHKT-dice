@@ -196,13 +196,13 @@
    "id": "heavy_rubble_7",
    "name": "重型瓦砾",
    "kind": "heavy_low",
-   "elevation": 1.6,
+   "elevation": 1.62,
    "blocks_los_ground": false,
    "rect": [
-    17.4,
-    11.97,
-    2.09,
-    2.86
+    18.0,
+    12.0,
+    1.0,
+    3.0
    ],
    "parent": "heavy_rubble"
   },
@@ -238,13 +238,13 @@
    "id": "fire_steps_10",
    "name": "射击踏台",
    "kind": "vantage",
-   "elevation": 0.5,
+   "elevation": 0.68,
    "blocks_los_ground": false,
    "rect": [
-    11.36,
-    18.34,
-    2.3,
-    1.9
+    11.5,
+    15.5,
+    2.5,
+    4.0
    ],
    "parent": "fire_steps"
   },
@@ -280,13 +280,13 @@
    "id": "fire_steps_02_13",
    "name": "射击踏台",
    "kind": "vantage",
-   "elevation": 0.5,
+   "elevation": 0.47,
    "blocks_los_ground": false,
    "rect": [
-    5.92,
-    17.1,
-    2.09,
-    2.53
+    6.0,
+    17.0,
+    2.0,
+    2.5
    ],
    "parent": "fire_steps_02"
   },
@@ -308,13 +308,13 @@
    "id": "light_rubble_15",
    "name": "轻型瓦砾",
    "kind": "light",
-   "elevation": 0.95,
+   "elevation": 1.39,
    "blocks_los_ground": false,
    "rect": [
-    11.4,
+    12.0,
     0.0,
-    1.95,
-    3.33
+    1.0,
+    2.0
    ],
    "parent": "light_rubble"
   },
@@ -322,13 +322,13 @@
    "id": "heavy_rubble_02_16",
    "name": "重型瓦砾",
    "kind": "heavy_low",
-   "elevation": 1.6,
+   "elevation": 1.72,
    "blocks_los_ground": false,
    "rect": [
-    8.45,
-    5.96,
-    2.18,
-    2.99
+    9.0,
+    6.0,
+    1.0,
+    3.0
    ],
    "parent": "heavy_rubble_02"
   },
@@ -1047,13 +1047,13 @@
    "id": "light_rubble_03_68",
    "name": "轻型瓦砾",
    "kind": "light",
-   "elevation": 0.95,
+   "elevation": 1.2,
    "blocks_los_ground": false,
    "rect": [
-    18.29,
-    15.59,
-    3.33,
-    1.95
+    18.5,
+    16.0,
+    2.5,
+    1.0
    ],
    "parent": "light_rubble_03"
   }
@@ -1074,8 +1074,8 @@
   {
    "piece_slug": "heavy_rubble",
    "family": "heavy_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/heavy_rubble/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/heavy_rubble/model_00_root_diffuse.jpg",
    "pos_in": [
     18.442,
     13.402
@@ -1098,8 +1098,8 @@
   {
    "piece_slug": "fire_steps",
    "family": "fire_steps",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/fire_steps/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/fire_steps/model_00_root_diffuse.jpg",
    "pos_in": [
     12.512,
     19.287
@@ -1122,8 +1122,8 @@
   {
    "piece_slug": "fire_steps_02",
    "family": "fire_steps",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/fire_steps_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/fire_steps_02/model_00_root_diffuse.jpg",
    "pos_in": [
     6.961,
     18.362
@@ -1146,8 +1146,8 @@
   {
    "piece_slug": "light_rubble",
    "family": "light_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/light_rubble/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/light_rubble/model_00_root_diffuse.jpg",
    "pos_in": [
     12.374,
     1.213
@@ -1158,8 +1158,8 @@
   {
    "piece_slug": "heavy_rubble_02",
    "family": "heavy_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/heavy_rubble_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/heavy_rubble_02/model_00_root_diffuse.jpg",
    "pos_in": [
     9.544,
     7.453
@@ -1218,8 +1218,8 @@
   {
    "piece_slug": "light_rubble_03",
    "family": "light_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/light_rubble_03/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/light_rubble_03/model_00_root_diffuse.jpg",
    "pos_in": [
     19.959,
     16.565

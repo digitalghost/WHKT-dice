@@ -31,7 +31,7 @@
   ],
   [
    17.45,
-   20.55
+   20.45
   ],
   [
    22.45,
@@ -182,13 +182,13 @@
    "id": "heavy_rubble_6",
    "name": "重型瓦砾",
    "kind": "heavy_low",
-   "elevation": 1.6,
+   "elevation": 1.62,
    "blocks_los_ground": false,
    "rect": [
-    14.81,
-    10.48,
-    2.86,
-    2.09
+    15.0,
+    11.0,
+    3.0,
+    1.0
    ],
    "parent": "heavy_rubble"
   },
@@ -224,13 +224,13 @@
    "id": "fire_steps_9",
    "name": "射击踏台",
    "kind": "vantage",
-   "elevation": 0.5,
+   "elevation": 0.68,
    "blocks_los_ground": false,
    "rect": [
-    12.74,
-    13.32,
-    1.9,
-    2.3
+    13.5,
+    13.5,
+    4.0,
+    2.0
    ],
    "parent": "fire_steps"
   },
@@ -280,13 +280,13 @@
    "id": "fire_steps_02_13",
    "name": "射击踏台",
    "kind": "vantage",
-   "elevation": 0.5,
+   "elevation": 0.47,
    "blocks_los_ground": false,
    "rect": [
-    13.37,
-    7.94,
-    2.53,
-    2.09
+    13.5,
+    8.0,
+    2.5,
+    2.0
    ],
    "parent": "fire_steps_02"
   },
@@ -308,13 +308,13 @@
    "id": "light_rubble_15",
    "name": "轻型瓦砾",
    "kind": "light",
-   "elevation": 0.95,
+   "elevation": 1.39,
    "blocks_los_ground": false,
    "rect": [
-    2.46,
-    12.75,
-    3.33,
-    1.95
+    3.0,
+    13.5,
+    2.5,
+    0.5
    ],
    "parent": "light_rubble"
   },
@@ -322,13 +322,13 @@
    "id": "heavy_rubble_02_16",
    "name": "重型瓦砾",
    "kind": "heavy_low",
-   "elevation": 1.6,
+   "elevation": 1.72,
    "blocks_los_ground": false,
    "rect": [
-    14.98,
-    17.45,
-    2.99,
-    2.18
+    15.0,
+    18.0,
+    3.0,
+    1.0
    ],
    "parent": "heavy_rubble_02"
   },
@@ -1075,13 +1075,27 @@
    "id": "light_rubble_03_70",
    "name": "轻型瓦砾",
    "kind": "light",
-   "elevation": 0.95,
+   "elevation": 1.2,
    "blocks_los_ground": false,
    "rect": [
-    24.31,
-    11.33,
-    3.33,
-    1.95
+    24.5,
+    12.0,
+    2.5,
+    0.5
+   ],
+   "parent": "light_rubble_03"
+  },
+  {
+   "id": "light_rubble_03_71",
+   "name": "轻型瓦砾",
+   "kind": "light",
+   "elevation": 1.2,
+   "blocks_los_ground": false,
+   "rect": [
+    26.0,
+    12.5,
+    1.0,
+    0.5
    ],
    "parent": "light_rubble_03"
   }
@@ -1102,8 +1116,8 @@
   {
    "piece_slug": "heavy_rubble",
    "family": "heavy_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/heavy_rubble/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/heavy_rubble/model_00_root_diffuse.jpg",
    "pos_in": [
     16.243,
     11.523
@@ -1126,8 +1140,8 @@
   {
    "piece_slug": "fire_steps",
    "family": "fire_steps",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/fire_steps/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/fire_steps/model_00_root_diffuse.jpg",
    "pos_in": [
     13.686,
     14.465
@@ -1150,8 +1164,8 @@
   {
    "piece_slug": "fire_steps_02",
    "family": "fire_steps",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/fire_steps_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/fire_steps_02/model_00_root_diffuse.jpg",
    "pos_in": [
     14.633,
     8.985
@@ -1174,8 +1188,8 @@
   {
    "piece_slug": "light_rubble",
    "family": "light_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/light_rubble/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/light_rubble/model_00_root_diffuse.jpg",
    "pos_in": [
     4.127,
     13.732
@@ -1186,8 +1200,8 @@
   {
    "piece_slug": "heavy_rubble_02",
    "family": "heavy_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/heavy_rubble_02/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/heavy_rubble_02/model_00_root_diffuse.jpg",
    "pos_in": [
     16.474,
     18.54
@@ -1246,8 +1260,8 @@
   {
    "piece_slug": "light_rubble_03",
    "family": "light_rubble",
-   "mesh": "",
-   "diffuse": "",
+   "mesh": "res://assets/terrain/volkus/light_rubble_03/model_00_root_mesh.obj",
+   "diffuse": "res://assets/terrain/volkus/light_rubble_03/model_00_root_diffuse.jpg",
    "pos_in": [
     25.98,
     12.304
