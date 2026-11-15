@@ -64,6 +64,7 @@ func start_match(
 				"purity_used_tp": false,
 				"heroic_used_tp": false,
 				"init_roll": 0,
+				"grenades": {"frag": 0, "krak": 0, "smoke": 0, "stun": 0},
 			},
 			"B": {
 				"id": "B",
@@ -83,6 +84,7 @@ func start_match(
 				"used_ploys_tp": [],
 				"has_plague_bell": true,
 				"init_roll": 0,
+				"grenades": {"frag": 0, "krak": 0, "smoke": 0, "stun": 0},
 			},
 		},
 		"operatives": [],
@@ -106,6 +108,7 @@ func start_match(
 		"select_side": first,
 		"rosters": {"A": [], "B": []},
 		"equipment": {"A": [], "B": []},
+		"grenade_mix": {"A": {}, "B": {}},
 		"equip_done": {"A": false, "B": false},
 		"equip_side": first,
 	}
@@ -240,7 +243,7 @@ func default_equipment(side_id: String) -> Array:
 	return out
 
 
-func confirm_equipment(side_id: String, ids: Array) -> Dictionary:
+func confirm_equipment(side_id: String, ids: Array, opts: Dictionary = {}) -> Dictionary:
 	if str(state["phase"]) != "EQUIP" or side_id != setup_side():
 		return {"ok": false, "msg": "现在不是该方选择装备"}
 	if ids.size() > 4:
@@ -258,8 +261,24 @@ func confirm_equipment(side_id: String, ids: Array) -> Dictionary:
 		if seen.has(str(i)):
 			return {"ok": false, "msg": "每种装备选项只能选择一次"}
 		seen[str(i)] = true
+	for k in opts.keys():
+		if not (str(k) in ["utility", "explosive"]):
+			return {"ok": false, "msg": "未知的手雷分配选项"}
+	var util_opt: String = "mix"
+	if opts.has("utility"):
+		if typeof(opts["utility"]) != TYPE_STRING or not (str(opts["utility"]) in ["smoke2", "stun2", "mix"]):
+			return {"ok": false, "msg": "功能型手雷选项无效"}
+		util_opt = str(opts["utility"])
+	var exp_opt: String = "mix"
+	if opts.has("explosive"):
+		if typeof(opts["explosive"]) != TYPE_STRING or not (str(opts["explosive"]) in ["frag2", "krak2", "mix"]):
+			return {"ok": false, "msg": "爆破型手雷选项无效"}
+		exp_opt = str(opts["explosive"])
 	push_undo()
 	state["setup"]["equipment"][side_id] = ids.duplicate()
+	if not (state["setup"] as Dictionary).has("grenade_mix"):
+		state["setup"]["grenade_mix"] = {"A": {}, "B": {}}
+	state["setup"]["grenade_mix"][side_id] = {"utility": util_opt, "explosive": exp_opt}
 	state["setup"]["equip_done"][side_id] = true
 	var other := "B" if side_id == "A" else "A"
 	if not bool(state["setup"]["equip_done"][other]):
@@ -546,6 +565,7 @@ func _score_tac_op_end_of_tp() -> void:
 static var _uni_catalog: Array = []
 
 const MINE_RADIUS := 0.4
+const SMOKE_RADIUS := 1.4
 ## Selected option id -> items to set up before the battle.
 const EQ_DEPLOYABLES := {
 	"UNI-EQ-ammocache": {"kind": "ammo_cache", "count": 1},
@@ -914,14 +934,66 @@ func _find_usable_ammo_cache(op: Dictionary) -> Dictionary:
 
 
 const EQ_BLIGHT_GRENADE_ID := "eq_blight_grenade"
+const EQ_FRAG_GRENADE_ID := "eq_frag_grenade"
+const EQ_KRAK_GRENADE_ID := "eq_krak_grenade"
+
+
+func grenades_left(side_id: String, kind: String) -> int:
+	var sides_d: Dictionary = state.get("sides", {})
+	var ss: Dictionary = sides_d.get(side_id, {})
+	var g: Dictionary = ss.get("grenades", {})
+	return maxi(0, int(g.get(kind, 0)))
 
 
 ## Apply the revealed equipment to side state and freshly spawned operatives.
 func _apply_equipment() -> void:
+	var aod_data: Dictionary = KTData.get_team("IMP-AOD")
+	var frag_src: Dictionary = {}
+	var krak_src: Dictionary = {}
+	for ao in aod_data.get("operatives", []):
+		var aod_op: Dictionary = ao
+		if str(aod_op.get("id", "")) == "aod_grenadier":
+			for aw in aod_op.get("weapons", []):
+				var awd: Dictionary = aw
+				if str(awd.get("id", "")) == "aod_grenadier_frag":
+					frag_src = awd
+				elif str(awd.get("id", "")) == "aod_grenadier_krak":
+					krak_src = awd
+
+	var setup_d: Dictionary = state.get("setup", {})
+	var gmix_all: Dictionary = setup_d.get("grenade_mix", {})
+
 	for sid in ["A", "B"]:
 		var ss: Dictionary = state["sides"][sid]
-		ss["equipment"] = (state["setup"]["equipment"][sid] as Array).duplicate()
+		var eq_ids: Array = (state["setup"]["equipment"][sid] as Array).duplicate()
+		ss["equipment"] = eq_ids
 		ss["has_plague_bell"] = KTCombat.has_equipment(ss, "bell")
+
+		var gmix: Dictionary = gmix_all.get(sid, {})
+		var util_opt: String = str(gmix.get("utility", "mix"))
+		var exp_opt: String = str(gmix.get("explosive", "mix"))
+		var smoke_n := 0
+		var stun_n := 0
+		if eq_ids.has("UNI-EQ-utilitygrenades"):
+			if util_opt == "smoke2":
+				smoke_n = 2
+			elif util_opt == "stun2":
+				stun_n = 2
+			else:
+				smoke_n = 1
+				stun_n = 1
+		var frag_n := 0
+		var krak_n := 0
+		if eq_ids.has("UNI-EQ-explosivegrenades"):
+			if exp_opt == "frag2":
+				frag_n = 2
+			elif exp_opt == "krak2":
+				krak_n = 2
+			else:
+				frag_n = 1
+				krak_n = 1
+		ss["grenades"] = {"frag": frag_n, "krak": krak_n, "smoke": smoke_n, "stun": stun_n}
+
 		var ammo: bool = KTCombat.has_equipment(ss, "plagueammo")
 		var gren_tpl: Dictionary = {}
 		if KTCombat.has_equipment(ss, "blightgrenade"):
@@ -955,6 +1027,20 @@ func _apply_equipment() -> void:
 				g["keywords"] = ["范围 6\"", "爆炸 2\"", "集中", "严重", "毒素"]
 				g["profile"] = "4A · 4+ · 2/4 · 范围 6\"、爆炸 2\"、集中、严重、毒素（全队限 2 次）"
 				(op["weapons"] as Array).append(g)
+			# Explosive grenades: not issued to aod_grenadier / pm_bombardier (they carry their own)
+			if not (str(op["op_id"]) in ["aod_grenadier", "pm_bombardier"]):
+				if frag_n > 0 and not frag_src.is_empty():
+					var fg: Dictionary = frag_src.duplicate(true)
+					fg["id"] = EQ_FRAG_GRENADE_ID
+					fg["hit"] = 4
+					fg["profile"] = str(fg.get("profile", "")).replace("3+", "4+") + ("（全队限 %d 次）" % frag_n)
+					(op["weapons"] as Array).append(fg)
+				if krak_n > 0 and not krak_src.is_empty():
+					var kg: Dictionary = krak_src.duplicate(true)
+					kg["id"] = EQ_KRAK_GRENADE_ID
+					kg["hit"] = 4
+					kg["profile"] = str(kg.get("profile", "")).replace("3+", "4+") + ("（全队限 %d 次）" % krak_n)
+					(op["weapons"] as Array).append(kg)
 
 
 ## 排毒口: is `op` within 3" of an enemy operative whose team took the Poison Vents?
@@ -1470,6 +1556,14 @@ func _resolve_initiative() -> void:
 		state["sides"][sid]["heroic_used_tp"] = false
 
 	state["markers"].clear()
+	if state.has("eq_markers"):
+		var eq_marks: Array = state["eq_markers"]
+		for m in eq_marks:
+			var md: Dictionary = m
+			if str(md.get("kind", "")) == "smoke" and int(md.get("tp_placed", 99)) < tp and int(md.get("acts_left", -1)) < 0:
+				var d3: int = rng.randi_range(1, 3)
+				md["acts_left"] = d3
+				add_log("💨 烟雾手雷就绪步骤掷骰 D3 = %d（将在 %d 次激活完成后或本转折点结束时移除）。" % [d3, d3])
 	_tac_new_tp()
 	for op in state["operatives"]:
 		if not op["incapacitated"]:
@@ -2146,13 +2240,182 @@ func get_unique_actions(op: Dictionary) -> Array[Dictionary]:
 			"enabled": not usable_cache.is_empty(),
 			"desc": "控制一枚本转折点尚未使用的己方弹药储备：直到下个转折点开始，使用数据卡武器射击时可重掷 1 枚攻击骰。"
 		})
+	var side_id := str(op["side"])
+	var smoke_n := grenades_left(side_id, "smoke")
+	if smoke_n > 0:
+		out.append({
+			"id": "eq_smoke",
+			"name": "烟雾手雷 (1AP·剩 %d)" % smoke_n,
+			"enabled": ap >= 1 and not engaged and not (op["actions_taken"] as Array).has("eq_smoke"),
+			"needs_point": true,
+			"desc": "在 6\" 内可见位置放置烟雾标识：完全位于烟雾内的特工对 2\" 外的特工而言被遮挡，反之亦然"
+		})
+	var stun_n := grenades_left(side_id, "stun")
+	if stun_n > 0:
+		out.append({
+			"id": "eq_stun",
+			"name": "震荡手雷 (1AP·剩 %d)" % stun_n,
+			"enabled": ap >= 1 and not engaged and not (op["actions_taken"] as Array).has("eq_stun") and not stun_targets(op).is_empty(),
+			"needs_target": true,
+			"desc": "选择 6\" 内可见的一名敌方特工：它及其 1\" 内的每名其他特工掷 D6，3+ 则 APL -1 直到其下一次激活结束"
+		})
 	return out
+
+
+func validate_smoke_pos(op: Dictionary, pos: Vector2) -> Dictionary:
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	if pos.x < 0.0 or pos.x > w or pos.y < 0.0 or pos.y > h:
+		return {"ok": false, "reason": "落点超出杀戮区边界"}
+	var op_pos: Vector2 = op["pos"]
+	var r := float(op["base_radius"])
+	if pos.distance_to(op_pos) - r > 6.001:
+		return {"ok": false, "reason": "落点超出 6\" 投掷距离"}
+	var terrains: Array = state["map"]["terrains"]
+	var z_op := KTGeometry.elevation_at(op_pos, terrains)
+	var z_pos := KTGeometry.elevation_at(pos, terrains)
+	if not KTGeometry.has_visibility(op_pos, r, z_op, pos, MINE_RADIUS, z_pos, terrains):
+		return {"ok": false, "reason": "落点对该特工不可见"}
+	return {"ok": true, "reason": ""}
+
+
+func use_smoke_grenade(uid: String, pos: Vector2) -> Dictionary:
+	var op := get_op(uid)
+	if op.is_empty() or str(state.get("active_op_uid", "")) != uid:
+		return {"ok": false, "msg": "该特工未处于当前激活"}
+	if int(op["ap_left"]) < 1:
+		return {"ok": false, "msg": "AP 不足"}
+	if not KTGeometry.is_in_enemy_control_range(op, op["pos"], state).is_empty():
+		return {"ok": false, "msg": "处于敌方控制范围内，不能投掷烟雾手雷"}
+	var side := str(op["side"])
+	if grenades_left(side, "smoke") <= 0:
+		return {"ok": false, "msg": "烟雾手雷已用完"}
+	# Core rules: an operative cannot perform the same action more than once in an activation
+	if (op["actions_taken"] as Array).has("eq_smoke"):
+		return {"ok": false, "msg": "同一次激活中不能重复执行同一行动"}
+	var chk := validate_smoke_pos(op, pos)
+	if not bool(chk["ok"]):
+		return {"ok": false, "msg": str(chk["reason"])}
+	push_undo()
+	op["ap_left"] = int(op["ap_left"]) - 1
+	(op["actions_taken"] as Array).append("eq_smoke")
+	var ss: Dictionary = state["sides"][side]
+	if not ss.has("grenades"):
+		ss["grenades"] = {"frag": 0, "krak": 0, "smoke": 0, "stun": 0}
+	var gdict: Dictionary = ss["grenades"]
+	var left: int = maxi(0, int(gdict.get("smoke", 0)) - 1)
+	gdict["smoke"] = left
+	if not state.has("eq_markers"):
+		state["eq_markers"] = []
+	var tp := int(state["tp"])
+	(state["eq_markers"] as Array).append({
+		"kind": "smoke",
+		"side": side,
+		"pos": pos,
+		"tp_placed": tp,
+		"acts_left": -1,
+	})
+	add_log("💨 【%s】投掷烟雾手雷于 (%.1f\", %.1f\")（全队剩余 %d 枚）。" % [str(op["name"]), pos.x, pos.y, left])
+	recalculate_objectives_and_kills()
+	_check_auto_end_counteract(op)
+	return {"ok": true}
+
+
+func stun_targets(op: Dictionary) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	var terrains: Array = state["map"]["terrains"]
+	var op_pos: Vector2 = op["pos"]
+	var op_r := float(op["base_radius"])
+	var op_z := KTGeometry.elevation_at(op_pos, terrains)
+	var my_side := str(op["side"])
+	for other in state["operatives"]:
+		var od: Dictionary = other
+		if bool(od["incapacitated"]) or not bool(od.get("deployed", true)) or str(od["side"]) == my_side:
+			continue
+		var t_pos: Vector2 = od["pos"]
+		var t_r := float(od["base_radius"])
+		if KTGeometry.edge_distance(op_pos, op_r, t_pos, t_r) > 6.001:
+			continue
+		var t_z := KTGeometry.elevation_at(t_pos, terrains)
+		if KTGeometry.has_visibility(op_pos, op_r, op_z, t_pos, t_r, t_z, terrains):
+			out.append(od)
+	return out
+
+
+func use_stun_grenade(uid: String, target_uid: String) -> Dictionary:
+	var op := get_op(uid)
+	if op.is_empty() or str(state.get("active_op_uid", "")) != uid:
+		return {"ok": false, "msg": "该特工未处于当前激活"}
+	if int(op["ap_left"]) < 1:
+		return {"ok": false, "msg": "AP 不足"}
+	if not KTGeometry.is_in_enemy_control_range(op, op["pos"], state).is_empty():
+		return {"ok": false, "msg": "处于敌方控制范围内，不能投掷震荡手雷"}
+	var side := str(op["side"])
+	if grenades_left(side, "stun") <= 0:
+		return {"ok": false, "msg": "震荡手雷已用完"}
+	var target: Dictionary = {}
+	for cand in stun_targets(op):
+		if str(cand["uid"]) == target_uid:
+			target = cand
+			break
+	if target.is_empty():
+		return {"ok": false, "msg": "目标须为 6\" 内可见的敌方特工"}
+	if (op["actions_taken"] as Array).has("eq_stun"):
+		return {"ok": false, "msg": "同一次激活中不能重复执行同一行动"}
+	push_undo()
+	op["ap_left"] = int(op["ap_left"]) - 1
+	(op["actions_taken"] as Array).append("eq_stun")
+	var ss: Dictionary = state["sides"][side]
+	if not ss.has("grenades"):
+		ss["grenades"] = {"frag": 0, "krak": 0, "smoke": 0, "stun": 0}
+	var gdict: Dictionary = ss["grenades"]
+	var left: int = maxi(0, int(gdict.get("stun", 0)) - 1)
+	gdict["stun"] = left
+
+	var t_pos: Vector2 = target["pos"]
+	var t_r := float(target["base_radius"])
+	var affected: Array[Dictionary] = [target]
+	for other in state["operatives"]:
+		var od: Dictionary = other
+		if bool(od["incapacitated"]) or not bool(od.get("deployed", true)) or str(od["uid"]) == str(target["uid"]):
+			continue
+		var o_pos: Vector2 = od["pos"]
+		var o_r := float(od["base_radius"])
+		if KTGeometry.edge_distance(t_pos, t_r, o_pos, o_r) <= 1.001:
+			affected.append(od)
+
+	var rolls: Array = []
+	var active_uid := str(state.get("active_op_uid", ""))
+	for victim in affected:
+		var roll: int = rng.randi_range(1, 6)
+		var v_side: Dictionary = state["sides"][str(victim["side"])]
+		var resolute: bool = KTCombat.has_chapter_tactic(v_side, victim, "resolute")
+		var stunned := false
+		if roll >= 3:
+			if resolute:
+				add_log("⚡ 震荡手雷检定【%s】掷出 %d（3+）：因【坚决】战团战术忽略 APL 减值。" % [str(victim["name"]), roll])
+			else:
+				stunned = true
+				victim["apl_mod"] = -1
+				victim["stun_skip_current_end"] = (active_uid == str(victim["uid"]))
+				add_log("⚡ 震荡手雷检定【%s】掷出 %d（3+）：APL -1 直到其下一次激活结束！" % [str(victim["name"]), roll])
+		else:
+			add_log("⚡ 震荡手雷检定【%s】掷出 %d（未达 3+）：未受影响。" % [str(victim["name"]), roll])
+		rolls.append({"uid": str(victim["uid"]), "roll": roll, "stunned": stunned})
+
+	recalculate_objectives_and_kills()
+	_check_auto_end_counteract(op)
+	return {"ok": true, "rolls": rolls}
 
 
 func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 	var op := get_op(uid)
 	if op.is_empty():
 		return {"ok": false, "msg": "无效特工"}
+	if ability_id == "eq_smoke":
+		return {"ok": false, "msg": "请在棋盘上选择烟雾手雷的落点"}
+	if ability_id == "eq_stun":
+		return {"ok": false, "msg": "请在棋盘上选择震荡手雷的目标"}
 	if ability_id == "eq_resupply":
 		var cache := _find_usable_ammo_cache(op)
 		if cache.is_empty():
@@ -2257,14 +2520,34 @@ func commit_shooting_action_cost(attacker: Dictionary, weapon: Dictionary) -> vo
 		attacker["heavy_sniper_shot"] = true
 	if bool(weapon["rules"].get("psychic", false)):
 		attacker["psychic_weapons_used"].append(weapon["id"])
-	if str(weapon.get("id", "")) == EQ_BLIGHT_GRENADE_ID:
-		var gs: Dictionary = state["sides"][attacker["side"]]
-		gs["blight_grenades_left"] = int(gs.get("blight_grenades_left", 0)) - 1
-		add_log("💣 疫病手雷已使用（全队剩余 %d 次）。" % maxi(0, int(gs["blight_grenades_left"])))
-		if int(gs["blight_grenades_left"]) <= 0:
-			for o in state["operatives"]:
-				if str(o["side"]) == str(attacker["side"]):
-					o["weapons"] = (o["weapons"] as Array).filter(func(w): return str(w.get("id", "")) != EQ_BLIGHT_GRENADE_ID)
+	var wid := str(weapon.get("id", ""))
+	if wid in [EQ_BLIGHT_GRENADE_ID, EQ_FRAG_GRENADE_ID, EQ_KRAK_GRENADE_ID]:
+		_consume_team_grenade(str(attacker["side"]), wid)
+
+
+func _consume_team_grenade(side_id: String, weapon_id: String) -> void:
+	var gs: Dictionary = state["sides"][side_id]
+	var label := ""
+	var left := 0
+	if weapon_id == EQ_BLIGHT_GRENADE_ID:
+		left = maxi(0, int(gs.get("blight_grenades_left", 0)) - 1)
+		gs["blight_grenades_left"] = left
+		label = "疫病手雷"
+	elif weapon_id == EQ_FRAG_GRENADE_ID or weapon_id == EQ_KRAK_GRENADE_ID:
+		var kind := "frag" if weapon_id == EQ_FRAG_GRENADE_ID else "krak"
+		label = "破片手雷" if weapon_id == EQ_FRAG_GRENADE_ID else "穿甲手雷"
+		if not gs.has("grenades"):
+			gs["grenades"] = {"frag": 0, "krak": 0, "smoke": 0, "stun": 0}
+		var gdict: Dictionary = gs["grenades"]
+		left = maxi(0, int(gdict.get(kind, 0)) - 1)
+		gdict[kind] = left
+	else:
+		return
+	add_log("💣 %s已使用（全队剩余 %d 次）。" % [label, left])
+	if left <= 0:
+		for o in state["operatives"]:
+			if str(o["side"]) == side_id:
+				o["weapons"] = (o["weapons"] as Array).filter(func(w): return str(w.get("id", "")) != weapon_id)
 
 
 func commit_melee_action_cost(attacker: Dictionary) -> void:
@@ -2333,6 +2616,19 @@ func end_operative_activation() -> void:
 					op["apl_mod"] = 0
 		op["shock_assault_active"] = false
 		op["auto_resilient_active"] = false
+
+	if not is_counteract and state.has("eq_markers"):
+		var marks: Array = state["eq_markers"]
+		var mi := marks.size() - 1
+		while mi >= 0:
+			var m: Dictionary = marks[mi]
+			if str(m.get("kind", "")) == "smoke" and int(m.get("acts_left", -1)) > 0:
+				var rem: int = int(m["acts_left"]) - 1
+				m["acts_left"] = rem
+				if rem <= 0:
+					marks.remove_at(mi)
+					add_log("💨 烟雾区域在指定次数激活完成后消散移除。")
+			mi -= 1
 
 	state["active_op_uid"] = ""
 	state["active_is_counteract"] = false
@@ -2505,6 +2801,18 @@ func _score_key_op_end_of_tp() -> void:
 
 
 func _finish_turning_point() -> void:
+	if state.has("eq_markers"):
+		var marks: Array = state["eq_markers"]
+		var removed_smoke := 0
+		var mi := marks.size() - 1
+		while mi >= 0:
+			var m: Dictionary = marks[mi]
+			if str(m.get("kind", "")) == "smoke" and int(m.get("acts_left", -1)) >= 0:
+				marks.remove_at(mi)
+				removed_smoke += 1
+			mi -= 1
+		if removed_smoke > 0:
+			add_log("💨 转折点结束，%d 处已结算的烟雾区域消散移除。" % removed_smoke)
 	recalculate_objectives_and_kills()
 	_score_key_op_end_of_tp()
 	_score_tac_op_end_of_tp()

@@ -90,6 +90,18 @@ static func create_shooting_session(
 			att_side["auspex_used_tp"] = true
 		mod_tags.append("占卜仪: 8\" 内目标不可被遮挡")
 
+	# 烟雾手雷: shooting an operative wholly within smoke reduces Piercing 2 / Piercing Crits 2 to 1
+	if bool(shot_eval.get("smoke", false)):
+		var smoke_pierce_reduced := false
+		if int(w_rules.get("piercing", 0)) == 2:
+			w_rules["piercing"] = 1
+			smoke_pierce_reduced = true
+		if int(w_rules.get("piercing_crits", 0)) == 2:
+			w_rules["piercing_crits"] = 1
+			smoke_pierce_reduced = true
+		if smoke_pierce_reduced:
+			mod_tags.append("烟雾: 穿刺 2→1")
+
 	# --- 1. Gather Faction / Ploy / Passive weapon rule modifiers ---
 	var ignore_wounded_att: bool = bool(att_side["active_ploys"].has("他们无所畏惧")) or (str(att_side["team_id"]) == "CHAOS-PM" and bool(att_side.get("has_plague_bell", true)))
 	var att_wounded: bool = (int(attacker["wounds_cur"]) * 2 < int(attacker["wounds_max"])) and not ignore_wounded_att

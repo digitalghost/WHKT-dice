@@ -11,6 +11,7 @@ const CONTROL_RANGE_INCHES: float = 1.0
 const COVER_PROXIMITY_INCHES: float = 1.0
 const OBSCURED_BUFFER_INCHES: float = 1.0
 const CLOSE_QUARTERS_REVEAL_INCHES: float = 2.0
+const SMOKE_RADIUS_INCHES: float = 1.4
 # 3D visibility: a 28-32mm infantry model stands ~1.6" tall; eye line ~1.4" above its base.
 const MODEL_HEIGHT_INCHES: float = 1.6
 const EYE_HEIGHT_INCHES: float = 1.4
@@ -396,6 +397,17 @@ static func get_cover_cone(attacker_pos: Vector2, defender_pos: Vector2, defende
 	}
 
 
+static func in_smoke(pos: Vector2, radius: float, state: Dictionary) -> bool:
+	var marks: Array = state.get("eq_markers", [])
+	for m in marks:
+		var md: Dictionary = m
+		if str(md.get("kind", "")) == "smoke":
+			var mp: Vector2 = md["pos"]
+			if pos.distance_to(mp) + radius <= SMOKE_RADIUS_INCHES + 0.001:
+				return true
+	return false
+
+
 static func evaluate_shot(
 	attacker: Dictionary,
 	defender: Dictionary,
@@ -415,6 +427,8 @@ static func evaluate_shot(
 	var w_rules: Dictionary = weapon.get("rules", {})
 	var cone := get_cover_cone(pos_a, pos_d, r_d)
 	var dist_edges := edge_distance(pos_a, r_a, pos_d, r_d)
+	var def_in_smoke: bool = in_smoke(pos_d, r_d, state)
+	var att_in_smoke: bool = in_smoke(pos_a, r_a, state)
 
 	var out := {
 		"valid": false,
@@ -424,6 +438,7 @@ static func evaluate_shot(
 		"cover_terrain_type": "", # "" | "light" | "heavy"
 		"protective": false,
 		"obscured": false,
+		"smoke": def_in_smoke,
 		"vantage_accurate": 0,
 		"cone": cone,
 		"tags": [],
@@ -517,6 +532,11 @@ static func evaluate_shot(
 		if str(marker.get("kind", "")) == "cloud_of_flies" and str(marker.get("side", "")) == str(defender["side"]):
 			if dist_edges > 3.0 and pos_d.distance_to(marker["pos"]) <= 1.0 + r_d:
 				is_obscured = true
+
+	# Smoke grenade area check (烟雾手雷)
+	if (def_in_smoke or att_in_smoke) and dist_edges > 2.0:
+		is_obscured = true
+		(out["tags"] as Array).append("烟雾")
 
 	# Sniper Optics (瞄准) ignores Obscured!
 	if bool(attacker.get("ignore_obscured", false)):

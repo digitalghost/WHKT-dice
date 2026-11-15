@@ -21,6 +21,7 @@ func _init() -> void:
 	_test_tac_ops()
 	_test_universal_equipment()
 	_test_universal_equipment_deployables()
+	_test_grenade_equipment()
 	_test_all_official_maps()
 
 	print("------------------------------------------------")
@@ -906,4 +907,324 @@ func _test_universal_equipment_deployables() -> void:
 	_assert_true(
 		bool(bm_edge["ok"]) and not pb_still_on_board,
 		"Portable barricade is removed from killzone when its new placement would go out of bounds"
+	)
+
+
+func _test_grenade_equipment() -> void:
+	# 1. Selection & grenade_mix opts validation + Breaching Charge
+	var eng := KTEngine.new(980)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	eng.choose_drop_zone(false)
+	while str(eng.state["phase"]) == "SELECT":
+		var sd := eng.setup_side()
+		eng.confirm_roster(sd, eng.default_roster(sd))
+
+	var cur_eq_side := eng.setup_side()
+	var bad1: Dictionary = eng.confirm_equipment(cur_eq_side, ["UNI-EQ-utilitygrenades"], {"utility": "invalid"})
+	var bad2: Dictionary = eng.confirm_equipment(cur_eq_side, ["UNI-EQ-explosivegrenades"], {"explosive": "frag3"})
+	var bad3: Dictionary = eng.confirm_equipment(cur_eq_side, ["UNI-EQ-utilitygrenades"], {"unknown_key": "mix"})
+	_assert_true(
+		not bool(bad1["ok"]) and not bool(bad2["ok"]) and not bool(bad3["ok"]),
+		"Invalid grenade mix opts are rejected by confirm_equipment"
+	)
+
+	while str(eng.state["phase"]) == "EQUIP":
+		var es := eng.setup_side()
+		if es == "A":
+			var ok_a: Dictionary = eng.confirm_equipment(
+				"A",
+				["UNI-EQ-explosivegrenades", "UNI-EQ-utilitygrenades", "UNI-EQ-breachingcharge"],
+				{"explosive": "frag2"}
+			)
+			if not bool(ok_a["ok"]):
+				_assert_true(false, "Side A valid grenade equipment confirmation failed")
+		else:
+			eng.confirm_equipment("B", ["UNI-EQ-explosivegrenades", "UNI-EQ-utilitygrenades"])
+
+	while str(eng.state["phase"]) == "TACOP":
+		eng.choose_tac_op(eng.setup_side(), "dominate")
+
+	_assert_true(
+		str(eng.state["phase"]) == "DEPLOY" and eng.eq_pending("A").is_empty() and eng.eq_pending("B").is_empty(),
+		"Breaching charge is accepted and adds nothing to eq_pending"
+	)
+	_assert_true(
+		eng.grenades_left("B", "frag") == 1 and eng.grenades_left("B", "krak") == 1 and eng.grenades_left("B", "smoke") == 1 and eng.grenades_left("B", "stun") == 1,
+		"Default grenade opts allocate 1 of each selected grenade type"
+	)
+
+	var any_a_krak := false
+	for op in eng.state["operatives"]:
+		if str(op["side"]) == "A":
+			for w in op["weapons"]:
+				if str(w["id"]) == KTEngine.EQ_KRAK_GRENADE_ID:
+					any_a_krak = true
+	_assert_true(
+		eng.grenades_left("A", "frag") == 2 and eng.grenades_left("A", "krak") == 0 and not any_a_krak,
+		"Opts explosive=frag2 gives 2 frag and 0 krak, and nobody on that side gets eq_krak_grenade"
+	)
+
+	# 2. Explosive grenades: ordinary operatives vs grenadier specialists, and team-wide removal at 0
+	var cap: Dictionary = _find_by_op_id(eng, "aod_captain")
+	var pm_champ: Dictionary = _find_by_op_id(eng, "pm_champion")
+	var cap_frag: Dictionary = {}
+	for w in cap["weapons"]:
+		if str(w["id"]) == KTEngine.EQ_FRAG_GRENADE_ID:
+			cap_frag = w
+	var pm_has_frag_4 := false
+	for w in pm_champ["weapons"]:
+		if str(w["id"]) == KTEngine.EQ_FRAG_GRENADE_ID and int(w["hit"]) == 4:
+			pm_has_frag_4 = true
+	_assert_true(
+		not cap_frag.is_empty() and int(cap_frag["hit"]) == 4 and str(cap_frag["profile"]).contains("4+") and pm_has_frag_4,
+		"Ordinary operatives on both teams receive eq_frag_grenade with 4+ hit stat"
+	)
+
+	var grenadier: Dictionary = _find_by_op_id(eng, "aod_grenadier")
+	var bombardier: Dictionary = _find_by_op_id(eng, "pm_bombardier")
+	var spec_has_eq := false
+	for sp in [grenadier, bombardier]:
+		for w in sp["weapons"]:
+			if str(w["id"]) in [KTEngine.EQ_FRAG_GRENADE_ID, KTEngine.EQ_KRAK_GRENADE_ID]:
+				spec_has_eq = true
+	_assert_true(
+		not spec_has_eq,
+		"Grenadier specialists (aod_grenadier / pm_bombardier) do not receive eq_ grenades"
+	)
+
+	eng.auto_deploy_all()
+	eng.auto_initiative()
+	eng.choose_primary_op(str(eng.state["turn_side"]), "kill")
+	eng.choose_primary_op(str(eng.state["turn_side"]), "key")
+	eng.pass_strategy(str(eng.state["turn_side"]))
+	eng.pass_strategy(str(eng.state["turn_side"]))
+
+	# Verify KTAI handles universal grenades cleanly before consuming them
+	var ai_plan: Dictionary = KTAI.decide_next_operative_action(eng, pm_champ)
+	_assert_true(ai_plan.has("kind"), "KTAI action planner handles operatives with universal grenades cleanly")
+
+	eng.commit_shooting_action_cost(cap, cap_frag)
+	var after_one := eng.grenades_left("A", "frag")
+	eng.commit_shooting_action_cost(cap, cap_frag)
+	var frag_carriers_after := 0
+	for op in eng.state["operatives"]:
+		if str(op["side"]) == "A":
+			for w in op["weapons"]:
+				if str(w["id"]) == KTEngine.EQ_FRAG_GRENADE_ID:
+					frag_carriers_after += 1
+	_assert_true(
+		after_one == 1 and eng.grenades_left("A", "frag") == 0 and frag_carriers_after == 0,
+		"Using team explosive grenades up to the limit removes the weapon from the whole team"
+	)
+
+	# 3. Smoke grenade: 1AP placement, range check, obscured (>2\"), close range (<=2\"), ignore_obscured, Piercing 2->1
+	var terrains: Array = eng.state["map"]["terrains"]
+	terrains.clear()
+	for idx in range(eng.state["operatives"].size()):
+		var o: Dictionary = eng.state["operatives"][idx]
+		o["pos"] = Vector2(1.5 + 1.1 * float(idx % 6), 20.5 if str(o["side"]) == "A" else 1.5)
+		o["ready"] = true
+		o["order"] = "engage"
+
+	var sniper: Dictionary = _find_by_op_id(eng, "aod_sniper")
+	sniper["pos"] = Vector2(10.0, 15.0)
+	eng.state["turn_side"] = "A"
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.activate_operative(str(sniper["uid"]), "engage")
+	var ap_before_smoke := int(sniper["ap_left"])
+	var ua_smoke_err: Dictionary = eng.execute_unique_action(str(sniper["uid"]), "eq_smoke")
+	var far_smoke_res: Dictionary = eng.use_smoke_grenade(str(sniper["uid"]), Vector2(10.0, 7.0))
+	_assert_true(
+		not bool(ua_smoke_err["ok"]) and not bool(far_smoke_res["ok"]) and int(sniper["ap_left"]) == ap_before_smoke,
+		"Smoke grenade placement beyond 6\" (or without target point) is rejected without spending AP"
+	)
+
+	var smoke_pos := Vector2(10.0, 10.0)
+	var ok_smoke: Dictionary = eng.use_smoke_grenade(str(sniper["uid"]), smoke_pos)
+	var smoke_markers := 0
+	for m in eng.state.get("eq_markers", []):
+		if str((m as Dictionary).get("kind", "")) == "smoke":
+			smoke_markers += 1
+	_assert_true(
+		bool(ok_smoke["ok"]) and smoke_markers == 1 and int(sniper["ap_left"]) == ap_before_smoke - 1 and eng.grenades_left("A", "smoke") == 0,
+		"Placing smoke grenade adds smoke marker, spends 1 AP, and decrements smoke count"
+	)
+
+	var smoke_def: Dictionary = _find_by_op_id(eng, "pm_fighter")
+	smoke_def["pos"] = smoke_pos # distance 0 + radius 0.63 <= 1.4 -> wholly in smoke
+	smoke_def["order"] = "engage"
+	var shooter_far: Dictionary = _find_by_op_id(eng, "aod_gunner")
+	shooter_far["pos"] = Vector2(10.0, 14.5) # edge_distance ~ 3.24\" > 2.0\"
+	shooter_far["order"] = "engage"
+	shooter_far["ignore_obscured"] = false
+	var melta := {
+		"id": "test_melta",
+		"name": "热熔枪",
+		"kind": "ranged",
+		"attacks": 4,
+		"hit": 3,
+		"normal_dmg": 6,
+		"crit_dmg": 3,
+		"rules": {"piercing": 2, "piercing_crits": 2, "devastating": 4},
+	}
+	var ev_far_smoke: Dictionary = KTGeometry.evaluate_shot(shooter_far, smoke_def, melta, eng.state)
+	_assert_true(
+		bool(ev_far_smoke["valid"]) and bool(ev_far_smoke["obscured"]) and bool(ev_far_smoke["smoke"]),
+		"Target wholly in smoke is obscured and marked smoke==true against shooter >2\" away"
+	)
+
+	# Vice versa: shooter wholly in smoke shooting target >2\" outside smoke -> obscured == true, smoke == false
+	smoke_def["pos"] = Vector2(14.5, 10.0)
+	shooter_far["pos"] = smoke_pos
+	var ev_vice_versa: Dictionary = KTGeometry.evaluate_shot(shooter_far, smoke_def, melta, eng.state)
+	_assert_true(
+		bool(ev_vice_versa["valid"]) and bool(ev_vice_versa["obscured"]) and not bool(ev_vice_versa["smoke"]),
+		"Shooter wholly in smoke also suffers obscured against target >2\" outside smoke"
+	)
+
+	# Restore target in smoke, test shooter within 1.5\" edge distance
+	smoke_def["pos"] = smoke_pos
+	var r_sum := float(shooter_far["base_radius"]) + float(smoke_def["base_radius"])
+	shooter_far["pos"] = smoke_pos + Vector2(0.0, r_sum + 1.5)
+	var ev_close_smoke: Dictionary = KTGeometry.evaluate_shot(shooter_far, smoke_def, melta, eng.state)
+	_assert_true(
+		bool(ev_close_smoke["valid"]) and not bool(ev_close_smoke["obscured"]) and bool(ev_close_smoke["smoke"]),
+		"Shooter within 1.5\" of target in smoke is not obscured"
+	)
+
+	# Sniper with ignore_obscured >2\" away ignores smoke obscuration
+	sniper["pos"] = Vector2(10.0, 15.0)
+	sniper["ignore_obscured"] = true
+	var ev_optics_smoke: Dictionary = KTGeometry.evaluate_shot(sniper, smoke_def, melta, eng.state)
+	_assert_true(
+		bool(ev_optics_smoke["valid"]) and not bool(ev_optics_smoke["obscured"]) and bool(ev_optics_smoke["smoke"]),
+		"Shooter with ignore_obscured is not obscured by smoke"
+	)
+
+	# Piercing 2 -> 1 in create_shooting_session against target in smoke
+	var sess_smoke: Dictionary = KTCombat.create_shooting_session(shooter_far, smoke_def, melta, ev_far_smoke, eng.state, eng.rng)
+	var sess_rules: Dictionary = sess_smoke["rules"]
+	_assert_true(
+		int(sess_rules["piercing"]) == 1 and int(sess_rules["piercing_crits"]) == 1,
+		"Piercing 2 weapon shooting target in smoke has piercing reduced to 1 in session"
+	)
+
+	# 4. Smoke duration: survives current TP _finish_turning_point -> Ready step rolls D3 -> removed after acts_left normal activations
+	eng.end_operative_activation()
+	eng._finish_turning_point()
+	var smoke_after_tp1: Dictionary = {}
+	for m in eng.state.get("eq_markers", []):
+		if str((m as Dictionary).get("kind", "")) == "smoke":
+			smoke_after_tp1 = m
+	_assert_true(
+		not smoke_after_tp1.is_empty() and int(smoke_after_tp1["acts_left"]) == -1,
+		"Smoke placed in current turning point survives _finish_turning_point"
+	)
+
+	eng.auto_initiative()
+	var acts_rolled := int(smoke_after_tp1.get("acts_left", -1))
+	_assert_true(
+		acts_rolled >= 1 and acts_rolled <= 3,
+		"Next Ready step rolls D3 (1..3) into smoke acts_left"
+	)
+
+	eng.pass_strategy(str(eng.state["turn_side"]))
+	eng.pass_strategy(str(eng.state["turn_side"]))
+	for n_act in range(acts_rolled):
+		var t_side := str(eng.state["turn_side"])
+		var pick_op: Dictionary = {}
+		for o in eng.state["operatives"]:
+			if str(o["side"]) == t_side and bool(o["ready"]) and not bool(o["incapacitated"]):
+				pick_op = o
+				break
+		eng.activate_operative(str(pick_op["uid"]), "engage")
+		eng.end_operative_activation()
+	var smoke_still_present := false
+	for m in eng.state.get("eq_markers", []):
+		if str((m as Dictionary).get("kind", "")) == "smoke":
+			smoke_still_present = true
+	_assert_true(
+		not smoke_still_present,
+		"Smoke marker is removed after acts_left normal activations complete"
+	)
+
+	# 5. Stun grenade: stun_targets (<=6\" visible enemy only), 1\" blast on friend/foe, 3+ sets apl_mod == -1, count -1
+	for idx in range(eng.state["operatives"].size()):
+		var o: Dictionary = eng.state["operatives"][idx]
+		o["pos"] = Vector2(2.0 + 1.2 * float(idx % 6), 20.5 if str(o["side"]) == "A" else 1.5)
+		o["ready"] = true
+		o["apl_mod"] = 0
+		o["stun_skip_current_end"] = false
+
+	# Add one tall heavy wall to block visibility to a hidden enemy within 6\"
+	terrains.append({
+		"id": "test_stun_wall",
+		"name": "测试高墙",
+		"kind": "heavy_wall",
+		"elevation": 4.0,
+		"blocks_los_ground": true,
+		"rect": Rect2(13.0, 9.0, 4.0, 1.0),
+	})
+	var thrower: Dictionary = _find_by_op_id(eng, "aod_captain")
+	var ally_near: Dictionary = _find_by_op_id(eng, "aod_assault_warrior")
+	var enemy_vis: Dictionary = _find_by_op_id(eng, "pm_champion")
+	var enemy_near: Dictionary = _find_by_op_id(eng, "pm_fighter")
+	var enemy_hidden: Dictionary = _find_by_op_id(eng, "pm_heavy_gunner")
+	var enemy_far: Dictionary = _find_by_op_id(eng, "pm_icon_bearer")
+
+	thrower["pos"] = Vector2(8.0, 12.0)
+	enemy_vis["pos"] = Vector2(8.0, 8.0)     # ~2.6\" edge dist, clear LoS
+	enemy_near["pos"] = Vector2(9.8, 8.0)    # ~0.54\" edge dist from enemy_vis (<=1.0\"), >2\" from thrower
+	ally_near["pos"] = Vector2(6.2, 8.0)     # ~0.54\" edge dist from enemy_vis (<=1.0\", friendly!)
+	terrains[0]["rect"] = Rect2(10.5, 9.5, 1.0, 5.0)
+	enemy_hidden["pos"] = Vector2(13.0, 12.0) # ~3.6\" edge dist from (8, 12), completely behind 5\"-long wall at x=10.5..11.5
+	enemy_far["pos"] = Vector2(20.0, 12.0)   # >10\" away
+
+	var st_list: Array[Dictionary] = eng.stun_targets(thrower)
+	var st_uids: Array[String] = []
+	for st in st_list:
+		st_uids.append(str(st["uid"]))
+	_assert_true(
+		st_uids.has(str(enemy_vis["uid"])) and st_uids.has(str(enemy_near["uid"]))
+		and not st_uids.has(str(enemy_hidden["uid"])) and not st_uids.has(str(enemy_far["uid"]))
+		and not st_uids.has(str(ally_near["uid"])),
+		"stun_targets contains only visible enemies within 6\""
+	)
+
+	eng.state["turn_side"] = "A"
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.activate_operative(str(thrower["uid"]), "engage")
+	eng.rng.seed = 2026
+	var stun_res: Dictionary = eng.use_stun_grenade(str(thrower["uid"]), str(enemy_vis["uid"]))
+	var rolls: Array = stun_res.get("rolls", [])
+	var rolled_uids: Array[String] = []
+	var stun_logic_ok := true
+	var any_stunned := false
+	for r_entry in rolls:
+		var rd: Dictionary = r_entry
+		var r_uid := str(rd["uid"])
+		var r_val := int(rd["roll"])
+		var r_st := bool(rd["stunned"])
+		rolled_uids.append(r_uid)
+		var v_op: Dictionary = eng.get_op(r_uid)
+		if r_st != (r_val >= 3):
+			stun_logic_ok = false
+		if r_st:
+			any_stunned = true
+			if int(v_op["apl_mod"]) != -1:
+				stun_logic_ok = false
+		else:
+			if int(v_op["apl_mod"]) != 0:
+				stun_logic_ok = false
+	_assert_true(
+		bool(stun_res["ok"]) and rolls.size() == 3
+		and rolled_uids.has(str(enemy_vis["uid"])) and rolled_uids.has(str(enemy_near["uid"])) and rolled_uids.has(str(ally_near["uid"]))
+		and not rolled_uids.has(str(enemy_far["uid"])) and eng.grenades_left("A", "stun") == 0,
+		"use_stun_grenade rolls for target and all operatives within 1\" (friend or foe), excluding farther ones, and decrements count"
+	)
+	_assert_true(
+		stun_logic_ok and any_stunned,
+		"Stun grenade sets apl_mod == -1 on operatives rolling 3+"
 	)
