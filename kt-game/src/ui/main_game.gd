@@ -660,8 +660,8 @@ func _build_hero_unit_console() -> void:
 	_hero_order_ico.anchor_right = 1.0
 	_hero_order_ico.anchor_top = 1.0
 	_hero_order_ico.anchor_bottom = 1.0
-	_hero_order_ico.offset_left = -26.0
-	_hero_order_ico.offset_top = -26.0
+	_hero_order_ico.offset_left = -34.0
+	_hero_order_ico.offset_top = -34.0
 	_hero_order_ico.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_hero_order_ico.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	port_stack.add_child(_hero_order_ico)
@@ -721,6 +721,8 @@ func _build_hero_unit_console() -> void:
 
 	_hero_order_btn = Button.new()
 	_hero_order_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_hero_order_btn.expand_icon = true
+	_hero_order_btn.add_theme_constant_override("icon_max_width", 20)
 	_hero_order_btn.add_theme_font_size_override("font_size", 12)
 	KTWidgets.attach_button_juice(_hero_order_btn, 1.04, "order_servo")
 	_hero_order_btn.pressed.connect(func():
@@ -1868,8 +1870,7 @@ func _sync_edge_squad_medallions() -> void:
 		var st_tex: Texture2D = KTData.load_tex(st_path if not st_path.is_empty() else str(op["portrait"]))
 		var ready_flag: bool = bool(op["ready"])
 		var ord_str: String = str(op["order"])
-		var ord_path: String = "res://assets/ui/order_%s_%s.png" % [ord_str, "ready" if ready_flag else "spent"]
-		var ord_tex: Texture2D = KTData.load_tex(ord_path)
+		var ord_tex: Texture2D = KTTheme.order_token_tex(ord_str, ready_flag)
 
 		med.setup(op, is_left, uid == active_uid, uid == sel_uid, st_tex, ord_tex)
 
@@ -2623,9 +2624,11 @@ func _build_firefight_ready_cards() -> void:
 
 			var b_con := Button.new()
 			b_con.text = "隐匿"
-			var con_ico := KTTheme.kit_tex_scaled("status_conceal", 16)
+			var con_ico: Texture2D = KTTheme.order_token_tex("conceal", true)
 			if con_ico != null:
 				b_con.icon = con_ico
+				b_con.expand_icon = true
+				b_con.add_theme_constant_override("icon_max_width", 20)
 			b_con.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_con.add_theme_font_size_override("font_size", 11)
 			b_con.tooltip_text = "以【隐匿】姿态激活：依托掩体免疫远程锁定"
@@ -2640,9 +2643,11 @@ func _build_firefight_ready_cards() -> void:
 
 			var b_eng := Button.new()
 			b_eng.text = "交战"
-			var eng_ico := KTTheme.kit_tex_scaled("status_engage", 16)
+			var eng_ico: Texture2D = KTTheme.order_token_tex("engage", true)
 			if eng_ico != null:
 				b_eng.icon = eng_ico
+				b_eng.expand_icon = true
+				b_eng.add_theme_constant_override("icon_max_width", 20)
 			b_eng.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_eng.add_theme_font_size_override("font_size", 11)
 			b_eng.tooltip_text = "以【交战】姿态激活：自由开火与冲锋搏杀"
@@ -2689,7 +2694,7 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 	var st_path: String = str(op.get("standee", ""))
 	_hero_portrait.texture = KTData.load_tex(st_path if not st_path.is_empty() else str(op["portrait"]))
 	var ord_str: String = str(op["order"])
-	_hero_order_ico.texture = KTData.load_tex("res://assets/ui/order_%s_ready.png" % ord_str)
+	_hero_order_ico.texture = KTTheme.order_token_tex(ord_str, true)
 	_hero_name_lbl.text = str(op["name"])
 
 	var w_cur: int = int(op["wounds_cur"])
@@ -2725,8 +2730,10 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 
 	var can_flip_order: bool = op["actions_taken"].is_empty() and not bool(engine.state["active_is_counteract"])
 	_hero_order_btn.disabled = not can_flip_order
-	var ord_ico := KTTheme.kit_tex_scaled("status_" + ord_str, 18)
+	var ord_ico: Texture2D = KTTheme.order_token_tex(ord_str, true)
 	_hero_order_btn.icon = ord_ico
+	_hero_order_btn.expand_icon = true
+	_hero_order_btn.add_theme_constant_override("icon_max_width", 20)
 	var ico_prefix := "" if ord_ico != null else ("🔵 " if ord_str == "conceal" else "🟠 ")
 	if ord_str == "conceal":
 		_hero_order_btn.text = ico_prefix + ("隐匿姿态 [C切换]" if can_flip_order else "隐匿姿态 (已锁定)")

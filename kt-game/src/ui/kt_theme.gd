@@ -91,6 +91,45 @@ static func kit_tex_scaled(name: String, px: int) -> Texture2D:
 	return t
 
 
+const TOKEN_DIR := "res://assets/tokens/"
+
+
+## order: "conceal" | "engage"；ready=true 取亮面（就绪），false 取暗面（已激活）
+static func order_token_tex(order: String, ready: bool) -> Texture2D:
+	return KTData.load_tex(TOKEN_DIR + "order_%s_%s.png" % ["engage" if order == "engage" else "conceal", "ready" if ready else "activated"])
+
+
+## kind: "poison" | "injured" | "apl_minus" | "apl_plus"；side 是「带着这个标记的特工」所属方 "A"/"B"
+## 颜色约定：A 方=蓝、B 方=红。受创用己方颜色；毒素是敌方放上来的，用敌方颜色。
+static func status_token_tex(kind: String, side: String) -> Texture2D:
+	match kind:
+		"injured":
+			return KTData.load_tex(TOKEN_DIR + ("wound_blue.png" if side == "A" else "wound_red.png"))
+		"poison":
+			return KTData.load_tex(TOKEN_DIR + ("status_skull_red.png" if side == "A" else "status_skull_blue.png"))
+		"apl_minus":
+			return KTData.load_tex(TOKEN_DIR + "apl_minus.png")
+		"apl_plus":
+			return KTData.load_tex(TOKEN_DIR + "apl_plus.png")
+		_:
+			return null
+
+
+## 返回 Array[String]，元素取自 "injured","poison","apl_minus","apl_plus"
+static func status_kinds_for(op: Dictionary) -> Array[String]:
+	var kinds: Array[String] = []
+	if int(op["wounds_cur"]) * 2 < int(op["wounds_max"]):
+		kinds.append("injured")
+	if bool(op.get("poisoned", false)):
+		kinds.append("poison")
+	var apl_mod: int = int(op.get("apl_mod", 0))
+	if apl_mod < 0:
+		kinds.append("apl_minus")
+	elif apl_mod > 0:
+		kinds.append("apl_plus")
+	return kinds
+
+
 ## Nine-slice StyleBoxTexture from a 512x512 kit panel. The kit art's frame + corner ornaments live
 ## in the outer 64px; we pre-shrink the whole texture to 256px so those become 32px on screen,
 ## which fits a 40px-tall HUD strip without the frame swallowing the content.

@@ -566,10 +566,7 @@ def sync_common_assets() -> None:
         "dice_tray_industrial.png",
         "header_winged_skull.png",
         "kt_battlefield.jpg",
-        "order_conceal_ready.png",
-        "order_conceal_spent.png",
-        "order_engage_ready.png",
-        "order_engage_spent.png",
+        # order tokens now come from assets/tokens/ (official token art), not from the helper app
         "team_mark_imp_aod.png",
         "team_mark_chaos_pm.png",
         "kt_aod.webp",

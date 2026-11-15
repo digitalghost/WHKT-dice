@@ -84,10 +84,6 @@ var _shake_strength: float = 0.0
 var _built_map_id: String = ""
 
 var _bg_tex: Texture2D = null
-var _tex_engage_ready: Texture2D = null
-var _tex_engage_spent: Texture2D = null
-var _tex_conceal_ready: Texture2D = null
-var _tex_conceal_spent: Texture2D = null
 
 
 func _ready() -> void:
@@ -96,10 +92,6 @@ func _ready() -> void:
 	font = KTTheme.get_cjk_font()
 
 	_bg_tex = KTData.load_tex("res://assets/ui/kt_battlefield.png")
-	_tex_engage_ready = KTData.load_tex("res://assets/ui/order_engage_ready.png")
-	_tex_engage_spent = KTData.load_tex("res://assets/ui/order_engage_spent.png")
-	_tex_conceal_ready = KTData.load_tex("res://assets/ui/order_conceal_ready.png")
-	_tex_conceal_spent = KTData.load_tex("res://assets/ui/order_conceal_spent.png")
 
 	_build_3d_viewport()
 
@@ -1012,6 +1004,13 @@ func _update_3d_entities(delta: float) -> void:
 			root_n.visible = false
 			continue
 		if bool(op["incapacitated"]):
+			var ord_dead: Dictionary = node_d["order_token"]
+			(ord_dead["mesh"] as MeshInstance3D).visible = false
+			var st_dead_arr: Array = node_d["status_tokens"]
+			for st_item in st_dead_arr:
+				var st_dead: Dictionary = st_item
+				(st_dead["mesh"] as MeshInstance3D).visible = false
+			node_d["_tok_key"] = ""
 			# Topple animation: the acrylic token falls over backwards and sinks into the base,
 			# then the whole miniature fades out and is hidden. Undo brings it straight back.
 			var fall_t: float = float(_op_fall_t.get(uid, 0.0))
@@ -1154,11 +1153,32 @@ func _update_3d_entities(delta: float) -> void:
 		else:
 			sel_ring.visible = false
 
-		# Front Order Cone Color (Blue = Conceal, Orange = Engage)
-		var ord_mat: StandardMaterial3D = node_d["order_mat"]
-		var ord_col := Color(0.22, 0.68, 1.0) if str(op["order"]) == "conceal" else Color(1.0, 0.52, 0.14)
-		ord_mat.albedo_color = Color(ord_col.r, ord_col.g, ord_col.b, 0.92 if is_ready else 0.45)
-		ord_mat.emission = ord_col
+		# Physical Order & Status Tokens next to Base
+		var ord_str: String = str(op["order"])
+		var tok_ready: bool = is_ready or is_active
+		var kinds: Array[String] = KTTheme.status_kinds_for(op)
+		var side_str: String = str(op["side"])
+		var tok_key: String = "%s|%d|%s|%s" % [ord_str, 1 if tok_ready else 0, side_str, ",".join(kinds)]
+		if str(node_d.get("_tok_key", "")) != tok_key:
+			node_d["_tok_key"] = tok_key
+			var ord_tok: Dictionary = node_d["order_token"]
+			var ord_mi: MeshInstance3D = ord_tok["mesh"]
+			var tok_mat: StandardMaterial3D = ord_tok["mat"]
+			var ord_tex: Texture2D = KTTheme.order_token_tex(ord_str, tok_ready)
+			tok_mat.albedo_texture = ord_tex
+			ord_mi.visible = (ord_tex != null)
+
+			var st_slots: Array = node_d["status_tokens"]
+			for si in range(st_slots.size()):
+				var st_tok: Dictionary = st_slots[si]
+				var st_mi: MeshInstance3D = st_tok["mesh"]
+				if si < kinds.size():
+					var st_tex: Texture2D = KTTheme.status_token_tex(kinds[si], side_str)
+					var st_mat: StandardMaterial3D = st_tok["mat"]
+					st_mat.albedo_texture = st_tex
+					st_mi.visible = (st_tex != null)
+				else:
+					st_mi.visible = false
 
 
 # ==============================================================================
@@ -1570,34 +1590,40 @@ func _draw_projected_hud() -> void:
 		var z_h := elevation_at_inches(op["pos"])
 		var hp_ratio := clampf(float(op["wounds_cur"]) / float(maxi(1, int(op["wounds_max"]))), 0.0, 1.0)
 		var hp_col := KTTheme.COL_EMERALD if hp_ratio >= 0.5 else (KTTheme.COL_GOLD_BRIGHT if hp_ratio >= 0.28 else KTTheme.COL_CRIMSON)
-		var otex := _get_order_tex(str(op["order"]), is_ready or is_active)
+		var otex: Texture2D = KTTheme.order_token_tex(str(op["order"]), is_ready or is_active)
+		var st_kinds: Array[String] = KTTheme.status_kinds_for(op)
+		var side_s: String = str(op["side"])
 
 		if not is_focus:
-			# Compact tag: order icon + HP bar + status glyphs. The token itself already shows the role name.
+			# Compact tag: order token outside left + HP bar + status tokens & elevation glyph outside right.
 			var cw := 58.0
 			var cr := Rect2(sp_op.x - cw * 0.5, sp_op.y - 14.0, cw, 14.0)
 			_hud_overlay.draw_rect(Rect2(cr.position.x - 1, cr.position.y - 1, cr.size.x + 2, cr.size.y + 2), Color(0, 0, 0, 0.55), true)
 			_hud_overlay.draw_rect(cr, Color(0.032, 0.042, 0.065, 0.78 if is_ready else 0.55), true)
 			_hud_overlay.draw_rect(cr, fcol if is_ready else fcol.darkened(0.45), false, 1.0)
 			if otex != null:
-				_hud_overlay.draw_texture_rect(otex, Rect2(cr.position.x + 1.0, cr.position.y + 1.0, 12.0, 12.0), false)
-			var bar_x := cr.position.x + 15.0
+				_hud_overlay.draw_texture_rect(otex, Rect2(cr.position.x - 21.0, cr.position.y - 3.0, 20.0, 20.0), false)
+			var bar_x := cr.position.x + 3.0
 			var bar_w := cr.end.x - 3.0 - bar_x
 			_hud_overlay.draw_rect(Rect2(bar_x, cr.position.y + 5.0, bar_w, 4.0), Color(0.1, 0.1, 0.12, 0.9), true)
 			_hud_overlay.draw_rect(Rect2(bar_x, cr.position.y + 5.0, bar_w * hp_ratio, 4.0), hp_col, true)
-			var glyphs := ("☣" if bool(op["poisoned"]) else "") + ("⚡" if int(op["apl_mod"]) < 0 else "") + ("▲" if z_h >= 2.0 else "")
-			if not glyphs.is_empty():
-				_hud_overlay.draw_string(font, Vector2(cr.end.x + 2.0, cr.position.y + 11.0), glyphs, HORIZONTAL_ALIGNMENT_LEFT, -1, 10, KTTheme.COL_GOLD_BRIGHT)
+			var sx: float = cr.end.x + 2.0
+			for sk in st_kinds:
+				var stex: Texture2D = KTTheme.status_token_tex(sk, side_s)
+				if stex != null:
+					_hud_overlay.draw_texture_rect(stex, Rect2(sx, cr.position.y, 14.0, 14.0), false)
+					sx += 15.0
+			if z_h >= 2.0:
+				_hud_overlay.draw_string(font, Vector2(sx, cr.position.y + 11.0), "▲", HORIZONTAL_ALIGNMENT_LEFT, -1, 10, KTTheme.COL_GOLD_BRIGHT)
 			continue
 
 		# Focused (active / hovered / selected): full nameplate with name, wounds and AP gems.
 		var short_name := str(op["name"]).replace("仲裁者", "").replace("瘟疫战士", "瘟疫")
 		var elev_badge := " ▲2F" if z_h >= 2.0 else ""
-		var status_ico := (" ☣" if bool(op["poisoned"]) else "") + (" ⚡" if int(op["apl_mod"]) < 0 else "")
-		var txt := "%s%s %d/%d%s" % [short_name, elev_badge, int(op["wounds_cur"]), int(op["wounds_max"]), status_ico]
+		var txt := "%s%s %d/%d" % [short_name, elev_badge, int(op["wounds_cur"]), int(op["wounds_max"])]
 
 		var ts := font.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 12)
-		var pw := maxf(90.0, ts.x + 30.0)
+		var pw := maxf(90.0, ts.x + 16.0)
 		var pr := Rect2(sp_op.x - pw * 0.5, sp_op.y - 22.0, pw, 22.0)
 
 		_hud_overlay.draw_rect(Rect2(pr.position.x - 1, pr.position.y - 1, pr.size.x + 2, pr.size.y + 2), Color(0, 0, 0, 0.65), true)
@@ -1606,10 +1632,17 @@ func _draw_projected_hud() -> void:
 		_hud_overlay.draw_rect(pr, KTTheme.COL_GOLD_BRIGHT if is_active else fcol, false, 1.8 if is_active else 1.1)
 
 		if otex != null:
-			_hud_overlay.draw_texture_rect(otex, Rect2(pr.position.x + 3.0, pr.position.y + 2.0, 18.0, 18.0), false)
+			_hud_overlay.draw_texture_rect(otex, Rect2(pr.position.x - 27.0, pr.position.y - 2.0, 26.0, 26.0), false)
 
-		_hud_overlay.draw_string(font, Vector2(pr.position.x + 22.0, pr.position.y + 15.0), txt, HORIZONTAL_ALIGNMENT_CENTER, pw - 24.0, 12, KTTheme.COL_TEXT)
+		_hud_overlay.draw_string(font, Vector2(pr.position.x + 6.0, pr.position.y + 15.0), txt, HORIZONTAL_ALIGNMENT_CENTER, pw - 10.0, 12, KTTheme.COL_TEXT)
 		_hud_overlay.draw_rect(Rect2(pr.position.x + 2, pr.end.y - 3.0, (pw - 4) * hp_ratio, 2.2), hp_col, true)
+
+		var fx: float = pr.end.x + 3.0
+		for sk in st_kinds:
+			var stex: Texture2D = KTTheme.status_token_tex(sk, side_s)
+			if stex != null:
+				_hud_overlay.draw_texture_rect(stex, Rect2(fx, pr.position.y + 2.0, 18.0, 18.0), false)
+				fx += 20.0
 
 		if is_active:
 			var gems := ""
@@ -1791,12 +1824,6 @@ func _draw_pill_2d(center_px: Vector2, txt: String, col: Color, fsize: int = 13,
 	_hud_overlay.draw_rect(r, Color(0.035, 0.045, 0.065, bg_alpha), true)
 	_hud_overlay.draw_rect(r, col, false, 1.5)
 	_hud_overlay.draw_string(font, Vector2(r.position.x, r.position.y + h - 6.5), txt, HORIZONTAL_ALIGNMENT_CENTER, w, fsize, col.lightened(0.25))
-
-
-func _get_order_tex(order_str: String, ready_flag: bool) -> Texture2D:
-	if order_str == "engage":
-		return _tex_engage_ready if ready_flag else _tex_engage_spent
-	return _tex_conceal_ready if ready_flag else _tex_conceal_spent
 
 
 # ==============================================================================

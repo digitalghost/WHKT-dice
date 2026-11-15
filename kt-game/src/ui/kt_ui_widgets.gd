@@ -861,8 +861,9 @@ class SquadMedallion extends Control:
 
 		# Order Mini Badge
 		if _order_tex != null and not dead:
-			var ox: float = port_r.end.x - 12.0 if is_left_side else port_r.position.x - 3.0
-			draw_texture_rect(_order_tex, Rect2(ox, port_r.end.y - 14.0, 15.0, 15.0), false)
+			var badge_sz: float = 20.0
+			var ox: float = (port_r.end.x - badge_sz + 1.0) if is_left_side else (port_r.position.x + 1.0)
+			draw_texture_rect(_order_tex, Rect2(ox, port_r.end.y - badge_sz + 1.0, badge_sz, badge_sz), false)
 
 		# Name + Wounds Text
 		var short_n := str(op_data["name"]).replace("星际战士", "").replace("歼灭者", "").replace("仲裁者", "").replace("重装", "重").replace("瘟疫战士", "瘟疫")

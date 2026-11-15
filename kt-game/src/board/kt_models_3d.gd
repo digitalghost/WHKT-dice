@@ -231,6 +231,28 @@ static func add_torus(
 	return mi
 
 
+## 平放在桌面上的一枚纸板 token：size 为边长（英寸，1 世界单位 = 1 英寸）
+static func add_flat_token(parent: Node3D, pos: Vector3, size: float, tex: Texture2D) -> Dictionary:
+	var pm := PlaneMesh.new()
+	pm.size = Vector2(size, size)
+	var mat := StandardMaterial3D.new()
+	mat.albedo_texture = tex
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
+	mat.alpha_scissor_threshold = 0.5
+	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
+	# Unshaded: the bright table lighting washed the printed token colours out to near-white.
+	# Slightly under 1.0 so it sits in the scene instead of glowing after tonemapping.
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.albedo_color = Color(0.86, 0.86, 0.86)
+	var mi := MeshInstance3D.new()
+	mi.mesh = pm
+	mi.material_override = mat
+	mi.position = pos
+	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	parent.add_child(mi)
+	return {"mesh": mi, "mat": mat}
+
+
 ## Decorative brazier: emissive coals + flame particles only. No point light: braziers used to be
 ## the main lighting and left everything outside their radius black. Scene lighting now comes
 ## from the directional rig in killzone_view.
@@ -764,9 +786,23 @@ static func build_operative_miniature(op: Dictionary) -> Dictionary:
 	var sel_ring := add_torus(root, Vector3(0.0, 0.075, 0.0), base_r * 1.13, base_r * 1.27, sel_mat)
 	sel_ring.visible = false
 
-	# Order Indicator Gem on Base Rim
-	var order_mat := make_holo(Color(0.25, 0.68, 1.0), 0.92, 2.2, 3)
-	var order_cone := add_cone(body_pivot, Vector3(0.0, base_h + 0.09, base_r * 0.80), 0.13, 0.24, order_mat, Vector3(90.0, 0.0, 0.0))
+	# Physical Cardboard Order & Status Tokens placed flat beside the base
+	var order_token: Dictionary = add_flat_token(
+		root,
+		Vector3(base_r + 0.50, 0.035, base_r * 0.30),
+		0.80,
+		KTTheme.order_token_tex("conceal", true)
+	)
+	var status_tokens: Array[Dictionary] = []
+	for i in range(3):
+		var st_tok: Dictionary = add_flat_token(
+			root,
+			Vector3(base_r + 0.42 + 0.60 * float(i), 0.03, base_r * 0.30 + 0.72),
+			0.56,
+			null
+		)
+		(st_tok["mesh"] as MeshInstance3D).visible = false
+		status_tokens.append(st_tok)
 
 	# --- 2a. Painted 3D miniature (assets/minis/<op_id>/mini.obj) when available and selected ---
 	# Returns the same dictionary shape as the standee path so killzone_view's animation code
@@ -779,8 +815,8 @@ static func build_operative_miniature(op: Dictionary) -> Dictionary:
 			mini["faction_ring"] = faction_ring
 			mini["sel_ring"] = sel_ring
 			mini["sel_mat"] = sel_mat
-			mini["order_mat"] = order_mat
-			mini["order_cone"] = order_cone
+			mini["order_token"] = order_token
+			mini["status_tokens"] = status_tokens
 			return mini
 
 	# --- 2b. Acrylic Standee Token (printed card between two acrylic sheets, slotted into the base) ---
@@ -907,6 +943,6 @@ static func build_operative_miniature(op: Dictionary) -> Dictionary:
 		"faction_ring": faction_ring,
 		"sel_ring": sel_ring,
 		"sel_mat": sel_mat,
-		"order_mat": order_mat,
-		"order_cone": order_cone,
+		"order_token": order_token,
+		"status_tokens": status_tokens,
 	}
