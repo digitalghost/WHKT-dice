@@ -490,6 +490,14 @@ static func evaluate_shot(
 	if bool(attacker.get("ignore_obscured", false)):
 		is_obscured = false
 
+	# 占卜仪 (AoD equipment, once per TP): enemies within 8" cannot be obscured for this activation
+	if is_obscured and dist_edges <= 8.0:
+		var a_side: Dictionary = (state.get("sides", {}) as Dictionary).get(attacker["side"], {})
+		if bool(attacker.get("auspex_active", false)) or (KTCombat.has_equipment(a_side, "auspex") and not bool(a_side.get("auspex_used_tp", false))):
+			is_obscured = false
+			out["auspex"] = true
+			out["tags"].append("占卜仪")
+
 	# Determine base cover state
 	if has_heavy_cover:
 		out["cover"] = "standard"

@@ -326,6 +326,13 @@ func _unhandled_input(event: InputEvent) -> void:
 					_killzone.spawn_floating_text(Vector2(15.0, 11.0), str(res_s.get("msg", "")), KTTheme.COL_CRIMSON)
 				_refresh_all_ui()
 				return
+			elif phase == "EQUIP":
+				accept_event()
+				var es_k: String = engine.setup_side()
+				if bool(engine.confirm_equipment(es_k, _equip_pick if _equip_pick_side == es_k else engine.default_equipment(es_k)).get("ok", false)):
+					_equip_pick_side = ""
+				_refresh_all_ui()
+				return
 			elif phase == "INITIATIVE":
 				accept_event()
 				KTSfx.play("phase_horn", -5.0, 0.03)
@@ -1616,6 +1623,7 @@ func _refresh_all_ui() -> void:
 	var phase_cn: String = str({
 		"DROPZONE": "战前 · 选择降落区",
 		"SELECT": "战前 · 选择特工",
+		"EQUIP": "战前 · 选择装备",
 		"DEPLOY": "部署阶段 · " + (str(engine.state["sides"][engine.deploy_side()]["name"]) if not engine.deploy_side().is_empty() else ""),
 		"INITIATIVE": "先攻权对抗",
 		"STRATEGY": "战略阶段 · " + turn_name,
@@ -1677,6 +1685,12 @@ func _update_tactical_pill() -> void:
 			_guide_lbl.text = "🤖 【%s】正在秘密选择出战特工…" % str(engine.state["sides"][ss]["name"])
 		else:
 			_guide_lbl.text = "📋 【%s】选择 6 名出战特工：左键加入 / 取消，右键移除，然后确认" % str(engine.state["sides"][ss]["name"])
+	elif phase == "EQUIP":
+		var eqs := engine.setup_side()
+		if engine.is_ai_turn():
+			_guide_lbl.text = "🤖 【%s】正在秘密选择装备…" % str(engine.state["sides"][eqs]["name"])
+		else:
+			_guide_lbl.text = "🎒 【%s】秘密选择最多 4 件装备选项（每种限一次），双方选定后同时揭示" % str(engine.state["sides"][eqs]["name"])
 	elif phase == "DEPLOY":
 		var ds := engine.deploy_side()
 		var dname := str(engine.state["sides"][ds]["name"]) if not ds.is_empty() else ""
@@ -1802,6 +1816,9 @@ func _rebuild_bottom_game_hud() -> void:
 
 	elif phase == "SELECT":
 		_build_roster_select()
+
+	elif phase == "EQUIP":
+		_build_equip_select()
 
 	elif phase == "DEPLOY":
 		_build_deploy_cards()
@@ -2003,6 +2020,72 @@ func _build_dropzone_choice() -> void:
 			_refresh_all_ui()
 		)
 		_context_hb.add_child(b)
+
+
+## Rulebook p.106: each player secretly selects up to 4 equipment options (each at most once).
+var _equip_pick: Array = []
+var _equip_pick_side: String = ""
+
+func _build_equip_select() -> void:
+	var side: String = engine.setup_side()
+	var sname: String = str(engine.state["sides"][side]["name"])
+	if engine.is_ai_turn():
+		_setup_wait_pill("🤖 【%s】正在秘密选择装备…" % sname)
+		return
+	if _equip_pick_side != side:
+		_equip_pick = engine.default_equipment(side)
+		_equip_pick_side = side
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+	var pnl := PanelContainer.new()
+	pnl.size_flags_vertical = Control.SIZE_SHRINK_END
+	pnl.add_theme_stylebox_override("panel", KTTheme.panel("floating", acc))
+	_context_hb.add_child(pnl)
+	var vb := VBoxContainer.new()
+	vb.add_theme_constant_override("separation", 6)
+	pnl.add_child(vb)
+	var hdr := HBoxContainer.new()
+	hdr.add_theme_constant_override("separation", 12)
+	vb.add_child(hdr)
+	var info := Label.new()
+	info.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	info.text = "【%s】装备 %d / 4  ·  点击切换，悬停看原文  ·  通用装备（掩体 / 爬梯 / 地雷等）尚未实装" % [sname, _equip_pick.size()]
+	info.add_theme_font_size_override("font_size", 14)
+	info.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	hdr.add_child(info)
+	var ok_b := Button.new()
+	ok_b.text = "✓ 确认装备 [Space]"
+	KTTheme.apply_accent_button(ok_b, KTTheme.COL_EMERALD, 0.34)
+	KTWidgets.attach_button_juice(ok_b, 1.05, "phase_horn")
+	ok_b.pressed.connect(func():
+		if bool(engine.confirm_equipment(side, _equip_pick).get("ok", false)):
+			_equip_pick_side = ""
+		_refresh_all_ui()
+	)
+	hdr.add_child(ok_b)
+	var cards := HBoxContainer.new()
+	cards.add_theme_constant_override("separation", 8)
+	vb.add_child(cards)
+	for e_v in engine.equipment_options(side):
+		var e: Dictionary = e_v
+		var eid: String = str(e["id"])
+		var title: String = str(e["title"]).get_slice("（", 0)
+		var picked: bool = _equip_pick.has(eid)
+		var b := Button.new()
+		b.text = "%s%s\n%s" % ["✓ " if picked else "", title, str(KTGlossary.lookup(title).get("short", ""))]
+		b.tooltip_text = str(e.get("body", ""))
+		b.custom_minimum_size = Vector2(236, 88)
+		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		b.add_theme_font_size_override("font_size", 13)
+		KTTheme.apply_accent_button(b, KTTheme.COL_GOLD_BRIGHT if picked else acc, 0.34 if picked else 0.16)
+		KTWidgets.attach_button_juice(b, 1.03, "order_servo")
+		b.pressed.connect(func():
+			if _equip_pick.has(eid):
+				_equip_pick.erase(eid)
+			elif _equip_pick.size() < 4:
+				_equip_pick.append(eid)
+			_refresh_all_ui()
+		)
+		cards.add_child(b)
 
 
 ## Rulebook p.105 step 2: each player secretly selects operatives per the team's selection rules.
@@ -2741,6 +2824,12 @@ func _run_ai_step() -> void:
 		_refresh_all_ui()
 		return
 
+	if phase == "EQUIP":
+		var eq_side: String = engine.setup_side()
+		engine.confirm_equipment(eq_side, engine.default_equipment(eq_side))
+		_refresh_all_ui()
+		return
+
 	if phase == "DEPLOY":
 		var res_d: Dictionary = engine.ai_deploy_next()
 		if bool(res_d.get("ok", false)):
@@ -2846,6 +2935,14 @@ func _run_autotest_screenshot_tour() -> void:
 	_phase_toast.visible = false
 	await get_tree().create_timer(0.24).timeout
 	_save_vp_png(out_dir + "/00a_roster_select.png")
+	while str(engine.state["phase"]) == "SELECT":
+		var rs: String = engine.setup_side()
+		engine.confirm_roster(rs, engine.default_roster(rs))
+	engine.state["setup"]["equip_side"] = str(engine.state["human_side"])
+	_refresh_all_ui()
+	_phase_toast.visible = false
+	await get_tree().create_timer(0.24).timeout
+	_save_vp_png(out_dir + "/00b_equipment_select.png")
 	engine.auto_setup()
 	# Capture the deployment phase with half the teams placed, then auto-complete it
 	for _i in range(6):

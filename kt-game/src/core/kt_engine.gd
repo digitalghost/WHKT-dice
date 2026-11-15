@@ -104,6 +104,9 @@ func start_match(
 		"first_side": first, "roll_a": pre_a, "roll_b": pre_b,
 		"select_side": first,
 		"rosters": {"A": [], "B": []},
+		"equipment": {"A": [], "B": []},
+		"equip_done": {"A": false, "B": false},
+		"equip_side": first,
 	}
 	state["turn_side"] = first
 	# The side WITHOUT pre-battle initiative wins a tied TP1 initiative roll (校注 p.106)
@@ -128,6 +131,8 @@ func setup_side() -> String:
 		return str(state["setup"]["first_side"])
 	if ph == "SELECT":
 		return str(state["setup"]["select_side"])
+	if ph == "EQUIP":
+		return str(state["setup"]["equip_side"])
 	return ""
 
 
@@ -206,9 +211,121 @@ func confirm_roster(side_id: String, ids: Array) -> Dictionary:
 		state["turn_side"] = other
 		add_log("📋 【%s】已选定出战特工（暂不公开）。" % str(state["sides"][side_id]["name"]))
 	else:
-		add_log("📋 双方同时揭示出战特工。")
+		add_log("📋 双方同时揭示出战特工。接下来秘密选择装备（最多 4 件选项）。")
+		state["phase"] = "EQUIP"
+		var first := str(state["setup"]["first_side"])
+		state["setup"]["equip_side"] = first
+		state["turn_side"] = first
+	return {"ok": true, "msg": ""}
+
+
+## Rulebook p.106: each player secretly selects up to 4 equipment options, each option at most once,
+## then both reveal simultaneously. Only faction equipment is modelled so far (text from the team JSON).
+func equipment_options(side_id: String) -> Array:
+	var out: Array = []
+	for e in (_teams.get(side_id, {}) as Dictionary).get("rule_entries", []):
+		if str(e.get("category", "")) == "阵营装备":
+			out.append(e)
+	return out
+
+
+func default_equipment(side_id: String) -> Array:
+	var out: Array = []
+	for e in equipment_options(side_id):
+		if out.size() < 4:
+			out.append(str(e["id"]))
+	return out
+
+
+func confirm_equipment(side_id: String, ids: Array) -> Dictionary:
+	if str(state["phase"]) != "EQUIP" or side_id != setup_side():
+		return {"ok": false, "msg": "现在不是该方选择装备"}
+	if ids.size() > 4:
+		return {"ok": false, "msg": "最多选择 4 件装备选项"}
+	var known := {}
+	for e in equipment_options(side_id):
+		known[str(e["id"])] = true
+	var seen := {}
+	for i in ids:
+		if not known.has(str(i)):
+			return {"ok": false, "msg": "该小队没有这件装备"}
+		if seen.has(str(i)):
+			return {"ok": false, "msg": "每种装备选项只能选择一次"}
+		seen[str(i)] = true
+	push_undo()
+	state["setup"]["equipment"][side_id] = ids.duplicate()
+	state["setup"]["equip_done"][side_id] = true
+	var other := "B" if side_id == "A" else "A"
+	if not bool(state["setup"]["equip_done"][other]):
+		state["setup"]["equip_side"] = other
+		state["turn_side"] = other
+		add_log("🎒 【%s】已选定装备（暂不公开）。" % str(state["sides"][side_id]["name"]))
+	else:
+		for sid in ["A", "B"]:
+			var names := PackedStringArray()
+			for e in equipment_options(sid):
+				if (state["setup"]["equipment"][sid] as Array).has(str(e["id"])):
+					names.append(str(e["title"]).get_slice("（", 0))
+			add_log("🎒 揭示装备 ·【%s】：%s" % [str(state["sides"][sid]["name"]), "无" if names.is_empty() else "、".join(names)])
 		_begin_deploy()
 	return {"ok": true, "msg": ""}
+
+
+const EQ_BLIGHT_GRENADE_ID := "eq_blight_grenade"
+
+
+## Apply the revealed equipment to side state and freshly spawned operatives.
+func _apply_equipment() -> void:
+	for sid in ["A", "B"]:
+		var ss: Dictionary = state["sides"][sid]
+		ss["equipment"] = (state["setup"]["equipment"][sid] as Array).duplicate()
+		ss["has_plague_bell"] = KTCombat.has_equipment(ss, "bell")
+		var ammo: bool = KTCombat.has_equipment(ss, "plagueammo")
+		var gren_tpl: Dictionary = {}
+		if KTCombat.has_equipment(ss, "blightgrenade"):
+			# "您不能在战斗中使用本武器超过两次"
+			ss["blight_grenades_left"] = 2
+			for o in (_teams[sid] as Dictionary).get("operatives", []):
+				for w in o.get("weapons", []):
+					if str(w["id"]) == "pm_bombardier_blight_grenade":
+						gren_tpl = w
+		for op in state["operatives"]:
+			if str(op["side"]) != sid:
+				continue
+			if ammo:
+				# 瘟疫弹药: boltguns and bolt pistols gain Poison and Severe
+				for w in op["weapons"]:
+					if str(w["name"]) in ["爆矢枪", "爆矢手枪"]:
+						w["rules"]["poison"] = true
+						w["rules"]["severe"] = true
+						var kws: Array = w.get("keywords", [])
+						for kw in ["严重", "毒素"]:
+							if not kws.has(kw):
+								kws.append(kw)
+						w["keywords"] = kws
+						w["profile"] = str(w.get("profile", "")) + " · 严重、毒素（瘟疫弹药）"
+			# The Bombardier carries his own grenades (better profile, not counted against the limit)
+			if not gren_tpl.is_empty() and str(op["op_id"]) != "pm_bombardier":
+				var g: Dictionary = gren_tpl.duplicate(true)
+				g["id"] = EQ_BLIGHT_GRENADE_ID
+				g["hit"] = 4
+				g["rules"]["toxic"] = false
+				g["keywords"] = ["范围 6\"", "爆炸 2\"", "集中", "严重", "毒素"]
+				g["profile"] = "4A · 4+ · 2/4 · 范围 6\"、爆炸 2\"、集中、严重、毒素（全队限 2 次）"
+				(op["weapons"] as Array).append(g)
+
+
+## 排毒口: is `op` within 3" of an enemy operative whose team took the Poison Vents?
+func _ventilator_in_range(op: Dictionary) -> bool:
+	var opp := "B" if str(op["side"]) == "A" else "A"
+	if not KTCombat.has_equipment(state["sides"][opp], "ventilator"):
+		return false
+	for o in state["operatives"]:
+		if o["incapacitated"] or str(o["side"]) != opp or not bool(o.get("deployed", true)):
+			continue
+		if KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), o["pos"], float(o["base_radius"])) <= 3.0:
+			return true
+	return false
 
 
 ## Rulebook p.106 "3.部署特工": players alternate placing thirds of their team (rounded up, larger
@@ -221,6 +338,7 @@ func _begin_deploy() -> void:
 	for op in state["operatives"]:
 		op["deployed"] = false
 		op["pos"] = Vector2(-99.0, -99.0)
+	_apply_equipment()
 	state["start_counts"] = {"A": _count_side_ops("A"), "B": _count_side_ops("B")}
 	var first := str(state["setup"]["first_side"])
 	state["phase"] = "DEPLOY"
@@ -245,6 +363,11 @@ func auto_setup() -> void:
 		guard += 1
 		var sd := setup_side()
 		confirm_roster(sd, default_roster(sd))
+	guard = 0
+	while str(state["phase"]) == "EQUIP" and guard < 4:
+		guard += 1
+		var es := setup_side()
+		confirm_equipment(es, default_equipment(es))
 
 
 func _in_enemy_territory(op: Dictionary) -> bool:
@@ -505,7 +628,7 @@ func is_ai_turn() -> bool:
 	var phase := str(state.get("phase", ""))
 	if phase == "DEPLOY":
 		return deploy_side() != str(state["human_side"])
-	if phase in ["DROPZONE", "SELECT"]:
+	if phase in ["DROPZONE", "SELECT", "EQUIP"]:
 		return setup_side() != str(state["human_side"])
 	if phase == "GAME_OVER":
 		return false
@@ -686,6 +809,8 @@ func _resolve_initiative() -> void:
 		state["sides"][sid]["combat_doctrine"] = ""
 		state["sides"][sid]["temp_tactic"] = ""
 		state["sides"][sid]["purity_used_tp"] = false
+		state["sides"][sid]["shields_used_tp"] = false
+		state["sides"][sid]["auspex_used_tp"] = false
 		state["sides"][sid]["heroic_used_tp"] = false
 
 	state["markers"].clear()
@@ -981,6 +1106,7 @@ func activate_operative(uid: String, chosen_order: String = "") -> Dictionary:
 	state["active_is_counteract"] = is_counteract
 
 	op["ignore_obscured"] = false # Sniper Optics expires on next activation start
+	op["auspex_active"] = false
 	op["actions_taken"] = []
 	op["shoot_count"] = 0
 	op["fight_count"] = 0
@@ -1001,11 +1127,18 @@ func activate_operative(uid: String, chosen_order: String = "") -> Dictionary:
 			eff_apl = maxi(1, eff_apl + int(op["apl_mod"]))
 		op["ap_left"] = eff_apl
 
-		# Poison tick on activation!
-		if bool(op["poisoned"]):
-			op["wounds_cur"] = maxi(0, int(op["wounds_cur"]) - 1)
-			add_log("☣️ 纳垢毒素发作！【%s】在激活开始时失去 1 点耐伤（剩余 %d/%d）！" % [
-				str(op["name"]), int(op["wounds_cur"]), int(op["wounds_max"])
+		# Poison tick on activation! 排毒口 (within 3" of an enemy Plague Marine): no token -> D3, gain one
+		# on a 3; already poisoned -> D3 damage instead of 1.
+		var vented := _ventilator_in_range(op)
+		if vented and not bool(op["poisoned"]):
+			if rng.randi_range(1, 3) == 3:
+				op["poisoned"] = true
+				add_log("☣️ 排毒口毒雾（D3 = 3）：【%s】获得毒素指示物！" % str(op["name"]))
+		elif bool(op["poisoned"]):
+			var pdmg := rng.randi_range(1, 3) if vented else 1
+			op["wounds_cur"] = maxi(0, int(op["wounds_cur"]) - pdmg)
+			add_log("☣️ 纳垢毒素发作%s！【%s】在激活开始时失去 %d 点耐伤（剩余 %d/%d）！" % [
+				"（排毒口：D3）" if vented else "", str(op["name"]), pdmg, int(op["wounds_cur"]), int(op["wounds_max"])
 			])
 			if int(op["wounds_cur"]) <= 0:
 				op["incapacitated"] = true
@@ -1043,7 +1176,7 @@ func get_effective_move_inches(op: Dictionary, action_kind: String) -> float:
 	if action_kind == "charge":
 		m += 2.0
 
-	var ignore_wounded: bool = bool(side_state["active_ploys"].has("他们无所畏惧")) or str(side_state["team_id"]) == "CHAOS-PM"
+	var ignore_wounded: bool = bool(side_state["active_ploys"].has("他们无所畏惧")) or (str(side_state["team_id"]) == "CHAOS-PM" and bool(side_state.get("has_plague_bell", false)))
 	var wounded: bool = (int(op["wounds_cur"]) * 2 < int(op["wounds_max"])) and not ignore_wounded
 	if wounded:
 		m -= 2.0
@@ -1353,6 +1486,14 @@ func commit_shooting_action_cost(attacker: Dictionary, weapon: Dictionary) -> vo
 		attacker["heavy_sniper_shot"] = true
 	if bool(weapon["rules"].get("psychic", false)):
 		attacker["psychic_weapons_used"].append(weapon["id"])
+	if str(weapon.get("id", "")) == EQ_BLIGHT_GRENADE_ID:
+		var gs: Dictionary = state["sides"][attacker["side"]]
+		gs["blight_grenades_left"] = int(gs.get("blight_grenades_left", 0)) - 1
+		add_log("💣 疫病手雷已使用（全队剩余 %d 次）。" % maxi(0, int(gs["blight_grenades_left"])))
+		if int(gs["blight_grenades_left"]) <= 0:
+			for o in state["operatives"]:
+				if str(o["side"]) == str(attacker["side"]):
+					o["weapons"] = (o["weapons"] as Array).filter(func(w): return str(w.get("id", "")) != EQ_BLIGHT_GRENADE_ID)
 
 
 func commit_melee_action_cost(attacker: Dictionary) -> void:
@@ -1368,7 +1509,9 @@ func use_firefight_ploy(side_id: String, ploy_id: String, context_op_uid: String
 
 	var op := get_op(context_op_uid) if not context_op_uid.is_empty() else get_op(str(state.get("active_op_uid", "")))
 	var cost := 1
-	if not op.is_empty() and str(op["op_id"]) == "aod_captain" and not bool(side_state.get("heroic_used_tp", false)):
+	if ploy_id == "wrath_of_vengeance" and not op.is_empty() and str(op["order"]) == "engage" and KTCombat.has_equipment(side_state, "chapterreliquaries"):
+		cost = 0 # 战团圣物
+	elif not op.is_empty() and str(op["op_id"]) == "aod_captain" and not bool(side_state.get("heroic_used_tp", false)):
 		cost = 0
 		side_state["heroic_used_tp"] = true
 

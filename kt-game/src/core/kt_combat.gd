@@ -65,6 +65,11 @@ static func is_contagion_affected(target: Dictionary, state: Dictionary) -> bool
 	return false
 
 
+## Has this side taken the faction equipment `key` (suffix of the rule entry id, e.g. "purityseals")?
+static func has_equipment(side_state: Dictionary, key: String) -> bool:
+	return (side_state.get("equipment", []) as Array).has("%s-EQ-%s" % [str(side_state.get("team_id", "")), key])
+
+
 static func create_shooting_session(
 	attacker: Dictionary,
 	defender: Dictionary,
@@ -77,6 +82,13 @@ static func create_shooting_session(
 	var def_side: Dictionary = state["sides"][defender["side"]]
 	var w_rules: Dictionary = weapon.get("rules", {}).duplicate(true)
 	var mod_tags: Array[String] = []
+
+	# 占卜仪 (once per TP): enemies within 8" cannot be obscured until the end of this activation
+	if bool(shot_eval.get("auspex", false)):
+		if not bool(attacker.get("auspex_active", false)):
+			attacker["auspex_active"] = true
+			att_side["auspex_used_tp"] = true
+		mod_tags.append("占卜仪: 8\" 内目标不可被遮挡")
 
 	# --- 1. Gather Faction / Ploy / Passive weapon rule modifiers ---
 	var ignore_wounded_att: bool = bool(att_side["active_ploys"].has("他们无所畏惧")) or (str(att_side["team_id"]) == "CHAOS-PM" and bool(att_side.get("has_plague_bell", true)))
@@ -272,7 +284,7 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 
 	# Angels of Death Equipment: Purity Seals (纯洁印章) — 2+ fails -> discard 1, retain 1 normal
 	var att_side: Dictionary = state["sides"][session["attacker_side"]]
-	if str(att_side["team_id"]) == "IMP-AOD" and not bool(att_side.get("purity_used_tp", false)) and failures >= 2:
+	if has_equipment(att_side, "purityseals") and not bool(att_side.get("purity_used_tp", false)) and failures >= 2:
 		failures -= 2
 		retained_from_fail += 1
 		att_side["purity_used_tp"] = true
@@ -601,7 +613,7 @@ static func _build_melee_fighter_pool(
 	if assists > 0:
 		tags.append("友方围攻协助 +%d" % assists)
 
-	var ignore_wounded: bool = bool(side_state["active_ploys"].has("他们无所畏惧")) or str(side_state["team_id"]) == "CHAOS-PM"
+	var ignore_wounded: bool = bool(side_state["active_ploys"].has("他们无所畏惧")) or (str(side_state["team_id"]) == "CHAOS-PM" and bool(side_state.get("has_plague_bell", false)))
 	var wounded: bool = (int(fighter["wounds_cur"]) * 2 < int(fighter["wounds_max"])) and not ignore_wounded
 	var hit_delta := -assists
 	if wounded:
@@ -613,6 +625,14 @@ static func _build_melee_fighter_pool(
 
 	var effective_hit := clampi(int(weapon["hit"]) + hit_delta, 2, 6)
 	var lethal_req := int(rules.get("lethal", 6))
+	# 偏移肩盾 (once per TP): the opponent cannot retain results below 6 as critical successes
+	var crit_below_6: bool = lethal_req < 6 or bool(rules.get("severe", false)) or bool(rules.get("rending", false))
+	if crit_below_6 and has_equipment(opp_side, "pauldronshields") and not bool(opp_side.get("shields_used_tp", false)):
+		opp_side["shields_used_tp"] = true
+		lethal_req = 6
+		rules["severe"] = false
+		rules["rending"] = false
+		tags.append("偏移肩盾: 仅 6 为关键成功")
 	var n_dmg := int(weapon["normal_dmg"])
 	var c_dmg := int(weapon["crit_dmg"])
 	if bool(rules.get("toxic", false)) and bool(opponent.get("poisoned", false)):
@@ -660,7 +680,7 @@ static func _build_melee_fighter_pool(
 			fails += 1
 
 	# Purity Seals check
-	if str(side_state["team_id"]) == "IMP-AOD" and not bool(side_state.get("purity_used_tp", false)) and fails >= 2:
+	if has_equipment(side_state, "purityseals") and not bool(side_state.get("purity_used_tp", false)) and fails >= 2:
 		fails -= 2
 		norms += 1
 		side_state["purity_used_tp"] = true

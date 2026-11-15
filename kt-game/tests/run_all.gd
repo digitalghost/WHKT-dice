@@ -17,6 +17,7 @@ func _init() -> void:
 	_test_prebattle_setup()
 	_test_kill_op_and_wipeout()
 	_test_initiative_cards_and_primary_op()
+	_test_equipment()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -356,3 +357,54 @@ func _test_initiative_cards_and_primary_op() -> void:
 	_assert_true(eng.get_total_vp(kill_side) == 3, "Primary Op bonus is not counted before the battle ends")
 	eng.state["phase"] = "GAME_OVER"
 	_assert_true(eng.get_total_vp(kill_side) == 3 + 2, "Primary Op bonus = ceil(3 / 2) = 2 VP at the end of the battle")
+
+
+func _test_equipment() -> void:
+	var eng := KTEngine.new(707)
+	eng.start_match("hotseat", "A", "dueller", "hardy")
+	eng.choose_drop_zone(false)
+	while str(eng.state["phase"]) == "SELECT":
+		var sd := eng.setup_side()
+		eng.confirm_roster(sd, eng.default_roster(sd))
+	_assert_true(str(eng.state["phase"]) == "EQUIP", "Roster reveal -> EQUIP (secret equipment selection, p.106)")
+	_assert_true(eng.equipment_options("A").size() == 4 and eng.equipment_options("B").size() == 4, "Each team offers its 4 faction equipment options")
+	var picks := {"A": ["IMP-AOD-EQ-purityseals"], "B": ["CHAOS-PM-EQ-plagueammo", "CHAOS-PM-EQ-blightgrenade"]}
+	var es := eng.setup_side()
+	_assert_true(not bool(eng.confirm_equipment(es, [picks[es][0], picks[es][0]])["ok"]), "An equipment option cannot be selected twice")
+	_assert_true(not bool(eng.confirm_equipment(es, ["NOPE"])["ok"]), "Unknown equipment is rejected")
+	eng.confirm_equipment(es, picks[es])
+	_assert_true(str(eng.state["phase"]) == "EQUIP", "Equipment stays secret until both players have chosen")
+	es = eng.setup_side()
+	eng.confirm_equipment(es, picks[es])
+	_assert_true(str(eng.state["phase"]) == "DEPLOY", "Both equipment choices revealed -> DEPLOY")
+	var sb: Dictionary = eng.state["sides"]["B"]
+	_assert_true(not bool(sb["has_plague_bell"]) and not KTCombat.has_equipment(eng.state["sides"]["A"], "auspex"), "Unselected equipment has no effect (no Plague Bell, no Auspex)")
+	var carriers := 0
+	var ammo_ok := true
+	var grenade_profile_ok := true
+	var thrower: Dictionary = {}
+	for op in eng.state["operatives"]:
+		if str(op["side"]) != "B":
+			continue
+		for w in op["weapons"]:
+			if str(w["id"]) == KTEngine.EQ_BLIGHT_GRENADE_ID:
+				carriers += 1
+				thrower = op
+				if int(w["hit"]) != 4 or bool(w["rules"]["toxic"]):
+					grenade_profile_ok = false
+			if str(w["name"]) in ["爆矢枪", "爆矢手枪"] and not (bool(w["rules"]["poison"]) and bool(w["rules"]["severe"])):
+				ammo_ok = false
+	_assert_true(ammo_ok, "Plague Rounds: boltguns and bolt pistols gain Poison and Severe")
+	_assert_true(carriers >= 1 and grenade_profile_ok and int(sb["blight_grenades_left"]) == 2, "Blight grenades: team-wide 4+ weapon, 2 uses per battle")
+	var gw: Dictionary = {}
+	for w in thrower["weapons"]:
+		if str(w["id"]) == KTEngine.EQ_BLIGHT_GRENADE_ID:
+			gw = w
+	eng.commit_shooting_action_cost(thrower, gw)
+	eng.commit_shooting_action_cost(thrower, gw)
+	var left := 0
+	for op in eng.state["operatives"]:
+		for w in op["weapons"]:
+			if str(w["id"]) == KTEngine.EQ_BLIGHT_GRENADE_ID:
+				left += 1
+	_assert_true(left == 0, "After 2 uses nobody has Blight grenades any more")
