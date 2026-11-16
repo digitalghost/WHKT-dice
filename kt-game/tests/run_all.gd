@@ -65,7 +65,8 @@ func _test_data_loading() -> void:
 	_assert_true(str(pm.get("team_id", "")) == "CHAOS-PM", "CHAOS-PM team JSON loaded")
 	_assert_true((aod.get("operatives", []) as Array).size() >= 8, "IMP-AOD has >= 8 operative archetypes")
 	_assert_true((pm.get("operatives", []) as Array).size() >= 7, "CHAOS-PM has >= 7 operative archetypes")
-	var map_d: Dictionary = KTData.create_volkus_killzone()
+	var map_d: Dictionary = KTData.load_map(KTData.DEFAULT_MAP_ID)
+	_assert_true(str(map_d.get("id", "")) == KTData.DEFAULT_MAP_ID, "Default map loads from data/maps (not the built-in fallback)")
 	_assert_true((map_d["objectives"] as Array).size() == 3, "Killzone Volkus has 3 objectives")
 	_assert_true((map_d["terrains"] as Array).size() >= 10, "Killzone Volkus terrain loaded")
 
@@ -135,11 +136,19 @@ func _test_geometry_movement_and_los() -> void:
 	#    Concealed target standing 2.5" behind the ruin wall (no cover, no LoS) is NOT a valid target.
 	var pm_fighter: Dictionary = _find_by_op_id(eng, "pm_fighter")
 	var aod_gunner: Dictionary = _find_by_op_id(eng, "aod_gunner")
-	aod_gunner["pos"] = Vector2(3.8, 1.4)
+	# Both stand on open ground either side of the SE small ruin wall (Rect2(23.0, 18.5, 4.0, 1.0), h=2.21").
+	aod_gunner["pos"] = Vector2(25.0, 17.3)
 	aod_gunner["order"] = "engage"
-	pm_fighter["pos"] = Vector2(3.8, 6.0)
+	pm_fighter["pos"] = Vector2(25.0, 20.8)
 	pm_fighter["order"] = "conceal"
+	for o in eng.state["operatives"]:
+		if str(o["uid"]) != str(aod_gunner["uid"]) and str(o["uid"]) != str(pm_fighter["uid"]):
+			o["pos"] = Vector2(-99.0, -99.0)
+	_assert_true(bool(KTGeometry.is_valid_stand_pos(aod_gunner["pos"], float(aod_gunner["base_radius"]), str(aod_gunner["uid"]), eng.state)["ok"]) \
+		and bool(KTGeometry.is_valid_stand_pos(pm_fighter["pos"], float(pm_fighter["base_radius"]), str(pm_fighter["uid"]), eng.state)["ok"]) \
+		and KTGeometry.elevation_at(pm_fighter["pos"], ters) == 0.0, "Wall-visibility test stands both operatives on legal ground spots")
 	var g_w: Array = eng.get_usable_ranged_weapons(aod_gunner)
+	_assert_true(not g_w.is_empty(), "Gunner has a usable ranged weapon for the wall-visibility test")
 	if not g_w.is_empty():
 		var ev_hidden: Dictionary = KTGeometry.evaluate_shot(aod_gunner, pm_fighter, g_w[0], eng.state)
 		_assert_true(not bool(ev_hidden["valid"]) and not bool(ev_hidden["visible"]), "Concealed operative fully behind a 2.2\" wall is not visible, so not a valid target")
@@ -515,6 +524,15 @@ func _test_tac_ops() -> void:
 	e2.state["turn_side"] = "A"
 	var dz_a: Rect2 = e2.state["map"]["drop_zone_a"]
 	var dz_b: Rect2 = e2.state["map"]["drop_zone_b"]
+	# Negative case: the killer stands in its OWN drop zone, far from the enemy's -> no Rout VP,
+	# even though the victim itself is inside the enemy (A) drop zone.
+	b_ops[0]["pos"] = dz_b.get_center()
+	a_ops[4]["pos"] = dz_a.get_center()
+	a_ops[4]["wounds_cur"] = 0
+	a_ops[4]["incapacitated"] = true
+	a_ops[4]["killed_by"] = str(b_ops[0]["uid"])
+	e2.recalculate_objectives_and_kills()
+	_assert_true(int(e2.state["sides"]["B"]["vp_tac"]) == 0, "Rout: kill made by an operative more than 6\" from the enemy drop zone scores nothing")
 	b_ops[0]["pos"] = dz_a.get_center()
 	a_ops[5]["wounds_cur"] = 0
 	a_ops[5]["incapacitated"] = true
