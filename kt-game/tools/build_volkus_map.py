@@ -267,6 +267,40 @@ def deploy_data(map_id: str, terrains: list) -> dict:
     }
 
 
+OBJ_WALL_CLEAR = 0.25   # inches the objective centre must keep from impassable rule rects
+OBJ_MAX_NUDGE = 0.75    # never move an objective further than this from its printed position
+                        # (map 6 objective 2 needs ~0.6" to leave the 1"-thick stronghold wall band)
+
+
+def legalize_objective(ox, oy, terrains):
+    """The printed maps put some objectives inside strongholds, right next to walls. Our wall rule
+    rects are 0.5" cells, so a marker can end up inside one (map 6, objective 2). Nudge such a
+    marker to the nearest spot OBJ_WALL_CLEAR away from every impassable rect, at most
+    OBJ_MAX_NUDGE from where the map prints it. Objectives that are already clear do not move."""
+    walls = [t["rect"] for t in terrains if t["kind"] in ("heavy_wall", "heavy_low", "light")]
+
+    def clearance(x, y):
+        best = 99.0
+        for rx, ry, rw, rh in walls:
+            qx = min(max(x, rx), rx + rw); qy = min(max(y, ry), ry + rh)
+            best = min(best, math.hypot(x - qx, y - qy))
+        return best
+
+    if clearance(ox, oy) >= OBJ_WALL_CLEAR:
+        return ox, oy
+    best, best_d = None, 1e9
+    steps = int(OBJ_MAX_NUDGE / 0.05)
+    for i in range(-steps, steps + 1):
+        for j in range(-steps, steps + 1):
+            x, y = ox + i * 0.05, oy + j * 0.05
+            d = math.hypot(x - ox, y - oy)
+            if d <= OBJ_MAX_NUDGE + 1e-6 and d < best_d and clearance(x, y) >= OBJ_WALL_CLEAR:
+                best, best_d = (x, y), d
+    if best is None:
+        raise SystemExit(f"legalize_objective: no clear spot within {OBJ_MAX_NUDGE}\" of ({ox:.2f}, {oy:.2f})")
+    return best
+
+
 def build_map(layout_path: Path, map_id: str, name_zh: str) -> dict:
     layout = json.loads(layout_path.read_text(encoding="utf-8"))
     sign = scene_sign(int(map_id[-2:]))
@@ -363,6 +397,7 @@ def build_map(layout_path: Path, map_id: str, name_zh: str) -> dict:
     objectives = []
     for i, o in enumerate(layout["objectives"]):
         ox, oy = tts_to_board(o["pos"][0], o["pos"][2], sign)
+        ox, oy = legalize_objective(ox, oy, terrains)
         objectives.append({"id": f"obj_{i+1}", "name": f"{i+1}号目标标识", "pos": [round(ox, 2), round(oy, 2)]})
 
     return {

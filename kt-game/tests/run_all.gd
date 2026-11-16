@@ -23,6 +23,7 @@ func _init() -> void:
 	_test_universal_equipment_deployables()
 	_test_grenade_equipment()
 	_test_all_official_maps()
+	_test_objectives_clear_of_walls()
 	_test_r1_rule_defect_fixes()
 
 
@@ -2002,3 +2003,19 @@ func _test_r2_ui_and_interaction_fixes() -> void:
 
 	root.remove_child(mg)
 	mg.free()
+
+
+func _test_objectives_clear_of_walls() -> void:
+	# Audit D1: map 6 objective 2 sat inside a stronghold wall rule rect.
+	var ok := true
+	for map_id in KTData.MAP_IDS:
+		var m: Dictionary = KTData.load_map(map_id)
+		for o in m["objectives"]:
+			var p: Vector2 = o["pos"]
+			if p.x < 0.8 or p.y < 0.8 or p.x > 29.2 or p.y > 21.2:
+				ok = false
+			for t in m["terrains"]:
+				var tr: Rect2 = t["rect"]
+				if KTGeometry.is_impassable_terrain(t) and KTGeometry.point_to_rect_distance(p, tr) < 0.2:
+					ok = false
+	_assert_true(ok, "No objective marker centre sits in or against an impassable terrain rect on any map")
