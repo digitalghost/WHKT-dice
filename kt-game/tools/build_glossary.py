@@ -105,6 +105,25 @@ SHORT: dict[str, str] = {
     "排毒口": "敌方特工在己方特工 3\" 内被激活时：无毒素则掷 D3，掷出 3 获得毒素；已有毒素则受 D3 伤害。",
 }
 
+# Audit D2: one-liners that were missing, flavour-only, or contradicted their own full text.
+SHORT.update({
+    "有毒瘴气": "灵能行动：7\" 内可见的敌方特工获得毒素指示物；若已有则改为受到 3 点伤害。",
+    "腐烂活力": "灵能行动：3\" 内可见的友方特工掷 2D6 恢复耐伤（和为 7 恢复最多 7 点，否则按较高一枚）。每转折点一次。",
+    "战团老兵": "部署结束时，为该特工额外选择一项本场战斗有效的战团战术。",
+    "灵活战术": "更改您的次要战团战术，持续至本转折点结束。",
+    "条令战争": "每场战斗各一次：选择毁灭条令或战术条令的战斗条令计谋花费 0CP。",
+    "战团战术": "选小队时为己方特工选择一项首要和一项次要战团战术，整场战斗生效。",
+    "追踪轻型": "选择有效目标时，目标不能借轻型掩体获得掩护（掩护豁免仍保留）。",
+    "灵能": "灵能武器：可作为阿斯塔特两次射击中的一次；同一次激活不能多次选择同一件灵能远程武器。",
+})
+
+# Rulebook v11.5 excerpts (docs/杀戮小队三版官方规则-v11.5-全文提取.md) for concepts that have no
+# single keyword paragraph of their own.
+STATUS_FULL = {
+    "隐匿命令": "在战斗开始前，特工在被部署时拥有隐匿命令。您可以在将特工激活时，更改其拥有的命令。\n\n（射击）特工不能在拥有隐匿命令，或者位于敌方特工的控制范围内时执行此行动。\n\n如果潜在目标拥有隐匿命令，对特工可见，并没有掩护，那么该目标是有效目标。\n\n（校注：隐匿命令是可以进行近战、及门间争斗，舱门争斗行动的；可以使用独特行动的，例如功能型手雷）",
+    "交战命令": "您可以在将特工激活时，更改其拥有的命令。\n\n如果潜在目标拥有交战命令，并对特工可见，那么这个目标是有效目标。\n\n冲锋行动允许特工有效地接近敌人，但是特工必须在拥有交战命令时才能这么做。",
+}
+
 ALIAS = {"眩晕": "晕眩", "晕眩": "晕眩"}
 
 ICON = {
@@ -137,8 +156,14 @@ def main() -> None:
     for t in core.get("topics", []):
         for name in topic_map.get(t["id"], []):
             put(name, "status", t["text"])
-    for name in ["毒素指示物", "隐匿命令", "交战命令", "关键穿刺"]:
-        put(name, "status", SHORT[name])
+    for name in ["隐匿命令", "交战命令"]:
+        put(name, "status", STATUS_FULL[name], "", SHORT[name])
+    pierce_full = next((w["text"] for w in core.get("weaponRules", []) if w["keyword"] == "穿刺"), SHORT["关键穿刺"])
+    put("关键穿刺", "weapon", pierce_full, "", SHORT["关键穿刺"])
+    pm_path = DATA / "teams" / "CHAOS-PM.json"
+    pm_team = json.loads(pm_path.read_text(encoding="utf-8")) if pm_path.exists() else {}
+    poison_full = next((e["body"] for e in pm_team.get("rule_entries", []) if e.get("id") == "CHAOS-PM-poison"), SHORT["毒素指示物"])
+    put("毒素指示物", "status", poison_full, "", SHORT["毒素指示物"])
 
     for team_file in sorted((DATA / "teams").glob("*.json")):
         if team_file.name == "manifest.json":
@@ -162,8 +187,33 @@ def main() -> None:
                     put(str(ab), "ability", SHORT.get(str(ab), ""), tid)
 
     # Chapter tactics come from kt_data.gd constants; mirror them here from SHORT
+    # Full text of each tactic is its numbered paragraph in the 战团战术 faction rule.
+    aod_path = DATA / "teams" / "IMP-AOD.json"
+    aod_team = json.loads(aod_path.read_text(encoding="utf-8")) if aod_path.exists() else {}
+    tac_body = next((e.get("body", "") for e in aod_team.get("rule_entries", []) if str(e.get("title", "")).startswith("战团战术")), "")
+    tac_full: dict[str, str] = {}
+    cur = None
+    for line in tac_body.split("\n"):
+        m = re.match(r"^\d+\.\s*([^：]+)：(.*)$", line.strip())
+        if m:
+            cur = m.group(1).strip()
+            tac_full[cur] = m.group(2).strip()
+        elif cur and line.strip().startswith("•"):
+            tac_full[cur] = (tac_full[cur] + "\n" + line.strip()).strip()
+        else:
+            cur = None
     for name in ["猛攻", "决斗家", "坚决", "隐匿", "机动", "强健", "神射手", "攻城战专家"]:
-        put(name, "tactic", SHORT[name], "IMP-AOD")
+        put(name, "tactic", tac_full.get(name) or SHORT[name], "IMP-AOD", SHORT[name])
+
+    # Keywords that appear on weapon cards but had no entry (rule chips rendered as "unknown").
+    if "追踪" in entries:
+        entries["追踪轻型"] = dict(entries["追踪"], name="追踪轻型", short=SHORT["追踪轻型"])
+    astartes = next((ab.get("text", "") for op in pm_team.get("operatives", []) for ab in op.get("abilities", [])
+                     if isinstance(ab, dict) and ab.get("name") == "阿斯塔特"), "")
+    put("灵能", "weapon", astartes or SHORT["灵能"], "CHAOS-PM", SHORT["灵能"])
+    for alias, target in ALIAS.items():
+        if alias != target and target in entries and alias not in entries:
+            entries[alias] = dict(entries[target], name=alias)
 
     OUT.write_text(json.dumps({"entries": list(entries.values())}, ensure_ascii=False, indent=1), encoding="utf-8")
     missing = [e["name"] for e in entries.values() if not e["short"]]
