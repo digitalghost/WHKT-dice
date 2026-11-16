@@ -37,6 +37,8 @@ func start_match(
 		"consecutive_strategy_passes": 0,
 		"active_op_uid": "",
 		"active_is_counteract": false,
+		"counteract_declined": false,
+		"counteract_declined_side": "",
 		"map": map_data,
 		"markers": [], # e.g. Cloud of Flies marker
 		"objectives_state": {
@@ -410,8 +412,10 @@ func _tac_new_tp() -> void:
 func _op_contests_objective(op: Dictionary, obj: Dictionary) -> bool:
 	var p: Vector2 = op["pos"]
 	var opos: Vector2 = obj["pos"]
-	var z_op := KTGeometry.elevation_at(p, state["map"]["terrains"])
-	return p.distance_to(opos) - float(op["base_radius"]) <= 1.787 and absf(z_op) <= 2.0
+	var terrains: Array = state["map"]["terrains"]
+	var z_op := KTGeometry.elevation_at(p, terrains)
+	var z_obj := KTGeometry.elevation_at(opos, terrains)
+	return p.distance_to(opos) - float(op["base_radius"]) <= 1.787 and absf(z_op - z_obj) <= 2.0
 
 
 static func _dist_to_rect(p: Vector2, r: Rect2) -> float:
@@ -1326,6 +1330,7 @@ func _spawn_roster(side_id: String, team_data: Dictionary, spawns: Array) -> voi
 			"charged_this_tp": false,
 			"moved_distance_tp": 0.0,
 			"moved_reposition_or_charge": false,
+			"heavy_fired_this_activation": false,
 			"actions_taken": [],
 			"shoot_count": 0,
 			"fight_count": 0,
@@ -1564,6 +1569,8 @@ func _resolve_initiative() -> void:
 				var d3: int = rng.randi_range(1, 3)
 				md["acts_left"] = d3
 				add_log("💨 烟雾手雷就绪步骤掷骰 D3 = %d（将在 %d 次激活完成后或本转折点结束时移除）。" % [d3, d3])
+	state["counteract_declined"] = false
+	state["counteract_declined_side"] = ""
 	_tac_new_tp()
 	for op in state["operatives"]:
 		if not op["incapacitated"]:
@@ -1573,6 +1580,7 @@ func _resolve_initiative() -> void:
 			op["charged_this_tp"] = false
 			op["moved_distance_tp"] = 0.0
 			op["moved_reposition_or_charge"] = false
+			op["heavy_fired_this_activation"] = false
 			op["vitality_used_tp"] = false
 			op["blessing_healed_tp"] = 0
 			op["shock_assault_active"] = false
@@ -1829,7 +1837,7 @@ func can_operative_be_selected_for_turn(op: Dictionary) -> Dictionary:
 
 	# Counteract check (反应): All friendly operatives expended, opponent still has ready operatives,
 	# and Astartes allows Counteract regardless of Engage/Conceal order!
-	if my_ready == 0 and opp_ready > 0 and not bool(op["counteracted_tp"]):
+	if my_ready == 0 and opp_ready > 0 and not bool(op["counteracted_tp"]) and not bool(state.get("counteract_declined", false)):
 		return {"ok": true, "counteract": true, "reason": "可执行阿斯塔特【反应 Counteract】（免费 1AP 行动）"}
 
 	return {"ok": false, "counteract": false, "reason": "该特工本转折点已行动完毕"}
@@ -1858,6 +1866,8 @@ func activate_operative(uid: String, chosen_order: String = "") -> Dictionary:
 
 	op["ignore_obscured"] = false # Sniper Optics expires on next activation start
 	op["auspex_active"] = false
+	op["moved_reposition_or_charge"] = false
+	op["heavy_fired_this_activation"] = false
 	op["actions_taken"] = []
 	op["shoot_count"] = 0
 	op["fight_count"] = 0
@@ -1948,6 +1958,7 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 
 	var move_blocked := taken.has("reposition") or taken.has("charge") or taken.has("fall_back")
 	var dash_blocked := taken.has("dash") or taken.has("charge")
+	var heavy_fired := bool(op.get("heavy_fired_this_activation", false))
 
 	var fb_cost := 1 if mobile else 2
 
@@ -1961,7 +1972,7 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 				has_silent = true
 	var can_shoot_order := (str(op["order"]) == "engage") or has_silent
 	var shoot_cap := 1 if bool(state["active_is_counteract"]) else 2
-	var can_shoot := has_ranged and ap >= 1 and int(op["shoot_count"]) < shoot_cap and can_shoot_order and not engaged and not taken.has("fall_back")
+	var can_shoot := has_ranged and ap >= 1 and int(op["shoot_count"]) < shoot_cap and can_shoot_order and not engaged
 	var shoot_reason := "选择远程武器瞄准射击"
 	if not has_ranged:
 		shoot_reason = "该特工未装备远程武器"
@@ -1982,21 +1993,26 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 	var can_secure := false
 	var secure_obj_id := ""
 	if int(state["tp"]) >= 1 and ap >= 1 and not engaged and not taken.has("secure"):
+		var sec_terrains: Array = state["map"]["terrains"]
 		for obj in state["map"]["objectives"]:
 			var oid := str(obj["id"])
 			var op_pos: Vector2 = op["pos"]
 			var obj_pos: Vector2 = obj["pos"]
 			var d: float = op_pos.distance_to(obj_pos) - float(op["base_radius"])
-			if d <= 1.787 and str(state["objectives_state"][oid]["controlled_by"]) == str(op["side"]) and str(state["objectives_state"][oid]["secured_by"]) != str(op["side"]):
+			var z_op_sec := KTGeometry.elevation_at(op_pos, sec_terrains)
+			var z_obj_sec := KTGeometry.elevation_at(obj_pos, sec_terrains)
+			if d <= 1.787 and absf(z_op_sec - z_obj_sec) <= 2.0 and str(state["objectives_state"][oid]["controlled_by"]) == str(op["side"]) and str(state["objectives_state"][oid]["secured_by"]) != str(op["side"]):
 				can_secure = true
 				secure_obj_id = oid
 				break
 
 	var pb_idx := _find_contact_portable_barricade_idx(op)
-	var can_barricade_move := ap >= 1 and not engaged and not move_blocked and not bool(state["active_is_counteract"]) and pb_idx >= 0
+	var can_barricade_move := ap >= 1 and not engaged and not move_blocked and not heavy_fired and not bool(state["active_is_counteract"]) and pb_idx >= 0
 	var barricade_reason := "携可移动掩体推进 %.0f\"" % get_effective_move_inches(op, "barricade_move")
 	if not can_barricade_move:
-		if pb_idx < 0:
+		if heavy_fired:
+			barricade_reason = "本轮已使用重型武器，不能再移动"
+		elif pb_idx < 0:
 			barricade_reason = "需与可移动掩体接触"
 		elif engaged:
 			barricade_reason = "处于敌方 1\" 控制范围内，无法执行与掩体移动"
@@ -2009,9 +2025,9 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 
 	return {
 		"reposition": {
-			"enabled": ap >= 1 and not move_blocked and not engaged,
+			"enabled": ap >= 1 and not move_blocked and not engaged and not heavy_fired,
 			"cost": 1,
-			"reason": "常规移动 %.0f\"" % get_effective_move_inches(op, "reposition") if not engaged else "被敌方近战锁定，请后撤"
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else ("常规移动 %.0f\"" % get_effective_move_inches(op, "reposition") if not engaged else "被敌方近战锁定，请后撤")
 		},
 		"barricade_move": {
 			"enabled": can_barricade_move,
@@ -2019,19 +2035,19 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 			"reason": barricade_reason
 		},
 		"dash": {
-			"enabled": ap >= 1 and not dash_blocked and not engaged and not bool(state["active_is_counteract"]),
+			"enabled": ap >= 1 and not dash_blocked and not engaged and not heavy_fired and not bool(state["active_is_counteract"]),
 			"cost": 1,
-			"reason": "冲刺突进 3\"（可与转移组合推进）"
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else "冲刺突进 3\"（可与转移组合推进）"
 		},
 		"charge": {
-			"enabled": ap >= 1 and not move_blocked and not taken.has("dash") and (not engaged or mobile) and str(op["order"]) == "engage",
+			"enabled": ap >= 1 and not move_blocked and not taken.has("dash") and not heavy_fired and (not engaged or mobile) and str(op["order"]) == "engage",
 			"cost": 1,
-			"reason": "冲锋 %.0f\" 突入敌方 1\" 控制圈！" % get_effective_move_inches(op, "charge") if str(op["order"]) == "engage" else "【隐匿】命令下不能发起冲锋"
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else ("冲锋 %.0f\" 突入敌方 1\" 控制圈！" % get_effective_move_inches(op, "charge") if str(op["order"]) == "engage" else "【隐匿】命令下不能发起冲锋")
 		},
 		"fall_back": {
-			"enabled": ap >= fb_cost and not move_blocked and engaged,
+			"enabled": ap >= fb_cost and not move_blocked and not heavy_fired and engaged,
 			"cost": fb_cost,
-			"reason": "消耗 %dAP 脱离敌方近战控制圈" % fb_cost
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else ("消耗 %dAP 脱离敌方近战控制圈" % fb_cost)
 		},
 		"shoot": {
 			"enabled": can_shoot,
@@ -2057,6 +2073,7 @@ func get_usable_ranged_weapons(op: Dictionary) -> Array[Dictionary]:
 	var is_conceal := str(op["order"]) == "conceal"
 	var second_shot := int(op["shoot_count"]) >= 1
 	var moved_non_dash := bool(op["moved_reposition_or_charge"])
+	var moved_any := moved_non_dash or (op["actions_taken"] as Array).has("dash")
 
 	for w in op["weapons"]:
 		if str(w["kind"]) != "ranged":
@@ -2064,8 +2081,12 @@ func get_usable_ranged_weapons(op: Dictionary) -> Array[Dictionary]:
 		var rules: Dictionary = w["rules"]
 		if is_conceal and not bool(rules.get("silent", false)):
 			continue
-		if bool(rules.get("heavy", false)) and moved_non_dash:
-			continue
+		if bool(rules.get("heavy", false)):
+			if bool(rules.get("heavy_dash_only", false)):
+				if moved_non_dash:
+					continue
+			elif moved_any:
+				continue
 		if second_shot:
 			# Astartes double-shoot constraint!
 			var wname := str(w["name"])
@@ -2115,10 +2136,12 @@ func execute_move(uid: String, action_kind: String, waypoints: Array[Vector2]) -
 	if not bool(check["ok"]):
 		return {"ok": false, "msg": str(check["reason"])}
 	if action_kind == "barricade_move":
-		# "不能攀爬、跳落或者跳跃": any surcharge over the plain path length means something was climbed over
+		# "不能攀爬、跳落或者跳跃": any surcharge over the segmented horizontal ceil length means something was climbed over
 		var plain_len := 0.0
 		for wi in range(waypoints.size() - 1):
-			plain_len += waypoints[wi].distance_to(waypoints[wi + 1])
+			var sl := waypoints[wi].distance_to(waypoints[wi + 1])
+			if sl >= 0.05:
+				plain_len += ceilf(maxf(0.0, sl - 1e-4))
 		if float(check["cost"]) > plain_len + 0.05:
 			return {"ok": false, "msg": "与掩体移动时不能攀爬或翻越地形"}
 
@@ -2514,11 +2537,14 @@ func commit_shooting_action_cost(attacker: Dictionary, weapon: Dictionary) -> vo
 	attacker["ap_left"] = maxi(0, int(attacker["ap_left"]) - (1 + extra_ap))
 	attacker["shoot_count"] = int(attacker["shoot_count"]) + 1
 	attacker["actions_taken"].append("shoot")
-	if wname.contains("爆矢") or bool(weapon["rules"].get("psychic", false)):
+	var w_rules: Dictionary = weapon.get("rules", {})
+	if bool(w_rules.get("heavy", false)):
+		attacker["heavy_fired_this_activation"] = true
+	if wname.contains("爆矢") or bool(w_rules.get("psychic", false)):
 		attacker["bolt_or_psychic_shot"] = true
 	if is_heavy_sniper:
 		attacker["heavy_sniper_shot"] = true
-	if bool(weapon["rules"].get("psychic", false)):
+	if bool(w_rules.get("psychic", false)):
 		attacker["psychic_weapons_used"].append(weapon["id"])
 	var wid := str(weapon.get("id", ""))
 	if wid in [EQ_BLIGHT_GRENADE_ID, EQ_FRAG_GRENADE_ID, EQ_KRAK_GRENADE_ID]:
@@ -2639,11 +2665,16 @@ func end_operative_activation() -> void:
 
 
 func _advance_firefight_turn(just_acted_side: String) -> void:
+	if bool(state.get("counteract_declined", false)) and str(state.get("counteract_declined_side", "")) != just_acted_side:
+		state["counteract_declined"] = false
+		state["counteract_declined_side"] = ""
 	var other_side := "B" if just_acted_side == "A" else "A"
 	var ready_a := count_ready_operatives("A")
 	var ready_b := count_ready_operatives("B")
 
 	if ready_a == 0 and ready_b == 0:
+		state["counteract_declined"] = false
+		state["counteract_declined_side"] = ""
 		_finish_turning_point()
 		return
 
@@ -2653,10 +2684,14 @@ func _advance_firefight_turn(just_acted_side: String) -> void:
 	elif count_ready_operatives(just_acted_side) > 0 or _has_counteract_available(just_acted_side):
 		state["turn_side"] = just_acted_side
 	else:
+		state["counteract_declined"] = false
+		state["counteract_declined_side"] = ""
 		_finish_turning_point()
 
 
 func _has_counteract_available(side_id: String) -> bool:
+	if bool(state.get("counteract_declined", false)):
+		return false
 	var opp := "B" if side_id == "A" else "A"
 	if count_ready_operatives(side_id) > 0 or count_ready_operatives(opp) == 0:
 		return false
@@ -2667,10 +2702,9 @@ func _has_counteract_available(side_id: String) -> bool:
 
 
 func pass_counteract(side_id: String) -> void:
-	for op in state["operatives"]:
-		if str(op["side"]) == side_id:
-			op["counteracted_tp"] = true
-	add_log("⏭️ 【%s】放弃剩余反应机会。" % str(state["sides"][side_id]["name"]))
+	state["counteract_declined"] = true
+	state["counteract_declined_side"] = side_id
+	add_log("⏭️ 【%s】放弃本次反应机会。" % str(state["sides"][side_id]["name"]))
 	_advance_firefight_turn(side_id)
 
 
@@ -2680,7 +2714,7 @@ func recalculate_objectives_and_kills() -> void:
 	for obj in state["map"]["objectives"]:
 		var oid := str(obj["id"])
 		var opos: Vector2 = obj["pos"]
-		var z_obj := 0.0
+		var z_obj := KTGeometry.elevation_at(opos, terrains)
 		var apl_a := 0
 		var apl_b := 0
 

@@ -23,6 +23,7 @@ func _init() -> void:
 	_test_universal_equipment_deployables()
 	_test_grenade_equipment()
 	_test_all_official_maps()
+	_test_r1_rule_defect_fixes()
 
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
@@ -74,11 +75,12 @@ func _test_geometry_movement_and_los() -> void:
 	var res_blk: Dictionary = KTGeometry.validate_move_path(blocked_pts, cap, "reposition", 6.0, eng.state)
 	_assert_true(not bool(res_blk["ok"]) and str(res_blk["reason"]).contains("地形"), "Heavy wall blocks straight walk-through")
 
-	# 2. Climbing onto the SW large ruin's Vantage deck (`large_ruin_deck`: Rect2(4.5, 15.5, 6.5, 4.0), +3.0") adds +2" climb cost
+	# 2. Climbing onto the SW large ruin's Vantage deck (`large_ruin_deck`: Rect2(4.5, 15.5, 6.5, 4.0), +3.0"):
+	#    Updated per Rulebook p.13 (L649) & p.31 (L1391-1403): ceil(2.0")=2.0" horiz + max(2.0", ceil(3.0"))=3.0" climb = 5.0" (was 4.0" under old flat +2" bug)
 	cap["pos"] = Vector2(7.0, 14.5) # just north of the deck (open side)
-	var climb_pts: Array[Vector2] = [Vector2(7.0, 14.5), Vector2(7.0, 16.5)] # 2" horizontal + 2" climb = 4"
+	var climb_pts: Array[Vector2] = [Vector2(7.0, 14.5), Vector2(7.0, 16.5)]
 	var res_clb: Dictionary = KTGeometry.validate_move_path(climb_pts, cap, "reposition", 6.0, eng.state)
-	_assert_true(bool(res_clb["ok"]) and absf(float(res_clb["cost"]) - 4.0) < 0.15, "Vantage +2\" climb cost calculated accurately")
+	_assert_true(bool(res_clb["ok"]) and absf(float(res_clb["cost"]) - 5.0) < 0.15, "Vantage +3\" climb costs 2\" horizontal + 3\" vertical = 5\"")
 
 	# 3. Concealed target behind Light Rubble (`light_rubble_03`: Rect2(24.31, 11.33, 3.33, 1.95), h=0.95") vs Ground shooter (Mortis profile) -> untargetable!
 	var sniper: Dictionary = _find_by_op_id(eng, "aod_sniper")
@@ -687,6 +689,7 @@ func _test_universal_equipment_deployables() -> void:
 	var terrains: Array = eng.state["map"]["terrains"]
 
 	# Ladder climb discount onto large_ruin_deck_3 (Rect2(4.5, 15.5, 6.5, 4.0), +3.0\") on Map 4
+	# Updated per Rulebook p.31 (L1391-1403) & p.101 (L3097-3098): unassisted +3.0" climb costs 2"+3"=5", ladder sets vertical climb to 1" -> 2"+1"=3" (saves 2", was 1" under old flat +2" bug)
 	mover["pos"] = Vector2(7.0, 14.5)
 	var climb_pts: Array[Vector2] = [Vector2(7.0, 14.5), Vector2(7.0, 16.5)]
 	eng.state["eq_markers"] = []
@@ -694,8 +697,8 @@ func _test_universal_equipment_deployables() -> void:
 	eng.state["eq_markers"] = [{"kind": "ladder", "side": "B", "pos": Vector2(7.0, 15.3)}]
 	var res_lad: Dictionary = KTGeometry.validate_move_path(climb_pts, mover, "reposition", 6.0, eng.state)
 	_assert_true(
-		bool(res_lad["ok"]) and absf(float(res_no_lad["cost"]) - float(res_lad["cost"]) - 1.0) < 0.05,
-		"Ladder outside vantage edge reduces climb path cost by 1\" for either side"
+		bool(res_lad["ok"]) and absf(float(res_no_lad["cost"]) - 5.0) < 0.05 and absf(float(res_lad["cost"]) - 3.0) < 0.05,
+		"Ladder outside +3\" vantage edge sets vertical climb distance to 1\" (5\" -> 3\") for either side"
 	)
 
 	# Keep only large_ruin_deck_3 while testing synthetic equipment terrain pieces in an open corridor
@@ -1227,4 +1230,472 @@ func _test_grenade_equipment() -> void:
 	_assert_true(
 		stun_logic_ok and any_stunned,
 		"Stun grenade sets apl_mod == -1 on operatives rolling 3+"
+	)
+
+
+func _test_r1_rule_defect_fixes() -> void:
+	var eng := KTEngine.new(1101)
+	eng.start_match("hotseat", "A", "sharpshooter", "hardy")
+	eng.auto_deploy_all()
+	eng.auto_initiative()
+	eng.choose_primary_op(str(eng.state["turn_side"]), "kill")
+	eng.choose_primary_op(str(eng.state["turn_side"]), "key")
+	eng.pass_strategy(str(eng.state["turn_side"]))
+	eng.pass_strategy(str(eng.state["turn_side"]))
+
+	var terrains: Array = eng.state["map"]["terrains"]
+	terrains.clear()
+	eng.state["eq_markers"] = []
+	eng.state["markers"] = []
+	for idx in range(eng.state["operatives"].size()):
+		var o: Dictionary = eng.state["operatives"][idx]
+		o["pos"] = Vector2(1.5 + 1.2 * float(idx % 6), 20.5 if str(o["side"]) == "A" else 1.5)
+		o["ready"] = true
+		o["order"] = "engage"
+		o["incapacitated"] = false
+		o["apl_mod"] = 0
+
+	# -------------------------------------------------------------------------
+	# F1: Shoot after Fall Back (Rulebook p.15 Shoot, L730-732)
+	# -------------------------------------------------------------------------
+	var cap: Dictionary = _find_by_op_id(eng, "aod_captain")
+	var pm_f: Dictionary = _find_by_op_id(eng, "pm_fighter")
+	cap["pos"] = Vector2(12.0, 12.0)
+	pm_f["pos"] = Vector2(12.0, 10.5) # within 1" control range
+	eng.state["turn_side"] = "A"
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.activate_operative(str(cap["uid"]), "engage")
+	var acts_engaged: Dictionary = eng.get_available_actions(cap)
+	_assert_true(
+		not bool((acts_engaged["shoot"] as Dictionary)["enabled"]),
+		"F1: Operative in enemy control range cannot Shoot (p.15 L732)"
+	)
+	var fb_pts: Array[Vector2] = [Vector2(12.0, 12.0), Vector2(12.0, 15.0)]
+	var fb_res: Dictionary = eng.execute_move(str(cap["uid"]), "fall_back", fb_pts)
+	var acts_after_fb: Dictionary = eng.get_available_actions(cap)
+	_assert_true(
+		bool(fb_res["ok"]) and int(cap["ap_left"]) == 1 and bool((acts_after_fb["shoot"] as Dictionary)["enabled"]),
+		"F1: APL3 operative with Engage order can Shoot with remaining 1 AP after Fall Back (p.15 L730-732)"
+	)
+	# Under Conceal order (no Silent weapon), Shoot remains forbidden even after Fall Back
+	cap["pos"] = Vector2(12.0, 12.0)
+	cap["ready"] = true
+	eng.state["active_op_uid"] = ""
+	eng.activate_operative(str(cap["uid"]), "conceal")
+	var fb_conceal: Dictionary = eng.execute_move(str(cap["uid"]), "fall_back", fb_pts)
+	var acts_conceal_fb: Dictionary = eng.get_available_actions(cap)
+	_assert_true(
+		bool(fb_conceal["ok"]) and int(cap["ap_left"]) == 1 and not bool((acts_conceal_fb["shoot"] as Dictionary)["enabled"]),
+		"F1: Operative with Conceal order still cannot Shoot after Fall Back (p.15 L732)"
+	)
+	eng.end_operative_activation()
+	cap["ready"] = true
+	cap["pos"] = Vector2(2.0, 20.5)
+	pm_f["pos"] = Vector2(2.0, 1.5)
+
+	# -------------------------------------------------------------------------
+	# F2: Segment rounding, Climb ceil, Drop ignore 2", Dash no climb (Rulebook p.13 L649, p.14 L680-681, p.31 L1391-1408)
+	# -------------------------------------------------------------------------
+	var seg_pts: Array[Vector2] = [Vector2(10.0, 10.0), Vector2(12.4, 10.0)]
+	var res_seg: Dictionary = KTGeometry.validate_move_path(seg_pts, cap, "reposition", 6.0, eng.state)
+	_assert_true(
+		bool(res_seg["ok"]) and is_equal_approx(float(res_seg["cost"]), 3.0),
+		"F2: 2.4\" horizontal segment rounds up to 3\" (p.13 L649)"
+	)
+	var two_seg_pts: Array[Vector2] = [Vector2(10.0, 10.0), Vector2(11.2, 10.0), Vector2(11.2, 11.2)]
+	var res_two_seg: Dictionary = KTGeometry.validate_move_path(two_seg_pts, cap, "reposition", 6.0, eng.state)
+	_assert_true(
+		bool(res_two_seg["ok"]) and is_equal_approx(float(res_two_seg["cost"]), 4.0),
+		"F2: Each move segment rounds up independently (1.2\" + 1.2\" -> 2\" + 2\" = 4\", p.13 L649)"
+	)
+
+	terrains.append({
+		"id": "f2_vantage_35",
+		"name": "测试露台3.5",
+		"kind": "vantage",
+		"elevation": 3.5,
+		"rect": Rect2(14.0, 10.0, 4.0, 4.0),
+	})
+	terrains.append({
+		"id": "f2_vantage_42",
+		"name": "测试高台4.2",
+		"kind": "vantage",
+		"elevation": 4.2,
+		"rect": Rect2(20.0, 10.0, 4.0, 4.0),
+	})
+	# Climb 4.2" vantage with 1.0" horizontal step: 1" horiz + max(2, ceil(4.2))=5" = 6.0"
+	var climb_42_pts: Array[Vector2] = [Vector2(19.5, 12.0), Vector2(20.5, 12.0)]
+	var res_climb_42: Dictionary = KTGeometry.validate_move_path(climb_42_pts, cap, "reposition", 6.0, eng.state)
+	_assert_true(
+		bool(res_climb_42["ok"]) and is_equal_approx(float(res_climb_42["cost"]), 6.0),
+		"F2: Climbing 4.2\" vantage rounds vertical rise up to 5\" (1\" horiz + 5\" climb = 6\", p.31 L1401-1402)"
+	)
+	# Drop 3.5" vantage with 1.0" horizontal step: 1" horiz + ceil(3.5 - 2.0)=2" vertical drop = 3.0" (drop itself costs only 2")
+	var drop_35_pts: Array[Vector2] = [Vector2(14.5, 12.0), Vector2(13.5, 12.0)]
+	var res_drop_35: Dictionary = KTGeometry.validate_move_path(drop_35_pts, cap, "reposition", 6.0, eng.state)
+	_assert_true(
+		bool(res_drop_35["ok"]) and is_equal_approx(float(res_drop_35["cost"]), 3.0),
+		"F2: Dropping 3.5\" ignores 2\" and pays 2\" vertical cost (1\" horiz + 2\" drop = 3\", p.31 L1406-1408)"
+	)
+	# Dash cannot climb onto vantage, but CAN drop down from vantage
+	var climb_35_pts: Array[Vector2] = [Vector2(13.5, 12.0), Vector2(14.5, 12.0)]
+	var res_dash_climb: Dictionary = KTGeometry.validate_move_path(climb_35_pts, cap, "dash", 3.0, eng.state)
+	var res_dash_drop: Dictionary = KTGeometry.validate_move_path(drop_35_pts, cap, "dash", 3.0, eng.state)
+	_assert_true(
+		not bool(res_dash_climb["ok"]) and str(res_dash_climb["reason"]) == "【冲刺】期间不能攀爬",
+		"F2: Dash cannot climb onto vantage terrain (p.14 L680-681)"
+	)
+	_assert_true(
+		bool(res_dash_drop["ok"]) and is_equal_approx(float(res_dash_drop["cost"]), 3.0),
+		"F2: Dash can drop off a 3.5\" vantage within 3\" move allowance (p.14 L680-681)"
+	)
+	terrains.clear()
+
+	# -------------------------------------------------------------------------
+	# F3: Optimal defence dice allocation for 3/4 weapon vs 2 normal saves (Rulebook p.16 L799-812)
+	# -------------------------------------------------------------------------
+	var gunner: Dictionary = _find_by_op_id(eng, "aod_gunner")
+	var pm_champ: Dictionary = _find_by_op_id(eng, "pm_champion")
+	pm_champ["pos"] = Vector2(10.0, 8.0)
+	gunner["pos"] = Vector2(10.0, 14.0)
+	gunner["wounds_cur"] = int(gunner["wounds_max"])
+	eng.state["sides"]["A"]["active_ploys"].clear()
+	var w_34 := {
+		"id": "test_bolter_34",
+		"name": "测试爆矢枪",
+		"kind": "ranged",
+		"attacks": 4,
+		"hit": 3,
+		"normal_dmg": 3,
+		"crit_dmg": 4,
+		"rules": {},
+	}
+	var rng_f3 := RandomNumberGenerator.new()
+	rng_f3.seed = 3030
+	var ev_f3: Dictionary = KTGeometry.evaluate_shot(pm_champ, gunner, w_34, eng.state)
+	var sess_f3: Dictionary = KTCombat.create_shooting_session(pm_champ, gunner, w_34, ev_f3, eng.state, rng_f3)
+	sess_f3["retained_atk"] = {"crits": 1, "normals": 2, "devastating_mw": 0}
+	sess_f3["auto_def_normals"] = 2
+	sess_f3["auto_def_crits"] = 0
+	sess_f3["def_dice"] = []
+	KTCombat.finalize_shooting_resolution(sess_f3, eng.state, rng_f3)
+	_assert_true(
+		int(sess_f3["total_damage_dealt"]) == 4,
+		"F3: Two normal saves against 1 crit + 2 normals (3/4) block 2 normals (4 dmg taken, not 6, p.16 L799-812)"
+	)
+	gunner["wounds_cur"] = int(gunner["wounds_max"])
+
+	# -------------------------------------------------------------------------
+	# F4: Declining Counteract only skips the current opportunity (Rulebook p.11 L576-582)
+	# -------------------------------------------------------------------------
+	for op_f4 in eng.state["operatives"]:
+		var od_f4: Dictionary = op_f4
+		if str(od_f4["side"]) == "A":
+			od_f4["ready"] = false
+			od_f4["counteracted_tp"] = false
+		else:
+			od_f4["ready"] = false
+			od_f4["counteracted_tp"] = false
+	var b_ops_f4 := _side_ops(eng, "B")
+	var b_ready_1: Dictionary = b_ops_f4[0]
+	var b_ready_2: Dictionary = b_ops_f4[1]
+	b_ready_1["ready"] = true
+	b_ready_2["ready"] = true
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.state["counteract_declined"] = false
+	eng.state["counteract_declined_side"] = ""
+	eng.state["turn_side"] = "A"
+	_assert_true(eng._has_counteract_available("A"), "F4 setup: Side A has Counteract available when all expended and B has ready ops")
+	eng.pass_counteract("A")
+	var any_marked := false
+	for op_chk in _side_ops(eng, "A"):
+		if bool((op_chk as Dictionary)["counteracted_tp"]):
+			any_marked = true
+	_assert_true(
+		bool(eng.state["counteract_declined"]) and not eng._has_counteract_available("A") and str(eng.state["turn_side"]) == "B" and not any_marked,
+		"F4: Passing Counteract sets counteract_declined without marking friendly operatives counteracted_tp (p.11 L581)"
+	)
+	eng.activate_operative(str(b_ready_1["uid"]), "engage")
+	eng.end_operative_activation()
+	var a_cand: Dictionary = _side_ops(eng, "A")[0]
+	var sel_after_b: Dictionary = eng.can_operative_be_selected_for_turn(a_cand)
+	_assert_true(
+		not bool(eng.state["counteract_declined"]) and eng._has_counteract_available("A") and str(eng.state["turn_side"]) == "A" and bool(sel_after_b["ok"]) and bool(sel_after_b["counteract"]),
+		"F4: After opponent completes another activation, friendly side regains Counteract opportunity (p.11 L577-582)"
+	)
+	for op_rs in eng.state["operatives"]:
+		(op_rs as Dictionary)["ready"] = true
+		(op_rs as Dictionary)["counteracted_tp"] = false
+
+	# -------------------------------------------------------------------------
+	# F5: Combat Support requires ally NOT in another enemy's control range (Rulebook p.17 L858-860)
+	# -------------------------------------------------------------------------
+	for idx5 in range(eng.state["operatives"].size()):
+		var o5: Dictionary = eng.state["operatives"][idx5]
+		o5["pos"] = Vector2(1.5 + 1.2 * float(idx5 % 6), 20.5 if str(o5["side"]) == "A" else 1.5)
+	var fighter_a: Dictionary = _find_by_op_id(eng, "aod_captain")
+	var ally_a: Dictionary = _find_by_op_id(eng, "aod_gunner")
+	var opp_b1: Dictionary = _find_by_op_id(eng, "pm_champion")
+	var opp_b2: Dictionary = _find_by_op_id(eng, "pm_fighter")
+	fighter_a["wounds_cur"] = int(fighter_a["wounds_max"])
+	fighter_a["pos"] = Vector2(12.0, 12.0)
+	opp_b1["pos"] = Vector2(13.5, 12.0)  # edge dist ~0.09" to fighter_a
+	ally_a["pos"] = Vector2(14.8, 12.0)  # edge dist ~0.04" to opp_b1 (in opp_b1 control range)
+	opp_b2["pos"] = Vector2(16.0, 12.0)  # edge dist ~0.0" to ally_a (also engaging ally_a!)
+	var w_melee_4 := {
+		"id": "test_blade",
+		"name": "测试战刃",
+		"kind": "melee",
+		"attacks": 4,
+		"hit": 4,
+		"normal_dmg": 3,
+		"crit_dmg": 4,
+		"rules": {},
+	}
+	var ms_no_assist: Dictionary = KTCombat.create_melee_session(fighter_a, opp_b1, w_melee_4, w_melee_4, eng.state, rng_f3)
+	var att_no_assist: Dictionary = ms_no_assist["att"]
+	opp_b2["pos"] = Vector2(25.0, 1.5) # move second enemy away so ally_a is only engaged with opp_b1
+	var ms_assist: Dictionary = KTCombat.create_melee_session(fighter_a, opp_b1, w_melee_4, w_melee_4, eng.state, rng_f3)
+	var att_assist: Dictionary = ms_assist["att"]
+	_assert_true(
+		int(att_no_assist["effective_hit"]) == 4 and int(att_assist["effective_hit"]) == 3,
+		"F5: Ally engaged with another enemy does not grant Combat Support; unengaged ally grants +1 hit (p.17 L858-860)"
+	)
+
+	# -------------------------------------------------------------------------
+	# F6: Vantage terrain counts as Light terrain for cover, not Heavy/Obscured (Rulebook p.36 L1521-1534)
+	# -------------------------------------------------------------------------
+	for idx6 in range(eng.state["operatives"].size()):
+		var o6: Dictionary = eng.state["operatives"][idx6]
+		o6["pos"] = Vector2(1.5 + 1.2 * float(idx6 % 6), 20.5 if str(o6["side"]) == "A" else 1.5)
+	terrains.clear()
+	terrains.append({
+		"id": "f6_high_vantage",
+		"name": "高处制高点",
+		"kind": "vantage",
+		"elevation": 3.0,
+		"rect": Rect2(8.0, 4.0, 4.0, 4.0),
+	})
+	terrains.append({
+		"id": "f6_cover_vantage",
+		"name": "低处制高点",
+		"kind": "vantage",
+		"elevation": 1.0,
+		"rect": Rect2(8.0, 12.0, 4.0, 2.0),
+	})
+	gunner["pos"] = Vector2(10.0, 9.0) # ground z=0
+	gunner["order"] = "engage"
+	opp_b1["pos"] = Vector2(10.0, 14.5) # ground z=0, within 1" behind f6_cover_vantage
+	opp_b1["order"] = "conceal"
+	var ev_f6_ground: Dictionary = KTGeometry.evaluate_shot(gunner, opp_b1, w_34, eng.state)
+	gunner["pos"] = Vector2(10.0, 6.0) # on f6_high_vantage (z=3.0, +3.0" >= 2.0" above target)
+	var ev_f6_vant: Dictionary = KTGeometry.evaluate_shot(gunner, opp_b1, w_34, eng.state)
+	_assert_true(
+		not bool(ev_f6_ground["valid"]) and str(ev_f6_ground["cover_terrain_type"]) == "light",
+		"F6: Vantage terrain grants Light cover (not Heavy), hiding Concealed target from ground shooter (p.36 L1521-1531)"
+	)
+	_assert_true(
+		bool(ev_f6_vant["valid"]) and str(ev_f6_vant["cover"]) == "improved" and not bool(ev_f6_vant["obscured"]),
+		"F6: Shooter 2\"+ higher on Vantage can target Concealed operative whose cover is Vantage terrain, without Obscured (p.36 L1526-1534)"
+	)
+	terrains.clear()
+
+	# -------------------------------------------------------------------------
+	# F7: Heavy weapon move flag reset on activation + no move after firing Heavy (Rulebook p.93 L2773-2776)
+	# -------------------------------------------------------------------------
+	for idx7 in range(eng.state["operatives"].size()):
+		var o7: Dictionary = eng.state["operatives"][idx7]
+		o7["pos"] = Vector2(1.5 + 1.2 * float(idx7 % 6), 20.5 if str(o7["side"]) == "A" else 1.5)
+	var sniper_f7: Dictionary = _find_by_op_id(eng, "aod_sniper")
+	sniper_f7["pos"] = Vector2(10.0, 15.0)
+	sniper_f7["ready"] = true
+	eng.state["turn_side"] = "A"
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.activate_operative(str(sniper_f7["uid"]), "engage")
+	var hg_move: Dictionary = eng.execute_move(str(sniper_f7["uid"]), "reposition", [Vector2(10.0, 15.0), Vector2(12.0, 15.0)])
+	var usable_after_move: Array[Dictionary] = eng.get_usable_ranged_weapons(sniper_f7)
+	var has_hb_after_move := false
+	for w_chk in usable_after_move:
+		if bool((w_chk["rules"] as Dictionary).get("heavy", false)):
+			has_hb_after_move = true
+	eng.end_operative_activation()
+	# Now test Counteract in the same TP: moved_reposition_or_charge must reset on activate_operative!
+	for op_ca in _side_ops(eng, "A"):
+		(op_ca as Dictionary)["ready"] = false
+		(op_ca as Dictionary)["counteracted_tp"] = false
+	eng.state["turn_side"] = "A"
+	eng.state["counteract_declined"] = false
+	var ca_act: Dictionary = eng.activate_operative(str(sniper_f7["uid"]))
+	var usable_in_ca: Array[Dictionary] = eng.get_usable_ranged_weapons(sniper_f7)
+	var heavy_w: Dictionary = {}
+	for w_ca in usable_in_ca:
+		if bool((w_ca["rules"] as Dictionary).get("heavy", false)):
+			heavy_w = w_ca
+			break
+	_assert_true(
+		bool(hg_move["ok"]) and not has_hb_after_move and bool(ca_act["counteract"]) and not heavy_w.is_empty(),
+		"F7a: moved_reposition_or_charge resets on next activation/Counteract so Heavy weapon can fire if unmoved this turn (p.93 L2773)"
+	)
+	eng.end_operative_activation()
+	# Test F7b: After firing a Heavy weapon in an activation, all move actions are disabled with required Chinese reason
+	for op_r7 in eng.state["operatives"]:
+		(op_r7 as Dictionary)["ready"] = true
+	eng.state["turn_side"] = "A"
+	eng.state["active_op_uid"] = ""
+	eng.state["active_is_counteract"] = false
+	eng.activate_operative(str(sniper_f7["uid"]), "engage")
+	eng.commit_shooting_action_cost(sniper_f7, heavy_w)
+	var acts_after_heavy: Dictionary = eng.get_available_actions(sniper_f7)
+	var all_moves_blocked := true
+	var all_reasons_match := true
+	for mk in ["reposition", "dash", "charge", "fall_back", "barricade_move"]:
+		var minfo: Dictionary = acts_after_heavy[mk]
+		if bool(minfo["enabled"]):
+			all_moves_blocked = false
+		if str(minfo["reason"]) != "本轮已使用重型武器，不能再移动":
+			all_reasons_match = false
+	_assert_true(
+		bool(sniper_f7["heavy_fired_this_activation"]) and all_moves_blocked and all_reasons_match,
+		"F7b: Firing a Heavy weapon disables reposition/dash/charge/fall_back/barricade_move for the rest of the activation (p.93 L2773-2774)"
+	)
+	eng.end_operative_activation()
+
+	# -------------------------------------------------------------------------
+	# F8 & F9: Empty parry allowed & crit parry prefer_normal option (Rulebook p.18 L886-898)
+	# -------------------------------------------------------------------------
+	fighter_a["pos"] = Vector2(12.0, 12.0)
+	opp_b1["pos"] = Vector2(13.2, 12.0)
+	var hp_opp_before := int(opp_b1["wounds_cur"])
+	var ms_parry: Dictionary = KTCombat.create_melee_session(fighter_a, opp_b1, w_melee_4, w_melee_4, eng.state, rng_f3)
+	# F9: Opponent has 1 crit and 1 normal; prefer_normal=true parries the normal instead of the crit
+	(ms_parry["att"] as Dictionary)["crits"] = 2
+	(ms_parry["att"] as Dictionary)["normals"] = 1
+	(ms_parry["att"] as Dictionary)["dueller"] = false
+	(ms_parry["def"] as Dictionary)["crits"] = 1
+	(ms_parry["def"] as Dictionary)["normals"] = 1
+	ms_parry["turn"] = "attacker"
+	ms_parry["step"] = "duel"
+	var p_pref_norm: Dictionary = KTCombat.execute_melee_step(ms_parry, "parry_crit", eng.state, rng_f3, true)
+	_assert_true(
+		bool(p_pref_norm["ok"]) and int(p_pref_norm["removed"]) == 1 and int((ms_parry["def"] as Dictionary)["normals"]) == 0 and int((ms_parry["def"] as Dictionary)["crits"]) == 1,
+		"F9: Crit parry with prefer_normal=true discards opponent normal success instead of crit (p.18 L893)"
+	)
+	# Default prefer_normal=false parries the crit when opponent has both
+	(ms_parry["def"] as Dictionary)["crits"] = 1
+	(ms_parry["def"] as Dictionary)["normals"] = 1
+	ms_parry["turn"] = "attacker"
+	var p_def_crit: Dictionary = KTCombat.execute_melee_step(ms_parry, "parry_crit", eng.state, rng_f3)
+	_assert_true(
+		bool(p_def_crit["ok"]) and int(p_def_crit["removed"]) == 1 and int((ms_parry["def"] as Dictionary)["crits"]) == 0 and int((ms_parry["def"] as Dictionary)["normals"]) == 1,
+		"F9: Default crit parry still discards opponent crit first (p.18 L893)"
+	)
+	# F8: Empty parry when opponent has 0 remaining successes
+	(ms_parry["att"] as Dictionary)["crits"] = 1
+	(ms_parry["att"] as Dictionary)["normals"] = 1
+	(ms_parry["def"] as Dictionary)["crits"] = 0
+	(ms_parry["def"] as Dictionary)["normals"] = 0
+	ms_parry["turn"] = "attacker"
+	ms_parry["step"] = "duel"
+	var log_len_before: int = (ms_parry["resolution_log"] as Array).size()
+	var p_empty_norm: Dictionary = KTCombat.execute_melee_step(ms_parry, "parry_norm", eng.state, rng_f3)
+	var p_empty_crit: Dictionary = KTCombat.execute_melee_step(ms_parry, "parry_crit", eng.state, rng_f3)
+	_assert_true(
+		bool(p_empty_norm["ok"]) and int(p_empty_norm["removed"]) == 0
+		and bool(p_empty_crit["ok"]) and int(p_empty_crit["removed"]) == 0
+		and int(opp_b1["wounds_cur"]) == hp_opp_before
+		and (ms_parry["resolution_log"] as Array).size() >= log_len_before + 2
+		and str(ms_parry["step"]) == "resolved",
+		"F8: Parrying when opponent has no unresolved successes succeeds with removed=0 and logs without dealing damage (p.18 L897)"
+	)
+
+	# -------------------------------------------------------------------------
+	# F10: Shooter hugging the same long wall >2" away does NOT strip defender cover (Rulebook p.19 L926-931)
+	# -------------------------------------------------------------------------
+	for idx10 in range(eng.state["operatives"].size()):
+		var o10: Dictionary = eng.state["operatives"][idx10]
+		o10["pos"] = Vector2(1.5 + 1.2 * float(idx10 % 6), 20.5 if str(o10["side"]) == "A" else 1.5)
+	terrains.clear()
+	terrains.append({
+		"id": "f10_long_wall",
+		"name": "长矮墙",
+		"kind": "light",
+		"elevation": 1.0,
+		"rect": Rect2(10.0, 8.0, 0.5, 8.0),
+	})
+	gunner["pos"] = Vector2(9.2, 9.0)   # r=0.63 -> dist_att_to_terr = 10.0 - 9.2 - 0.63 = 0.17" <= 0.35" (hugging wall)
+	gunner["order"] = "engage"
+	opp_b1["pos"] = Vector2(11.3, 14.0) # r=0.63 -> dist_def_to_terr = 11.3 - 10.5 - 0.63 = 0.17" <= 1.0"; edge_dist ~ 4.15" > 2"
+	opp_b1["order"] = "engage"
+	var ev_f10: Dictionary = KTGeometry.evaluate_shot(gunner, opp_b1, w_34, eng.state)
+	_assert_true(
+		bool(ev_f10["valid"]) and str(ev_f10["cover"]) == "standard",
+		"F10: Defender within 1\" of a long wall retains cover even when shooter >2\" away hugs the same wall (p.19 L927-929)"
+	)
+	terrains.clear()
+
+	# -------------------------------------------------------------------------
+	# F11: Severe upgrades pre-retained normal success (Accurate / Vantage) when 0 crits (Rulebook p.94 L2827 & p.92 V1.5 FAQ L2720-2722)
+	# -------------------------------------------------------------------------
+	eng.state["sides"]["A"]["purity_used_tp"] = true
+	var w_severe := {
+		"id": "test_severe_acc",
+		"name": "测试严重精准枪",
+		"kind": "ranged",
+		"attacks": 4,
+		"hit": 3,
+		"normal_dmg": 3,
+		"crit_dmg": 4,
+		"rules": {"severe": true, "accurate": 1},
+	}
+	var ev_f11: Dictionary = KTGeometry.evaluate_shot(gunner, opp_b1, w_severe, eng.state)
+	ev_f11["obscured"] = false
+	var sess_f11: Dictionary = KTCombat.create_shooting_session(gunner, opp_b1, w_severe, ev_f11, eng.state, rng_f3)
+	# 1 pre-retained normal from Accurate 1; all 3 rolled dice fail (2, 2, 1) -> 0 rolled normals, 0 crits
+	sess_f11["auto_attack_normals"] = 1
+	sess_f11["atk_dice"] = [
+		{"id": 0, "val": 2, "rerolled": false, "locked": false},
+		{"id": 1, "val": 2, "rerolled": false, "locked": false},
+		{"id": 2, "val": 1, "rerolled": false, "locked": false},
+	]
+	KTCombat.lock_in_shooting_attacks(sess_f11, eng.state, rng_f3)
+	var ret_f11: Dictionary = sess_f11["retained_atk"]
+	_assert_true(
+		int(ret_f11["crits"]) == 1 and int(ret_f11["normals"]) == 0,
+		"F11: Severe upgrades Accurate/Vantage pre-retained normal success into a crit when 0 crits retained (p.94 L2827, p.92 L2720-2722)"
+	)
+
+	# -------------------------------------------------------------------------
+	# F12: Objective marker inside Vantage footprint uses Vantage elevation (Rulebook p.25-26 L1198, L1218-1220)
+	# -------------------------------------------------------------------------
+	for idx12 in range(eng.state["operatives"].size()):
+		var o12: Dictionary = eng.state["operatives"][idx12]
+		o12["pos"] = Vector2(1.5 + 1.2 * float(idx12 % 6), 20.5 if str(o12["side"]) == "A" else 1.5)
+	terrains.clear()
+	terrains.append({
+		"id": "f12_vantage_obj",
+		"name": "二楼目标平台",
+		"kind": "vantage",
+		"elevation": 3.0,
+		"rect": Rect2(12.0, 9.0, 6.0, 6.0),
+	})
+	var obj0: Dictionary = (eng.state["map"]["objectives"] as Array)[0]
+	var obj0_id := str(obj0["id"])
+	obj0["pos"] = Vector2(15.0, 12.0) # sits on the +3.0" vantage deck
+	gunner["pos"] = Vector2(15.5, 12.0) # also on the +3.0" vantage deck (z_op=3.0, z_obj=3.0)
+	opp_b1["pos"] = Vector2(11.5, 12.0) # outside the deck on ground (z_op=0.0, d > 1.787 or z diff = 3.0 > 2.0)
+	var opp_ground_near: Dictionary = _find_by_op_id(eng, "pm_fighter")
+	opp_ground_near["pos"] = Vector2(11.8, 12.0) # horizontal d = 3.2 - 0.63 = 2.57; test closer edge!
+	# Shrink deck to test horizontal <=1.787" from ground vs on-deck:
+	(terrains[0] as Dictionary)["rect"] = Rect2(14.0, 10.0, 4.0, 4.0)
+	obj0["pos"] = Vector2(14.5, 12.0)           # on vantage z=3.0
+	opp_ground_near["pos"] = Vector2(13.5, 12.0) # ground z=0.0, horizontal d = 1.0 - 0.63 = 0.37 <= 1.787, but |0 - 3| = 3 > 2!
+	gunner["pos"] = Vector2(15.2, 12.0)         # on vantage z=3.0, horizontal d = 0.7 - 0.63 = 0.07 <= 1.787, |3 - 3| = 0 <= 2!
+	eng.recalculate_objectives_and_kills()
+	var ost0: Dictionary = eng.state["objectives_state"][obj0_id]
+	_assert_true(
+		int(ost0["apl_a"]) > 0 and int(ost0["apl_b"]) == 0 and str(ost0["controlled_by"]) == "A",
+		"F12: Objective inside Vantage rect is contested by operative on that Vantage deck and not from 3\" below (p.25-26 L1198, L1218-1220)"
 	)

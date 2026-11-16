@@ -166,6 +166,7 @@ static func validate_move_path(
 		var seg_len := a.distance_to(b)
 		if seg_len < 0.05:
 			continue
+		var horiz := ceilf(maxf(0.0, seg_len - 1e-4))
 
 		# Sample along segment for Heavy wall collision & enemy control range checks
 		var steps := maxi(4, int(ceil(seg_len / 0.25)))
@@ -180,7 +181,7 @@ static func validate_move_path(
 					if circle_intersects_rect(sample, r * 0.85, terr["rect"]):
 						return {
 							"ok": false,
-							"cost": total_cost + seg_len,
+							"cost": total_cost + horiz,
 							"max": max_inches,
 							"reason": "路径无法穿过重型地形【%s】（请点击地面打折绕行）" % str(terr.get("name", ""))
 						}
@@ -196,16 +197,25 @@ static func validate_move_path(
 				if not near_enemies.is_empty():
 					return {
 						"ok": false,
-						"cost": total_cost + seg_len,
+						"cost": total_cost + horiz,
 						"max": max_inches,
 						"reason": "移动路径不能进入【%s】的 1\" 控制范围" % str(near_enemies[0]["name"])
 					}
 
 		var next_z := elevation_at(b, terrains)
+		var rise := next_z - prev_z
+		var drop := prev_z - next_z
 		var climb_penalty: float = 0.0
-		if next_z > prev_z + 0.5:
-			# Climbing onto Vantage (+3.5" -> 2.0" vertical climb surcharge in KT3 simplified ramp/wall; 1.0" with ladder)
-			climb_penalty = 2.0
+		if rise > 0.5:
+			if action_kind == "dash":
+				return {
+					"ok": false,
+					"cost": total_cost + horiz,
+					"max": max_inches,
+					"reason": "【冲刺】期间不能攀爬"
+				}
+			# Core rules p.31: minimum 2" vertical climb, rounded up to nearest inch above 2"; 1.0" with ladder (once per action)
+			climb_penalty = maxf(2.0, ceilf(rise - 1e-4))
 			if not used_ladder:
 				for m in eq_markers:
 					if str(m.get("kind", "")) == "ladder":
@@ -214,6 +224,9 @@ static func validate_move_path(
 							climb_penalty = 1.0
 							used_ladder = true
 							break
+		elif drop > 0.5:
+			# Core rules p.31: ignore 2" vertical drop distance, round remaining drop up
+			climb_penalty = maxf(0.0, ceilf(drop - 2.0 - 1e-4))
 		elif crossed_razor:
 			# Climbing over razor wire: minimum 2" vertical climb + 1" Obstructing (阻挡) = +3"
 			climb_penalty = 3.0
@@ -221,7 +234,7 @@ static func validate_move_path(
 			# Climbing over light terrain: minimum 2" vertical climb distance
 			climb_penalty = 2.0
 
-		total_cost += seg_len + climb_penalty
+		total_cost += horiz + climb_penalty
 		prev_z = next_z
 
 	var end_enemies := is_in_enemy_control_range(op, end_pos, state)
@@ -510,13 +523,13 @@ static func evaluate_shot(
 		var dist_def_to_terr := point_to_rect_distance(pos_d, rect) - r_d
 		var dist_att_to_terr := point_to_rect_distance(pos_a, rect) - r_a
 
-		# Cover check: Defender is within 1" of terrain crossed by cover lines (<= 0.2" contact for portable barricade), and attacker is further away
+		# Cover check: Defender is within 1" of terrain crossed by cover lines (<= 0.2" contact for portable barricade); only exception is attacker within 2" (p.19)
 		var is_portable := bool(t.get("portable", false))
 		var cover_prox := 0.2 if is_portable else (COVER_PROXIMITY_INCHES + 0.05)
-		if not close_quarters and dist_def_to_terr <= cover_prox and dist_att_to_terr > 0.35:
-			if tk in ["heavy_wall", "heavy_low", "vantage"]:
+		if not close_quarters and dist_def_to_terr <= cover_prox:
+			if tk in ["heavy_wall", "heavy_low"]:
 				has_heavy_cover = true
-			elif tk == "light":
+			elif tk in ["light", "vantage"]:
 				has_light_cover = true
 				if is_portable:
 					has_protective_cover = true

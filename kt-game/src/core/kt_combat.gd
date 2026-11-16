@@ -332,10 +332,13 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 			_log_event(session, "重型遮挡", "🌫️ 重型遮挡生效：暴击全部降为普通成功，并额外舍弃 1 枚命中！", "", [], "block")
 		session["retained_atk"] = {"crits": 0, "normals": total_norm, "devastating_mw": 0}
 	else:
-		# Severe: if 0 crits and >=1 rolled normal, upgrade 1 normal -> crit (disables Punishing/Rending)
+		# Severe: if 0 crits and >=1 retained normal (rolled or auto-retained), upgrade 1 normal -> crit (disables Punishing/Rending)
 		var used_severe := false
-		if bool(rules.get("severe", false)) and natural_crits == 0 and rolled_normals > 0:
-			rolled_normals -= 1
+		if bool(rules.get("severe", false)) and natural_crits == 0 and (rolled_normals + retained_from_fail) > 0:
+			if rolled_normals > 0:
+				rolled_normals -= 1
+			else:
+				retained_from_fail -= 1
 			natural_crits += 1
 			used_severe = true
 			_log_event(session, "严重", "🔥 【严重】词条触发：1 枚普通命中升格为暴击！", "", [], "upgrade")
@@ -447,8 +450,8 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 	def_crits -= block_cc
 	atk_crits -= block_cc
 
-	# 2. Pairs of Normal saves block remaining Crit attacks IF 2 * n_dmg < c_dmg or no atk_norms left
-	while def_norms >= 2 and atk_crits > 0 and (atk_norms <= 1 or c_dmg >= n_dmg):
+	# 2. Pairs of Normal saves block remaining Crit attacks IF 2 * n_dmg < c_dmg or <=1 atk_norms left
+	while def_norms >= 2 and atk_crits > 0 and (atk_norms <= 1 or 2 * n_dmg < c_dmg):
 		def_norms -= 2
 		atk_crits -= 1
 
@@ -644,7 +647,18 @@ static func _build_melee_fighter_pool(
 			if ally["incapacitated"] or ally["side"] != fighter["side"] or ally["uid"] == fighter["uid"]:
 				continue
 			var z_ally := KTGeometry.elevation_at(ally["pos"], terrains)
-			if KTGeometry.in_control_range_at(ally["pos"], float(ally["base_radius"]), z_ally, opponent["pos"], float(opponent["base_radius"]), z_opp, terrains):
+			var r_ally := float(ally["base_radius"])
+			if not KTGeometry.in_control_range_at(ally["pos"], r_ally, z_ally, opponent["pos"], float(opponent["base_radius"]), z_opp, terrains):
+				continue
+			var engaged_other := false
+			for other_e in state["operatives"]:
+				if other_e["incapacitated"] or other_e["side"] == fighter["side"] or other_e["uid"] == opponent["uid"]:
+					continue
+				var z_oe := KTGeometry.elevation_at(other_e["pos"], terrains)
+				if KTGeometry.in_control_range_at(ally["pos"], r_ally, z_ally, other_e["pos"], float(other_e["base_radius"]), z_oe, terrains):
+					engaged_other = true
+					break
+			if not engaged_other:
 				assists += 1
 	if assists > 0:
 		tags.append("友方围攻协助 +%d" % assists)
@@ -749,7 +763,8 @@ static func execute_melee_step(
 	session: Dictionary,
 	action_type: String, # "strike_crit" | "strike_norm" | "parry_crit" | "parry_norm"
 	state: Dictionary,
-	rng: RandomNumberGenerator
+	rng: RandomNumberGenerator,
+	prefer_normal: bool = false
 ) -> Dictionary:
 	if str(session["step"]) != "duel":
 		return {"ok": false, "msg": "近战已结束"}
@@ -763,9 +778,10 @@ static func execute_melee_step(
 
 	if my_pool["crits"] + my_pool["normals"] <= 0:
 		_advance_melee_turn(session, state)
-		return {"ok": true, "msg": "无可用成功骰，跳过"}
+		return {"ok": true, "msg": "无可用成功骰，跳过", "removed": 0}
 
 	var opp_brutal := bool(opp_pool["rules"].get("brutal", false))
+	var removed := 0
 
 	if action_type == "strike_crit":
 		if int(my_pool["crits"]) <= 0:
@@ -818,14 +834,21 @@ static func execute_melee_step(
 	elif action_type == "parry_crit":
 		if int(my_pool["crits"]) <= 0:
 			return {"ok": false, "msg": "没有可用的暴击骰"}
-		if int(opp_pool["crits"]) + int(opp_pool["normals"]) <= 0:
-			return {"ok": false, "msg": "对手已无成功骰可供格挡"}
 		my_pool["crits"] = int(my_pool["crits"]) - 1
-		if int(opp_pool["crits"]) > 0:
+		if int(opp_pool["crits"]) + int(opp_pool["normals"]) <= 0:
+			removed = 0
+			_log_event(session, "格挡", "🛡️ 【%s】以暴击进行空格挡（对手无剩余成功骰）！" % str(actor["name"]), "", [], "block")
+		elif prefer_normal and int(opp_pool["normals"]) > 0:
+			opp_pool["normals"] = int(opp_pool["normals"]) - 1
+			removed = 1
+			_log_event(session, "格挡", "🛡️ 【%s】以暴击格挡了对手的 1 枚普通成功骰！" % str(actor["name"]), "", [], "block")
+		elif int(opp_pool["crits"]) > 0:
 			opp_pool["crits"] = int(opp_pool["crits"]) - 1
+			removed = 1
 			_log_event(session, "格挡", "🛡️ 【%s】以暴击格挡了对手的 1 枚暴击骰！" % str(actor["name"]), "", [], "block")
 		else:
 			opp_pool["normals"] = int(opp_pool["normals"]) - 1
+			removed = 1
 			_log_event(session, "格挡", "🛡️ 【%s】以暴击格挡了对手的 1 枚普通成功骰！" % str(actor["name"]), "", [], "block")
 
 	elif action_type == "parry_norm":
@@ -834,20 +857,27 @@ static func execute_melee_step(
 		if opp_brutal:
 			return {"ok": false, "msg": "对手武器带有【残暴】，不能用普通成功进行格挡！"}
 		var can_parry_crit := bool(my_pool["dueller"]) and int(opp_pool["crits"]) > 0
-		if int(opp_pool["normals"]) <= 0 and not can_parry_crit:
-			return {"ok": false, "msg": "对手没有普通成功骰可供格挡（暴击需用暴击格挡）"}
 		my_pool["normals"] = int(my_pool["normals"]) - 1
-		if can_parry_crit:
-			opp_pool["crits"] = int(opp_pool["crits"]) - 1
-			_log_event(session, "决斗家", "🤺 【决斗家】绝技！【%s】用普通成功格挡了对手的暴击骰！" % str(actor["name"]), "", [], "block")
-		else:
+		if prefer_normal and int(opp_pool["normals"]) > 0:
 			opp_pool["normals"] = int(opp_pool["normals"]) - 1
+			removed = 1
 			_log_event(session, "格挡", "🛡️ 【%s】格挡了对手的 1 枚普通成功骰！" % str(actor["name"]), "", [], "block")
+		elif can_parry_crit:
+			opp_pool["crits"] = int(opp_pool["crits"]) - 1
+			removed = 1
+			_log_event(session, "决斗家", "🤺 【决斗家】绝技！【%s】用普通成功格挡了对手的暴击骰！" % str(actor["name"]), "", [], "block")
+		elif int(opp_pool["normals"]) > 0:
+			opp_pool["normals"] = int(opp_pool["normals"]) - 1
+			removed = 1
+			_log_event(session, "格挡", "🛡️ 【%s】格挡了对手的 1 枚普通成功骰！" % str(actor["name"]), "", [], "block")
+		else:
+			removed = 0
+			_log_event(session, "格挡", "🛡️ 【%s】进行空格挡（未抵消对手成功骰）！" % str(actor["name"]), "", [], "block")
 	else:
 		return {"ok": false, "msg": "未知近战动作"}
 
 	_advance_melee_turn(session, state)
-	return {"ok": true, "msg": "已执行"}
+	return {"ok": true, "msg": "已执行", "removed": removed}
 
 
 static func _apply_melee_post_hit_effects(
