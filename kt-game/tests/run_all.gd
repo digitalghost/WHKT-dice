@@ -25,9 +25,20 @@ func _init() -> void:
 	_test_all_official_maps()
 	_test_r1_rule_defect_fixes()
 
+
+var _ran_scene_tests: bool = false
+
+
+func _process(_delta: float) -> bool:
+	if _ran_scene_tests:
+		return true
+	_ran_scene_tests = true
+	_test_r2_ui_and_interaction_fixes()
+
 	print("------------------------------------------------")
 	print("RESULTS: %d PASSED, %d FAILED" % [_passed, _failed])
 	quit(0 if _failed == 0 else 1)
+	return true
 
 
 func _assert_true(cond: bool, label: String) -> void:
@@ -1699,3 +1710,295 @@ func _test_r1_rule_defect_fixes() -> void:
 		int(ost0["apl_a"]) > 0 and int(ost0["apl_b"]) == 0 and str(ost0["controlled_by"]) == "A",
 		"F12: Objective inside Vantage rect is contested by operative on that Vantage deck and not from 3\" below (p.25-26 L1198, L1218-1220)"
 	)
+
+
+func _collect_focusable_buttons(node: Node, bad_out: Array[String]) -> void:
+	if node is BaseButton and (node as Control).focus_mode != Control.FOCUS_NONE:
+		bad_out.append("%s(%s)" % [node.name, node.get_class()])
+	for ch in node.get_children():
+		_collect_focusable_buttons(ch, bad_out)
+
+
+func _make_key_event(keycode: int, ctrl: bool = false) -> InputEventKey:
+	var ev := InputEventKey.new()
+	ev.keycode = keycode
+	ev.pressed = true
+	ev.echo = false
+	ev.ctrl_pressed = ctrl
+	return ev
+
+
+func _test_r2_ui_and_interaction_fixes() -> void:
+	print("--- R2 UI & Interaction Defect Fixes ---")
+	var mg := MainGame.new()
+	root.add_child(mg)
+	mg._title_overlay.visible = false
+	mg._sel_mode = "ai"
+	mg._sel_human_side = "A"
+	mg._start_new_battle()
+	mg.engine.auto_deploy_all()
+	mg.engine.auto_initiative()
+	mg.engine.choose_primary_op(str(mg.engine.state["turn_side"]), "kill")
+	mg.engine.choose_primary_op(str(mg.engine.state["turn_side"]), "key")
+	mg.engine.pass_strategy(str(mg.engine.state["turn_side"]))
+	mg.engine.pass_strategy(str(mg.engine.state["turn_side"]))
+	mg.engine.state["turn_side"] = "A"
+	mg.engine.undo_stack.clear()
+	mg._in_ai_undo_guard = false
+	mg._pre_ai_undo_stack.clear()
+	mg._refresh_all_ui()
+
+	# U1: All buttons (including settings, dice modal, card lightbox, hotbar/hero) have FOCUS_NONE
+	var test_btn := Button.new()
+	KTWidgets.attach_button_juice(test_btn)
+	_assert_true(test_btn.focus_mode == Control.FOCUS_NONE, "U1: KTWidgets.attach_button_juice sets focus_mode = FOCUS_NONE")
+	test_btn.free()
+
+	mg._open_settings()
+	mg._settings_modal.visible = false
+	mg._card_lightbox.show_team_rulebook("IMP-AOD")
+	mg._card_lightbox.hide()
+	var cap_a: Dictionary = _find_by_op_id(mg.engine, "aod_captain")
+	var pm_b: Dictionary = _find_by_op_id(mg.engine, "pm_champion")
+	var dummy_sess: Dictionary = KTCombat.create_melee_session(
+		cap_a, pm_b,
+		KTAI.pick_best_melee_weapon(cap_a),
+		KTAI.pick_best_melee_weapon(pm_b),
+		mg.engine.state, mg.engine.rng
+	)
+	mg._dice_modal.open_melee(mg.engine, dummy_sess)
+	var bad_btns: Array[String] = []
+	_collect_focusable_buttons(mg, bad_btns)
+	_assert_true(bad_btns.is_empty(), "U1: Zero focusable BaseButtons across MainGame, Settings, CardLightbox & DiceCombatModal")
+
+	# U6: Starting a new battle (or returning to main menu) while DiceCombatModal is open cleans modal & restores HUD
+	mg._dice_modal._selected_pool = "atk_dice"
+	mg._return_to_main_menu()
+	_assert_true(not mg._dice_modal.visible and mg._dice_modal.session.is_empty() and mg._dice_modal._selected_pool == "", "U6a: Returning to main menu closes & resets DiceCombatModal")
+	mg._title_overlay.visible = false
+	mg._dice_modal.open_melee(mg.engine, dummy_sess)
+	mg._dice_modal._selected_pool = "atk_dice"
+	mg._start_new_battle()
+	_assert_true(
+		not mg._dice_modal.visible and mg._dice_modal.session.is_empty() and mg._dice_modal._selected_pool == "" and mg._top_crest.visible,
+		"U6b: _start_new_battle resets lingering DiceCombatModal and keeps HUD visible"
+	)
+
+	# Re-enter clean open-ground Firefight state for U2–U11 checks
+	mg.engine.auto_deploy_all()
+	mg.engine.auto_initiative()
+	mg.engine.choose_primary_op(str(mg.engine.state["turn_side"]), "kill")
+	mg.engine.choose_primary_op(str(mg.engine.state["turn_side"]), "key")
+	mg.engine.pass_strategy(str(mg.engine.state["turn_side"]))
+	mg.engine.pass_strategy(str(mg.engine.state["turn_side"]))
+	(mg.engine.state["map"]["terrains"] as Array).clear()
+	for idx_u in range(mg.engine.state["operatives"].size()):
+		var op_u: Dictionary = mg.engine.state["operatives"][idx_u]
+		op_u["pos"] = Vector2(4.0 + 2.0 * float(idx_u % 6), 18.0 if str(op_u["side"]) == "A" else 4.0)
+		op_u["ready"] = true
+		op_u["incapacitated"] = false
+	mg._killzone.sync_visual_positions(true)
+	mg.engine.state["turn_side"] = "A"
+	mg.engine.state["active_op_uid"] = ""
+	mg.engine.undo_stack.clear()
+	mg._in_ai_undo_guard = false
+	mg._pre_ai_undo_stack.clear()
+	mg._refresh_all_ui()
+
+	# U3: Hotbar key uniqueness when operative has >=2 unique actions AND a firefight ploy
+	mg.engine.state["mode"] = "hotseat"
+	mg.engine.state["turn_side"] = "B"
+	mg.engine.state["sides"]["B"]["cp"] = 2
+	mg.engine.state["sides"]["B"]["grenades"] = {"frag": 0, "krak": 0, "smoke": 1, "stun": 1}
+	var caster: Dictionary = _find_by_op_id(mg.engine, "pm_plaguecaster")
+	if caster.is_empty():
+		caster = _side_ops(mg.engine, "B")[0]
+		caster["op_id"] = "pm_plaguecaster"
+		caster["vitality_used_tp"] = false
+	var opp_near: Dictionary = _side_ops(mg.engine, "A")[0]
+	opp_near["pos"] = caster["pos"] + Vector2(0.0, 5.0) # within 6" for stun_targets!
+	mg.engine.activate_operative(str(caster["uid"]), "engage")
+	mg._refresh_all_ui()
+	var seen_hk: Dictionary = {}
+	var hk_collision := false
+	for ch_s in mg._skill_bar_hb.get_children():
+		if ch_s.is_queued_for_deletion():
+			continue
+		if ch_s is KTWidgets.SkillSlot:
+			var sl := ch_s as KTWidgets.SkillSlot
+			if not sl.hotkey_str.is_empty() and sl.hotkey_str != "␣":
+				if seen_hk.has(sl.hotkey_str):
+					hk_collision = true
+				seen_hk[sl.hotkey_str] = sl
+	_assert_true(
+		not hk_collision
+		and mg._active_hotbar_slots.has(KEY_8) and (mg._active_hotbar_slots[KEY_8] as KTWidgets.SkillSlot).hotkey_str == "8"
+		and mg._active_hotbar_slots.has(KEY_9) and (mg._active_hotbar_slots[KEY_9] as KTWidgets.SkillSlot).hotkey_str == "9" and (mg._active_hotbar_slots[KEY_9] as KTWidgets.SkillSlot).icon_id == "unique"
+		and mg._active_hotbar_slots.has(KEY_0) and (mg._active_hotbar_slots[KEY_0] as KTWidgets.SkillSlot).hotkey_str == "0" and (mg._active_hotbar_slots[KEY_0] as KTWidgets.SkillSlot).icon_id == "ploy",
+		"U3: Unique actions bind to 8, 9 (3rd+ unbound) and Firefight Ploy binds to 0 with zero hotkey collisions"
+	)
+	mg.engine.end_operative_activation()
+
+	# U2: Undo disabled in AI turn with prompt, and single Undo after AI turn returns to after Human's last op & before AI's actions
+	mg.engine.state["mode"] = "ai"
+	mg.engine.state["human_side"] = "A"
+	for idx_r2 in range(mg.engine.state["operatives"].size()):
+		var op_r2: Dictionary = mg.engine.state["operatives"][idx_r2]
+		op_r2["pos"] = Vector2(4.0 + 2.0 * float(idx_r2 % 6), 18.0 if str(op_r2["side"]) == "A" else 4.0)
+		op_r2["ready"] = true
+		op_r2["incapacitated"] = false
+	mg._killzone.sync_visual_positions(true)
+	mg.engine.state["turn_side"] = "A"
+	mg.engine.state["active_op_uid"] = ""
+	mg.engine.undo_stack.clear()
+	mg._in_ai_undo_guard = false
+	mg._pre_ai_undo_stack.clear()
+	mg._refresh_all_ui()
+
+	var human_op: Dictionary = _side_ops(mg.engine, "A")[0]
+	var human_uid := str(human_op["uid"])
+	var start_pos := Vector2(6.0, 18.0)
+	var dest_pos := Vector2(6.0, 15.0)
+	human_op["pos"] = start_pos
+	mg.engine.activate_operative(human_uid, "engage")
+	var mv_res: Dictionary = mg.engine.execute_move(human_uid, "reposition", [start_pos, dest_pos])
+	_assert_true(bool(mv_res["ok"]), "U2 setup: Human operative moves to (6.0, 15.0)")
+	mg._end_human_activation() # Ends human activation -> switches to AI turn ("B")
+
+	_assert_true(mg.engine.is_ai_turn() and mg._undo_btn.disabled, "U2a: Undo button is disabled during AI turn")
+	mg._killzone._float_texts_3d.clear()
+	var stack_len_during_ai := mg.engine.undo_stack.size()
+	mg._unhandled_input(_make_key_event(KEY_Z, true)) # Ctrl+Z during AI turn must also be blocked!
+	var blocked_msg_shown := not mg._killzone._float_texts_3d.is_empty() and str(mg._killzone._float_texts_3d[-1]["msg"]) == "敌方回合中无法撤回"
+	_assert_true(mg.engine.is_ai_turn() and mg.engine.undo_stack.size() == stack_len_during_ai and blocked_msg_shown, "U2b: Z / Ctrl+Z during AI turn does not undo and shows '敌方回合中无法撤回'")
+
+	# U8: While any modal overlay is open, _run_ai_step does not advance AI; closing it reschedules _ai_timer
+	mg._ai_timer.stop()
+	mg._card_lightbox.show_team_rulebook("IMP-AOD")
+	mg._run_ai_step()
+	_assert_true(str(mg.engine.state["active_op_uid"]) == "" and mg.engine.is_ai_turn(), "U8a: AI does not advance underneath open CardLightbox")
+	mg._card_lightbox.hide()
+	_assert_true(not mg._ai_timer.is_stopped(), "U8b: Closing overlay reschedules _ai_timer when still AI turn")
+	mg._ai_timer.stop()
+
+	# Let AI complete its entire activation
+	var ai_guard := 0
+	while mg.engine.is_ai_turn() and ai_guard < 16:
+		mg._ai_timer.stop()
+		mg._run_ai_step()
+		if mg._dice_modal.visible:
+			mg._dice_modal.visible = false
+			mg._on_combat_modal_finished(mg._dice_modal.session)
+		ai_guard += 1
+	mg._ai_timer.stop()
+	var ai_ready_after_ai := mg.engine.count_ready_operatives("B")
+	_assert_true(not mg.engine.is_ai_turn() and ai_ready_after_ai < 6, "U2 setup: AI completed its activation and handed turn back to Human")
+
+	# Press Undo ONCE -> must return to Human's moved state (6.0, 15.0) BEFORE AI acted (all 6 AI ops ready again!)
+	mg._on_undo_pressed()
+	mg._ai_timer.stop()
+	var human_after_undo: Dictionary = mg.engine.get_op(human_uid)
+	_assert_true(
+		not mg.engine.is_ai_turn()
+		and str(mg.engine.state["active_op_uid"]) == human_uid
+		and (human_after_undo["pos"] as Vector2).distance_to(dest_pos) < 0.05
+		and mg.engine.count_ready_operatives("B") == 6,
+		"U2c: Single Undo restores state after Human's move and before all AI actions"
+	)
+
+	# U4 & U9: Settings / Help modal blocks hotkeys, Esc closes modal first, then Esc cancels interaction, F resets camera
+	mg._killzone.start_move_mode(human_uid, "dash")
+	mg._open_settings()
+	_assert_true(mg._killzone.interaction_mode == "idle", "U9a: Opening settings clears active board interaction")
+	mg._unhandled_input(_make_key_event(KEY_SPACE))
+	_assert_true(str(mg.engine.state["active_op_uid"]) == human_uid, "U9b: Game hotkeys (Space) are blocked while settings modal is open")
+	mg._unhandled_input(_make_key_event(KEY_ESCAPE))
+	_assert_true(not mg._settings_modal.visible, "U4a: Esc closes open settings modal first")
+
+	mg._killzone.start_move_mode(human_uid, "dash")
+	mg._help_modal.visible = true
+	mg._unhandled_input(_make_key_event(KEY_ESCAPE))
+	_assert_true(not mg._help_modal.visible and mg._killzone.interaction_mode == "move", "U4b: Esc closes help modal with higher priority than cancelling interaction")
+	mg._unhandled_input(_make_key_event(KEY_ESCAPE))
+	_assert_true(mg._killzone.interaction_mode == "idle", "U4c: Esc cancels armed board interaction when no modal is open")
+
+	mg._killzone.orbit_by(45.0)
+	_assert_true(not mg._killzone.is_camera_default_isometric(), "U10a: Orbiting marks camera as non-default")
+	var custom_yaw := mg._killzone.target_yaw_deg
+	mg._on_viewport_resized()
+	_assert_true(is_equal_approx(mg._killzone.target_yaw_deg, custom_yaw), "U10b: Viewport resize preserves custom camera angle without resetting to isometric")
+	mg._unhandled_input(_make_key_event(KEY_F))
+	_assert_true(mg._killzone.is_camera_default_isometric(), "U4d: F key resets camera to default isometric view")
+
+	# U5: Clicking another friendly SquadMedallion while move/shoot is armed preserves selected_uid
+	var ally_op: Dictionary = _side_ops(mg.engine, "A")[1]
+	var ally_uid := str(ally_op["uid"])
+	mg._killzone.start_move_mode(human_uid, "dash")
+	mg._killzone._float_texts_3d.clear()
+	var ally_med: KTWidgets.SquadMedallion = mg._medallions_by_uid[ally_uid]
+	ally_med.clicked_unit.emit()
+	_assert_true(
+		mg._killzone.interaction_mode == "move"
+		and mg._killzone.selected_uid == human_uid
+		and not mg._killzone._float_texts_3d.is_empty(),
+		"U5: Clicking another roster medallion while armed keeps selected_uid on active operative and floats hint"
+	)
+
+	# U7: Stale interaction_mode cleared when active_op_uid ends automatically; _on_board_move_committed guarded
+	mg.engine.end_operative_activation()
+	mg._ai_timer.stop()
+	mg._refresh_all_ui()
+	mg._ai_timer.stop()
+	_assert_true(mg._killzone.interaction_mode == "idle", "U7a: _refresh_all_ui clears lingering move/shoot/fight interaction when activation ends")
+	mg._killzone.interaction_mode = "move"
+	mg._killzone.selected_uid = human_uid
+	var pos_before_stale := human_after_undo["pos"] as Vector2
+	mg._on_board_move_committed([pos_before_stale, pos_before_stale + Vector2(1.0, 0.0)])
+	mg._ai_timer.stop()
+	_assert_true(mg._killzone.interaction_mode == "idle" and (human_after_undo["pos"] as Vector2).is_equal_approx(pos_before_stale), "U7b: _on_board_move_committed rejects stale commit when not in local active turn")
+
+	# U11: Click feedback for (1) clicking another ready op when one is active, (2) invalid shoot/fight target, (3) wrong-side deploy card
+	mg.engine.state["mode"] = "hotseat"
+	mg.engine.state["turn_side"] = "A"
+	mg.engine.state["active_op_uid"] = ""
+	human_op = _side_ops(mg.engine, "A")[0]
+	ally_op = _side_ops(mg.engine, "A")[1]
+	human_uid = str(human_op["uid"])
+	ally_uid = str(ally_op["uid"])
+	human_op["ready"] = true
+	ally_op["ready"] = true
+	mg.engine.activate_operative(human_uid, "engage")
+	mg._refresh_all_ui()
+	mg._killzone._float_texts_3d.clear()
+	mg._on_board_operative_clicked(ally_uid)
+	_assert_true(not mg._killzone._float_texts_3d.is_empty(), "U11a: Clicking another ready operative while one is active spawns floating text feedback")
+
+	var usable_w: Array = mg.engine.get_usable_ranged_weapons(human_op)
+	mg._killzone.start_shoot_mode(human_uid, usable_w[0])
+	var hidden_enemy: Dictionary = _side_ops(mg.engine, "B")[0]
+	mg._killzone.cached_shot_evals[str(hidden_enemy["uid"])] = {"valid": false, "reason": "隐匿且处于掩护中"}
+	mg._killzone._float_texts_3d.clear()
+	var scr_ally := mg._killzone._cam.unproject_position(mg._killzone.inches_to_world(ally_op["pos"], 0.9))
+	mg._killzone._handle_left_click(scr_ally, false)
+	_assert_true(not mg._killzone._float_texts_3d.is_empty(), "U11b: Clicking invalid target in shoot mode spawns floating text feedback")
+
+	mg._killzone.start_fight_mode(human_uid)
+	mg._killzone._float_texts_3d.clear()
+	var scr_far_enemy := mg._killzone._cam.unproject_position(mg._killzone.inches_to_world(hidden_enemy["pos"], 0.9))
+	mg._killzone._handle_left_click(scr_far_enemy, false)
+	_assert_true(not mg._killzone._float_texts_3d.is_empty(), "U11c: Clicking out-of-range/invalid target in fight mode spawns floating text feedback")
+
+	# U11d: Deployment phase clicking undeployed roster card of non-deploying side
+	mg.engine.start_match("hotseat", "A", "sharpshooter", "dueller")
+	mg.engine.auto_setup()
+	mg._medallions_by_uid.clear()
+	mg._refresh_all_ui()
+	var dep_s := mg.engine.deploy_side()
+	var other_s := "B" if dep_s == "A" else "A"
+	var wrong_undep_uid := str(mg.engine.undeployed_ops(other_s)[0]["uid"])
+	mg._killzone._float_texts_3d.clear()
+	(mg._medallions_by_uid[wrong_undep_uid] as KTWidgets.SquadMedallion).clicked_unit.emit()
+	_assert_true(not mg._killzone._float_texts_3d.is_empty(), "U11d: Clicking undeployed roster card of non-deploying side spawns floating text feedback")
+
+	root.remove_child(mg)
+	mg.free()

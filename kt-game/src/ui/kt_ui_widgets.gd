@@ -7,6 +7,7 @@ extends RefCounted
 
 
 static func attach_button_juice(btn: Button, hover_scale: float = 1.05, sfx_click: String = "ui_click") -> void:
+	btn.focus_mode = Control.FOCUS_NONE
 	btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	btn.resized.connect(func():
 		btn.pivot_offset = btn.size * 0.5
@@ -287,6 +288,7 @@ class SkillSlot extends Control:
 		accent_col = p_col
 		disabled = p_disabled
 		active_armed = p_armed
+		focus_mode = Control.FOCUS_NONE
 		custom_minimum_size = Vector2(74, 82)
 		mouse_default_cursor_shape = Control.CURSOR_ARROW if disabled else Control.CURSOR_POINTING_HAND
 		queue_redraw()
@@ -403,6 +405,7 @@ class WeaponCard extends PanelContainer:
 		weapon = w
 		is_sel = p_sel
 		accent = p_accent
+		focus_mode = Control.FOCUS_NONE
 		mouse_filter = Control.MOUSE_FILTER_STOP
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 		custom_minimum_size = Vector2(200, 0)
@@ -489,6 +492,7 @@ class StratagemCard extends Control:
 		_deal_delay = 0.045 * float(p_deal_index)
 		var is_imp: bool = p_col.is_equal_approx(KTTheme.COL_IMPERIAL)
 		_crest_tex = KTData.load_tex("res://assets/ui/team_mark_imp_aod.png" if is_imp else "res://assets/ui/team_mark_chaos_pm.png")
+		focus_mode = Control.FOCUS_NONE
 		custom_minimum_size = Vector2(176, 150)
 		mouse_default_cursor_shape = Control.CURSOR_ARROW if disabled else Control.CURSOR_POINTING_HAND
 		tooltip_text = p_title + "\n" + p_desc
@@ -509,6 +513,8 @@ class StratagemCard extends Control:
 			if not disabled:
 				KTSfx.play("order_servo", -4.0, 0.05)
 				played.emit()
+			else:
+				KTSfx.play("ui_hover", -14.0, 0.2)
 
 	func _process(delta: float) -> void:
 		var dirty := false
@@ -622,6 +628,7 @@ class GraphicDie extends Control:
 		rerolled = p_rerolled
 		selected = p_selected
 		interactive = p_interactive and not p_rerolled
+		focus_mode = Control.FOCUS_NONE
 		custom_minimum_size = Vector2(70, 78)
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND if interactive else Control.CURSOR_ARROW
 		if roll_delay >= 0.0:
@@ -765,6 +772,7 @@ class SquadMedallion extends Control:
 		is_selected = selected_flag
 		_tex = standee_tex
 		_order_tex = ord_tex
+		focus_mode = Control.FOCUS_NONE
 		custom_minimum_size = Vector2(186, 46)
 		mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 

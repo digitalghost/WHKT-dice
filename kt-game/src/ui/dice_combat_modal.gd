@@ -346,6 +346,44 @@ func snap_entrance_for_capture() -> void:
 	_layout_cmd_panel_for_mode(true)
 
 
+func reset_for_new_match() -> void:
+	visible = false
+	if _ai_timer != null:
+		_ai_timer.stop()
+	if _entrance_tween != null and _entrance_tween.is_valid():
+		_entrance_tween.kill()
+		_entrance_tween = null
+	session = {}
+	_init_result = {}
+	_modal_mode = "shooting"
+	_selected_pool = ""
+	_selected_die_idx = -1
+	_impact_played_for_session = false
+	_animate_next_roll = false
+	_last_vs_key = ""
+	_att_hp_bar = null
+	_def_hp_bar = null
+	_att_hp_lbl = null
+	_def_hp_lbl = null
+	_ui_sparks.clear()
+	_ui_rings.clear()
+	if _fx_overlay != null:
+		_fx_overlay.queue_redraw()
+	if _top_vs_hb != null:
+		for c in _top_vs_hb.get_children():
+			c.queue_free()
+	if _mini_dice_hb != null:
+		for c in _mini_dice_hb.get_children():
+			c.queue_free()
+	if _action_bar != null:
+		for c in _action_bar.get_children():
+			c.queue_free()
+	if _timeline_vb != null:
+		_reset_rule_timeline()
+	if _killzone != null and _killzone.get_dice_3d() != null:
+		_killzone.get_dice_3d().place_tray_idle(true)
+
+
 # ==============================================================================
 # PUBLIC ENTRYPOINTS: INITIATIVE / SHOOTING / MELEE
 # ==============================================================================
@@ -771,6 +809,7 @@ func _build_initiative_ui() -> void:
 				_add_init_card_button("🎴 +%d" % c, t, c, 1)
 				_add_init_card_button("🎴 -%d" % c, t, c, -1)
 		var btn_pass := Button.new()
+		btn_pass.focus_mode = Control.FOCUS_NONE
 		btn_pass.text = "⏭ 让过 [Space]"
 		btn_pass.custom_minimum_size = Vector2(150, 38)
 		KTTheme.apply_accent_button(btn_pass, KTTheme.COL_GOLD_BRIGHT, 0.36)
@@ -786,6 +825,7 @@ func _build_initiative_ui() -> void:
 	_ticker_lbl.text = "🎲 帝国蓝骰 [%s] vs 纳垢绿骰 [%s]  ➔  【%s】夺得先攻权并补充命令点 CP！\n%s" % [sa, sb, win_name, hands]
 
 	var btn_go := Button.new()
+	btn_go.focus_mode = Control.FOCUS_NONE
 	btn_go.text = "✓ 确认桌面结果 · 进入战略阶段 [Space]"
 	btn_go.custom_minimum_size = Vector2(320, 38)
 	KTTheme.apply_accent_button(btn_go, KTTheme.COL_GOLD_BRIGHT, 0.36)
@@ -799,6 +839,7 @@ func _build_initiative_ui() -> void:
 
 func _add_init_card_button(text: String, side_id: String, card: int, sign_i: int) -> void:
 	var b := Button.new()
+	b.focus_mode = Control.FOCUS_NONE
 	b.text = text
 	b.custom_minimum_size = Vector2(104, 38)
 	KTTheme.apply_accent_button(b, KTTheme.COL_IMPERIAL if side_id == "A" else KTTheme.COL_NURGLE, 0.32)
@@ -832,6 +873,7 @@ func _on_ai_initiative_step() -> void:
 	var t: String = str(engine.state["init"]["turn"])
 	if not _is_side_ai(t):
 		return
+	var saved_undo: Array[String] = engine.undo_stack.duplicate()
 	var dec: Dictionary = KTAI.decide_initiative_card(engine, t)
 	var rerolled := false
 	if str(dec["action"]) == "card":
@@ -839,6 +881,7 @@ func _on_ai_initiative_step() -> void:
 		rerolled = bool(res.get("reroll", false))
 	else:
 		engine.init_pass(t)
+	engine.undo_stack = saved_undo
 	_after_init_step(rerolled)
 
 
@@ -970,6 +1013,7 @@ func _build_vs_wing(op: Dictionary, sub_txt: String, is_left: bool) -> Dictionar
 func _add_mini_die_chip(pool_key: String, idx: int, val: int, kind: String, rerolled: bool, interactive: bool) -> void:
 	var sel: bool = (_selected_pool == pool_key and _selected_die_idx == idx)
 	var b := Button.new()
+	b.focus_mode = Control.FOCUS_NONE
 	var sym := "★" if kind == "crit" else ("●" if kind == "norm" else "✕")
 	b.text = "%s%d%s" % [sym, val, "↻" if rerolled else ""]
 	b.custom_minimum_size = Vector2(40, 26)
@@ -1008,6 +1052,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		var bal_avail: bool = bool(w_rules.get("balanced", false)) and not bool(session.get("balanced_used", false))
 		if bal_avail:
 			var b_bal := Button.new()
+			b_bal.focus_mode = Control.FOCUS_NONE
 			b_bal.text = "🎯 平衡免费重掷"
 			b_bal.disabled = _selected_die_idx < 0
 			KTTheme.apply_accent_button(b_bal, KTTheme.COL_EMERALD)
@@ -1028,6 +1073,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		var ammo_avail: bool = bool(session.get("ammo_reroll", false)) and not bool(session.get("ammo_reroll_used", false))
 		if ammo_avail:
 			var b_ammo := Button.new()
+			b_ammo.focus_mode = Control.FOCUS_NONE
 			b_ammo.text = "📦 弹药储备重掷"
 			b_ammo.disabled = _selected_die_idx < 0
 			KTTheme.apply_accent_button(b_ammo, KTTheme.COL_EMERALD)
@@ -1047,6 +1093,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 
 		var att_cp := int(engine.state["sides"][att["side"]]["cp"])
 		var b_cp := Button.new()
+		b_cp.focus_mode = Control.FOCUS_NONE
 		b_cp.text = "⚡ 指挥重掷 (1CP·剩%d)" % att_cp
 		b_cp.disabled = _selected_die_idx < 0 or att_cp < 1
 		KTTheme.apply_accent_button(b_cp, KTTheme.COL_BRASS)
@@ -1065,6 +1112,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		_action_bar.add_child(b_cp)
 
 		var btn_lock := Button.new()
+		btn_lock.focus_mode = Control.FOCUS_NONE
 		btn_lock.text = "锁定命中 · 投防御骰 ➔"
 		KTTheme.apply_accent_button(btn_lock, KTTheme.COL_IMPERIAL, 0.34)
 		KTWidgets.attach_button_juice(btn_lock)
@@ -1084,6 +1132,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		_action_bar.add_child(btn_lock)
 
 		var btn_fast := Button.new()
+		btn_fast.focus_mode = Control.FOCUS_NONE
 		btn_fast.text = "⚡ 一键开火结算"
 		KTTheme.apply_accent_button(btn_fast, KTTheme.COL_GOLD_BRIGHT, 0.34)
 		KTWidgets.attach_button_juice(btn_fast)
@@ -1108,6 +1157,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 			_add_mini_die_chip("def_dice", j, vd, kd, bool(dd["rerolled"]), true)
 
 		var b_def_cp := Button.new()
+		b_def_cp.focus_mode = Control.FOCUS_NONE
 		b_def_cp.text = "⚡ 防御重掷 (1CP)"
 		b_def_cp.disabled = _selected_die_idx < 0 or int(engine.state["sides"][def["side"]]["cp"]) < 1
 		KTTheme.apply_accent_button(b_def_cp, KTTheme.COL_BRASS)
@@ -1128,6 +1178,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		var def_side_st: Dictionary = engine.state["sides"][def["side"]]
 		if str(def_side_st["team_id"]) == "IMP-AOD" and not bool(session["transhuman_used"]) and int(def_side_st["cp"]) >= 1:
 			var b_th := Button.new()
+			b_th.focus_mode = Control.FOCUS_NONE
 			b_th.text = "🧬 超人体格 (1CP)"
 			KTTheme.apply_accent_button(b_th, KTTheme.COL_IMPERIAL)
 			KTWidgets.attach_button_juice(b_th)
@@ -1140,6 +1191,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 			_action_bar.add_child(b_th)
 
 		var btn_res := Button.new()
+		btn_res.focus_mode = Control.FOCUS_NONE
 		btn_res.text = "💥 引爆破甲结算! [Space]"
 		KTTheme.apply_accent_button(btn_res, KTTheme.COL_CRIMSON, 0.36)
 		KTWidgets.attach_button_juice(btn_res)
@@ -1165,6 +1217,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		_action_bar.add_child(sum_lbl)
 
 		var btn_done := Button.new()
+		btn_done.focus_mode = Control.FOCUS_NONE
 		btn_done.text = "✓ 收起骰盘 · 继续战斗 [Space]"
 		KTTheme.apply_accent_button(btn_done, KTTheme.COL_EMERALD, 0.36)
 		KTWidgets.attach_button_juice(btn_done)
@@ -1210,6 +1263,7 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 			var bonus_1st: int = 1 if (is_att and bool(my_p["shock_assault"]) and not bool(session["att_first_strike_done"])) else 0
 
 			var b_sc := Button.new()
+			b_sc.focus_mode = Control.FOCUS_NONE
 			b_sc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_sc.text = "🗡️ 暴击斩击 (-%dW%s)" % [int(my_p["crit_dmg"]) + bonus_1st, "·震荡" if bool(my_p["rules"].get("shock", false)) else ""]
 			b_sc.disabled = int(my_p["crits"]) <= 0
@@ -1219,6 +1273,7 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 			_action_bar.add_child(b_sc)
 
 			var b_sn := Button.new()
+			b_sn.focus_mode = Control.FOCUS_NONE
 			b_sn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_sn.text = "⚔️ 普通出击 (-%dW)" % (int(my_p["normal_dmg"]) + bonus_1st)
 			b_sn.disabled = int(my_p["normals"]) <= 0
@@ -1228,6 +1283,7 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 			_action_bar.add_child(b_sn)
 
 			var b_pc := Button.new()
+			b_pc.focus_mode = Control.FOCUS_NONE
 			b_pc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_pc.text = "🛡️ 暴击弹反 (碎敌1骰)"
 			b_pc.disabled = int(my_p["crits"]) <= 0 or opp_total <= 0
@@ -1238,6 +1294,7 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 
 			var can_pn := int(my_p["normals"]) > 0 and not opp_brutal and (int(opp_p["normals"]) > 0 or (bool(my_p["dueller"]) and int(opp_p["crits"]) > 0))
 			var b_pn := Button.new()
+			b_pn.focus_mode = Control.FOCUS_NONE
 			b_pn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			b_pn.text = "🤺 普通招架%s" % ("(残暴禁)" if opp_brutal else ("(可挡暴)" if bool(my_p["dueller"]) else ""))
 			b_pn.disabled = not can_pn
@@ -1254,6 +1311,7 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 		_action_bar.add_child(end_lbl)
 
 		var btn_done := Button.new()
+		btn_done.focus_mode = Control.FOCUS_NONE
 		btn_done.text = "✓ 收起骰盘 · 结束对决 [Space]"
 		KTTheme.apply_accent_button(btn_done, KTTheme.COL_EMERALD, 0.36)
 		KTWidgets.attach_button_juice(btn_done)

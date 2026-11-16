@@ -80,6 +80,8 @@ var _help_modal: Control
 var _title_overlay: Control
 
 var _ai_timer: Timer
+var _pre_ai_undo_stack: Array[String] = []
+var _in_ai_undo_guard: bool = false
 
 # Title screen selections
 var _sel_mode: String = "ai"
@@ -234,6 +236,18 @@ func _ready() -> void:
 	_ai_timer.timeout.connect(_run_ai_step)
 	add_child(_ai_timer)
 
+	_card_lightbox.visibility_changed.connect(func():
+		if _card_lightbox.visible:
+			if _ai_timer != null:
+				_ai_timer.stop()
+		else:
+			_refresh_all_ui()
+	)
+
+	_strip_button_focus_recursive(self)
+	if get_tree() != null and not get_tree().node_added.is_connected(_on_tree_node_added):
+		get_tree().node_added.connect(_on_tree_node_added)
+
 	resized.connect(_on_viewport_resized)
 
 	# Initialize background demo match so 3D diorama is alive on the open right half of the Main Menu!
@@ -243,6 +257,37 @@ func _ready() -> void:
 	var args := OS.get_cmdline_user_args()
 	if args.has("--autotest-screenshots"):
 		call_deferred("_run_autotest_screenshot_tour")
+
+
+func _exit_tree() -> void:
+	if get_tree() != null and get_tree().node_added.is_connected(_on_tree_node_added):
+		get_tree().node_added.disconnect(_on_tree_node_added)
+
+
+func _on_tree_node_added(n: Node) -> void:
+	if n is BaseButton:
+		(n as Control).focus_mode = Control.FOCUS_NONE
+
+
+func _strip_button_focus_recursive(root_node: Node) -> void:
+	if root_node is BaseButton:
+		(root_node as Control).focus_mode = Control.FOCUS_NONE
+	for ch in root_node.get_children():
+		_strip_button_focus_recursive(ch)
+
+
+func _is_any_modal_overlay_open() -> bool:
+	if _title_overlay != null and _title_overlay.visible:
+		return true
+	if _dice_modal != null and _dice_modal.visible:
+		return true
+	if _card_lightbox != null and _card_lightbox.visible:
+		return true
+	if _help_modal != null and _help_modal.visible:
+		return true
+	if _settings_modal != null and _settings_modal.visible:
+		return true
+	return false
 
 
 func _process(delta: float) -> void:
@@ -283,8 +328,15 @@ func _on_viewport_resized() -> void:
 		_killzone.target_pitch_deg = 31.0
 		_killzone.cam_pitch_deg = 31.0
 	else:
-		var avail := Rect2(198.0, 56.0, maxf(640.0, vp.x - 396.0), maxf(420.0, vp.y - 216.0))
-		_killzone.fit_board_to_rect(avail, true)
+		if _killzone.is_camera_default_isometric():
+			var avail := Rect2(198.0, 56.0, maxf(640.0, vp.x - 396.0), maxf(420.0, vp.y - 216.0))
+			_killzone.fit_board_to_rect(avail, true)
+		else:
+			_killzone.refresh_projection_only()
+		if _dice_modal != null and _dice_modal.visible:
+			_dice_modal.snap_entrance_for_capture()
+		if _skill_tooltip != null and _skill_tooltip.visible:
+			_hide_skill_tooltip()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -292,26 +344,56 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if _dice_modal != null and _dice_modal.visible:
 		return
-	if _card_lightbox != null and _card_lightbox.visible:
+	if _settings_modal != null and _settings_modal.visible:
+		if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+			_settings_modal.visible = false
+			accept_event()
+			_refresh_all_ui()
 		return
 	if _help_modal != null and _help_modal.visible:
-		if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
 			_help_modal.visible = false
+			accept_event()
+			_refresh_all_ui()
+		return
+	if _card_lightbox != null and _card_lightbox.visible:
+		if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+			_card_lightbox.hide()
 			accept_event()
 		return
 
 	if event is InputEventKey and event.pressed and not event.echo:
 		var kc: int = event.keycode
-		if kc == KEY_F1:
+		if kc == KEY_ESCAPE:
+			if _killzone != null and _killzone.interaction_mode != "idle":
+				accept_event()
+				_killzone.clear_interaction()
+				_hide_skill_tooltip()
+				_refresh_all_ui()
+				return
+		elif kc == KEY_F:
+			if _killzone != null and not engine.state.is_empty():
+				accept_event()
+				_killzone.reset_isometric_view(false)
+				return
+		elif kc == KEY_F1:
 			accept_event()
+			if _ai_timer != null:
+				_ai_timer.stop()
 			_card_lightbox.show_team_rulebook("IMP-AOD")
 			return
 		elif kc == KEY_F2:
 			accept_event()
+			if _ai_timer != null:
+				_ai_timer.stop()
 			_card_lightbox.show_team_rulebook("CHAOS-PM")
 			return
-		elif kc == KEY_Z and (event.ctrl_pressed or event.meta_pressed or not engine.is_ai_turn()):
-			if engine.can_undo():
+		elif kc == KEY_Z:
+			if engine.is_ai_turn():
+				accept_event()
+				_notify_illegal_click("敌方回合中无法撤回")
+				return
+			if _can_human_undo():
 				accept_event()
 				_on_undo_pressed()
 				return
@@ -367,11 +449,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				return
 			elif phase == "FIREFIGHT" and not str(engine.state["active_op_uid"]).is_empty():
 				accept_event()
-				KTSfx.play("move_confirm", -5.0, 0.04)
-				_killzone.clear_interaction()
-				_hide_skill_tooltip()
-				engine.end_operative_activation()
-				_refresh_all_ui()
+				_end_human_activation()
 				return
 
 		if phase == "FIREFIGHT" and not str(engine.state["active_op_uid"]).is_empty():
@@ -488,6 +566,7 @@ func _build_top_broadcast_crest() -> void:
 
 func _make_crest_button(tex_path: String, tip: String, accent: Color, on_press: Callable) -> Button:
 	var b := Button.new()
+	b.focus_mode = Control.FOCUS_NONE
 	b.custom_minimum_size = Vector2(34, 30)
 	b.tooltip_text = tip
 	b.icon = KTData.load_tex(tex_path)
@@ -529,15 +608,17 @@ func _build_sys_micro_toolbar() -> void:
 		{"t": "⟳", "ico": "sys_orbit_right", "tip": "右旋视角 [E]", "cb": func(): _killzone.orbit_by(35.0)},
 		{"t": "↶", "ico": "sys_undo", "tip": "撤回上一步 [Z]", "cb": _on_undo_pressed, "undo": true},
 		{"t": "≣", "ico": "sys_log", "tip": "战报", "cb": func(): _log_drawer.visible = not _log_drawer.visible},
-		{"t": "?", "ico": "sys_help", "tip": "热键与规则指南", "cb": func(): _help_modal.visible = true},
+		{"t": "?", "ico": "sys_help", "tip": "热键与规则指南", "cb": func():
+			if _ai_timer != null:
+				_ai_timer.stop()
+			_help_modal.visible = true
+			move_child(_help_modal, get_child_count() - 1)},
 		{"t": "⚙", "ico": "sys_settings", "tip": "设置", "cb": func(): _open_settings()},
-		{"t": "☰", "ico": "sys_menu", "tip": "返回主菜单", "cb": func():
-			_title_overlay.visible = true
-			_on_viewport_resized()
-			_refresh_all_ui()},
+		{"t": "☰", "ico": "sys_menu", "tip": "返回主菜单", "cb": _return_to_main_menu},
 	]
 	for sp in specs:
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		var ico_tex := KTTheme.kit_tex_scaled(str(sp["ico"]), 20)
 		if ico_tex != null:
 			b.icon = ico_tex
@@ -558,6 +639,10 @@ func _build_sys_micro_toolbar() -> void:
 		hb.add_child(b)
 		if bool(sp.get("undo", false)):
 			_undo_btn = b
+			_undo_btn.gui_input.connect(func(ev: InputEvent):
+				if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT and engine.is_ai_turn():
+					_notify_illegal_click("敌方回合中无法撤回")
+			)
 
 
 ## Guidance line: sits just under the top strip, no border, fades in only when the text changes
@@ -727,6 +812,7 @@ func _build_hero_unit_console() -> void:
 	vb.add_child(bot_r)
 
 	_hero_order_btn = Button.new()
+	_hero_order_btn.focus_mode = Control.FOCUS_NONE
 	_hero_order_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_hero_order_btn.expand_icon = true
 	_hero_order_btn.add_theme_constant_override("icon_max_width", 20)
@@ -743,6 +829,7 @@ func _build_hero_unit_console() -> void:
 	bot_r.add_child(_hero_order_btn)
 
 	_hero_card_btn = Button.new()
+	_hero_card_btn.focus_mode = Control.FOCUS_NONE
 	var card_ico := KTTheme.kit_tex_scaled("icon_card", 16)
 	if card_ico != null:
 		_hero_card_btn.icon = card_ico
@@ -986,6 +1073,7 @@ func _build_log_drawer() -> void:
 	lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
 	hdr.add_child(lbl)
 	var close_b := Button.new()
+	close_b.focus_mode = Control.FOCUS_NONE
 	close_b.text = "✕"
 	KTWidgets.attach_button_juice(close_b, 1.08)
 	close_b.pressed.connect(func(): _log_drawer.visible = false)
@@ -1113,9 +1201,13 @@ func _build_title_overlay() -> void:
 	vb.add_child(cfg_hb)
 
 	var btn_ai := Button.new()
+	btn_ai.focus_mode = Control.FOCUS_NONE
 	var btn_hot := Button.new()
+	btn_hot.focus_mode = Control.FOCUS_NONE
 	var btn_side_a := Button.new()
+	btn_side_a.focus_mode = Control.FOCUS_NONE
 	var btn_side_b := Button.new()
+	btn_side_b.focus_mode = Control.FOCUS_NONE
 	for mb in [btn_ai, btn_hot, btn_side_a, btn_side_b]:
 		mb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		mb.custom_minimum_size = Vector2(0, 36)
@@ -1195,6 +1287,7 @@ func _build_title_overlay() -> void:
 	for mid in KTData.MAP_IDS:
 		var mid_str: String = str(mid)
 		var mbtn := Button.new()
+		mbtn.focus_mode = Control.FOCUS_NONE
 		mbtn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		mbtn.custom_minimum_size = Vector2(0, 34)
 		mbtn.add_theme_font_size_override("font_size", 12)
@@ -1215,6 +1308,7 @@ func _build_title_overlay() -> void:
 	vb.add_child(launch_row)
 
 	var btn_start := Button.new()
+	btn_start.focus_mode = Control.FOCUS_NONE
 	btn_start.text = "⚔️  开始空投部署 · 进入杀戮战区"
 	btn_start.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	btn_start.custom_minimum_size = Vector2(0, 52)
@@ -1227,6 +1321,7 @@ func _build_title_overlay() -> void:
 	launch_row.add_child(btn_start)
 
 	var btn_resume := Button.new()
+	btn_resume.focus_mode = Control.FOCUS_NONE
 	btn_resume.text = "▶ 继续战局"
 	btn_resume.custom_minimum_size = Vector2(132, 52)
 	KTWidgets.attach_button_juice(btn_resume, 1.05)
@@ -1299,6 +1394,7 @@ func _build_title_team_card(team_id: String, is_aod: bool) -> PanelContainer:
 	title_v.add_child(sb_l)
 
 	var btn_cards := Button.new()
+	btn_cards.focus_mode = Control.FOCUS_NONE
 	btn_cards.text = "📖 原卡库"
 	btn_cards.add_theme_font_size_override("font_size", 11)
 	KTWidgets.attach_button_juice(btn_cards, 1.06, "card_lift")
@@ -1320,6 +1416,7 @@ func _build_title_team_card(team_id: String, is_aod: bool) -> PanelContainer:
 			continue
 		var op_d: Dictionary = ops_map[rid_s]
 		var op_btn := Button.new()
+		op_btn.focus_mode = Control.FOCUS_NONE
 		op_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		op_btn.custom_minimum_size = Vector2(0, 74)
 		op_btn.tooltip_text = "点击查看【%s】高清中文数据卡" % str(op_d["name"])
@@ -1368,6 +1465,7 @@ func _build_title_team_card(team_id: String, is_aod: bool) -> PanelContainer:
 			var ctd: Dictionary = ct
 			var tid: String = str(ctd["id"])
 			var tb := Button.new()
+			tb.focus_mode = Control.FOCUS_NONE
 			tb.text = str(ctd["short"])
 			tb.add_theme_font_size_override("font_size", 11)
 			tb.tooltip_text = str(ctd["name"]) + "：" + str(ctd["desc"])
@@ -1396,6 +1494,11 @@ func _build_title_team_card(team_id: String, is_aod: bool) -> PanelContainer:
 var _settings_modal: Control = null
 
 func _open_settings() -> void:
+	if _ai_timer != null:
+		_ai_timer.stop()
+	if _killzone != null:
+		_killzone.clear_interaction()
+	_hide_skill_tooltip()
 	if _settings_modal == null:
 		_settings_modal = Control.new()
 		_settings_modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -1408,6 +1511,7 @@ func _open_settings() -> void:
 		bg.gui_input.connect(func(ev: InputEvent):
 			if ev is InputEventMouseButton and ev.pressed:
 				_settings_modal.visible = false
+				_refresh_all_ui()
 		)
 		_settings_modal.add_child(bg)
 
@@ -1435,6 +1539,7 @@ func _open_settings() -> void:
 		# Rule step pause
 		var row1 := _settings_row(vb, "结算时每条规则停留", "骰子落定后，每条触发的规则依次显示并高亮对应骰子。0 为全部一次显示。")
 		var pause_opt := OptionButton.new()
+		pause_opt.focus_mode = Control.FOCUS_NONE
 		for v in [0.0, 0.15, 0.3, 0.5, 0.8]:
 			pause_opt.add_item(("关闭" if v == 0.0 else "%.2f 秒" % v).replace(".00", "").replace("0 秒", " 秒"), int(v * 100))
 		var cur_p := int(round(KTSettings.rule_step_pause() * 100.0))
@@ -1447,6 +1552,7 @@ func _open_settings() -> void:
 		# Kill cam
 		var row2 := _settings_row(vb, "击杀慢放镜头", "特工阵亡时短暂慢放并推近。")
 		var kc := CheckButton.new()
+		kc.focus_mode = Control.FOCUS_NONE
 		kc.button_pressed = bool(KTSettings.get_value("combat/kill_cam"))
 		kc.toggled.connect(func(on: bool): KTSettings.set_value("combat/kill_cam", on))
 		row2.add_child(kc)
@@ -1454,6 +1560,7 @@ func _open_settings() -> void:
 		# Miniature style
 		var row_m := _settings_row(vb, "棋子表现", "3D 涂装模型（官方造型）或亚克力立牌（卡图胸像）。切换后重开一局生效。")
 		var mini_opt := OptionButton.new()
+		mini_opt.focus_mode = Control.FOCUS_NONE
 		mini_opt.add_item("3D 涂装模型", 0)
 		mini_opt.add_item("亚克力立牌", 1)
 		mini_opt.select(0 if str(KTSettings.get_value("board/mini_style")) == "model" else 1)
@@ -1466,6 +1573,7 @@ func _open_settings() -> void:
 		# Inch grid
 		var row3 := _settings_row(vb, "显示英寸格线", "桌面上的 1\" 战术格与 6\" 铜线。")
 		var grid := CheckButton.new()
+		grid.focus_mode = Control.FOCUS_NONE
 		grid.button_pressed = bool(KTSettings.get_value("hud/show_inch_grid"))
 		grid.toggled.connect(func(on: bool):
 			KTSettings.set_value("hud/show_inch_grid", on)
@@ -1474,13 +1582,18 @@ func _open_settings() -> void:
 		row3.add_child(grid)
 
 		var ok := Button.new()
+		ok.focus_mode = Control.FOCUS_NONE
 		ok.text = "完成"
 		KTTheme.apply_accent_button(ok, KTTheme.COL_GOLD_BRIGHT, 0.30)
 		KTWidgets.attach_button_juice(ok, 1.04)
-		ok.pressed.connect(func(): _settings_modal.visible = false)
+		ok.pressed.connect(func():
+			_settings_modal.visible = false
+			_refresh_all_ui()
+		)
 		vb.add_child(ok)
 	_settings_modal.visible = true
 	move_child(_settings_modal, get_child_count() - 1)
+	_refresh_all_ui()
 
 
 func _settings_row(parent: Control, title: String, hint: String) -> HBoxContainer:
@@ -1517,6 +1630,7 @@ func _build_help_modal() -> void:
 	bg.gui_input.connect(func(ev: InputEvent):
 		if ev is InputEventMouseButton and ev.pressed:
 			_help_modal.visible = false
+			_refresh_all_ui()
 	)
 	_help_modal.add_child(bg)
 
@@ -1558,10 +1672,14 @@ func _build_help_modal() -> void:
 	vb.add_child(rtl)
 
 	var ok_b := Button.new()
+	ok_b.focus_mode = Control.FOCUS_NONE
 	ok_b.text = "明白 · 返回杀戮区"
 	KTTheme.apply_accent_button(ok_b, KTTheme.COL_GOLD_BRIGHT, 0.30)
 	KTWidgets.attach_button_juice(ok_b, 1.04)
-	ok_b.pressed.connect(func(): _help_modal.visible = false)
+	ok_b.pressed.connect(func():
+		_help_modal.visible = false
+		_refresh_all_ui()
+	)
 	vb.add_child(ok_b)
 
 
@@ -1600,14 +1718,63 @@ func _play_deploy_transition() -> void:
 ## Menu backdrop only: a throw-away match on the selected map so the 3D diorama behind the title
 ## screen is alive. Skips the interactive pre-battle steps.
 func _restart_menu_backdrop() -> void:
+	_pre_ai_undo_stack.clear()
+	_in_ai_undo_guard = false
+	if _dice_modal != null:
+		_dice_modal.visible = false
+		_dice_modal.reset_for_new_match()
+	if _killzone != null:
+		_killzone.clear_transient_combat_fx()
+		_killzone.clear_interaction()
 	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic, _sel_map_id)
 	engine.auto_deploy_all()
 	_killzone.bind_engine(engine)
 	_refresh_all_ui()
 
 
+func _return_to_main_menu() -> void:
+	if _ai_timer != null:
+		_ai_timer.stop()
+	if _dice_modal != null:
+		var was_combat: bool = _dice_modal.visible and _dice_modal._modal_mode in ["shooting", "melee"]
+		_dice_modal.visible = false
+		_dice_modal.reset_for_new_match()
+		if was_combat and not engine.state.is_empty():
+			var act_uid: String = str(engine.state.get("active_op_uid", ""))
+			if not act_uid.is_empty():
+				var active_op: Dictionary = engine.get_op(act_uid)
+				if active_op.is_empty() or bool(active_op["incapacitated"]) or (bool(engine.state["active_is_counteract"]) and int(active_op["ap_left"]) <= 0):
+					engine.end_operative_activation()
+	if _killzone != null:
+		_killzone.clear_transient_combat_fx()
+		_killzone.clear_interaction()
+	if _card_lightbox != null:
+		_card_lightbox.hide()
+	if _help_modal != null:
+		_help_modal.visible = false
+	if _settings_modal != null:
+		_settings_modal.visible = false
+	_title_overlay.visible = true
+	_on_viewport_resized()
+	_refresh_all_ui()
+
+
 func _start_new_battle() -> void:
 	_ai_timer.stop()
+	_pre_ai_undo_stack.clear()
+	_in_ai_undo_guard = false
+	if _dice_modal != null:
+		_dice_modal.visible = false
+		_dice_modal.reset_for_new_match()
+	if _killzone != null:
+		_killzone.clear_transient_combat_fx()
+		_killzone.clear_interaction()
+	if _card_lightbox != null:
+		_card_lightbox.hide()
+	if _help_modal != null:
+		_help_modal.visible = false
+	if _settings_modal != null:
+		_settings_modal.visible = false
 	_hide_skill_tooltip()
 	_hero_uid = ""
 	for m in _medallions_by_uid.values():
@@ -1624,13 +1791,84 @@ func _start_new_battle() -> void:
 	_refresh_all_ui()
 
 
+func _sync_ai_undo_guard() -> void:
+	if engine.state.is_empty() or str(engine.state.get("mode", "")) != "ai":
+		_in_ai_undo_guard = false
+		_pre_ai_undo_stack.clear()
+		return
+	if engine.is_ai_turn():
+		if not _in_ai_undo_guard:
+			_pre_ai_undo_stack = engine.undo_stack.duplicate()
+			_in_ai_undo_guard = true
+		else:
+			engine.undo_stack = _pre_ai_undo_stack.duplicate()
+	elif _in_ai_undo_guard:
+		engine.undo_stack = _pre_ai_undo_stack.duplicate()
+		_in_ai_undo_guard = false
+
+
+func _can_human_undo() -> bool:
+	if engine.state.is_empty() or engine.is_ai_turn():
+		return false
+	return engine.can_undo()
+
+
+func _end_human_activation() -> void:
+	if engine.state.is_empty() or engine.is_ai_turn():
+		return
+	if str(engine.state.get("active_op_uid", "")).is_empty():
+		return
+	KTSfx.play("move_confirm", -5.0, 0.04)
+	_killzone.clear_interaction()
+	_hide_skill_tooltip()
+	engine.push_undo()
+	engine.end_operative_activation()
+	_refresh_all_ui()
+
+
+func _safe_board_pos(pos_in: Vector2) -> Vector2:
+	if pos_in.x < 0.0 or pos_in.y < 0.0 or pos_in.x > KTData.BOARD_WIDTH_INCHES or pos_in.y > KTData.BOARD_HEIGHT_INCHES:
+		var act_uid: String = str(engine.state.get("active_op_uid", "")) if not engine.state.is_empty() else ""
+		if not act_uid.is_empty():
+			var aop: Dictionary = engine.get_op(act_uid)
+			if not aop.is_empty():
+				var ap: Vector2 = aop.get("pos", Vector2(-99.0, -99.0))
+				if ap.x >= 0.0 and ap.y >= 0.0 and ap.x <= KTData.BOARD_WIDTH_INCHES and ap.y <= KTData.BOARD_HEIGHT_INCHES:
+					return ap
+		return Vector2(15.0, 11.0)
+	return pos_in
+
+
+func _notify_illegal_click(msg: String, pos_in: Vector2 = Vector2(-99.0, -99.0), col: Color = KTTheme.COL_CRIMSON) -> void:
+	KTSfx.play("ui_hover", -14.0, 0.2)
+	if _killzone != null and not msg.strip_edges().is_empty():
+		_killzone.spawn_floating_text(_safe_board_pos(pos_in), msg, col)
+
+
 func _on_undo_pressed() -> void:
+	if engine.is_ai_turn():
+		_notify_illegal_click("敌方回合中无法撤回")
+		return
 	_ai_timer.stop()
 	if _dice_modal.visible:
 		_dice_modal.visible = false
+		_dice_modal.reset_for_new_match()
 		_killzone.restore_post_combat_camera()
 	_hide_skill_tooltip()
+	var prev_state_snap: String = var_to_str(engine.state)
+	var prev_stack: Array[String] = engine.undo_stack.duplicate()
 	if engine.pop_undo():
+		if str(engine.state.get("mode", "")) == "ai":
+			while engine.is_ai_turn() and engine.can_undo():
+				engine.pop_undo()
+			if engine.is_ai_turn():
+				var fallback = str_to_var(prev_state_snap)
+				if typeof(fallback) == TYPE_DICTIONARY:
+					engine.state = fallback
+				engine.undo_stack = prev_stack
+				return
+		_in_ai_undo_guard = false
+		_pre_ai_undo_stack.clear()
 		_killzone.sync_visual_positions(true)
 		_killzone.clear_interaction()
 		_refresh_all_ui()
@@ -1684,6 +1922,21 @@ func _refresh_all_ui() -> void:
 	if engine.state.is_empty():
 		return
 
+	_sync_ai_undo_guard()
+
+	# U7: Clear stale interaction_mode when active operative ended / changed or turn handed off
+	if _killzone != null:
+		var imode: String = _killzone.interaction_mode
+		if imode in ["move", "shoot", "fight", "pick_point", "pick_enemy"]:
+			var cur_active_uid: String = str(engine.state.get("active_op_uid", ""))
+			var armed_uid: String = _killzone.pick_uid if imode.begins_with("pick_") else _killzone.selected_uid
+			if str(engine.state.get("phase", "")) != "FIREFIGHT" or engine.is_ai_turn() or cur_active_uid.is_empty() or cur_active_uid != armed_uid:
+				_killzone.clear_interaction()
+		elif imode == "deploy" and (str(engine.state.get("phase", "")) != "DEPLOY" or engine.is_ai_turn()):
+			_killzone.clear_interaction()
+		elif imode == "eq_deploy" and (str(engine.state.get("phase", "")) != "EQDEPLOY" or engine.is_ai_turn()):
+			_killzone.clear_interaction()
+
 	# 1. Update Top Broadcast Crest (VP Gems, CP Diamonds, Ploy Chips & Phase Medallion)
 	var sa: Dictionary = engine.state["sides"]["A"]
 	var sb: Dictionary = engine.state["sides"]["B"]
@@ -1720,7 +1973,10 @@ func _refresh_all_ui() -> void:
 	}.get(phase, phase))
 	_tp_title_lbl.text = "TP %d/4" % tp
 	_phase_sub_lbl.text = phase_cn
-	_undo_btn.disabled = not engine.can_undo()
+	var can_u: bool = _can_human_undo()
+	_undo_btn.disabled = not can_u
+	_undo_btn.modulate = Color(1, 1, 1, 1) if can_u else Color(0.50, 0.52, 0.58, 0.52)
+	_undo_btn.tooltip_text = "敌方回合中无法撤回" if engine.is_ai_turn() else "撤回上一步 [Z]"
 	_killzone.sync_table_props()
 
 	var phase_sig: String = "%d_%s" % [tp, phase]
@@ -1753,10 +2009,12 @@ func _refresh_all_ui() -> void:
 	_killzone.queue_redraw()
 	_killzone.request_hud_redraw()
 
-	# Trigger AI turn automatically if applicable
-	if not on_title and not in_combat and engine.is_ai_turn():
+	# Trigger AI turn automatically if applicable (pause while any modal/overlay is open)
+	if not _is_any_modal_overlay_open() and engine.is_ai_turn():
 		if _ai_timer.is_stopped():
 			_ai_timer.start(0.60)
+	elif _ai_timer != null and not _ai_timer.is_stopped():
+		_ai_timer.stop()
 
 
 func _update_tactical_pill() -> void:
@@ -1862,16 +2120,36 @@ func _sync_edge_squad_medallions() -> void:
 			var bound_uid: String = uid
 			med.clicked_unit.connect(func():
 				var cur_op: Dictionary = engine.get_op(bound_uid)
-				if cur_op.is_empty() or bool(cur_op["incapacitated"]):
+				if cur_op.is_empty():
+					return
+				if bool(cur_op["incapacitated"]):
+					_notify_illegal_click("该特工已阵亡", cur_op.get("pos", Vector2(15.0, 11.0)))
+					return
+				if engine.is_ai_turn():
+					_notify_illegal_click("敌方回合行动中", cur_op.get("pos", Vector2(15.0, 11.0)))
 					return
 				var ph: String = str(engine.state.get("phase", ""))
 				if ph == "DEPLOY" and not bool(cur_op.get("deployed", false)):
 					# Still in the drop zone: clicking the roster card picks it up for placement
 					# instead of flying the camera to its off-board (-99,-99) parking spot.
-					if str(cur_op["side"]) == engine.deploy_side() and not engine.is_ai_turn():
+					if str(cur_op["side"]) == engine.deploy_side():
 						_killzone.start_deploy_mode(bound_uid)
 						KTSfx.play("card_lift", -5.0, 0.05)
+					else:
+						var ds_now: String = engine.deploy_side()
+						var ds_name: String = str(engine.state["sides"][ds_now]["name"]) if not ds_now.is_empty() else ""
+						_notify_illegal_click(("轮到【%s】部署" % ds_name) if not ds_name.is_empty() else "当前不可部署该特工", Vector2(15.0, 11.0))
 					_refresh_all_ui()
+					return
+				if _killzone.interaction_mode != "idle":
+					_killzone.hovered_uid = bound_uid
+					var cmd_uid: String = str(engine.state.get("active_op_uid", ""))
+					if cmd_uid.is_empty():
+						cmd_uid = _killzone.selected_uid
+					var cmd_op: Dictionary = engine.get_op(cmd_uid)
+					var hint_msg: String = ("正在指挥【%s】" % str(cmd_op["name"])) if not cmd_op.is_empty() else "请先完成当前操作"
+					_notify_illegal_click(hint_msg, cur_op.get("pos", cmd_op.get("pos", Vector2(15.0, 11.0))), KTTheme.COL_GOLD_BRIGHT)
+					_killzone.request_hud_redraw()
 					return
 				_killzone.focus_on_operative(bound_uid)
 				_on_board_operative_clicked(bound_uid)
@@ -1949,6 +2227,7 @@ func _rebuild_bottom_game_hud() -> void:
 
 	elif phase == "INITIATIVE":
 		var roll_btn := Button.new()
+		roll_btn.focus_mode = Control.FOCUS_NONE
 		roll_btn.text = ("🎴  继续第 %d 转折点先手权卡步骤  [Space]" if engine.init_pending() else "🎲  投掷第 %d 转折点先攻权对抗骰  [Space]") % int(engine.state["tp"])
 		roll_btn.custom_minimum_size = Vector2(450, 62)
 		roll_btn.size_flags_vertical = Control.SIZE_SHRINK_END
@@ -2003,6 +2282,7 @@ func _rebuild_bottom_game_hud() -> void:
 				_context_hb.add_child(scard)
 
 			var pass_b := Button.new()
+			pass_b.focus_mode = Control.FOCUS_NONE
 			pass_b.text = "⏭ 结束出牌\n进入交战 [Space]"
 			pass_b.custom_minimum_size = Vector2(154, 82)
 			pass_b.size_flags_vertical = Control.SIZE_SHRINK_END
@@ -2042,6 +2322,7 @@ func _rebuild_bottom_game_hud() -> void:
 		ohb.add_child(sum_l)
 
 		var btn_again := Button.new()
+		btn_again.focus_mode = Control.FOCUS_NONE
 		btn_again.text = "🔄 重新空投再战"
 		btn_again.custom_minimum_size = Vector2(180, 46)
 		KTTheme.apply_accent_button(btn_again, KTTheme.COL_GOLD_BRIGHT, 0.34)
@@ -2108,6 +2389,7 @@ func _build_primary_op_choice(side: String) -> void:
 	]:
 		var op_id: String = str(opt[0])
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		b.text = "%s\n%s" % [str(opt[1]), str(opt[2])]
 		b.custom_minimum_size = Vector2(236, 84)
 		b.add_theme_font_size_override("font_size", 14)
@@ -2134,6 +2416,7 @@ func _build_dropzone_choice() -> void:
 		var rect: Rect2 = opt[0]
 		var swap: bool = opt[1]
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		b.text = "🧭 选择%s降落区\n%.0f\" × %.0f\"" % [_zone_label(rect), rect.size.x, rect.size.y]
 		b.custom_minimum_size = Vector2(230, 72)
 		b.size_flags_vertical = Control.SIZE_SHRINK_END
@@ -2175,6 +2458,7 @@ func _build_tacop_choice() -> void:
 		var tid: String = str(t["id"])
 		var ready: bool = bool(t["implemented"])
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		b.text = "%s · %s\n%s" % [str(t["name"]), str(t["archetype"]), str(t["scoring"]) if ready else "（尚未实装，暂不可选）"]
 		b.tooltip_text = "公开时机：%s\n\n%s\n\nVP 结算：%s" % [str(t["reveal"]), str(t["rule"]), str(t["scoring"])]
 		b.custom_minimum_size = Vector2(208, 124)
@@ -2216,6 +2500,7 @@ func _build_envoy_choice(side: String) -> void:
 		var c: Dictionary = c_v
 		var cuid: String = str(c["uid"])
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		b.text = str(c["role"]) if not str(c["role"]).is_empty() else str(c["name"])
 		b.tooltip_text = str(c["name"])
 		b.custom_minimum_size = Vector2(96, 26)
@@ -2261,6 +2546,7 @@ func _build_equip_select() -> void:
 	info.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
 	hdr.add_child(info)
 	var ok_b := Button.new()
+	ok_b.focus_mode = Control.FOCUS_NONE
 	ok_b.text = "✓ 确认装备 [Space]"
 	KTTheme.apply_accent_button(ok_b, KTTheme.COL_EMERALD, 0.34)
 	KTWidgets.attach_button_juice(ok_b, 1.05, "phase_horn")
@@ -2280,6 +2566,7 @@ func _build_equip_select() -> void:
 		var title: String = str(e["title"]).get_slice("（", 0)
 		var picked: bool = _equip_pick.has(eid)
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		b.text = "%s%s\n%s" % ["✓ " if picked else "", title, str(KTGlossary.lookup(title).get("short", ""))]
 		b.tooltip_text = str(e.get("body", ""))
 		b.custom_minimum_size = Vector2(236, 88)
@@ -2308,6 +2595,7 @@ func _build_equip_select() -> void:
 		var u_ready: bool = bool(u["implemented"])
 		var u_picked: bool = _equip_pick.has(u_id)
 		var ub := Button.new()
+		ub.focus_mode = Control.FOCUS_NONE
 		ub.text = "%s%s" % ["✓ " if u_picked else "", str(u["title"])]
 		ub.tooltip_text = str(u["body"])
 		ub.custom_minimum_size = Vector2(104, 34)
@@ -2340,6 +2628,7 @@ func _build_equip_select() -> void:
 				lbl_u = "震荡×2"
 				next_u = "smoke2"
 			var bu := Button.new()
+			bu.focus_mode = Control.FOCUS_NONE
 			bu.text = "💨 功能型手雷组合：%s（点击切换）" % lbl_u
 			bu.custom_minimum_size = Vector2(280, 32)
 			bu.add_theme_font_size_override("font_size", 12)
@@ -2360,6 +2649,7 @@ func _build_equip_select() -> void:
 				lbl_e = "穿甲×2"
 				next_e = "frag2"
 			var be := Button.new()
+			be.focus_mode = Control.FOCUS_NONE
 			be.text = "💥 爆破型手雷组合：%s（点击切换）" % lbl_e
 			be.custom_minimum_size = Vector2(280, 32)
 			be.add_theme_font_size_override("font_size", 12)
@@ -2406,6 +2696,7 @@ func _build_roster_select() -> void:
 	info.add_theme_color_override("font_color", KTTheme.COL_EMERALD.lightened(0.2) if bool(chk["ok"]) else KTTheme.COL_GOLD_BRIGHT)
 	hdr.add_child(info)
 	var ok_b := Button.new()
+	ok_b.focus_mode = Control.FOCUS_NONE
 	ok_b.text = "✓ 确认出战"
 	ok_b.disabled = not bool(chk["ok"])
 	KTTheme.apply_accent_button(ok_b, KTTheme.COL_EMERALD, 0.34)
@@ -2571,6 +2862,7 @@ func _build_eq_deploy_cards() -> void:
 		var kind: String = str(k_v)
 		var is_picked: bool = kind == picked
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		b.text = "🧱 %s ×%d\n%s" % [KTEngine.equipment_item_name(kind), int(counts[k_v]), "▶ 在棋盘上点击放置" if is_picked else "点击选择"]
 		b.custom_minimum_size = Vector2(190, 72)
 		b.size_flags_vertical = Control.SIZE_SHRINK_END
@@ -2583,6 +2875,7 @@ func _build_eq_deploy_cards() -> void:
 		)
 		_context_hb.add_child(b)
 	var rot_b := Button.new()
+	rot_b.focus_mode = Control.FOCUS_NONE
 	rot_b.text = "⟳ 旋转 90°\n[R]"
 	rot_b.custom_minimum_size = Vector2(110, 72)
 	rot_b.size_flags_vertical = Control.SIZE_SHRINK_END
@@ -2592,6 +2885,7 @@ func _build_eq_deploy_cards() -> void:
 	rot_b.pressed.connect(func(): _killzone.eq_deploy_rot = not _killzone.eq_deploy_rot)
 	_context_hb.add_child(rot_b)
 	var skip_b := Button.new()
+	skip_b.focus_mode = Control.FOCUS_NONE
 	skip_b.text = "✕ 不部署\n剩余装备"
 	skip_b.custom_minimum_size = Vector2(110, 72)
 	skip_b.size_flags_vertical = Control.SIZE_SHRINK_END
@@ -2605,6 +2899,10 @@ func _build_eq_deploy_cards() -> void:
 
 
 func _on_board_equipment_spot_clicked(kind: String, pos_in: Vector2, rot: bool) -> void:
+	if engine.state.is_empty() or engine.is_ai_turn():
+		_killzone.clear_interaction()
+		_refresh_all_ui()
+		return
 	var res: Dictionary = engine.deploy_equipment(engine.eq_deploy_side(), kind, pos_in, rot)
 	if bool(res.get("ok", false)):
 		KTSfx.play("move_confirm", -5.0, 0.04)
@@ -2615,6 +2913,10 @@ func _on_board_equipment_spot_clicked(kind: String, pos_in: Vector2, rot: bool) 
 
 
 func _on_board_deploy_spot_clicked(uid: String, pos_in: Vector2) -> void:
+	if engine.state.is_empty() or engine.is_ai_turn():
+		_killzone.clear_interaction()
+		_refresh_all_ui()
+		return
 	var res: Dictionary = engine.deploy_operative(uid, pos_in)
 	if bool(res.get("ok", false)):
 		KTSfx.play("move_confirm", -5.0, 0.04)
@@ -2687,6 +2989,7 @@ func _build_firefight_ready_cards() -> void:
 		var uid: String = str(op["uid"])
 		if bool(chk["counteract"]):
 			var bc := Button.new()
+			bc.focus_mode = Control.FOCUS_NONE
 			bc.text = "⚡ 反应 (1AP)"
 			bc.add_theme_font_size_override("font_size", 12)
 			KTTheme.apply_accent_button(bc, KTTheme.COL_GOLD_BRIGHT, 0.30)
@@ -2703,6 +3006,7 @@ func _build_firefight_ready_cards() -> void:
 			cv.add_child(ord_btns)
 
 			var b_con := Button.new()
+			b_con.focus_mode = Control.FOCUS_NONE
 			b_con.text = "隐匿"
 			var con_ico: Texture2D = KTTheme.order_token_tex("conceal", true)
 			if con_ico != null:
@@ -2722,6 +3026,7 @@ func _build_firefight_ready_cards() -> void:
 			ord_btns.add_child(b_con)
 
 			var b_eng := Button.new()
+			b_eng.focus_mode = Control.FOCUS_NONE
 			b_eng.text = "交战"
 			var eng_ico: Texture2D = KTTheme.order_token_tex("engage", true)
 			if eng_ico != null:
@@ -2742,12 +3047,14 @@ func _build_firefight_ready_cards() -> void:
 
 	if not has_ready:
 		var skip_ca := Button.new()
+		skip_ca.focus_mode = Control.FOCUS_NONE
 		skip_ca.text = "⏭ 放弃反应"
 		skip_ca.custom_minimum_size = Vector2(124, 64)
 		skip_ca.size_flags_vertical = Control.SIZE_SHRINK_END
 		KTTheme.apply_accent_button(skip_ca, KTTheme.COL_MUTED, 0.24)
 		KTWidgets.attach_button_juice(skip_ca, 1.05)
 		skip_ca.pressed.connect(func():
+			engine.push_undo()
 			engine.pass_counteract(turn_s)
 			_refresh_all_ui()
 		)
@@ -2959,14 +3266,14 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 		)
 		u_idx += 1
 
-	# [9] Firefight Ploy Slot
+	# [0] Firefight Ploy Slot
 	var side_st: Dictionary = engine.state["sides"][op["side"]]
 	if is_imp and bool(op["charged_this_tp"]) and not side_st["used_ploys_tp"].has("shock_assault"):
 		var sa_dis: bool = int(side_st["cp"]) < 1 and str(op["op_id"]) != "aod_captain"
 		var slot_sa := _make_skill_slot(
 			"ploy", "突袭", "交战计谋：震慑突袭 (1CP)",
 			"冲锋后近战获得【震荡】且首次出击伤害 +1（队长免费）！",
-			"9", 0, KTTheme.COL_GOLD_BRIGHT, sa_dis, false, KEY_9
+			"0", 0, KTTheme.COL_GOLD_BRIGHT, sa_dis, false, KEY_0
 		)
 		slot_sa.triggered.connect(func():
 			engine.use_firefight_ploy("A", "shock_assault", uid)
@@ -2976,7 +3283,7 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 		var slot_vp := _make_skill_slot(
 			"ploy", "剧毒", "交战计谋：致命毒素 (1CP)",
 			"立即令 7\" 内可见最近敌军感染纳垢毒素！",
-			"9", 0, KTTheme.COL_NURGLE, false, false, KEY_9
+			"0", 0, KTTheme.COL_NURGLE, false, false, KEY_0
 		)
 		slot_vp.triggered.connect(func():
 			engine.use_firefight_ploy("B", "virulent_poison", uid)
@@ -2990,11 +3297,7 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 		"␣", 0, KTTheme.COL_EMERALD, false, false, 0
 	)
 	slot_end.triggered.connect(func():
-		KTSfx.play("move_confirm", -5.0, 0.04)
-		_killzone.clear_interaction()
-		_hide_skill_tooltip()
-		engine.end_operative_activation()
-		_refresh_all_ui()
+		_end_human_activation()
 	)
 
 	_skill_bar_panel.reset_size()
@@ -3066,6 +3369,7 @@ func _make_skill_slot(
 	)
 	_skill_bar_hb.add_child(slot)
 	if keycode != 0:
+		assert(not _active_hotbar_slots.has(keycode), "Duplicate hotbar keycode: %d" % keycode)
 		_active_hotbar_slots[keycode] = slot
 	return slot
 
@@ -3073,6 +3377,19 @@ func _make_skill_slot(
 # ==============================================================================
 # BOARD SIGNALS & COMBAT LAUNCHERS
 # ==============================================================================
+
+func _has_local_active_operative(expected_uid: String = "") -> bool:
+	if engine.state.is_empty() or engine.is_ai_turn():
+		return false
+	if str(engine.state.get("phase", "")) != "FIREFIGHT":
+		return false
+	var act_uid: String = str(engine.state.get("active_op_uid", ""))
+	if act_uid.is_empty():
+		return false
+	if not expected_uid.is_empty() and act_uid != expected_uid:
+		return false
+	return true
+
 
 func _on_board_hover_changed(info: String) -> void:
 	_hover_text_cache = info
@@ -3082,22 +3399,35 @@ func _on_board_hover_changed(info: String) -> void:
 
 
 func _on_board_operative_clicked(uid: String) -> void:
-	if engine.is_ai_turn():
-		return
 	var op: Dictionary = engine.get_op(uid)
 	if op.is_empty():
 		return
-	if str(engine.state["phase"]) == "FIREFIGHT" and str(engine.state["active_op_uid"]).is_empty():
-		var chk: Dictionary = engine.can_operative_be_selected_for_turn(op)
-		if bool(chk["ok"]):
-			KTSfx.play("order_servo", -4.0, 0.04)
-			engine.activate_operative(uid)
-			_refresh_all_ui()
-			return
+	if engine.is_ai_turn():
+		_notify_illegal_click("敌方回合行动中", op.get("pos", Vector2(15.0, 11.0)))
+		return
+	if str(engine.state["phase"]) == "FIREFIGHT":
+		var active_uid: String = str(engine.state["active_op_uid"])
+		if active_uid.is_empty():
+			var chk: Dictionary = engine.can_operative_be_selected_for_turn(op)
+			if bool(chk["ok"]):
+				KTSfx.play("order_servo", -4.0, 0.04)
+				engine.activate_operative(uid)
+				_refresh_all_ui()
+				return
+			_notify_illegal_click(str(chk.get("reason", "当前不可激活该特工")), op.get("pos", Vector2(15.0, 11.0)))
+		elif uid != active_uid:
+			var act_op: Dictionary = engine.get_op(active_uid)
+			_killzone.selected_uid = active_uid
+			var act_msg: String = ("请先结束【%s】激活" % str(act_op["name"])) if not act_op.is_empty() else "已有激活特工"
+			_notify_illegal_click(act_msg, op.get("pos", Vector2(15.0, 11.0)), KTTheme.COL_GOLD_BRIGHT)
 	_refresh_all_ui()
 
 
 func _on_board_move_committed(waypoints: Array[Vector2]) -> void:
+	if not _has_local_active_operative(_killzone.selected_uid):
+		_killzone.clear_interaction()
+		_refresh_all_ui()
+		return
 	var uid: String = str(engine.state["active_op_uid"])
 	var res: Dictionary = engine.execute_move(uid, _killzone.move_action_kind, waypoints)
 	if bool(res["ok"]):
@@ -3109,6 +3439,10 @@ func _on_board_move_committed(waypoints: Array[Vector2]) -> void:
 
 
 func _on_board_point_picked(uid: String, pos_in: Vector2) -> void:
+	if not _has_local_active_operative(uid):
+		_killzone.clear_interaction()
+		_refresh_all_ui()
+		return
 	var res: Dictionary = engine.use_smoke_grenade(uid, pos_in)
 	if bool(res.get("ok", false)):
 		_killzone.clear_interaction()
@@ -3120,6 +3454,10 @@ func _on_board_point_picked(uid: String, pos_in: Vector2) -> void:
 
 
 func _on_board_enemy_picked(uid: String, target_uid: String) -> void:
+	if not _has_local_active_operative(uid):
+		_killzone.clear_interaction()
+		_refresh_all_ui()
+		return
 	var res: Dictionary = engine.use_stun_grenade(uid, target_uid)
 	if bool(res.get("ok", false)):
 		_killzone.clear_interaction()
@@ -3142,6 +3480,10 @@ func _on_board_enemy_picked(uid: String, target_uid: String) -> void:
 
 
 func _on_board_shoot_target_clicked(defender_uid: String, shot_eval: Dictionary) -> void:
+	if not _has_local_active_operative(_killzone.selected_uid):
+		_killzone.clear_interaction()
+		_refresh_all_ui()
+		return
 	var att: Dictionary = engine.get_op(str(engine.state["active_op_uid"]))
 	var def: Dictionary = engine.get_op(defender_uid)
 	if att.is_empty() or def.is_empty():
@@ -3159,6 +3501,11 @@ func _on_board_shoot_target_clicked(defender_uid: String, shot_eval: Dictionary)
 
 
 func _on_board_fight_target_clicked(defender_uid: String) -> void:
+	var expected_f_uid: String = _killzone.selected_uid if _killzone.interaction_mode == "fight" else ""
+	if not _has_local_active_operative(expected_f_uid):
+		_killzone.clear_interaction()
+		_refresh_all_ui()
+		return
 	var att: Dictionary = engine.get_op(str(engine.state["active_op_uid"]))
 	var def: Dictionary = engine.get_op(defender_uid)
 	if att.is_empty() or def.is_empty():
@@ -3239,8 +3586,9 @@ func _on_combat_modal_finished(sess: Dictionary) -> void:
 # ==============================================================================
 
 func _run_ai_step() -> void:
-	if _title_overlay.visible or _dice_modal.visible or not engine.is_ai_turn():
+	if _is_any_modal_overlay_open() or not engine.is_ai_turn():
 		return
+	_sync_ai_undo_guard()
 
 	var ai_side: String = str(engine.state["turn_side"])
 	var phase: String = str(engine.state["phase"])

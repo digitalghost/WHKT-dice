@@ -489,18 +489,48 @@ func sync_visual_positions(instant: bool = false) -> void:
 # CAMERA PRESETS & PUBLIC CONTROLS
 # ==============================================================================
 
+const ISO_FOCUS := Vector3(1.4, 0.5, 2.6)
+const ISO_YAW_DEG := -24.0
+const ISO_PITCH_DEG := 43.0
+const ISO_DIST := 61.0
+var _camera_customized: bool = false
+
+
 func fit_board_to_rect(_view_rect: Rect2, instant: bool = false) -> void:
 	reset_isometric_view(instant)
+
+
+func is_camera_default_isometric() -> bool:
+	if _camera_customized:
+		return false
+	var matches_iso: bool = (
+		target_focus.distance_to(ISO_FOCUS) < 0.05
+		and absf(fposmod(target_yaw_deg - ISO_YAW_DEG + 180.0, 360.0) - 180.0) < 0.5
+		and absf(target_pitch_deg - ISO_PITCH_DEG) < 0.5
+		and absf(target_dist - ISO_DIST) < 0.5
+	)
+	var matches_init: bool = (
+		target_focus.distance_to(Vector3(0.0, 0.8, 0.6)) < 0.05
+		and absf(target_pitch_deg - 42.0) < 0.5
+		and absf(target_dist - 52.0) < 0.5
+	)
+	return matches_iso or matches_init
+
+
+func refresh_projection_only() -> void:
+	_apply_camera_transform()
+	request_hud_redraw()
 
 
 func reset_isometric_view(instant: bool = false) -> void:
 	# Focus a little south of centre and pull back slightly so the near apron (VP rail, TP block,
 	# CP chips, datacard mat) is in frame under the board: the table is part of the picture.
 	# Nudged east so the right-hand apron (CP chips, datacard, VP rail, TP block) stays in frame.
-	target_focus = Vector3(1.4, 0.5, 2.6)
-	target_yaw_deg = -24.0
-	target_pitch_deg = 43.0
-	target_dist = 61.0
+	_camera_customized = false
+	target_focus = ISO_FOCUS
+	target_yaw_deg = ISO_YAW_DEG
+	target_pitch_deg = ISO_PITCH_DEG
+	target_dist = ISO_DIST
 	if instant:
 		cam_focus = target_focus
 		cam_yaw_deg = target_yaw_deg
@@ -512,10 +542,12 @@ func reset_isometric_view(instant: bool = false) -> void:
 func set_camera_angle_preset(preset: String) -> void:
 	if preset == "low":
 		# Dramatic low-angle miniature level (highlights towering 2-story height!)
+		_camera_customized = true
 		target_pitch_deg = 28.0
 		target_dist = 36.0
 	elif preset == "top":
 		# High-angle tactical overview
+		_camera_customized = true
 		target_pitch_deg = 68.0
 		target_yaw_deg = 0.0
 		target_dist = 54.0
@@ -525,6 +557,7 @@ func set_camera_angle_preset(preset: String) -> void:
 
 
 func orbit_by(delta_yaw_deg: float) -> void:
+	_camera_customized = true
 	target_yaw_deg += delta_yaw_deg
 
 
@@ -539,6 +572,7 @@ func focus_on_operative(uid: String) -> void:
 	# Operatives waiting to be deployed sit off-board at (-99,-99): never aim the camera there.
 	if p_in.x < 0.0 or p_in.y < 0.0 or not bool(op.get("deployed", true)):
 		return
+	_camera_customized = true
 	var z_in := elevation_at_inches(p_in)
 	target_focus = inches_to_world(p_in, z_in + 0.8)
 	target_dist = minf(target_dist, 42.0)
@@ -769,6 +803,7 @@ func get_dice_3d() -> KTDice3D:
 func frame_initiative_dice_roll(val_a: int, val_b: int, winner: String, instant: bool = false) -> void:
 	if _dice_3d == null:
 		return
+	_camera_customized = true
 	_dice_3d.move_tray_location(Vector3(0.0, -0.24, 16.6), 0.0, true)
 	_dice_3d.roll_initiative_dice(val_a, val_b, winner, instant)
 	target_yaw_deg = -10.0
@@ -790,6 +825,7 @@ func frame_combat_duel(att_uid: String, def_uid: String, is_melee: bool) -> void
 	var def := engine.get_op(def_uid)
 	if att.is_empty() or def.is_empty():
 		return
+	_camera_customized = true
 	var wa := inches_to_world(att["pos"], elevation_at_inches(att["pos"]) + 0.9)
 	var wd := inches_to_world(def["pos"], elevation_at_inches(def["pos"]) + 0.9)
 	var mid := wa.lerp(wd, 0.5)
@@ -809,6 +845,10 @@ func frame_combat_duel(att_uid: String, def_uid: String, is_melee: bool) -> void
 func clear_transient_combat_fx() -> void:
 	_tracers_3d.clear()
 	_float_texts_3d.clear()
+	_shake_strength = 0.0
+	if _kill_cam_t > 0.0:
+		_kill_cam_t = 0.0
+		Engine.time_scale = 1.0
 	if _vfx != null:
 		_vfx.clear_transient()
 	request_hud_redraw()
@@ -954,6 +994,7 @@ func _start_kill_cam(victim_uid: String) -> void:
 		return
 	if not bool(KTSettings.get_value("combat/kill_cam")):
 		return
+	_camera_customized = true
 	_kill_cam_t = KILL_CAM_DUR
 	Engine.time_scale = 0.35
 	var wv := inches_to_world(v["pos"], elevation_at_inches(v["pos"]) + 0.9)
@@ -981,8 +1022,10 @@ func _process(delta: float) -> void:
 
 	# Keyboard Orbit (Q / E) & Pan (WASD / Arrows)
 	if Input.is_key_pressed(KEY_Q):
+		_camera_customized = true
 		target_yaw_deg -= 68.0 * delta
 	if Input.is_key_pressed(KEY_E):
+		_camera_customized = true
 		target_yaw_deg += 68.0 * delta
 
 	var move_input := Vector2.ZERO
@@ -995,6 +1038,7 @@ func _process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT):
 		move_input.x += 1.0
 	if move_input.length_squared() > 0.0:
+		_camera_customized = true
 		move_input = move_input.normalized() * 16.0 * delta
 		var yaw_rad := deg_to_rad(cam_yaw_deg)
 		var right_v := Vector3(cos(yaw_rad), 0.0, -sin(yaw_rad))
@@ -2107,10 +2151,12 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		# Smooth Mouse Wheel Zoom
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			_camera_customized = true
 			target_dist = clampf(target_dist * 0.90, 18.0, 68.0)
 			accept_event()
 			return
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			_camera_customized = true
 			target_dist = clampf(target_dist * 1.11, 18.0, 68.0)
 			accept_event()
 			return
@@ -2150,6 +2196,7 @@ func _gui_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion:
 		if _mid_pan_down or (_orbit_btn_down and event.shift_pressed):
+			_camera_customized = true
 			var d_pan: Vector2 = event.position - _last_mouse_pos
 			_last_mouse_pos = event.position
 			var pan_scale := cam_dist * 0.0011
@@ -2165,8 +2212,11 @@ func _gui_input(event: InputEvent) -> void:
 		if _orbit_btn_down:
 			if event.position.distance_to(_orbit_start_pos) > 5.0:
 				_orbit_dragged = true
+				_camera_customized = true
 			var d_orb: Vector2 = event.position - _last_mouse_pos
 			_last_mouse_pos = event.position
+			if d_orb.length_squared() > 0.01:
+				_camera_customized = true
 			target_yaw_deg -= d_orb.x * 0.34
 			target_pitch_deg = clampf(target_pitch_deg + d_orb.y * 0.24, 24.0, 74.0)
 			accept_event()
@@ -2216,47 +2266,93 @@ func _handle_left_click(screen_pos: Vector2, shift_held: bool) -> void:
 				move_waypoints.append(hovered_board_inches)
 		elif bool(chk["ok"]):
 			ground_move_committed.emit(pts)
+		else:
+			var m_reason := str(chk.get("reason", "落点不合法")).strip_edges()
+			if m_reason.is_empty():
+				m_reason = "落点不合法"
+			spawn_floating_text(hovered_board_inches, m_reason, KTTheme.COL_CRIMSON)
+			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if interaction_mode == "eq_deploy":
 		var eq_click_side: String = engine.eq_deploy_side()
-		if not eq_click_side.is_empty() and bool(engine.validate_equipment_pos(eq_click_side, eq_deploy_kind, hovered_board_inches, eq_deploy_rot)["ok"]):
+		var eq_chk: Dictionary = engine.validate_equipment_pos(eq_click_side, eq_deploy_kind, hovered_board_inches, eq_deploy_rot) if not eq_click_side.is_empty() else {"ok": false, "reason": "当前无法部署装备"}
+		if not eq_click_side.is_empty() and bool(eq_chk["ok"]):
 			equipment_spot_clicked.emit(eq_deploy_kind, hovered_board_inches, eq_deploy_rot)
 		else:
+			var eq_reason := str(eq_chk.get("reason", "无法放置于此")).strip_edges()
+			if eq_reason.is_empty():
+				eq_reason = "无法放置于此"
+			spawn_floating_text(hovered_board_inches, eq_reason, KTTheme.COL_CRIMSON)
 			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if interaction_mode == "deploy":
 		var dop := engine.get_op(deploy_uid)
-		if not dop.is_empty() and bool(engine.validate_deploy_pos(dop, hovered_board_inches)["ok"]):
+		var dep_chk: Dictionary = engine.validate_deploy_pos(dop, hovered_board_inches) if not dop.is_empty() else {"ok": false, "reason": "须在己方降落区内"}
+		if not dop.is_empty() and bool(dep_chk["ok"]):
 			deploy_spot_clicked.emit(deploy_uid, hovered_board_inches)
 		else:
+			var dep_reason := str(dep_chk.get("reason", "须在己方降落区内")).strip_edges()
+			if dep_reason.is_empty():
+				dep_reason = "须在己方降落区内"
+			spawn_floating_text(hovered_board_inches, dep_reason, KTTheme.COL_CRIMSON)
 			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if interaction_mode == "shoot":
-		if not clicked_op_uid.is_empty() and cached_shot_evals.has(clicked_op_uid):
-			var ev: Dictionary = cached_shot_evals[clicked_op_uid]
-			if bool(ev["valid"]):
-				shoot_target_clicked.emit(clicked_op_uid, ev)
+		if not clicked_op_uid.is_empty():
+			if cached_shot_evals.has(clicked_op_uid):
+				var ev: Dictionary = cached_shot_evals[clicked_op_uid]
+				if bool(ev["valid"]):
+					shoot_target_clicked.emit(clicked_op_uid, ev)
+				else:
+					var bad_op := engine.get_op(clicked_op_uid)
+					var s_reason := str(ev.get("reason", "目标不可射击")).strip_edges()
+					if s_reason.is_empty():
+						s_reason = "目标不可射击"
+					spawn_floating_text(bad_op.get("pos", hovered_board_inches), s_reason, KTTheme.COL_CRIMSON)
+					KTSfx.play("ui_hover", -14.0, 0.2)
+			else:
+				var fr_op := engine.get_op(clicked_op_uid)
+				spawn_floating_text(fr_op.get("pos", hovered_board_inches), "不能射击友军", KTTheme.COL_CRIMSON)
+				KTSfx.play("ui_hover", -14.0, 0.2)
+		else:
+			spawn_floating_text(hovered_board_inches, "请点击有效敌方目标", KTTheme.COL_CRIMSON)
+			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if interaction_mode == "fight":
 		if not clicked_op_uid.is_empty():
 			var att := engine.get_op(selected_uid)
 			var def := engine.get_op(clicked_op_uid)
-			if not att.is_empty() and not def.is_empty() and att["side"] != def["side"]:
-				var z_a := elevation_at_inches(att["pos"])
-				var z_d := elevation_at_inches(def["pos"])
-				if KTGeometry.in_control_range_at(att["pos"], float(att["base_radius"]), z_a, def["pos"], float(def["base_radius"]), z_d, engine.state["map"]["terrains"]):
-					fight_target_clicked.emit(clicked_op_uid)
+			if not att.is_empty() and not def.is_empty():
+				if att["side"] != def["side"]:
+					var z_a := elevation_at_inches(att["pos"])
+					var z_d := elevation_at_inches(def["pos"])
+					if KTGeometry.in_control_range_at(att["pos"], float(att["base_radius"]), z_a, def["pos"], float(def["base_radius"]), z_d, engine.state["map"]["terrains"]):
+						fight_target_clicked.emit(clicked_op_uid)
+					else:
+						spawn_floating_text(def["pos"], "不在近战控制区内", KTTheme.COL_CRIMSON)
+						KTSfx.play("ui_hover", -14.0, 0.2)
+				else:
+					spawn_floating_text(def["pos"], "不能攻击友军", KTTheme.COL_CRIMSON)
+					KTSfx.play("ui_hover", -14.0, 0.2)
+		else:
+			spawn_floating_text(hovered_board_inches, "请点击控制区内敌军", KTTheme.COL_CRIMSON)
+			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
 	if interaction_mode == "pick_point":
 		var op_pp: Dictionary = engine.get_op(pick_uid)
-		if not op_pp.is_empty() and bool(engine.validate_smoke_pos(op_pp, hovered_board_inches)["ok"]):
+		var pp_chk: Dictionary = engine.validate_smoke_pos(op_pp, hovered_board_inches) if not op_pp.is_empty() else {"ok": false, "reason": "落点不合法"}
+		if not op_pp.is_empty() and bool(pp_chk["ok"]):
 			point_picked.emit(pick_uid, hovered_board_inches)
 		else:
+			var pp_reason := str(pp_chk.get("reason", "落点不合法")).strip_edges()
+			if pp_reason.is_empty():
+				pp_reason = "落点不合法"
+			spawn_floating_text(hovered_board_inches, pp_reason, KTTheme.COL_CRIMSON)
 			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
@@ -2264,6 +2360,12 @@ func _handle_left_click(screen_pos: Vector2, shift_held: bool) -> void:
 		if not clicked_op_uid.is_empty() and pick_enemy_uids.has(clicked_op_uid):
 			enemy_picked.emit(pick_uid, clicked_op_uid)
 		else:
+			var pe_pos := hovered_board_inches
+			if not clicked_op_uid.is_empty():
+				var pe_op := engine.get_op(clicked_op_uid)
+				if not pe_op.is_empty():
+					pe_pos = pe_op.get("pos", hovered_board_inches)
+			spawn_floating_text(pe_pos, "请点击 6\" 内可见敌军", KTTheme.COL_CRIMSON)
 			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 
