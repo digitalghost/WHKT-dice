@@ -403,8 +403,15 @@ func _tac_gain(side_id: String, n: int, tp_cap: int, why: String) -> int:
 func _tac_new_tp() -> void:
 	for sid in ["A", "B"]:
 		state["sides"][sid]["tac_tp_gain"] = 0
+	# Sweep markers last "until the next strategy phase"; Clear is per turning point.
+	for oid in state["objectives_state"].keys():
+		var tt: Dictionary = state["objectives_state"][oid].get("tac", {})
+		for k in tt.keys():
+			if str(k).begins_with("sweep_") or str(k).begins_with("cleared_"):
+				tt.erase(k)
 	for op in state["operatives"]:
 		op["is_envoy"] = false
+		op["surveilled_by"] = []
 		op["damaged_tp"] = false
 		op["wounds_seen"] = int(op["wounds_cur"])
 
@@ -461,6 +468,21 @@ func _process_casualties() -> void:
 					ost["martyr_" + v_side] = int(ost.get("martyr_" + v_side, 0)) + 1
 					_tac_reveal(v_side)
 					add_log("🕯️ 【%s】在争夺【%s】时倒下：该目标获得 1 枚殉道者标记。" % [str(op["name"]), str(obj["name"])])
+
+		# 扫荡清理: an enemy incapacitated while contesting an objective leaves our Sweep marker on it
+		if tac_op_of(k_side) == "sweep_clear":
+			for obj2 in state["map"]["objectives"]:
+				if _op_contests_objective(op, obj2):
+					_tac_obj(str(obj2["id"]))["sweep_" + k_side] = true
+					_tac_reveal(k_side)
+		# 窃取情报: every incapacitated enemy leaves one of our Intel markers
+		if tac_op_of(k_side) == "steal_intel":
+			_eq_marks().append({"kind": "intel", "side": k_side, "pos": op["pos"]})
+			_tac_reveal(k_side)
+		# Anything the casualty carried drops where it fell
+		for c in op.get("carried", []):
+			_eq_marks().append({"kind": str(c["item"]), "side": str(c["team"]), "pos": op["pos"]})
+		op["carried"] = []
 
 		var killer := get_op(str(op.get("killed_by", "")))
 		if killer.is_empty() or str(killer["side"]) != k_side:
@@ -556,6 +578,7 @@ func _score_tac_op_end_of_tp() -> void:
 					and KTGeometry.is_in_enemy_control_range(env, env["pos"], state).is_empty():
 				var unhurt: bool = not bool(env.get("damaged_tp", false))
 				_tac_gain(sid, 2 if unhurt else 1, 0, "特使【%s】完全位于敌方领地%s" % [str(env["name"]), "且本转折点未受伤害" if unhurt else ""])
+		_score_tac_op_extended(str(sid), tac, tp)
 		if tp >= 4 and not tac.is_empty() and not bool(ss.get("tac_revealed", false)):
 			_tac_reveal(sid)
 
@@ -935,6 +958,487 @@ func _find_usable_ammo_cache(op: Dictionary) -> Dictionary:
 		if friendly_apl > enemy_apl:
 			return md
 	return {}
+
+
+# ==============================================================================
+# TAC OPS, part 2: 侧翼 / 插旗 / 放置装置 / 回收 / 扫荡清理 / 追踪敌军 / 敌情 / 窃取情报
+# Card text: data/core/tac_ops.json. Sweep & Clear scoring follows the V11.5 errata (rulebook p.111).
+# Mission actions and scoring start in turning point 2 (card default).
+# ==============================================================================
+
+const _TAC_PROBE_WEAPON := {"id": "tac_probe", "name": "", "kind": "ranged", "attacks": 0, "hit": 6, "normal_dmg": 0, "crit_dmg": 0, "rules": {}}
+const FLANK_CN := {"west": "西", "east": "东", "north": "北", "south": "南"}
+
+
+func _on_board(op: Dictionary) -> bool:
+	var p: Vector2 = op["pos"]
+	return not bool(op["incapacitated"]) and bool(op.get("deployed", true)) and p.x >= 0.0 and p.y >= 0.0
+
+
+func _op_apl(op: Dictionary) -> int:
+	return maxi(1, int(op["apl_base"]) + int(op.get("apl_mod", 0)))
+
+
+func _tac_obj(oid: String) -> Dictionary:
+	var ost: Dictionary = state["objectives_state"][oid]
+	if not ost.has("tac"):
+		ost["tac"] = {}
+	var t: Dictionary = ost["tac"]
+	return t
+
+
+func _tac_side(side_id: String) -> Dictionary:
+	var ss: Dictionary = state["sides"][side_id]
+	if not ss.has("tac_state"):
+		ss["tac_state"] = {}
+	var t: Dictionary = ss["tac_state"]
+	return t
+
+
+func _eq_marks() -> Array:
+	if not state.has("eq_markers"):
+		state["eq_markers"] = []
+	var m: Array = state["eq_markers"]
+	return m
+
+
+## The killzone is split into two flanks by the line that runs from one drop zone to the other
+## through the centre (perpendicular to the line that separates the two territories).
+func flank_definition() -> Dictionary:
+	var own: Rect2 = state["map"]["drop_zone_a"]
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	if own.size.x >= own.size.y:
+		return {"axis": "x", "line": w * 0.5, "flanks": ["west", "east"]}
+	return {"axis": "y", "line": h * 0.5, "flanks": ["north", "south"]}
+
+
+## Flank a base is wholly within ("" when it straddles the dividing line).
+func flank_of(pos: Vector2, radius: float) -> String:
+	var fd := flank_definition()
+	var names: Array = fd["flanks"]
+	var line := float(fd["line"])
+	var v: float = pos.x if str(fd["axis"]) == "x" else pos.y
+	if v + radius <= line:
+		return str(names[0])
+	if v - radius >= line:
+		return str(names[1])
+	return ""
+
+
+func _pos_in_enemy_territory(side_id: String, pos: Vector2, radius: float) -> bool:
+	if pos.x < 0.0 or pos.y < 0.0:
+		return false
+	var et := territory_rect("B" if side_id == "A" else "A")
+	return et.grow(0.001).encloses(Rect2(pos - Vector2(radius, radius), Vector2(radius, radius) * 2.0))
+
+
+## Side whose operatives (wholly within the flank AND wholly within enemy territory) have the higher total APL.
+func flank_controller(flank: String) -> String:
+	var apl := {"A": 0, "B": 0}
+	for o in state["operatives"]:
+		var od: Dictionary = o
+		if not _on_board(od):
+			continue
+		var p: Vector2 = od["pos"]
+		var r := float(od["base_radius"])
+		var sd := str(od["side"])
+		if flank_of(p, r) == flank and _pos_in_enemy_territory(sd, p, r):
+			apl[sd] = int(apl[sd]) + _op_apl(od)
+	if int(apl["A"]) > int(apl["B"]):
+		return "A"
+	if int(apl["B"]) > int(apl["A"]):
+		return "B"
+	return ""
+
+
+## "A" / "B" = objective inside that side's territory, "" = on the centre line.
+func objective_owner(obj: Dictionary) -> String:
+	var p: Vector2 = obj["pos"]
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	var ta := territory_rect("A")
+	var off: float = (p.y - h * 0.5) if ta.size.x >= w - 0.01 else (p.x - w * 0.5)
+	if absf(off) < 0.5:
+		return ""
+	return "A" if ta.has_point(p) else "B"
+
+
+## Objective this operative contests and its side controls ("" if none).
+func _controlled_objective_of(op: Dictionary) -> String:
+	for obj in state["map"]["objectives"]:
+		var oid := str(obj["id"])
+		if _op_contests_objective(op, obj) and str(state["objectives_state"][oid]["controlled_by"]) == str(op["side"]):
+			return oid
+	return ""
+
+
+## Total APL per side of the operatives that have the marker at `pos` within control range.
+func _marker_apl(pos: Vector2) -> Dictionary:
+	var terrains: Array = state["map"]["terrains"]
+	var mz := KTGeometry.elevation_at(pos, terrains)
+	var res := {"A": 0, "B": 0}
+	for o in state["operatives"]:
+		var od: Dictionary = o
+		if not _on_board(od):
+			continue
+		var op_pos: Vector2 = od["pos"]
+		var oz := KTGeometry.elevation_at(op_pos, terrains)
+		if KTGeometry.in_control_range_at(op_pos, float(od["base_radius"]), oz, pos, MINE_RADIUS, mz, terrains):
+			var sd := str(od["side"])
+			res[sd] = int(res[sd]) + _op_apl(od)
+	return res
+
+
+func _op_reaches_marker(op: Dictionary, pos: Vector2) -> bool:
+	var terrains: Array = state["map"]["terrains"]
+	var op_pos: Vector2 = op["pos"]
+	return KTGeometry.in_control_range_at(op_pos, float(op["base_radius"]), KTGeometry.elevation_at(op_pos, terrains), pos, MINE_RADIUS, KTGeometry.elevation_at(pos, terrains), terrains)
+
+
+func _banner_spot_check(op: Dictionary) -> Dictionary:
+	var sid := str(op["side"])
+	if bool(_tac_side(sid).get("banner_used", false)):
+		return {"ok": false, "reason": "本场战斗已经插过旗（只能插旗一次）"}
+	var p: Vector2 = op["pos"]
+	if not _pos_in_enemy_territory(sid, p, MINE_RADIUS):
+		return {"ok": false, "reason": "旗帜须完全位于对手领地内"}
+	var fd := flank_definition()
+	var w := float(state["map"]["width"])
+	var h := float(state["map"]["height"])
+	var edge_d: float = minf(p.x, w - p.x) if str(fd["axis"]) == "x" else minf(p.y, h - p.y)
+	if edge_d - MINE_RADIUS < 5.0:
+		return {"ok": false, "reason": "旗帜须位于中立杀戮区边缘 5\" 外"}
+	return {"ok": true, "reason": ""}
+
+
+## Carry limit: at most 2 Intel markers, or 1 Intel marker + 1 other marker.
+func _can_carry(op: Dictionary, item: String) -> bool:
+	var carried: Array = op.get("carried", [])
+	if carried.size() >= 2:
+		return false
+	if item == "intel":
+		return true
+	for c in carried:
+		if str(c["item"]) != "intel":
+			return false
+	return true
+
+
+func _carried_count(side_id: String, item: String) -> int:
+	var n := 0
+	for o in state["operatives"]:
+		var od: Dictionary = o
+		if str(od["side"]) != side_id or not _on_board(od):
+			continue
+		for c in od.get("carried", []):
+			if str(c["item"]) == item and str(c["team"]) == side_id:
+				n += 1
+	return n
+
+
+## Index of a friendly Intel / Retrieval marker this operative can pick up (-1 if none).
+func _pickup_marker_index(op: Dictionary) -> int:
+	var marks := _eq_marks()
+	for i in range(marks.size()):
+		var m: Dictionary = marks[i]
+		var mk := str(m.get("kind", ""))
+		if mk in ["intel", "retrieval"] and str(m["side"]) == str(op["side"]) and _can_carry(op, mk) and _op_reaches_marker(op, m["pos"]):
+			return i
+	return -1
+
+
+## Index of an enemy banner this operative's side controls (-1 if none).
+func _banner_grab_index(op: Dictionary) -> int:
+	var sid := str(op["side"])
+	var other := "B" if sid == "A" else "A"
+	var marks := _eq_marks()
+	for i in range(marks.size()):
+		var m: Dictionary = marks[i]
+		if str(m.get("kind", "")) != "banner" or str(m["side"]) == sid:
+			continue
+		if not _op_reaches_marker(op, m["pos"]) or not _can_carry(op, "banner"):
+			continue
+		var apl := _marker_apl(m["pos"])
+		if int(apl[sid]) > int(apl[other]):
+			return i
+	return -1
+
+
+## 敌情: ready enemy operatives visible to and more than 6" from this operative.
+func surveil_targets(op: Dictionary) -> Array[Dictionary]:
+	var res: Array[Dictionary] = []
+	var sid := str(op["side"])
+	var terrains: Array = state["map"]["terrains"]
+	var op_pos: Vector2 = op["pos"]
+	var op_r := float(op["base_radius"])
+	var op_z := KTGeometry.elevation_at(op_pos, terrains)
+	for o in state["operatives"]:
+		var od: Dictionary = o
+		if not _on_board(od) or str(od["side"]) == sid or not bool(od["ready"]):
+			continue
+		if (od.get("surveilled_by", []) as Array).has(sid):
+			continue
+		var t_pos: Vector2 = od["pos"]
+		var t_r := float(od["base_radius"])
+		if KTGeometry.edge_distance(op_pos, op_r, t_pos, t_r) < 6.0:
+			continue
+		if KTGeometry.has_visibility(op_pos, op_r, op_z, t_pos, t_r, KTGeometry.elevation_at(t_pos, terrains), terrains):
+			res.append(od)
+	return res
+
+
+## 追踪敌军: enemy operatives that are outside every friendly control range, within 6" of a friendly
+## Conceal-order operative that could target them while not being a valid target for them.
+func tracked_enemies(side_id: String) -> Array[Dictionary]:
+	var res: Array[Dictionary] = []
+	var terrains: Array = state["map"]["terrains"]
+	for t in state["operatives"]:
+		var td: Dictionary = t
+		if not _on_board(td) or str(td["side"]) == side_id:
+			continue
+		var t_pos: Vector2 = td["pos"]
+		var t_r := float(td["base_radius"])
+		var t_z := KTGeometry.elevation_at(t_pos, terrains)
+		var in_cr := false
+		var tracked := false
+		for f in state["operatives"]:
+			var fd: Dictionary = f
+			if not _on_board(fd) or str(fd["side"]) != side_id:
+				continue
+			var f_pos: Vector2 = fd["pos"]
+			var f_r := float(fd["base_radius"])
+			if KTGeometry.in_control_range_at(f_pos, f_r, KTGeometry.elevation_at(f_pos, terrains), t_pos, t_r, t_z, terrains):
+				in_cr = true
+				break
+			if tracked or str(fd["order"]) != "conceal":
+				continue
+			if KTGeometry.edge_distance(f_pos, f_r, t_pos, t_r) > 6.0:
+				continue
+			if not bool(KTGeometry.evaluate_shot(fd, td, _TAC_PROBE_WEAPON, state).get("valid", false)):
+				continue
+			if bool(KTGeometry.evaluate_shot(td, fd, _TAC_PROBE_WEAPON, state).get("valid", false)):
+				continue
+			tracked = true
+		if tracked and not in_cr:
+			res.append(td)
+	return res
+
+
+## Enemy operatives a targeted unique action may pick.
+func unique_action_targets(op: Dictionary, ability_id: String) -> Array[Dictionary]:
+	if ability_id == "eq_stun":
+		return stun_targets(op)
+	if ability_id == "tac_surveil":
+		return surveil_targets(op)
+	var none: Array[Dictionary] = []
+	return none
+
+
+func execute_target_action(uid: String, ability_id: String, target_uid: String) -> Dictionary:
+	if ability_id == "eq_stun":
+		return use_stun_grenade(uid, target_uid)
+	return _execute_tac_action(get_op(uid), ability_id, target_uid)
+
+
+## Mission actions granted by the side's tac op (plus picking up markers / grabbing an enemy banner).
+func _tac_actions(op: Dictionary) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	var sid := str(op["side"])
+	var tac := tac_op_of(sid)
+	var taken: Array = op["actions_taken"]
+	var engaged := not KTGeometry.is_in_enemy_control_range(op, op["pos"], state).is_empty()
+	var base_ok: bool = int(op["ap_left"]) >= 1 and not engaged and int(state["tp"]) >= 2
+	var why := ""
+	if int(state["tp"]) < 2:
+		why = "任务行动从第 2 转折点开始"
+	elif engaged:
+		why = "位于敌方控制范围内时不能执行任务行动"
+	var oid := _controlled_objective_of(op)
+	var carried: Array = op.get("carried", [])
+
+	if tac == "plant_banner":
+		var chk := _banner_spot_check(op)
+		var ok: bool = base_ok and bool(chk["ok"]) and not taken.has("tac_plant_banner")
+		out.append({"id": "tac_plant_banner", "name": "插旗 (1AP)", "cost": 1, "enabled": ok,
+			"desc": "在脚下放置旗帜标识（只能插旗一次，可被敌方拾取）" if ok else (why if not why.is_empty() else str(chk["reason"]))})
+	elif tac == "plant_devices":
+		var ok_d: bool = base_ok and not oid.is_empty() and not bool(_tac_obj(oid).get("device_" + sid, false)) if not oid.is_empty() else false
+		out.append({"id": "tac_plant_device", "name": "放置装置 (1AP)", "cost": 1, "enabled": ok_d and not taken.has("tac_plant_device"),
+			"desc": "对己方控制的目标标识放置装置" if ok_d else (why if not why.is_empty() else "需控制一个尚无己方装置的目标标识")})
+	elif tac == "retrieval":
+		var ok_s: bool = base_ok and not oid.is_empty() and carried.is_empty()
+		if ok_s:
+			ok_s = not bool(_tac_obj(oid).get("searched_" + sid, false))
+		out.append({"id": "tac_search", "name": "搜索 (1AP)", "cost": 1, "enabled": ok_s and not taken.has("tac_search"),
+			"desc": "搜索己方控制的目标：获得 1 枚回收标记并立即 +1VP" if ok_s else (why if not why.is_empty() else "需控制一个未搜索过的目标，且未携带任何标记")})
+	elif tac == "sweep_clear":
+		var ok_c: bool = base_ok and not oid.is_empty()
+		if ok_c:
+			ok_c = not bool(_tac_obj(oid).get("cleared_" + sid, false))
+		out.append({"id": "tac_clear", "name": "清理 (1AP)", "cost": 1, "enabled": ok_c and not taken.has("tac_clear"),
+			"desc": "清理己方控制的目标标识" if ok_c else (why if not why.is_empty() else "需控制一个本转折点尚未清理的目标标识")})
+	elif tac == "surveil":
+		var ok_v: bool = base_ok and str(op["order"]) == "conceal" and not surveil_targets(op).is_empty()
+		out.append({"id": "tac_surveil", "name": "侦查 (1AP)", "cost": 1, "needs_target": true, "enabled": ok_v and not taken.has("tac_surveil"),
+			"desc": "选择 6\" 外可见的一名敌方就绪特工，使其受到监控" if ok_v else (why if not why.is_empty() else "需持隐匿命令，且有 6\" 外可见的敌方就绪特工")})
+
+	if _pickup_marker_index(op) >= 0:
+		out.append({"id": "tac_pickup", "name": "拾取标识 (1AP)", "cost": 1, "enabled": base_ok and not taken.has("tac_pickup"),
+			"desc": "拾取控制范围内的己方情报 / 回收标记" if base_ok else why})
+	if _banner_grab_index(op) >= 0:
+		out.append({"id": "tac_grab_banner", "name": "夺旗 (1AP)", "cost": 1, "enabled": base_ok and not taken.has("tac_grab_banner"),
+			"desc": "拾取己方控制的敌方旗帜" if base_ok else why})
+	return out
+
+
+func _execute_tac_action(op: Dictionary, ability_id: String, target_uid: String) -> Dictionary:
+	if op.is_empty() or str(state.get("active_op_uid", "")) != str(op["uid"]):
+		return {"ok": false, "msg": "该特工未处于当前激活"}
+	var act := {}
+	for a in _tac_actions(op):
+		if str(a["id"]) == ability_id:
+			act = a
+	if act.is_empty() or not bool(act["enabled"]):
+		return {"ok": false, "msg": str(act.get("desc", "当前无法执行该行动"))}
+	var sid := str(op["side"])
+	var target := {}
+	if ability_id == "tac_surveil":
+		for t in surveil_targets(op):
+			if str(t["uid"]) == target_uid:
+				target = t
+		if target.is_empty():
+			return {"ok": false, "msg": "请在棋盘上选择 6\" 外可见的敌方就绪特工"}
+	push_undo()
+	op["ap_left"] = int(op["ap_left"]) - 1
+	(op["actions_taken"] as Array).append(ability_id)
+	var marks := _eq_marks()
+	var oid := _controlled_objective_of(op)
+	if not op.has("carried"):
+		op["carried"] = []
+	var carried: Array = op["carried"]
+	var oname := str(op["name"])
+	match ability_id:
+		"tac_plant_banner":
+			marks.append({"kind": "banner", "side": sid, "pos": op["pos"]})
+			_tac_side(sid)["banner_used"] = true
+			_tac_reveal(sid)
+			add_log("🚩 【%s】插下旗帜！" % oname)
+		"tac_grab_banner":
+			var b_idx := _banner_grab_index(op)
+			var bm: Dictionary = marks[b_idx]
+			carried.append({"item": "banner", "team": str(bm["side"])})
+			marks.remove_at(b_idx)
+			add_log("🚩 【%s】夺走了敌方旗帜！" % oname)
+		"tac_plant_device":
+			_tac_obj(oid)["device_" + sid] = true
+			_tac_reveal(sid)
+			add_log("📟 【%s】在【%s】放置装置。" % [oname, oid.to_upper()])
+		"tac_search":
+			_tac_obj(oid)["searched_" + sid] = true
+			carried.append({"item": "retrieval", "team": sid})
+			add_log("🔎 【%s】搜索【%s】，获得 1 枚回收标记。" % [oname, oid.to_upper()])
+			_tac_gain(sid, 1, 0, "搜索【%s】" % oid.to_upper())
+		"tac_clear":
+			_tac_obj(oid)["cleared_" + sid] = true
+			_tac_reveal(sid)
+			add_log("🧹 【%s】清理了【%s】。" % [oname, oid.to_upper()])
+		"tac_surveil":
+			if not target.has("surveilled_by"):
+				target["surveilled_by"] = []
+			(target["surveilled_by"] as Array).append(sid)
+			_tac_reveal(sid)
+			add_log("📡 【%s】开始监控【%s】。" % [oname, str(target["name"])])
+		"tac_pickup":
+			var p_idx := _pickup_marker_index(op)
+			var pm: Dictionary = marks[p_idx]
+			carried.append({"item": str(pm["kind"]), "team": sid})
+			marks.remove_at(p_idx)
+			add_log("📦 【%s】拾取了 1 枚%s标记。" % [oname, "情报" if str(pm["kind"]) == "intel" else "回收"])
+	recalculate_objectives_and_kills()
+	_check_auto_end_counteract(op)
+	return {"ok": true}
+
+
+func _score_tac_op_extended(sid: String, tac: String, tp: int) -> void:
+	var other := "B" if sid == "A" else "A"
+	var apl_opp := "apl_b" if sid == "A" else "apl_a"
+	if tac == "flank":
+		var held: Array = []
+		var names: Array = flank_definition()["flanks"]
+		for f in names:
+			if flank_controller(str(f)) == sid:
+				held.append(str(f))
+		if tp >= 2:
+			var prev: Array = _tac_side(sid).get("flank_tp3", [])
+			for f in held:
+				_tac_gain(sid, 2 if (tp >= 4 and prev.has(f)) else 1, 2, "控制%s侧翼" % str(FLANK_CN.get(f, f)))
+		if tp == 3:
+			_tac_side(sid)["flank_tp3"] = held
+	elif tac == "plant_banner" and tp >= 2:
+		for m in _eq_marks():
+			var md: Dictionary = m
+			if str(md.get("kind", "")) != "banner" or str(md["side"]) != sid:
+				continue
+			var bp: Vector2 = md["pos"]
+			if not _pos_in_enemy_territory(sid, bp, MINE_RADIUS):
+				continue
+			var apl := _marker_apl(bp)
+			if int(apl[sid]) > int(apl[other]):
+				_tac_gain(sid, 2 if int(apl[other]) == 0 else 1, 2, "控制敌方领地内的旗帜" + ("且无敌方争夺" if int(apl[other]) == 0 else ""))
+	elif tac == "plant_devices" and tp >= 2:
+		for obj in state["map"]["objectives"]:
+			var od: Dictionary = obj
+			var oid := str(od["id"])
+			if not bool(_tac_obj(oid).get("device_" + sid, false)):
+				continue
+			if objective_owner(od) == other:
+				_tac_gain(sid, 1, 2, "敌方目标【%s】有己方装置" % oid.to_upper())
+			elif int(state["objectives_state"][oid][apl_opp]) > 0:
+				_tac_gain(sid, 1, 2, "敌方争夺的目标【%s】有己方装置" % oid.to_upper())
+	elif tac == "sweep_clear" and tp >= 2:
+		for obj in state["map"]["objectives"]:
+			var od2: Dictionary = obj
+			var oid2 := str(od2["id"])
+			var ost: Dictionary = state["objectives_state"][oid2]
+			var tt := _tac_obj(oid2)
+			var swept := bool(tt.get("sweep_" + sid, false))
+			if bool(tt.get("cleared_" + sid, false)) and objective_owner(od2) != sid and int(ost[apl_opp]) == 0:
+				_tac_gain(sid, 2 if swept else 1, 2, "【%s】已清理且无敌方争夺" % oid2.to_upper())
+			if swept and str(ost["controlled_by"]) == sid:
+				_tac_gain(sid, 1, 2, "控制带扫荡标记的【%s】" % oid2.to_upper())
+	elif tac == "track_enemy" and tp >= 2:
+		var n_tr := tracked_enemies(sid).size()
+		if n_tr >= 2:
+			_tac_gain(sid, 2, 2, "追踪 %d 名敌方特工" % n_tr)
+		elif n_tr == 1:
+			_tac_gain(sid, 2 if tp >= 4 else 1, 2, "追踪 1 名敌方特工")
+	elif tac == "surveil" and tp >= 2:
+		var terrains: Array = state["map"]["terrains"]
+		for t in state["operatives"]:
+			var td: Dictionary = t
+			if not _on_board(td) or not (td.get("surveilled_by", []) as Array).has(sid):
+				continue
+			var t_pos: Vector2 = td["pos"]
+			var seen := false
+			for f in state["operatives"]:
+				var fd: Dictionary = f
+				if seen or not _on_board(fd) or str(fd["side"]) != sid:
+					continue
+				var f_pos: Vector2 = fd["pos"]
+				seen = KTGeometry.has_visibility(f_pos, float(fd["base_radius"]), KTGeometry.elevation_at(f_pos, terrains), t_pos, float(td["base_radius"]), KTGeometry.elevation_at(t_pos, terrains), terrains)
+			if seen:
+				_tac_gain(sid, 1, 2, "监控【%s】" % str(td["name"]))
+	elif tac == "steal_intel":
+		var n_int := _carried_count(sid, "intel")
+		if tp >= 2 and n_int > 0:
+			_tac_gain(sid, 1, 1, "己方特工携带情报标记")
+		if tp >= 4 and n_int > 0:
+			_tac_gain(sid, n_int, 0, "战斗结束时携带 %d 枚情报标记" % n_int)
+	elif tac == "retrieval" and tp >= 4:
+		var n_ret := _carried_count(sid, "retrieval")
+		if n_ret > 0:
+			_tac_gain(sid, n_ret, 0, "战斗结束时携带 %d 枚回收标记" % n_ret)
 
 
 const EQ_BLIGHT_GRENADE_ID := "eq_blight_grenade"
@@ -2282,6 +2786,7 @@ func get_unique_actions(op: Dictionary) -> Array[Dictionary]:
 			"needs_target": true,
 			"desc": "选择 6\" 内可见的一名敌方特工：它及其 1\" 内的每名其他特工掷 D6，3+ 则 APL -1 直到其下一次激活结束"
 		})
+	out.append_array(_tac_actions(op))
 	return out
 
 
@@ -2435,6 +2940,8 @@ func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 	var op := get_op(uid)
 	if op.is_empty():
 		return {"ok": false, "msg": "无效特工"}
+	if ability_id.begins_with("tac_"):
+		return _execute_tac_action(op, ability_id, "")
 	if ability_id == "eq_smoke":
 		return {"ok": false, "msg": "请在棋盘上选择烟雾手雷的落点"}
 	if ability_id == "eq_stun":

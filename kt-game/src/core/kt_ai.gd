@@ -142,6 +142,9 @@ static func decide_next_operative_action(engine: KTEngine, op: Dictionary) -> Di
 							return {"kind": "unique", "ability_id": uid_ab}
 			if uid_ab == "aod_optics":
 				return {"kind": "unique", "ability_id": uid_ab}
+			# Tac-op mission actions that need no target: take them whenever they are available
+			if uid_ab.begins_with("tac_") and not bool(ua.get("needs_target", false)):
+				return {"kind": "unique", "ability_id": uid_ab}
 
 	# 4. If a high-value Ranged Shot is available right now -> Shoot!
 	if bool(acts["shoot"]["enabled"]):

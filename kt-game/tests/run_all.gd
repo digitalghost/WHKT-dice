@@ -24,6 +24,7 @@ func _init() -> void:
 	_test_grenade_equipment()
 	_test_all_official_maps()
 	_test_objectives_clear_of_walls()
+	_test_tac_ops_extended()
 	_test_r1_rule_defect_fixes()
 
 
@@ -486,7 +487,7 @@ func _test_tac_ops() -> void:
 	while str(e1.state["phase"]) == "EQUIP":
 		e1.confirm_equipment(e1.setup_side(), [])
 	_assert_true(not bool(e1.choose_tac_op(e1.setup_side(), "flank")["ok"]), "Tac op of another archetype is rejected")
-	_assert_true(not bool(e1.choose_tac_op(e1.setup_side(), "plant_banner")["ok"]), "Not-yet-implemented tac op cannot be picked")
+	_assert_true(not bool(e1.choose_tac_op(e1.setup_side(), "nope_op")["ok"]), "Unknown tac op is rejected")
 
 	# 主宰 (A) vs 殉道者 (B)
 	var eng := _tac_match(810, "dominate", "martyrs")
@@ -2037,3 +2038,193 @@ func _test_objectives_clear_of_walls() -> void:
 				if KTGeometry.is_impassable_terrain(t) and KTGeometry.point_to_rect_distance(p, tr) < 0.2:
 					ok = false
 	_assert_true(ok, "No objective marker centre sits in or against an impassable terrain rect on any map")
+
+
+func _tac_force(seed_v: int, side_id: String, tac_id: String) -> KTEngine:
+	var eng := _tac_match(seed_v, "dominate", "dominate")
+	eng.state["sides"][side_id]["tac_op"] = tac_id
+	eng.state["phase"] = "FIREFIGHT"
+	eng.state["tp"] = 2
+	for op in eng.state["operatives"]:
+		op["pos"] = Vector2(-99.0, -99.0)
+	eng.recalculate_objectives_and_kills()
+	return eng
+
+
+func _tac_activate(eng: KTEngine, op: Dictionary, pos: Vector2) -> void:
+	op["pos"] = pos
+	op["ap_left"] = 3
+	op["actions_taken"] = []
+	eng.state["active_op_uid"] = str(op["uid"])
+	eng.state["active_is_counteract"] = false
+	eng.state["turn_side"] = str(op["side"])
+	eng.recalculate_objectives_and_kills()
+
+
+func _ua_enabled(eng: KTEngine, op: Dictionary, id: String) -> bool:
+	for a in eng.get_unique_actions(op):
+		if str(a["id"]) == id:
+			return bool(a["enabled"])
+	return false
+
+
+func _vp_tac(eng: KTEngine, side_id: String) -> int:
+	return int(eng.state["sides"][side_id]["vp_tac"])
+
+
+func _test_tac_ops_extended() -> void:
+	# All on default map 4: A deploys south, so B's territory is the north half; flanks are west / east.
+	# --- 侧翼 ---
+	var e := _tac_force(820, "A", "flank")
+	var a := _side_ops(e, "A")
+	var b := _side_ops(e, "B")
+	a[0]["pos"] = Vector2(5.0, 5.0)
+	_assert_true(e.flank_controller("west") == "A" and e.flank_controller("east") == "", "Flank: operative wholly in a flank and in enemy territory controls it")
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 1, "Flank: 1VP per controlled flank at the end of TP2")
+	a[0]["pos"] = Vector2(15.2, 5.0)
+	_assert_true(e.flank_controller("west") == "" and e.flank_controller("east") == "", "Flank: an operative straddling the dividing line contests neither flank")
+	a[0]["pos"] = Vector2(5.0, 5.0)
+	e._tac_new_tp()
+	e.state["tp"] = 3
+	e._score_tac_op_end_of_tp()
+	e._tac_new_tp()
+	e.state["tp"] = 4
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 4, "Flank: a flank also held at the end of TP3 is worth 2VP in TP4 (1+1+2)")
+
+	# --- 插旗 ---
+	e = _tac_force(821, "A", "plant_banner")
+	a = _side_ops(e, "A")
+	b = _side_ops(e, "B")
+	_tac_activate(e, a[0], Vector2(3.0, 5.0))
+	_assert_true(not _ua_enabled(e, a[0], "tac_plant_banner"), "Plant Banner: refused within 5\" of a neutral killzone edge")
+	_tac_activate(e, a[0], Vector2(10.0, 19.0))
+	_assert_true(not _ua_enabled(e, a[0], "tac_plant_banner"), "Plant Banner: refused outside enemy territory")
+	_tac_activate(e, a[0], Vector2(10.0, 5.0))
+	_assert_true(bool(e.execute_unique_action(str(a[0]["uid"]), "tac_plant_banner")["ok"]) and (e.state["eq_markers"] as Array).size() == 1 and int(a[0]["ap_left"]) == 2, "Plant Banner: 1AP action places the banner marker")
+	a[0]["actions_taken"] = []
+	_assert_true(not _ua_enabled(e, a[0], "tac_plant_banner"), "Plant Banner: only once per battle")
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 2, "Plant Banner: controlled banner in enemy territory with no enemy contesting = 2VP")
+	a[0]["pos"] = Vector2(-99.0, -99.0)
+	_tac_activate(e, b[0], Vector2(10.9, 5.0))
+	e._tac_new_tp()
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 2, "Plant Banner: a banner the owner does not control scores nothing")
+	_assert_true(bool(e.execute_unique_action(str(b[0]["uid"]), "tac_grab_banner")["ok"]) and (e.state["eq_markers"] as Array).is_empty() and (b[0]["carried"] as Array).size() == 1, "Plant Banner: the enemy can pick the banner up")
+
+	# --- 放置装置 ---
+	e = _tac_force(822, "A", "plant_devices")
+	a = _side_ops(e, "A")
+	var enemy_obj: Dictionary = {}
+	var mid_obj: Dictionary = {}
+	for o in e.state["map"]["objectives"]:
+		if e.objective_owner(o) == "B":
+			enemy_obj = o
+		elif e.objective_owner(o) == "":
+			mid_obj = o
+	_assert_true(not enemy_obj.is_empty() and not mid_obj.is_empty(), "Map 4 has one objective in B's territory and one on the centre line")
+	_tac_activate(e, a[0], enemy_obj["pos"])
+	_assert_true(bool(e.execute_unique_action(str(a[0]["uid"]), "tac_plant_device")["ok"]), "Plant Devices: device placed on a controlled objective")
+	a[0]["actions_taken"] = []
+	_assert_true(not _ua_enabled(e, a[0], "tac_plant_device"), "Plant Devices: an objective cannot take a second device")
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 1, "Plant Devices: device on the enemy objective = 1VP")
+
+	# --- 回收 ---
+	e = _tac_force(823, "A", "retrieval")
+	a = _side_ops(e, "A")
+	var objs: Array = e.state["map"]["objectives"]
+	e.state["tp"] = 1
+	_tac_activate(e, a[0], objs[0]["pos"])
+	_assert_true(not _ua_enabled(e, a[0], "tac_search"), "Retrieval: no Search in turning point 1")
+	e.state["tp"] = 2
+	_assert_true(bool(e.execute_unique_action(str(a[0]["uid"]), "tac_search")["ok"]) and _vp_tac(e, "A") == 1 and (a[0]["carried"] as Array).size() == 1, "Retrieval: Search scores 1VP immediately and gives a Retrieval marker")
+	_tac_activate(e, a[0], objs[1]["pos"])
+	_assert_true(not _ua_enabled(e, a[0], "tac_search"), "Retrieval: cannot Search while carrying a marker")
+	a[0]["carried"] = []
+	_tac_activate(e, a[0], objs[0]["pos"])
+	_assert_true(not _ua_enabled(e, a[0], "tac_search"), "Retrieval: an objective can be searched only once")
+	a[0]["carried"] = [{"item": "retrieval", "team": "A"}]
+	e._tac_new_tp()
+	e.state["tp"] = 4
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 2, "Retrieval: +1VP per carried Retrieval marker at the end of the battle")
+
+	# --- 扫荡清理 (V11.5 errata) ---
+	e = _tac_force(824, "A", "sweep_clear")
+	a = _side_ops(e, "A")
+	b = _side_ops(e, "B")
+	mid_obj = {}
+	for o in e.state["map"]["objectives"]:
+		if e.objective_owner(o) == "":
+			mid_obj = o
+	var mid_id := str(mid_obj["id"])
+	b[0]["pos"] = mid_obj["pos"]
+	e.recalculate_objectives_and_kills()
+	b[0]["wounds_cur"] = 0
+	b[0]["incapacitated"] = true
+	e.recalculate_objectives_and_kills()
+	_assert_true(bool(e.state["objectives_state"][mid_id]["tac"].get("sweep_A", false)), "Sweep & Clear: enemy incapacitated while contesting an objective leaves a Sweep marker")
+	_tac_activate(e, a[0], mid_obj["pos"])
+	_assert_true(bool(e.execute_unique_action(str(a[0]["uid"]), "tac_clear")["ok"]), "Sweep & Clear: Clear action on a controlled objective")
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 2, "Sweep & Clear: cleared + swept objective with no enemy contesting = 2VP (capped per TP)")
+	e._tac_new_tp()
+	var tac_d: Dictionary = e.state["objectives_state"][mid_id]["tac"]
+	_assert_true(not tac_d.has("sweep_A") and not tac_d.has("cleared_A"), "Sweep & Clear: markers are removed in the next strategy phase")
+
+	# --- 追踪敌军 ---
+	e = _tac_force(825, "A", "track_enemy")
+	a = _side_ops(e, "A")
+	b = _side_ops(e, "B")
+	a[0]["pos"] = Vector2(26.0, 14.1)
+	a[0]["order"] = "conceal"
+	b[0]["pos"] = Vector2(26.0, 7.5)
+	b[0]["order"] = "engage"
+	_assert_true(e.tracked_enemies("A").size() == 1, "Track Enemy: concealed operative in cover within 6\" tracks an enemy it can target")
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 1, "Track Enemy: one tracked enemy = 1VP")
+	a[0]["order"] = "engage"
+	_assert_true(e.tracked_enemies("A").is_empty(), "Track Enemy: an Engage-order operative tracks nobody")
+
+	# --- 敌情 ---
+	e = _tac_force(826, "A", "surveil")
+	a = _side_ops(e, "A")
+	b = _side_ops(e, "B")
+	b[0]["ready"] = true
+	b[0]["pos"] = Vector2(26.0, 7.5)
+	a[0]["order"] = "conceal"
+	_tac_activate(e, a[0], Vector2(26.0, 14.1))
+	_assert_true(e.surveil_targets(a[0]).is_empty(), "Surveillance: an enemy within 6\" cannot be chosen")
+	b[0]["pos"] = Vector2(26.0, 6.3)
+	_assert_true(bool(e.execute_target_action(str(a[0]["uid"]), "tac_surveil", str(b[0]["uid"]))["ok"]) and (b[0]["surveilled_by"] as Array).has("A"), "Surveillance: Surveil marks a visible ready enemy more than 6\" away")
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 1, "Surveillance: 1VP per surveilled enemy visible to a friendly operative")
+	e._tac_new_tp()
+	_assert_true((b[0]["surveilled_by"] as Array).is_empty(), "Surveillance: marks are cleared for the next turning point")
+	b[0]["surveilled_by"] = ["A"]
+	a[0]["pos"] = Vector2(25.0, 17.3)
+	b[0]["pos"] = Vector2(25.0, 20.8)
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 1, "Surveillance: a surveilled enemy nobody can see scores nothing")
+
+	# --- 窃取情报 ---
+	e = _tac_force(827, "A", "steal_intel")
+	a = _side_ops(e, "A")
+	b = _side_ops(e, "B")
+	b[0]["pos"] = Vector2(20.0, 20.0)
+	b[0]["wounds_cur"] = 0
+	b[0]["incapacitated"] = true
+	e.recalculate_objectives_and_kills()
+	var marks: Array = e.state["eq_markers"]
+	_assert_true(marks.size() == 1 and str(marks[0]["kind"]) == "intel" and str(marks[0]["side"]) == "A", "Steal Intel: an incapacitated enemy leaves an Intel marker")
+	_tac_activate(e, a[0], Vector2(20.9, 20.0))
+	_assert_true(bool(e.execute_unique_action(str(a[0]["uid"]), "tac_pickup")["ok"]) and (a[0]["carried"] as Array).size() == 1 and marks.is_empty(), "Steal Intel: a friendly operative picks the marker up")
+	e._score_tac_op_end_of_tp()
+	_assert_true(_vp_tac(e, "A") == 1, "Steal Intel: 1VP while any friendly operative carries Intel")
+	a[0]["carried"] = [{"item": "intel", "team": "A"}, {"item": "intel", "team": "A"}]
+	a[0]["actions_taken"] = []
+	marks.append({"kind": "intel", "side": "A", "pos": Vector2(20.0, 20.0)})
+	_assert_true(not _ua_enabled(e, a[0], "tac_pickup"), "Steal Intel: an operative carries at most 2 Intel markers")
