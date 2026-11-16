@@ -112,6 +112,11 @@ static func status_token_tex(kind: String, side: String) -> Texture2D:
 			return KTData.load_tex(TOKEN_DIR + ("status_alert_blue.png" if side == "A" else "status_alert_red.png"))
 		"envoy":
 			return KTData.load_tex(TOKEN_DIR + ("banner_blue.png" if side == "A" else "banner_red.png"))
+		"carried":
+			return KTData.load_tex(TOKEN_DIR + ("crate_blue.png" if side == "A" else "crate_red.png"))
+		"surveilled":
+			# Placed by the enemy, so it carries the enemy's colour
+			return KTData.load_tex(TOKEN_DIR + ("scan_red.png" if side == "A" else "scan_blue.png"))
 		"apl_minus":
 			return KTData.load_tex(TOKEN_DIR + "apl_minus.png")
 		"apl_plus":
@@ -136,6 +141,10 @@ static func status_kinds_for(op: Dictionary) -> Array[String]:
 		kinds.append("dominate")
 	if bool(op.get("is_envoy", false)):
 		kinds.append("envoy")
+	if not (op.get("carried", []) as Array).is_empty():
+		kinds.append("carried")
+	if not (op.get("surveilled_by", []) as Array).is_empty():
+		kinds.append("surveilled")
 	return kinds
 
 

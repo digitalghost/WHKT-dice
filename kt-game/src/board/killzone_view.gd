@@ -602,6 +602,7 @@ func clear_interaction() -> void:
 	deploy_uid = ""
 	eq_deploy_kind = ""
 	pick_uid = ""
+	pick_ability = ""
 	pick_enemy_uids.clear()
 	move_waypoints.clear()
 	active_shoot_weapon = {}
@@ -672,6 +673,8 @@ func start_fight_mode(uid: String) -> void:
 
 var pick_uid: String = ""
 var pick_enemy_uids: Array[String] = []
+## Unique-action id the pick_enemy mode is armed for ("eq_stun", "tac_surveil", ...)
+var pick_ability: String = ""
 
 func start_pick_point_mode(uid: String) -> void:
 	clear_interaction()
@@ -1322,6 +1325,15 @@ func _sync_flat_marker_tokens() -> void:
 		var m: Dictionary = m_v
 		if str(m.get("kind", "")) == "cloud_of_flies":
 			items.append({"tex": "pm_flies", "pos": m["pos"], "size": 1.57})
+	# Tac-op markers lying on the table: banners, Intel and dropped Retrieval markers
+	for em_v in engine.state.get("eq_markers", []):
+		var em: Dictionary = em_v
+		var em_kind: String = str(em.get("kind", ""))
+		var em_col: String = "blue" if str(em.get("side", "A")) == "A" else "red"
+		if em_kind == "banner":
+			items.append({"tex": "banner_" + em_col, "pos": em["pos"], "size": 0.8})
+		elif em_kind == "intel" or em_kind == "retrieval":
+			items.append({"tex": "crate_" + em_col, "pos": em["pos"], "size": 0.8})
 	for obj_v in engine.state["map"]["objectives"]:
 		var obj: Dictionary = obj_v
 		var ost: Dictionary = engine.state["objectives_state"].get(str(obj["id"]), {})
@@ -1332,6 +1344,16 @@ func _sync_flat_marker_tokens() -> void:
 				var o_pos: Vector2 = obj["pos"]
 				items.append({"tex": "status_cross_blue" if sid == "A" else "status_cross_red", "pos": o_pos + Vector2(cos(ang), sin(ang)) * 1.25, "size": 0.7})
 				slot += 1
+		# Tac-op markers on the objective: device (放置装置), Sweep marker and Clear (扫荡清理)
+		var tac_d: Dictionary = ost.get("tac", {})
+		for sid2 in ["A", "B"]:
+			var col2: String = "blue" if sid2 == "A" else "red"
+			for pair in [["device_", "bomb_"], ["sweep_", "status_skull_"], ["cleared_", "status_alert_"]]:
+				if bool(tac_d.get(str(pair[0]) + sid2, false)):
+					var ang2: float = -0.6 + 0.75 * float(slot)
+					var o_pos2: Vector2 = obj["pos"]
+					items.append({"tex": str(pair[1]) + col2, "pos": o_pos2 + Vector2(cos(ang2), sin(ang2)) * 1.25, "size": 0.7})
+					slot += 1
 	var parts := PackedStringArray()
 	for it in items:
 		var ip: Vector2 = it["pos"]

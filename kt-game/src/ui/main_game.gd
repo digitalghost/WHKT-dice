@@ -2084,7 +2084,10 @@ func _update_tactical_pill() -> void:
 		elif _killzone.interaction_mode == "pick_point":
 			_guide_lbl.text = "💨 在 6\" 内可见位置点击放置烟雾手雷 ｜ 右键取消"
 		elif _killzone.interaction_mode == "pick_enemy":
-			_guide_lbl.text = "💫 点击 6\" 内可见的敌方特工投掷震荡手雷 ｜ 右键取消"
+			if _killzone.pick_ability == "tac_surveil":
+				_guide_lbl.text = "📡 点击 6\" 外可见的敌方就绪特工进行侦查 ｜ 右键取消"
+			else:
+				_guide_lbl.text = "💫 点击 6\" 内可见的敌方特工投掷震荡手雷 ｜ 右键取消"
 		else:
 			var aop: Dictionary = engine.get_op(str(engine.state["active_op_uid"]))
 			_guide_lbl.text = "⚡ 【%s】听候指令 — 按 [1]~[9] 触发技能槽，[Space] 结束激活" % str(aop.get("name", ""))
@@ -3231,7 +3234,7 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 		var u_cost: int = 0 if ab_id == "eq_resupply" else int(ua.get("cost", 1))
 		var needs_pt: bool = bool(ua.get("needs_point", false))
 		var needs_tgt: bool = bool(ua.get("needs_target", false))
-		var u_armed: bool = (needs_pt and _killzone.interaction_mode == "pick_point") or (needs_tgt and _killzone.interaction_mode == "pick_enemy")
+		var u_armed: bool = (needs_pt and _killzone.interaction_mode == "pick_point") or (needs_tgt and _killzone.interaction_mode == "pick_enemy" and _killzone.pick_ability == ab_id)
 		var short_u: String = ab_nm.split("(")[0].split("（")[0].strip_edges().substr(0, 4)
 		var slot_u := _make_skill_slot(
 			"unique", short_u, ab_nm, str(ua["desc"]),
@@ -3251,9 +3254,10 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 				else:
 					var cur_op: Dictionary = engine.get_op(uid)
 					var t_uids: Array = []
-					for st_op in engine.stun_targets(cur_op):
+					for st_op in engine.unique_action_targets(cur_op, ab_id):
 						t_uids.append(str(st_op["uid"]))
 					_killzone.start_pick_enemy_mode(uid, t_uids)
+					_killzone.pick_ability = ab_id
 				_refresh_all_ui()
 				return
 			var res: Dictionary = engine.execute_unique_action(uid, ab_id)
@@ -3458,10 +3462,15 @@ func _on_board_enemy_picked(uid: String, target_uid: String) -> void:
 		_killzone.clear_interaction()
 		_refresh_all_ui()
 		return
-	var res: Dictionary = engine.use_stun_grenade(uid, target_uid)
+	var pick_ab: String = _killzone.pick_ability if not _killzone.pick_ability.is_empty() else "eq_stun"
+	var res: Dictionary = engine.execute_target_action(uid, pick_ab, target_uid)
 	if bool(res.get("ok", false)):
 		_killzone.clear_interaction()
 		KTSfx.play("order_servo", -3.5, 0.05)
+		if pick_ab == "tac_surveil":
+			var sv_op: Dictionary = engine.get_op(target_uid)
+			if not sv_op.is_empty():
+				_killzone.spawn_floating_text(sv_op["pos"], "📡 已被监控", KTTheme.COL_GOLD_BRIGHT)
 		var rolls: Array = res.get("rolls", [])
 		for r_v in rolls:
 			var r_d: Dictionary = r_v
