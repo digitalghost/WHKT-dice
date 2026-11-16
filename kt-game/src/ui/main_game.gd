@@ -1862,9 +1862,19 @@ func _sync_edge_squad_medallions() -> void:
 			var bound_uid: String = uid
 			med.clicked_unit.connect(func():
 				var cur_op: Dictionary = engine.get_op(bound_uid)
-				if not cur_op.is_empty() and not bool(cur_op["incapacitated"]):
-					_killzone.focus_on_operative(bound_uid)
-					_on_board_operative_clicked(bound_uid)
+				if cur_op.is_empty() or bool(cur_op["incapacitated"]):
+					return
+				var ph: String = str(engine.state.get("phase", ""))
+				if ph == "DEPLOY" and not bool(cur_op.get("deployed", false)):
+					# Still in the drop zone: clicking the roster card picks it up for placement
+					# instead of flying the camera to its off-board (-99,-99) parking spot.
+					if str(cur_op["side"]) == engine.deploy_side() and not engine.is_ai_turn():
+						_killzone.start_deploy_mode(bound_uid)
+						KTSfx.play("card_lift", -5.0, 0.05)
+					_refresh_all_ui()
+					return
+				_killzone.focus_on_operative(bound_uid)
+				_on_board_operative_clicked(bound_uid)
 			)
 			med.card_requested.connect(func():
 				var cur_op2: Dictionary = engine.get_op(bound_uid)
@@ -1888,6 +1898,8 @@ func _sync_edge_squad_medallions() -> void:
 		var ord_tex: Texture2D = KTTheme.order_token_tex(ord_str, ready_flag)
 
 		med.setup(op, is_left, uid == active_uid, uid == sel_uid, st_tex, ord_tex)
+		# Not yet on the table: dim its card so it doesn't read as "click me to look at it".
+		med.modulate.a = 1.0 if bool(op.get("deployed", true)) else 0.62
 
 
 func _rebuild_bottom_game_hud() -> void:

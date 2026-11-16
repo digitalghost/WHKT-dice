@@ -532,6 +532,9 @@ func focus_on_operative(uid: String) -> void:
 		return
 	selected_uid = uid
 	var p_in: Vector2 = op["pos"]
+	# Operatives waiting to be deployed sit off-board at (-99,-99): never aim the camera there.
+	if p_in.x < 0.0 or p_in.y < 0.0 or not bool(op.get("deployed", true)):
+		return
 	var z_in := elevation_at_inches(p_in)
 	target_focus = inches_to_world(p_in, z_in + 0.8)
 	target_dist = minf(target_dist, 42.0)
