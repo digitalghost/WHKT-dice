@@ -145,8 +145,8 @@ func _build_3d_viewport() -> void:
 	# ambient floor, one high key light for shape, one soft fill from the opposite side, and no
 	# point lights on the terrain (braziers used to leave half the board in their shadow).
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	env.ambient_light_color = Color(0.70, 0.72, 0.78)
-	env.ambient_light_energy = 1.05
+	env.ambient_light_color = Color(0.56, 0.59, 0.66)
+	env.ambient_light_energy = 0.65
 	env.fog_enabled = true
 	env.fog_mode = Environment.FOG_MODE_EXPONENTIAL
 	env.fog_light_color = Color(0.085, 0.078, 0.074)
@@ -154,14 +154,18 @@ func _build_3d_viewport() -> void:
 	env.fog_sky_affect = 0.35
 	env.fog_aerial_perspective = 0.15
 	env.tonemap_mode = Environment.TONE_MAPPER_ACES
-	env.tonemap_exposure = 1.18
+	env.tonemap_exposure = 1.0
+	env.adjustment_enabled = true
+	env.adjustment_brightness = 1.00
+	env.adjustment_contrast = 1.06
+	env.adjustment_saturation = 1.08
 	env.glow_enabled = true
 	env.glow_intensity = 0.42
 	env.glow_bloom = 0.02
 	env.glow_hdr_threshold = 1.35
 	env.ssao_enabled = true
 	env.ssao_radius = 0.70
-	env.ssao_intensity = 0.70
+	env.ssao_intensity = 0.85
 	# Contact-shadow softness so SSAO doesn't black out mini feet / ruin corners
 	env.ssao_power = 1.3
 	env.ssao_light_affect = 0.25
@@ -181,7 +185,7 @@ func _build_3d_viewport() -> void:
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-62.0, -28.0, 0.0)
 	sun.light_color = Color(1.0, 0.96, 0.90)
-	sun.light_energy = 1.45
+	sun.light_energy = 1.25
 	sun.shadow_enabled = true
 	sun.shadow_opacity = 0.55
 	sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
@@ -194,7 +198,7 @@ func _build_3d_viewport() -> void:
 	var fill := DirectionalLight3D.new()
 	fill.rotation_degrees = Vector3(-40.0, 150.0, 0.0)
 	fill.light_color = Color(0.80, 0.86, 1.0)
-	fill.light_energy = 0.55
+	fill.light_energy = 0.42
 	fill.shadow_enabled = false
 	_world_root.add_child(fill)
 

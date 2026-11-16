@@ -7,6 +7,8 @@ extends RefCounted
 ## - Sculpted 3D tabletop miniature bases paired with razor-sharp 360° camera-facing 2D Character Standees
 ##   extracted from official Kill Team rule cards, casting real 3D silhouette shadows!
 
+const GROUND_LIFT := 0.02
+
 static var _cached_soft_dot_tex: ImageTexture = null
 static var _cached_battlemat_tex: ImageTexture = null
 ## Set by killzone_view before build_tabletop_base(): res:// path of the map's official mat image.
@@ -247,7 +249,7 @@ static func add_flat_token(parent: Node3D, pos: Vector3, size: float, tex: Textu
 	var mi := MeshInstance3D.new()
 	mi.mesh = pm
 	mi.material_override = mat
-	mi.position = pos
+	mi.position = pos + Vector3(0.0, GROUND_LIFT, 0.0)
 	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	parent.add_child(mi)
 	return {"mesh": mi, "mat": mat}
@@ -414,7 +416,7 @@ static func build_tabletop_base(
 	var ground_mi := MeshInstance3D.new()
 	ground_mi.mesh = mat_plane
 	ground_mi.material_override = mat_ground
-	ground_mi.position = Vector3(0.0, 0.0, 0.0)
+	ground_mi.position = Vector3(0.0, -0.010, 0.0)
 	parent.add_child(ground_mi)
 
 	var mat_overlay := StandardMaterial3D.new()
@@ -542,20 +544,67 @@ static func _build_painted_mini(root: Node3D, body_pivot: Node3D, op: Dictionary
 ## Returns null when the mesh is missing so the caller can fall back to the procedural block.
 static var _terrain_mesh_cache: Dictionary = {}
 
+
+## Photogrammetry Volkus OBJs have a flat Blender Bisect-Fill cap across y≈0..0.015 (with downward
+## normals vn.y≈-1) spanning the open courtyards between L-walls, causing coplanar/self Z-fighting
+## and hiding the battlemat. Strip only those horizontal downward bottom-cap triangles once on load.
+static func _strip_terrain_bottom_cap(src_mesh: Mesh) -> Mesh:
+	var am := src_mesh as ArrayMesh
+	if am == null or am.get_surface_count() == 0:
+		return src_mesh
+	var out := ArrayMesh.new()
+	var stripped_any := false
+	for si in range(am.get_surface_count()):
+		var prim := am.surface_get_primitive_type(si)
+		var arr := am.surface_get_arrays(si)
+		if prim != Mesh.PRIMITIVE_TRIANGLES:
+			out.add_surface_from_arrays(prim, arr)
+			continue
+		var verts: PackedVector3Array = arr[Mesh.ARRAY_VERTEX]
+		var norms: PackedVector3Array = arr[Mesh.ARRAY_NORMAL]
+		var idx: PackedInt32Array = arr[Mesh.ARRAY_INDEX]
+		if verts.is_empty() or norms.size() != verts.size() or idx.size() < 3:
+			out.add_surface_from_arrays(prim, arr)
+			continue
+		var keep := PackedInt32Array()
+		var tri_count: int = idx.size() / 3
+		for ti in range(tri_count):
+			var i0: int = idx[ti * 3]
+			var i1: int = idx[ti * 3 + 1]
+			var i2: int = idx[ti * 3 + 2]
+			var v0: Vector3 = verts[i0]
+			var v1: Vector3 = verts[i1]
+			var v2: Vector3 = verts[i2]
+			if maxf(v0.y, maxf(v1.y, v2.y)) < 0.025 and (norms[i0].y + norms[i1].y + norms[i2].y) < -0.6:
+				var gn: Vector3 = (v1 - v0).cross(v2 - v0)
+				var gl: float = gn.length()
+				if gl <= 0.000001 or absf(gn.y / gl) > 0.95:
+					stripped_any = true
+					continue
+			keep.append(i0)
+			keep.append(i1)
+			keep.append(i2)
+		if keep.size() >= 3:
+			arr[Mesh.ARRAY_INDEX] = keep
+			out.add_surface_from_arrays(prim, arr)
+	return out if (stripped_any and out.get_surface_count() > 0) else src_mesh
+
+
 static func build_terrain_model(parent: Node3D, v: Dictionary, board_w: float, board_h: float) -> Node3D:
 	var mesh_path := str(v.get("mesh", ""))
 	if mesh_path.is_empty() or not ResourceLoader.exists(mesh_path):
 		return null
 	var mesh: Mesh = _terrain_mesh_cache.get(mesh_path, null)
 	if mesh == null:
-		mesh = load(mesh_path) as Mesh
-		if mesh == null:
+		var raw_mesh := load(mesh_path) as Mesh
+		if raw_mesh == null:
 			return null
+		mesh = _strip_terrain_bottom_cap(raw_mesh)
 		_terrain_mesh_cache[mesh_path] = mesh
 
 	var root := Node3D.new()
 	var p_in: Vector2 = v["pos_in"]
-	root.position = Vector3(p_in.x - board_w * 0.5, 0.0, p_in.y - board_h * 0.5)
+	root.position = Vector3(p_in.x - board_w * 0.5, GROUND_LIFT, p_in.y - board_h * 0.5)
 	# rot_y_deg is the ready-to-use Godot yaw computed by tools/build_volkus_map.py (see its
 	# "Coordinate conventions" block, fitted against the six official 2025 map tiles). The piece is
 	# not mirrored, so the scale stays positive and the mesh matches its rule rectangles.
@@ -571,12 +620,12 @@ static func build_terrain_model(parent: Node3D, v: Dictionary, board_w: float, b
 	var tex: Texture2D = KTData.load_tex(diff) if not diff.is_empty() else null
 	if tex != null:
 		mat.albedo_texture = tex
-		mat.albedo_color = Color(0.92, 0.90, 0.88)
+		mat.albedo_color = Color(0.76, 0.75, 0.74)
 	else:
 		mat.albedo_color = Color(0.42, 0.42, 0.45)
 	mat.roughness = 0.88
 	mat.metallic = 0.02
-	# Ruin walls are single-sided shells: render both faces so they don't vanish from inside.
+	# Ruin walls are single-sided shells in spots: render both faces so they don't vanish from inside.
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	mi.material_override = mat
@@ -643,7 +692,7 @@ static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3,
 	var cz: float = (min_z + max_z) * 0.5
 
 	var root: Node3D = Node3D.new()
-	root.position = pos_3d
+	root.position = pos_3d + Vector3(0.0, GROUND_LIFT, 0.0)
 	root.rotation_degrees.y = 90.0 if rot90 else 0.0
 	parent.add_child(root)
 
@@ -653,6 +702,7 @@ static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3,
 	mi.position = Vector3(-cx * s, -min_y * s, -cz * s)
 	var mat: StandardMaterial3D = StandardMaterial3D.new()
 	mat.albedo_texture = tex
+	mat.albedo_color = Color(0.76, 0.75, 0.74)
 	mat.roughness = 0.85
 	mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
@@ -692,7 +742,7 @@ static func build_terrain_piece(
 	var elev := float(t.get("elevation", 1.0))
 	var center_x: float = rect.get_center().x - board_w * 0.5
 	var center_z: float = rect.get_center().y - board_h * 0.5
-	root.position = Vector3(center_x, 0.0, center_z)
+	root.position = Vector3(center_x, GROUND_LIFT, center_z)
 	parent.add_child(root)
 
 	var sx: float = rect.size.x
@@ -700,15 +750,15 @@ static func build_terrain_piece(
 
 	# Painted-terrain look: real surface textures, colour-coded trims kept but muted so they read as
 	# painted hazard markings on a hobby table rather than plastic block tops.
-	var mat_ferrocrete := make_textured_pbr("ferrocrete", Color(0.86, 0.80, 0.72), 0.55, 1.0, 0.0)
+	var mat_ferrocrete := make_textured_pbr("ferrocrete", Color(0.73, 0.68, 0.61), 0.55, 1.0, 0.0)
 	var mat_dark_steel := make_textured_pbr("gunmetal", Color(0.66, 0.66, 0.68), 0.80, 0.85, 0.55)
-	var mat_deck_plate := make_textured_pbr("deckplate", Color(0.92, 0.88, 0.82), 0.42, 0.95, 0.30)
+	var mat_deck_plate := make_textured_pbr("deckplate", Color(0.78, 0.75, 0.70), 0.42, 0.95, 0.30)
 	var mat_brass := make_pbr(Color(0.75, 0.57, 0.26), 0.86, 0.32)
 	var mat_hazard := make_textured_pbr("rust", Color(1.0, 0.78, 0.30), 0.9, 1.0, 0.2)
 	var mat_heavy_trim := make_textured_pbr("rust", Color(0.80, 0.34, 0.24), 0.9, 1.0, 0.2)
-	var mat_ruin_stone := make_textured_pbr("rubble_rock", Color(1.0, 0.96, 0.90), 0.45, 1.0, 0.0)
+	var mat_ruin_stone := make_textured_pbr("rubble_rock", Color(0.85, 0.82, 0.76), 0.45, 1.0, 0.0)
 	var mat_violet_trim := make_textured_pbr("rust", Color(0.62, 0.50, 0.80), 0.9, 1.0, 0.2)
-	var mat_rubble := make_textured_pbr("rubble_rock", Color(0.92, 0.90, 0.86), 1.2, 1.0, 0.0)
+	var mat_rubble := make_textured_pbr("rubble_rock", Color(0.78, 0.76, 0.73), 1.2, 1.0, 0.0)
 
 	# Scatter debris around the footprint so pieces feel bedded into the battlefield
 	var rng := RandomNumberGenerator.new()
@@ -824,7 +874,7 @@ static var _obj_marker_mesh: Mesh = null
 
 static func build_objective_beacon(parent: Node3D, pos_3d: Vector3) -> Dictionary:
 	var root: Node3D = Node3D.new()
-	root.position = pos_3d
+	root.position = pos_3d + Vector3(0.0, GROUND_LIFT, 0.0)
 	parent.add_child(root)
 
 	var ring_mat: StandardMaterial3D = make_holo(Color(0.88, 0.72, 0.32), 0.48, 1.8, 0)
@@ -848,7 +898,7 @@ static func build_objective_beacon(parent: Node3D, pos_3d: Vector3) -> Dictionar
 			var mi: MeshInstance3D = MeshInstance3D.new()
 			mi.mesh = obj_mesh
 			mi.scale = Vector3.ONE * s
-			mi.position = Vector3(-cx * s, 0.02 - aabb.position.y * s, -cz * s)
+			mi.position = Vector3(-cx * s, GROUND_LIFT - aabb.position.y * s, -cz * s)
 			var mat_obj: StandardMaterial3D = StandardMaterial3D.new()
 			mat_obj.albedo_texture = obj_tex
 			mat_obj.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
