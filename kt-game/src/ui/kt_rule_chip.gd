@@ -43,7 +43,6 @@ func setup(raw: String, tint: Color = Color(0, 0, 0, 0), font_px: int = 12) -> v
 	_lbl.add_theme_font_size_override("font_size", font_px)
 	_lbl.add_theme_color_override("font_color", accent.lightened(0.32))
 	if known:
-		_lbl.add_theme_color_override("font_color", accent.lightened(0.32))
 		# dotted underline cue: "this word is a rule"
 		_lbl.add_theme_constant_override("outline_size", 0)
 

@@ -8,6 +8,7 @@ extends RefCounted
 
 static var _entries: Dictionary = {}
 static var _loaded: bool = false
+static var _kw_re: RegEx = null
 
 const KIND_LABEL := {
 	"weapon": "武器规则", "status": "状态", "faction": "阵营规则", "ability": "特工能力",
@@ -34,9 +35,10 @@ static func _ensure_loaded() -> void:
 ## Split "致命 5+" -> ["致命", "5+"]; "关键穿刺 1" -> ["关键穿刺", "1"]; "范围 8\"" -> ["范围", "8\""].
 static func split_keyword(raw: String) -> PackedStringArray:
 	var s := raw.strip_edges()
-	var re := RegEx.new()
-	re.compile("^([^\\d（(]+?)\\s*([\\d][\\d+\"\\.]*)?\\s*(?:[（(].*?[)）])?\\s*$")
-	var m := re.search(s)
+	if _kw_re == null:
+		_kw_re = RegEx.new()
+		_kw_re.compile("^([^\\d（(]+?)\\s*([\\d][\\d+\"\\.]*)?\\s*(?:[（(].*?[)）])?\\s*$")
+	var m := _kw_re.search(s)
 	if m == null:
 		return PackedStringArray([s, ""])
 	return PackedStringArray([m.get_string(1).strip_edges(), m.get_string(2).strip_edges()])

@@ -267,16 +267,16 @@ def deploy_data(map_id: str, terrains: list) -> dict:
     }
 
 
-OBJ_WALL_CLEAR = 0.25   # inches the objective centre must keep from impassable rule rects
-OBJ_MAX_NUDGE = 0.75    # never move an objective further than this from its printed position
-                        # (map 6 objective 2 needs ~0.6" to leave the 1"-thick stronghold wall band)
+OBJ_WALL_CLEAR = 0.75   # inches (~40mm objective marker radius) the objective centre keeps from impassable rule rects
+OBJ_MAX_NUDGE = 1.35    # never move an objective further than this from its printed position
 
 
-def legalize_objective(ox, oy, terrains):
+def legalize_objective(ox, oy, terrains, map_num: int = 4):
     """The printed maps put some objectives inside strongholds, right next to walls. Our wall rule
-    rects are 0.5" cells, so a marker can end up inside one (map 6, objective 2). Nudge such a
-    marker to the nearest spot OBJ_WALL_CLEAR away from every impassable rect, at most
-    OBJ_MAX_NUDGE from where the map prints it. Objectives that are already clear do not move."""
+    rects are 0.5" cells, and the 40mm objective marker has radius ~0.79", so a marker near a wall
+    can clip visually into the wall mesh. Nudge such a marker to the nearest spot OBJ_WALL_CLEAR
+    away from every impassable rect, preserving centre-line neutrality when the printed marker sits
+    on the killzone centre line."""
     walls = [t["rect"] for t in terrains if t["kind"] in ("heavy_wall", "heavy_low", "light")]
 
     def clearance(x, y):
@@ -288,14 +288,21 @@ def legalize_objective(ox, oy, terrains):
 
     if clearance(ox, oy) >= OBJ_WALL_CLEAR:
         return ox, oy
-    best, best_d = None, 1e9
+    on_mid_x = (map_num <= 3) and abs(ox - BOARD_W * 0.5) < 0.12
+    on_mid_y = (map_num >= 4) and abs(oy - BOARD_H * 0.5) < 0.12
+    best, best_cost = None, 1e9
     steps = int(OBJ_MAX_NUDGE / 0.05)
     for i in range(-steps, steps + 1):
         for j in range(-steps, steps + 1):
             x, y = ox + i * 0.05, oy + j * 0.05
+            if x < 0.85 or x > BOARD_W - 0.85 or y < 0.85 or y > BOARD_H - 0.85:
+                continue
             d = math.hypot(x - ox, y - oy)
-            if d <= OBJ_MAX_NUDGE + 1e-6 and d < best_d and clearance(x, y) >= OBJ_WALL_CLEAR:
-                best, best_d = (x, y), d
+            if d <= OBJ_MAX_NUDGE + 1e-6 and clearance(x, y) >= OBJ_WALL_CLEAR:
+                axis_pen = (abs(x - BOARD_W * 0.5) * 8.0 if on_mid_x else 0.0) + (abs(y - BOARD_H * 0.5) * 8.0 if on_mid_y else 0.0)
+                cost = d + axis_pen
+                if cost < best_cost:
+                    best, best_cost = (x, y), cost
     if best is None:
         raise SystemExit(f"legalize_objective: no clear spot within {OBJ_MAX_NUDGE}\" of ({ox:.2f}, {oy:.2f})")
     return best
@@ -362,12 +369,12 @@ def build_map(layout_path: Path, map_id: str, name_zh: str) -> dict:
                         "rect": [round(x0, 2), round(y0, 2), round(rw, 2), round(rh, 2)], "parent": slug,
                     }); idx += 1
             elif rules.get("firestep"):
-                # Rulebook (Volkus terrain list): fire steps are Vantage, Insignificant, Exposed —
+                # Rulebook p.42 (Volkus terrain list): fire steps are Vantage, Insignificant, Exposed —
                 # one walkable deck per piece, same as the bundle-only fire steps below.
                 for (rx, rz, rw, rh) in hull_rect(band_rects(pts, 0.0, top + 0.1, 0.5, 1)):
                     terrains.append({
                         "id": f"{slug}_{idx}", "name": rules["name_zh"],
-                        "kind": "vantage", "elevation": round(top, 2), "blocks_los_ground": False,
+                        "kind": "vantage", "elevation": round(top, 2), "blocks_los_ground": False, "exposed": True,
                         "rect": [round(rx, 2), round(rz, 2), round(rw, 2), round(rh, 2)], "parent": slug,
                     }); idx += 1
             else:
@@ -388,16 +395,20 @@ def build_map(layout_path: Path, map_id: str, name_zh: str) -> dict:
             # Keep the substitute box on the board (a few pieces sit flush against the edge).
             x0 = min(max(bx - w / 2, 0.0), BOARD_W - w)
             y0 = min(max(by - d / 2, 0.0), BOARD_H - d)
-            terrains.append({
+            entry_fb = {
                 "id": f"{slug}_{idx}", "name": rules["name_zh"],
                 "kind": kind, "elevation": round(h, 2), "blocks_los_ground": False,
                 "rect": [round(x0, 2), round(y0, 2), round(w, 2), round(d, 2)], "parent": slug,
-            }); idx += 1
+            }
+            if rules.get("firestep"):
+                entry_fb["exposed"] = True
+            terrains.append(entry_fb); idx += 1
 
+    map_num = int(map_id[-2:])
     objectives = []
     for i, o in enumerate(layout["objectives"]):
         ox, oy = tts_to_board(o["pos"][0], o["pos"][2], sign)
-        ox, oy = legalize_objective(ox, oy, terrains)
+        ox, oy = legalize_objective(ox, oy, terrains, map_num)
         objectives.append({"id": f"obj_{i+1}", "name": f"{i+1}号目标标识", "pos": [round(ox, 2), round(oy, 2)]})
 
     return {

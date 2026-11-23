@@ -34,7 +34,7 @@ static func decide_strategy_step(engine: KTEngine, side_id: String) -> Dictionar
 
 	# Smart CP budgeting: Use 1~2 impactful ploys per TP while keeping >=1 CP for Command Reroll / Firefight!
 	for opt in options:
-		if bool(opt["used"]):
+		if bool(opt["used"]) or not bool(opt.get("can_use", true)):
 			continue
 		var cost := int(opt["cost"])
 		if cost == 0:
@@ -124,24 +124,71 @@ static func decide_next_operative_action(engine: KTEngine, op: Dictionary) -> Di
 	if bool(acts["secure"]["enabled"]):
 		return {"kind": "secure"}
 
-	# 3. Unique Psychic / Special Abilities (Plaguecaster Vitality heal / Miasma / Sniper Optics)
+	# 3. Unique Psychic / Special / Equipment / Tac-Op Abilities
 	for ua in engine.get_unique_actions(op):
 		if bool(ua["enabled"]):
 			var uid_ab := str(ua["id"])
-			if uid_ab == "pm_vitality" and int(op["wounds_cur"]) < int(op["wounds_max"]) - 2:
+			if uid_ab == "eq_resupply":
 				return {"kind": "unique", "ability_id": uid_ab}
+			if uid_ab == "pm_vitality":
+				var vit_terr: Array = engine.state["map"]["terrains"]
+				var z_me_v := KTGeometry.elevation_at(op["pos"], vit_terr)
+				var has_hurt_ally := false
+				for al_v in engine.state["operatives"]:
+					var ald: Dictionary = al_v
+					if not engine._on_board(ald) or str(ald["side"]) != str(op["side"]):
+						continue
+					if int(ald["wounds_cur"]) < int(ald["wounds_max"]) - 2:
+						var z_al := KTGeometry.elevation_at(ald["pos"], vit_terr)
+						var d_al := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_me_v, ald["pos"], float(ald["base_radius"]), z_al)
+						if d_al <= 3.05 and KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_me_v, ald["pos"], float(ald["base_radius"]), z_al, vit_terr):
+							has_hurt_ally = true
+							break
+				if has_hurt_ally:
+					return {"kind": "unique", "ability_id": uid_ab}
 			if uid_ab == "pm_miasma":
-				# Check if an enemy is within 7" visible
-				var terrains: Array = engine.state["map"]["terrains"]
-				var z_me := KTGeometry.elevation_at(op["pos"], terrains)
-				for e in engine.state["operatives"]:
-					if not e["incapacitated"] and e["side"] != op["side"]:
-						var d := KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), e["pos"], float(e["base_radius"]))
-						var z_e := KTGeometry.elevation_at(e["pos"], terrains)
-						if d <= 7.0 and KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_me, e["pos"], float(e["base_radius"]), z_e, terrains):
-							return {"kind": "unique", "ability_id": uid_ab}
+				if not engine._find_miasma_target(op).is_empty():
+					return {"kind": "unique", "ability_id": uid_ab}
+			if uid_ab == "pm_flail":
+				var fl_terr: Array = engine.state["map"]["terrains"]
+				var z_fl := KTGeometry.elevation_at(op["pos"], fl_terr)
+				var fl_score := 0
+				for fo in engine.state["operatives"]:
+					var fod: Dictionary = fo
+					if not engine._on_board(fod) or str(fod["uid"]) == str(op["uid"]):
+						continue
+					var z_fo := KTGeometry.elevation_at(fod["pos"], fl_terr)
+					if KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_fl, fod["pos"], float(fod["base_radius"]), z_fo) <= 2.05 \
+							and KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_fl, fod["pos"], float(fod["base_radius"]), z_fo, fl_terr):
+						fl_score += 2 if str(fod["side"]) != str(op["side"]) else -3
+				if fl_score >= 2:
+					return {"kind": "unique", "ability_id": uid_ab}
 			if uid_ab == "aod_optics":
-				return {"kind": "unique", "ability_id": uid_ab}
+				# Only spend 1AP on Sniper Optics when an obscured shootable enemy actually exists!
+				var usable_opt: Array = engine.get_usable_ranged_weapons(op)
+				for w_opt in usable_opt:
+					for e_opt in engine.state["operatives"]:
+						if not bool(e_opt["incapacitated"]) and bool(e_opt.get("deployed", true)) and str(e_opt["side"]) != str(op["side"]):
+							var ev_opt: Dictionary = KTGeometry.evaluate_shot(op, e_opt, w_opt, engine.state)
+							if bool(ev_opt["valid"]) and bool(ev_opt["obscured"]):
+								return {"kind": "unique", "ability_id": uid_ab}
+			if uid_ab == "tac_surveil":
+				var sv_cands: Array[Dictionary] = engine.surveil_targets(op)
+				if not sv_cands.is_empty():
+					return {"kind": "target_action", "ability_id": uid_ab, "target_uid": str(sv_cands[0]["uid"])}
+			if uid_ab == "eq_stun":
+				var st_cands: Array[Dictionary] = engine.stun_targets(op)
+				var st_terr: Array = engine.state["map"]["terrains"]
+				for st_t in st_cands:
+					var z_st := KTGeometry.elevation_at(st_t["pos"], st_terr)
+					var cluster_cnt: int = 1
+					for other_s in engine.state["operatives"]:
+						if not bool(other_s["incapacitated"]) and bool(other_s.get("deployed", true)) and str(other_s["uid"]) != str(st_t["uid"]):
+							var z_os := KTGeometry.elevation_at(other_s["pos"], st_terr)
+							if KTGeometry.edge_distance_3d(st_t["pos"], float(st_t["base_radius"]), z_st, other_s["pos"], float(other_s["base_radius"]), z_os) <= 1.001:
+								cluster_cnt += 1 if str(other_s["side"]) != str(op["side"]) else -2
+					if cluster_cnt >= 2:
+						return {"kind": "target_action", "ability_id": uid_ab, "target_uid": str(st_t["uid"])}
 			# Tac-op mission actions that need no target: take them whenever they are available
 			if uid_ab.begins_with("tac_") and not bool(ua.get("needs_target", false)):
 				return {"kind": "unique", "ability_id": uid_ab}
@@ -222,6 +269,20 @@ static func _find_best_shot(engine: KTEngine, op: Dictionary) -> Dictionary:
 				dmg_est *= 1.25
 			if int(enemy["wounds_cur"]) <= dmg_est:
 				dmg_est += 8.0 # Prioritize finishing off wounded targets!
+
+			# Account for Blast X / Torrent X secondary targets (Rulebook p.92 & p.94)!
+			var w_rules: Dictionary = w.get("rules", {})
+			if float(w_rules.get("blast", 0.0)) > 0.01:
+				for sec_b in KTGeometry.get_blast_secondary_targets(op, enemy, w, ev, engine.state):
+					var sd_b: Dictionary = sec_b
+					if bool(sd_b.get("friendly", false)):
+						dmg_est -= 36.0 # Avoid friendly fire with Blast!
+					else:
+						dmg_est += 18.0
+			elif float(w_rules.get("torrent", 0.0)) > 0.01:
+				var sec_t: Array[Dictionary] = KTGeometry.get_torrent_secondary_targets(op, enemy, w, engine.state)
+				dmg_est += 16.0 * float(sec_t.size())
+
 			if dmg_est > best_score:
 				best_score = dmg_est
 				best = {
@@ -284,6 +345,8 @@ static func _find_best_advance_path(engine: KTEngine, op: Dictionary, move_kind:
 	var best_pts: Array[Vector2] = []
 	var best_val := -999.0
 	var base_dir := (target_goal - start).normalized()
+	if base_dir.length_squared() < 0.001:
+		base_dir = Vector2(1.0, 0.0) if str(op["side"]) == "A" else Vector2(-1.0, 0.0)
 
 	for ratio in [1.0, 0.78, 0.55]:
 		var ratio_f: float = float(ratio)
@@ -307,5 +370,50 @@ static func _find_best_advance_path(engine: KTEngine, op: Dictionary, move_kind:
 			if score > best_val and score > 0.4:
 				best_val = score
 				best_pts = pts
+
+	# Corner / wall detour: when a ruin or stronghold wall blocks direct forward movement (e.g. Volkus Map 2),
+	# try 2-waypoint L-detours around the obstacle and lateral wall-clearing steps!
+	if best_pts.is_empty() or best_val < 3.0:
+		var perp := Vector2(-base_dir.y, base_dir.x)
+		for side_sign in [1.0, -1.0]:
+			var s_sign: float = float(side_sign)
+			for side_d_v in [2.0, 3.0, 4.0]:
+				var side_d: float = float(side_d_v)
+				var rem_f: float = max_m - ceilf(side_d)
+				if rem_f < 1.0:
+					continue
+				var mid: Vector2 = start + perp * (s_sign * side_d)
+				var end_p: Vector2 = mid + base_dir * rem_f
+				var l_pts: Array[Vector2] = [start, mid, end_p]
+				var chk_l := KTGeometry.validate_move_path(l_pts, op, move_kind, max_m, engine.state)
+				if not bool(chk_l["ok"]):
+					continue
+				var sc_l: float = (start.distance_to(target_goal) - end_p.distance_to(target_goal)) * 3.0
+				if sc_l > best_val and sc_l > 0.4:
+					best_val = sc_l
+					best_pts = l_pts
+
+	if best_pts.is_empty():
+		# Last-resort lateral slide along a long wall toward a gap/edge so operatives never get wall-trapped
+		var map_terrains: Array = engine.state["map"]["terrains"]
+		var r_op: float = float(op["base_radius"])
+		var best_esc := -999.0
+		for ang_e in [-90, 90, -110, 110, -75, 75]:
+			for rat_v in [1.0, 0.72]:
+				var cand_e: Vector2 = start + base_dir.rotated(deg_to_rad(float(ang_e))) * (max_m * float(rat_v))
+				var e_pts: Array[Vector2] = [start, cand_e]
+				var chk_e := KTGeometry.validate_move_path(e_pts, op, move_kind, max_m, engine.state)
+				if not bool(chk_e["ok"]):
+					continue
+				var probe_fwd: Vector2 = cand_e + base_dir * 2.5
+				var fwd_clear := true
+				for t_e in map_terrains:
+					if KTGeometry.is_impassable_terrain(t_e) and KTGeometry.segment_intersects_rect(cand_e, probe_fwd, (t_e["rect"] as Rect2).grow(r_op * 0.6)):
+						fwd_clear = false
+						break
+				var sc_e: float = (6.0 if fwd_clear else 0.0) + (start.distance_to(target_goal) - cand_e.distance_to(target_goal)) * 1.5 + start.distance_to(cand_e) * 0.35
+				if sc_e > best_esc:
+					best_esc = sc_e
+					best_pts = e_pts
 
 	return best_pts

@@ -40,6 +40,7 @@ func build(board_w: float, board_h: float) -> void:
 	_board_h = board_h
 	_font = KTTheme.get_cjk_font()
 	for c in get_children():
+		remove_child(c)
 		c.queue_free()
 	_chip_nodes.clear()
 	_vp_markers.clear()

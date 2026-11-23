@@ -90,7 +90,7 @@
    "name": "3号目标标识",
    "pos": [
     11.19,
-    2.85
+    2.75
    ]
   }
  ],
@@ -240,6 +240,7 @@
    "kind": "vantage",
    "elevation": 0.68,
    "blocks_los_ground": false,
+   "exposed": true,
    "rect": [
     11.5,
     15.5,
@@ -282,6 +283,7 @@
    "kind": "vantage",
    "elevation": 0.47,
    "blocks_los_ground": false,
+   "exposed": true,
    "rect": [
     6.0,
     17.0,
@@ -296,6 +298,7 @@
    "kind": "vantage",
    "elevation": 0.5,
    "blocks_los_ground": false,
+   "exposed": true,
    "rect": [
     18.5,
     2.0,

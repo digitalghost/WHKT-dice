@@ -626,7 +626,9 @@ func _spawn_flash_light(pos: Vector3, col: Color, energy: float, lrange: float, 
 
 
 func _auto_free_later(node: Node, delay_sec: float) -> void:
+	var wr: WeakRef = weakref(node)
 	get_tree().create_timer(delay_sec).timeout.connect(func():
-		if is_instance_valid(node):
-			node.queue_free()
+		var n: Node = wr.get_ref() as Node
+		if n != null and not n.is_queued_for_deletion():
+			n.queue_free()
 	)

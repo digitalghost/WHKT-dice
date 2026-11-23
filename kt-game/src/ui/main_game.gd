@@ -20,6 +20,8 @@ var _team_a_ploys_box: HBoxContainer
 var _team_b_ploys_box: HBoxContainer
 var _tp_title_lbl: Label
 var _phase_sub_lbl: Label
+var _tac_strip: PanelContainer
+var _tac_strip_hb: HBoxContainer
 
 var _sys_bar: PanelContainer
 var _undo_btn: Button
@@ -53,6 +55,7 @@ var _hero_hp_lbl: Label
 var _hero_ap_strip: ApDiamondStrip
 var _hero_order_btn: Button
 var _hero_card_btn: Button
+var _hero_tac_lbl: Label
 var _hero_abilities_flow: HFlowContainer
 var _hero_uid: String = ""
 
@@ -78,10 +81,16 @@ var _dice_modal: DiceCombatModal
 var _card_lightbox: CardLightbox
 var _help_modal: Control
 var _title_overlay: Control
+var _btn_resume: Button
 
 var _ai_timer: Timer
 var _pre_ai_undo_stack: Array[String] = []
 var _in_ai_undo_guard: bool = false
+
+# Hotseat secret-step privacy curtain (Rulebook p.105–106 secret selection steps)
+var _hotseat_privacy_enabled: bool = true
+var _hotseat_last_actor: String = ""
+var _hotseat_acked_sig: String = ""
 
 # Title screen selections
 var _sel_mode: String = "ai"
@@ -257,6 +266,8 @@ func _ready() -> void:
 	var args := OS.get_cmdline_user_args()
 	if args.has("--autotest-screenshots"):
 		call_deferred("_run_autotest_screenshot_tour")
+	elif args.has("--playtest-ui"):
+		call_deferred("_run_playtest_ui")
 
 
 func _exit_tree() -> void:
@@ -342,6 +353,17 @@ func _on_viewport_resized() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if _title_overlay != null and _title_overlay.visible:
 		return
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_Z:
+		var modal_block: bool = (_settings_modal != null and _settings_modal.visible) or (_help_modal != null and _help_modal.visible) or (_card_lightbox != null and _card_lightbox.visible)
+		if not modal_block:
+			if engine.is_ai_turn():
+				accept_event()
+				_notify_illegal_click("敌方回合中无法撤回")
+				return
+			if _can_human_undo():
+				accept_event()
+				_on_undo_pressed()
+				return
 	if _dice_modal != null and _dice_modal.visible:
 		return
 	if _settings_modal != null and _settings_modal.visible:
@@ -388,17 +410,13 @@ func _unhandled_input(event: InputEvent) -> void:
 				_ai_timer.stop()
 			_card_lightbox.show_team_rulebook("CHAOS-PM")
 			return
-		elif kc == KEY_Z:
-			if engine.is_ai_turn():
-				accept_event()
-				_notify_illegal_click("敌方回合中无法撤回")
-				return
-			if _can_human_undo():
-				accept_event()
-				_on_undo_pressed()
-				return
 
 		if engine.state.is_empty() or engine.is_ai_turn():
+			return
+
+		if kc == KEY_SPACE and _needs_hotseat_curtain():
+			accept_event()
+			_ack_hotseat_curtain()
 			return
 
 		var phase: String = str(engine.state["phase"])
@@ -496,6 +514,7 @@ func _build_top_broadcast_crest() -> void:
 	_top_crest.offset_right = 400.0
 	_top_crest.offset_top = 6.0
 	_top_crest.offset_bottom = 44.0
+	_top_crest.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	_top_crest.clip_contents = true
 	_top_crest.add_theme_stylebox_override("panel", KTTheme.panel("floating", KTTheme.COL_BRASS))
 	add_child(_top_crest)
@@ -562,6 +581,28 @@ func _build_top_broadcast_crest() -> void:
 
 	var crest_b := _make_crest_button("res://assets/ui/team_mark_chaos_pm.png", "瘟疫战士 — 阵营规则与计谋原卡 [F2]", KTTheme.COL_NURGLE, func(): _card_lightbox.show_team_rulebook("CHAOS-PM"))
 	hb.add_child(crest_b)
+
+	# Dedicated sub-strip for revealed Tac Op progress pills (prevents _top_crest from overflowing into _sys_bar!)
+	_tac_strip = PanelContainer.new()
+	_tac_strip.anchor_left = 0.5
+	_tac_strip.anchor_right = 0.5
+	_tac_strip.anchor_top = 0.0
+	_tac_strip.anchor_bottom = 0.0
+	_tac_strip.offset_left = -360.0
+	_tac_strip.offset_right = 360.0
+	_tac_strip.offset_top = 48.0
+	_tac_strip.offset_bottom = 72.0
+	_tac_strip.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	_tac_strip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_tac_strip.visible = false
+	_tac_strip.add_theme_stylebox_override("panel", KTTheme.panel("tag"))
+	add_child(_tac_strip)
+
+	_tac_strip_hb = HBoxContainer.new()
+	_tac_strip_hb.alignment = BoxContainer.ALIGNMENT_CENTER
+	_tac_strip_hb.add_theme_constant_override("separation", 10)
+	_tac_strip_hb.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_tac_strip.add_child(_tac_strip_hb)
 
 
 func _make_crest_button(tex_path: String, tip: String, accent: Color, on_press: Callable) -> Button:
@@ -807,6 +848,13 @@ func _build_hero_unit_console() -> void:
 	_hero_abilities_flow.add_theme_constant_override("v_separation", 2)
 	vb.add_child(_hero_abilities_flow)
 
+	_hero_tac_lbl = Label.new()
+	_hero_tac_lbl.clip_text = true
+	_hero_tac_lbl.add_theme_font_size_override("font_size", 11)
+	_hero_tac_lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	_hero_tac_lbl.visible = false
+	vb.add_child(_hero_tac_lbl)
+
 	var bot_r := HBoxContainer.new()
 	bot_r.add_theme_constant_override("separation", 6)
 	vb.add_child(bot_r)
@@ -895,8 +943,8 @@ func _build_context_stage() -> void:
 	_context_stage.anchor_right = 0.5
 	_context_stage.anchor_top = 1.0
 	_context_stage.anchor_bottom = 1.0
-	_context_stage.offset_left = -560.0
-	_context_stage.offset_right = 560.0
+	_context_stage.offset_left = -630.0
+	_context_stage.offset_right = 630.0
 	_context_stage.offset_top = -176.0
 	_context_stage.offset_bottom = -12.0
 	_context_stage.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -1320,18 +1368,21 @@ func _build_title_overlay() -> void:
 	)
 	launch_row.add_child(btn_start)
 
-	var btn_resume := Button.new()
-	btn_resume.focus_mode = Control.FOCUS_NONE
-	btn_resume.text = "▶ 继续战局"
-	btn_resume.custom_minimum_size = Vector2(132, 52)
-	KTWidgets.attach_button_juice(btn_resume, 1.05)
-	btn_resume.pressed.connect(func():
+	_btn_resume = Button.new()
+	_btn_resume.focus_mode = Control.FOCUS_NONE
+	_btn_resume.text = "▶ 继续战局"
+	_btn_resume.custom_minimum_size = Vector2(132, 52)
+	_btn_resume.visible = _battle_in_progress
+	KTWidgets.attach_button_juice(_btn_resume, 1.05)
+	_btn_resume.pressed.connect(func():
+		if not _battle_in_progress:
+			return
 		_title_overlay.visible = false
 		_killzone.reset_isometric_view(false)
 		_on_viewport_resized()
 		_refresh_all_ui()
 	)
-	launch_row.add_child(btn_resume)
+	launch_row.add_child(_btn_resume)
 
 
 func _build_title_team_card(team_id: String, is_aod: bool) -> PanelContainer:
@@ -1754,6 +1805,8 @@ func _return_to_main_menu() -> void:
 		_help_modal.visible = false
 	if _settings_modal != null:
 		_settings_modal.visible = false
+	if _btn_resume != null:
+		_btn_resume.visible = _battle_in_progress
 	_title_overlay.visible = true
 	_on_viewport_resized()
 	_refresh_all_ui()
@@ -1763,6 +1816,13 @@ func _start_new_battle() -> void:
 	_ai_timer.stop()
 	_pre_ai_undo_stack.clear()
 	_in_ai_undo_guard = false
+	_roster_pick = []
+	_roster_pick_side = ""
+	_equip_pick = []
+	_equip_pick_side = ""
+	_equip_opts = {}
+	_hotseat_acked_sig = ""
+	_hotseat_last_actor = ""
 	if _dice_modal != null:
 		_dice_modal.visible = false
 		_dice_modal.reset_for_new_match()
@@ -1783,7 +1843,10 @@ func _start_new_battle() -> void:
 	_medallions_by_uid.clear()
 
 	_battle_in_progress = true
+	if _btn_resume != null:
+		_btn_resume.visible = true
 	engine.start_match(_sel_mode, _sel_human_side, _sel_primary_tactic, _sel_secondary_tactic, _sel_map_id)
+	_hotseat_last_actor = engine.setup_side()
 	_killzone.bind_engine(engine)
 	# Camera swoops from wherever the menu orbit left it into the isometric battle view.
 	_killzone.reset_isometric_view(false)
@@ -1885,6 +1948,8 @@ func _refresh_all_ui() -> void:
 		_sys_bar.visible = not on_title
 	if _tactical_pill != null:
 		_tactical_pill.visible = hud_vis
+	if _tac_strip != null and not hud_vis:
+		_tac_strip.visible = false
 	# Only the acting side's roster is docked on screen; the opponent is read off the board itself
 	# (tokens + compact tags). In hotseat the roster swaps sides with the turn.
 	var roster_side: String = str(engine.state.get("turn_side", "A")) if not engine.state.is_empty() else "A"
@@ -1954,6 +2019,21 @@ func _refresh_all_ui() -> void:
 	for p in sb["active_ploys"]:
 		var ps_b: String = str(p).split("：")[0]
 		_team_b_ploys_box.add_child(KTTheme.make_chip(ps_b, KTTheme.COL_NURGLE))
+
+	if _tac_strip != null and _tac_strip_hb != null:
+		for c in _tac_strip_hb.get_children():
+			c.queue_free()
+		var tac_txt_a: String = engine.tac_status_text("A")
+		var tac_txt_b: String = engine.tac_status_text("B")
+		if not tac_txt_a.is_empty():
+			_tac_strip_hb.add_child(KTTheme.make_chip("🂡 帝国·" + tac_txt_a, KTTheme.COL_IMPERIAL))
+		if not tac_txt_b.is_empty():
+			_tac_strip_hb.add_child(KTTheme.make_chip("🂡 纳垢·" + tac_txt_b, KTTheme.COL_NURGLE))
+		var show_tac: bool = hud_vis and (not tac_txt_a.is_empty() or not tac_txt_b.is_empty())
+		_tac_strip.visible = show_tac
+		if _tactical_pill != null:
+			_tactical_pill.offset_top = 76.0 if show_tac else 52.0
+			_tactical_pill.offset_bottom = 100.0 if show_tac else 76.0
 
 	var phase: String = str(engine.state["phase"])
 	var tp: int = int(engine.state["tp"])
@@ -2082,7 +2162,8 @@ func _update_tactical_pill() -> void:
 		elif _killzone.interaction_mode == "fight":
 			_guide_lbl.text = "⚔️ 点击近战控制区内的敌方棋子展开白刃格斗 ｜ 右键取消"
 		elif _killzone.interaction_mode == "pick_point":
-			_guide_lbl.text = "💨 在 6\" 内可见位置点击放置烟雾手雷 ｜ 右键取消"
+			var plbl: String = _killzone.pick_point_label if not _killzone.pick_point_label.is_empty() else "烟雾手雷"
+			_guide_lbl.text = "💨 放置：%s（在 6\" 内可见位置点击落点）｜ 右键取消" % plbl
 		elif _killzone.interaction_mode == "pick_enemy":
 			if _killzone.pick_ability == "tac_surveil":
 				_guide_lbl.text = "📡 点击 6\" 外可见的敌方就绪特工进行侦查 ｜ 右键取消"
@@ -2183,6 +2264,75 @@ func _sync_edge_squad_medallions() -> void:
 		med.modulate.a = 1.0 if bool(op.get("deployed", true)) else 0.62
 
 
+func _secret_step_info() -> Dictionary:
+	if engine.state.is_empty() or str(engine.state.get("mode", "")) != "hotseat" or not _hotseat_privacy_enabled:
+		return {}
+	var phase: String = str(engine.state["phase"])
+	if phase in ["SELECT", "EQUIP", "TACOP"]:
+		var s: String = engine.setup_side()
+		if s.is_empty():
+			return {}
+		var lbl_map: Dictionary = {
+			"SELECT": "秘密选择出战特工",
+			"EQUIP": "秘密选择战前装备",
+			"TACOP": "秘密选择战术行动 op",
+		}
+		return {"side": s, "sig": "%s_%s" % [phase, s], "step": str(lbl_map.get(phase, phase))}
+	if phase == "STRATEGY":
+		var ts: String = str(engine.state["turn_side"])
+		if engine.needs_primary_op(ts):
+			return {"side": ts, "sig": "PRIMARY_%s" % ts, "step": "秘密选择主要行动 op"}
+	return {}
+
+
+func _needs_hotseat_curtain() -> bool:
+	var info: Dictionary = _secret_step_info()
+	if info.is_empty():
+		return false
+	var side: String = str(info["side"])
+	return (not _hotseat_last_actor.is_empty()) and side != _hotseat_last_actor and _hotseat_acked_sig != str(info["sig"])
+
+
+func _ack_hotseat_curtain() -> void:
+	var info: Dictionary = _secret_step_info()
+	if info.is_empty():
+		return
+	_hotseat_acked_sig = str(info["sig"])
+	_hotseat_last_actor = str(info["side"])
+	KTSfx.play("order_servo", -4.0, 0.04)
+	_refresh_all_ui()
+
+
+func _build_hotseat_curtain(info: Dictionary) -> void:
+	var side: String = str(info["side"])
+	var sname: String = str(engine.state["sides"][side]["name"])
+	var acc: Color = KTTheme.COL_IMPERIAL if side == "A" else KTTheme.COL_NURGLE
+	var pnl := PanelContainer.new()
+	pnl.name = "hotseat_curtain_panel"
+	pnl.size_flags_vertical = Control.SIZE_SHRINK_END
+	pnl.add_theme_stylebox_override("panel", KTTheme.panel("primary", acc))
+	_context_hb.add_child(pnl)
+	var vb := VBoxContainer.new()
+	vb.add_theme_constant_override("separation", 8)
+	pnl.add_child(vb)
+	var lbl := Label.new()
+	lbl.text = "🙈 同屏秘密阶段交接  ·  请将屏幕交给【%s】统帅（%s）" % [sname, str(info["step"])]
+	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lbl.add_theme_font_size_override("font_size", 15)
+	lbl.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
+	vb.add_child(lbl)
+	var ack_b := Button.new()
+	ack_b.name = "hotseat_ack_btn"
+	ack_b.focus_mode = Control.FOCUS_NONE
+	ack_b.text = "👁️ 我是【%s】统帅 · 展开秘密面板 [Space]" % sname
+	ack_b.custom_minimum_size = Vector2(360, 50)
+	ack_b.add_theme_font_size_override("font_size", 15)
+	KTTheme.apply_accent_button(ack_b, acc, 0.34)
+	KTWidgets.attach_button_juice(ack_b, 1.04, "order_servo")
+	ack_b.pressed.connect(_ack_hotseat_curtain)
+	vb.add_child(ack_b)
+
+
 func _rebuild_bottom_game_hud() -> void:
 	_hide_skill_tooltip()
 	_active_hotbar_slots.clear()
@@ -2196,6 +2346,27 @@ func _rebuild_bottom_game_hud() -> void:
 
 	var phase: String = str(engine.state["phase"])
 	var active_uid: String = str(engine.state.get("active_op_uid", ""))
+
+	var sec_info: Dictionary = _secret_step_info()
+	if not sec_info.is_empty():
+		if _needs_hotseat_curtain():
+			_hero_panel.visible = false
+			_skill_bar_panel.visible = false
+			_weapon_strip.visible = false
+			_context_stage.visible = true
+			_guide_lbl.text = "🙈 同屏秘密阶段：请【%s】统帅接手屏幕后点击确认或按 [Space]" % str(engine.state["sides"][str(sec_info["side"])]["name"])
+			_build_hotseat_curtain(sec_info)
+			return
+		_hotseat_last_actor = str(sec_info["side"])
+	elif str(engine.state.get("mode", "")) == "hotseat":
+		if phase == "DROPZONE":
+			_hotseat_last_actor = engine.setup_side()
+		elif phase == "EQDEPLOY" and not engine.eq_deploy_side().is_empty():
+			_hotseat_last_actor = engine.eq_deploy_side()
+		elif phase == "DEPLOY" and not engine.deploy_side().is_empty():
+			_hotseat_last_actor = engine.deploy_side()
+		elif phase in ["STRATEGY", "FIREFIGHT"]:
+			_hotseat_last_actor = str(engine.state["turn_side"])
 
 	# Mode A: Active Operative Tactical Console (Hero Portrait Bottom-Left + Octagonal Skill Hotbar Bottom-Center!)
 	if phase == "FIREFIGHT" and not active_uid.is_empty() and not engine.is_ai_turn():
@@ -2243,13 +2414,14 @@ func _rebuild_bottom_game_hud() -> void:
 	elif phase == "STRATEGY":
 		var turn_s: String = str(engine.state["turn_side"])
 		if engine.is_ai_turn():
+			var ai_col_s: Color = KTTheme.COL_IMPERIAL if turn_s == "A" else KTTheme.COL_NURGLE
 			var ai_pill := PanelContainer.new()
 			ai_pill.size_flags_vertical = Control.SIZE_SHRINK_END
-			ai_pill.add_theme_stylebox_override("panel", KTTheme.make_panel_style(Color(0.04, 0.06, 0.05, 0.92), KTTheme.COL_NURGLE, 10, 2, 14))
+			ai_pill.add_theme_stylebox_override("panel", KTTheme.make_panel_style(Color(0.04, 0.055, 0.06, 0.92), ai_col_s, 10, 2, 14))
 			var al := Label.new()
-			al.text = "🤖 瘟疫领主正在谋划战略计谋…"
+			al.text = "🤖 【%s】统帅正在谋划战略计谋…" % str(engine.state["sides"][turn_s]["name"])
 			al.add_theme_font_size_override("font_size", 16)
-			al.add_theme_color_override("font_color", KTTheme.COL_NURGLE.lightened(0.28))
+			al.add_theme_color_override("font_color", ai_col_s.lightened(0.28))
 			ai_pill.add_child(al)
 			_context_hb.add_child(ai_pill)
 		elif engine.needs_primary_op(turn_s):
@@ -2263,7 +2435,7 @@ func _rebuild_bottom_game_hud() -> void:
 				var opt: Dictionary = opt_v
 				var used_flag: bool = bool(opt["used"])
 				var cost_i: int = int(opt["cost"])
-				var dis_flag: bool = used_flag or int(engine.state["sides"][turn_s]["cp"]) < cost_i
+				var dis_flag: bool = used_flag or int(engine.state["sides"][turn_s]["cp"]) < cost_i or not bool(opt.get("can_use", true))
 				var scard := KTWidgets.StratagemCard.new()
 				scard.size_flags_vertical = Control.SIZE_SHRINK_END
 				scard.setup(
@@ -2279,7 +2451,9 @@ func _rebuild_bottom_game_hud() -> void:
 				deal_i += 1
 				var oid: String = str(opt["id"])
 				scard.played.connect(func():
-					engine.use_strategic_ploy(turn_s, oid)
+					var res_sp: Dictionary = engine.use_strategic_ploy(turn_s, oid)
+					if not bool(res_sp.get("ok", false)):
+						_notify_illegal_click(str(res_sp.get("msg", "无法发动该战略计谋")))
 					_refresh_all_ui()
 				)
 				_context_hb.add_child(scard)
@@ -2315,7 +2489,7 @@ func _rebuild_bottom_game_hud() -> void:
 		over_panel.add_child(ohb)
 
 		var sum_l := Label.new()
-		sum_l.text = "🏆 终局战果：死亡天使 %d VP  vs  瘟疫战士 %d VP\n🂠 揭示主要行动 op：死亡天使【%s】+%d VP ｜ 瘟疫战士【%s】+%d VP" % [
+		sum_l.text = "🏆 终局战果：死亡天使 %d VP  vs  瘟疫战士 %d VP\n🂠 揭示主要行动：死亡天使【%s】+%d VP ｜ 瘟疫战士【%s】+%d VP" % [
 			engine.get_total_vp("A"), engine.get_total_vp("B"),
 			str(KTEngine.PRIMARY_OP_NAMES.get(str(engine.state["sides"]["A"]["primary_op"]), "未选择")), engine.primary_bonus("A"),
 			str(KTEngine.PRIMARY_OP_NAMES.get(str(engine.state["sides"]["B"]["primary_op"]), "未选择")), engine.primary_bonus("B"),
@@ -2453,8 +2627,10 @@ func _build_tacop_choice() -> void:
 	info.add_theme_font_size_override("font_size", 14)
 	info.add_theme_color_override("font_color", KTTheme.COL_GOLD_BRIGHT)
 	vb.add_child(info)
-	var cards := HBoxContainer.new()
-	cards.add_theme_constant_override("separation", 8)
+	var cards := HFlowContainer.new()
+	cards.custom_minimum_size = Vector2(1216, 0)
+	cards.add_theme_constant_override("h_separation", 8)
+	cards.add_theme_constant_override("v_separation", 8)
 	vb.add_child(cards)
 	for t_v in engine.tac_op_options(side):
 		var t: Dictionary = t_v
@@ -2464,7 +2640,7 @@ func _build_tacop_choice() -> void:
 		b.focus_mode = Control.FOCUS_NONE
 		b.text = "%s · %s\n%s" % [str(t["name"]), str(t["archetype"]), str(t["scoring"]) if ready else "（尚未实装，暂不可选）"]
 		b.tooltip_text = "公开时机：%s\n\n%s\n\nVP 结算：%s" % [str(t["reveal"]), str(t["rule"]), str(t["scoring"])]
-		b.custom_minimum_size = Vector2(208, 124)
+		b.custom_minimum_size = Vector2(196, 108)
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.add_theme_font_size_override("font_size", 12)
 		b.disabled = not ready
@@ -3121,6 +3297,8 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 			ab_names.append(nm)
 	if bool(op["poisoned"]):
 		ab_names.append("毒素指示物")
+	if int(op.get("apl_mod", 0)) < 0 and not KTCombat.has_chapter_tactic(engine.state["sides"][op["side"]], op, "resolute"):
+		ab_names.append("APL -1")
 	if int(op["wounds_cur"]) * 2 < int(op["wounds_max"]):
 		ab_names.append("受创")
 	for nm in ab_names.slice(0, 4):
@@ -3128,6 +3306,16 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 		chip.setup(str(nm), Color(0, 0, 0, 0), 10)
 		_hero_abilities_flow.add_child(chip)
 	_hero_abilities_flow.visible = not ab_names.is_empty()
+
+	if _hero_tac_lbl != null:
+		var tac_line: String = engine.tac_status_text(op_side_s)
+		if tac_line.is_empty() and str(engine.state.get("mode", "")) == "ai" and op_side_s == str(engine.state.get("human_side", "")):
+			var secret_line: String = engine.tac_status_text(op_side_s, true)
+			if not secret_line.is_empty():
+				tac_line = "[未公开] " + secret_line
+		_hero_tac_lbl.visible = not tac_line.is_empty()
+		if not tac_line.is_empty():
+			_hero_tac_lbl.text = "🂡 战术行动：%s" % tac_line
 
 	var can_flip_order: bool = op["actions_taken"].is_empty() and not bool(engine.state["active_is_counteract"])
 	_hero_order_btn.disabled = not can_flip_order
@@ -3240,12 +3428,14 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 			"unique", short_u, ab_nm, str(ua["desc"]),
 			hk_num, u_cost, KTTheme.COL_VIOLET, not bool(ua["enabled"]), u_armed, kc_u
 		)
+		slot_u.set_meta("ability_id", ab_id)
 		slot_u.triggered.connect(func():
 			if needs_pt:
 				if u_armed:
 					_killzone.clear_interaction()
 				else:
-					_killzone.start_pick_point_mode(uid)
+					var pt_lbl: String = ab_nm.split("(")[0].split("（")[0].strip_edges()
+					_killzone.start_pick_point_mode(uid, pt_lbl)
 				_refresh_all_ui()
 				return
 			if needs_tgt:
@@ -3272,25 +3462,47 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 
 	# [0] Firefight Ploy Slot
 	var side_st: Dictionary = engine.state["sides"][op["side"]]
-	if is_imp and bool(op["charged_this_tp"]) and not side_st["used_ploys_tp"].has("shock_assault"):
-		var sa_dis: bool = int(side_st["cp"]) < 1 and str(op["op_id"]) != "aod_captain"
+	var cap_free_ploy: bool = str(op["op_id"]) == "aod_captain" and not bool(side_st.get("heroic_used_tp", false))
+	if is_imp and bool(engine.state.get("active_is_counteract", false)) and not side_st["used_ploys_tp"].has("wrath_of_vengeance"):
+		var rel_free: bool = str(op["order"]) == "engage" and KTCombat.has_equipment(side_st, "chapterreliquaries")
+		var wov_cost: int = 0 if (rel_free or cap_free_ploy) else 1
+		var wov_dis: bool = int(side_st["cp"]) < wov_cost
+		var slot_wov := _make_skill_slot(
+			"ploy", "复仇", "交战计谋：复仇之怒 (%dCP)" % wov_cost,
+			"反应期间额外获得 1AP 执行另一项不同行动（持战团圣物且交战姿态 0CP）！",
+			"0", 0, KTTheme.COL_GOLD_BRIGHT, wov_dis, false, KEY_0
+		)
+		slot_wov.triggered.connect(func():
+			var res_wov: Dictionary = engine.use_firefight_ploy("A", "wrath_of_vengeance", uid)
+			if not bool(res_wov.get("ok", false)):
+				_notify_illegal_click(str(res_wov.get("msg", "无法发动复仇之怒")), op["pos"])
+			_refresh_all_ui()
+		)
+	elif is_imp and bool(op["charged_this_tp"]) and not side_st["used_ploys_tp"].has("shock_assault"):
+		var sa_cost: int = 0 if cap_free_ploy else 1
+		var sa_dis: bool = int(side_st["cp"]) < sa_cost
 		var slot_sa := _make_skill_slot(
-			"ploy", "突袭", "交战计谋：震慑突袭 (1CP)",
-			"冲锋后近战获得【震荡】且首次出击伤害 +1（队长免费）！",
+			"ploy", "突袭", "交战计谋：震慑突袭 (%dCP)" % sa_cost,
+			"冲锋后近战获得【震荡】且首次出击伤害 +1（连长每回合首张免费）！",
 			"0", 0, KTTheme.COL_GOLD_BRIGHT, sa_dis, false, KEY_0
 		)
 		slot_sa.triggered.connect(func():
-			engine.use_firefight_ploy("A", "shock_assault", uid)
+			var res_sa: Dictionary = engine.use_firefight_ploy("A", "shock_assault", uid)
+			if not bool(res_sa.get("ok", false)):
+				_notify_illegal_click(str(res_sa.get("msg", "无法发动震慑突袭")), op["pos"])
 			_refresh_all_ui()
 		)
 	elif (not is_imp) and not side_st["used_ploys_tp"].has("virulent_poison") and int(side_st["cp"]) >= 1:
+		var has_vp_tgt: bool = not engine._find_virulent_poison_target(str(op["side"]), op).is_empty()
 		var slot_vp := _make_skill_slot(
 			"ploy", "剧毒", "交战计谋：致命毒素 (1CP)",
-			"立即令 7\" 内可见最近敌军感染纳垢毒素！",
-			"0", 0, KTTheme.COL_NURGLE, false, false, KEY_0
+			"立即令本特工 3\" 内或 7\" 内可见的最近未中毒敌军感染纳垢毒素！" if has_vp_tgt else "3\" 内或 7\" 内可见范围内无未中毒敌军",
+			"0", 0, KTTheme.COL_NURGLE, not has_vp_tgt, false, KEY_0
 		)
 		slot_vp.triggered.connect(func():
-			engine.use_firefight_ploy("B", "virulent_poison", uid)
+			var res_vp: Dictionary = engine.use_firefight_ploy("B", "virulent_poison", uid)
+			if not bool(res_vp.get("ok", false)):
+				_notify_illegal_click(str(res_vp.get("msg", "无法发动致命毒素")), op["pos"])
 			_refresh_all_ui()
 		)
 
@@ -3309,6 +3521,7 @@ func _populate_hero_and_hotbar(op: Dictionary) -> void:
 	# 3. Weapon cards above the hotbar when Shoot Mode is armed. Each card: name + stat line + keyword chips
 	#    (hover a chip for the rule's effect, click for the rulebook text).
 	if _killzone.interaction_mode == "shoot" and not usable_ranged.is_empty():
+		_selected_weapon_idx = clampi(_selected_weapon_idx, 0, usable_ranged.size() - 1)
 		_weapon_strip.visible = true
 		for wi in range(usable_ranged.size()):
 			var w: Dictionary = usable_ranged[wi]
@@ -3498,6 +3711,17 @@ func _on_board_shoot_target_clicked(defender_uid: String, shot_eval: Dictionary)
 	if att.is_empty() or def.is_empty():
 		return
 	var weapon: Dictionary = _killzone.active_shoot_weapon
+	var acts_sh: Dictionary = engine.get_available_actions(att)
+	var weapon_ok := false
+	for uw in engine.get_usable_ranged_weapons(att):
+		if str((uw as Dictionary).get("id", "")) == str(weapon.get("id", "")):
+			weapon_ok = true
+			break
+	if not bool((acts_sh["shoot"] as Dictionary)["enabled"]) or not weapon_ok:
+		_killzone.clear_interaction()
+		_notify_illegal_click(str((acts_sh["shoot"] as Dictionary).get("reason", "当前武器不可用于射击")), def["pos"])
+		_refresh_all_ui()
+		return
 	engine.push_undo()
 	engine.commit_shooting_action_cost(att, weapon)
 	_killzone.clear_interaction()
@@ -3570,7 +3794,15 @@ func _on_combat_modal_finished(sess: Dictionary) -> void:
 	var att: Dictionary = engine.get_op(str(sess.get("attacker_uid", "")))
 	if str(sess.get("kind", "")) == "shooting":
 		var dmg: int = int(sess.get("total_damage_dealt", 0))
-		if not def.is_empty():
+		var m_total: int = int(sess.get("multi_total", 1))
+		if m_total > 1:
+			engine.add_log("💥 【%s】%s扫射结算完毕（共 %d 个目标，末目标伤害 %d）" % [
+				str(att.get("name", "")),
+				"爆炸" if str(sess.get("multi_mode", "")) == "blast" else "洪流",
+				int(sess.get("multi_index", m_total)),
+				dmg
+			])
+		elif not def.is_empty():
 			engine.add_log("🎯 【%s】射击【%s】造成 %d 点伤害%s" % [
 				str(att.get("name", "")), str(def["name"]), dmg,
 				"（已击杀！）" if bool(def["incapacitated"]) else ""
@@ -3677,21 +3909,41 @@ func _run_ai_step() -> void:
 
 		var step_act: Dictionary = KTAI.decide_next_operative_action(engine, op)
 		var kind: String = str(step_act.get("kind", "end"))
+		var ai_col: Color = KTTheme.COL_IMPERIAL if ai_side == "A" else KTTheme.COL_NURGLE
 
 		if kind == "move":
 			var mtype: String = str(step_act["move_type"])
 			var pts: Array[Vector2] = step_act["waypoints"]
-			engine.execute_move(active_uid, mtype, pts)
-			KTSfx.play("move_confirm", -6.0, 0.06)
-			_killzone.spawn_floating_text(op["pos"], "🤖 %s" % mtype.to_upper(), KTTheme.COL_NURGLE)
+			var res_mv: Dictionary = engine.execute_move(active_uid, mtype, pts)
+			if bool(res_mv.get("ok", false)):
+				KTSfx.play("move_confirm", -6.0, 0.06)
+				var mv_cn: String = str({"reposition": "转移", "dash": "冲刺", "charge": "冲锋", "fall_back": "后撤", "barricade_move": "与掩体移动"}.get(mtype, mtype))
+				_killzone.spawn_floating_text(op["pos"], "🤖 " + mv_cn, ai_col)
+			elif str(engine.state.get("active_op_uid", "")) == active_uid:
+				engine.end_operative_activation()
 			_refresh_all_ui()
 		elif kind == "secure":
-			engine.execute_secure_objective(active_uid)
-			_killzone.spawn_floating_text(op["pos"], "🚩 占领目标点!", KTTheme.COL_NURGLE)
+			if bool(engine.execute_secure_objective(active_uid).get("ok", false)):
+				_killzone.spawn_floating_text(op["pos"], "🚩 占领目标点!", ai_col)
+			elif str(engine.state.get("active_op_uid", "")) == active_uid:
+				engine.end_operative_activation()
 			_refresh_all_ui()
 		elif kind == "unique":
-			engine.execute_unique_action(active_uid, str(step_act["ability_id"]))
-			_killzone.spawn_floating_text(op["pos"], "✨ 灵能/特技!", KTTheme.COL_VIOLET)
+			var ab_id_ai: String = str(step_act["ability_id"])
+			if bool(engine.execute_unique_action(active_uid, ab_id_ai).get("ok", false)):
+				_killzone.spawn_floating_text(op["pos"], "✨ 特技发动!", KTTheme.COL_VIOLET)
+			elif str(engine.state.get("active_op_uid", "")) == active_uid:
+				engine.end_operative_activation()
+			_refresh_all_ui()
+		elif kind == "target_action":
+			var tab_id: String = str(step_act["ability_id"])
+			var tgt_uid: String = str(step_act["target_uid"])
+			if bool(engine.execute_target_action(active_uid, tab_id, tgt_uid).get("ok", false)):
+				var t_op: Dictionary = engine.get_op(tgt_uid)
+				var fpos: Vector2 = t_op.get("pos", op["pos"]) if not t_op.is_empty() else op["pos"]
+				_killzone.spawn_floating_text(fpos, "📡 监控!" if tab_id == "tac_surveil" else "💫 震荡手雷!", KTTheme.COL_GOLD_BRIGHT)
+			elif str(engine.state.get("active_op_uid", "")) == active_uid:
+				engine.end_operative_activation()
 			_refresh_all_ui()
 		elif kind == "shoot":
 			var def_s_uid: String = str(step_act["target_uid"])
@@ -3720,6 +3972,7 @@ func _run_ai_step() -> void:
 # ==============================================================================
 
 func _run_autotest_screenshot_tour() -> void:
+	_hotseat_privacy_enabled = false
 	var out_dir: String = ProjectSettings.globalize_path("res://build/screenshots")
 	DirAccess.make_dir_recursive_absolute(out_dir)
 
@@ -3994,8 +4247,44 @@ func _run_autotest_screenshot_tour() -> void:
 	await RenderingServer.frame_post_draw
 	_save_vp_png(out_dir + "/06_melee_particles_duel.png")
 
+	# 7. Tac Ops 3D Board Showcase (`r4b_tacops_ui.md`): Flank line & tint + Banner + Device & Sweep on Objective + Carried Intel + Surveilled!
+	_dice_modal.visible = false
+	_killzone.clear_transient_combat_fx()
+	engine.end_operative_activation()
+	_killzone.reset_isometric_view(true)
+	engine.state["sides"]["A"]["tac_op"] = "flank"
+	engine.state["sides"]["A"]["tac_revealed"] = true
+	if not engine.state.has("eq_markers"):
+		engine.state["eq_markers"] = []
+	(engine.state["eq_markers"] as Array).append({"kind": "banner", "side": "A", "pos": Vector2(13.2, 11.0), "tp_placed": 2})
+	(engine.state["eq_markers"] as Array).append({"kind": "intel", "side": "B", "pos": Vector2(16.8, 10.6), "tp_placed": 2})
+	var obj_keys: Array = (engine.state["objectives_state"] as Dictionary).keys()
+	if not obj_keys.is_empty():
+		var ok0: String = str(obj_keys[0])
+		if not (engine.state["objectives_state"][ok0] as Dictionary).has("tac"):
+			engine.state["objectives_state"][ok0]["tac"] = {}
+		engine.state["objectives_state"][ok0]["tac"]["device_A"] = true
+		engine.state["objectives_state"][ok0]["tac"]["sweep_B"] = true
+	att_m["carried"] = [{"item": "intel", "team": "A"}, {"item": "intel", "team": "A"}]
+	def_m["surveilled_by"] = ["A"]
+	engine.state["turn_side"] = "A"
+	engine.activate_operative(assault_uid, "engage")
+	engine.recalculate_objectives_and_kills()
+	_killzone.sync_visual_positions(true)
+	_refresh_all_ui()
+	_phase_toast.visible = false
+	await get_tree().create_timer(0.22).timeout
+	await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	_save_vp_png(out_dir + "/08_tacops_board.png")
+
 	print("AUTOTEST_SCREENSHOTS_COMPLETE")
 	get_tree().quit(0)
+
+
+func _run_playtest_ui() -> void:
+	var runner = load("res://src/ui/kt_ui_playtest.gd")
+	await runner.run(self)
 
 
 func _save_vp_png(path: String) -> void:

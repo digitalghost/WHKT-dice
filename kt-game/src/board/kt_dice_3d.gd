@@ -705,11 +705,12 @@ func sync_shooting_dice(
 		var d: Dictionary = atk_dice[i]
 		var v: int = int(d["val"])
 		var rr: bool = bool(d.get("rerolled", false))
-		var k: String = _eval_shooting_die_kind(session, "atk_dice", v)
-		var sel: bool = (step == "attack_reroll" and selected_pool == "atk_dice" and selected_idx == i)
+		var locked: bool = bool(d.get("locked", false))
+		var k: String = "fail" if locked else _eval_shooting_die_kind(session, "atk_dice", v)
+		var sel: bool = (step == "attack_reroll" and not locked and selected_pool == "atk_dice" and selected_idx == i)
 		_spawn_die_entry(
-			"attack", "atk_dice", i, v, k, rr, sel,
-			step == "attack_reroll",
+			"attack", "atk_dice", i, v, k, rr or locked, sel,
+			step == "attack_reroll" and not locked,
 			atk_slots[i], Vector3(-1.0, 0.0, -0.35).normalized(),
 			float(i) * 0.055, not anim_atk
 		)
@@ -736,11 +737,12 @@ func sync_shooting_dice(
 			var dd: Dictionary = def_dice[j]
 			var vd: int = int(dd["val"])
 			var rrd: bool = bool(dd.get("rerolled", false))
-			var kd: String = _eval_shooting_die_kind(session, "def_dice", vd)
-			var sel_d: bool = (step == "defence_roll" and selected_pool == "def_dice" and selected_idx == j)
+			var locked_d: bool = bool(dd.get("locked", false))
+			var kd: String = "fail" if locked_d else _eval_shooting_die_kind(session, "def_dice", vd)
+			var sel_d: bool = (step == "defence_roll" and not locked_d and selected_pool == "def_dice" and selected_idx == j)
 			_spawn_die_entry(
-				def_theme, "def_dice", j, vd, kd, rrd, sel_d,
-				step == "defence_roll",
+				def_theme, "def_dice", j, vd, kd, rrd or locked_d, sel_d,
+				step == "defence_roll" and not locked_d,
 				def_slots[j], Vector3(1.0, 0.0, -0.35).normalized(),
 				float(j) * 0.06, not anim_def
 			)
@@ -764,9 +766,10 @@ func _eval_shooting_die_kind(session: Dictionary, pool_key: String, v: int) -> S
 	if v <= 1:
 		return "fail"
 	if pool_key == "atk_dice":
-		if v >= int(session["lethal_thresh"]):
+		var hit_req := int(session["effective_hit"])
+		if v == 6 or (v >= hit_req and v >= int(session["lethal_thresh"])):
 			return "crit"
-		elif v >= int(session["effective_hit"]):
+		elif v >= hit_req:
 			return "norm"
 		return "fail"
 	else:

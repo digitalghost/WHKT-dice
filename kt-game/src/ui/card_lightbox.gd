@@ -51,6 +51,7 @@ func _init() -> void:
 	header.add_child(_title_lbl)
 
 	var close_btn := Button.new()
+	close_btn.focus_mode = Control.FOCUS_NONE
 	close_btn.text = "✕ 关闭 (ESC)"
 	KTTheme.apply_accent_button(close_btn, KTTheme.COL_CRIMSON)
 	close_btn.pressed.connect(func(): hide())
@@ -118,10 +119,12 @@ func show_card_items(header_title: String, items: Array) -> void:
 	_current_cards = items
 	_current_idx = 0
 	for child in _tabs_box.get_children():
+		_tabs_box.remove_child(child)
 		child.queue_free()
 
 	for i in range(items.size()):
 		var b := Button.new()
+		b.focus_mode = Control.FOCUS_NONE
 		b.text = str(items[i]["title"])
 		var idx := i
 		b.pressed.connect(func(): _select_item(idx))

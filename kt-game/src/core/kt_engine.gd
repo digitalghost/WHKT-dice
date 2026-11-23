@@ -65,6 +65,7 @@ func start_match(
 				"used_ploys_tp": [],
 				"purity_used_tp": false,
 				"heroic_used_tp": false,
+				"doctrine_free_used": [], # Sergeant / Assault Sergeant Doctrine Warfare (once per battle each)
 				"init_roll": 0,
 				"grenades": {"frag": 0, "krak": 0, "smoke": 0, "stun": 0},
 			},
@@ -84,7 +85,7 @@ func start_match(
 				"combat_doctrine": "",
 				"active_ploys": [],
 				"used_ploys_tp": [],
-				"has_plague_bell": true,
+				"has_plague_bell": false,
 				"init_roll": 0,
 				"grenades": {"frag": 0, "krak": 0, "smoke": 0, "stun": 0},
 			},
@@ -155,6 +156,10 @@ func choose_drop_zone(take_other: bool) -> Dictionary:
 		var tmp: Rect2 = state["map"]["drop_zone_a"]
 		state["map"]["drop_zone_a"] = state["map"]["drop_zone_b"]
 		state["map"]["drop_zone_b"] = tmp
+		if state["map"].has("spawn_a") and state["map"].has("spawn_b"):
+			var tmp_sp: Array = state["map"]["spawn_a"]
+			state["map"]["spawn_a"] = state["map"]["spawn_b"]
+			state["map"]["spawn_b"] = tmp_sp
 		# New id so the board view rebuilds its zone overlay
 		state["map"]["id"] = str(state["map"]["id"]) + "_swapped"
 	state["phase"] = "SELECT"
@@ -418,11 +423,14 @@ func _tac_new_tp() -> void:
 
 func _op_contests_objective(op: Dictionary, obj: Dictionary) -> bool:
 	var p: Vector2 = op["pos"]
+	if p.x < 0.0 or p.y < 0.0:
+		return false
 	var opos: Vector2 = obj["pos"]
 	var terrains: Array = state["map"]["terrains"]
 	var z_op := KTGeometry.elevation_at(p, terrains)
 	var z_obj := KTGeometry.elevation_at(opos, terrains)
-	return p.distance_to(opos) - float(op["base_radius"]) <= 1.787 and absf(z_op - z_obj) <= 2.0
+	# Core rules p.19: contesting an objective marker requires it to be in Control Range (within 1" of 40mm marker, |dz| <= 2", AND visible).
+	return KTGeometry.in_control_range_at(p, float(op["base_radius"]), z_op, opos, 0.787, z_obj, terrains)
 
 
 static func _dist_to_rect(p: Vector2, r: Rect2) -> float:
@@ -712,9 +720,9 @@ func validate_equipment_pos(side_id: String, kind: String, pos: Vector2, rot: bo
 		for m in state.get("eq_markers", []):
 			var mp: Vector2 = m["pos"]
 			var mk := str(m.get("kind", ""))
-			if kind == "mine":
+			if kind == "mine" or mk == "mine":
 				if mp.distance_to(pos) - 2.0 * MINE_RADIUS < 2.0:
-					return {"ok": false, "reason": "地雷须位于其他标识 2\" 外"}
+					return {"ok": false, "reason": "地雷与其他标识须相距 2\" 以上"}
 			elif kind == "ladder" and mk == "ladder":
 				if mp.distance_to(pos) - 2.0 * MINE_RADIUS < 2.0:
 					return {"ok": false, "reason": "爬梯须位于其他爬梯 2\" 外"}
@@ -809,8 +817,32 @@ func _eq_advance(side_id: String) -> void:
 	state["turn_side"] = str(d["turn_side"])
 
 
-## AI placement: barricades just in front of own drop zone (parallel to it), the mine a little further out.
+## AI placement: barricades just in front of own drop zone (parallel to it), the mine a little further out,
+## and ladders along climbable heavy walls / vantage structures inside own territory.
 func ai_equipment_spot(side_id: String, kind: String) -> Dictionary:
+	if kind == "ladder":
+		var terr_zone := territory_rect(side_id)
+		for t in state["map"]["terrains"]:
+			var tk := str(t.get("kind", ""))
+			if not (tk in ["heavy_wall", "vantage"]) or float(t.get("elevation", 0.0)) < 2.0:
+				continue
+			var tr: Rect2 = t["rect"]
+			if not terr_zone.intersects(tr.grow(0.5)):
+				continue
+			# Probe points 0.2" outside each of the 4 edges of this climbable structure
+			var samples: Array[Vector2] = []
+			for frac_v in [0.5, 0.25, 0.75, 0.15, 0.85]:
+				var frac_i: float = float(frac_v)
+				var px: float = tr.position.x + tr.size.x * frac_i
+				var py: float = tr.position.y + tr.size.y * frac_i
+				samples.append(Vector2(px, tr.position.y - 0.2))
+				samples.append(Vector2(px, tr.end.y + 0.2))
+				samples.append(Vector2(tr.position.x - 0.2, py))
+				samples.append(Vector2(tr.end.x + 0.2, py))
+			for cand_l in samples:
+				if bool(validate_equipment_pos(side_id, kind, cand_l, false)["ok"]):
+					return {"ok": true, "pos": cand_l, "rot": false}
+		return {"ok": false}
 	var own: Rect2 = state["map"]["drop_zone_a"] if side_id == "A" else state["map"]["drop_zone_b"]
 	var horizontal := own.size.x >= own.size.y
 	var w := float(state["map"]["width"])
@@ -873,13 +905,36 @@ func _mine_check(op: Dictionary, pos: Vector2) -> bool:
 		if KTGeometry.in_control_range_at(pos, float(op["base_radius"]), z, mp, MINE_RADIUS, mz, terrains):
 			marks.remove_at(i)
 			var dmg := rng.randi_range(1, 3) + 3
-			op["wounds_cur"] = maxi(0, int(op["wounds_cur"]) - dmg)
+			var before_m: int = int(op["wounds_cur"])
+			op["wounds_cur"] = maxi(0, before_m - dmg)
+			var lost_m: int = before_m - int(op["wounds_cur"])
 			add_log("💥 【%s】触发地雷，受到 D3+3 = %d 点伤害（剩余 %d/%d）！" % [str(op["name"]), dmg, int(op["wounds_cur"]), int(op["wounds_max"])])
+			_trigger_grandfathers_blessing(op, lost_m)
 			if int(op["wounds_cur"]) <= 0:
 				op["incapacitated"] = true
 				add_log("💀 【%s】被地雷炸倒！" % str(op["name"]))
 			return true
 	return false
+
+
+## Plague Marine Champion: Grandfather's Blessing (慈父赐福) — whenever a poisoned enemy within 7" loses wounds,
+## heal up to that amount (max 3 per TP, while Champion is not incapacitated; CHAOS-PM.json errata).
+func _trigger_grandfathers_blessing(victim: Dictionary, lost: int) -> void:
+	if lost <= 0 or not bool(victim.get("poisoned", false)):
+		return
+	var terrains_g: Array = state["map"]["terrains"]
+	var z_v := KTGeometry.elevation_at(victim["pos"], terrains_g)
+	for op in state["operatives"]:
+		if not bool(op["incapacitated"]) and bool(op.get("deployed", true)) and str(op["op_id"]) == "pm_champion" and str(op["side"]) != str(victim["side"]):
+			var z_c := KTGeometry.elevation_at(op["pos"], terrains_g)
+			var d := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_c, victim["pos"], float(victim["base_radius"]), z_v)
+			var healed_tp := int(op.get("blessing_healed_tp", 0))
+			if d <= 7.05 and healed_tp < 3 and int(op["wounds_cur"]) < int(op["wounds_max"]):
+				var can_heal := mini(lost, mini(3 - healed_tp, int(op["wounds_max"]) - int(op["wounds_cur"])))
+				if can_heal > 0:
+					op["wounds_cur"] = int(op["wounds_cur"]) + can_heal
+					op["blessing_healed_tp"] = healed_tp + can_heal
+					add_log("💚 慈父赐福：瘟疫勇士吸收疫病恢复 +%d 耐伤！" % can_heal)
 
 
 ## Walk a move path; mines go off where the operative first comes within range. Returns where the
@@ -945,16 +1000,17 @@ func _find_usable_ammo_cache(op: Dictionary) -> Dictionary:
 		var friendly_apl := 0
 		var enemy_apl := 0
 		for other in state["operatives"]:
-			if other["incapacitated"]:
+			if not _on_board(other):
 				continue
 			var o_pos: Vector2 = other["pos"]
 			var o_r := float(other["base_radius"])
 			var o_z := KTGeometry.elevation_at(o_pos, terrains)
 			if KTGeometry.in_control_range_at(o_pos, o_r, o_z, mp, MINE_RADIUS, mz, terrains):
+				var eff_o: int = _op_apl(other, true)
 				if str(other["side"]) == side_id:
-					friendly_apl += maxi(1, int(other["apl_base"]) + int(other.get("apl_mod", 0)))
+					friendly_apl += eff_o
 				else:
-					enemy_apl += maxi(1, int(other["apl_base"]) + int(other.get("apl_mod", 0)))
+					enemy_apl += eff_o
 		if friendly_apl > enemy_apl:
 			return md
 	return {}
@@ -975,8 +1031,15 @@ func _on_board(op: Dictionary) -> bool:
 	return not bool(op["incapacitated"]) and bool(op.get("deployed", true)) and p.x >= 0.0 and p.y >= 0.0
 
 
-func _op_apl(op: Dictionary) -> int:
-	return maxi(1, int(op["apl_base"]) + int(op.get("apl_mod", 0)))
+func _op_apl(op: Dictionary, for_marker: bool = false) -> int:
+	var side_state: Dictionary = state["sides"][op["side"]]
+	var eff := int(op["apl_base"])
+	if not KTCombat.has_chapter_tactic(side_state, op, "resolute"):
+		eff = maxi(1, eff + int(op.get("apl_mod", 0)))
+	# CHAOS-PM Icon Bearer: treat APL as 1 higher when determining control of ANY marker (cumulative with mods).
+	if for_marker and str(op["op_id"]) == "pm_icon_bearer":
+		eff += 1
+	return eff
 
 
 func _tac_obj(oid: String) -> Dictionary:
@@ -1086,7 +1149,7 @@ func _marker_apl(pos: Vector2) -> Dictionary:
 		var oz := KTGeometry.elevation_at(op_pos, terrains)
 		if KTGeometry.in_control_range_at(op_pos, float(od["base_radius"]), oz, pos, MINE_RADIUS, mz, terrains):
 			var sd := str(od["side"])
-			res[sd] = int(res[sd]) + _op_apl(od)
+			res[sd] = int(res[sd]) + _op_apl(od, true)
 	return res
 
 
@@ -1137,14 +1200,18 @@ func _carried_count(side_id: String, item: String) -> int:
 	return n
 
 
-## Index of a friendly Intel / Retrieval marker this operative can pick up (-1 if none).
+## Index of a friendly Intel / Retrieval marker this operative's side controls and can pick up (-1 if none).
 func _pickup_marker_index(op: Dictionary) -> int:
+	var sid := str(op["side"])
+	var other := "B" if sid == "A" else "A"
 	var marks := _eq_marks()
 	for i in range(marks.size()):
 		var m: Dictionary = marks[i]
 		var mk := str(m.get("kind", ""))
-		if mk in ["intel", "retrieval"] and str(m["side"]) == str(op["side"]) and _can_carry(op, mk) and _op_reaches_marker(op, m["pos"]):
-			return i
+		if mk in ["intel", "retrieval"] and str(m["side"]) == sid and _can_carry(op, mk) and _op_reaches_marker(op, m["pos"]):
+			var apl := _marker_apl(m["pos"])
+			if int(apl[sid]) > int(apl[other]):
+				return i
 	return -1
 
 
@@ -1181,9 +1248,10 @@ func surveil_targets(op: Dictionary) -> Array[Dictionary]:
 			continue
 		var t_pos: Vector2 = od["pos"]
 		var t_r := float(od["base_radius"])
-		if KTGeometry.edge_distance(op_pos, op_r, t_pos, t_r) < 6.0:
+		var t_z := KTGeometry.elevation_at(t_pos, terrains)
+		if KTGeometry.edge_distance_3d(op_pos, op_r, op_z, t_pos, t_r, t_z) <= 6.0:
 			continue
-		if KTGeometry.has_visibility(op_pos, op_r, op_z, t_pos, t_r, KTGeometry.elevation_at(t_pos, terrains), terrains):
+		if KTGeometry.has_visibility(op_pos, op_r, op_z, t_pos, t_r, t_z, terrains):
 			res.append(od)
 	return res
 
@@ -1208,12 +1276,13 @@ func tracked_enemies(side_id: String) -> Array[Dictionary]:
 				continue
 			var f_pos: Vector2 = fd["pos"]
 			var f_r := float(fd["base_radius"])
-			if KTGeometry.in_control_range_at(f_pos, f_r, KTGeometry.elevation_at(f_pos, terrains), t_pos, t_r, t_z, terrains):
+			var f_z := KTGeometry.elevation_at(f_pos, terrains)
+			if KTGeometry.in_control_range_at(f_pos, f_r, f_z, t_pos, t_r, t_z, terrains):
 				in_cr = true
 				break
 			if tracked or str(fd["order"]) != "conceal":
 				continue
-			if KTGeometry.edge_distance(f_pos, f_r, t_pos, t_r) > 6.0:
+			if KTGeometry.edge_distance_3d(f_pos, f_r, f_z, t_pos, t_r, t_z) > 6.001:
 				continue
 			if not bool(KTGeometry.evaluate_shot(fd, td, _TAC_PROBE_WEAPON, state).get("valid", false)):
 				continue
@@ -1283,9 +1352,12 @@ func _tac_actions(op: Dictionary) -> Array[Dictionary]:
 		out.append({"id": "tac_surveil", "name": "侦查 (1AP)", "cost": 1, "needs_target": true, "enabled": ok_v and not taken.has("tac_surveil"),
 			"desc": "选择 6\" 外可见的一名敌方就绪特工，使其受到监控" if ok_v else (why if not why.is_empty() else "需持隐匿命令，且有 6\" 外可见的敌方就绪特工")})
 
+	# Rulebook p.14: Pick Up Marker is a universal action (allowed in TP1 too, e.g. dropped Steal Intel markers).
 	if _pickup_marker_index(op) >= 0:
-		out.append({"id": "tac_pickup", "name": "拾取标识 (1AP)", "cost": 1, "enabled": base_ok and not taken.has("tac_pickup"),
-			"desc": "拾取控制范围内的己方情报 / 回收标记" if base_ok else why})
+		var pickup_ok: bool = int(op["ap_left"]) >= 1 and not engaged and not taken.has("tac_pickup")
+		var pickup_why: String = "位于敌方控制范围内时不能拾取标识" if engaged else ("本激活已执行过拾取标识" if taken.has("tac_pickup") else "AP 不足")
+		out.append({"id": "tac_pickup", "name": "拾取标识 (1AP)", "cost": 1, "enabled": pickup_ok,
+			"desc": "拾取己方控制的己方情报 / 回收标记" if pickup_ok else pickup_why})
 	if _banner_grab_index(op) >= 0:
 		out.append({"id": "tac_grab_banner", "name": "夺旗 (1AP)", "cost": 1, "enabled": base_ok and not taken.has("tac_grab_banner"),
 			"desc": "拾取己方控制的敌方旗帜" if base_ok else why})
@@ -1397,6 +1469,12 @@ func _score_tac_op_extended(sid: String, tac: String, tp: int) -> void:
 			elif int(state["objectives_state"][oid][apl_opp]) > 0:
 				_tac_gain(sid, 1, 2, "敌方争夺的目标【%s】有己方装置" % oid.to_upper())
 	elif tac == "sweep_clear" and tp >= 2:
+		# V11.5 errata (PDF p.111):
+		# (1) If AT LEAST ONE non-home objective is cleared & uncontested -> 1VP (or 2VP if that objective also has a friendly sweep marker).
+		# (2) If an objective friendly operatives control has a friendly sweep marker -> 1VP. (Max 2VP/TP)
+		var cleared_any_id := ""
+		var cleared_swept_id := ""
+		var swept_ctrl_id := ""
 		for obj in state["map"]["objectives"]:
 			var od2: Dictionary = obj
 			var oid2 := str(od2["id"])
@@ -1404,9 +1482,18 @@ func _score_tac_op_extended(sid: String, tac: String, tp: int) -> void:
 			var tt := _tac_obj(oid2)
 			var swept := bool(tt.get("sweep_" + sid, false))
 			if bool(tt.get("cleared_" + sid, false)) and objective_owner(od2) != sid and int(ost[apl_opp]) == 0:
-				_tac_gain(sid, 2 if swept else 1, 2, "【%s】已清理且无敌方争夺" % oid2.to_upper())
-			if swept and str(ost["controlled_by"]) == sid:
-				_tac_gain(sid, 1, 2, "控制带扫荡标记的【%s】" % oid2.to_upper())
+				if swept:
+					cleared_swept_id = oid2
+				elif cleared_any_id.is_empty():
+					cleared_any_id = oid2
+			if swept and str(ost["controlled_by"]) == sid and swept_ctrl_id.is_empty():
+				swept_ctrl_id = oid2
+		if not cleared_swept_id.is_empty():
+			_tac_gain(sid, 2, 2, "【%s】已清理、带扫荡标记且无敌方争夺" % cleared_swept_id.to_upper())
+		elif not cleared_any_id.is_empty():
+			_tac_gain(sid, 1, 2, "【%s】已清理且无敌方争夺" % cleared_any_id.to_upper())
+		if not swept_ctrl_id.is_empty():
+			_tac_gain(sid, 1, 2, "控制带扫荡标记的【%s】" % swept_ctrl_id.to_upper())
 	elif tac == "track_enemy" and tp >= 2:
 		var n_tr := tracked_enemies(sid).size()
 		if n_tr >= 2:
@@ -1439,6 +1526,111 @@ func _score_tac_op_extended(sid: String, tac: String, tp: int) -> void:
 		var n_ret := _carried_count(sid, "retrieval")
 		if n_ret > 0:
 			_tac_gain(sid, n_ret, 0, "战斗结束时携带 %d 枚回收标记" % n_ret)
+
+
+## Pure read-only one-line progress summary for `side_id`'s chosen Tac Op (r4b_tacops_ui.md #3.3).
+## By default returns "" until `tac_revealed == true` so unrevealed secret Tac Ops never leak.
+func tac_status_text(side_id: String, include_secret: bool = false) -> String:
+	var tac: String = tac_op_of(side_id)
+	if tac.is_empty():
+		return ""
+	if not include_secret and not bool(state["sides"][side_id].get("tac_revealed", false)):
+		return ""
+	var info: Dictionary = tac_op_info(tac)
+	var nm: String = str(info.get("name", tac))
+	var vp_t: int = int(state["sides"][side_id].get("vp_tac", 0))
+	var other: String = "B" if side_id == "A" else "A"
+	var detail: String = ""
+
+	match tac:
+		"flank":
+			var f_names: Array = flank_definition()["flanks"]
+			var f_parts: PackedStringArray = PackedStringArray()
+			for fn_v in f_names:
+				var fn: String = str(fn_v)
+				var ctrl: String = flank_controller(fn)
+				f_parts.append("%s %s" % [str(FLANK_CN.get(fn, fn)), "✔" if ctrl == side_id else "✘"])
+			detail = " / ".join(f_parts)
+		"plant_banner":
+			var used: bool = bool(_tac_side(side_id).get("banner_used", false))
+			if not used:
+				detail = "尚未插旗"
+			else:
+				var on_table := false
+				var held_ok := false
+				for m_v in _eq_marks():
+					var md: Dictionary = m_v
+					if str(md.get("kind", "")) == "banner" and str(md.get("side", "")) == side_id:
+						on_table = true
+						var apl_b: Dictionary = _marker_apl(md["pos"])
+						held_ok = _pos_in_enemy_territory(side_id, md["pos"], MINE_RADIUS) and int(apl_b[side_id]) > int(apl_b[other])
+						break
+				detail = ("旗帜受控 ✔" if held_ok else "旗帜未受控 ✘") if on_table else "旗帜已被夺走"
+		"dominate":
+			var dom_n: int = 0
+			for o_v in state["operatives"]:
+				var od: Dictionary = o_v
+				if str(od["side"]) == side_id and not bool(od["incapacitated"]):
+					dom_n += int(od.get("dominate_tokens", 0))
+			detail = "存活携带 %d 枚标记" % dom_n
+		"plant_devices":
+			var dev_n: int = 0
+			for oid in state["objectives_state"].keys():
+				if bool(_tac_obj(str(oid)).get("device_" + side_id, false)):
+					dev_n += 1
+			detail = "已装装置 %d / %d" % [dev_n, (state["map"]["objectives"] as Array).size()]
+		"retrieval":
+			var srch_n: int = 0
+			for oid_r in state["objectives_state"].keys():
+				if bool(_tac_obj(str(oid_r)).get("searched_" + side_id, false)):
+					srch_n += 1
+			detail = "已搜 %d 处 · 携带 %d 枚" % [srch_n, _carried_count(side_id, "retrieval")]
+		"martyrs":
+			var mar_n: int = 0
+			for oid_m in state["objectives_state"].keys():
+				mar_n += int(state["objectives_state"][oid_m].get("martyr_" + side_id, 0))
+			detail = "场上殉道标记 %d 枚" % mar_n
+		"sweep_clear":
+			var sw_n: int = 0
+			var cl_n: int = 0
+			for oid_s in state["objectives_state"].keys():
+				var td_s: Dictionary = _tac_obj(str(oid_s))
+				if bool(td_s.get("sweep_" + side_id, false)):
+					sw_n += 1
+				if bool(td_s.get("cleared_" + side_id, false)):
+					cl_n += 1
+			detail = "扫荡 %d · 已清理 %d" % [sw_n, cl_n]
+		"track_enemy":
+			detail = "当前追踪 %d 名" % tracked_enemies(side_id).size()
+		"surveil":
+			var sv_n: int = 0
+			for o_sv in state["operatives"]:
+				var od_sv: Dictionary = o_sv
+				if _on_board(od_sv) and (od_sv.get("surveilled_by", []) as Array).has(side_id):
+					sv_n += 1
+			detail = "监控敌军 %d 名" % sv_n
+		"envoy":
+			var ss_e: Dictionary = state["sides"][side_id]
+			if int(ss_e.get("envoy_tp", 0)) == int(state.get("tp", 1)):
+				var env_op: Dictionary = get_op(str(ss_e.get("envoy_uid", "")))
+				if env_op.is_empty() or bool(env_op["incapacitated"]):
+					detail = "特使已阵亡 ✘"
+				else:
+					var in_et: bool = _wholly_in_enemy_territory(env_op)
+					detail = "%s %s" % [str(env_op.get("role", env_op["name"])), "就位✔" if in_et else "推进中"]
+			else:
+				detail = "战略阶段指定" if int(state.get("tp", 1)) >= 2 else "TP2 起指定"
+		"rout":
+			detail = "敌降落区 6\" 内击杀得分"
+		"steal_intel":
+			var ground_i: int = 0
+			for m_i in _eq_marks():
+				var md_i: Dictionary = m_i
+				if str(md_i.get("kind", "")) == "intel" and str(md_i.get("side", "")) == side_id:
+					ground_i += 1
+			detail = "携带 %d 枚 · 待拾 %d 枚" % [_carried_count(side_id, "intel"), ground_i]
+
+	return "%s (%d/6VP)%s" % [nm, vp_t, (" · " + detail) if not detail.is_empty() else ""]
 
 
 const EQ_BLIGHT_GRENADE_ID := "eq_blight_grenade"
@@ -1556,10 +1748,13 @@ func _ventilator_in_range(op: Dictionary) -> bool:
 	var opp := "B" if str(op["side"]) == "A" else "A"
 	if not KTCombat.has_equipment(state["sides"][opp], "ventilator"):
 		return false
+	var terrains_v: Array = state["map"]["terrains"]
+	var z_op := KTGeometry.elevation_at(op["pos"], terrains_v)
 	for o in state["operatives"]:
 		if o["incapacitated"] or str(o["side"]) != opp or not bool(o.get("deployed", true)):
 			continue
-		if KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), o["pos"], float(o["base_radius"])) <= 3.0:
+		var z_o := KTGeometry.elevation_at(o["pos"], terrains_v)
+		if KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_op, o["pos"], float(o["base_radius"]), z_o) <= 3.05:
 			return true
 	return false
 
@@ -1833,8 +2028,10 @@ func _spawn_roster(side_id: String, team_data: Dictionary, spawns: Array) -> voi
 			"stun_skip_current_end": false,
 			"charged_this_tp": false,
 			"moved_distance_tp": 0.0,
+			"moved_distance_activation": 0.0,
 			"moved_reposition_or_charge": false,
 			"heavy_fired_this_activation": false,
+			"heavy_dash_only_fired": false,
 			"actions_taken": [],
 			"shoot_count": 0,
 			"fight_count": 0,
@@ -2083,8 +2280,10 @@ func _resolve_initiative() -> void:
 			op["guard_active"] = false
 			op["charged_this_tp"] = false
 			op["moved_distance_tp"] = 0.0
+			op["moved_distance_activation"] = 0.0
 			op["moved_reposition_or_charge"] = false
 			op["heavy_fired_this_activation"] = false
+			op["heavy_dash_only_fired"] = false
 			op["vitality_used_tp"] = false
 			op["blessing_healed_tp"] = 0
 			op["shock_assault_active"] = false
@@ -2106,28 +2305,47 @@ func get_strategic_ploy_options(side_id: String) -> Array[Dictionary]:
 	var out: Array[Dictionary] = []
 
 	if team_id == "IMP-AOD":
+		# IMP-AOD Doctrine Warfare (条令战争): while aod_sergeant (Devastator/Tactical) or aod_assault_sergeant
+		# (Assault/Tactical) is in the killzone, once per battle each, that Combat Doctrine costs 0CP!
+		var has_sgt := false
+		var has_asgt := false
+		for s_op in state["operatives"]:
+			var sod: Dictionary = s_op
+			if str(sod["side"]) != side_id or not _on_board(sod):
+				continue
+			if str(sod["op_id"]) == "aod_sergeant":
+				has_sgt = true
+			elif str(sod["op_id"]) == "aod_assault_sergeant":
+				has_asgt = true
+		var free_used: Array = side_state.get("doctrine_free_used", [])
+		var free_dev: bool = has_sgt and not free_used.has("doctrine_devastator")
+		var free_tac: bool = (has_sgt or has_asgt) and not free_used.has("doctrine_tactical")
+		var free_ass: bool = has_asgt and not free_used.has("doctrine_assault")
 		out.append({
 			"id": "doctrine_devastator",
 			"ploy_key": "战斗条令",
-			"title": "战斗条令：毁灭 (>6\"平衡)",
-			"cost": 1,
+			"title": "战斗条令：毁灭 (>6\"平衡)%s" % (" (军士0CP!)" if free_dev else ""),
+			"cost": 0 if free_dev else 1,
 			"used": used.has("战斗条令"),
+			"free_doctrine": free_dev,
 			"desc": "对 6\" 外目标远程射击获得【平衡】（免费重掷 1 枚攻击骰）。"
 		})
 		out.append({
 			"id": "doctrine_tactical",
 			"ploy_key": "战斗条令",
-			"title": "战斗条令：战术 (≤6\"平衡)",
-			"cost": 1,
+			"title": "战斗条令：战术 (≤6\"平衡)%s" % (" (军士0CP!)" if free_tac else ""),
+			"cost": 0 if free_tac else 1,
 			"used": used.has("战斗条令"),
+			"free_doctrine": free_tac,
 			"desc": "对 6\" 内目标远程射击获得【平衡】（免费重掷 1 枚攻击骰）。"
 		})
 		out.append({
 			"id": "doctrine_assault",
 			"ploy_key": "战斗条令",
-			"title": "战斗条令：突击 (近战平衡)",
-			"cost": 1,
+			"title": "战斗条令：突击 (近战平衡)%s" % (" (军士0CP!)" if free_ass else ""),
+			"cost": 0 if free_ass else 1,
 			"used": used.has("战斗条令"),
+			"free_doctrine": free_ass,
 			"desc": "近战与反击获得【平衡】（免费重掷 1 枚攻击骰）。"
 		})
 		out.append({
@@ -2150,7 +2368,7 @@ func get_strategic_ploy_options(side_id: String) -> Array[Dictionary]:
 		# CHAOS-PM Strategic Ploys
 		var free_contagion := false
 		for op in state["operatives"]:
-			if not op["incapacitated"] and str(op["op_id"]) == "pm_icon_bearer" and _in_enemy_territory(op):
+			if _on_board(op) and str(op["op_id"]) == "pm_icon_bearer" and _in_enemy_territory(op):
 				free_contagion = true
 				break
 		out.append({
@@ -2177,13 +2395,15 @@ func get_strategic_ploy_options(side_id: String) -> Array[Dictionary]:
 			"used": used.has("飞蝇云"),
 			"desc": "在战团中心释放飞蝇云标识，1\" 内友军受 3\" 外射击自动享有【重型遮挡】！"
 		})
+		var has_nurgling_tgt: bool = not _find_nurgling_victim(side_id).is_empty()
 		out.append({
 			"id": "nurglings",
 			"ploy_key": "纳垢灵",
 			"title": "纳垢灵骚扰",
 			"cost": 1,
 			"used": used.has("纳垢灵"),
-			"desc": "令 3\" 内（或 7\" 内带毒）最近一名敌方特工陷入纠缠，APL -1！"
+			"can_use": has_nurgling_tgt,
+			"desc": "令 3\" 内（或 7\" 内带毒）最近一名敌方特工陷入纠缠，APL -1！" if has_nurgling_tgt else "当前 3\" 内无敌军且 7\" 内无带毒敌军（暂不可发动）"
 		})
 	return out
 
@@ -2208,6 +2428,12 @@ func use_strategic_ploy(side_id: String, option_id: String) -> Dictionary:
 	if int(side_state["cp"]) < cost:
 		return {"ok": false, "msg": "CP 命令点不足"}
 
+	var nurgling_victim := {}
+	if option_id == "nurglings":
+		nurgling_victim = _find_nurgling_victim(side_id)
+		if nurgling_victim.is_empty():
+			return {"ok": false, "msg": "3\" 内无敌方特工（或 7\" 内无带毒敌军）"}
+
 	push_undo()
 	side_state["cp"] = int(side_state["cp"]) - cost
 	var pkey := str(chosen["ploy_key"])
@@ -2217,10 +2443,22 @@ func use_strategic_ploy(side_id: String, option_id: String) -> Dictionary:
 
 	if option_id == "doctrine_devastator":
 		side_state["combat_doctrine"] = "devastator"
+		if bool(chosen.get("free_doctrine", false)):
+			if not side_state.has("doctrine_free_used"):
+				side_state["doctrine_free_used"] = []
+			(side_state["doctrine_free_used"] as Array).append(option_id)
 	elif option_id == "doctrine_tactical":
 		side_state["combat_doctrine"] = "tactical"
+		if bool(chosen.get("free_doctrine", false)):
+			if not side_state.has("doctrine_free_used"):
+				side_state["doctrine_free_used"] = []
+			(side_state["doctrine_free_used"] as Array).append(option_id)
 	elif option_id == "doctrine_assault":
 		side_state["combat_doctrine"] = "assault"
+		if bool(chosen.get("free_doctrine", false)):
+			if not side_state.has("doctrine_free_used"):
+				side_state["doctrine_free_used"] = []
+			(side_state["doctrine_free_used"] as Array).append(option_id)
 	elif option_id == "cloud_of_flies":
 		# Place Cloud of Flies at the Plague Marine that has advanced furthest from its own zone
 		var own_dz: Rect2 = state["map"]["drop_zone_a"] if side_id == "A" else state["map"]["drop_zone_b"]
@@ -2235,12 +2473,11 @@ func use_strategic_ploy(side_id: String, option_id: String) -> Dictionary:
 				anchor = op["pos"]
 		state["markers"].append({"kind": "cloud_of_flies", "side": side_id, "pos": anchor, "name": "飞蝇云"})
 	elif option_id == "nurglings":
-		var victim := _find_nurgling_victim(side_id)
-		if not victim.is_empty():
-			var opp_side: Dictionary = state["sides"][victim["side"]]
-			if not KTCombat.has_chapter_tactic(opp_side, victim, "resolute"):
-				victim["apl_mod"] = -1
-			add_log("🐛 纳垢灵扑向【%s】，使其下次激活 APL -1！" % str(victim["name"]))
+		if not nurgling_victim.is_empty():
+			var opp_side: Dictionary = state["sides"][nurgling_victim["side"]]
+			if not KTCombat.has_chapter_tactic(opp_side, nurgling_victim, "resolute"):
+				nurgling_victim["apl_mod"] = maxi(-1, int(nurgling_victim.get("apl_mod", 0)) - 1)
+			add_log("🐛 纳垢灵扑向【%s】，使其下次激活 APL -1！" % str(nurgling_victim["name"]))
 
 	add_log("🃏 【%s】发动战略计谋《%s》(-%dCP)" % [str(side_state["name"]), str(chosen["title"]), cost])
 	state["consecutive_strategy_passes"] = 0
@@ -2251,14 +2488,17 @@ func use_strategic_ploy(side_id: String, option_id: String) -> Dictionary:
 func _find_nurgling_victim(pm_side: String) -> Dictionary:
 	var best := {}
 	var best_d := 999.0
+	var terrains_n: Array = state["map"]["terrains"]
 	for enemy in state["operatives"]:
-		if enemy["incapacitated"] or str(enemy["side"]) == pm_side:
+		if enemy["incapacitated"] or not bool(enemy.get("deployed", true)) or str(enemy["side"]) == pm_side:
 			continue
-		var max_r := 7.0 if bool(enemy.get("poisoned", false)) else 3.0
+		var max_r := 7.05 if bool(enemy.get("poisoned", false)) else 3.05
+		var z_en := KTGeometry.elevation_at(enemy["pos"], terrains_n)
 		for pm in state["operatives"]:
-			if pm["incapacitated"] or str(pm["side"]) != pm_side:
+			if pm["incapacitated"] or not bool(pm.get("deployed", true)) or str(pm["side"]) != pm_side:
 				continue
-			var d := KTGeometry.edge_distance(pm["pos"], float(pm["base_radius"]), enemy["pos"], float(enemy["base_radius"]))
+			var z_pm := KTGeometry.elevation_at(pm["pos"], terrains_n)
+			var d := KTGeometry.edge_distance_3d(pm["pos"], float(pm["base_radius"]), z_pm, enemy["pos"], float(enemy["base_radius"]), z_en)
 			if d <= max_r and d < best_d:
 				best_d = d
 				best = enemy
@@ -2370,8 +2610,10 @@ func activate_operative(uid: String, chosen_order: String = "") -> Dictionary:
 
 	op["ignore_obscured"] = false # Sniper Optics expires on next activation start
 	op["auspex_active"] = false
+	op["moved_distance_activation"] = 0.0
 	op["moved_reposition_or_charge"] = false
 	op["heavy_fired_this_activation"] = false
+	op["heavy_dash_only_fired"] = false
 	op["actions_taken"] = []
 	op["shoot_count"] = 0
 	op["fight_count"] = 0
@@ -2401,15 +2643,19 @@ func activate_operative(uid: String, chosen_order: String = "") -> Dictionary:
 				add_log("☣️ 排毒口毒雾（D3 = 3）：【%s】获得毒素指示物！" % str(op["name"]))
 		elif bool(op["poisoned"]):
 			var pdmg := rng.randi_range(1, 3) if vented else 1
-			op["wounds_cur"] = maxi(0, int(op["wounds_cur"]) - pdmg)
+			var before_p: int = int(op["wounds_cur"])
+			op["wounds_cur"] = maxi(0, before_p - pdmg)
+			var lost_p: int = before_p - int(op["wounds_cur"])
 			add_log("☣️ 纳垢毒素发作%s！【%s】在激活开始时失去 %d 点耐伤（剩余 %d/%d）！" % [
 				"（排毒口：D3）" if vented else "", str(op["name"]), pdmg, int(op["wounds_cur"]), int(op["wounds_max"])
 			])
+			_trigger_grandfathers_blessing(op, lost_p)
 			if int(op["wounds_cur"]) <= 0:
 				op["incapacitated"] = true
 				op["ready"] = false
 				state["active_op_uid"] = ""
 				add_log("💀 【%s】被毒素侵蚀倒下！" % str(op["name"]))
+				_tick_smoke_after_activation()
 				recalculate_objectives_and_kills()
 				_advance_firefight_turn(str(op["side"]))
 				return {"ok": true, "died_to_poison": true}
@@ -2434,7 +2680,8 @@ func get_effective_move_inches(op: Dictionary, action_kind: String) -> float:
 	if action_kind == "barricade_move":
 		return maxf(0.0, get_effective_move_inches(op, "reposition") - 2.0)
 	if bool(state.get("active_is_counteract", false)):
-		return 2.0 # KT24 Counteract move cap is 2"!
+		# Rulebook p.11: Counteract operative cannot move more than 2" TOTAL across the entire Counteract (even with Wrath of Vengeance!).
+		return maxf(0.0, 2.0 - float(op.get("moved_distance_activation", 0.0)))
 	if action_kind == "dash":
 		return 3.0
 
@@ -2463,10 +2710,13 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 	var move_blocked := taken.has("reposition") or taken.has("charge") or taken.has("fall_back")
 	var dash_blocked := taken.has("dash") or taken.has("charge")
 	var heavy_fired := bool(op.get("heavy_fired_this_activation", false))
+	var heavy_dash_only_fired := bool(op.get("heavy_dash_only_fired", false))
+	var heavy_blocks_non_dash := heavy_fired or heavy_dash_only_fired
+	var heavy_blocks_dash := heavy_fired # Rulebook p.93 L2774: Heavy (Dash only) still permits Dash!
 
 	var fb_cost := 1 if mobile else 2
 
-	# Shooting legality (Astartes allows 2 shoots if at least 1 is Bolt/Psychic)
+	# Shooting legality (Astartes: either two Shoot actions OR two Fight actions per activation; at least 1 Shoot is Bolt/Psychic)
 	var has_ranged := false
 	var has_silent := false
 	for w in op["weapons"]:
@@ -2475,8 +2725,9 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 			if bool(w["rules"].get("silent", false)):
 				has_silent = true
 	var can_shoot_order := (str(op["order"]) == "engage") or has_silent
-	var shoot_cap := 1 if bool(state["active_is_counteract"]) else 2
-	var can_shoot := has_ranged and ap >= 1 and int(op["shoot_count"]) < shoot_cap and can_shoot_order and not engaged
+	var shoot_cap := 1 if (bool(state["active_is_counteract"]) or int(op["fight_count"]) >= 2) else 2
+	var usable_ranged: Array = get_usable_ranged_weapons(op) if (has_ranged and int(op["shoot_count"]) < shoot_cap) else []
+	var can_shoot := has_ranged and ap >= 1 and int(op["shoot_count"]) < shoot_cap and can_shoot_order and not engaged and not usable_ranged.is_empty()
 	var shoot_reason := "选择远程武器瞄准射击"
 	if not has_ranged:
 		shoot_reason = "该特工未装备远程武器"
@@ -2488,33 +2739,29 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 		shoot_reason = "已达本次激活射击次数上限"
 	elif ap < 1:
 		shoot_reason = "AP 不足"
+	elif usable_ranged.is_empty():
+		shoot_reason = "本激活无可用远程武器（受重型移动限制或阿斯塔特双射须含爆矢/灵能）"
 
-	var fight_cap := 1 if bool(state["active_is_counteract"]) else 2
+	var fight_cap := 1 if (bool(state["active_is_counteract"]) or int(op["shoot_count"]) >= 2) else 2
 	var can_fight := ap >= 1 and int(op["fight_count"]) < fight_cap and engaged
 	var fight_reason := "与控制范围内的敌方特工展开近战搏杀" if engaged else "需位于敌方 1\" 控制范围内才可近战"
 
-	# Objective secure check (TP >= 2, within 1" of controlled objective, not engaged)
+	# Objective secure check (Approved Ops 2025 Crit Op "占领": TP >= 2, in control range of controlled objective, not engaged; MissionCards.kt L36-38)
 	var can_secure := false
 	var secure_obj_id := ""
-	if int(state["tp"]) >= 1 and ap >= 1 and not engaged and not taken.has("secure"):
-		var sec_terrains: Array = state["map"]["terrains"]
+	if int(state["tp"]) >= 2 and ap >= 1 and not engaged and not taken.has("secure"):
 		for obj in state["map"]["objectives"]:
 			var oid := str(obj["id"])
-			var op_pos: Vector2 = op["pos"]
-			var obj_pos: Vector2 = obj["pos"]
-			var d: float = op_pos.distance_to(obj_pos) - float(op["base_radius"])
-			var z_op_sec := KTGeometry.elevation_at(op_pos, sec_terrains)
-			var z_obj_sec := KTGeometry.elevation_at(obj_pos, sec_terrains)
-			if d <= 1.787 and absf(z_op_sec - z_obj_sec) <= 2.0 and str(state["objectives_state"][oid]["controlled_by"]) == str(op["side"]) and str(state["objectives_state"][oid]["secured_by"]) != str(op["side"]):
+			if _op_contests_objective(op, obj) and str(state["objectives_state"][oid]["controlled_by"]) == str(op["side"]) and str(state["objectives_state"][oid]["secured_by"]) != str(op["side"]):
 				can_secure = true
 				secure_obj_id = oid
 				break
 
 	var pb_idx := _find_contact_portable_barricade_idx(op)
-	var can_barricade_move := ap >= 1 and not engaged and not move_blocked and not heavy_fired and not bool(state["active_is_counteract"]) and pb_idx >= 0
+	var can_barricade_move := ap >= 1 and not engaged and not move_blocked and not heavy_blocks_non_dash and not bool(state["active_is_counteract"]) and pb_idx >= 0
 	var barricade_reason := "携可移动掩体推进 %.0f\"" % get_effective_move_inches(op, "barricade_move")
 	if not can_barricade_move:
-		if heavy_fired:
+		if heavy_blocks_non_dash:
 			barricade_reason = "本轮已使用重型武器，不能再移动"
 		elif pb_idx < 0:
 			barricade_reason = "需与可移动掩体接触"
@@ -2527,11 +2774,15 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 		else:
 			barricade_reason = "AP 不足"
 
+	var is_ca_act: bool = bool(state["active_is_counteract"])
+	var ca_move_exhausted: bool = is_ca_act and (2.0 - float(op.get("moved_distance_activation", 0.0)) < 0.5)
+	var ca_blocks_fb: bool = is_ca_act and fb_cost > 1 # Rulebook p.11 + 1.2 FAQ: Counteract only permits 1AP/0AP actions (even with Wrath of Vengeance)
+
 	return {
 		"reposition": {
-			"enabled": ap >= 1 and not move_blocked and not engaged and not heavy_fired,
+			"enabled": ap >= 1 and not move_blocked and not engaged and not heavy_blocks_non_dash and not ca_move_exhausted,
 			"cost": 1,
-			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else ("常规移动 %.0f\"" % get_effective_move_inches(op, "reposition") if not engaged else "被敌方近战锁定，请后撤")
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_blocks_non_dash else ("反应期间总移动上限为 2\"" if ca_move_exhausted else ("常规移动 %.0f\"" % get_effective_move_inches(op, "reposition") if not engaged else "被敌方近战锁定，请后撤"))
 		},
 		"barricade_move": {
 			"enabled": can_barricade_move,
@@ -2539,19 +2790,19 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 			"reason": barricade_reason
 		},
 		"dash": {
-			"enabled": ap >= 1 and not dash_blocked and not engaged and not heavy_fired and not bool(state["active_is_counteract"]),
+			"enabled": ap >= 1 and not dash_blocked and not engaged and not heavy_blocks_dash and not ca_move_exhausted,
 			"cost": 1,
-			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else "冲刺突进 3\"（可与转移组合推进）"
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_blocks_dash else ("反应期间总移动上限为 2\"" if ca_move_exhausted else ("反应冲刺 %.0f\"" % get_effective_move_inches(op, "dash") if is_ca_act else "冲刺突进 3\"（可与转移组合推进）"))
 		},
 		"charge": {
-			"enabled": ap >= 1 and not move_blocked and not taken.has("dash") and not heavy_fired and (not engaged or mobile) and str(op["order"]) == "engage",
+			"enabled": ap >= 1 and not move_blocked and not taken.has("dash") and not heavy_blocks_non_dash and not ca_move_exhausted and (not engaged or mobile) and str(op["order"]) == "engage",
 			"cost": 1,
-			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else ("冲锋 %.0f\" 突入敌方 1\" 控制圈！" % get_effective_move_inches(op, "charge") if str(op["order"]) == "engage" else "【隐匿】命令下不能发起冲锋")
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_blocks_non_dash else ("反应期间总移动上限为 2\"" if ca_move_exhausted else ("冲锋 %.0f\" 突入敌方 1\" 控制圈！" % get_effective_move_inches(op, "charge") if str(op["order"]) == "engage" else "【隐匿】命令下不能发起冲锋"))
 		},
 		"fall_back": {
-			"enabled": ap >= fb_cost and not move_blocked and not heavy_fired and engaged,
+			"enabled": ap >= fb_cost and not move_blocked and not heavy_blocks_non_dash and not ca_move_exhausted and not ca_blocks_fb and engaged,
 			"cost": fb_cost,
-			"reason": "本轮已使用重型武器，不能再移动" if heavy_fired else ("消耗 %dAP 脱离敌方近战控制圈" % fb_cost)
+			"reason": "本轮已使用重型武器，不能再移动" if heavy_blocks_non_dash else ("反应期间不能执行 2AP 后撤（需机动战团战术降至 1AP）" if ca_blocks_fb else ("反应期间总移动上限为 2\"" if ca_move_exhausted else ("消耗 %dAP 脱离敌方近战控制圈" % fb_cost)))
 		},
 		"shoot": {
 			"enabled": can_shoot,
@@ -2567,7 +2818,7 @@ func get_available_actions(op: Dictionary) -> Dictionary:
 			"enabled": can_secure,
 			"cost": 1,
 			"obj_id": secure_obj_id,
-			"reason": "占领脚下已控制的目标信标 (+VP)" if can_secure else "需站在己方控制且未占领的目标信标 1\" 内"
+			"reason": "占领脚下已控制的目标信标 (+VP)" if can_secure else ("任务行动从第 2 转折点开始" if int(state["tp"]) < 2 else "需站在己方控制且未占领的目标信标 1\" 内")
 		},
 	}
 
@@ -2656,6 +2907,7 @@ func execute_move(uid: String, action_kind: String, waypoints: Array[Vector2]) -
 	op["ap_left"] = int(op["ap_left"]) - cost_ap
 	op["pos"] = _walk_through_mines(op, waypoints)
 	op["moved_distance_tp"] = float(op["moved_distance_tp"]) + float(check["cost"])
+	op["moved_distance_activation"] = float(op.get("moved_distance_activation", 0.0)) + float(check["cost"])
 	if action_kind in ["reposition", "charge", "fall_back", "barricade_move"]:
 		op["moved_reposition_or_charge"] = true
 	if action_kind == "charge":
@@ -2690,6 +2942,19 @@ func execute_move(uid: String, action_kind: String, waypoints: Array[Vector2]) -
 				if bool(t.get("equipment", false)) and new_rect.grow(2.0).intersects(tr):
 					can_redeploy = false
 					break
+		if can_redeploy:
+			for obj_b in state["map"]["objectives"]:
+				if KTGeometry.point_to_rect_distance(obj_b["pos"], new_rect) < 0.787:
+					can_redeploy = false
+					break
+		if can_redeploy:
+			for op_b in state["operatives"]:
+				var obd: Dictionary = op_b
+				if not _on_board(obd):
+					continue
+				if KTGeometry.circle_intersects_rect(obd["pos"], float(obd["base_radius"]) * 0.92, new_rect):
+					can_redeploy = false
+					break
 		if can_redeploy and not bool(op["incapacitated"]):
 			removed_barricade["rect"] = new_rect
 			cur_terrains.append(removed_barricade)
@@ -2699,7 +2964,10 @@ func execute_move(uid: String, action_kind: String, waypoints: Array[Vector2]) -
 		state["map"]["id"] = str(state["map"]["id"]) + "+bm"
 	if op["incapacitated"]:
 		# Blown up by a mine on the way
-		op["ready"] = false
+		var was_ca: bool = bool(state["active_is_counteract"])
+		if not was_ca:
+			op["ready"] = false
+			_tick_smoke_after_activation()
 		state["active_op_uid"] = ""
 		state["active_is_counteract"] = false
 		recalculate_objectives_and_kills()
@@ -2740,18 +3008,21 @@ func get_unique_actions(op: Dictionary) -> Array[Dictionary]:
 			"desc": "开启歼灭者光学瞄具：本次激活射击无视敌方【重型遮挡】！"
 		})
 	elif oid == "pm_fighter":
+		var flail_cap := 1 if bool(state["active_is_counteract"]) else 2
 		out.append({
 			"id": "pm_flail",
 			"name": "腐蚀连枷横扫 (1AP)",
-			"enabled": ap >= 1 and str(op["order"]) == "engage" and int(op["fight_count"]) < 2,
+			"enabled": ap >= 1 and str(op["order"]) == "engage" and int(op["fight_count"]) < flail_cap and not (op["actions_taken"] as Array).has("pm_flail"),
 			"desc": "对 2\" 内所有可见特工造成 D3+2 伤害，掷出 3 附带纳垢毒素！"
 		})
 	elif oid == "pm_plaguecaster":
+		var has_miasma_tgt: bool = not _find_miasma_target(op).is_empty()
+		var miasma_ok: bool = ap >= 1 and not engaged and not (op["actions_taken"] as Array).has("pm_miasma") and has_miasma_tgt
 		out.append({
 			"id": "pm_miasma",
 			"name": "有毒瘴气 (1AP·灵能)",
-			"enabled": ap >= 1 and not engaged and not op["actions_taken"].has("pm_miasma"),
-			"desc": "令 7\" 内可见最近敌军感染毒素；若已带毒则直接造成 3 点灵能腐蚀伤害！"
+			"enabled": miasma_ok,
+			"desc": "令 7\" 内可见敌军或有效射击目标感染毒素；若已带毒则直接造成 3 点灵能腐蚀伤害！" if has_miasma_tgt else "7\" 内无可见敌军且无有效射击目标"
 		})
 		out.append({
 			"id": "pm_vitality",
@@ -2797,11 +3068,11 @@ func validate_smoke_pos(op: Dictionary, pos: Vector2) -> Dictionary:
 		return {"ok": false, "reason": "落点超出杀戮区边界"}
 	var op_pos: Vector2 = op["pos"]
 	var r := float(op["base_radius"])
-	if pos.distance_to(op_pos) - r > 6.001:
-		return {"ok": false, "reason": "落点超出 6\" 投掷距离"}
 	var terrains: Array = state["map"]["terrains"]
 	var z_op := KTGeometry.elevation_at(op_pos, terrains)
 	var z_pos := KTGeometry.elevation_at(pos, terrains)
+	if KTGeometry.edge_distance_3d(op_pos, r, z_op, pos, 0.0, z_pos) > 6.001:
+		return {"ok": false, "reason": "落点超出 6\" 投掷距离"}
 	if not KTGeometry.has_visibility(op_pos, r, z_op, pos, MINE_RADIUS, z_pos, terrains):
 		return {"ok": false, "reason": "落点对该特工不可见"}
 	return {"ok": true, "reason": ""}
@@ -2862,9 +3133,9 @@ func stun_targets(op: Dictionary) -> Array[Dictionary]:
 			continue
 		var t_pos: Vector2 = od["pos"]
 		var t_r := float(od["base_radius"])
-		if KTGeometry.edge_distance(op_pos, op_r, t_pos, t_r) > 6.001:
-			continue
 		var t_z := KTGeometry.elevation_at(t_pos, terrains)
+		if KTGeometry.edge_distance_3d(op_pos, op_r, op_z, t_pos, t_r, t_z) > 6.001:
+			continue
 		if KTGeometry.has_visibility(op_pos, op_r, op_z, t_pos, t_r, t_z, terrains):
 			out.append(od)
 	return out
@@ -2902,6 +3173,8 @@ func use_stun_grenade(uid: String, target_uid: String) -> Dictionary:
 
 	var t_pos: Vector2 = target["pos"]
 	var t_r := float(target["base_radius"])
+	var stun_terrains: Array = state["map"]["terrains"]
+	var z_t := KTGeometry.elevation_at(t_pos, stun_terrains)
 	var affected: Array[Dictionary] = [target]
 	for other in state["operatives"]:
 		var od: Dictionary = other
@@ -2909,7 +3182,8 @@ func use_stun_grenade(uid: String, target_uid: String) -> Dictionary:
 			continue
 		var o_pos: Vector2 = od["pos"]
 		var o_r := float(od["base_radius"])
-		if KTGeometry.edge_distance(t_pos, t_r, o_pos, o_r) <= 1.001:
+		var z_o := KTGeometry.elevation_at(o_pos, stun_terrains)
+		if KTGeometry.edge_distance_3d(t_pos, t_r, z_t, o_pos, o_r, z_o) <= 1.001:
 			affected.append(od)
 
 	var rolls: Array = []
@@ -2924,7 +3198,7 @@ func use_stun_grenade(uid: String, target_uid: String) -> Dictionary:
 				add_log("⚡ 震荡手雷检定【%s】掷出 %d（3+）：因【坚决】战团战术忽略 APL 减值。" % [str(victim["name"]), roll])
 			else:
 				stunned = true
-				victim["apl_mod"] = -1
+				victim["apl_mod"] = maxi(-1, int(victim.get("apl_mod", 0)) - 1)
 				victim["stun_skip_current_end"] = (active_uid == str(victim["uid"]))
 				add_log("⚡ 震荡手雷检定【%s】掷出 %d（3+）：APL -1 直到其下一次激活结束！" % [str(victim["name"]), roll])
 		else:
@@ -2934,6 +3208,31 @@ func use_stun_grenade(uid: String, target_uid: String) -> Dictionary:
 	recalculate_objectives_and_kills()
 	_check_auto_end_counteract(op)
 	return {"ok": true, "rolls": rolls}
+
+
+## CHAOS-PM Poisonous Miasma (有毒瘴气): enemy operative visible within 7" OR a valid shooting target.
+func _find_miasma_target(op: Dictionary) -> Dictionary:
+	var best := {}
+	var best_score := -999.0
+	var terrains_m: Array = state["map"]["terrains"]
+	var z_me := KTGeometry.elevation_at(op["pos"], terrains_m)
+	for enemy in state["operatives"]:
+		if bool(enemy["incapacitated"]) or not bool(enemy.get("deployed", true)) or str(enemy["side"]) == str(op["side"]):
+			continue
+		var z_e := KTGeometry.elevation_at(enemy["pos"], terrains_m)
+		var d := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_me, enemy["pos"], float(enemy["base_radius"]), z_e)
+		var eligible := false
+		if d <= 7.05 and KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_me, enemy["pos"], float(enemy["base_radius"]), z_e, terrains_m):
+			eligible = true
+		elif bool(KTGeometry.evaluate_shot(op, enemy, _TAC_PROBE_WEAPON, state).get("valid", false)):
+			eligible = true
+		if eligible:
+			# Prefer already-poisoned enemy (immediate 3 dmg), then closer enemy
+			var sc: float = (100.0 if bool(enemy.get("poisoned", false)) else 0.0) - d
+			if sc > best_score:
+				best_score = sc
+				best = enemy
+	return best
 
 
 func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
@@ -2951,6 +3250,9 @@ func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 		if cache.is_empty():
 			return {"ok": false, "msg": "需不在敌方控制范围内，且控制一枚本转折点未使用的己方弹药储备标识"}
 		push_undo()
+		# Rulebook p.11: Counteract permits a single 1AP or 0AP action; consume the Counteract action slot!
+		if bool(state.get("active_is_counteract", false)):
+			op["ap_left"] = maxi(0, int(op["ap_left"]) - 1)
 		op["actions_taken"].append(ability_id)
 		var tp := int(state["tp"])
 		cache["used_tp"] = tp
@@ -2959,6 +3261,32 @@ func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 		recalculate_objectives_and_kills()
 		_check_auto_end_counteract(op)
 		return {"ok": true}
+	if str(state.get("active_op_uid", "")) != uid:
+		return {"ok": false, "msg": "该特工未处于当前激活"}
+	if int(op["ap_left"]) < 1:
+		return {"ok": false, "msg": "AP 不足"}
+
+	# Pre-validate unique action preconditions BEFORE pushing undo / mutating ap_left & actions_taken!
+	var miasma_target := {}
+	if ability_id == "aod_optics":
+		if str(op["op_id"]) != "aod_sniper" or bool(op["ignore_obscured"]) or not KTGeometry.is_in_enemy_control_range(op, op["pos"], state).is_empty():
+			return {"ok": false, "msg": "当前无法执行瞄准"}
+	elif ability_id == "pm_miasma":
+		if str(op["op_id"]) != "pm_plaguecaster" or (op["actions_taken"] as Array).has("pm_miasma"):
+			return {"ok": false, "msg": "同一次激活中不能重复执行有毒瘴气"}
+		if not KTGeometry.is_in_enemy_control_range(op, op["pos"], state).is_empty():
+			return {"ok": false, "msg": "处于敌方控制范围内，不能执行有毒瘴气"}
+		miasma_target = _find_miasma_target(op)
+		if miasma_target.is_empty():
+			return {"ok": false, "msg": "7\" 内没有可见的敌方特工"}
+	elif ability_id == "pm_vitality":
+		if str(op["op_id"]) != "pm_plaguecaster" or bool(op["vitality_used_tp"]) or not KTGeometry.is_in_enemy_control_range(op, op["pos"], state).is_empty():
+			return {"ok": false, "msg": "当前无法执行腐烂活力"}
+	elif ability_id == "pm_flail":
+		var fcap := 1 if bool(state["active_is_counteract"]) else 2
+		if str(op["op_id"]) != "pm_fighter" or (op["actions_taken"] as Array).has("pm_flail") or int(op["fight_count"]) >= fcap or str(op["order"]) != "engage":
+			return {"ok": false, "msg": "当前无法执行腐蚀连枷横扫"}
+
 	push_undo()
 	op["ap_left"] = int(op["ap_left"]) - 1
 	op["actions_taken"].append(ability_id)
@@ -2969,60 +3297,59 @@ func execute_unique_action(uid: String, ability_id: String) -> Dictionary:
 	elif ability_id == "pm_flail":
 		op["fight_count"] = int(op["fight_count"]) + 1
 		var hit_any := 0
+		var flail_terrains: Array = state["map"]["terrains"]
+		var z_flail := KTGeometry.elevation_at(op["pos"], flail_terrains)
 		for other in state["operatives"]:
-			if other["incapacitated"] or other["uid"] == op["uid"]:
+			var od_fl: Dictionary = other
+			if not _on_board(od_fl) or str(od_fl["uid"]) == str(op["uid"]):
 				continue
-			var d := KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), other["pos"], float(other["base_radius"]))
-			if d <= 2.05:
+			var z_other_fl := KTGeometry.elevation_at(od_fl["pos"], flail_terrains)
+			var d := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_flail, od_fl["pos"], float(od_fl["base_radius"]), z_other_fl)
+			if d <= 2.05 and KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_flail, od_fl["pos"], float(od_fl["base_radius"]), z_other_fl, flail_terrains):
 				var d3 := rng.randi_range(1, 3)
 				var dmg := d3 + 2
-				other["wounds_cur"] = maxi(0, int(other["wounds_cur"]) - dmg)
-				if d3 == 3 and str(other["team_id"]) != "CHAOS-PM":
-					other["poisoned"] = true
-				if int(other["wounds_cur"]) <= 0:
-					other["incapacitated"] = true
-					other["killed_by"] = str(op["uid"])
+				var before_fl: int = int(od_fl["wounds_cur"])
+				od_fl["wounds_cur"] = maxi(0, before_fl - dmg)
+				var lost_fl: int = before_fl - int(od_fl["wounds_cur"])
+				_trigger_grandfathers_blessing(od_fl, lost_fl)
+				if d3 == 3 and str(od_fl["side"]) != str(op["side"]):
+					od_fl["poisoned"] = true
+				if int(od_fl["wounds_cur"]) <= 0:
+					od_fl["incapacitated"] = true
+					od_fl["killed_by"] = str(op["uid"])
 				hit_any += 1
-				add_log("⛓️ 腐蚀连枷横扫命中【%s】，造成 %d 点伤害！" % [str(other["name"]), dmg])
+				add_log("⛓️ 腐蚀连枷横扫命中【%s】，造成 %d 点伤害！" % [str(od_fl["name"]), dmg])
 		if hit_any == 0:
 			add_log("⛓️ 【瘟疫斗士】挥舞腐蚀连枷（2\" 内暂无目标）。")
 	elif ability_id == "pm_miasma":
-		var best := {}
-		var best_d := 99.0
-		var terrains: Array = state["map"]["terrains"]
-		var z_me := KTGeometry.elevation_at(op["pos"], terrains)
-		for enemy in state["operatives"]:
-			if enemy["incapacitated"] or enemy["side"] == op["side"]:
-				continue
-			var d := KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), enemy["pos"], float(enemy["base_radius"]))
-			var z_e := KTGeometry.elevation_at(enemy["pos"], terrains)
-			if d <= 7.05 and d < best_d and KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_me, enemy["pos"], float(enemy["base_radius"]), z_e, terrains):
-				best_d = d
-				best = enemy
-		if best.is_empty():
-			op["ap_left"] = int(op["ap_left"]) + 1
-			return {"ok": false, "msg": "7\" 内没有可见的敌方特工"}
-		if bool(best["poisoned"]):
-			best["wounds_cur"] = maxi(0, int(best["wounds_cur"]) - 3)
-			if int(best["wounds_cur"]) <= 0:
-				best["incapacitated"] = true
-				best["killed_by"] = str(op["uid"])
-			add_log("☠️ 【恶瘟投放者】释放有毒瘴气：引爆【%s】体内毒素造成 3 点真实伤害！" % str(best["name"]))
+		if bool(miasma_target["poisoned"]):
+			var before_ms: int = int(miasma_target["wounds_cur"])
+			miasma_target["wounds_cur"] = maxi(0, before_ms - 3)
+			var lost_ms: int = before_ms - int(miasma_target["wounds_cur"])
+			_trigger_grandfathers_blessing(miasma_target, lost_ms)
+			if int(miasma_target["wounds_cur"]) <= 0:
+				miasma_target["incapacitated"] = true
+				miasma_target["killed_by"] = str(op["uid"])
+			add_log("☠️ 【恶瘟投放者】释放有毒瘴气：引爆【%s】体内毒素造成 3 点真实伤害！" % str(miasma_target["name"]))
 		else:
-			best["poisoned"] = true
-			add_log("☣️ 【恶瘟投放者】释放有毒瘴气：【%s】感染纳垢毒素！" % str(best["name"]))
+			miasma_target["poisoned"] = true
+			add_log("☣️ 【恶瘟投放者】释放有毒瘴气：【%s】感染纳垢毒素！" % str(miasma_target["name"]))
 	elif ability_id == "pm_vitality":
 		op["vitality_used_tp"] = true
 		var ally_best := op
 		var max_missing := int(op["wounds_max"]) - int(op["wounds_cur"])
+		var vit_terrains: Array = state["map"]["terrains"]
+		var z_vit := KTGeometry.elevation_at(op["pos"], vit_terrains)
 		for ally in state["operatives"]:
-			if ally["incapacitated"] or ally["side"] != op["side"]:
+			var ad: Dictionary = ally
+			if not _on_board(ad) or str(ad["side"]) != str(op["side"]):
 				continue
-			var d := KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), ally["pos"], float(ally["base_radius"]))
-			var miss := int(ally["wounds_max"]) - int(ally["wounds_cur"])
-			if d <= 3.05 and miss > max_missing:
+			var miss := int(ad["wounds_max"]) - int(ad["wounds_cur"])
+			var z_a := KTGeometry.elevation_at(ad["pos"], vit_terrains)
+			var d := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_vit, ad["pos"], float(ad["base_radius"]), z_a)
+			if d <= 3.05 and miss > max_missing and KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_vit, ad["pos"], float(ad["base_radius"]), z_a, vit_terrains):
 				max_missing = miss
-				ally_best = ally
+				ally_best = ad
 		var r1 := rng.randi_range(1, 6)
 		var r2 := rng.randi_range(1, 6)
 		var heal := 7 if (r1 + r2 == 7) else maxi(r1, r2)
@@ -3046,7 +3373,10 @@ func commit_shooting_action_cost(attacker: Dictionary, weapon: Dictionary) -> vo
 	attacker["actions_taken"].append("shoot")
 	var w_rules: Dictionary = weapon.get("rules", {})
 	if bool(w_rules.get("heavy", false)):
-		attacker["heavy_fired_this_activation"] = true
+		if bool(w_rules.get("heavy_dash_only", false)):
+			attacker["heavy_dash_only_fired"] = true
+		else:
+			attacker["heavy_fired_this_activation"] = true
 	if wname.contains("爆矢") or bool(w_rules.get("psychic", false)):
 		attacker["bolt_or_psychic_shot"] = true
 	if is_heavy_sniper:
@@ -3089,23 +3419,73 @@ func commit_melee_action_cost(attacker: Dictionary) -> void:
 	attacker["actions_taken"].append("fight")
 
 
-func use_firefight_ploy(side_id: String, ploy_id: String, context_op_uid: String = "") -> Dictionary:
+func _find_virulent_poison_target(side_id: String, op: Dictionary) -> Dictionary:
+	if op.is_empty() or bool(op["incapacitated"]):
+		return {}
+	var terrains_vp: Array = state["map"]["terrains"]
+	var z_op_vp := KTGeometry.elevation_at(op["pos"], terrains_vp)
+	var best_vp_d := 999.0
+	var vp_target := {}
+	for enemy in state["operatives"]:
+		if bool(enemy["incapacitated"]) or not bool(enemy.get("deployed", true)) or str(enemy["side"]) == side_id or bool(enemy.get("poisoned", false)):
+			continue
+		var z_ev := KTGeometry.elevation_at(enemy["pos"], terrains_vp)
+		var d_vp := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_op_vp, enemy["pos"], float(enemy["base_radius"]), z_ev)
+		if d_vp <= 3.05:
+			if d_vp < best_vp_d:
+				best_vp_d = d_vp
+				vp_target = enemy
+		elif d_vp <= 7.05:
+			if KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_op_vp, enemy["pos"], float(enemy["base_radius"]), z_ev, terrains_vp):
+				if d_vp < best_vp_d:
+					best_vp_d = d_vp
+					vp_target = enemy
+	return vp_target
+
+
+func use_firefight_ploy(side_id: String, ploy_id: String, context_op_uid: String = "", record_undo: bool = true) -> Dictionary:
 	var side_state: Dictionary = state["sides"][side_id]
 	if side_state["used_ploys_tp"].has(ploy_id):
 		return {"ok": false, "msg": "本转折点已使用过该交战计谋"}
 
 	var op := get_op(context_op_uid) if not context_op_uid.is_empty() else get_op(str(state.get("active_op_uid", "")))
+
+	# Pre-validate AoD firefight ploy timing requirements (IMP-AOD cards)
+	if ploy_id == "wrath_of_vengeance":
+		if op.is_empty() or not bool(state.get("active_is_counteract", false)):
+			return {"ok": false, "msg": "《复仇之怒》只能在反应期间使用"}
+	elif ploy_id == "shock_assault":
+		if op.is_empty() or not bool(op.get("charged_this_tp", false)):
+			return {"ok": false, "msg": "《震慑突袭》需本转折点执行过冲锋行动"}
+
+	# Pre-validate virulent_poison target per CHAOS-PM.json: within 3" OR within 7" & visible from active PM
+	var vp_target := {}
+	if ploy_id == "virulent_poison":
+		if op.is_empty() or bool(op["incapacitated"]):
+			return {"ok": false, "msg": "需由活跃的瘟疫战士特工发动致命毒素"}
+		vp_target = _find_virulent_poison_target(side_id, op)
+		if vp_target.is_empty():
+			return {"ok": false, "msg": "3\" 内或 7\" 内可见范围内没有未中毒的敌方特工"}
+
+	elif ploy_id == "disgustingly_resilient":
+		if op.is_empty() or bool(op["incapacitated"]) or str(op["side"]) != side_id:
+			return {"ok": false, "msg": "需指定存活的己方瘟疫战士特工"}
+
 	var cost := 1
+	var use_heroic := false
 	if ploy_id == "wrath_of_vengeance" and not op.is_empty() and str(op["order"]) == "engage" and KTCombat.has_equipment(side_state, "chapterreliquaries"):
 		cost = 0 # 战团圣物
 	elif not op.is_empty() and str(op["op_id"]) == "aod_captain" and not bool(side_state.get("heroic_used_tp", false)):
 		cost = 0
-		side_state["heroic_used_tp"] = true
+		use_heroic = true
 
 	if int(side_state["cp"]) < cost:
 		return {"ok": false, "msg": "CP 命令点不足"}
 
-	push_undo()
+	if record_undo:
+		push_undo()
+	if use_heroic:
+		side_state["heroic_used_tp"] = true
 	side_state["cp"] = int(side_state["cp"]) - cost
 	side_state["used_ploys_tp"].append(ploy_id)
 
@@ -3115,16 +3495,30 @@ func use_firefight_ploy(side_id: String, ploy_id: String, context_op_uid: String
 	elif ploy_id == "wrath_of_vengeance" and not op.is_empty():
 		op["ap_left"] = int(op["ap_left"]) + 1
 		add_log("🔥 交战计谋《复仇之怒》生效：【%s】获得额外 1AP 行动点数！" % str(op["name"]))
-	elif ploy_id == "virulent_poison" and not op.is_empty():
-		var target := _find_nurgling_victim(side_id)
-		if not target.is_empty():
-			target["poisoned"] = true
-			add_log("☣️ 交战计谋《致命毒素》：【%s】远距感染纳垢毒素！" % str(target["name"]))
+	elif ploy_id == "virulent_poison" and not vp_target.is_empty():
+		vp_target["poisoned"] = true
+		add_log("☣️ 交战计谋《致命毒素》：【%s】远距感染纳垢毒素！" % str(vp_target["name"]))
 	elif ploy_id == "disgustingly_resilient" and not op.is_empty():
 		op["auto_resilient_active"] = true
 		add_log("🦠 交战计谋《恶心韧性》：【%s】本轮受击免掷骰必减 1 伤！" % str(op["name"]))
 
 	return {"ok": true}
+
+
+func _tick_smoke_after_activation() -> void:
+	if not state.has("eq_markers"):
+		return
+	var marks: Array = state["eq_markers"]
+	var mi := marks.size() - 1
+	while mi >= 0:
+		var m: Dictionary = marks[mi]
+		if str(m.get("kind", "")) == "smoke" and int(m.get("acts_left", -1)) > 0:
+			var rem: int = int(m["acts_left"]) - 1
+			m["acts_left"] = rem
+			if rem <= 0:
+				marks.remove_at(mi)
+				add_log("💨 烟雾区域在指定次数激活完成后消散移除。")
+		mi -= 1
 
 
 func _check_auto_end_counteract(op: Dictionary) -> void:
@@ -3150,18 +3544,8 @@ func end_operative_activation() -> void:
 		op["shock_assault_active"] = false
 		op["auto_resilient_active"] = false
 
-	if not is_counteract and state.has("eq_markers"):
-		var marks: Array = state["eq_markers"]
-		var mi := marks.size() - 1
-		while mi >= 0:
-			var m: Dictionary = marks[mi]
-			if str(m.get("kind", "")) == "smoke" and int(m.get("acts_left", -1)) > 0:
-				var rem: int = int(m["acts_left"]) - 1
-				m["acts_left"] = rem
-				if rem <= 0:
-					marks.remove_at(mi)
-					add_log("💨 烟雾区域在指定次数激活完成后消散移除。")
-			mi -= 1
+	if not is_counteract:
+		_tick_smoke_after_activation()
 
 	state["active_op_uid"] = ""
 	state["active_is_counteract"] = false
@@ -3217,27 +3601,16 @@ func pass_counteract(side_id: String) -> void:
 
 func recalculate_objectives_and_kills() -> void:
 	_process_casualties()
-	var terrains: Array = state["map"]["terrains"]
 	for obj in state["map"]["objectives"]:
 		var oid := str(obj["id"])
-		var opos: Vector2 = obj["pos"]
-		var z_obj := KTGeometry.elevation_at(opos, terrains)
 		var apl_a := 0
 		var apl_b := 0
 
 		for op in state["operatives"]:
-			if op["incapacitated"]:
+			if not _on_board(op):
 				continue
-			var op_pos2: Vector2 = op["pos"]
-			var d: float = op_pos2.distance_to(opos) - float(op["base_radius"])
-			var z_op := KTGeometry.elevation_at(op["pos"], terrains)
-			if d <= 1.787 and absf(z_op - z_obj) <= 2.0:
-				var side_state: Dictionary = state["sides"][op["side"]]
-				var eff := int(op["apl_base"])
-				if not KTCombat.has_chapter_tactic(side_state, op, "resolute"):
-					eff = maxi(1, eff + int(op["apl_mod"]))
-				if str(op["op_id"]) == "pm_icon_bearer":
-					eff += 1 # Icon Bearer +1 virtual APL on objectives!
+			if _op_contests_objective(op, obj):
+				var eff := _op_apl(op, true)
 				if str(op["side"]) == "A":
 					apl_a += eff
 				else:

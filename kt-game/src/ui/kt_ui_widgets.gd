@@ -9,29 +9,40 @@ extends RefCounted
 static func attach_button_juice(btn: Button, hover_scale: float = 1.05, sfx_click: String = "ui_click") -> void:
 	btn.focus_mode = Control.FOCUS_NONE
 	btn.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	var wr: WeakRef = weakref(btn)
 	btn.resized.connect(func():
-		btn.pivot_offset = btn.size * 0.5
+		var b: Button = wr.get_ref() as Button
+		if b == null or b.is_queued_for_deletion():
+			return
+		b.pivot_offset = b.size * 0.5
 	)
 	btn.pivot_offset = btn.size * 0.5
 	btn.mouse_entered.connect(func():
-		if btn.disabled:
+		var b: Button = wr.get_ref() as Button
+		if b == null or b.is_queued_for_deletion() or b.disabled or not b.is_inside_tree():
 			return
-		btn.pivot_offset = btn.size * 0.5
+		b.pivot_offset = b.size * 0.5
 		KTSfx.play_hover()
-		var tw := btn.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		tw.tween_property(btn, "scale", Vector2.ONE * hover_scale, 0.13)
+		var tw := b.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		tw.tween_property(b, "scale", Vector2.ONE * hover_scale, 0.13)
 	)
 	btn.mouse_exited.connect(func():
-		btn.pivot_offset = btn.size * 0.5
-		var tw := btn.create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		tw.tween_property(btn, "scale", Vector2.ONE, 0.12)
+		var b: Button = wr.get_ref() as Button
+		if b == null or b.is_queued_for_deletion() or not b.is_inside_tree():
+			return
+		b.pivot_offset = b.size * 0.5
+		var tw := b.create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		tw.tween_property(b, "scale", Vector2.ONE, 0.12)
 	)
 	btn.pressed.connect(func():
-		btn.pivot_offset = btn.size * 0.5
+		var b: Button = wr.get_ref() as Button
+		if b == null or b.is_queued_for_deletion() or not b.is_inside_tree():
+			return
+		b.pivot_offset = b.size * 0.5
 		KTSfx.play(sfx_click, -4.0, 0.05)
-		btn.scale = Vector2.ONE * 0.93
-		var tw := btn.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-		tw.tween_property(btn, "scale", Vector2.ONE * hover_scale, 0.15)
+		b.scale = Vector2.ONE * 0.93
+		var tw := b.create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+		tw.tween_property(b, "scale", Vector2.ONE * hover_scale, 0.15)
 	)
 
 

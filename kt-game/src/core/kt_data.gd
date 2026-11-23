@@ -198,6 +198,7 @@ static func create_volkus_killzone() -> Dictionary:
 				"elevation": 3.5,
 				"rect": Rect2(4.2, 14.0, 4.8, 3.4),
 				"ramp_side": "south",
+				"parent": "stronghold_sw",
 			},
 			{
 				"id": "heavy_sw_north",
@@ -206,6 +207,7 @@ static func create_volkus_killzone() -> Dictionary:
 				"elevation": 4.2,
 				"blocks_los_ground": true,
 				"rect": Rect2(4.2, 13.55, 3.2, 0.50),
+				"parent": "stronghold_sw",
 			},
 			# --- North-East Chaos Ruin Stronghold (Symmetrical Vantage Deck + Heavy Wall) ---
 			{
@@ -215,6 +217,7 @@ static func create_volkus_killzone() -> Dictionary:
 				"elevation": 3.5,
 				"rect": Rect2(21.0, 4.6, 4.8, 3.4),
 				"ramp_side": "north",
+				"parent": "stronghold_ne",
 			},
 			{
 				"id": "heavy_ne_south",
@@ -223,6 +226,7 @@ static func create_volkus_killzone() -> Dictionary:
 				"elevation": 4.2,
 				"blocks_los_ground": true,
 				"rect": Rect2(22.6, 7.95, 3.2, 0.50),
+				"parent": "stronghold_ne",
 			},
 			# --- Midfield Heavy Ruin Walls (Create true Obscured & flanking lanes) ---
 			{

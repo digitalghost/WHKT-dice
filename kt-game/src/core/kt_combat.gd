@@ -52,14 +52,14 @@ static func is_contagion_affected(target: Dictionary, state: Dictionary) -> bool
 	var poisoned := bool(target.get("poisoned", false))
 
 	for op in state["operatives"]:
-		if op["incapacitated"] or str(op["side"]) != pm_side:
+		if op["incapacitated"] or not bool(op.get("deployed", true)) or str(op["side"]) != pm_side:
 			continue
-		var d := KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), target["pos"], float(target["base_radius"]))
+		var z_o := KTGeometry.elevation_at(op["pos"], terrains)
+		var d := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_o, target["pos"], float(target["base_radius"]), z_t)
 		if d > 3.05:
 			continue
 		var is_icon := str(op["op_id"]) == "pm_icon_bearer"
 		if poisoned or is_icon:
-			var z_o := KTGeometry.elevation_at(op["pos"], terrains)
 			if KTGeometry.has_visibility(op["pos"], float(op["base_radius"]), z_o, target["pos"], float(target["base_radius"]), z_t, terrains):
 				return true
 	return false
@@ -76,7 +76,8 @@ static func create_shooting_session(
 	weapon: Dictionary,
 	shot_eval: Dictionary,
 	state: Dictionary,
-	rng: RandomNumberGenerator
+	rng: RandomNumberGenerator,
+	populate_secondary: bool = true
 ) -> Dictionary:
 	var att_side: Dictionary = state["sides"][attacker["side"]]
 	var def_side: Dictionary = state["sides"][defender["side"]]
@@ -103,7 +104,7 @@ static func create_shooting_session(
 			mod_tags.append("烟雾: 穿刺 2→1")
 
 	# --- 1. Gather Faction / Ploy / Passive weapon rule modifiers ---
-	var ignore_wounded_att: bool = bool(att_side["active_ploys"].has("他们无所畏惧")) or (str(att_side["team_id"]) == "CHAOS-PM" and bool(att_side.get("has_plague_bell", true)))
+	var ignore_wounded_att: bool = bool(att_side["active_ploys"].has("他们无所畏惧")) or (str(att_side["team_id"]) == "CHAOS-PM" and bool(att_side.get("has_plague_bell", false)))
 	var att_wounded: bool = (int(attacker["wounds_cur"]) * 2 < int(attacker["wounds_max"])) and not ignore_wounded_att
 
 	var hit_delta: int = 0
@@ -114,8 +115,10 @@ static func create_shooting_session(
 		hit_delta += 1
 		mod_tags.append("传染毒雾: 命中恶化+1")
 
-	# Grenadier ability (+1 hit improvement -> -1 target number)
-	if (str(attacker["op_id"]) in ["aod_grenadier", "pm_bombardier"]) and str(weapon["name"]).contains("手雷"):
+	# Grenadier ability (+1 hit improvement -> -1 target number):
+	# Specialists' own datacard grenades (aod_grenadier_*, pm_bombardier_*) ALREADY bake 4+ -> 3+ in team JSON;
+	# only apply -1 if a raw 4+ eq_* equipment grenade is somehow used.
+	if (str(attacker["op_id"]) in ["aod_grenadier", "pm_bombardier"]) and str(weapon.get("id", "")).begins_with("eq_") and str(weapon["name"]).contains("手雷"):
 		hit_delta -= 1
 		mod_tags.append("掷弹兵专精: 命中改善-1")
 
@@ -146,8 +149,9 @@ static func create_shooting_session(
 		w_rules["balanced"] = true
 		mod_tags.append("战术条令(≤6\"): 平衡")
 
-	# Plague Marines: Plodding Death (慢步死亡)
-	if att_side["active_ploys"].has("慢步死亡") and float(attacker.get("moved_distance_tp", 0.0)) <= 3.05:
+	# Plague Marines: Plodding Death / Lumbering Death (慢步死亡 — per-activation move <= 3", CHAOS-PM card)
+	var att_moved_act: float = float(attacker.get("moved_distance_activation", attacker.get("moved_distance_tp", 0.0)))
+	if att_side["active_ploys"].has("慢步死亡") and att_moved_act <= 3.05:
 		w_rules["ceaseless"] = true
 		mod_tags.append("慢步死亡(移动≤3\"): 无休")
 
@@ -181,14 +185,39 @@ static func create_shooting_session(
 		mod_tags.append("防守方 5+ 暴击豁免")
 
 	var cover_mode := str(shot_eval.get("cover", "none"))
+	# IMP-AOD Stealthy (隐匿) & Sniper Camo Cloak (迷彩斗篷):
+	# - Stealthy: on standard cover, choose 2 normal saves OR 1 crit save (does not stack with Vantage's improved cover,
+	#   which already grants 2 normal OR 1 crit; DOES apply against Vantage Engage shots where cover_mode == "standard"!).
+	# - Camo Cloak + team Stealthy: retains BOTH options simultaneously (1 crit + 1 normal cover save).
+	var team_stealthy: bool = str(def_side.get("team_id", "")) == "IMP-AOD" and (
+		str(def_side.get("primary_tactic", "")) == "stealthy"
+		or str(def_side.get("secondary_tactic", "")) == "stealthy"
+		or str(def_side.get("temp_tactic", "")) == "stealthy"
+	)
+	var camo_double: bool = bool(defender.get("has_innate_stealthy", false)) and team_stealthy
 	var stealthy := has_chapter_tactic(def_side, defender, "stealthy")
-	if stealthy and cover_mode == "standard" and int(shot_eval.get("vantage_accurate", 0)) == 0:
-		cover_mode = "stealth_upgraded"
-		mod_tags.append("隐匿战术: 掩护升为暴击豁免")
+	if camo_double and cover_mode in ["standard", "improved"]:
+		cover_mode = "camo_double"
+		mod_tags.append("迷彩斗篷+隐匿: 1暴+1普掩护豁免")
+	elif stealthy and cover_mode == "standard":
+		cover_mode = "stealth_choice"
+		mod_tags.append("隐匿战术: 可选2普或1暴掩护豁免")
 
 	var ammo_reroll: bool = int(attacker.get("ammo_resupply_tp", 0)) == int(state.get("tp", 1)) and not str(weapon.get("id", "")).begins_with("eq_")
 	if ammo_reroll:
 		mod_tags.append("弹药储备: 可重掷 1 枚攻击骰")
+
+	var pending_targets: Array[Dictionary] = []
+	var multi_mode: String = ""
+	if populate_secondary:
+		var blast_x: float = float(w_rules.get("blast", 0.0))
+		var torrent_x: float = float(w_rules.get("torrent", 0.0))
+		if blast_x > 0.01:
+			multi_mode = "blast"
+			pending_targets = KTGeometry.get_blast_secondary_targets(attacker, defender, weapon, shot_eval, state)
+		elif torrent_x > 0.01:
+			multi_mode = "torrent"
+			pending_targets = KTGeometry.get_torrent_secondary_targets(attacker, defender, weapon, state)
 
 	var session := {
 		"kind": "shooting",
@@ -200,11 +229,14 @@ static func create_shooting_session(
 		"weapon": weapon,
 		"rules": w_rules,
 		"effective_hit": effective_hit,
+		"worst_effective_hit": effective_hit,
 		"lethal_thresh": int(w_rules.get("lethal", 6)),
 		"normal_dmg": normal_dmg,
 		"crit_dmg": crit_dmg,
 		"obscured": bool(shot_eval.get("obscured", false)),
 		"cover_mode": cover_mode,
+		"improved_cover_choice": "2norm", # "2norm" | "1crit" (Rulebook p.36 L1528-1529)
+		"def_total": 3,
 		"def_save": def_save,
 		"def_crit_save": def_crit_save,
 		"auto_attack_normals": auto_normals,
@@ -226,6 +258,11 @@ static func create_shooting_session(
 		"total_damage_dealt": 0,
 		"fnp_rolls": [],
 		"hot_self_dmg": 0,
+		"hot_resolved": false,
+		"multi_mode": multi_mode, # "" | "blast" | "torrent"
+		"multi_index": 1,
+		"multi_total": 1 + pending_targets.size(),
+		"pending_targets": pending_targets,
 	}
 	return session
 
@@ -303,10 +340,12 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 	for d in session["atk_dice"]:
 		var v := int(d["val"])
 		if bool(d.get("locked", false)):
-			failures += 1
+			# Curse of Rot: locked 3s cannot be retained as successes (so exclude from Purity Seals / Punishing!)
+			continue
 		elif v == 1:
 			failures += 1
-		elif v >= lethal_req:
+		elif v == 6 or (v >= hit_req and v >= lethal_req):
+			# Rulebook p.93 & v11.5 §2.1: Lethal X+ only upgrades a SUCCESSFUL hit (natural 6 is always a crit).
 			natural_crits += 1
 		elif v >= hit_req:
 			rolled_normals += 1
@@ -374,13 +413,22 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 		_log_event(session, "穿刺", "🎯 穿甲生效：防守方减少 %d 枚防御骰！" % piercing, "", [], "block")
 
 	var def_total := maxi(0, 3 - piercing)
+	session["def_total"] = def_total
 	var auto_def_n := 0
 	var auto_def_c := 0
 	var cm := str(session["cover_mode"])
 	if cm == "standard" and def_total > 0:
 		auto_def_n = 1
-	elif cm == "improved" and def_total > 0:
-		auto_def_n = mini(2, def_total)
+	elif cm in ["improved", "stealth_choice"] and def_total > 0:
+		# Rulebook p.36 L1528-1529 & IMP-AOD Stealthy: Defender chooses 1 Crit save OR 2 Normal saves.
+		if str(session.get("improved_cover_choice", "2norm")) == "1crit":
+			auto_def_c = 1
+		else:
+			auto_def_n = mini(2, def_total)
+	elif cm == "camo_double" and def_total > 0:
+		# IMP-AOD Sniper Camo Cloak + team Stealthy: retain BOTH options (1 Crit + 1 Normal cover save)
+		auto_def_c = 1
+		auto_def_n = 1 if def_total >= 2 else 0
 	elif cm == "stealth_upgraded" and def_total > 0:
 		auto_def_c = 1
 
@@ -398,6 +446,114 @@ static func lock_in_shooting_attacks(session: Dictionary, state: Dictionary, rng
 	session["auto_def_crits"] = auto_def_c
 	session["def_dice"] = def_dice
 	session["step"] = "defence_roll"
+
+
+## Rulebook p.36 L1528-1529 & IMP-AOD Stealthy: Switch Improved / Stealthy Cover save between "2norm" and "1crit"
+## during defence_roll before any defence die reroll / Transhuman is used.
+static func set_improved_cover_choice(session: Dictionary, choice: String, rng: RandomNumberGenerator) -> bool:
+	if str(session.get("step", "")) != "defence_roll" or not (str(session.get("cover_mode", "")) in ["improved", "stealth_choice"]):
+		return false
+	if not (choice in ["2norm", "1crit"]):
+		return false
+	if str(session.get("improved_cover_choice", "2norm")) == choice:
+		return true
+	if bool(session.get("transhuman_used", false)):
+		return false
+	var cur_dice: Array = session.get("def_dice", [])
+	for d_v in cur_dice:
+		var dd: Dictionary = d_v
+		if bool(dd.get("rerolled", false)) or bool(dd.get("locked", false)):
+			return false
+	var def_total: int = int(session.get("def_total", 3))
+	if def_total <= 0:
+		return false
+	session["improved_cover_choice"] = choice
+	var auto_n: int = 0
+	var auto_c: int = 0
+	if choice == "1crit":
+		auto_c = 1
+	else:
+		auto_n = mini(2, def_total)
+	var want_roll: int = maxi(0, def_total - auto_n - auto_c)
+	while cur_dice.size() > want_roll:
+		cur_dice.pop_back()
+	while cur_dice.size() < want_roll:
+		cur_dice.append({
+			"id": cur_dice.size(),
+			"val": _roll_d6(rng),
+			"rerolled": false,
+			"locked": false,
+		})
+	session["auto_def_normals"] = auto_n
+	session["auto_def_crits"] = auto_c
+	return true
+
+
+## CHAOS-PM Firefight Ploy: Curse of Rot (腐烂诅咒, 1CP, 1/TP)
+## When a friendly PM is shooting against or shot by an enemy within 3" (or 7" if poisoned),
+## after opponent rolls attack/defence dice: each rolled 3 inflicts 1 damage on that enemy and
+## cannot be retained as a success or rerolled.
+static func can_use_curse_of_rot(session: Dictionary, pool_key: String, state: Dictionary) -> Dictionary:
+	if str(session.get("kind", "")) != "shooting" or bool(session.get("curse_of_rot_used", false)):
+		return {"ok": false, "threes": 0, "pm_side": ""}
+	var att := _find_op(state, str(session.get("attacker_uid", "")))
+	var def := _find_op(state, str(session.get("defender_uid", "")))
+	if att.is_empty() or def.is_empty():
+		return {"ok": false, "threes": 0, "pm_side": ""}
+	# pool_key == "atk_dice": opponent is attacker, PM is defender
+	# pool_key == "def_dice": opponent is defender, PM is attacker
+	var pm_op: Dictionary = def if pool_key == "atk_dice" else att
+	var enemy_op: Dictionary = att if pool_key == "atk_dice" else def
+	if bool(pm_op.get("incapacitated", false)) or bool(enemy_op.get("incapacitated", false)):
+		return {"ok": false, "threes": 0, "pm_side": ""}
+	var pm_side_id := str(pm_op["side"])
+	var pm_side: Dictionary = state["sides"][pm_side_id]
+	if str(pm_side.get("team_id", "")) != "CHAOS-PM":
+		return {"ok": false, "threes": 0, "pm_side": ""}
+	if (pm_side.get("used_ploys_tp", []) as Array).has("curse_of_rot") or int(pm_side.get("cp", 0)) < 1:
+		return {"ok": false, "threes": 0, "pm_side": ""}
+	var terrains: Array = state["map"]["terrains"]
+	var z_pm := KTGeometry.elevation_at(pm_op["pos"], terrains)
+	var z_en := KTGeometry.elevation_at(enemy_op["pos"], terrains)
+	var dist := KTGeometry.edge_distance_3d(pm_op["pos"], float(pm_op["base_radius"]), z_pm, enemy_op["pos"], float(enemy_op["base_radius"]), z_en)
+	var max_r := 7.05 if bool(enemy_op.get("poisoned", false)) else 3.05
+	if dist > max_r:
+		return {"ok": false, "threes": 0, "pm_side": ""}
+	var threes := 0
+	for d_v in session.get(pool_key, []):
+		var dd: Dictionary = d_v
+		if int(dd.get("val", 0)) == 3 and not bool(dd.get("locked", false)):
+			threes += 1
+	return {"ok": threes > 0, "threes": threes, "pm_side": pm_side_id, "enemy_uid": str(enemy_op["uid"])}
+
+
+static func apply_curse_of_rot(session: Dictionary, pool_key: String, state: Dictionary) -> Dictionary:
+	var chk := can_use_curse_of_rot(session, pool_key, state)
+	if not bool(chk["ok"]):
+		return {"ok": false, "msg": "当前无法发动《腐烂诅咒》"}
+	var pm_side_id := str(chk["pm_side"])
+	var pm_side: Dictionary = state["sides"][pm_side_id]
+	var enemy_op := _find_op(state, str(chk["enemy_uid"]))
+	pm_side["cp"] = int(pm_side["cp"]) - 1
+	(pm_side["used_ploys_tp"] as Array).append("curse_of_rot")
+	session["curse_of_rot_used"] = true
+	var locked_indices: Array = []
+	var dice: Array = session.get(pool_key, [])
+	for i in range(dice.size()):
+		var dd: Dictionary = dice[i]
+		if int(dd.get("val", 0)) == 3 and not bool(dd.get("locked", false)):
+			dd["locked"] = true
+			locked_indices.append(i)
+	var dmg := locked_indices.size()
+	var before_hp: int = int(enemy_op["wounds_cur"])
+	enemy_op["wounds_cur"] = maxi(0, before_hp - dmg)
+	var lost: int = before_hp - int(enemy_op["wounds_cur"])
+	_trigger_grandfathers_blessing_combat(enemy_op, lost, state, session)
+	if int(enemy_op["wounds_cur"]) <= 0:
+		enemy_op["incapacitated"] = true
+		enemy_op["killed_by"] = str(session["defender_uid"] if pool_key == "atk_dice" else session["attacker_uid"])
+	_log_event(session, "腐烂诅咒", "☠️ 腐烂诅咒生效：锁死 %d 枚 3 点骰（不可保留/重掷），对【%s】造成 %d 点伤害！" % [dmg, str(enemy_op["name"]), lost], pool_key, locked_indices, "damage")
+	return {"ok": true, "dmg": lost, "locked": locked_indices}
 
 
 static func finalize_shooting_resolution(session: Dictionary, state: Dictionary, rng: RandomNumberGenerator) -> void:
@@ -418,7 +574,10 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 
 	for d in session["def_dice"]:
 		var v := int(d["val"])
-		if v == 1:
+		if bool(d.get("locked", false)):
+			# Curse of Rot: locked 3s cannot be retained as successes (so exclude from Indomitus!)
+			continue
+		elif v == 1:
 			def_fails += 1
 		elif v >= crit_save_req:
 			def_crits += 1
@@ -444,26 +603,30 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 	var n_dmg := int(session["normal_dmg"])
 	var c_dmg := int(session["crit_dmg"])
 
-	# Smart optimal defence allocation (Minimize total incoming damage!)
-	# 1. Crit saves block Crit attacks first
-	var block_cc := mini(def_crits, atk_crits)
-	def_crits -= block_cc
-	atk_crits -= block_cc
-
-	# 2. Pairs of Normal saves block remaining Crit attacks IF 2 * n_dmg < c_dmg or <=1 atk_norms left
-	while def_norms >= 2 and atk_crits > 0 and (atk_norms <= 1 or 2 * n_dmg < c_dmg):
-		def_norms -= 2
-		atk_crits -= 1
-
-	# 3. Remaining Normal saves block Normal attacks
-	var block_nn := mini(def_norms, atk_norms)
-	def_norms -= block_nn
-	atk_norms -= block_nn
-
-	# 4. Remaining Crit saves block remaining Normal attacks
-	var block_cn := mini(def_crits, atk_norms)
-	def_crits -= block_cn
-	atk_norms -= block_cn
+	# Exact optimal defence allocation (minimize total incoming damage; Rulebook p.16 & p.92 Brutal)
+	var is_brutal_shot: bool = bool((session.get("rules", {}) as Dictionary).get("brutal", false))
+	var eff_def_norms: int = 0 if is_brutal_shot else def_norms
+	var best_rem_c: int = atk_crits
+	var best_rem_n: int = atk_norms
+	var best_dmg: int = 999999
+	# Choose how many crit saves spend on crits (always optimal to spend crit saves on crits first, then normals)
+	var c_on_c: int = mini(def_crits, atk_crits)
+	var rem_dc: int = def_crits - c_on_c
+	var rem_ac_base: int = atk_crits - c_on_c
+	var c_on_n: int = mini(rem_dc, atk_norms)
+	var rem_an_base: int = atk_norms - c_on_n
+	# Choose how many pairs of normal saves (2 normals -> 1 crit) to spend on remaining crits
+	var max_pairs: int = mini(rem_ac_base, int(eff_def_norms / 2))
+	for pairs in range(max_pairs + 1):
+		var rc: int = rem_ac_base - pairs
+		var rn: int = maxi(0, rem_an_base - (eff_def_norms - pairs * 2))
+		var dmg_est: int = rc * c_dmg + rn * n_dmg
+		if dmg_est < best_dmg or (dmg_est == best_dmg and rc < best_rem_c):
+			best_dmg = dmg_est
+			best_rem_c = rc
+			best_rem_n = rn
+	atk_crits = best_rem_c
+	atk_norms = best_rem_n
 
 	# Apply Devastating + Unblocked Attack Dice!
 	var total_dealt := 0
@@ -472,9 +635,13 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 		total_dealt += _apply_damage_instance(defender, dev_mw, false, def_side, state, session, rng)
 
 	for _i in range(atk_crits):
+		if defender["incapacitated"]:
+			break
 		total_dealt += _apply_damage_instance(defender, c_dmg, true, def_side, state, session, rng)
 
 	for _i in range(atk_norms):
+		if defender["incapacitated"]:
+			break
 		# Space Marine Captain: Iron Halo (钢铁光环) ignores first Normal attack die once per battle!
 		if str(defender["op_id"]) == "aod_captain" and not bool(defender.get("iron_halo_used", false)):
 			defender["iron_halo_used"] = true
@@ -491,28 +658,167 @@ static func finalize_shooting_resolution(session: Dictionary, state: Dictionary,
 	# Stun weapon rule on Crit hit (晕眩)
 	if int(session["retained_atk"]["crits"]) > 0 and bool(session["rules"].get("stun", false)) and not defender["incapacitated"]:
 		if not has_chapter_tactic(def_side, defender, "resolute"):
-			defender["apl_mod"] = -1
+			defender["apl_mod"] = maxi(-1, int(defender.get("apl_mod", 0)) - 1)
 			defender["stun_skip_current_end"] = (str(state.get("active_op_uid", "")) == str(defender["uid"]))
 			_log_event(session, "晕眩", "💫 【晕眩】暴击触发！【%s】APL -1！" % str(defender["name"]), "", [], "status")
 
-	# Hot weapon rule check (过热)
-	if bool(session["rules"].get("hot", false)) and not attacker["incapacitated"]:
+	# Prune incapacitated targets from pending Blast / Torrent queue
+	var pend: Array = session.get("pending_targets", [])
+	var pi := pend.size() - 1
+	while pi >= 0:
+		var pt_d: Dictionary = pend[pi]
+		var pop_op := _find_op(state, str(pt_d.get("defender_uid", "")))
+		if pop_op.is_empty() or bool(pop_op.get("incapacitated", false)):
+			pend.remove_at(pi)
+		pi -= 1
+	if attacker["incapacitated"]:
+		pend.clear()
+
+	# Hot weapon rule check (过热, Rulebook p.93 L2780-2782):
+	# If the weapon is used multiple times in one action (e.g. Blast / Torrent), roll ONLY 1D6 at the end!
+	if pend.is_empty():
+		_resolve_hot_if_needed(session, attacker, state, rng)
+
+	session["total_damage_dealt"] = total_dealt
+	session["step"] = "resolved"
+	if defender["incapacitated"]:
+		_log_event(session, "击杀", "💀 【%s】耐伤归零，已被击杀残废！" % str(defender["name"]), "", [], "damage")
+
+
+static func _resolve_hot_if_needed(
+	session: Dictionary,
+	attacker: Dictionary,
+	state: Dictionary,
+	rng: RandomNumberGenerator
+) -> void:
+	if bool(session.get("hot_resolved", false)):
+		return
+	session["hot_resolved"] = true
+	if bool(session["rules"].get("hot", false)) and not attacker.is_empty() and not bool(attacker["incapacitated"]):
+		var hot_thresh: int = int(session.get("worst_effective_hit", session.get("effective_hit", 3)))
 		var hot_roll := _roll_d6(rng)
-		if hot_roll < int(session["effective_hit"]):
+		if hot_roll < hot_thresh:
 			var self_dmg := hot_roll * 2
-			attacker["wounds_cur"] = maxi(0, int(attacker["wounds_cur"]) - self_dmg)
+			var before_h := int(attacker["wounds_cur"])
+			attacker["wounds_cur"] = maxi(0, before_h - self_dmg)
+			var lost_h := before_h - int(attacker["wounds_cur"])
 			session["hot_self_dmg"] = self_dmg
 			_log_event(session, "过热", "⚠️ 等离子【过热】检定掷出 %d！%s 遭受 %d 点反噬灼伤！" % [hot_roll, str(attacker["name"]), self_dmg], "", [], "damage")
+			_trigger_grandfathers_blessing_combat(attacker, lost_h, state, session)
 			if int(attacker["wounds_cur"]) <= 0:
 				attacker["incapacitated"] = true
 				_log_event(session, "击杀", "💀 【%s】因等离子过热阵亡离场！" % str(attacker["name"]), "", [], "damage")
 		else:
 			_log_event(session, "过热", "✅ 等离子【过热】检定通过（掷出 %d）" % hot_roll, "", [], "damage")
 
-	session["total_damage_dealt"] = total_dealt
-	session["step"] = "resolved"
-	if defender["incapacitated"]:
-		_log_event(session, "击杀", "💀 【%s】耐伤归零，已被击杀残废！" % str(defender["name"]), "", [], "damage")
+
+## Advance a Blast / Torrent session to `pending_targets[target_idx]` (Rulebook p.92 L2728 & p.94 L2840).
+static func advance_next_shooting_target(
+	session: Dictionary,
+	target_idx: int,
+	state: Dictionary,
+	rng: RandomNumberGenerator
+) -> bool:
+	var pend: Array = session.get("pending_targets", [])
+	if target_idx < 0 or target_idx >= pend.size():
+		return false
+	var attacker := _find_op(state, str(session.get("attacker_uid", "")))
+	if attacker.is_empty() or bool(attacker["incapacitated"]):
+		pend.clear()
+		return false
+	var entry: Dictionary = pend[target_idx]
+	pend.remove_at(target_idx)
+	var next_def := _find_op(state, str(entry.get("defender_uid", "")))
+	if next_def.is_empty() or bool(next_def["incapacitated"]):
+		if pend.is_empty():
+			_resolve_hot_if_needed(session, attacker, state, rng)
+		return false
+	var weapon: Dictionary = session.get("weapon", {})
+	var next_eval: Dictionary = entry.get("shot_eval", {})
+	var next_sess: Dictionary = create_shooting_session(attacker, next_def, weapon, next_eval, state, rng, false)
+	var next_idx: int = int(session.get("multi_index", 1)) + 1
+	var total_n: int = int(session.get("multi_total", next_idx))
+	var m_mode: String = str(session.get("multi_mode", ""))
+	var hot_done: bool = bool(session.get("hot_resolved", false))
+	var worst_hit: int = maxi(int(session.get("worst_effective_hit", 3)), int(next_sess.get("effective_hit", 3)))
+	for k in next_sess.keys():
+		session[k] = next_sess[k]
+	session["pending_targets"] = pend
+	session["multi_mode"] = m_mode
+	session["multi_index"] = next_idx
+	session["multi_total"] = total_n
+	session["hot_resolved"] = hot_done
+	session["worst_effective_hit"] = worst_hit
+	return true
+
+
+## End optional Torrent secondary targets early (Rulebook p.94 L2840: "选择任意数量的...作为次要目标").
+static func skip_remaining_torrent_targets(
+	session: Dictionary,
+	state: Dictionary,
+	rng: RandomNumberGenerator
+) -> void:
+	if str(session.get("multi_mode", "")) != "torrent":
+		return
+	(session.get("pending_targets", []) as Array).clear()
+	var attacker := _find_op(state, str(session.get("attacker_uid", "")))
+	_resolve_hot_if_needed(session, attacker, state, rng)
+
+
+## AI / auto-resolver helper: pick 1 Crit cover save over 2 Normal cover saves whenever there is an incoming
+## crit OR Piercing 2 leaves only 1 defence die (1 Crit strictly dominates 1 Normal).
+static func auto_choose_cover_option(session: Dictionary, rng: RandomNumberGenerator) -> void:
+	if not (str(session.get("cover_mode", "")) in ["improved", "stealth_choice"]):
+		return
+	var incoming_crits: int = int((session.get("retained_atk", {}) as Dictionary).get("crits", 0))
+	if incoming_crits > 0 or int(session.get("def_total", 3)) <= 1:
+		set_improved_cover_choice(session, "1crit", rng)
+
+
+## Auto-resolve current + all pending Blast/Torrent targets for AI / headless playtests.
+static func resolve_all_shooting_targets_auto(
+	session: Dictionary,
+	state: Dictionary,
+	rng: RandomNumberGenerator
+) -> void:
+	var guard := 0
+	while guard < 16:
+		guard += 1
+		if str(session.get("step", "")) == "attack_reroll":
+			lock_in_shooting_attacks(session, state, rng)
+		if str(session.get("step", "")) == "defence_roll":
+			auto_choose_cover_option(session, rng)
+			finalize_shooting_resolution(session, state, rng)
+		var pend: Array = session.get("pending_targets", [])
+		if pend.is_empty():
+			break
+		if not advance_next_shooting_target(session, 0, state, rng):
+			if (session.get("pending_targets", []) as Array).is_empty():
+				break
+
+
+static func _trigger_grandfathers_blessing_combat(
+	victim: Dictionary,
+	lost: int,
+	state: Dictionary,
+	session: Dictionary
+) -> void:
+	# Plague Marine Champion: Grandfather's Blessing (慈父赐福) — Poisoned enemy within 7" loses wounds -> heal up to 3/TP!
+	if lost <= 0 or not bool(victim.get("poisoned", false)):
+		return
+	var terrains_gb: Array = state["map"]["terrains"]
+	var z_tgt_gb := KTGeometry.elevation_at(victim["pos"], terrains_gb)
+	for op in state["operatives"]:
+		if not op["incapacitated"] and bool(op.get("deployed", true)) and str(op["op_id"]) == "pm_champion" and str(op["side"]) != str(victim["side"]):
+			var z_op_gb := KTGeometry.elevation_at(op["pos"], terrains_gb)
+			var d := KTGeometry.edge_distance_3d(op["pos"], float(op["base_radius"]), z_op_gb, victim["pos"], float(victim["base_radius"]), z_tgt_gb)
+			var healed_tp := int(op.get("blessing_healed_tp", 0))
+			if d <= 7.05 and healed_tp < 3 and int(op["wounds_cur"]) < int(op["wounds_max"]):
+				var can_heal := mini(lost, mini(3 - healed_tp, int(op["wounds_max"]) - int(op["wounds_cur"])))
+				if can_heal > 0:
+					op["wounds_cur"] = int(op["wounds_cur"]) + can_heal
+					op["blessing_healed_tp"] = healed_tp + can_heal
+					_log_event(session, "慈父赐福", "💚 慈父赐福：瘟疫勇士吸收疫病恢复 +%d 耐伤！" % can_heal, "", [], "status")
 
 
 static func _apply_damage_instance(
@@ -544,18 +850,7 @@ static func _apply_damage_instance(
 	target["wounds_cur"] = maxi(0, before - dmg)
 	var lost := before - int(target["wounds_cur"])
 
-	# Plague Marine Champion: Grandfather's Blessing (慈父赐福) — Poisoned enemy within 7" loses wounds -> heal up to 3/TP!
-	if lost > 0 and bool(target.get("poisoned", false)):
-		for op in state["operatives"]:
-			if not op["incapacitated"] and str(op["op_id"]) == "pm_champion" and str(op["side"]) != str(target["side"]):
-				var d := KTGeometry.edge_distance(op["pos"], float(op["base_radius"]), target["pos"], float(target["base_radius"]))
-				var healed_tp := int(op.get("blessing_healed_tp", 0))
-				if d <= 7.05 and healed_tp < 3 and int(op["wounds_cur"]) < int(op["wounds_max"]):
-					var can_heal := mini(lost, mini(3 - healed_tp, int(op["wounds_max"]) - int(op["wounds_cur"])))
-					if can_heal > 0:
-						op["wounds_cur"] = int(op["wounds_cur"]) + can_heal
-						op["blessing_healed_tp"] = healed_tp + can_heal
-						_log_event(session, "慈父赐福", "💚 慈父赐福：瘟疫勇士吸收疫病恢复 +%d 耐伤！" % can_heal, "", [], "status")
+	_trigger_grandfathers_blessing_combat(target, lost, state, session)
 
 	if int(target["wounds_cur"]) <= 0:
 		target["incapacitated"] = true
@@ -579,8 +874,10 @@ static func create_melee_session(
 ) -> Dictionary:
 	var att_pool := _build_melee_fighter_pool(attacker, defender, att_weapon, true, state, rng)
 	var def_pool := _build_melee_fighter_pool(defender, attacker, def_weapon, false, state, rng)
+	# IMP-AOD Shock Assault (震慑突袭) lasts only until the end of THIS Fight action (not a 2nd Fight action!)
+	attacker["shock_assault_active"] = false
 
-	return {
+	var sess := {
 		"kind": "melee",
 		"step": "duel", # "duel" -> "resolved"
 		"turn": "attacker", # Attacker resolves first die!
@@ -602,6 +899,18 @@ static func create_melee_session(
 		],
 		"fnp_rolls": [],
 	}
+
+	# Rulebook p.94 (L2837): Stun triggers in the Roll Attack Dice step whenever any Critical success is RETAINED.
+	if int(att_pool["crits"]) > 0 and bool(att_pool["rules"].get("stun", false)) and not bool(defender["incapacitated"]) and not bool(def_pool["resolute"]):
+		defender["apl_mod"] = maxi(-1, int(defender.get("apl_mod", 0)) - 1)
+		defender["stun_skip_current_end"] = (str(state.get("active_op_uid", "")) == str(defender["uid"]))
+		_log_event(sess, "晕眩", "💫 【晕眩】暴击保留触发：【%s】APL -1！" % str(defender["name"]), "", [], "status")
+	if int(def_pool["crits"]) > 0 and bool(def_pool["rules"].get("stun", false)) and not bool(attacker["incapacitated"]) and not bool(att_pool["resolute"]):
+		attacker["apl_mod"] = maxi(-1, int(attacker.get("apl_mod", 0)) - 1)
+		attacker["stun_skip_current_end"] = (str(state.get("active_op_uid", "")) == str(attacker["uid"]))
+		_log_event(sess, "晕眩", "💫 【晕眩】反击暴击保留触发：【%s】APL -1！" % str(attacker["name"]), "", [], "status")
+
+	return sess
 
 
 static func _build_melee_fighter_pool(
@@ -629,7 +938,8 @@ static func _build_melee_fighter_pool(
 	if str(side_state.get("combat_doctrine", "")) == "assault":
 		rules["balanced"] = true
 		tags.append("突击条令: 平衡")
-	if side_state["active_ploys"].has("慢步死亡") and (not is_attacker or float(fighter.get("moved_distance_tp", 0.0)) <= 3.05):
+	var fighter_moved_act: float = float(fighter.get("moved_distance_activation", fighter.get("moved_distance_tp", 0.0)))
+	if side_state["active_ploys"].has("慢步死亡") and (not is_attacker or fighter_moved_act <= 3.05):
 		rules["ceaseless"] = true
 		tags.append("慢步死亡: 无休")
 
@@ -644,7 +954,7 @@ static func _build_melee_fighter_pool(
 		var terrains: Array = state["map"]["terrains"]
 		var z_opp := KTGeometry.elevation_at(opponent["pos"], terrains)
 		for ally in state["operatives"]:
-			if ally["incapacitated"] or ally["side"] != fighter["side"] or ally["uid"] == fighter["uid"]:
+			if ally["incapacitated"] or not bool(ally.get("deployed", true)) or ally["side"] != fighter["side"] or ally["uid"] == fighter["uid"]:
 				continue
 			var z_ally := KTGeometry.elevation_at(ally["pos"], terrains)
 			var r_ally := float(ally["base_radius"])
@@ -652,7 +962,7 @@ static func _build_melee_fighter_pool(
 				continue
 			var engaged_other := false
 			for other_e in state["operatives"]:
-				if other_e["incapacitated"] or other_e["side"] == fighter["side"] or other_e["uid"] == opponent["uid"]:
+				if other_e["incapacitated"] or not bool(other_e.get("deployed", true)) or other_e["side"] == fighter["side"] or other_e["uid"] == opponent["uid"]:
 					continue
 				var z_oe := KTGeometry.elevation_at(other_e["pos"], terrains)
 				if KTGeometry.in_control_range_at(ally["pos"], r_ally, z_ally, other_e["pos"], float(other_e["base_radius"]), z_oe, terrains):
@@ -675,14 +985,6 @@ static func _build_melee_fighter_pool(
 
 	var effective_hit := clampi(int(weapon["hit"]) + hit_delta, 2, 6)
 	var lethal_req := int(rules.get("lethal", 6))
-	# 偏移肩盾 (once per TP): the opponent cannot retain results below 6 as critical successes
-	var crit_below_6: bool = lethal_req < 6 or bool(rules.get("severe", false)) or bool(rules.get("rending", false))
-	if crit_below_6 and has_equipment(opp_side, "pauldronshields") and not bool(opp_side.get("shields_used_tp", false)):
-		opp_side["shields_used_tp"] = true
-		lethal_req = 6
-		rules["severe"] = false
-		rules["rending"] = false
-		tags.append("偏移肩盾: 仅 6 为关键成功")
 	var n_dmg := int(weapon["normal_dmg"])
 	var c_dmg := int(weapon["crit_dmg"])
 	if bool(rules.get("toxic", false)) and bool(opponent.get("poisoned", false)):
@@ -691,15 +993,41 @@ static func _build_melee_fighter_pool(
 		tags.append("剧毒 +1/+1")
 
 	var dice: Array[int] = []
+	var rerolled: Array[bool] = []
 	for _i in range(int(weapon["attacks"])):
 		dice.append(_roll_d6(rng))
+		rerolled.append(false)
 
-	# Auto-apply free weapon rerolls (Ceaseless / Balanced) on failures for crisp duel flow!
+	# 偏移肩盾 (once per TP, 2026 errata: after opponent rolls attack dice, before rerolls):
+	# Only consume when the rolled dice actually threaten a <6 critical (Lethal / Severe / Rending)!
+	var crit_below_6: bool = lethal_req < 6 or bool(rules.get("severe", false)) or bool(rules.get("rending", false))
+	if crit_below_6 and has_equipment(opp_side, "pauldronshields") and not bool(opp_side.get("shields_used_tp", false)):
+		var has_six := false
+		var has_lt6_hit := false
+		var has_lt6_lethal := false
+		for dv_s in dice:
+			if dv_s == 6:
+				has_six = true
+			elif dv_s >= effective_hit and dv_s < 6:
+				has_lt6_hit = true
+				if dv_s >= lethal_req:
+					has_lt6_lethal = true
+		var has_severe_threat := bool(rules.get("severe", false)) and not has_six and has_lt6_hit
+		var has_rending_threat := bool(rules.get("rending", false)) and (has_six or has_lt6_lethal) and has_lt6_hit
+		if has_lt6_lethal or has_severe_threat or has_rending_threat:
+			opp_side["shields_used_tp"] = true
+			lethal_req = 6
+			rules["severe"] = false
+			rules["rending"] = false
+			tags.append("偏移肩盾: 仅 6 为关键成功")
+
+	# Auto-apply free weapon rerolls (Ceaseless & Balanced independently; each die at most once, Rulebook p.23)
 	if bool(rules.get("ceaseless", false)):
 		var fail_counts := {}
-		for v in dice:
-			if v < effective_hit:
-				fail_counts[v] = int(fail_counts.get(v, 0)) + 1
+		for idx_c in range(dice.size()):
+			var vc: int = dice[idx_c]
+			if vc == 1 or vc < effective_hit:
+				fail_counts[vc] = int(fail_counts.get(vc, 0)) + 1
 		var best_face := 0
 		var best_cnt := 0
 		for k in fail_counts.keys():
@@ -708,40 +1036,56 @@ static func _build_melee_fighter_pool(
 				best_face = int(k)
 		if best_face > 0:
 			for idx in range(dice.size()):
-				if dice[idx] == best_face:
+				if dice[idx] == best_face and not rerolled[idx]:
 					dice[idx] = _roll_d6(rng)
-	elif bool(rules.get("balanced", false)):
+					rerolled[idx] = true
+	if bool(rules.get("balanced", false)):
 		for idx in range(dice.size()):
-			if dice[idx] < effective_hit:
+			if not rerolled[idx] and (dice[idx] == 1 or dice[idx] < effective_hit):
 				dice[idx] = _roll_d6(rng)
+				rerolled[idx] = true
 				break
 
 	var crits := 0
-	var norms := 0
+	var rolled_norms := 0
+	var retained_from_fail := 0
 	var fails := 0
 	for v in dice:
 		if v == 1:
 			fails += 1
-		elif v >= lethal_req:
+		elif v == 6 or (v >= effective_hit and v >= lethal_req):
+			# Rulebook p.93 & v11.5 §2.1: Lethal X+ only upgrades a successful hit (natural 6 always crits).
 			crits += 1
 		elif v >= effective_hit:
-			norms += 1
+			rolled_norms += 1
 		else:
 			fails += 1
 
-	# Purity Seals check
+	# Purity Seals check (retained normal from failure cannot be upgraded by Rending per v1.5 FAQ)
 	if has_equipment(side_state, "purityseals") and not bool(side_state.get("purity_used_tp", false)) and fails >= 2:
 		fails -= 2
-		norms += 1
+		retained_from_fail += 1
 		side_state["purity_used_tp"] = true
 		tags.append("纯洁印章保底+1普")
 
-	if bool(rules.get("severe", false)) and crits == 0 and norms > 0:
-		norms -= 1
+	var used_severe := false
+	if bool(rules.get("severe", false)) and crits == 0 and (rolled_norms + retained_from_fail) > 0:
+		if rolled_norms > 0:
+			rolled_norms -= 1
+		else:
+			retained_from_fail -= 1
 		crits += 1
-	elif bool(rules.get("rending", false)) and crits > 0 and norms > 0:
-		norms -= 1
-		crits += 1
+		used_severe = true
+	if not used_severe:
+		# Punishing (重击): if >=1 crit and >=1 fail, convert 1 fail -> retained_from_fail (isolated from Rending!)
+		if bool(rules.get("punishing", false)) and crits > 0 and fails > 0:
+			fails -= 1
+			retained_from_fail += 1
+		if bool(rules.get("rending", false)) and crits > 0 and rolled_norms > 0:
+			rolled_norms -= 1
+			crits += 1
+
+	var norms := rolled_norms + retained_from_fail
 
 	return {
 		"weapon": weapon,
@@ -884,21 +1228,16 @@ static func _apply_melee_post_hit_effects(
 	_actor: Dictionary,
 	target: Dictionary,
 	my_pool: Dictionary,
-	opp_pool: Dictionary,
+	_opp_pool: Dictionary,
 	dealt: int,
-	is_crit: bool,
-	state: Dictionary,
+	_is_crit: bool,
+	_state: Dictionary,
 	session: Dictionary
 ) -> void:
 	if dealt > 0 and bool(my_pool["rules"].get("poison", false)) and str(target["team_id"]) != "CHAOS-PM":
 		if not bool(target.get("poisoned", false)):
 			target["poisoned"] = true
 			_log_event(session, "毒素", "☣️ 【%s】感染纳垢毒素！" % str(target["name"]), "", [], "status")
-
-	if is_crit and bool(my_pool["rules"].get("stun", false)) and not target["incapacitated"] and not bool(opp_pool["resolute"]):
-		target["apl_mod"] = -1
-		target["stun_skip_current_end"] = (str(state.get("active_op_uid", "")) == str(target["uid"]))
-		_log_event(session, "晕眩", "💫 【晕眩】生效：【%s】APL -1！" % str(target["name"]), "", [], "status")
 
 
 static func _advance_melee_turn(session: Dictionary, state: Dictionary) -> void:

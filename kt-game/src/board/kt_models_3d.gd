@@ -683,11 +683,25 @@ static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3,
 	var min_y: float = float(bmin[1])
 	var min_z: float = float(bmin[2])
 	var max_x: float = float(bmax[0])
+	var max_y: float = float(bmax[1])
 	var max_z: float = float(bmax[2])
 	var span_x: float = max_x - min_x
+	var span_y: float = maxf(0.001, max_y - min_y)
+	var span_z: float = maxf(0.001, max_z - min_z)
 	if span_x <= 0.0001:
 		return null
-	var s: float = long_inches / span_x
+	var sx: float = long_inches / span_x
+	var sy: float = sx
+	var sz: float = sx
+	# Rulebook p.98-102 (HANDOFF 5.3 / 6.8): scale deployable terrain barricades/wire to exact rule dimensions!
+	if KTEngine.EQ_ITEM_SPECS.has(kind):
+		var spec_eq: Dictionary = KTEngine.EQ_ITEM_SPECS[kind]
+		if str(spec_eq.get("terrain", "")) != "":
+			var rule_sz: Vector2 = spec_eq["size"]
+			var rule_h: float = float(spec_eq["height"])
+			sx = rule_sz.x / span_x
+			sy = rule_h / span_y
+			sz = rule_sz.y / span_z
 	var cx: float = (min_x + max_x) * 0.5
 	var cz: float = (min_z + max_z) * 0.5
 
@@ -698,8 +712,8 @@ static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3,
 
 	var mi: MeshInstance3D = MeshInstance3D.new()
 	mi.mesh = mesh
-	mi.scale = Vector3.ONE * s
-	mi.position = Vector3(-cx * s, -min_y * s, -cz * s)
+	mi.scale = Vector3(sx, sy, sz)
+	mi.position = Vector3(-cx * sx, -min_y * sy, -cz * sz)
 	var mat: StandardMaterial3D = StandardMaterial3D.new()
 	mat.albedo_texture = tex
 	mat.albedo_color = Color(0.76, 0.75, 0.74)
@@ -716,7 +730,7 @@ static func build_equipment_model(parent: Node3D, kind: String, pos_3d: Vector3,
 		cyl_mesh.bottom_radius = 1.4
 		cyl_mesh.height = 2.6
 		var cyl_mat: StandardMaterial3D = StandardMaterial3D.new()
-		cyl_mat.albedo_color = Color(0.82, 0.84, 0.86, 0.22)
+		cyl_mat.albedo_color = Color(0.82, 0.85, 0.88, 0.13)
 		cyl_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		cyl_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 		cyl_mat.cull_mode = BaseMaterial3D.CULL_DISABLED

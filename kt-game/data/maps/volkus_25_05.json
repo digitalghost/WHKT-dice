@@ -81,7 +81,7 @@
    "id": "obj_2",
    "name": "2号目标标识",
    "pos": [
-    5.81,
+    5.71,
     13.8
    ]
   },
@@ -212,6 +212,7 @@
    "kind": "vantage",
    "elevation": 0.68,
    "blocks_los_ground": false,
+   "exposed": true,
    "rect": [
     7.0,
     0.5,
@@ -268,6 +269,7 @@
    "kind": "vantage",
    "elevation": 0.47,
    "blocks_los_ground": false,
+   "exposed": true,
    "rect": [
     13.5,
     0.5,
@@ -282,6 +284,7 @@
    "kind": "vantage",
    "elevation": 0.5,
    "blocks_los_ground": false,
+   "exposed": true,
    "rect": [
     16.5,
     19.5,

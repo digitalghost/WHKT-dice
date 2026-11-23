@@ -58,6 +58,7 @@ func _ready() -> void:
 	name_vb.add_child(_kind_lbl)
 
 	_close_btn = Button.new()
+	_close_btn.focus_mode = Control.FOCUS_NONE
 	_close_btn.text = "✕"
 	_close_btn.flat = true
 	_close_btn.visible = false
@@ -95,7 +96,6 @@ func _ready() -> void:
 func show_for(anchor: Control, entry: Dictionary, pin: bool) -> void:
 	_anchor = anchor
 	_entry = entry
-	pinned = pin or (pinned and _entry.get("name", "") == entry.get("name", ""))
 	pinned = pin
 	_icon_lbl.text = str(entry.get("icon", "•"))
 	_name_lbl.text = str(entry.get("display", entry.get("name", "")))
@@ -161,3 +161,4 @@ func _unhandled_input(ev: InputEvent) -> void:
 			hide_popover()
 	elif ev is InputEventKey and ev.pressed and ev.keycode == KEY_ESCAPE:
 		hide_popover()
+		get_viewport().set_input_as_handled()

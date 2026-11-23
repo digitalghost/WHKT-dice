@@ -21,6 +21,13 @@ static func edge_distance(pos_a: Vector2, r_a: float, pos_b: Vector2, r_b: float
 	return maxf(0.0, pos_a.distance_to(pos_b) - r_a - r_b)
 
 
+## Rulebook p.22: true 3D base-to-base distance between operatives at different elevations.
+static func edge_distance_3d(pos_a: Vector2, r_a: float, z_a: float, pos_b: Vector2, r_b: float, z_b: float) -> float:
+	var dh := edge_distance(pos_a, r_a, pos_b, r_b)
+	var dz := absf(z_a - z_b)
+	return sqrt(dh * dh + dz * dz)
+
+
 static func elevation_at(pos: Vector2, terrains: Array) -> float:
 	var best_z: float = 0.0
 	for t in terrains:
@@ -99,12 +106,30 @@ static func is_in_enemy_control_range(op: Dictionary, pos: Vector2, state: Dicti
 	var r_self := float(op["base_radius"])
 	var enemies: Array[Dictionary] = []
 	for other in state["operatives"]:
-		if other["incapacitated"] or other["side"] == op["side"] or other["uid"] == op["uid"]:
+		if other["incapacitated"] or not bool(other.get("deployed", true)) or other["side"] == op["side"] or other["uid"] == op["uid"]:
 			continue
 		var z_other := elevation_at(other["pos"], terrains)
 		if in_control_range_at(pos, r_self, z_self, other["pos"], float(other["base_radius"]), z_other, terrains):
 			enemies.append(other)
 	return enemies
+
+
+## Rulebook p.13/14 helper: is another living deployed friendly operative ALREADY inside `enemy`'s control range?
+static func _has_other_friendly_in_enemy_cr(enemy: Dictionary, moving_uid: String, moving_side: String, state: Dictionary) -> bool:
+	var terrains: Array = state["map"]["terrains"]
+	var e_pos: Vector2 = enemy["pos"]
+	var e_r := float(enemy["base_radius"])
+	var e_z := elevation_at(e_pos, terrains)
+	for ally in state["operatives"]:
+		if ally["incapacitated"] or not bool(ally.get("deployed", true)):
+			continue
+		if str(ally["side"]) != moving_side or str(ally["uid"]) == moving_uid:
+			continue
+		var a_pos: Vector2 = ally["pos"]
+		var a_z := elevation_at(a_pos, terrains)
+		if in_control_range_at(a_pos, float(ally["base_radius"]), a_z, e_pos, e_r, e_z, terrains):
+			return true
+	return false
 
 
 static func is_valid_stand_pos(pos: Vector2, radius: float, ignore_uid: String, state: Dictionary) -> Dictionary:
@@ -118,7 +143,7 @@ static func is_valid_stand_pos(pos: Vector2, radius: float, ignore_uid: String, 
 			return {"ok": false, "reason": "底盘与地形障碍【%s】重叠" % str(t.get("name", "墙体"))}
 
 	for other in state["operatives"]:
-		if other["incapacitated"] or other["uid"] == ignore_uid:
+		if other["incapacitated"] or not bool(other.get("deployed", true)) or other["uid"] == ignore_uid:
 			continue
 		var min_dist := radius + float(other["base_radius"]) - 0.02
 		if pos.distance_to(other["pos"]) < min_dist:
@@ -159,6 +184,15 @@ static func validate_move_path(
 	var prev_z := elevation_at(start_pos, terrains)
 	var eq_markers: Array = state.get("eq_markers", [])
 	var used_ladder := false
+	# Rulebook p.31 L1406-1408: across multiple drops in one action, ignore at most 2" vertical drop TOTAL.
+	var drop_free_remaining: float = 2.0
+	var op_uid := str(op["uid"])
+	var op_side := str(op["side"])
+	var start_enemy_uids: Dictionary = {}
+	for se in start_enemies:
+		start_enemy_uids[str(se["uid"])] = true
+	# Rulebook p.14 L696-698: Charge cannot leave the CR of an enemy that had no other friendly operative in its CR.
+	var entered_solo_enemies: Dictionary = {}
 
 	for i in range(waypoints.size() - 1):
 		var a: Vector2 = waypoints[i]
@@ -168,14 +202,15 @@ static func validate_move_path(
 			continue
 		var horiz := ceilf(maxf(0.0, seg_len - 1e-4))
 
-		# Sample along segment for Heavy wall collision & enemy control range checks
+		# Sample along segment for Heavy wall collision, distinct climbable obstacles & enemy control range checks
 		var steps := maxi(4, int(ceil(seg_len / 0.25)))
-		var crossed_light := false
-		var crossed_razor := false
+		var crossed_light_ids: Dictionary = {}
+		var crossed_razor_ids: Dictionary = {}
 		for s in range(1, steps + 1):
 			var t_ratio := float(s) / float(steps)
 			var sample := a.lerp(b, t_ratio)
-			for terr in terrains:
+			for ti in range(terrains.size()):
+				var terr: Dictionary = terrains[ti]
 				var tk := str(terr.get("kind", ""))
 				if tk in ["heavy_wall", "heavy_low"]:
 					if circle_intersects_rect(sample, r * 0.85, terr["rect"]):
@@ -187,35 +222,58 @@ static func validate_move_path(
 						}
 				elif tk == "light":
 					if circle_intersects_rect(sample, r * 0.6, terr["rect"]):
-						crossed_light = true
+						crossed_light_ids[ti] = true
 				elif tk == "razor_wire":
 					if circle_intersects_rect(sample, r * 0.6, terr["rect"]):
-						crossed_razor = true
+						crossed_razor_ids[ti] = true
 
 			if action_kind in ["reposition", "dash"]:
 				var near_enemies := is_in_enemy_control_range(op, sample, state)
-				if not near_enemies.is_empty():
-					return {
-						"ok": false,
-						"cost": total_cost + horiz,
-						"max": max_inches,
-						"reason": "移动路径不能进入【%s】的 1\" 控制范围" % str(near_enemies[0]["name"])
-					}
+				for ne in near_enemies:
+					# Rulebook p.13 L650-652: Reposition/Dash may pass through an enemy's CR ONLY if another
+					# friendly operative is already within that enemy's CR (cannot end there).
+					if not _has_other_friendly_in_enemy_cr(ne, op_uid, op_side, state):
+						return {
+							"ok": false,
+							"cost": total_cost + horiz,
+							"max": max_inches,
+							"reason": "移动路径不能进入【%s】的 1\" 控制范围" % str(ne["name"])
+						}
+			elif action_kind == "charge":
+				var near_charge := is_in_enemy_control_range(op, sample, state)
+				var near_uid_set: Dictionary = {}
+				for nc in near_charge:
+					near_uid_set[str(nc["uid"])] = true
+				for locked_uid in entered_solo_enemies.keys():
+					if not near_uid_set.has(locked_uid):
+						return {
+							"ok": false,
+							"cost": total_cost + horiz,
+							"max": max_inches,
+							"reason": "【冲锋】进入无友军接战的敌方【%s】控制范围后不能离开" % str(entered_solo_enemies[locked_uid])
+						}
+				for nc in near_charge:
+					var nc_uid := str(nc["uid"])
+					if start_enemy_uids.has(nc_uid) and allow_charge_from_engagement:
+						continue
+					if not entered_solo_enemies.has(nc_uid) and not _has_other_friendly_in_enemy_cr(nc, op_uid, op_side, state):
+						entered_solo_enemies[nc_uid] = str(nc["name"])
 
 		var next_z := elevation_at(b, terrains)
 		var rise := next_z - prev_z
 		var drop := prev_z - next_z
 		var climb_penalty: float = 0.0
+		# Rulebook p.14: Dash cannot climb (neither elevation rise nor climbing over Light/Razor Wire obstacles).
+		if action_kind == "dash" and (rise > 0.5 or not crossed_light_ids.is_empty() or not crossed_razor_ids.is_empty()):
+			return {
+				"ok": false,
+				"cost": total_cost + horiz,
+				"max": max_inches,
+				"reason": "【冲刺】期间不能攀爬"
+			}
 		if rise > 0.5:
-			if action_kind == "dash":
-				return {
-					"ok": false,
-					"cost": total_cost + horiz,
-					"max": max_inches,
-					"reason": "【冲刺】期间不能攀爬"
-				}
 			# Core rules p.31: minimum 2" vertical climb, rounded up to nearest inch above 2"; 1.0" with ladder (once per action)
-			climb_penalty = maxf(2.0, ceilf(rise - 1e-4))
+			climb_penalty += maxf(2.0, ceilf(rise - 1e-4))
 			if not used_ladder:
 				for m in eq_markers:
 					if str(m.get("kind", "")) == "ladder":
@@ -225,19 +283,29 @@ static func validate_move_path(
 							used_ladder = true
 							break
 		elif drop > 0.5:
-			# Core rules p.31: ignore 2" vertical drop distance, round remaining drop up
-			climb_penalty = maxf(0.0, ceilf(drop - 2.0 - 1e-4))
-		elif crossed_razor:
-			# Climbing over razor wire: minimum 2" vertical climb + 1" Obstructing (阻挡) = +3"
-			climb_penalty = 3.0
-		elif crossed_light:
-			# Climbing over light terrain: minimum 2" vertical climb distance
-			climb_penalty = 2.0
+			# Core rules p.31: ignore 2" vertical drop distance TOTAL across the whole action, round remaining drop up
+			var eff_drop: float = maxf(0.0, drop - drop_free_remaining)
+			drop_free_remaining = maxf(0.0, drop_free_remaining - drop)
+			if eff_drop > 0.01:
+				climb_penalty += ceilf(eff_drop - 1e-4)
+
+		# Charge each distinct light (+2") and razor wire (+3") obstacle climbed over independently of drops
+		if not crossed_razor_ids.is_empty():
+			climb_penalty += float(crossed_razor_ids.size()) * 3.0
+		if not crossed_light_ids.is_empty():
+			climb_penalty += float(crossed_light_ids.size()) * 2.0
 
 		total_cost += horiz + climb_penalty
 		prev_z = next_z
 
 	var end_enemies := is_in_enemy_control_range(op, end_pos, state)
+	if action_kind in ["reposition", "dash"] and not end_enemies.is_empty():
+		return {
+			"ok": false,
+			"cost": total_cost,
+			"max": max_inches,
+			"reason": "移动终点不能停留在【%s】的 1\" 控制范围内" % str(end_enemies[0]["name"])
+		}
 	if action_kind == "charge" and end_enemies.is_empty():
 		return {
 			"ok": total_cost <= max_inches + 0.05 and false,
@@ -412,10 +480,16 @@ static func get_cover_cone(attacker_pos: Vector2, defender_pos: Vector2, defende
 
 static func in_smoke(pos: Vector2, radius: float, state: Dictionary) -> bool:
 	var marks: Array = state.get("eq_markers", [])
+	var terrains: Array = (state.get("map", {}) as Dictionary).get("terrains", [])
+	var z_op: float = elevation_at(pos, terrains)
 	for m in marks:
 		var md: Dictionary = m
 		if str(md.get("kind", "")) == "smoke":
 			var mp: Vector2 = md["pos"]
+			# Rulebook p.103: horizontal 1" from marker edge, infinite height upward, does NOT affect below marker.
+			var z_m: float = elevation_at(mp, terrains)
+			if z_op + 0.1 < z_m:
+				continue
 			if pos.distance_to(mp) + radius <= SMOKE_RADIUS_INCHES + 0.001:
 				return true
 	return false
@@ -439,7 +513,8 @@ static func evaluate_shot(
 
 	var w_rules: Dictionary = weapon.get("rules", {})
 	var cone := get_cover_cone(pos_a, pos_d, r_d)
-	var dist_edges := edge_distance(pos_a, r_a, pos_d, r_d)
+	# Rulebook p.22: measure 3D base-to-base distance across elevations (prevents 3.5" Vantage directly overhead triggering 2" Close Quarters!)
+	var dist_edges := edge_distance_3d(pos_a, r_a, z_a, pos_d, r_d, z_d)
 	var def_in_smoke: bool = in_smoke(pos_d, r_d, state)
 	var att_in_smoke: bool = in_smoke(pos_a, r_a, state)
 
@@ -467,7 +542,7 @@ static func evaluate_shot(
 
 	var def_engaged_with_friendlies := false
 	for other in state["operatives"]:
-		if other["incapacitated"] or other["side"] != attacker["side"] or other["uid"] == attacker["uid"]:
+		if other["incapacitated"] or not bool(other.get("deployed", true)) or other["side"] != attacker["side"] or other["uid"] == attacker["uid"]:
 			continue
 		var z_o := elevation_at(other["pos"], terrains)
 		if in_control_range_at(other["pos"], float(other["base_radius"]), z_o, pos_d, r_d, z_d, terrains):
@@ -505,6 +580,22 @@ static func evaluate_shot(
 	# Within 2" close quarters: targets do NOT gain cover!
 	var close_quarters := dist_edges <= CLOSE_QUARTERS_REVEAL_INCHES + 0.02
 
+	# Rulebook p.36 L1530 & V1.4 FAQ L1539: Heavy terrain connected to (part of the same terrain model as)
+	# Vantage terrain that the active operative or potential target is standing on is ignored for Obscured.
+	var vantage_parents: Array[String] = []
+	var vantage_rects_unparented: Array[Rect2] = []
+	for vt in terrains:
+		var vtk: String = str(vt.get("kind", ""))
+		if vtk == "vantage":
+			var vrect: Rect2 = vt["rect"]
+			if vrect.has_point(pos_a) or vrect.has_point(pos_d):
+				var vpar: String = str(vt.get("parent", ""))
+				if not vpar.is_empty():
+					if not vantage_parents.has(vpar):
+						vantage_parents.append(vpar)
+				else:
+					vantage_rects_unparented.append(vrect)
+
 	for t in terrains:
 		var tk := str(t.get("kind", ""))
 		var rect: Rect2 = t["rect"]
@@ -525,25 +616,41 @@ static func evaluate_shot(
 
 		# Cover check: Defender is within 1" of terrain crossed by cover lines (<= 0.2" contact for portable barricade); only exception is attacker within 2" (p.19)
 		var is_portable := bool(t.get("portable", false))
+		var is_exposed := bool(t.get("exposed", false))
 		var cover_prox := 0.2 if is_portable else (COVER_PROXIMITY_INCHES + 0.05)
-		if not close_quarters and dist_def_to_terr <= cover_prox:
+		var gave_cover_this_terr := false
+		if not close_quarters and not is_exposed and dist_def_to_terr <= cover_prox:
 			if tk in ["heavy_wall", "heavy_low"]:
 				has_heavy_cover = true
+				gave_cover_this_terr = true
 			elif tk in ["light", "vantage"]:
 				has_light_cover = true
+				gave_cover_this_terr = true
 				if is_portable:
 					has_protective_cover = true
 
-		# Obscured check: Heavy terrain crossed > 1" from BOTH attacker and defender
-		if tk in ["heavy_wall", "heavy_low"]:
-			var th := float(t.get("elevation", 2.2))
-			if maxf(z_a, z_d) < th + 1.5 and dist_att_to_terr > OBSCURED_BUFFER_INCHES and dist_def_to_terr > OBSCURED_BUFFER_INCHES:
-				is_obscured = true
+		# Obscured check (Rulebook p.15 L751, p.26 & p.36 L1530/L1539): Heavy terrain crossed > 1" from BOTH attacker and defender,
+		# cannot grant both Cover and Obscured from the same terrain piece, ignoring Heavy parts connected to a Vantage feature either operative stands on.
+		if tk in ["heavy_wall", "heavy_low"] and not is_exposed and not gave_cover_this_terr:
+			var t_par: String = str(t.get("parent", ""))
+			var connected_to_vantage: bool = (not t_par.is_empty()) and vantage_parents.has(t_par)
+			if not connected_to_vantage and t_par.is_empty():
+				for uvr in vantage_rects_unparented:
+					if uvr.grow(0.15).intersects(rect):
+						connected_to_vantage = true
+						break
+			if not connected_to_vantage and dist_att_to_terr > OBSCURED_BUFFER_INCHES and dist_def_to_terr > OBSCURED_BUFFER_INCHES:
+				var th := float(t.get("elevation", 2.2))
+				var hit_t_obs := _segment_rect_entry_t(pos_a, pos_d, rect)
+				var line_z: float = lerpf(z_a, z_d, clampf(hit_t_obs, 0.0, 1.0)) if hit_t_obs >= 0.0 else minf(z_a, z_d)
+				if line_z < th - 0.05:
+					is_obscured = true
 
-	# Plague Marines Cloud of Flies marker check (飞蝇云)
+	# Plague Marines Cloud of Flies marker check (飞蝇云, CHAOS-PM: wholly within 1" of 20mm marker -> dist + r_d <= 1.0 + 0.4, 3D elevation)
 	for marker in state.get("markers", []):
 		if str(marker.get("kind", "")) == "cloud_of_flies" and str(marker.get("side", "")) == str(defender["side"]):
-			if dist_edges > 3.0 and pos_d.distance_to(marker["pos"]) <= 1.0 + r_d:
+			var z_m := elevation_at(marker["pos"], terrains)
+			if dist_edges > 3.0 and absf(z_d - z_m) <= 1.001 and pos_d.distance_to(marker["pos"]) + r_d <= 1.401:
 				is_obscured = true
 
 	# Smoke grenade area check (烟雾手雷)
@@ -587,18 +694,25 @@ static func evaluate_shot(
 				out["reason"] = "目标处于【隐匿】命令且依托重型掩体，无法选为目标"
 				return out
 		elif out["cover_terrain_type"] == "light":
-			if has_vantage:
+			if seek_light:
+				# Rulebook p.36 v1.4 FAQ (L1537): On Vantage with a Seek Light weapon, attacker may use
+				# Seek Light instead of Vantage so the target does NOT gain Improved Cover!
+				out["tags"].append("追踪轻型破隐")
+			elif has_vantage:
 				# KT3 Vantage rule: Can target Concealed operative in Light cover, AND they get Improved Cover!
 				out["cover"] = "improved"
 				out["tags"].append("制高点破轻掩隐匿")
-			elif seek_light:
-				out["tags"].append("追踪轻型破隐")
 			else:
 				out["reason"] = "目标处于【隐匿】命令且依托轻型掩体（需制高点、追踪词条或突进至 2\" 内）"
 				return out
 
+	# Preserve pre-Saturate terrain cover so Blast secondary targets with Camo Cloak inherit it properly (1.2 FAQ)
+	out["raw_cover"] = str(out["cover"])
+
 	# 5. Saturate (集中) removes cover saves (unless defender has Camo Cloak 迷彩斗篷!)
-	var has_saturate := bool(w_rules.get("saturate", false)) or bool(attacker.get("siege_saturate", false))
+	var att_side_sat: Dictionary = (state.get("sides", {}) as Dictionary).get(attacker["side"], {})
+	var has_siege_sat: bool = KTCombat.has_chapter_tactic(att_side_sat, attacker, "siege_specialist") if not att_side_sat.is_empty() else bool(attacker.get("siege_saturate", false))
+	var has_saturate := bool(w_rules.get("saturate", false)) or has_siege_sat
 	var ignore_saturate := bool(defender.get("camo_cloak", false))
 	if has_saturate and not ignore_saturate and out["cover"] != "none":
 		out["cover"] = "none"
@@ -626,4 +740,145 @@ static func evaluate_shot(
 
 	out["valid"] = true
 	out["reason"] = "有效目标 · 距离 %.1f\" · %s" % [dist_edges, " / ".join(out["tags"])]
+	return out
+
+
+## Rulebook p.92 (L2728-2745, 1.2 FAQ & 1.6 FAQ):
+## Blast X: every OTHER operative (friendly or enemy, including shooter if in Blast X"!) within X" of
+## the primary target AND visible to the primary target is a mandatory secondary target, regardless of
+## Conceal order or engagement. Each secondary target directly inherits the primary target's Cover
+## (none / standard / improved) and Obscured determination.
+static func get_blast_secondary_targets(
+	attacker: Dictionary,
+	primary: Dictionary,
+	weapon: Dictionary,
+	primary_eval: Dictionary,
+	state: Dictionary
+) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	var w_rules: Dictionary = weapon.get("rules", {})
+	var blast_x: float = float(w_rules.get("blast", 0.0))
+	if blast_x <= 0.01 or primary.is_empty():
+		return out
+
+	var terrains: Array = state["map"]["terrains"]
+	var pos_p: Vector2 = primary["pos"]
+	var r_p: float = float(primary["base_radius"])
+	var z_p: float = elevation_at(pos_p, terrains)
+
+	var pos_a: Vector2 = attacker["pos"]
+	var r_a: float = float(attacker["base_radius"])
+	var z_a: float = elevation_at(pos_a, terrains)
+
+	var inh_cover: String = str(primary_eval.get("raw_cover", primary_eval.get("cover", "none")))
+	var inh_cover_type: String = str(primary_eval.get("cover_terrain_type", ""))
+	var inh_protective: bool = bool(primary_eval.get("protective", false))
+	var inh_obscured: bool = bool(primary_eval.get("obscured", false))
+	var att_side_bs: Dictionary = (state.get("sides", {}) as Dictionary).get(attacker["side"], {})
+	var has_siege_bs: bool = KTCombat.has_chapter_tactic(att_side_bs, attacker, "siege_specialist") if not att_side_bs.is_empty() else bool(attacker.get("siege_saturate", false))
+	var has_saturate: bool = bool(w_rules.get("saturate", false)) or has_siege_bs
+
+	for other in state["operatives"]:
+		var od: Dictionary = other
+		if bool(od.get("incapacitated", false)) or not bool(od.get("deployed", true)):
+			continue
+		if str(od["uid"]) == str(primary["uid"]):
+			continue
+		var pos_s: Vector2 = od["pos"]
+		if pos_s.x < 0.0 or pos_s.y < 0.0:
+			continue
+		var r_s: float = float(od["base_radius"])
+		var z_s: float = elevation_at(pos_s, terrains)
+		var d_from_primary: float = edge_distance_3d(pos_p, r_p, z_p, pos_s, r_s, z_s)
+		if d_from_primary > blast_x + 0.02:
+			continue
+		if not has_visibility(pos_p, r_p, z_p, pos_s, r_s, z_s, terrains):
+			continue
+
+		var eff_cover: String = inh_cover
+		var ignore_sat: bool = bool(od.get("camo_cloak", false))
+		if has_saturate and not ignore_sat and eff_cover != "none":
+			eff_cover = "none"
+
+		# Vantage Accurate against Engage secondary target (p.36 L1523)
+		var vant_acc: int = 0
+		var h_diff: float = z_a - z_s
+		if h_diff >= 2.0 and str(od.get("order", "conceal")) != "conceal":
+			vant_acc = 2 if h_diff >= 4.0 else 1
+
+		var sec_in_smoke: bool = in_smoke(pos_s, r_s, state)
+		var tags: Array = ["爆炸 %.0f\" 波及" % blast_x]
+		if str(od["side"]) == str(attacker["side"]):
+			tags.append("友军误伤!")
+		if eff_cover == "standard":
+			tags.append("继承普通掩护")
+		elif eff_cover == "improved":
+			tags.append("继承强化掩护")
+		if inh_obscured:
+			tags.append("继承遮挡")
+
+		var sec_eval: Dictionary = {
+			"valid": true,
+			"distance": edge_distance_3d(pos_a, r_a, z_a, pos_s, r_s, z_s),
+			"visible": true,
+			"cover": eff_cover,
+			"cover_terrain_type": inh_cover_type,
+			"protective": inh_protective and eff_cover != "none",
+			"obscured": inh_obscured,
+			"smoke": sec_in_smoke,
+			"vantage_accurate": vant_acc,
+			"cone": get_cover_cone(pos_a, pos_s, r_s),
+			"tags": tags,
+			"reason": "爆炸次要目标 · 距主目标 %.1f\"" % d_from_primary,
+		}
+		out.append({
+			"defender_uid": str(od["uid"]),
+			"friendly": str(od["side"]) == str(attacker["side"]),
+			"shot_eval": sec_eval,
+		})
+	return out
+
+
+## Rulebook p.94 (L2840-2848, v1.4 update):
+## Torrent X: after selecting a valid primary target, select any number of OTHER valid enemy targets
+## within X" of the primary target that are not within friendly operatives' control range.
+## Each target's Visibility, Cover, and Obscured are evaluated independently from the shooter!
+static func get_torrent_secondary_targets(
+	attacker: Dictionary,
+	primary: Dictionary,
+	weapon: Dictionary,
+	state: Dictionary
+) -> Array[Dictionary]:
+	var out: Array[Dictionary] = []
+	var w_rules: Dictionary = weapon.get("rules", {})
+	var torrent_x: float = float(w_rules.get("torrent", 0.0))
+	if torrent_x <= 0.01 or primary.is_empty():
+		return out
+
+	var terrains_t: Array = state["map"]["terrains"]
+	var pos_p: Vector2 = primary["pos"]
+	var r_p: float = float(primary["base_radius"])
+	var z_p: float = elevation_at(pos_p, terrains_t)
+
+	for other in state["operatives"]:
+		var od: Dictionary = other
+		if bool(od.get("incapacitated", false)) or not bool(od.get("deployed", true)):
+			continue
+		if str(od["side"]) == str(attacker["side"]) or str(od["uid"]) == str(primary["uid"]):
+			continue
+		var pos_s: Vector2 = od["pos"]
+		if pos_s.x < 0.0 or pos_s.y < 0.0:
+			continue
+		var r_s: float = float(od["base_radius"])
+		var z_s: float = elevation_at(pos_s, terrains_t)
+		var d_from_primary: float = edge_distance_3d(pos_p, r_p, z_p, pos_s, r_s, z_s)
+		if d_from_primary > torrent_x + 0.02:
+			continue
+		var ev: Dictionary = evaluate_shot(attacker, od, weapon, state)
+		if bool(ev.get("valid", false)):
+			out.append({
+				"defender_uid": str(od["uid"]),
+				"friendly": false,
+				"shot_eval": ev,
+			})
 	return out

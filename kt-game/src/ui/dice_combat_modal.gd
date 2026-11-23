@@ -88,6 +88,7 @@ func _ready() -> void:
 	_cmd_panel.offset_right = 776.0
 	_cmd_panel.offset_top = -142.0
 	_cmd_panel.offset_bottom = -14.0
+	_cmd_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	_cmd_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_cmd_panel.add_theme_stylebox_override(
 		"panel",
@@ -178,20 +179,24 @@ func on_tabletop_die_clicked(pool_key: String, die_idx: int) -> void:
 	var step := str(session.get("step", ""))
 	if step == "attack_reroll" and pool_key == "atk_dice":
 		var atk_arr: Array = session.get("atk_dice", [])
-		if die_idx >= 0 and die_idx < atk_arr.size() and not bool((atk_arr[die_idx] as Dictionary).get("rerolled", false)):
-			_selected_pool = pool_key
-			_selected_die_idx = die_idx
-			if _killzone != null and _killzone.get_dice_3d() != null:
-				_killzone.get_dice_3d().update_selection_highlight(_selected_pool, _selected_die_idx)
-			_rebuild_ui()
+		if die_idx >= 0 and die_idx < atk_arr.size():
+			var ad_sel: Dictionary = atk_arr[die_idx]
+			if not bool(ad_sel.get("rerolled", false)) and not bool(ad_sel.get("locked", false)):
+				_selected_pool = pool_key
+				_selected_die_idx = die_idx
+				if _killzone != null and _killzone.get_dice_3d() != null:
+					_killzone.get_dice_3d().update_selection_highlight(_selected_pool, _selected_die_idx)
+				_rebuild_ui()
 	elif step == "defence_roll" and pool_key == "def_dice":
 		var def_arr: Array = session.get("def_dice", [])
-		if die_idx >= 0 and die_idx < def_arr.size() and not bool((def_arr[die_idx] as Dictionary).get("rerolled", false)):
-			_selected_pool = pool_key
-			_selected_die_idx = die_idx
-			if _killzone != null and _killzone.get_dice_3d() != null:
-				_killzone.get_dice_3d().update_selection_highlight(_selected_pool, _selected_die_idx)
-			_rebuild_ui()
+		if die_idx >= 0 and die_idx < def_arr.size():
+			var dd_sel: Dictionary = def_arr[die_idx]
+			if not bool(dd_sel.get("rerolled", false)) and not bool(dd_sel.get("locked", false)):
+				_selected_pool = pool_key
+				_selected_die_idx = die_idx
+				if _killzone != null and _killzone.get_dice_3d() != null:
+					_killzone.get_dice_3d().update_selection_highlight(_selected_pool, _selected_die_idx)
+				_rebuild_ui()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -199,16 +204,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode in [KEY_SPACE, KEY_ENTER, KEY_KP_ENTER]:
-			# Trigger primary CTA button (rightmost enabled button in _action_bar!)
-			var btns: Array[Button] = []
+			# Trigger explicit [Space] CTA button (never accidentally click melee duel parry buttons!)
 			for c in _action_bar.get_children():
-				if c is Button and not (c as Button).disabled:
-					btns.append(c as Button)
-			if not btns.is_empty():
-				accept_event()
-				var primary_btn: Button = btns[btns.size() - 1] if _modal_mode != "shooting" or str(session.get("step", "")) != "attack_reroll" else btns[btns.size() - 2 if btns.size() >= 2 else 0]
-				primary_btn.pressed.emit()
-				return
+				if c is Button and not (c as Button).disabled and c.has_meta("space_cta"):
+					accept_event()
+					(c as Button).pressed.emit()
+					return
 
 
 func _process(delta: float) -> void:
@@ -432,6 +433,7 @@ func open_shooting(eng: KTEngine, sess: Dictionary, auto_fast_for_ai: bool = fal
 		anim_pool = "both"
 		var human_defending := (str(engine.state["mode"]) == "ai" and str(session["defender_side"]) == str(engine.state["human_side"]))
 		if not human_defending:
+			KTCombat.auto_choose_cover_option(session, engine.rng)
 			KTCombat.finalize_shooting_resolution(session, engine.state, engine.rng)
 			engine.recalculate_objectives_and_kills()
 			_emit_ranged_impact_once()
@@ -439,6 +441,7 @@ func open_shooting(eng: KTEngine, sess: Dictionary, auto_fast_for_ai: bool = fal
 	if _killzone != null and _killzone.get_dice_3d() != null:
 		_killzone.get_dice_3d().sync_shooting_dice(session, _selected_pool, _selected_die_idx, anim_pool, -1, false)
 	_rebuild_ui()
+	_schedule_ai_shooting_next_if_needed()
 
 
 func open_melee(eng: KTEngine, sess: Dictionary) -> void:
@@ -481,7 +484,7 @@ func _emit_ranged_impact_once() -> void:
 	})
 
 
-func _execute_and_emit_melee_step(choice: String) -> void:
+func _execute_and_emit_melee_step(choice: String, prefer_normal: bool = false) -> void:
 	var is_att_turn: bool = str(session.get("turn", "attacker")) == "attacker"
 	var actor_uid: String = str(session["attacker_uid"] if is_att_turn else session["defender_uid"])
 	var target_uid: String = str(session["defender_uid"] if is_att_turn else session["attacker_uid"])
@@ -491,7 +494,7 @@ func _execute_and_emit_melee_step(choice: String) -> void:
 	var tgt_before := engine.get_op(target_uid)
 	var hp_before: int = int(tgt_before.get("wounds_cur", 0))
 
-	KTCombat.execute_melee_step(session, choice, engine.state, engine.rng)
+	KTCombat.execute_melee_step(session, choice, engine.state, engine.rng, prefer_normal)
 	engine.recalculate_objectives_and_kills()
 
 	var tgt_after := engine.get_op(target_uid)
@@ -531,9 +534,70 @@ func _schedule_ai_melee_if_needed() -> void:
 		_ai_timer.start(0.58)
 
 
+func _schedule_ai_shooting_next_if_needed() -> void:
+	if not visible or _modal_mode != "shooting" or str(session.get("step", "")) != "resolved":
+		return
+	var pend: Array = session.get("pending_targets", [])
+	if pend.is_empty():
+		return
+	if _is_side_ai(str(session.get("attacker_side", ""))):
+		_ai_timer.start(0.65)
+
+
+func _advance_to_pending_target(target_idx: int) -> void:
+	var auto_ai: bool = _is_side_ai(str(session.get("attacker_side", "")))
+	var guard := 0
+	var advanced := false
+	while guard < 12:
+		guard += 1
+		var use_i: int = target_idx if guard == 1 else 0
+		if KTCombat.advance_next_shooting_target(session, use_i, engine.state, engine.rng):
+			advanced = true
+			break
+		if (session.get("pending_targets", []) as Array).is_empty():
+			break
+	if not advanced:
+		engine.recalculate_objectives_and_kills()
+		_rebuild_ui()
+		return
+
+	_selected_pool = ""
+	_selected_die_idx = -1
+	_impact_played_for_session = false
+	_last_vs_key = ""
+	_animate_next_roll = true
+	play_dice_sfx()
+	_reset_rule_timeline()
+	if _killzone != null:
+		var att_u: String = str(session.get("attacker_uid", ""))
+		var def_u: String = str(session.get("defender_uid", ""))
+		var w_d: Dictionary = session.get("weapon", {})
+		_killzone.frame_combat_duel(att_u, def_u, false)
+		_killzone.play_ranged_salvo_vfx(att_u, def_u, w_d)
+
+	var anim_pool: String = "atk_dice"
+	if auto_ai:
+		KTCombat.lock_in_shooting_attacks(session, engine.state, engine.rng)
+		anim_pool = "both"
+		var human_def := (str(engine.state["mode"]) == "ai" and str(session["defender_side"]) == str(engine.state["human_side"]))
+		if not human_def:
+			KTCombat.auto_choose_cover_option(session, engine.rng)
+			KTCombat.finalize_shooting_resolution(session, engine.state, engine.rng)
+			engine.recalculate_objectives_and_kills()
+			_emit_ranged_impact_once()
+	if _killzone != null and _killzone.get_dice_3d() != null:
+		_killzone.get_dice_3d().sync_shooting_dice(session, _selected_pool, _selected_die_idx, anim_pool, -1, false)
+	_rebuild_ui()
+	_schedule_ai_shooting_next_if_needed()
+
+
 func _on_ai_combat_step() -> void:
 	if visible and _modal_mode == "initiative":
 		_on_ai_initiative_step()
+		return
+	if visible and _modal_mode == "shooting" and str(session.get("step", "")) == "resolved":
+		if not (session.get("pending_targets", []) as Array).is_empty() and _is_side_ai(str(session.get("attacker_side", ""))):
+			_advance_to_pending_target(0)
 		return
 	if not visible or _modal_mode != "melee" or str(session.get("step", "")) != "duel":
 		return
@@ -603,6 +667,8 @@ func _sync_rule_timeline() -> void:
 	if events.size() > _timeline_shown and not _timeline_playing:
 		_timeline_playing = true
 		_timeline_timer = 0.0
+	if _timeline_playing and KTSettings.rule_step_pause() <= 0.0:
+		_advance_rule_timeline(0.0)
 	_set_cta_enabled(not _timeline_playing)
 
 
@@ -658,10 +724,13 @@ func _append_timeline_row(ev: Dictionary) -> void:
 	while rows.size() > 4:
 		(rows.pop_front() as Node).queue_free()
 
-	# Fade/slide in
-	row.modulate.a = 0.0
-	var tw := row.create_tween()
-	tw.tween_property(row, "modulate:a", 1.0, 0.18)
+	# Fade/slide in (instant when rule_step_pause == 0 so rows are immediately readable)
+	if KTSettings.rule_step_pause() <= 0.0:
+		row.modulate.a = 1.0
+	else:
+		row.modulate.a = 0.0
+		var tw := row.create_tween()
+		tw.tween_property(row, "modulate:a", 1.0, 0.18)
 
 	# Dice feedback: flash the pool the rule touched, with a badge
 	if _killzone != null and _killzone.get_dice_3d() != null:
@@ -810,6 +879,7 @@ func _build_initiative_ui() -> void:
 				_add_init_card_button("🎴 -%d" % c, t, c, -1)
 		var btn_pass := Button.new()
 		btn_pass.focus_mode = Control.FOCUS_NONE
+		btn_pass.set_meta("space_cta", true)
 		btn_pass.text = "⏭ 让过 [Space]"
 		btn_pass.custom_minimum_size = Vector2(150, 38)
 		KTTheme.apply_accent_button(btn_pass, KTTheme.COL_GOLD_BRIGHT, 0.36)
@@ -826,6 +896,7 @@ func _build_initiative_ui() -> void:
 
 	var btn_go := Button.new()
 	btn_go.focus_mode = Control.FOCUS_NONE
+	btn_go.set_meta("space_cta", true)
 	btn_go.text = "✓ 确认桌面结果 · 进入战略阶段 [Space]"
 	btn_go.custom_minimum_size = Vector2(320, 38)
 	KTTheme.apply_accent_button(btn_go, KTTheme.COL_GOLD_BRIGHT, 0.36)
@@ -1031,7 +1102,14 @@ func _add_mini_die_chip(pool_key: String, idx: int, val: int, kind: String, rero
 
 func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 	var step := str(session["step"])
-	_phase_lbl.text = "远程交火 · " + (
+	var m_total: int = int(session.get("multi_total", 1))
+	var m_idx: int = int(session.get("multi_index", 1))
+	var m_mode: String = str(session.get("multi_mode", ""))
+	var m_prefix: String = ""
+	if m_total > 1:
+		var m_cn: String = "爆炸" if m_mode == "blast" else "洪流"
+		m_prefix = "[%s %d/%d] " % [m_cn, m_idx, m_total]
+	_phase_lbl.text = m_prefix + "远程交火 · " + (
 		"桌面攻击投骰" if step == "attack_reroll" else ("桌面护甲豁免" if step == "defence_roll" else "弹道战果")
 	)
 
@@ -1045,10 +1123,32 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		for i in range(atk_dice.size()):
 			var d: Dictionary = atk_dice[i]
 			var v := int(d["val"])
-			var kind := "crit" if (v >= crit_req and v > 1) else ("norm" if (v >= hit_req and v > 1) else "fail")
-			_add_mini_die_chip("atk_dice", i, v, kind, bool(d["rerolled"]), true)
+			var is_lck := bool(d.get("locked", false))
+			var kind := "fail" if is_lck else ("crit" if (v == 6 or (v >= hit_req and v >= crit_req and v > 1)) else ("norm" if (v >= hit_req and v > 1) else "fail"))
+			_add_mini_die_chip("atk_dice", i, v, kind, bool(d["rerolled"]) or is_lck, true)
 
 		var w_rules: Dictionary = session.get("rules", {})
+		var ceaseless_avail: bool = bool(w_rules.get("ceaseless", false)) and not bool(session.get("ceaseless_used", false))
+		if ceaseless_avail:
+			var b_cs := Button.new()
+			b_cs.focus_mode = Control.FOCUS_NONE
+			b_cs.text = "♻️ 无休重掷(同点)"
+			b_cs.disabled = _selected_die_idx < 0
+			KTTheme.apply_accent_button(b_cs, KTTheme.COL_NURGLE)
+			KTWidgets.attach_button_juice(b_cs)
+			b_cs.pressed.connect(func():
+				var r_idx_c := _selected_die_idx
+				KTCombat.reroll_shooting_die(session, "atk_dice", r_idx_c, "ceaseless", engine.state, engine.rng)
+				_selected_pool = ""
+				_selected_die_idx = -1
+				play_dice_sfx()
+				if _killzone != null and _killzone.get_dice_3d() != null:
+					_killzone.get_dice_3d().sync_shooting_dice(session, "", -1, "atk_dice", -1, false)
+				_spawn_ui_burst(KTTheme.COL_NURGLE, 22)
+				_rebuild_ui()
+			)
+			_action_bar.add_child(b_cs)
+
 		var bal_avail: bool = bool(w_rules.get("balanced", false)) and not bool(session.get("balanced_used", false))
 		if bal_avail:
 			var b_bal := Button.new()
@@ -1111,9 +1211,29 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		)
 		_action_bar.add_child(b_cp)
 
+		var cor_atk := KTCombat.can_use_curse_of_rot(session, "atk_dice", engine.state)
+		if bool(cor_atk["ok"]) and not _is_side_ai(str(cor_atk["pm_side"])):
+			var b_cor_a := Button.new()
+			b_cor_a.focus_mode = Control.FOCUS_NONE
+			b_cor_a.text = "☠️ 腐烂诅咒 (1CP·-%dW)" % int(cor_atk["threes"])
+			KTTheme.apply_accent_button(b_cor_a, KTTheme.COL_NURGLE, 0.34)
+			KTWidgets.attach_button_juice(b_cor_a)
+			b_cor_a.pressed.connect(func():
+				if bool(KTCombat.apply_curse_of_rot(session, "atk_dice", engine.state).get("ok", false)):
+					engine.recalculate_objectives_and_kills()
+					_selected_pool = ""
+					_selected_die_idx = -1
+					_spawn_ui_burst(KTTheme.COL_NURGLE, 24)
+					if _killzone != null and _killzone.get_dice_3d() != null:
+						_killzone.get_dice_3d().sync_shooting_dice(session, "", -1, "atk_dice", -1, false)
+					_rebuild_ui()
+			)
+			_action_bar.add_child(b_cor_a)
+
 		var btn_lock := Button.new()
 		btn_lock.focus_mode = Control.FOCUS_NONE
-		btn_lock.text = "锁定命中 · 投防御骰 ➔"
+		btn_lock.set_meta("space_cta", true)
+		btn_lock.text = "锁定命中 · 投防御骰 ➔ [Space]"
 		KTTheme.apply_accent_button(btn_lock, KTTheme.COL_IMPERIAL, 0.34)
 		KTWidgets.attach_button_juice(btn_lock)
 		btn_lock.pressed.connect(func():
@@ -1122,6 +1242,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 			_selected_die_idx = -1
 			play_dice_sfx()
 			if _is_side_ai(str(def["side"])):
+				KTCombat.auto_choose_cover_option(session, engine.rng)
 				KTCombat.finalize_shooting_resolution(session, engine.state, engine.rng)
 				engine.recalculate_objectives_and_kills()
 				_emit_ranged_impact_once()
@@ -1138,6 +1259,8 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		KTWidgets.attach_button_juice(btn_fast)
 		btn_fast.pressed.connect(func():
 			KTCombat.lock_in_shooting_attacks(session, engine.state, engine.rng)
+			if _is_side_ai(str(def["side"])):
+				KTCombat.auto_choose_cover_option(session, engine.rng)
 			KTCombat.finalize_shooting_resolution(session, engine.state, engine.rng)
 			engine.recalculate_objectives_and_kills()
 			play_dice_sfx()
@@ -1153,8 +1276,38 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		for j in range(def_dice.size()):
 			var dd: Dictionary = def_dice[j]
 			var vd := int(dd["val"])
-			var kd := "crit" if (vd >= crit_save_req and vd > 1) else ("norm" if (vd >= save_req and vd > 1) else "fail")
-			_add_mini_die_chip("def_dice", j, vd, kd, bool(dd["rerolled"]), true)
+			var is_lck_d := bool(dd.get("locked", false))
+			var kd := "fail" if is_lck_d else ("crit" if (vd >= crit_save_req and vd > 1) else ("norm" if (vd >= save_req and vd > 1) else "fail"))
+			_add_mini_die_chip("def_dice", j, vd, kd, bool(dd["rerolled"]) or is_lck_d, true)
+
+		# Rulebook p.36 L1528-1529 & IMP-AOD Stealthy: Defender with Improved / Stealthy Cover chooses 2 Normal OR 1 Crit save
+		var cm_ui: String = str(session.get("cover_mode", ""))
+		if cm_ui in ["improved", "stealth_choice"] and int(session.get("def_total", 3)) > 0:
+			var any_def_mutated := false
+			for dd_chk in def_dice:
+				var ddc: Dictionary = dd_chk
+				if bool(ddc.get("rerolled", false)) or bool(ddc.get("locked", false)):
+					any_def_mutated = true
+					break
+			var cur_ic: String = str(session.get("improved_cover_choice", "2norm"))
+			var next_ic: String = "1crit" if cur_ic == "2norm" else "2norm"
+			var cm_label: String = "强化掩护" if cm_ui == "improved" else "隐匿战术"
+			var b_ic := Button.new()
+			b_ic.focus_mode = Control.FOCUS_NONE
+			b_ic.text = "🛡️ %s: 2普豁免 (切1暴)" % cm_label if cur_ic == "2norm" else "🛡️ %s: 1暴豁免 (切2普)" % cm_label
+			b_ic.disabled = any_def_mutated or bool(session.get("transhuman_used", false))
+			KTTheme.apply_accent_button(b_ic, KTTheme.COL_GOLD_BRIGHT, 0.28)
+			KTWidgets.attach_button_juice(b_ic)
+			b_ic.pressed.connect(func():
+				if KTCombat.set_improved_cover_choice(session, next_ic, engine.rng):
+					_selected_pool = ""
+					_selected_die_idx = -1
+					play_dice_sfx()
+					if _killzone != null and _killzone.get_dice_3d() != null:
+						_killzone.get_dice_3d().sync_shooting_dice(session, "", -1, "def_dice", -1, false)
+					_rebuild_ui()
+			)
+			_action_bar.add_child(b_ic)
 
 		var b_def_cp := Button.new()
 		b_def_cp.focus_mode = Control.FOCUS_NONE
@@ -1176,22 +1329,73 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		_action_bar.add_child(b_def_cp)
 
 		var def_side_st: Dictionary = engine.state["sides"][def["side"]]
-		if str(def_side_st["team_id"]) == "IMP-AOD" and not bool(session["transhuman_used"]) and int(def_side_st["cp"]) >= 1:
+		var th_used_tp: bool = (def_side_st.get("used_ploys_tp", []) as Array).has("transhuman_physiology")
+		var th_free_captain: bool = str(def.get("op_id", "")) == "aod_captain" and not bool(def_side_st.get("heroic_used_tp", false))
+		var th_cost: int = 0 if th_free_captain else 1
+		var cur_def_norms: int = int(session.get("auto_def_normals", 0))
+		for dd_th in def_dice:
+			var d_th_d: Dictionary = dd_th
+			var v_th: int = int(d_th_d["val"])
+			if not bool(d_th_d.get("locked", false)) and v_th > 1 and v_th >= save_req and v_th < crit_save_req:
+				cur_def_norms += 1
+		if str(def_side_st["team_id"]) == "IMP-AOD" and not bool(session["transhuman_used"]) and not th_used_tp and int(def_side_st["cp"]) >= th_cost:
 			var b_th := Button.new()
 			b_th.focus_mode = Control.FOCUS_NONE
-			b_th.text = "🧬 超人体格 (1CP)"
+			b_th.text = "🧬 超人体格 (0CP·连长)" if th_cost == 0 else "🧬 超人体格 (1CP)"
+			b_th.disabled = cur_def_norms <= 0
 			KTTheme.apply_accent_button(b_th, KTTheme.COL_IMPERIAL)
 			KTWidgets.attach_button_juice(b_th)
 			b_th.pressed.connect(func():
-				def_side_st["cp"] = int(def_side_st["cp"]) - 1
+				if th_cost == 0:
+					def_side_st["heroic_used_tp"] = true
+				else:
+					def_side_st["cp"] = int(def_side_st["cp"]) - 1
+				(def_side_st["used_ploys_tp"] as Array).append("transhuman_physiology")
 				session["transhuman_used"] = true
 				_spawn_ui_burst(KTTheme.COL_IMPERIAL, 22)
 				_rebuild_ui()
 			)
 			_action_bar.add_child(b_th)
 
+		# CHAOS-PM Firefight Ploy: Sickening Resilience (恶心韧性, 1CP, 1/TP) — auto -1 dmg on DR without rolling!
+		var dr_used_tp: bool = (def_side_st.get("used_ploys_tp", []) as Array).has("disgustingly_resilient")
+		if str(def_side_st["team_id"]) == "CHAOS-PM" and not bool(def.get("auto_resilient_active", false)) and not dr_used_tp and int(def_side_st["cp"]) >= 1 and not _is_side_ai(str(def["side"])):
+			var b_dr := Button.new()
+			b_dr.focus_mode = Control.FOCUS_NONE
+			b_dr.text = "🦠 恶心韧性 (1CP·免骰减伤)"
+			KTTheme.apply_accent_button(b_dr, KTTheme.COL_NURGLE, 0.32)
+			KTWidgets.attach_button_juice(b_dr)
+			b_dr.pressed.connect(func():
+				# record_undo = false so pressing [Z] inside DiceCombatModal still cleanly undoes the whole Shoot action
+				if bool(engine.use_firefight_ploy(str(def["side"]), "disgustingly_resilient", str(def["uid"]), false).get("ok", false)):
+					_spawn_ui_burst(KTTheme.COL_NURGLE, 22)
+					_rebuild_ui()
+			)
+			_action_bar.add_child(b_dr)
+
+		# CHAOS-PM Firefight Ploy: Curse of Rot (腐烂诅咒, 1CP, 1/TP) when PM shoots enemy within 3"/7"p and enemy rolled 3s!
+		var cor_def := KTCombat.can_use_curse_of_rot(session, "def_dice", engine.state)
+		if bool(cor_def["ok"]) and not _is_side_ai(str(cor_def["pm_side"])):
+			var b_cor_d := Button.new()
+			b_cor_d.focus_mode = Control.FOCUS_NONE
+			b_cor_d.text = "☠️ 腐烂诅咒 (1CP·-%dW)" % int(cor_def["threes"])
+			KTTheme.apply_accent_button(b_cor_d, KTTheme.COL_NURGLE, 0.34)
+			KTWidgets.attach_button_juice(b_cor_d)
+			b_cor_d.pressed.connect(func():
+				if bool(KTCombat.apply_curse_of_rot(session, "def_dice", engine.state).get("ok", false)):
+					engine.recalculate_objectives_and_kills()
+					_selected_pool = ""
+					_selected_die_idx = -1
+					_spawn_ui_burst(KTTheme.COL_NURGLE, 24)
+					if _killzone != null and _killzone.get_dice_3d() != null:
+						_killzone.get_dice_3d().sync_shooting_dice(session, "", -1, "def_dice", -1, false)
+					_rebuild_ui()
+			)
+			_action_bar.add_child(b_cor_d)
+
 		var btn_res := Button.new()
 		btn_res.focus_mode = Control.FOCUS_NONE
+		btn_res.set_meta("space_cta", true)
 		btn_res.text = "💥 引爆破甲结算! [Space]"
 		KTTheme.apply_accent_button(btn_res, KTTheme.COL_CRIMSON, 0.36)
 		KTWidgets.attach_button_juice(btn_res)
@@ -1200,6 +1404,7 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 			engine.recalculate_objectives_and_kills()
 			_emit_ranged_impact_once()
 			_rebuild_ui()
+			_schedule_ai_shooting_next_if_needed()
 		)
 		_action_bar.add_child(btn_res)
 
@@ -1216,16 +1421,69 @@ func _build_shooting_ui(att: Dictionary, def: Dictionary) -> void:
 		sum_lbl.add_theme_color_override("font_color", res_col.lightened(0.32))
 		_action_bar.add_child(sum_lbl)
 
-		var btn_done := Button.new()
-		btn_done.focus_mode = Control.FOCUS_NONE
-		btn_done.text = "✓ 收起骰盘 · 继续战斗 [Space]"
-		KTTheme.apply_accent_button(btn_done, KTTheme.COL_EMERALD, 0.36)
-		KTWidgets.attach_button_juice(btn_done)
-		btn_done.pressed.connect(func():
-			visible = false
-			combat_finished.emit(session)
-		)
-		_action_bar.add_child(btn_done)
+		var pend_list: Array = session.get("pending_targets", [])
+		if not pend_list.is_empty():
+			if _is_side_ai(str(session.get("attacker_side", ""))):
+				var b_ai_next := Button.new()
+				b_ai_next.focus_mode = Control.FOCUS_NONE
+				b_ai_next.set_meta("space_cta", true)
+				b_ai_next.text = "▶ 结算下一波及目标 [Space]"
+				KTTheme.apply_accent_button(b_ai_next, KTTheme.COL_GOLD_BRIGHT, 0.34)
+				KTWidgets.attach_button_juice(b_ai_next)
+				b_ai_next.pressed.connect(func():
+					_ai_timer.stop()
+					_advance_to_pending_target(0)
+				)
+				_action_bar.add_child(b_ai_next)
+			else:
+				for pi in range(pend_list.size()):
+					var p_entry: Dictionary = pend_list[pi]
+					var p_op: Dictionary = engine.get_op(str(p_entry.get("defender_uid", "")))
+					if p_op.is_empty():
+						continue
+					var is_fr: bool = bool(p_entry.get("friendly", false))
+					var idx_bind: int = pi
+					var b_next := Button.new()
+					b_next.focus_mode = Control.FOCUS_NONE
+					if pi == 0:
+						b_next.set_meta("space_cta", true)
+					var short_p: String = str(p_op["name"]).replace("星际战士", "").replace("仲裁者", "").replace("瘟疫战士", "瘟疫")
+					b_next.text = "%s%s%s" % [
+						"⚠️误伤: " if is_fr else "💥下一目标: ",
+						short_p,
+						" [Space]" if pi == 0 else ""
+					]
+					KTTheme.apply_accent_button(b_next, KTTheme.COL_CRIMSON if is_fr else KTTheme.COL_GOLD_BRIGHT, 0.34)
+					KTWidgets.attach_button_juice(b_next)
+					b_next.pressed.connect(func():
+						_advance_to_pending_target(idx_bind)
+					)
+					_action_bar.add_child(b_next)
+				if m_mode == "torrent":
+					var b_stop := Button.new()
+					b_stop.focus_mode = Control.FOCUS_NONE
+					b_stop.text = "✓ 结束扫射"
+					KTTheme.apply_accent_button(b_stop, KTTheme.COL_EMERALD, 0.28)
+					KTWidgets.attach_button_juice(b_stop)
+					b_stop.pressed.connect(func():
+						KTCombat.skip_remaining_torrent_targets(session, engine.state, engine.rng)
+						engine.recalculate_objectives_and_kills()
+						visible = false
+						combat_finished.emit(session)
+					)
+					_action_bar.add_child(b_stop)
+		else:
+			var btn_done := Button.new()
+			btn_done.focus_mode = Control.FOCUS_NONE
+			btn_done.set_meta("space_cta", true)
+			btn_done.text = "✓ 收起骰盘 · 继续战斗 [Space]"
+			KTTheme.apply_accent_button(btn_done, KTTheme.COL_EMERALD, 0.36)
+			KTWidgets.attach_button_juice(btn_done)
+			btn_done.pressed.connect(func():
+				visible = false
+				combat_finished.emit(session)
+			)
+			_action_bar.add_child(btn_done)
 
 
 func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
@@ -1262,10 +1520,13 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 			var opp_total := int(opp_p["crits"]) + int(opp_p["normals"])
 			var bonus_1st: int = 1 if (is_att and bool(my_p["shock_assault"]) and not bool(session["att_first_strike_done"])) else 0
 
+			var disp_c_dmg: int = mini(7, int(my_p["crit_dmg"]) + bonus_1st) if bonus_1st > 0 else int(my_p["crit_dmg"])
+			var disp_n_dmg: int = mini(7, int(my_p["normal_dmg"]) + bonus_1st) if bonus_1st > 0 else int(my_p["normal_dmg"])
+
 			var b_sc := Button.new()
 			b_sc.focus_mode = Control.FOCUS_NONE
 			b_sc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-			b_sc.text = "🗡️ 暴击斩击 (-%dW%s)" % [int(my_p["crit_dmg"]) + bonus_1st, "·震荡" if bool(my_p["rules"].get("shock", false)) else ""]
+			b_sc.text = "🗡️ 暴击斩击 (-%dW%s)" % [disp_c_dmg, "·震荡" if bool(my_p["rules"].get("shock", false)) else ""]
 			b_sc.disabled = int(my_p["crits"]) <= 0
 			KTTheme.apply_accent_button(b_sc, KTTheme.COL_GOLD_BRIGHT, 0.34)
 			KTWidgets.attach_button_juice(b_sc, 1.04, "slash")
@@ -1275,33 +1536,64 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 			var b_sn := Button.new()
 			b_sn.focus_mode = Control.FOCUS_NONE
 			b_sn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-			b_sn.text = "⚔️ 普通出击 (-%dW)" % (int(my_p["normal_dmg"]) + bonus_1st)
+			b_sn.text = "⚔️ 普通出击 (-%dW)" % disp_n_dmg
 			b_sn.disabled = int(my_p["normals"]) <= 0
 			KTTheme.apply_accent_button(b_sn, KTTheme.COL_CRIMSON, 0.32)
 			KTWidgets.attach_button_juice(b_sn, 1.04, "slash")
 			b_sn.pressed.connect(func(): _run_human_melee_step("strike_norm"))
 			_action_bar.add_child(b_sn)
 
+			# Rulebook p.18 L886-898: Empty parry allowed even when opp_total == 0; Crit parry can choose to discard Normal instead of Crit!
+			var opp_c: int = int(opp_p["crits"])
+			var opp_n: int = int(opp_p["normals"])
 			var b_pc := Button.new()
 			b_pc.focus_mode = Control.FOCUS_NONE
 			b_pc.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-			b_pc.text = "🛡️ 暴击弹反 (碎敌1骰)"
-			b_pc.disabled = int(my_p["crits"]) <= 0 or opp_total <= 0
+			b_pc.text = "🛡️ 暴击空格挡" if opp_total <= 0 else ("🛡️ 暴击弹反 (碎敌暴)" if opp_c > 0 else "🛡️ 暴击弹反 (碎敌普)")
+			b_pc.disabled = int(my_p["crits"]) <= 0
 			KTTheme.apply_accent_button(b_pc, KTTheme.COL_IMPERIAL, 0.30)
 			KTWidgets.attach_button_juice(b_pc, 1.04, "parry")
-			b_pc.pressed.connect(func(): _run_human_melee_step("parry_crit"))
+			b_pc.pressed.connect(func(): _run_human_melee_step("parry_crit", false))
 			_action_bar.add_child(b_pc)
 
-			var can_pn := int(my_p["normals"]) > 0 and not opp_brutal and (int(opp_p["normals"]) > 0 or (bool(my_p["dueller"]) and int(opp_p["crits"]) > 0))
+			if int(my_p["crits"]) > 0 and opp_c > 0 and opp_n > 0:
+				var b_pc_norm := Button.new()
+				b_pc_norm.focus_mode = Control.FOCUS_NONE
+				b_pc_norm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				b_pc_norm.text = "🛡️ 暴击挡普骰"
+				KTTheme.apply_accent_button(b_pc_norm, KTTheme.COL_IMPERIAL, 0.22)
+				KTWidgets.attach_button_juice(b_pc_norm, 1.04, "parry")
+				b_pc_norm.pressed.connect(func(): _run_human_melee_step("parry_crit", true))
+				_action_bar.add_child(b_pc_norm)
+
+			var can_pn: bool = int(my_p["normals"]) > 0 and not opp_brutal
+			var pn_is_empty: bool = (opp_n <= 0) and not (bool(my_p["dueller"]) and opp_c > 0)
 			var b_pn := Button.new()
 			b_pn.focus_mode = Control.FOCUS_NONE
 			b_pn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-			b_pn.text = "🤺 普通招架%s" % ("(残暴禁)" if opp_brutal else ("(可挡暴)" if bool(my_p["dueller"]) else ""))
+			if opp_brutal:
+				b_pn.text = "🤺 普通招架(残暴禁)"
+			elif pn_is_empty:
+				b_pn.text = "🤺 普通空格挡"
+			elif bool(my_p["dueller"]) and opp_c > 0:
+				b_pn.text = "🤺 决斗家挡暴"
+			else:
+				b_pn.text = "🤺 普通招架"
 			b_pn.disabled = not can_pn
 			KTTheme.apply_accent_button(b_pn, KTTheme.COL_EMERALD, 0.28)
 			KTWidgets.attach_button_juice(b_pn, 1.04, "parry")
-			b_pn.pressed.connect(func(): _run_human_melee_step("parry_norm"))
+			b_pn.pressed.connect(func(): _run_human_melee_step("parry_norm", false))
 			_action_bar.add_child(b_pn)
+
+			if can_pn and bool(my_p["dueller"]) and opp_c > 0 and opp_n > 0:
+				var b_pn_norm := Button.new()
+				b_pn_norm.focus_mode = Control.FOCUS_NONE
+				b_pn_norm.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				b_pn_norm.text = "🤺 招架普骰"
+				KTTheme.apply_accent_button(b_pn_norm, KTTheme.COL_EMERALD, 0.20)
+				KTWidgets.attach_button_juice(b_pn_norm, 1.04, "parry")
+				b_pn_norm.pressed.connect(func(): _run_human_melee_step("parry_norm", true))
+				_action_bar.add_child(b_pn_norm)
 	else:
 		var end_lbl := Label.new()
 		end_lbl.text = "⚔️ 近战白刃对决结算完毕"
@@ -1312,6 +1604,7 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 
 		var btn_done := Button.new()
 		btn_done.focus_mode = Control.FOCUS_NONE
+		btn_done.set_meta("space_cta", true)
 		btn_done.text = "✓ 收起骰盘 · 结束对决 [Space]"
 		KTTheme.apply_accent_button(btn_done, KTTheme.COL_EMERALD, 0.36)
 		KTWidgets.attach_button_juice(btn_done)
@@ -1322,7 +1615,7 @@ func _build_melee_ui(att: Dictionary, def: Dictionary) -> void:
 		_action_bar.add_child(btn_done)
 
 
-func _run_human_melee_step(act: String) -> void:
-	_execute_and_emit_melee_step(act)
+func _run_human_melee_step(act: String, prefer_normal: bool = false) -> void:
+	_execute_and_emit_melee_step(act, prefer_normal)
 	_rebuild_ui()
 	_schedule_ai_melee_if_needed()

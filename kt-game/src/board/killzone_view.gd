@@ -426,16 +426,18 @@ func _spawn_fallen_marker(uid: String, wpos: Vector3) -> void:
 	var disc_mat := Models3D.make_pbr(Color(0.07, 0.075, 0.09), 0.35, 0.6)
 	Models3D.add_cyl(marker, Vector3(0.0, 0.03, 0.0), 0.62, 0.58, 0.06, disc_mat, Vector3.ZERO, 24)
 	var cas_tex := KTTheme.kit_tex("marker_casualty")
+	if cas_tex == null:
+		cas_tex = KTData.load_tex(KTTheme.TOKEN_DIR + ("status_skull_blue.png" if is_aod else "status_skull_red.png"))
 	if cas_tex != null:
-		# Kit casualty token printed on the disc top, tinted to the faction
+		# Casualty token printed on the disc top, tinted to the faction
 		var cm := StandardMaterial3D.new()
 		cm.albedo_texture = cas_tex
-		cm.albedo_color = fac_col.lightened(0.45)
+		cm.albedo_color = Color.WHITE if KTTheme.kit_tex("marker_casualty") == null else fac_col.lightened(0.45)
 		cm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
 		cm.alpha_scissor_threshold = 0.5
 		cm.roughness = 0.5
 		var cq := QuadMesh.new()
-		cq.size = Vector2(1.24, 1.24)
+		cq.size = Vector2(1.12, 1.12)
 		var cmi := MeshInstance3D.new()
 		cmi.mesh = cq
 		cmi.material_override = cm
@@ -445,18 +447,6 @@ func _spawn_fallen_marker(uid: String, wpos: Vector3) -> void:
 		_fallen_markers[uid] = marker
 		return
 	Models3D.add_torus(marker, Vector3(0.0, 0.06, 0.0), 0.50, 0.58, Models3D.make_pbr(fac_col.darkened(0.35), 0.6, 0.4))
-	var skull := Label3D.new()
-	skull.text = "☠"
-	skull.font = font
-	skull.font_size = 96
-	skull.pixel_size = 0.0075
-	skull.modulate = fac_col.lightened(0.25)
-	skull.outline_size = 8
-	skull.outline_modulate = Color(0.02, 0.02, 0.03)
-	skull.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
-	skull.position = Vector3(0.0, 0.075, 0.0)
-	skull.alpha_cut = Label3D.ALPHA_CUT_DISCARD
-	marker.add_child(skull)
 	_fallen_markers[uid] = marker
 
 
@@ -471,10 +461,17 @@ func _clear_fallen_marker(uid: String) -> void:
 func sync_visual_positions(instant: bool = false) -> void:
 	if engine == null or engine.state.is_empty():
 		return
-	if _op_nodes.is_empty():
+	var ops_arr: Array = engine.state["operatives"]
+	var need_rebuild: bool = _op_nodes.size() != ops_arr.size()
+	if not need_rebuild:
+		for op_chk in ops_arr:
+			if not _op_nodes.has(str((op_chk as Dictionary)["uid"])):
+				need_rebuild = true
+				break
+	if need_rebuild:
 		_rebuild_3d_operatives()
 		return
-	for op in engine.state["operatives"]:
+	for op in ops_arr:
 		var uid := str(op["uid"])
 		var p_in: Vector2 = op["pos"]
 		var z_in := elevation_at_inches(p_in)
@@ -603,6 +600,7 @@ func clear_interaction() -> void:
 	eq_deploy_kind = ""
 	pick_uid = ""
 	pick_ability = ""
+	pick_point_label = "烟雾手雷"
 	pick_enemy_uids.clear()
 	move_waypoints.clear()
 	active_shoot_weapon = {}
@@ -675,11 +673,13 @@ var pick_uid: String = ""
 var pick_enemy_uids: Array[String] = []
 ## Unique-action id the pick_enemy mode is armed for ("eq_stun", "tac_surveil", ...)
 var pick_ability: String = ""
+var pick_point_label: String = "烟雾手雷"
 
-func start_pick_point_mode(uid: String) -> void:
+func start_pick_point_mode(uid: String, label: String = "烟雾手雷") -> void:
 	clear_interaction()
 	selected_uid = uid
 	pick_uid = uid
+	pick_point_label = label if not label.is_empty() else "烟雾手雷"
 	interaction_mode = "pick_point"
 
 
@@ -717,7 +717,9 @@ func _validate_move_preview(pts: Array[Vector2], op: Dictionary) -> Dictionary:
 	if bool(chk["ok"]) and move_action_kind == "barricade_move":
 		var plain_len: float = 0.0
 		for wi in range(pts.size() - 1):
-			plain_len += pts[wi].distance_to(pts[wi + 1])
+			var sl_pb: float = pts[wi].distance_to(pts[wi + 1])
+			if sl_pb >= 0.05:
+				plain_len += ceilf(maxf(0.0, sl_pb - 1e-4))
 		if float(chk["cost"]) > plain_len + 0.05:
 			return {"ok": false, "cost": float(chk["cost"]), "reason": "与掩体移动时不能攀爬或翻越地形"}
 	return chk
@@ -1117,6 +1119,8 @@ func _update_3d_entities(delta: float) -> void:
 		(bn["holo_cone"] as MeshInstance3D).rotation.y = _pulse_time * 1.2
 
 	# Update 3D Operative Miniatures (walking, climbing elevation arc, facing, order glow!)
+	if _op_nodes.size() != (engine.state["operatives"] as Array).size():
+		_rebuild_3d_operatives()
 	for op in engine.state["operatives"]:
 		var uid := str(op["uid"])
 		if not _op_nodes.has(uid):
@@ -1338,21 +1342,32 @@ func _sync_flat_marker_tokens() -> void:
 		var obj: Dictionary = obj_v
 		var ost: Dictionary = engine.state["objectives_state"].get(str(obj["id"]), {})
 		var slot := 0
+		var o_pos: Vector2 = obj["pos"]
+		var pick_ring_spot := func(s_idx: int) -> Vector2:
+			for try_i in range(8):
+				var ang_c: float = -0.6 + 0.78 * float(s_idx + try_i)
+				var cand_p: Vector2 = o_pos + Vector2(cos(ang_c), sin(ang_c)) * 1.02
+				var hits_wall := false
+				for terr_v in engine.state["map"]["terrains"]:
+					var terr_d: Dictionary = terr_v
+					if KTGeometry.is_impassable_terrain(terr_d) and KTGeometry.circle_intersects_rect(cand_p, 0.30, terr_d["rect"]):
+						hits_wall = true
+						break
+				if not hits_wall:
+					return cand_p
+			var ang_fb: float = -0.6 + 0.78 * float(s_idx)
+			return o_pos + Vector2(cos(ang_fb), sin(ang_fb)) * 0.92
 		for sid in ["A", "B"]:
 			for _i in range(int(ost.get("martyr_" + sid, 0))):
-				var ang: float = -0.6 + 0.75 * float(slot)
-				var o_pos: Vector2 = obj["pos"]
-				items.append({"tex": "status_cross_blue" if sid == "A" else "status_cross_red", "pos": o_pos + Vector2(cos(ang), sin(ang)) * 1.25, "size": 0.7})
+				items.append({"tex": "status_cross_blue" if sid == "A" else "status_cross_red", "pos": pick_ring_spot.call(slot), "size": 0.66})
 				slot += 1
 		# Tac-op markers on the objective: device (放置装置), Sweep marker and Clear (扫荡清理)
 		var tac_d: Dictionary = ost.get("tac", {})
 		for sid2 in ["A", "B"]:
 			var col2: String = "blue" if sid2 == "A" else "red"
-			for pair in [["device_", "bomb_"], ["sweep_", "status_skull_"], ["cleared_", "status_alert_"]]:
+			for pair in [["device_", "bomb_"], ["sweep_", "status_cross_"], ["cleared_", "status_alert_"]]:
 				if bool(tac_d.get(str(pair[0]) + sid2, false)):
-					var ang2: float = -0.6 + 0.75 * float(slot)
-					var o_pos2: Vector2 = obj["pos"]
-					items.append({"tex": str(pair[1]) + col2, "pos": o_pos2 + Vector2(cos(ang2), sin(ang2)) * 1.25, "size": 0.7})
+					items.append({"tex": str(pair[1]) + col2, "pos": pick_ring_spot.call(slot), "size": 0.66})
 					slot += 1
 	var parts := PackedStringArray()
 	for it in items:
@@ -1480,6 +1495,51 @@ func _rebuild_3d_tactical_overlays() -> void:
 			var mp: Vector2 = m["pos"]
 			var mw := inches_to_world(mp, elevation_at_inches(mp) + 0.06)
 			add_ring_3d.call(mw, 1.6, KTTheme.COL_NURGLE, 0.16, 36)
+
+	# 1a. FLANK TAC-OP OVERLAY (r4b_tacops_ui.md #2.1): dashed centre dividing line + flank ownership tint
+	var ph_now: String = str(engine.state.get("phase", ""))
+	if ph_now in ["STRATEGY", "FIREFIGHT", "INITIATIVE", "GAME_OVER"]:
+		var is_ai_m: bool = str(engine.state.get("mode", "")) == "ai"
+		var h_side: String = str(engine.state.get("human_side", ""))
+		var flank_a: bool = engine.tac_op_of("A") == "flank" and (bool(engine.state["sides"]["A"].get("tac_revealed", false)) or (is_ai_m and h_side == "A"))
+		var flank_b: bool = engine.tac_op_of("B") == "flank" and (bool(engine.state["sides"]["B"].get("tac_revealed", false)) or (is_ai_m and h_side == "B"))
+		if flank_a or flank_b:
+			var fd: Dictionary = engine.flank_definition()
+			var f_axis: String = str(fd["axis"])
+			var f_line: float = float(fd["line"])
+			var f_names: Array = fd["flanks"]
+			var bw_f: float = float(engine.state["map"]["width"])
+			var bh_f: float = float(engine.state["map"]["height"])
+			# Dashed dividing line across the whole killzone
+			var tot_len: float = bh_f if f_axis == "x" else bw_f
+			var d_cur: float = 0.0
+			while d_cur < tot_len - 0.1:
+				var d_end: float = minf(tot_len, d_cur + 0.65)
+				var pa_2d: Vector2 = Vector2(f_line, d_cur) if f_axis == "x" else Vector2(d_cur, f_line)
+				var pb_2d: Vector2 = Vector2(f_line, d_end) if f_axis == "x" else Vector2(d_end, f_line)
+				add_seg.call(inches_to_world(pa_2d, 0.055), inches_to_world(pb_2d, 0.055), Color(KTTheme.COL_GOLD_BRIGHT.r, KTTheme.COL_GOLD_BRIGHT.g, KTTheme.COL_GOLD_BRIGHT.b, 0.72))
+				d_cur += 1.10
+			# Subtle ownership tint on each flank half (A = blue, B = green, contested/empty = faint slate)
+			for fi in range(2):
+				var fname: String = str(f_names[fi])
+				var ctrl_f: String = engine.flank_controller(fname)
+				var base_fc: Color = KTTheme.COL_IMPERIAL if ctrl_f == "A" else (KTTheme.COL_NURGLE if ctrl_f == "B" else Color(0.55, 0.60, 0.68))
+				var alpha_f: float = (0.085 if fi == 0 else 0.065) if not ctrl_f.is_empty() else (0.032 if fi == 0 else 0.018)
+				var f_rect: Rect2 = (
+					Rect2(0.0 if fi == 0 else f_line, 0.0, f_line if fi == 0 else (bw_f - f_line), bh_f)
+					if f_axis == "x"
+					else Rect2(0.0, 0.0 if fi == 0 else f_line, bw_f, f_line if fi == 0 else (bh_f - f_line))
+				)
+				var fc_pts: Array[Vector3] = [
+					inches_to_world(f_rect.position, 0.035),
+					inches_to_world(f_rect.position + Vector2(f_rect.size.x, 0.0), 0.035),
+					inches_to_world(f_rect.end, 0.035),
+					inches_to_world(f_rect.position + Vector2(0.0, f_rect.size.y), 0.035),
+				]
+				var tint_c := Color(base_fc.r, base_fc.g, base_fc.b, alpha_f)
+				for idx_f in [0, 1, 2, 0, 2, 3]:
+					tri_pts.append(fc_pts[idx_f])
+					tri_cols.append(tint_c)
 
 	# 1b. DEPLOY MODE: highlight own drop zone, ghost base ring at the cursor (green legal / red illegal)
 	if interaction_mode == "deploy":
@@ -1705,6 +1765,30 @@ func _rebuild_3d_tactical_overlays() -> void:
 					add_ribbon_3d.call(apex_3d, left_3d, 0.04, Color(bcol.r, bcol.g, bcol.b, 0.85))
 					add_ribbon_3d.call(apex_3d, right_3d, 0.04, Color(bcol.r, bcol.g, bcol.b, 0.85))
 
+					# Blast X / Torrent X AoE radius & secondary target preview rings (Rulebook p.92 & p.94)!
+					var w_rules_s: Dictionary = active_shoot_weapon.get("rules", {})
+					var blast_r: float = float(w_rules_s.get("blast", 0.0))
+					var torrent_r: float = float(w_rules_s.get("torrent", 0.0))
+					if blast_r > 0.01 or torrent_r > 0.01:
+						var aoe_r: float = blast_r if blast_r > 0.01 else torrent_r
+						var aoe_col: Color = Color(1.0, 0.45, 0.16, 0.82) if blast_r > 0.01 else Color(1.0, 0.68, 0.18, 0.80)
+						add_ring_3d.call(def_feet, def_r + aoe_r, aoe_col, 0.07, 48)
+						var secs: Array[Dictionary] = (
+							KTGeometry.get_blast_secondary_targets(att, def, active_shoot_weapon, ev, engine.state)
+							if blast_r > 0.01
+							else KTGeometry.get_torrent_secondary_targets(att, def, active_shoot_weapon, engine.state)
+						)
+						for sec_d in secs:
+							var sec_op: Dictionary = engine.get_op(str(sec_d.get("defender_uid", "")))
+							if sec_op.is_empty():
+								continue
+							var sp_in: Vector2 = sec_op["pos"]
+							var sw_feet := inches_to_world(sp_in, elevation_at_inches(sp_in) + 0.07)
+							var is_fr_s: bool = bool(sec_d.get("friendly", false))
+							var scol: Color = KTTheme.COL_CRIMSON if is_fr_s else Color(1.0, 0.56, 0.16)
+							add_ring_3d.call(sw_feet, float(sec_op["base_radius"]) + 0.24, scol, 0.34, 32)
+							add_seg.call(def_feet + Vector3(0.0, 0.35, 0.0), sw_feet + Vector3(0.0, 0.35, 0.0), scol)
+
 	# 4. FIGHT MODE: Crimson Melee Rings
 	elif interaction_mode == "fight":
 		var att_f := engine.get_op(selected_uid)
@@ -1728,7 +1812,7 @@ func _rebuild_3d_tactical_overlays() -> void:
 			var pp_hw := inches_to_world(hovered_board_inches, elevation_at_inches(hovered_board_inches) + 0.06)
 			add_ring_3d.call(pp_hw, 1.4, pp_col, 0.20, 40)
 
-	# 4c. PICK ENEMY MODE (Stun Grenade): gold candidate rings + 1" splash ring on hover
+	# 4c. PICK ENEMY MODE (Stun Grenade / Surveil): gold candidate rings (+ 1" splash ring on hover for Stun only)
 	elif interaction_mode == "pick_enemy":
 		for t_uid in pick_enemy_uids:
 			var top: Dictionary = engine.get_op(t_uid)
@@ -1738,7 +1822,7 @@ func _rebuild_3d_tactical_overlays() -> void:
 			var tw := inches_to_world(tp_in, elevation_at_inches(tp_in) + 0.06)
 			var tr_base: float = float(top["base_radius"])
 			add_ring_3d.call(tw, tr_base + 0.20, KTTheme.COL_GOLD_BRIGHT, 0.30, 32)
-			if hovered_uid == t_uid:
+			if hovered_uid == t_uid and pick_ability != "tac_surveil":
 				add_ring_3d.call(tw, tr_base + 1.0, Color(KTTheme.COL_GOLD_BRIGHT.r, KTTheme.COL_GOLD_BRIGHT.g, KTTheme.COL_GOLD_BRIGHT.b, 0.65), 0.10, 40)
 
 	# 5. Active 3D Weapon Bolt / Plasma Tracers!
@@ -1975,8 +2059,35 @@ func _draw_projected_hud() -> void:
 				st_txt = "隐匿·无掩护 → 可选" if str(ev["cover"]) == "none" else "隐匿·制高点破隐 → 可选"
 				if bool(ev["obscured"]):
 					st_txt += " · 遮挡"
-			_draw_pill_2d(sp_d, "%s · %.1f\"" % [st_txt, float(ev["distance"])], bcol, 12, 0.92)
+			var aoe_tag: String = ""
+			var wr_hud: Dictionary = active_shoot_weapon.get("rules", {})
+			var att_hud := engine.get_op(selected_uid)
+			if not att_hud.is_empty():
+				if float(wr_hud.get("blast", 0.0)) > 0.01:
+					var b_secs: Array[Dictionary] = KTGeometry.get_blast_secondary_targets(att_hud, def, active_shoot_weapon, ev, engine.state)
+					if not b_secs.is_empty():
+						var fr_cnt: int = 0
+						for bs_d in b_secs:
+							if bool(bs_d.get("friendly", false)):
+								fr_cnt += 1
+						aoe_tag = (" · 💥波及+%d(⚠️误伤%d友军!)" % [b_secs.size(), fr_cnt]) if fr_cnt > 0 else (" · 💥波及+%d" % b_secs.size())
+				elif float(wr_hud.get("torrent", 0.0)) > 0.01:
+					var t_secs: Array[Dictionary] = KTGeometry.get_torrent_secondary_targets(att_hud, def, active_shoot_weapon, engine.state)
+					if not t_secs.is_empty():
+						aoe_tag = " · 🔥洪流+%d敌" % t_secs.size()
+			_draw_pill_2d(sp_d, "%s · %.1f\"%s" % [st_txt, float(ev["distance"]), aoe_tag], bcol, 12, 0.92)
 			_draw_target_lock_reticle(sp_body, bcol, active_shoot_weapon, ev)
+
+	# 5a. Pick-Point Mode Floating Label (r4b_tacops_ui.md #3.2)
+	elif interaction_mode == "pick_point":
+		var op_pp_h: Dictionary = engine.get_op(pick_uid)
+		if not op_pp_h.is_empty():
+			var pp_chk_h: Dictionary = engine.validate_smoke_pos(op_pp_h, hovered_board_inches)
+			var pp_ok_h: bool = bool(pp_chk_h["ok"])
+			var pp_msg: String = ("✓ 放置：%s" % pick_point_label) if pp_ok_h else ("✕ %s：%s" % [pick_point_label, str(pp_chk_h.get("reason", "落点不合法"))])
+			var w_pp := inches_to_world(hovered_board_inches, elevation_at_inches(hovered_board_inches) + 1.65)
+			if not _cam.is_position_behind(w_pp):
+				_draw_pill_2d(_cam.unproject_position(w_pp), pp_msg, KTTheme.COL_EMERALD if pp_ok_h else KTTheme.COL_CRIMSON, 13, 0.94)
 
 	# 5b. Fight Mode Animated Melee Lock Reticle!
 	elif interaction_mode == "fight" and not hovered_uid.is_empty():
@@ -2387,7 +2498,8 @@ func _handle_left_click(screen_pos: Vector2, shift_held: bool) -> void:
 				var pe_op := engine.get_op(clicked_op_uid)
 				if not pe_op.is_empty():
 					pe_pos = pe_op.get("pos", hovered_board_inches)
-			spawn_floating_text(pe_pos, "请点击 6\" 内可见敌军", KTTheme.COL_CRIMSON)
+			var pe_err_msg: String = "请点击 6\" 外可见的敌方就绪特工" if pick_ability == "tac_surveil" else "请点击 6\" 内可见敌军"
+			spawn_floating_text(pe_pos, pe_err_msg, KTTheme.COL_CRIMSON)
 			KTSfx.play("ui_hover", -14.0, 0.2)
 		return
 

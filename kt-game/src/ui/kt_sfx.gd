@@ -93,7 +93,7 @@ func _start_ambience() -> void:
 		(stream as AudioStreamOggVorbis).loop = true
 	_amb_player = AudioStreamPlayer.new()
 	_amb_player.stream = stream
-	_amb_player.volume_db = -22.0
+	_amb_player.volume_db = float(KTSettings.get_value("audio/ambience_db"))
 	_amb_player.autoplay = true
 	add_child(_amb_player)
 	_amb_player.play()
@@ -109,7 +109,8 @@ func _play_internal(clip_name: String, vol_db: float, pitch_jitter: float) -> vo
 	_next_idx = (_next_idx + 1) % _players.size()
 	p.stop()
 	p.stream = stream
-	p.volume_db = vol_db
+	var sfx_offset: float = float(KTSettings.get_value("audio/sfx_db")) - float(KTSettings.DEFAULTS["audio/sfx_db"])
+	p.volume_db = vol_db + sfx_offset
 	p.pitch_scale = randf_range(1.0 - pitch_jitter, 1.0 + pitch_jitter)
 	p.play()
 

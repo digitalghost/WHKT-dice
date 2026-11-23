@@ -17,6 +17,23 @@ var _games: int = 0
 ## --all-tacs: assign tac ops from the whole 12-card catalogue (ignoring team archetypes) so the
 ## cards neither launch team can normally pick still get exercised end to end.
 var _all_tacs: bool = false
+## --vary-rosters: cycle through all 8 AoD Chapter Tactics and alternate leaders/warriors across seeds.
+var _vary_rosters: bool = false
+
+const ALL_TACTICS: Array[String] = [
+	"aggressive", "dueller", "resolute", "stealthy",
+	"mobile", "hardy", "sharpshooter", "siege_specialist",
+]
+const ALT_AOD_ROSTERS: Array = [
+	["aod_captain", "aod_grenadier", "aod_sniper", "aod_gunner", "aod_heavy_gunner", "aod_assault_warrior"],
+	["aod_sergeant", "aod_grenadier", "aod_sniper", "aod_gunner", "aod_warrior", "aod_assault_warrior"],
+	["aod_assault_sergeant", "aod_grenadier", "aod_sniper", "aod_heavy_gunner", "aod_warrior", "aod_warrior"],
+]
+const ALT_PM_ROSTERS: Array = [
+	["pm_champion", "pm_bombardier", "pm_fighter", "pm_heavy_gunner", "pm_icon_bearer", "pm_plaguecaster"],
+	["pm_champion", "pm_bombardier", "pm_fighter", "pm_heavy_gunner", "pm_icon_bearer", "pm_warrior"],
+	["pm_champion", "pm_bombardier", "pm_fighter", "pm_plaguecaster", "pm_icon_bearer", "pm_warrior"],
+]
 
 
 func _init() -> void:
@@ -27,6 +44,8 @@ func _init() -> void:
 			seeds = int(s.substr(8))
 		if s == "--all-tacs":
 			_all_tacs = true
+		if s == "--vary-rosters":
+			_vary_rosters = true
 	var mi: int = 0
 	for map_id in KTData.MAP_IDS:
 		for k in range(seeds):
@@ -53,13 +72,24 @@ func _play(map_id: String, seed_v: int) -> void:
 	_games += 1
 	var tag: String = "%s seed %d" % [map_id, seed_v]
 	var eng := KTEngine.new(seed_v)
-	eng.start_match("hotseat", "A", "dueller", "hardy", map_id)
+	var t_prim: String = "dueller"
+	var t_sec: String = "hardy"
+	if _vary_rosters:
+		t_prim = ALL_TACTICS[seed_v % ALL_TACTICS.size()]
+		t_sec = ALL_TACTICS[(seed_v + 3) % ALL_TACTICS.size()]
+	eng.start_match("hotseat", "A", t_prim, t_sec, map_id)
 	eng.choose_drop_zone(seed_v % 2 == 1)
 	var guard: int = 0
 	while str(eng.state["phase"]) == "SELECT" and guard < 6:
 		guard += 1
 		var sd: String = eng.setup_side()
-		eng.confirm_roster(sd, eng.default_roster(sd))
+		var ros: Array = eng.default_roster(sd)
+		if _vary_rosters:
+			ros = (ALT_AOD_ROSTERS[seed_v % ALT_AOD_ROSTERS.size()] as Array) if sd == "A" else (ALT_PM_ROSTERS[seed_v % ALT_PM_ROSTERS.size()] as Array)
+		var res_r: Dictionary = eng.confirm_roster(sd, ros)
+		if not bool(res_r.get("ok", false)):
+			_fail(tag, "confirm_roster %s rejected: %s" % [str(ros), str(res_r.get("msg", ""))])
+			eng.confirm_roster(sd, eng.default_roster(sd))
 	guard = 0
 	while str(eng.state["phase"]) == "EQUIP" and guard < 6:
 		guard += 1
@@ -205,16 +235,20 @@ func _step(eng: KTEngine, tag: String, seed_v: int) -> bool:
 			if not bool(res_u.get("ok", false)):
 				_warn("AI unique '%s' refused" % str(step_act["ability_id"]))
 				_end_if_still_active(eng, active_uid)
+		elif kind == "target_action":
+			var res_ta: Dictionary = eng.execute_target_action(active_uid, str(step_act["ability_id"]), str(step_act["target_uid"]))
+			if not bool(res_ta.get("ok", false)):
+				_warn("AI target_action '%s' refused" % str(step_act["ability_id"]))
+				_end_if_still_active(eng, active_uid)
 		elif kind == "shoot":
 			var def_s: Dictionary = eng.get_op(str(step_act["target_uid"]))
 			var w_s: Dictionary = step_act["weapon"]
 			var ev_s: Dictionary = step_act["shot_eval"]
 			eng.commit_shooting_action_cost(op, w_s)
 			var sess: Dictionary = KTCombat.create_shooting_session(op, def_s, w_s, ev_s, eng.state, eng.rng)
-			KTCombat.lock_in_shooting_attacks(sess, eng.state, eng.rng)
-			KTCombat.finalize_shooting_resolution(sess, eng.state, eng.rng)
+			KTCombat.resolve_all_shooting_targets_auto(sess, eng.state, eng.rng)
 			eng.recalculate_objectives_and_kills()
-			if str(sess.get("step", "")) != "resolved":
+			if str(sess.get("step", "")) != "resolved" or not (sess.get("pending_targets", []) as Array).is_empty():
 				_fail(tag, "shooting session did not resolve (step %s)" % str(sess.get("step", "")))
 				return false
 			_after_combat(eng)
