@@ -1,139 +1,108 @@
-# WHKT Dice
+# WHKT · Warhammer 40,000: Kill Team Dual-Platform Tactical Suite
 
 <p align="center">
-  <strong>An Android tactical dice tray built around the Kill Team attack–defence flow</strong><br>
-  Paired combat rolls, swipe navigation on phones, and two trays side by side on tablets.
+  <strong>A complete 3rd-Edition Kill Team (Approved Ops 2025/2026) tactical ecosystem</strong><br>
+  combining a standalone <strong>Godot 4 3D Tabletop Game (<code>kt-game/</code>)</strong>, an offline <strong>Android 48-Team Battle Console (<code>app/</code>)</strong>,<br>
+  and an automated <strong>48-Kill-Team Structured Rules & Asset Pipeline (<code>tools/</code> · <code>docs/</code>)</strong>.
 </p>
 
 <p align="center">
-  <a href="README.md">简体中文</a> · <a href="README_EN.md">English</a>
+  <a href="README.md">简体中文</a> · <a href="README_EN.md">English</a> · <a href="kt-game/README.md">KT-Game Docs (ZH)</a>
 </p>
 
 <p align="center">
+  <img alt="Godot 4.7" src="https://img.shields.io/badge/Godot-4.7%20Forward%2B-478CBF?logo=godotengine&logoColor=white">
   <img alt="Android 7.0+" src="https://img.shields.io/badge/Android-7.0%2B-3DDC84?logo=android&logoColor=white">
-  <img alt="Kotlin" src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?logo=kotlin&logoColor=white">
+  <img alt="Kotlin 2.0" src="https://img.shields.io/badge/Kotlin-2.0-7F52FF?logo=kotlin&logoColor=white">
+  <img alt="48 Kill Teams" src="https://img.shields.io/badge/Kill%20Teams-48%20Teams-E5B85C">
+  <img alt="Tests" src="https://img.shields.io/badge/Tests-326%20Godot%20%2B%2029%20JUnit-40BCB2">
   <img alt="License" src="https://img.shields.io/github/license/digitalghost/WHKT-dice">
-  <img alt="Last commit" src="https://img.shields.io/github/last-commit/digitalghost/WHKT-dice">
 </p>
-
-WHKT Dice is an offline Android dice roller for tabletop skirmish players. Instead of behaving like a generic random-number utility, it follows the familiar “attack first, defence second” combat sequence. Both results stay visible so players can compare the roll as naturally as they would compare two physical dice trays.
-
-> The app UI is currently available in Simplified Chinese. Contributions for English and other localizations are very welcome.
-
-## Screenshots
-
-### Tablet: two combat trays on one screen
 
 <p align="center">
-  <img src="docs/images/tablet-overview.jpg" alt="WHKT Dice dual-tray tablet interface" width="100%">
+  <img src="docs/images/hero-banner.jpg" alt="WHKT Dual-Platform Tactical Suite Overview" width="100%">
 </p>
 
-Each tray has its own success, critical and failure status bar. Once defence is rolled, both sets of results remain visible for immediate comparison.
+---
 
-### Phone: swipe between preserved trays
+## Ecosystem Overview
+
+| Module | Directory | Stack | Purpose | Scale & Verification |
+| :--- | :--- | :--- | :--- | :--- |
+| **3D Tabletop Game** | [`kt-game/`](kt-game/README.md) | Godot 4 + GDScript (Forward+ 3D) | Playable digital Kill Team boardgame with real 3D Volkus terrain, painted 3D minis, continuous inch rulers, 3D LoS/cover cones, automated combat engine, tactical AI & hotseat | 21 source files (21,186 LOC) · 6 official maps · **326 unit tests PASS** · **2,160 full-coverage matches, 0 failures** |
+| **Android Battle Console** | `app/` | Kotlin + Android SDK 34 (Offline-first) | Tablet & phone companion for physical tabletop play: 48-team Chinese rules & roster builder, 4-step setup wizard, TP1–TP4 live console, guided shooting/melee resolvers, dual-tray gesture dice roller | 55 Kotlin files · **48 complete Kill Teams** · 29 JUnit test suites · Phone & tablet layouts |
+| **Rules & Asset Pipeline** | `tools/` · `scripts/` · `docs/` | Python + Ruby + Shell | Automated PDF card detection/cropping, weapon icon extraction, 48-team JSON validation, 3D Volkus map collision generation & physical gauge templates | 32 pipeline scripts · 48 team markdown references · Glossary & audit docs |
+
+---
+
+## 1. `kt-game/` — Godot 4 3D Tabletop Wargame
 
 <p align="center">
-  <img src="docs/images/phone-overview.jpg" alt="WHKT Dice defence tray on a phone" width="320">
+  <img src="docs/images/ktgame-showcase-combat.jpg" alt="KT-Game 3D Volkus Battlefield, Rulers, Cover Cones, and 3D Dice Tray" width="100%">
 </p>
 
-The phone layout shows one large tray at a time. After confirming the attack, swipe horizontally to review the attack and defence trays. Reviewing the previous tray is read-only, so it cannot accidentally change the active combat stage.
+<p align="center">
+  <img src="docs/images/ktgame-showcase-tactics.jpg" alt="KT-Game Pre-battle Equipment, 3D Initiative Roll, Ploy Hand, and Melee Duel" width="100%">
+</p>
 
-## Highlights
+- **Official Killzone: Volkus (`30" × 22"`)** — All 6 Approved Ops 2025 layouts (`volkus_25_01`–`06`) rendered with real 3D stronghold/ruin meshes, 16 painted 3D operative miniatures (toggleable to acrylic standees), and tabletop physical props (brass CP stacks, VP track, TP block, datacard mats).
+- **Continuous 3D Geometry & Line of Sight** — True 3D vertical distance for visibility, control range, vantage climbing/dropping, cover cones, obscured terrain, Cloud of Flies, Contagion, Poison Vents, and Shift-click multi-waypoint wall routing.
+- **Full 9-Step Shooting & Alternating Melee Engine** — Includes multi-target `Blast` / `Torrent` chains (with Torrent early stop and end-of-action single `Hot` check), `Improved`/`Stealthy` cover toggle (`2 Norm` vs `1 Crit`), `Camo Cloak + Stealthy` double cover (`1 Crit + 1 Norm`), and full alternating melee Strike/Parry with `Brutal`, `Shock`, `Stun`, `Dueller`, and empty parries.
+- **Angels of Death vs Plague Marines + Full Pre-Battle Flow** — 8 Chapter Tactics (any pair), 3 Combat Doctrines, 11 Universal Equipment options (deployable in 3D with `R` 90° rotation), all 12 Tac Ops with tabletop markers, 84-entry interactive hover/pinned glossary, single-player AI + hotseat privacy curtain, and bit-exact unlimited Undo across all 9 game phases.
+- **Verified Stability** — 326 headless unit & UI tests (`tests/run_all.gd`), 10,643 property fuzz checks, and 2,160 full 4-TP end-to-end stress matches (1,043,929 invariant checks, 6,792 live Undo continuations, 12 real 3D GUI matches) passing with zero failures.
 
-- **Paired attack and defence flow** — roll and confirm the attack, then move directly into defence without rebuilding the encounter.
-- **Responsive phone and tablet layouts** — swipe between preserved trays on phones; compare both trays side by side on tablets.
-- **Readable combat results** — successes, criticals and failures use distinct colors and type emphasis; tablet trays have separate result bars.
-- **Cover support** — enable cover during defence to retain one defence die as a normal success.
-- **Gesture-first controls** — swipe up to roll, tap dice and swipe up to reroll, or swipe down with two fingers to clear.
-- **Tactile rolling experience** — animated dice movement, collisions, settled orientations and a synchronized rolling/clattering sound.
-- **Distinct tray identities** — a dark red and brass attack tray contrasts with the cold blue steel defence tray.
-- **Roll history** — stores complete attack–defence encounters and emphasizes critical, successful and failed results without tying entries to a skin.
-- **Centralized themes** — visual skins live behind one entry point instead of occupying the main play surface.
-- **Offline and local-first** — no account or network connection is required; roll history stays on the device.
+---
 
-## Gestures and controls
+## 2. `app/` — WHKT Battle Console (Android Companion)
 
-| Action | Phone | Tablet |
-| --- | --- | --- |
-| Roll current dice | Swipe up on the active tray | Swipe up on the active-stage tray |
-| Select dice | Tap a die | Tap a die |
-| Reroll selected dice | Select, then swipe up | Select, then swipe up |
-| Clear the current result | Two-finger swipe down | Two-finger swipe down |
-| Review the other tray | Swipe horizontally after confirming attack | Both trays are always visible |
-| Start another encounter | Tap “再次对抗” | Tap “再次对抗” |
+<p align="center">
+  <img src="docs/images/android-console-showcase.jpg" alt="Android Battle Hub, 48-Team Roster Builder, Live Firefight Console, and Post-Game Summary" width="100%">
+</p>
 
-## Requirements
+<p align="center">
+  <img src="docs/images/android-combat-dice-showcase.jpg" alt="Android Shooting & Melee Resolvers, Dual Gesture Dice Tray, and 48-Faction Picker" width="100%">
+</p>
 
-- Android 7.0 (API 24) or newer
-- A landscape tablet or portrait Android phone is recommended
-- JDK 17 and Android SDK 34 are required when building from source
+- **48 Complete Kill Teams Offline** — Full Chinese datacards, composition validation, one-tap canonical rosters, weapon loadouts, faction ploys, and mission/equipment reference overlays.
+- **4-Step Pre-Battle Wizard & Privacy Handoff** — Guides both players through Team Selection, Equipment (up to 4), Crit Op, and secret Tac Op / Primary Op selection with pass-the-device privacy screens.
+- **TP1–TP4 Live Battle Console** — Dual-column operative tracker for Orders, Ready/Expended state, Wounds, Status Markers, Counters, CP/VP, AP action launchers, quick rule lookup, and full undoable event logs with export.
+- **Guided Shooting & Melee Calculators** — Pulls operative weapon profiles and keywords directly into step-by-step dice resolution (Cover, Obscured, Vantage, Rerolls, Devastating, Piercing, Rending, Shock, Stun, Brutal) and writes damage & kills straight back to the battle state.
+- **Tactile Gesture Dual Dice Tray** — Side-by-side Attack & Defence trays on tablets (swipe between trays on phones) with swipe-up rolling, tap-to-select rerolls, two-finger clear, 5 faction dice skins, and roll history.
 
-## Build from source
+> Note: Both UIs are currently in Simplified Chinese. Contributions for English and additional localizations are welcome!
+
+---
+
+## Quick Start
+
+### Run KT-Game (Godot 4.3+)
+
+```bash
+./kt-game/run.sh
+
+# Run all 326 headless core-rule & UI unit tests
+/opt/homebrew/bin/godot --headless --path kt-game -s res://tests/run_all.gd
+
+# Run 6-map full AI-vs-AI match regression
+/opt/homebrew/bin/godot --headless --path kt-game -s res://tests/scenario_playtest.gd -- --seeds=20 --all-tacs
+```
+
+### Build & Test Android App (JDK 17 + Android SDK 34)
 
 ```bash
 git clone https://github.com/digitalghost/WHKT-dice.git
 cd WHKT-dice
 ./gradlew :app:assembleDebug
-```
-
-The generated APK is written to:
-
-```text
-app/build/outputs/apk/debug/app-debug.apk
-```
-
-Install it on a connected Android device with USB debugging enabled:
-
-```bash
 adb install -r app/build/outputs/apk/debug/app-debug.apk
+
+# Run all 29 JUnit test suites and Android Lint
+./gradlew :app:testDebugUnitTest :app:lintDebug
 ```
-
-## Tests and checks
-
-```bash
-./gradlew :app:testDebugUnitTest
-./gradlew :app:lintDebug
-./gradlew :app:assembleDebug
-```
-
-The repository includes unit tests for roll parsing and combat-result logic. The interface has also been exercised on phone and tablet emulators and on a physical Android tablet.
-
-## Project layout
-
-```text
-app/src/main/java/com/example/helloworld/
-├── MainActivity.kt       # Combat flow, responsive UI and history interaction
-├── DiceTrayView.kt       # Dice rendering, animation, collisions and gestures
-├── RollLogic.kt          # Success, critical, failure and reroll rules
-├── RollHistoryStore.kt   # On-device roll history
-└── DiceSoundPlayer.kt    # Low-latency dice sound playback
-
-app/src/main/res/
-├── layout/               # Phone layout
-├── layout-sw600dp/       # Dual-tray tablet layout
-└── drawable-nodpi/       # Attack tray, defence tray and visual assets
-```
-
-## Contributing
-
-Issues and pull requests are welcome. Good first areas to contribute include:
-
-- English and additional app localizations
-- Accessibility and screen-reader improvements
-- Support for more screen sizes
-- Dice animation, audio and performance improvements
-- Usability feedback from real tabletop sessions
-
-Please run the unit tests and Android Lint before submitting code.
-
-## Disclaimer
-
-This is an unofficial, fan-made gaming aid. It is not affiliated with, sponsored by or endorsed by Games Workshop. “Warhammer 40,000,” “Kill Team,” and related names and marks belong to their respective owners. This repository does not include or replace official rules text; always use the latest official rules available to you.
-
-## License
-
-The project code is released under the [Apache License 2.0](LICENSE). Font license files are available in [`docs/licenses`](docs/licenses). Third-party names, trademarks and assets remain the property of their respective owners.
 
 ---
 
-If WHKT Dice makes your games smoother, consider starring the repository and sharing your table-tested feedback through Issues.
+## Disclaimer & License
+
+This is an unofficial, fan-made open-source project and is not affiliated with, sponsored by, or endorsed by Games Workshop. "Warhammer 40,000", "Kill Team", and related trademarks belong to their respective owners.
+
+Source code is licensed under the [Apache License 2.0](LICENSE). Font and CC0 asset licenses are documented in [`docs/licenses`](docs/licenses), `kt-game/assets/textures/LICENSE.md`, and `kt-game/assets/audio/LICENSE.md`.

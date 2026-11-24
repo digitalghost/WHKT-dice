@@ -1,7 +1,15 @@
 # 战锤 40,000：杀戮小队 · 电子战术版 (`kt-game/`)
 
-基于仓库内 Android 辅助应用的完整中文数据库与高清卡图资产构建的 **独立电子桌游原型（Godot 4 + GDScript）**。  
+基于仓库内 Android 辅助应用的完整中文数据库与高清卡图资产构建的 **独立电子桌游（Godot 4 + GDScript）**。  
 本目录完全独立于根目录 Android 工程，**对原有辅助应用代码与目录结构零侵入、零修改**。
+
+<p align="center">
+  <img src="../docs/images/ktgame-showcase-combat.jpg" alt="KT-Game 3D 沃库斯战场、连续英寸量尺、自动视线掩护锥与实体 3D 骰盘" width="100%">
+</p>
+
+<p align="center">
+  <img src="../docs/images/ktgame-showcase-tactics.jpg" alt="KT-Game 战前装备部署、3D 先攻拼骰、战略计谋发牌与白刃近战" width="100%">
+</p>
 
 ---
 
